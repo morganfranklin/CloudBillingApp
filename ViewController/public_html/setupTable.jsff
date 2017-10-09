@@ -62,6 +62,11 @@
                              action="#{viewScope.SetupTableMBean.productServiceSetUpTable}" partialSubmit="true"/>
                   </af:gridCell>
                 </af:gridRow>
+                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr11">
+                  <af:gridCell marginTop="5px" height="auto" marginBottom="5px" id="gc11">
+                    <af:link text="PCS Short Name Set Up" id="l10"/>
+                  </af:gridCell>
+                </af:gridRow>
               </af:panelGridLayout>
             </af:panelBox>
           </af:gridCell>
