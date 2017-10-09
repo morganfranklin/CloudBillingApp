@@ -14,36 +14,6 @@ public class XpeDccContractSearchROVOImpl extends ViewObjectImpl {
     public XpeDccContractSearchROVOImpl() {
     }
 
-    /**
-     * Returns the variable value for bind_ContractId.
-     * @return variable value for bind_ContractId
-     */
-    public String getbind_ContractId() {
-        return (String) ensureVariableManager().getVariableValue("bind_ContractId");
-    }
 
-    /**
-     * Sets <code>value</code> for variable bind_ContractId.
-     * @param value value to bind as bind_ContractId
-     */
-    public void setbind_ContractId(String value) {
-        ensureVariableManager().setVariableValue("bind_ContractId", value);
-    }
-
-    /**
-     * Returns the variable value for bind_ContractDesc.
-     * @return variable value for bind_ContractDesc
-     */
-    public String getbind_ContractDesc() {
-        return (String) ensureVariableManager().getVariableValue("bind_ContractDesc");
-    }
-
-    /**
-     * Sets <code>value</code> for variable bind_ContractDesc.
-     * @param value value to bind as bind_ContractDesc
-     */
-    public void setbind_ContractDesc(String value) {
-        ensureVariableManager().setVariableValue("bind_ContractDesc", value);
-    }
 }
 

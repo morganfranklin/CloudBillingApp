@@ -24,17 +24,25 @@
         ResId="model.views.readonly.XpeDccContractSearchROVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <Variable
-    Name="bind_ContractId"
-    Kind="viewcriteria"
-    Type="java.lang.String"/>
-  <Variable
-    Name="bind_ContractDesc"
-    Kind="viewcriteria"
-    Type="java.lang.String"/>
-  <SQLQuery><![CDATA[SELECT D.XPE_CONTRACT_ID, D.XPE_CONTRACT_DESC,F.XPE_CONTRACT_VERSION   
-FROM XPE_DCC_CONTRACTS D,XPE_DCC_CONTRACT_VERSION F   
-WHERE D.XPE_CONTRACT_ID=F.XPE_CONTRACT_ID 
+  <SQLQuery><![CDATA[SELECT D.XPE_CONTRACT_ID, D.XPE_CONTRACT_DESC,             
+A.SETID, A.CUST_ID, A.NAME1, B.DESCR, C.COUNTRY, C.ADDRESS1, C.ADDRESS2,                 
+C.CITY,C.STATE,C.POSTAL,E.XPE_SW_APPR_NBR,F.XPE_CONTRACT_VERSION 
+FROM PS_CUSTOMER A, PS_CUST_ADDR_SEQ B,                 
+PS_CUST_ADDRESS C, XPE_DCC_CONTRACTS D,XPE_DCC_CONTRACT_LINE E ,XPE_DCC_CONTRACT_VERSION F       
+WHERE A.SETID='SHARE'                 
+AND A.SETID=B.SETID                 
+AND A.CUST_ID=B.CUST_ID                 
+AND B.BILL_TO_ADDR='Y'                 
+AND B.SETID=C.SETID                 
+AND B.CUST_ID=C.CUST_ID                 
+AND B.ADDRESS_SEQ_NUM=C.ADDRESS_SEQ_NUM                 
+AND C.LANGUAGE_CD='ENG'            
+AND D.SETID=A.SETID            
+AND D.CUST_ID=A.CUST_ID        
+AND D.XPE_CONTRACT_ID=E.XPE_CONTRACT_ID        
+AND F.XPE_CONTRACT_ID=E.XPE_CONTRACT_ID        
+AND F.XPE_CONTRACT_VERSION=E.XPE_CONTRACT_VERSION     
+AND F.XPE_CONTRACT_STATUS = 'APR'     
 ORDER BY D.XPE_CONTRACT_ID DESC]]></SQLQuery>
   <ViewAttribute
     Name="XpeContractId"
@@ -83,6 +91,201 @@ ORDER BY D.XPE_CONTRACT_ID DESC]]></SQLQuery>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
+    Name="Setid"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="5"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SETID"
+    Expression="SETID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccContractSearchROVO.Setid_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CustId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="15"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CUST_ID"
+    Expression="CUST_ID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccContractSearchROVO.CustId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Name1"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="40"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="NAME1"
+    Expression="NAME1"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="40"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccContractSearchROVO.Name1_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Descr"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="DESCR"
+    Expression="DESCR"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccContractSearchROVO.Descr_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Country"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="3"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="COUNTRY"
+    Expression="COUNTRY"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Address1"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="55"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ADDRESS1"
+    Expression="ADDRESS1"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="55"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Address2"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="55"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ADDRESS2"
+    Expression="ADDRESS2"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="55"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="City"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CITY"
+    Expression="CITY"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="State"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="6"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="STATE"
+    Expression="STATE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Postal"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="12"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="POSTAL"
+    Expression="POSTAL"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="12"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="XpeSwApprNbr"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="40"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="XPE_SW_APPR_NBR"
+    Expression="XPE_SW_APPR_NBR"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="40"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccContractSearchROVO.XpeSwApprNbr_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
     Name="XpeContractVersion"
     IsUpdateable="false"
     IsPersistent="false"
@@ -103,52 +306,6 @@ ORDER BY D.XPE_CONTRACT_ID DESC]]></SQLQuery>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
-  <ViewCriteria
-    Name="ContractSearchCriteria"
-    ViewObjectName="model.views.readonly.XpeDccContractSearchROVO"
-    Conjunction="AND">
-    <Properties Name="_Props">
-      <CustomProperties>
-        <Property
-          Name="autoExecute"
-          Value="false"/>
-        <Property
-          Name="mode"
-          Value="Basic"/>
-        <Property
-          Name="allowConjunctionOverride"
-          Value="true"/>
-        <Property
-          Name="showInList"
-          Value="true"/>
-        <Property
-          Name="displayOperators"
-          Value="InAdvancedMode"/>
-      </CustomProperties>
-    </Properties>
-    <ViewCriteriaRow
-      Name="XpeDccContractSearchROVOCriteria_row_0"
-      UpperColumns="1">
-      <ViewCriteriaItem
-        Name="XpeContractId"
-        ViewAttribute="XpeContractId"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_ContractId"
-        UpperColumns="0"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="XpeContractDesc"
-        ViewAttribute="XpeContractDesc"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_ContractDesc"
-        UpperColumns="0"
-        IsBindVarValue="true"
-        Required="Optional"/>
-    </ViewCriteriaRow>
-  </ViewCriteria>
   <AttrArray Name="KeyAttributes">
     <Item Value="XpeContractId"/>
     <Item Value="XpeContractVersion"/>

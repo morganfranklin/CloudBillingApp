@@ -14,8 +14,8 @@
                   Binds="XpeDccNewContractCustomerSearchROVOIterator" id="NewContractCustomerSearchQuery"/>
     <iterator Binds="XpeDccContractSearchROVO" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccContractSearchROVOIterator"/>
-    <searchRegion Criteria="ContractSearchCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
-                  Binds="XpeDccContractSearchROVOIterator" id="ContractSearchCriteriaQuery"/>
+    <searchRegion Criteria="__ImplicitViewCriteria__" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="XpeDccContractSearchROVOIterator" id="ImplicitViewCriteriaQuery"/>
   </executables>
   <bindings>
     <list IterBinding="XpeDccNewContractSetupROVOIterator" StaticList="false" Uses="LOV_Customer_Type"
@@ -137,6 +137,17 @@
           <Item Value="XpeContractId"/>
           <Item Value="XpeContractVersion"/>
           <Item Value="XpeContractDesc"/>
+          <Item Value="Setid"/>
+          <Item Value="CustId"/>
+          <Item Value="Name1"/>
+          <Item Value="Descr"/>
+          <Item Value="Country"/>
+          <Item Value="Address1"/>
+          <Item Value="Address2"/>
+          <Item Value="City"/>
+          <Item Value="State"/>
+          <Item Value="Postal"/>
+          <Item Value="XpeSwApprNbr"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
