@@ -1,0 +1,12 @@
+//Groovy Scripts for model.entities.XpeDccCfgTerminalsEO
+
+package model.entities
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="TerminalId")
+def TerminalId_ExpressionScript_Expression()
+{
+adf.object.nextVal("XPE_DCC_CFG_TERMINALS_SEQ")
+}
+

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XpeDccNewContractSetupROVO"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  RowClass="model.views.readonly.XpeDccNewContractSetupROVORowImpl"
+  ComponentClass="model.views.readonly.XpeDccNewContractSetupROVOImpl">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.views.readonly.XpeDccNewContractSetupROVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="LookupSharedAppModule_XpeDccDicCustomerTypeLOV"
+    ViewObjectName="model.views.readonly.XpeDccDicNewContractSetupROVO"
+    AMUsageName="LookupSharedAppModule"
+    ViewInstanceName="XpeDccDicNewContractSetupROVO"
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="bind_Lookup_Type">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA['NOE']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="LookupSharedAppModule_XpeDccDicBusinessTypeLOV"
+    ViewObjectName="model.views.readonly.XpeDccDicNewContractSetupROVO"
+    AMUsageName="LookupSharedAppModule"
+    ViewInstanceName="XpeDccDicNewContractSetupROVO"
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="bind_Lookup_Type">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA['BUSNT']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="LookupSharedAppModule_XpeDccDicYORNLOV"
+    ViewObjectName="model.views.readonly.XpeDccDicNewContractSetupROVO"
+    AMUsageName="LookupSharedAppModule"
+    ViewInstanceName="XpeDccDicNewContractSetupROVO"
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="bind_Lookup_Type">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA['YON']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="LookupSharedAppModule_RFFTagLOV"
+    ViewObjectName="model.views.readonly.XpeDccDicNewContractSetupROVO"
+    AMUsageName="LookupSharedAppModule"
+    ViewInstanceName="XpeDccDicNewContractSetupROVO"
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="bind_Lookup_Type">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA['RFF']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_Customer_Type"
+    ListVOName="LookupSharedAppModule_XpeDccDicCustomerTypeLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Customer_Type"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Business_Type"
+    ListVOName="LookupSharedAppModule_XpeDccDicBusinessTypeLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Business_Type"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_MailBillAddress"
+    ListVOName="LookupSharedAppModule_XpeDccDicYORNLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="MailBillAddress"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_RFF_TAG"
+    ListVOName="LookupSharedAppModule_RFFTagLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="RFF_TAG"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT 1 ID FROM DUAL]]></SQLQuery>
+  <ViewAttribute
+    Name="Id"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="ID"
+    Expression="ID"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="Customer_Type"
+    IsSelected="false"
+    IsPersistent="false"
+    Type="java.lang.String"
+    AliasName="Customer_Type"
+    SQLType="VARCHAR"
+    Passivate="true"
+    ColumnType="$none$"
+    LOVName="LOV_Customer_Type">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="radio"/>
+        <LABEL
+          ResId="model.views.readonly.XpeDccNewContractSetupROVO.Customer_Type_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Business_Type"
+    IsSelected="false"
+    IsPersistent="false"
+    Type="java.lang.String"
+    AliasName="Business_Type"
+    SQLType="VARCHAR"
+    Passivate="true"
+    LOVName="LOV_Business_Type"
+    ColumnType="$none$">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="radio"/>
+        <LABEL
+          ResId="model.views.readonly.XpeDccNewContractSetupROVO.Business_Type_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MailBillAddress"
+    IsSelected="false"
+    IsPersistent="false"
+    Type="java.lang.String"
+    AliasName="MailBillAddress"
+    SQLType="VARCHAR"
+    Passivate="true"
+    ColumnType="$none$"
+    LOVName="LOV_MailBillAddress">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="radio"/>
+        <LABEL
+          ResId="model.views.readonly.XpeDccNewContractSetupROVO.MailBillAddress_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RFF_TAG"
+    IsSelected="false"
+    IsPersistent="false"
+    Type="java.lang.String"
+    ColumnType="$none$"
+    AliasName="RFF_TAG"
+    SQLType="VARCHAR"
+    Passivate="true"
+    LOVName="LOV_RFF_TAG">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.views.readonly.XpeDccNewContractSetupROVO.RFF_TAG_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="Id"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

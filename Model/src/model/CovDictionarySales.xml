@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+    xmlns="http://xmlns.oracle.com/bc4j"
+    Name="CovDictionarySales"
+    Version="12.2.1.0.31"
+    InheritPersonalization="merge"
+    BindingStyle="OracleName"
+    CustomQuery="true"
+    PageIterMode="Full">
+    <DesignTime>
+        <Attr Name="_isExpertMode" Value="true"/>
+    </DesignTime>
+    <Properties>
+        <SchemaBasedProperties>
+            <LABEL
+                ResId="model.CovDictionarySales_LABEL"/>
+        </SchemaBasedProperties>
+    </Properties>
+    <SQLQuery><![CDATA[SELECT LOOKUP_CODE AS SALES_PERSON, LOOKUP_DESC AS SALES_NAME  
+FROM  
+COV_LOOKUPS  
+WHERE  
+DETAIL_CLASS = 'SALES' 
+ORDER BY SEQ_NUM]]></SQLQuery>
+    <ViewAttribute
+        Name="SalesPerson"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="20"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        AliasName="SALES_PERSON"
+        Expression="SALES_PERSON"
+        SQLType="VARCHAR">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="SalesName"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="50"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        AliasName="SALES_NAME"
+        Expression="SALES_NAME"
+        SQLType="VARCHAR">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="50"/>
+        </DesignTime>
+    </ViewAttribute>
+    <AttrArray Name="KeyAttributes">
+        <Item Value="SalesPerson"/>
+    </AttrArray>
+    <ResourceBundle>
+        <PropertiesBundle
+            PropertiesFile="model.ModelBundle"/>
+    </ResourceBundle>
+</ViewObject>

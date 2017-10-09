@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+    xmlns="http://xmlns.oracle.com/bc4j"
+    Name="NeuCondTblView"
+    Version="12.2.1.0.31"
+    InheritPersonalization="merge"
+    SelectListFlags="1"
+    FromListFlags="1"
+    WhereFlags="1"
+    BindingStyle="OracleName"
+    CustomQuery="false"
+    SelectAllAttributes="false"
+    PageIterMode="Full">
+    <ViewAccessor
+        Name="NeuParConditionOperatorView1"
+        ViewObjectName="model.NeuParConditionOperatorView"
+        RowLevelBinds="true"/>
+    <ViewAccessor
+        Name="NeuParAttributeLeftView1"
+        ViewObjectName="model.NeuParAttributeLeftView"
+        RowLevelBinds="true"/>
+    <ViewAccessor
+        Name="NeuParConditionOperatorView2"
+        ViewObjectName="model.NeuParConditionOperatorView"
+        RowLevelBinds="true"/>
+    <ViewAccessor
+        Name="NeuParCustomConditionView1"
+        ViewObjectName="model.NeuParCustomConditionView"
+        RowLevelBinds="true"/>
+    <ViewAccessor
+        Name="NeuParAttributeRightView1"
+        ViewObjectName="model.NeuParAttributeRightView"
+        RowLevelBinds="true"/>
+    <ListBinding
+        Name="LOV_RuleOper"
+        ListVOName="NeuParConditionOperatorView1"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0"
+        ComboRowCountHint="10">
+        <AttrArray Name="AttrNames">
+            <Item Value="RuleOper"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="Parameter"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="Parameter"/>
+            <Item Value="Description"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_AttrLeft"
+        ListVOName="NeuParAttributeLeftView1"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0"
+        ComboRowCountHint="10">
+        <AttrArray Name="AttrNames">
+            <Item Value="AttrLeft"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="Parameter"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="Parameter"/>
+            <Item Value="Description"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_CondOper"
+        ListVOName="NeuParConditionOperatorView2"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0"
+        ComboRowCountHint="10">
+        <AttrArray Name="AttrNames">
+            <Item Value="CondOper"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="Parameter"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="Parameter"/>
+            <Item Value="Description"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_CustomCond"
+        ListVOName="NeuParCustomConditionView1"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0"
+        ComboRowCountHint="10">
+        <AttrArray Name="AttrNames">
+            <Item Value="CustomCond"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="Parameter"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="Parameter"/>
+            <Item Value="Description"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_AttrRight"
+        ListVOName="NeuParAttributeRightView1"
+        ListRangeSize="-1"
+        ComboRowCountHint="10"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="AttrRight"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="Parameter"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="Parameter"/>
+            <Item Value="Description"/>
+        </AttrArray>
+        <DisplayCriteria
+            Hint="showAndExecute"/>
+    </ListBinding>
+    <EntityUsage
+        Name="NeuCondTbl"
+        Entity="model.NeuCondTbl"/>
+    <ViewAttribute
+        Name="RulesetCd"
+        IsNotNull="true"
+        PrecisionRule="true"
+        EntityAttrName="RulesetCd"
+        EntityUsage="NeuCondTbl"
+        AliasName="RULESET_CD"/>
+    <ViewAttribute
+        Name="SystemSource"
+        IsNotNull="true"
+        PrecisionRule="true"
+        EntityAttrName="SystemSource"
+        EntityUsage="NeuCondTbl"
+        AliasName="SYSTEM_SOURCE"/>
+    <ViewAttribute
+        Name="RuleCd"
+        IsNotNull="true"
+        PrecisionRule="true"
+        EntityAttrName="RuleCd"
+        EntityUsage="NeuCondTbl"
+        AliasName="RULE_CD"/>
+    <ViewAttribute
+        Name="CondCd"
+        IsNotNull="true"
+        PrecisionRule="true"
+        EntityAttrName="CondCd"
+        EntityUsage="NeuCondTbl"
+        AliasName="COND_CD"/>
+    <ViewAttribute
+        Name="RuleOper"
+        PrecisionRule="true"
+        EntityAttrName="RuleOper"
+        EntityUsage="NeuCondTbl"
+        AliasName="RULE_OPER"
+        LOVName="LOV_RuleOper">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="input_text_lov"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="CondPrefix"
+        PrecisionRule="true"
+        EntityAttrName="CondPrefix"
+        EntityUsage="NeuCondTbl"
+        AliasName="COND_PREFIX"/>
+    <ViewAttribute
+        Name="AttrLeft"
+        PrecisionRule="true"
+        EntityAttrName="AttrLeft"
+        EntityUsage="NeuCondTbl"
+        AliasName="ATTR_LEFT"
+        LOVName="LOV_AttrLeft">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="input_text_lov"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="CondOper"
+        PrecisionRule="true"
+        EntityAttrName="CondOper"
+        EntityUsage="NeuCondTbl"
+        AliasName="COND_OPER"
+        LOVName="LOV_CondOper">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="input_text_lov"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="AttrRight"
+        PrecisionRule="true"
+        EntityAttrName="AttrRight"
+        EntityUsage="NeuCondTbl"
+        AliasName="ATTR_RIGHT"
+        LOVName="LOV_AttrRight">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="input_text_lov"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="Value"
+        PrecisionRule="true"
+        EntityAttrName="Value"
+        EntityUsage="NeuCondTbl"
+        AliasName="VALUE"/>
+    <ViewAttribute
+        Name="CustomCond"
+        PrecisionRule="true"
+        EntityAttrName="CustomCond"
+        EntityUsage="NeuCondTbl"
+        AliasName="CUSTOM_COND"
+        LOVName="LOV_CustomCond">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="input_text_lov"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="CondSuffix"
+        PrecisionRule="true"
+        EntityAttrName="Column1"
+        EntityUsage="NeuCondTbl"
+        AliasName="COLUMN1"/>
+</ViewObject>

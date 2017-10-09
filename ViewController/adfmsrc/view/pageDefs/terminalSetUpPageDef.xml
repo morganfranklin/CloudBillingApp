@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="terminalSetUpPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XpeDccCfgTerminalsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgTerminalsEOVOIterator" ChangeEventPolicy="none"/>
+    <searchRegion Criteria="TerminalsCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="XpeDccCfgTerminalsEOVOIterator" id="TerminalsCriteriaQuery"/>
+    <iterator Binds="XpeDccCfgNewTerminalCreationEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewTerminalCreationEOVOIterator" ChangeEventPolicy="none"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="XpeDccCfgTerminalsEOVOIterator" id="XpeDccCfgTerminalsEOVO">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccCfgTerminalsEOVO" Name="XpeDccCfgTerminalsEOVO0">
+        <AttrNames>
+          <Item Value="TerminalId"/>
+          <Item Value="TerminalDesc"/>
+          <Item Value="TerminalType"/>
+          <Item Value="State"/>
+          <Item Value="County"/>
+          <Item Value="Inactive"/>
+          <Item Value="InactiveDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="XpeDccCfgNewTerminalCreationEOVOIterator" id="TerminalId">
+      <AttrNames>
+        <Item Value="TerminalId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewTerminalCreationEOVOIterator" id="TerminalDesc">
+      <AttrNames>
+        <Item Value="TerminalDesc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewTerminalCreationEOVOIterator" id="State">
+      <AttrNames>
+        <Item Value="State"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewTerminalCreationEOVOIterator" id="County">
+      <AttrNames>
+        <Item Value="County"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <list IterBinding="XpeDccCfgTerminalsEOVOIterator" StaticList="false" Uses="LOV_TerminalType" id="TerminalType1"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgNewTerminalCreationEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgNewTerminalCreationEOVOIterator" id="InactiveDate">
+      <AttrNames>
+        <Item Value="InactiveDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgTerminalsEOVOIterator" id="TerminalId1">
+      <AttrNames>
+        <Item Value="TerminalId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgTerminalsEOVOIterator" id="TerminalDesc1">
+      <AttrNames>
+        <Item Value="TerminalDesc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgTerminalsEOVOIterator" id="State1">
+      <AttrNames>
+        <Item Value="State"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgTerminalsEOVOIterator" id="County1">
+      <AttrNames>
+        <Item Value="County"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgNewTerminalCreationEOVOIterator" StaticList="false" Uses="LOV_TerminalType"
+          id="TerminalType" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <action IterBinding="XpeDccCfgNewTerminalCreationEOVOIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

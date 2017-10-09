@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout layout="vertical" id="pgl1">
+    <af:panelHeader text="PCS Installation Set Up" id="ph1">
+      <af:query id="qryId1" headerText="Search" disclosed="true" value="#{bindings.PCSCriteriaQuery.queryDescriptor}"
+                model="#{bindings.PCSCriteriaQuery.queryModel}"
+                queryListener="#{bindings.PCSCriteriaQuery.processQuery}"
+                queryOperationListener="#{bindings.PCSCriteriaQuery.processQueryOperation}"
+                resultComponentId="::resId1"/>
+    </af:panelHeader>
+    <af:panelHeader text="PCS Sites" id="ph2">
+      <f:facet name="context"/>
+      <f:facet name="toolbar">
+        <af:toolbar id="t2">
+          <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add Item"
+                     disabled="#{!bindings.CreateInsert.enabled}" id="b1" action="setCurrentRow">
+            <af:setActionListener from="#{bindings.SiteId.inputValue}" to="#{pageFlowScope.SiteId}"/>
+            <af:setActionListener from="ADD" to="#{pageFlowScope.NavFlow}"/>
+          </af:button>
+        </af:toolbar>
+      </f:facet>
+      <f:facet name="menuBar"/>
+      <f:facet name="legend"/>
+      <f:facet name="info"/>
+      <af:table value="#{bindings.XpeDccCfgPcsEOVO.collectionModel}" var="row"
+                rows="#{bindings.XpeDccCfgPcsEOVO.rangeSize}"
+                emptyText="#{bindings.XpeDccCfgPcsEOVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                rowBandingInterval="0" selectedRowKeys="#{bindings.XpeDccCfgPcsEOVO.collectionModel.selectedRow}"
+                selectionListener="#{bindings.XpeDccCfgPcsEOVO.collectionModel.makeCurrent}" rowSelection="single"
+                fetchSize="#{bindings.XpeDccCfgPcsEOVO.rangeSize}" id="resId1" contentDelivery="immediate" columnStretching="last">
+        <af:column headerText="#{bindings.XpeDccCfgPcsEOVO.hints.SiteId.label}" id="resId1c1">
+          <af:link text="#{row.SiteId}" id="l1" action="setCurrentRow">
+            <af:setActionListener from="#{row.SiteId}" to="#{pageFlowScope.SiteId}"/>
+            <af:setActionListener from="EDIT" to="#{pageFlowScope.NavFlow}"/>
+          </af:link>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgPcsEOVO.hints.SiteDesc.label}" id="resId1c2">
+          <af:outputText value="#{row.SiteDesc}" shortDesc="#{bindings.XpeDccCfgPcsEOVO.hints.SiteDesc.tooltip}"
+                         id="ot2"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgPcsEOVO.hints.FacilityId.label}" id="resId1c3">
+          <af:outputText value="#{row.FacilityId}" shortDesc="#{bindings.XpeDccCfgPcsEOVO.hints.FacilityId.tooltip}"
+                         id="ot3"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgPcsEOVO.hints.DbLink.label}" id="resId1c4">
+          <af:outputText value="#{row.DbLink}" shortDesc="#{bindings.XpeDccCfgPcsEOVO.hints.DbLink.tooltip}" id="ot4"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgPcsEOVO.hints.PrintStage.label}" id="resId1c5">
+          <af:selectOneChoice value="#{row.bindings.PrintStage.inputValue}" label="#{row.bindings.PrintStage.label}"
+                              required="#{bindings.XpeDccCfgPcsEOVO.hints.PrintStage.mandatory}"
+                              shortDesc="#{bindings.XpeDccCfgPcsEOVO.hints.PrintStage.tooltip}" readOnly="true"
+                              id="soc1">
+            <f:selectItems value="#{row.bindings.PrintStage.items}" id="si1"/>
+            <f:validator binding="#{row.bindings.PrintStage.validator}"/>
+          </af:selectOneChoice>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgPcsEOVO.hints.Activate.label}" id="resId1c6">
+          <af:selectOneChoice value="#{row.bindings.Activate.inputValue}" label="#{row.bindings.Activate.label}"
+                              required="#{bindings.XpeDccCfgPcsEOVO.hints.Activate.mandatory}"
+                              shortDesc="#{bindings.XpeDccCfgPcsEOVO.hints.Activate.tooltip}" readOnly="true" id="soc2">
+            <f:selectItems value="#{row.bindings.Activate.items}" id="si2"/>
+            <f:validator binding="#{row.bindings.Activate.validator}"/>
+          </af:selectOneChoice>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgPcsEOVO.hints.DirectToCustomer.label}" id="resId1c7">
+          <af:selectOneChoice value="#{row.bindings.DirectToCustomer.inputValue}"
+                              label="#{row.bindings.DirectToCustomer.label}"
+                              required="#{bindings.XpeDccCfgPcsEOVO.hints.DirectToCustomer.mandatory}"
+                              shortDesc="#{bindings.XpeDccCfgPcsEOVO.hints.DirectToCustomer.tooltip}" readOnly="true"
+                              id="soc3">
+            <f:selectItems value="#{row.bindings.DirectToCustomer.items}" id="si3"/>
+            <f:validator binding="#{row.bindings.DirectToCustomer.validator}"/>
+          </af:selectOneChoice>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgPcsEOVO.hints.EmailNotificationGroup.label}" id="resId1c8">
+          <af:outputText value="#{row.EmailNotificationGroup}"
+                         shortDesc="#{bindings.XpeDccCfgPcsEOVO.hints.EmailNotificationGroup.tooltip}" id="ot5"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgPcsEOVO.hints.Inactive.label}" id="resId1c9">
+          <af:selectOneChoice value="#{row.bindings.Inactive.inputValue}" label="#{row.bindings.Inactive.label}"
+                              required="#{bindings.XpeDccCfgPcsEOVO.hints.Inactive.mandatory}"
+                              shortDesc="#{bindings.XpeDccCfgPcsEOVO.hints.Inactive.tooltip}" readOnly="true" id="soc4">
+            <f:selectItems value="#{row.bindings.Inactive.items}" id="si4"/>
+            <f:validator binding="#{row.bindings.Inactive.validator}"/>
+          </af:selectOneChoice>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgPcsEOVO.hints.InactiveDate.label}" id="resId1c10">
+          <af:outputText value="#{row.InactiveDate}" shortDesc="#{bindings.XpeDccCfgPcsEOVO.hints.InactiveDate.tooltip}"
+                         id="ot6">
+            <af:convertDateTime pattern="#{bindings.XpeDccCfgPcsEOVO.hints.InactiveDate.format}"/>
+          </af:outputText>
+        </af:column>
+      </af:table>
+    </af:panelHeader>
+    <af:panelHeader text="PCS Sites Associated Terminals" id="ph3">
+      <f:facet name="context"/>
+      <f:facet name="toolbar"/>
+      <f:facet name="menuBar"/>
+      <f:facet name="legend"/>
+      <f:facet name="info"/>
+      <af:table value="#{bindings.XpeDccCfgPcsAssTerminalsEOVO.collectionModel}" var="row"
+                rows="#{bindings.XpeDccCfgPcsAssTerminalsEOVO.rangeSize}"
+                emptyText="#{bindings.XpeDccCfgPcsAssTerminalsEOVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                rowBandingInterval="0"
+                selectedRowKeys="#{bindings.XpeDccCfgPcsAssTerminalsEOVO.collectionModel.selectedRow}"
+                selectionListener="#{bindings.XpeDccCfgPcsAssTerminalsEOVO.collectionModel.makeCurrent}"
+                rowSelection="single" fetchSize="#{bindings.XpeDccCfgPcsAssTerminalsEOVO.rangeSize}" id="t1"
+                contentDelivery="immediate" columnStretching="last">
+        <af:column headerText="#{bindings.XpeDccCfgPcsAssTerminalsEOVO.hints.TerminalId.label}" id="c1">
+          <af:outputText value="#{row.TerminalId}"
+                         shortDesc="#{bindings.XpeDccCfgPcsAssTerminalsEOVO.hints.TerminalId.tooltip}" id="ot7"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgPcsAssTerminalsEOVO.hints.TerminalDesc.label}" id="c2">
+          <af:outputText value="#{row.TerminalDesc}"
+                         shortDesc="#{bindings.XpeDccCfgPcsAssTerminalsEOVO.hints.TerminalDesc.tooltip}" id="ot8"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgPcsAssTerminalsEOVO.hints.SiteId.label}" id="c3">
+          <af:outputText value="#{row.SiteId}" shortDesc="#{bindings.XpeDccCfgPcsAssTerminalsEOVO.hints.SiteId.tooltip}"
+                         id="ot9"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgPcsAssTerminalsEOVO.hints.Inactive.label}" id="c4">
+          <af:selectOneChoice value="#{row.bindings.Inactive.inputValue}" label="#{row.bindings.Inactive.label}"
+                              required="#{bindings.XpeDccCfgPcsAssTerminalsEOVO.hints.Inactive.mandatory}"
+                              shortDesc="#{bindings.XpeDccCfgPcsAssTerminalsEOVO.hints.Inactive.tooltip}"
+                              readOnly="true" id="soc5">
+            <f:selectItems value="#{row.bindings.Inactive.items}" id="si5"/>
+            <f:validator binding="#{row.bindings.Inactive.validator}"/>
+          </af:selectOneChoice>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgPcsAssTerminalsEOVO.hints.InactiveDate.label}" id="c5">
+          <af:outputText value="#{row.InactiveDate}"
+                         shortDesc="#{bindings.XpeDccCfgPcsAssTerminalsEOVO.hints.InactiveDate.tooltip}" id="ot10">
+            <af:convertDateTime pattern="#{bindings.XpeDccCfgPcsAssTerminalsEOVO.hints.InactiveDate.format}"/>
+          </af:outputText>
+        </af:column>
+      </af:table>
+    </af:panelHeader>
+  </af:panelGroupLayout>
+</ui:composition>

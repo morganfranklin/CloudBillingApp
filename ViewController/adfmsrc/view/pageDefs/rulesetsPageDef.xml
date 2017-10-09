@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="rulesetsPageDef"
+                Package="view.pageDefs">
+    <parameters/>
+    <executables>
+        <variableIterator id="variables"/>
+        <iterator Binds="PsCisXpeRuleView2" RangeSize="4" DataControl="AppModuleDataControl"
+                  id="PsCisXpeRuleView2Iterator"/>
+        <iterator Binds="PsCisXpeRulesetView1" RangeSize="4" DataControl="AppModuleDataControl"
+                  id="PsCisXpeRulesetView1Iterator"/>
+        <searchRegion Binds="PsCisXpeRulesetView1Iterator" Criteria=""
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="PsCisXpeRulesetView1Query"/>
+        <searchRegion Binds="PsCisXpeRuleView2Iterator" Criteria=""
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="PsCisXpeRuleView2Query"/>
+        <iterator Binds="PsCisXpeActionView1" RangeSize="2" DataControl="AppModuleDataControl"
+                  id="PsCisXpeActionView1Iterator"/>
+        <searchRegion Binds="PsCisXpeActionView1Iterator" Criteria=""
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="PsCisXpeActionView1Query"/>
+        <iterator Binds="PsCisXpeMapDtlView2" RangeSize="25" DataControl="AppModuleDataControl"
+                  id="PsCisXpeMapDtlView2Iterator"/>
+        <iterator Binds="PsCisXpeActDtlView2" RangeSize="25" DataControl="AppModuleDataControl"
+                  id="PsCisXpeActDtlView2Iterator"/>
+        <iterator Binds="PsCisXpeMappingView1" RangeSize="25" DataControl="AppModuleDataControl"
+                  id="PsCisXpeMappingView1Iterator"/>
+        <searchRegion Binds="PsCisXpeMappingView1Iterator" Criteria=""
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="PsCisXpeMappingView1Query"/>
+    </executables>
+    <bindings>
+        <attributeValues IterBinding="PsCisXpeRuleView2Iterator" id="CisRuleSetCode">
+            <AttrNames>
+                <Item Value="CisRuleSetCode"/>
+            </AttrNames>
+        </attributeValues>
+        <tree IterBinding="PsCisXpeRulesetView1Iterator" id="PsCisXpeRulesetView1">
+            <nodeDefinition DefName="model.PsCisXpeRulesetView" Name="PsCisXpeRulesetView10">
+                <AttrNames>
+                    <Item Value="CisRuleSetCode"/>
+                    <Item Value="CisRuleSetDescr"/>
+                    <Item Value="ActiveFlag"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+        <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+                DataControl="AppModuleDataControl"/>
+        <action IterBinding="PsCisXpeRulesetView1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+                Action="createInsertRow"/>
+        <action IterBinding="PsCisXpeRulesetView1Iterator" id="Delete" RequiresUpdateModel="false"
+                Action="removeCurrentRow"/>
+        <action IterBinding="PsCisXpeRulesetView1Iterator" id="First1" RequiresUpdateModel="true" Action="first"/>
+        <action IterBinding="PsCisXpeRulesetView1Iterator" id="Last1" RequiresUpdateModel="true" Action="last"/>
+        <tree IterBinding="PsCisXpeRuleView2Iterator" id="PsCisXpeRuleView2">
+            <nodeDefinition DefName="model.PsCisXpeRuleView" Name="PsCisXpeRuleView20">
+                <AttrNames>
+                    <Item Value="CisRuleCode"/>
+                    <Item Value="SeqNbr"/>
+                    <Item Value="CisRuleName"/>
+                    <Item Value="CisConditionCode"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <action IterBinding="PsCisXpeRuleView2Iterator" id="CreateInsert1" RequiresUpdateModel="true"
+                Action="createInsertRow"/>
+        <action IterBinding="PsCisXpeRuleView2Iterator" id="Delete1" RequiresUpdateModel="false"
+                Action="removeCurrentRow"/>
+        <action IterBinding="PsCisXpeRuleView2Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+        <action IterBinding="PsCisXpeRuleView2Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+        <tree IterBinding="PsCisXpeActionView1Iterator" id="PsCisXpeActionView1">
+            <nodeDefinition DefName="model.PsCisXpeActionView" Name="PsCisXpeActionView10">
+                <AttrNames>
+                    <Item Value="CisActionCode"/>
+                    <Item Value="Actiontype"/>
+                    <Item Value="CisRuleCode"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <action IterBinding="PsCisXpeMapDtlView2Iterator" id="CreateInsert2" RequiresUpdateModel="true"
+                Action="createInsertRow"/>
+        <action IterBinding="PsCisXpeMapDtlView2Iterator" id="Delete2" RequiresUpdateModel="false"
+                Action="removeCurrentRow"/>
+        <action IterBinding="PsCisXpeMapDtlView2Iterator" id="First2" RequiresUpdateModel="true" Action="first"/>
+        <action IterBinding="PsCisXpeMapDtlView2Iterator" id="Last2" RequiresUpdateModel="true" Action="last"/>
+        <attributeValues IterBinding="PsCisXpeRuleView2Iterator" id="CisRuleCode">
+            <AttrNames>
+                <Item Value="CisRuleCode"/>
+            </AttrNames>
+        </attributeValues>
+        <action IterBinding="PsCisXpeActionView1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+                Action="executeWithParams">
+            <NamedData NDName="Bind_CisRuleCode" NDValue="#{bindings.CisRuleCode}" NDType="java.lang.String"/>
+        </action>
+        <attributeValues IterBinding="PsCisXpeActDtlView2Iterator" id="CisCustomSql">
+            <AttrNames>
+                <Item Value="CisCustomSql"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeActDtlView2Iterator" id="CisDetailCode">
+            <AttrNames>
+                <Item Value="CisDetailCode"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeActDtlView2Iterator" id="DtlSeqNbr">
+            <AttrNames>
+                <Item Value="DtlSeqNbr"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeActDtlView2Iterator" id="CisActionCode">
+            <AttrNames>
+                <Item Value="CisActionCode"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeActDtlView2Iterator" id="CisOperator1">
+            <AttrNames>
+                <Item Value="CisOperator1"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeActDtlView2Iterator" id="CisPrefix">
+            <AttrNames>
+                <Item Value="CisPrefix"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeActDtlView2Iterator" id="CisAttrLeft">
+            <AttrNames>
+                <Item Value="CisAttrLeft"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeActDtlView2Iterator" id="CisOperator2">
+            <AttrNames>
+                <Item Value="CisOperator2"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeActDtlView2Iterator" id="CisAttrRight">
+            <AttrNames>
+                <Item Value="CisAttrRight"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeActDtlView2Iterator" id="CisAttrConst">
+            <AttrNames>
+                <Item Value="CisAttrConst"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeActDtlView2Iterator" id="CisSuffixValue">
+            <AttrNames>
+                <Item Value="CisSuffixValue"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeActDtlView2Iterator" id="CisOperator3">
+            <AttrNames>
+                <Item Value="CisOperator3"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeActDtlView2Iterator" id="CisCustCondition">
+            <AttrNames>
+                <Item Value="CisCustCondition"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeActDtlView2Iterator" id="CisCustomProcess">
+            <AttrNames>
+                <Item Value="CisCustomProcess"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeActDtlView2Iterator" id="Parm1">
+            <AttrNames>
+                <Item Value="Parm1"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeActDtlView2Iterator" id="Parm2">
+            <AttrNames>
+                <Item Value="Parm2"/>
+            </AttrNames>
+        </attributeValues>
+        <action IterBinding="PsCisXpeActDtlView2Iterator" id="First3" RequiresUpdateModel="true" Action="first"/>
+        <action IterBinding="PsCisXpeActDtlView2Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+        <action IterBinding="PsCisXpeActDtlView2Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+        <action IterBinding="PsCisXpeActDtlView2Iterator" id="Last3" RequiresUpdateModel="true" Action="last"/>
+        <action IterBinding="PsCisXpeMappingView1Iterator" id="ExecuteWithParams1" RequiresUpdateModel="true"
+                Action="executeWithParams">
+            <NamedData NDName="CisActionCodeCurrent" NDValue="#{bindings.CisActionCode}" NDType="java.lang.String"/>
+        </action>
+        <tree IterBinding="PsCisXpeMappingView1Iterator" id="PsCisXpeMappingView1">
+            <nodeDefinition DefName="model.PsCisXpeMappingView" Name="PsCisXpeMappingView10">
+                <AttrNames>
+                    <Item Value="Tablename"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <action IterBinding="PsCisXpeMappingView1Iterator" id="CreateInsert3" RequiresUpdateModel="true"
+                Action="createInsertRow"/>
+        <action IterBinding="PsCisXpeMappingView1Iterator" id="Delete3" RequiresUpdateModel="false"
+                Action="removeCurrentRow"/>
+        <attributeValues IterBinding="PsCisXpeMapDtlView2Iterator" id="Tablename">
+            <AttrNames>
+                <Item Value="Tablename"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeMapDtlView2Iterator" id="CisActionCode1">
+            <AttrNames>
+                <Item Value="CisActionCode"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeMapDtlView2Iterator" id="Seqno">
+            <AttrNames>
+                <Item Value="Seqno"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeMapDtlView2Iterator" id="GenericField">
+            <AttrNames>
+                <Item Value="GenericField"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeMapDtlView2Iterator" id="CisNativeField">
+            <AttrNames>
+                <Item Value="CisNativeField"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeMapDtlView2Iterator" id="CisConstantField">
+            <AttrNames>
+                <Item Value="CisConstantField"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeMapDtlView2Iterator" id="IsKey">
+            <AttrNames>
+                <Item Value="IsKey"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeMapDtlView2Iterator" id="WhereClause1">
+            <AttrNames>
+                <Item Value="WhereClause1"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeMapDtlView2Iterator" id="AppTblName">
+            <AttrNames>
+                <Item Value="AppTblName"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeMapDtlView2Iterator" id="DpTargetfield">
+            <AttrNames>
+                <Item Value="DpTargetfield"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeMapDtlView2Iterator" id="CisAggregateType">
+            <AttrNames>
+                <Item Value="CisAggregateType"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeMapDtlView2Iterator" id="LblDescr">
+            <AttrNames>
+                <Item Value="LblDescr"/>
+            </AttrNames>
+        </attributeValues>
+        <action IterBinding="PsCisXpeMapDtlView2Iterator" id="Previous1" RequiresUpdateModel="true" Action="previous"/>
+        <action IterBinding="PsCisXpeMapDtlView2Iterator" id="Next1" RequiresUpdateModel="true" Action="next"/>
+        <action IterBinding="PsCisXpeMappingView1Iterator" id="First4" RequiresUpdateModel="true" Action="first"/>
+        <action IterBinding="PsCisXpeMappingView1Iterator" id="Last4" RequiresUpdateModel="true" Action="last"/>
+    </bindings>
+</pageDefinition>

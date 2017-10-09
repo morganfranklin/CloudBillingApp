@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="dccTermsPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XpeDccTermMasterEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccTermMasterEOVOIterator" ChangeEventPolicy="none"/>
+    <iterator Binds="XpeDccTermsEOVO" RangeSize="10" DataControl="AppModuleDataControl" id="XpeDccTermsEOVOIterator"
+              ChangeEventPolicy="none"/>
+    <iterator Binds="XpeDccTermMasterSetupROVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccTermMasterSetupROVOIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="XpeDccTermMasterEOVOIterator" id="XpeDccStatus">
+      <AttrNames>
+        <Item Value="XpeDccStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccTermMasterEOVOIterator" id="XpeDccTerm">
+      <AttrNames>
+        <Item Value="XpeDccTerm"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccTermMasterEOVOIterator" id="XpeDccTermDesc">
+      <AttrNames>
+        <Item Value="XpeDccTermDesc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccTermsEOVOIterator" id="XpeDccClause">
+      <AttrNames>
+        <Item Value="XpeDccClause"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccTermsEOVOIterator" id="XpeDccSeq">
+      <AttrNames>
+        <Item Value="XpeDccSeq"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccTermsEOVOIterator" id="XpeDccTermTemplate">
+      <AttrNames>
+        <Item Value="XpeDccTermTemplate"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="XpeDccTermsEOVOIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <action IterBinding="XpeDccTermsEOVOIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="XpeDccTermsEOVOIterator" id="setCurrentRowWithKey" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKey">
+      <NamedData NDName="rowKey" NDValue="#{row.rowKeyStr}" NDType="java.lang.String"/>
+    </action>
+    <tree IterBinding="XpeDccTermsEOVOIterator" id="XpeDccTermsEOVO">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccTermsEOVO" Name="XpeDccTermsEOVO10">
+        <AttrNames>
+          <Item Value="XpeDccClause"/>
+          <Item Value="XpeDccSeq"/>
+          <Item Value="XpeDccTerm"/>
+          <Item Value="XpeDccTermTemplate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <list IterBinding="XpeDccTermMasterSetupROVOIterator" StaticList="false" Uses="LOV_Dic_Desc" id="Dic_Desc"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccTermMasterEOVOIterator" StaticList="false" Uses="LOV_XpeWasteType" id="XpeWasteType"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccTermMasterEOVOIterator" StaticList="false" Uses="LOV_XpeContractSubType"
+          id="XpeContractSubType" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccTermMasterEOVOIterator" StaticList="false" Uses="LOV_XpeAgreementType"
+          id="XpeAgreementType" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+  </bindings>
+</pageDefinition>

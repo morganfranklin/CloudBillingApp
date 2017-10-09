@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="productServiceSetUpPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XpeDccCfgProductserviceEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgProductserviceEOVOIterator"/>
+    <searchRegion Criteria="ProductServiceCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="XpeDccCfgProductserviceEOVOIterator" id="ProductServiceCriteriaQuery"/>
+    <iterator Binds="XpeDccCfgUomEOVO" RangeSize="25" DataControl="AppModuleDataControl" id="XpeDccCfgUomEOVOIterator"/>
+    <iterator Binds="XpeDccCfgNewProductserviceEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewProductserviceEOVOIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="XpeDccCfgProductserviceEOVOIterator" id="XpeDccCfgProductserviceEOVO">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccCfgProductserviceEOVO" Name="XpeDccCfgProductserviceEOVO0">
+        <AttrNames>
+          <Item Value="ItemId"/>
+          <Item Value="ItemType"/>
+          <Item Value="Description"/>
+          <Item Value="Category"/>
+          <Item Value="ClassId"/>
+          <Item Value="ClassType"/>
+          <Item Value="Inoutbound"/>
+          <Item Value="Inactive"/>
+          <Item Value="InactiveDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="XpeDccCfgUomEOVOIterator" id="XpeDccCfgUomEOVO">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccCfgUomEOVO" Name="XpeDccCfgUomEOVO0">
+        <AttrNames>
+          <Item Value="Uom"/>
+          <Item Value="UomDesc"/>
+          <Item Value="ItemId"/>
+          <Item Value="FeedMethod"/>
+          <Item Value="Inactive"/>
+          <Item Value="InactiveDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="XpeDccCfgNewProductserviceEOVOIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <attributeValues IterBinding="XpeDccCfgNewProductserviceEOVOIterator" id="ItemId">
+      <AttrNames>
+        <Item Value="ItemId"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

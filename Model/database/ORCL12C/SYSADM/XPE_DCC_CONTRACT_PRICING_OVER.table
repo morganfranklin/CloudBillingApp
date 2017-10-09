@@ -1,0 +1,358 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
+  <name>XPE_DCC_CONTRACT_PRICING_OVER</name>
+  <columns>
+    <column>
+      <name>XPE_CONTRACT_ID</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">20</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>XPE_PRICING_TERM_LINE</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>XPE_CONTRACT_LINE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">20</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>XPE_CONTRACT_VERSION</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">20</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>XPE_CONTRACT_OVER_NBR</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>XPE_OVER_TYPE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">3</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <name>XPE_OVER_START</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>TIMESTAMP</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <name>XPE_OVER_END</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>TIMESTAMP</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <name>XPE_SOURCE_FLD</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">20</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <name>XPE_CONDITION</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">3</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <name>XPE_CHECK</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">20</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <name>XPE_TARGET_FLD</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">20</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <name>XPE_OVER_MSG</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">50</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <name>XPE_OVER_DESC</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">50</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+  </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <name>XPE_DCC_CONTRACT_PRICING_O_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>XPE_CONTRACT_ID</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>XPE_DCC_CONTRACT_PRICING_OVER</name>
+            <schemaName>SYSADM</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SYSADM</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>XPE_PRICING_TERM_LINE</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>XPE_DCC_CONTRACT_PRICING_OVER</name>
+            <schemaName>SYSADM</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SYSADM</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>XPE_CONTRACT_LINE</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>XPE_DCC_CONTRACT_PRICING_OVER</name>
+            <schemaName>SYSADM</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SYSADM</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>XPE_CONTRACT_VERSION</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>XPE_DCC_CONTRACT_PRICING_OVER</name>
+            <schemaName>SYSADM</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SYSADM</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>XPE_CONTRACT_OVER_NBR</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>XPE_DCC_CONTRACT_PRICING_OVER</name>
+            <schemaName>SYSADM</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SYSADM</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <indexID class="oracle.javatools.db.NameBasedID">
+        <name>XPE_DCC_CONTRACT_PRICING_O_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>XPE_DCC_CONTRACT_PRICING_OVER</name>
+          <schemaName>SYSADM</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SYSADM</schemaName>
+        <type>INDEX</type>
+      </indexID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>XPE_DCC_CONTRACT_PRICING__FK2</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>XPE_CONTRACT_ID</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>XPE_DCC_CONTRACT_PRICING_OVER</name>
+            <schemaName>SYSADM</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SYSADM</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>XPE_PRICING_TERM_LINE</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>XPE_DCC_CONTRACT_PRICING_OVER</name>
+            <schemaName>SYSADM</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SYSADM</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>XPE_CONTRACT_LINE</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>XPE_DCC_CONTRACT_PRICING_OVER</name>
+            <schemaName>SYSADM</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SYSADM</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>XPE_CONTRACT_VERSION</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>XPE_DCC_CONTRACT_PRICING_OVER</name>
+            <schemaName>SYSADM</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SYSADM</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <onDeleteAction>CASCADE</onDeleteAction>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>XPE_DCC_CONTRACT_PRICING_T_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>XPE_DCC_CONTRACT_PRICING_TERM</name>
+          <schemaName>SYSADM</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SYSADM</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+  </constraints>
+  <indexes>
+    <index>
+      <name>XPE_DCC_CONTRACT_PRICING_O_PK</name>
+      <columnExpressions>
+        <columnExpression>
+          <expressionSource>XPE_CONTRACT_ID</expressionSource>
+          <orderType>ASC</orderType>
+        </columnExpression>
+        <columnExpression>
+          <expressionSource>XPE_PRICING_TERM_LINE</expressionSource>
+          <orderType>ASC</orderType>
+        </columnExpression>
+        <columnExpression>
+          <expressionSource>XPE_CONTRACT_LINE</expressionSource>
+          <orderType>ASC</orderType>
+        </columnExpression>
+        <columnExpression>
+          <expressionSource>XPE_CONTRACT_VERSION</expressionSource>
+          <orderType>ASC</orderType>
+        </columnExpression>
+        <columnExpression>
+          <expressionSource>XPE_CONTRACT_OVER_NBR</expressionSource>
+          <orderType>ASC</orderType>
+        </columnExpression>
+      </columnExpressions>
+      <indexType>UNIQUE</indexType>
+      <schema>
+        <name>SYSADM</name>
+      </schema>
+      <systemGenerated>true</systemGenerated>
+    </index>
+  </indexes>
+  <properties>
+    <entry>
+      <key>TableType</key>
+      <value class="oracle.javatools.db.Table$TableType">NORMAL</value>
+    </entry>
+  </properties>
+  <schema>
+    <name>SYSADM</name>
+  </schema>
+</table>

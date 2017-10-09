@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+    xmlns="http://xmlns.oracle.com/bc4j"
+    Name="PsCisXpeActionDetailFk1Assoc"
+    Version="12.2.1.0.31"
+    InheritPersonalization="merge">
+    <DesignTime>
+        <Attr Name="_isCodegen" Value="true"/>
+    </DesignTime>
+    <AssociationEnd
+        Name="PsCisXpeAction"
+        Cardinality="1"
+        Source="true"
+        Owner="model.PsCisXpeAction">
+        <DesignTime>
+            <Attr Name="_isUpdateable" Value="true"/>
+            <Attr Name="_aggregation" Value="0"/>
+            <Attr Name="_finderName" Value="PsCisXpeAction"/>
+            <Attr Name="_foreignKey" Value="model.PsCisXpeAction.PsCisXpeActionPk"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.PsCisXpeAction.CisActionCode"/>
+        </AttrArray>
+    </AssociationEnd>
+    <AssociationEnd
+        Name="PsCisXpeActDtl"
+        Cardinality="-1"
+        Owner="model.PsCisXpeActDtl">
+        <DesignTime>
+            <Attr Name="_isUpdateable" Value="true"/>
+            <Attr Name="_aggregation" Value="0"/>
+            <Attr Name="_finderName" Value="PsCisXpeActDtl"/>
+            <Attr Name="_foreignKey" Value="model.PsCisXpeActDtl.PsCisXpeActionDetailFk1"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.PsCisXpeActDtl.CisActionCode"/>
+        </AttrArray>
+    </AssociationEnd>
+</Association>

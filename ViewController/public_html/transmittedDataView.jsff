@@ -1,0 +1,300 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGridLayout id="pgl1">
+        <af:gridRow marginTop="5px" height="85px" id="gr1">
+            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1" halign="stretch" valign="stretch">
+                <af:panelBox text="Raw Usage Data Display" id="pb1" showDisclosure="false" background="light">
+                    <f:facet name="toolbar"/>
+                    <af:panelGridLayout id="pgl2">
+                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3">
+                                <af:button text="Refresh" id="b1"/>
+                                <af:button text="Scan Folder" id="b2" disabled="true"/>
+                                <af:button text="Forced Refresh" id="b3" disabled="true"/>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </af:panelBox>
+            </af:gridCell>
+        </af:gridRow>
+        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
+            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" halign="stretch" valign="stretch">
+                <af:panelBox text="System Maintenance Data - Live Link to External Usage " id="pb2"
+                             showDisclosure="false">
+                    <f:facet name="toolbar"/>
+                    <af:panelTabbed position="above" id="pt1" dimensionsFrom="auto"
+                                    inlineStyle="width:686px; height:447px;">
+                        <af:showDetailItem id="udcaCurrent" text="Current" disclosed="true">
+                            <af:panelGroupLayout layout="vertical" id="pgl3">
+                                <af:panelHeader text="Current Transactions" id="ph1">
+                                    <af:query id="qryId1" headerText="Search" disclosed="true"
+                                              value="#{bindings.ImplicitViewCriteriaQuery.queryDescriptor}"
+                                              model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                                              queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}"
+                                              queryOperationListener="#{bindings.ImplicitViewCriteriaQuery.processQueryOperation}"
+                                              resultComponentId="::resId1"/>
+                                </af:panelHeader>
+                                <af:table value="#{bindings.PsCisXpeUdcaCurrentVwView1.collectionModel}" var="row"
+                                          rows="#{bindings.PsCisXpeUdcaCurrentVwView1.rangeSize}"
+                                          emptyText="#{bindings.PsCisXpeUdcaCurrentVwView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.PsCisXpeUdcaCurrentVwView1.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.PsCisXpeUdcaCurrentVwView1.collectionModel.makeCurrent}"
+                                          rowSelection="single"
+                                          fetchSize="#{bindings.PsCisXpeUdcaCurrentVwView1.rangeSize}" id="resId1">
+                                    <af:column sortProperty="#{bindings.PsCisXpeUdcaCurrentVwView1.hints.Opc.name}"
+                                               sortable="true" headerText="OPC" id="resId1c1">
+                                        <af:outputText value="#{row.Opc}"
+                                                       shortDesc="#{bindings.PsCisXpeUdcaCurrentVwView1.hints.Opc.tooltip}"
+                                                       id="ot1"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.PsCisXpeUdcaCurrentVwView1.hints.Dpc.name}"
+                                               sortable="true" headerText="DPC" id="resId1c2">
+                                        <af:outputText value="#{row.Dpc}"
+                                                       shortDesc="#{bindings.PsCisXpeUdcaCurrentVwView1.hints.Dpc.tooltip}"
+                                                       id="ot2"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.PsCisXpeUdcaCurrentVwView1.hints.MessageType.name}"
+                                               sortable="true" headerText="Message Type" id="resId1c3">
+                                        <af:outputText value="#{row.MessageType}"
+                                                       shortDesc="#{bindings.PsCisXpeUdcaCurrentVwView1.hints.MessageType.tooltip}"
+                                                       id="ot3">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.PsCisXpeUdcaCurrentVwView1.hints.MessageType.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.PsCisXpeUdcaCurrentVwView1.hints.Ocn.name}"
+                                               sortable="true" headerText="OCN" id="resId1c4">
+                                        <af:outputText value="#{row.Ocn}"
+                                                       shortDesc="#{bindings.PsCisXpeUdcaCurrentVwView1.hints.Ocn.tooltip}"
+                                                       id="ot4"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.PsCisXpeUdcaCurrentVwView1.hints.MessageDate.name}"
+                                               sortable="true" headerText="Message Date" id="resId1c5">
+                                        <af:outputText value="#{row.MessageDate}"
+                                                       shortDesc="#{bindings.PsCisXpeUdcaCurrentVwView1.hints.MessageDate.tooltip}"
+                                                       id="ot5">
+                                            <af:convertDateTime pattern="#{bindings.PsCisXpeUdcaCurrentVwView1.hints.MessageDate.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.PsCisXpeUdcaCurrentVwView1.hints.MessageCount.name}"
+                                               sortable="true"
+                                               headerText="#{bindings.PsCisXpeUdcaCurrentVwView1.hints.MessageCount.label}"
+                                               id="resId1c6">
+                                        <af:outputText value="#{row.MessageCount}"
+                                                       shortDesc="#{bindings.PsCisXpeUdcaCurrentVwView1.hints.MessageCount.tooltip}"
+                                                       id="ot6">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.PsCisXpeUdcaCurrentVwView1.hints.MessageCount.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.PsCisXpeUdcaCurrentVwView1.hints.CompCount.name}"
+                                               sortable="true"
+                                               headerText="#{bindings.PsCisXpeUdcaCurrentVwView1.hints.CompCount.label}"
+                                               id="resId1c7">
+                                        <af:outputText value="#{row.CompCount}"
+                                                       shortDesc="#{bindings.PsCisXpeUdcaCurrentVwView1.hints.CompCount.tooltip}"
+                                                       id="ot7">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.PsCisXpeUdcaCurrentVwView1.hints.CompCount.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.PsCisXpeUdcaCurrentVwView1.hints.NonCompCount.name}"
+                                               sortable="true"
+                                               headerText="#{bindings.PsCisXpeUdcaCurrentVwView1.hints.NonCompCount.label}"
+                                               id="resId1c8">
+                                        <af:outputText value="#{row.NonCompCount}"
+                                                       shortDesc="#{bindings.PsCisXpeUdcaCurrentVwView1.hints.NonCompCount.tooltip}"
+                                                       id="ot8">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.PsCisXpeUdcaCurrentVwView1.hints.NonCompCount.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                </af:table>
+                            </af:panelGroupLayout>
+                        </af:showDetailItem>
+                        <af:showDetailItem id="udcaClosed" text="Closed">
+                            <af:panelGroupLayout layout="vertical" id="pgl4">
+                                <af:panelHeader text="Closed Transactions" id="ph2">
+                                    <af:query id="qryId2" headerText="Search" disclosed="true"
+                                              value="#{bindings.ImplicitViewCriteriaQuery1.queryDescriptor}"
+                                              model="#{bindings.ImplicitViewCriteriaQuery1.queryModel}"
+                                              queryListener="#{bindings.ImplicitViewCriteriaQuery1.processQuery}"
+                                              queryOperationListener="#{bindings.ImplicitViewCriteriaQuery1.processQueryOperation}"
+                                              resultComponentId="::resId2"/>
+                                </af:panelHeader>
+                                <af:table value="#{bindings.PsCisXpeUdcaClosedVwView1.collectionModel}" var="row"
+                                          rows="#{bindings.PsCisXpeUdcaClosedVwView1.rangeSize}"
+                                          emptyText="#{bindings.PsCisXpeUdcaClosedVwView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.PsCisXpeUdcaClosedVwView1.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.PsCisXpeUdcaClosedVwView1.collectionModel.makeCurrent}"
+                                          rowSelection="single"
+                                          fetchSize="#{bindings.PsCisXpeUdcaClosedVwView1.rangeSize}" id="resId2">
+                                    <af:column sortProperty="#{bindings.PsCisXpeUdcaClosedVwView1.hints.Opc.name}"
+                                               sortable="true" headerText="OPC" id="resId2c1">
+                                        <af:outputText value="#{row.Opc}"
+                                                       shortDesc="#{bindings.PsCisXpeUdcaClosedVwView1.hints.Opc.tooltip}"
+                                                       id="ot9"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.PsCisXpeUdcaClosedVwView1.hints.Dpc.name}"
+                                               sortable="true" headerText="DPC" id="resId2c2">
+                                        <af:outputText value="#{row.Dpc}"
+                                                       shortDesc="#{bindings.PsCisXpeUdcaClosedVwView1.hints.Dpc.tooltip}"
+                                                       id="ot10"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.PsCisXpeUdcaClosedVwView1.hints.MessageType.name}"
+                                               sortable="true" headerText="Message Type" id="resId2c3">
+                                        <af:outputText value="#{row.MessageType}"
+                                                       shortDesc="#{bindings.PsCisXpeUdcaClosedVwView1.hints.MessageType.tooltip}"
+                                                       id="ot11">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.PsCisXpeUdcaClosedVwView1.hints.MessageType.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.PsCisXpeUdcaClosedVwView1.hints.Ocn.name}"
+                                               sortable="true" headerText="OCN" id="resId2c4">
+                                        <af:outputText value="#{row.Ocn}"
+                                                       shortDesc="#{bindings.PsCisXpeUdcaClosedVwView1.hints.Ocn.tooltip}"
+                                                       id="ot12"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.PsCisXpeUdcaClosedVwView1.hints.MessageDate.name}"
+                                               sortable="true" headerText="Message Date" id="resId2c5">
+                                        <af:outputText value="#{row.MessageDate}"
+                                                       shortDesc="#{bindings.PsCisXpeUdcaClosedVwView1.hints.MessageDate.tooltip}"
+                                                       id="ot13">
+                                            <af:convertDateTime pattern="#{bindings.PsCisXpeUdcaClosedVwView1.hints.MessageDate.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.PsCisXpeUdcaClosedVwView1.hints.MessageCount.name}"
+                                               sortable="true"
+                                               headerText="#{bindings.PsCisXpeUdcaClosedVwView1.hints.MessageCount.label}"
+                                               id="resId2c6">
+                                        <af:outputText value="#{row.MessageCount}"
+                                                       shortDesc="#{bindings.PsCisXpeUdcaClosedVwView1.hints.MessageCount.tooltip}"
+                                                       id="ot14">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.PsCisXpeUdcaClosedVwView1.hints.MessageCount.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.PsCisXpeUdcaClosedVwView1.hints.CompCount.name}"
+                                               sortable="true"
+                                               headerText="#{bindings.PsCisXpeUdcaClosedVwView1.hints.CompCount.label}"
+                                               id="resId2c7">
+                                        <af:outputText value="#{row.CompCount}"
+                                                       shortDesc="#{bindings.PsCisXpeUdcaClosedVwView1.hints.CompCount.tooltip}"
+                                                       id="ot15">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.PsCisXpeUdcaClosedVwView1.hints.CompCount.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.PsCisXpeUdcaClosedVwView1.hints.NonCompCount.name}"
+                                               sortable="true"
+                                               headerText="#{bindings.PsCisXpeUdcaClosedVwView1.hints.NonCompCount.label}"
+                                               id="resId2c8">
+                                        <af:outputText value="#{row.NonCompCount}"
+                                                       shortDesc="#{bindings.PsCisXpeUdcaClosedVwView1.hints.NonCompCount.tooltip}"
+                                                       id="ot16">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.PsCisXpeUdcaClosedVwView1.hints.NonCompCount.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                </af:table>
+                            </af:panelGroupLayout>
+                        </af:showDetailItem>
+                        <af:showDetailItem id="udcaHistory" text="History">
+                            <af:panelGroupLayout layout="vertical" id="pgl5">
+                                <af:panelHeader text="History Transactions" id="ph3">
+                                    <af:query id="qryId3" headerText="Search" disclosed="true"
+                                              value="#{bindings.ImplicitViewCriteriaQuery2.queryDescriptor}"
+                                              model="#{bindings.ImplicitViewCriteriaQuery2.queryModel}"
+                                              queryListener="#{bindings.ImplicitViewCriteriaQuery2.processQuery}"
+                                              queryOperationListener="#{bindings.ImplicitViewCriteriaQuery2.processQueryOperation}"
+                                              resultComponentId="::resId3"/>
+                                </af:panelHeader>
+                                <af:table value="#{bindings.PsCisXpeUdcaHistoryVwView1.collectionModel}" var="row"
+                                          rows="#{bindings.PsCisXpeUdcaHistoryVwView1.rangeSize}"
+                                          emptyText="#{bindings.PsCisXpeUdcaHistoryVwView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.PsCisXpeUdcaHistoryVwView1.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.PsCisXpeUdcaHistoryVwView1.collectionModel.makeCurrent}"
+                                          rowSelection="single"
+                                          fetchSize="#{bindings.PsCisXpeUdcaHistoryVwView1.rangeSize}" id="resId3">
+                                    <af:column sortProperty="#{bindings.PsCisXpeUdcaHistoryVwView1.hints.Opc.name}"
+                                               sortable="true" headerText="OPC" id="resId3c1">
+                                        <af:outputText value="#{row.Opc}"
+                                                       shortDesc="#{bindings.PsCisXpeUdcaHistoryVwView1.hints.Opc.tooltip}"
+                                                       id="ot17"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.PsCisXpeUdcaHistoryVwView1.hints.Dpc.name}"
+                                               sortable="true" headerText="DPC" id="resId3c2">
+                                        <af:outputText value="#{row.Dpc}"
+                                                       shortDesc="#{bindings.PsCisXpeUdcaHistoryVwView1.hints.Dpc.tooltip}"
+                                                       id="ot18"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.PsCisXpeUdcaHistoryVwView1.hints.MessageType.name}"
+                                               sortable="true" headerText="Message Type" id="resId3c3">
+                                        <af:outputText value="#{row.MessageType}"
+                                                       shortDesc="#{bindings.PsCisXpeUdcaHistoryVwView1.hints.MessageType.tooltip}"
+                                                       id="ot19">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.PsCisXpeUdcaHistoryVwView1.hints.MessageType.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.PsCisXpeUdcaHistoryVwView1.hints.Ocn.name}"
+                                               sortable="true" headerText="OCN" id="resId3c4">
+                                        <af:outputText value="#{row.Ocn}"
+                                                       shortDesc="#{bindings.PsCisXpeUdcaHistoryVwView1.hints.Ocn.tooltip}"
+                                                       id="ot20"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.PsCisXpeUdcaHistoryVwView1.hints.MessageDate.name}"
+                                               sortable="true" headerText="Message Date" id="resId3c5">
+                                        <af:outputText value="#{row.MessageDate}"
+                                                       shortDesc="#{bindings.PsCisXpeUdcaHistoryVwView1.hints.MessageDate.tooltip}"
+                                                       id="ot21">
+                                            <af:convertDateTime pattern="#{bindings.PsCisXpeUdcaHistoryVwView1.hints.MessageDate.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.PsCisXpeUdcaHistoryVwView1.hints.MessageCount.name}"
+                                               sortable="true"
+                                               headerText="#{bindings.PsCisXpeUdcaHistoryVwView1.hints.MessageCount.label}"
+                                               id="resId3c6">
+                                        <af:outputText value="#{row.MessageCount}"
+                                                       shortDesc="#{bindings.PsCisXpeUdcaHistoryVwView1.hints.MessageCount.tooltip}"
+                                                       id="ot22">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.PsCisXpeUdcaHistoryVwView1.hints.MessageCount.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.PsCisXpeUdcaHistoryVwView1.hints.CompCount.name}"
+                                               sortable="true"
+                                               headerText="#{bindings.PsCisXpeUdcaHistoryVwView1.hints.CompCount.label}"
+                                               id="resId3c7">
+                                        <af:outputText value="#{row.CompCount}"
+                                                       shortDesc="#{bindings.PsCisXpeUdcaHistoryVwView1.hints.CompCount.tooltip}"
+                                                       id="ot23">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.PsCisXpeUdcaHistoryVwView1.hints.CompCount.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.PsCisXpeUdcaHistoryVwView1.hints.NonCompCount.name}"
+                                               sortable="true"
+                                               headerText="#{bindings.PsCisXpeUdcaHistoryVwView1.hints.NonCompCount.label}"
+                                               id="resId3c8">
+                                        <af:outputText value="#{row.NonCompCount}"
+                                                       shortDesc="#{bindings.PsCisXpeUdcaHistoryVwView1.hints.NonCompCount.tooltip}"
+                                                       id="ot24">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.PsCisXpeUdcaHistoryVwView1.hints.NonCompCount.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                </af:table>
+                            </af:panelGroupLayout>
+                        </af:showDetailItem>
+                    </af:panelTabbed>
+                </af:panelBox>
+            </af:gridCell>
+        </af:gridRow>
+    </af:panelGridLayout>
+</ui:composition>

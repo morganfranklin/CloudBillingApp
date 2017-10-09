@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout layout="vertical" id="pgl1">
+    <af:panelHeader text="General Set Up" id="ph1">
+      <af:query id="qryId1" headerText="Search" disclosed="true"
+                value="#{bindings.GeneralCriteriaQuery.queryDescriptor}"
+                model="#{bindings.GeneralCriteriaQuery.queryModel}"
+                queryListener="#{bindings.GeneralCriteriaQuery.processQuery}"
+                queryOperationListener="#{bindings.GeneralCriteriaQuery.processQueryOperation}"
+                resultComponentId="::resId1"/>
+    </af:panelHeader>
+    <af:panelHeader text="General Items" id="ph2">
+      <f:facet name="context"/>
+      <f:facet name="toolbar">
+        <af:toolbar id="t1">
+          <af:button action="#{bindings.CreateInsert.execute}" text="Add Item"
+                     disabled="#{!bindings.CreateInsert.enabled}" id="b1"
+                     actionListener="#{pageFlowScope.generalSetUpTableMBean.onGeneralItemCreation}"/>
+          <af:button action="#{bindings.Delete.execute}" text="Delete" disabled="#{!bindings.Delete.enabled}" id="b6"
+                     actionListener="#{pageFlowScope.generalSetUpTableMBean.onGeneralItemDelete}"/>
+        </af:toolbar>
+      </f:facet>
+      <f:facet name="menuBar"/>
+      <f:facet name="legend"/>
+      <f:facet name="info"/>
+      <af:table value="#{bindings.XpeDccCfgGeneralEOVO.collectionModel}" var="row"
+                rows="#{bindings.XpeDccCfgGeneralEOVO.rangeSize}"
+                emptyText="#{bindings.XpeDccCfgGeneralEOVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                rowBandingInterval="0" selectedRowKeys="#{bindings.XpeDccCfgGeneralEOVO.collectionModel.selectedRow}"
+                selectionListener="#{bindings.XpeDccCfgGeneralEOVO.collectionModel.makeCurrent}" rowSelection="single"
+                fetchSize="#{bindings.XpeDccCfgGeneralEOVO.rangeSize}" id="resId1" contentDelivery="immediate"
+                columnStretching="last">
+        <af:column headerText="#{bindings.XpeDccCfgGeneralEOVO.hints.ItemId.label}" id="resId1c1">
+          <af:link text="#{row.ItemId}" id="l1" partialSubmit="true"
+                   actionListener="#{pageFlowScope.generalSetUpTableMBean.onGeneralItemEdit}"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgGeneralEOVO.hints.ItemListType.label}" id="resId1c2">
+          <af:selectOneChoice value="#{row.bindings.ItemListType.inputValue}" label="#{row.bindings.ItemListType.label}"
+                              required="#{bindings.XpeDccCfgGeneralEOVO.hints.ItemListType.mandatory}"
+                              shortDesc="#{bindings.XpeDccCfgGeneralEOVO.hints.ItemListType.tooltip}" readOnly="true"
+                              id="soc1">
+            <f:selectItems value="#{row.bindings.ItemListType.items}" id="si1"/>
+            <f:validator binding="#{row.bindings.ItemListType.validator}"/>
+          </af:selectOneChoice>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgGeneralEOVO.hints.ValidValue.label}" id="resId1c3">
+          <af:outputText value="#{row.ValidValue}" shortDesc="#{bindings.XpeDccCfgGeneralEOVO.hints.ValidValue.tooltip}"
+                         id="ot2"/>
+        </af:column>
+      </af:table>
+    </af:panelHeader>
+    <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
+              binding="#{backingBeanScope.GeneralSetUpTableBBean.generalItemAddItem_popup}">
+      <af:dialog id="d1" type="none" title="General Item Details" closeIconVisible="false">
+        <f:facet name="buttonBar">
+          <af:button action="#{bindings.Commit.execute}" text="Save" disabled="#{!bindings.Commit.enabled}"
+                     id="b2" actionListener="#{pageFlowScope.generalSetUpTableMBean.onGeneralItemSaveOrCancel}"/>
+          <af:button action="#{bindings.Rollback.execute}" text="Cancel"
+                     disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b3"
+                     actionListener="#{pageFlowScope.generalSetUpTableMBean.onGeneralItemSaveOrCancel}">
+            <af:resetActionListener/>
+          </af:button>
+        </f:facet>
+        <af:panelFormLayout id="pfl1">
+          <af:inputText value="#{bindings.ItemId.inputValue}" label="#{bindings.ItemId.hints.label}"
+                        required="#{bindings.ItemId.hints.mandatory}" columns="#{bindings.ItemId.hints.displayWidth}"
+                        maximumLength="#{bindings.ItemId.hints.precision}" shortDesc="#{bindings.ItemId.hints.tooltip}"
+                        id="it1">
+            <f:validator binding="#{bindings.ItemId.validator}"/>
+          </af:inputText>
+          <af:selectOneChoice value="#{bindings.ItemListType.inputValue}" label="#{bindings.ItemListType.label}"
+                              required="#{bindings.ItemListType.hints.mandatory}"
+                              shortDesc="#{bindings.ItemListType.hints.tooltip}" id="soc2">
+            <f:selectItems value="#{bindings.ItemListType.items}" id="si2"/>
+            <f:validator binding="#{bindings.ItemListType.validator}"/>
+          </af:selectOneChoice>
+          <af:inputText value="#{bindings.ValidValue.inputValue}" label="#{bindings.ValidValue.hints.label}"
+                        required="#{bindings.ValidValue.hints.mandatory}"
+                        columns="#{bindings.ValidValue.hints.displayWidth}"
+                        maximumLength="#{bindings.ValidValue.hints.precision}"
+                        shortDesc="#{bindings.ValidValue.hints.tooltip}" id="it2" autoSubmit="true">
+            <f:validator binding="#{bindings.ValidValue.validator}"/>
+          </af:inputText>
+        </af:panelFormLayout>
+      </af:dialog>
+    </af:popup>
+    <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
+              binding="#{backingBeanScope.GeneralSetUpTableBBean.generalItemEditItem_popup}">
+      <af:dialog id="d2" type="none" title="General Item Details" closeIconVisible="false">
+        <f:facet name="buttonBar">
+          <af:button action="#{bindings.Commit.execute}" text="Save" 
+                     id="b4" actionListener="#{pageFlowScope.generalSetUpTableMBean.onGeneralItemEditSaveOrCancel}"/>
+          <af:button action="#{bindings.Rollback.execute}" text="Cancel"
+                     immediate="true" id="b5"
+                     actionListener="#{pageFlowScope.generalSetUpTableMBean.onGeneralItemEditSaveOrCancel}">
+            <af:resetActionListener/>
+          </af:button>
+        </f:facet>
+        <af:panelFormLayout id="pfl2">
+          <af:panelLabelAndMessage label="#{bindings.ItemId.hints.label}" id="plam1">
+            <af:outputText value="#{bindings.ItemId.inputValue}" shortDesc="#{bindings.ItemId.hints.tooltip}" id="ot3"/>
+          </af:panelLabelAndMessage>
+          <af:selectOneChoice value="#{bindings.ItemListType.inputValue}" label="#{bindings.ItemListType.label}"
+                              required="#{bindings.ItemListType.hints.mandatory}"
+                              shortDesc="#{bindings.ItemListType.hints.tooltip}" readOnly="true" id="soc3">
+            <f:selectItems value="#{bindings.ItemListType.items}" id="si3"/>
+            <f:validator binding="#{bindings.ItemListType.validator}"/>
+          </af:selectOneChoice>
+          <af:inputText value="#{bindings.ValidValue.inputValue}" label="#{bindings.ValidValue.hints.label}"
+                        required="#{bindings.ValidValue.hints.mandatory}"
+                        columns="#{bindings.ValidValue.hints.displayWidth}"
+                        maximumLength="#{bindings.ValidValue.hints.precision}"
+                        shortDesc="#{bindings.ValidValue.hints.tooltip}" id="it3" autoSubmit="true">
+            <f:validator binding="#{bindings.ValidValue.validator}"/>
+          </af:inputText>
+        </af:panelFormLayout>
+      </af:dialog>
+    </af:popup>
+  </af:panelGroupLayout>
+</ui:composition>

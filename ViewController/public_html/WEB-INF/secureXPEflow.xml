@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+    <task-flow-definition id="secureXPEflow">
+        <default-activity>authentication</default-activity>
+        <data-control-scope>
+            <shared/>
+        </data-control-scope>
+        <input-parameter-definition id="__2">
+            <name>peoplesoft_auth_token</name>
+            <value>#{pageFlowScope.peoplesoft_auth_token}</value>
+            <class>java.lang.String</class>
+        </input-parameter-definition>
+        <input-parameter-definition id="__3">
+            <name>weblogicSession</name>
+            <value>#{pageFlowScope.weblogicSession}</value>
+            <class>java.lang.String</class>
+        </input-parameter-definition>
+        <input-parameter-definition id="__4">
+            <name>weblogicToken</name>
+            <value>#{pageFlowScope.weblogicToken}</value>
+            <class>java.lang.String</class>
+        </input-parameter-definition>
+        <managed-bean id="__1">
+            <managed-bean-name>PeopleSoftCallSecurityFilter</managed-bean-name>
+            <managed-bean-class>view.PeopleSoftCallSecurityFilter</managed-bean-class>
+            <managed-bean-scope>session</managed-bean-scope>
+        </managed-bean>
+        <managed-bean id="__14">
+            <managed-bean-name>integrationDashboardRegionName</managed-bean-name>
+            <managed-bean-class>view.integrationDashboardRegionName</managed-bean-class>
+            <managed-bean-scope>view</managed-bean-scope>
+        </managed-bean>
+        <method-call id="authentication">
+            <method>#{PeopleSoftCallSecurityFilter.evaluateParameters}</method>
+            <outcome>
+                <fixed-outcome>checked</fixed-outcome>
+            </outcome>
+        </method-call>
+        <router id="tokenCheck">
+            <case id="__7">
+                <expression>#{PeopleSoftCallSecurityFilter.retrievedToken == null}</expression>
+                <outcome>invalid</outcome>
+            </case>
+            <case id="__8">
+                <expression>#{PeopleSoftCallSecurityFilter.retrievedToken != null}</expression>
+                <outcome>authenticated</outcome>
+            </case>
+            <default-outcome>invalid</default-outcome>
+        </router>
+        <view id="unauthorized">
+            <page>/unauthorized.jsf</page>
+        </view>
+        <view id="IntegrationDash">
+            <page>/IntegrationDash.jsf</page>
+        </view>
+        <control-flow-rule id="__5">
+            <from-activity-id>authentication</from-activity-id>
+            <control-flow-case id="__6">
+                <to-activity-id>tokenCheck</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__9">
+            <from-activity-id>tokenCheck</from-activity-id>
+            <control-flow-case id="__11">
+                <from-outcome>invalid</from-outcome>
+                <to-activity-id>unauthorized</to-activity-id>
+            </control-flow-case>
+            <control-flow-case id="__16">
+                <from-outcome>authenticated</from-outcome>
+                <to-activity-id>IntegrationDash</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <visibility>
+            <url-invoke-allowed/>
+        </visibility>
+    </task-flow-definition>
+</adfc-config>

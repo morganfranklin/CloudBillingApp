@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+    xmlns="http://xmlns.oracle.com/bc4j"
+    Name="RoleQuery"
+    Version="12.2.1.0.31"
+    InheritPersonalization="merge"
+    BindingStyle="OracleName"
+    CustomQuery="true"
+    RowClass="model.RoleQueryRowImpl"
+    ComponentClass="model.RoleQueryImpl"
+    PageIterMode="Full">
+    <DesignTime>
+        <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+        <Attr Name="_isExpertMode" Value="true"/>
+        <Attr Name="_isCodegen" Value="true"/>
+    </DesignTime>
+    <Properties>
+        <SchemaBasedProperties>
+            <LABEL
+                ResId="model.RoleQuery_LABEL"/>
+        </SchemaBasedProperties>
+    </Properties>
+    <Variable
+        Name="Q_ROLE_USER"
+        Kind="where"
+        Type="java.lang.String"
+        DefaultValue="MPALMER"/>
+    <Variable
+        Name="Q_ROLE_NAME"
+        Kind="where"
+        Type="java.lang.String"
+        DefaultValue="CIS_XPE_MANAGER"/>
+    <SQLQuery><![CDATA[SELECT 'ADMIN' AS ROLENAME FROM DUAL WHERE (:Q_ROLE_USER=:Q_ROLE_USER       
+AND :Q_ROLE_NAME=:Q_ROLE_NAME)  
+--- SELECT ROLENAME FROM PSROLEUSER WHERE (ROLEUSER=:Q_ROLE_USER       
+--- AND ROLENAME=:Q_ROLE_NAME)]]></SQLQuery>
+    <ViewAttribute
+        Name="Rolename"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="255"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        AliasName="ROLENAME"
+        Expression="ROLENAME"
+        SQLType="VARCHAR">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="30"/>
+        </DesignTime>
+    </ViewAttribute>
+    <AttrArray Name="KeyAttributes">
+        <Item Value="Rolename"/>
+    </AttrArray>
+    <ResourceBundle>
+        <PropertiesBundle
+            PropertiesFile="model.ModelBundle"/>
+    </ResourceBundle>
+</ViewObject>

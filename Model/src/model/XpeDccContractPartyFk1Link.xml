@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+    xmlns="http://xmlns.oracle.com/bc4j"
+    Name="XpeDccContractPartyFk1Link"
+    Version="12.2.1.11.57"
+    InheritPersonalization="merge"
+    EntityAssociation="model.XpeDccContractPartyFk1Assoc">
+    <ViewLinkDefEnd
+        Name="XpeDccContractsView"
+        Cardinality="1"
+        Source="true"
+        Owner="model.XpeDccContractsView">
+        <DesignTime>
+            <Attr Name="_isUpdateable" Value="true"/>
+            <Attr Name="_minCardinality" Value="1"/>
+            <Attr Name="_finderName" Value="XpeDccContractsView"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.XpeDccContractsView.XpeContractId"/>
+        </AttrArray>
+    </ViewLinkDefEnd>
+    <ViewLinkDefEnd
+        Name="XpeDccContractPartyView"
+        Cardinality="-1"
+        Owner="model.XpeDccContractPartyView">
+        <DesignTime>
+            <Attr Name="_isUpdateable" Value="true"/>
+            <Attr Name="_finderName" Value="XpeDccContractPartyView"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.XpeDccContractPartyView.XpeContractId"/>
+        </AttrArray>
+    </ViewLinkDefEnd>
+</ViewLink>

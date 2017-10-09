@@ -1,0 +1,12 @@
+//Groovy Scripts for model.entities.XpeDccCfgGeneralCnvEO
+
+package model.entities
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="GeneralCnvId")
+def GeneralCnvId_ExpressionScript_Expression()
+{
+adf.object.nextVal("XPE_DCC_CFG_GENERAL_CNV_SEQ")
+}
+

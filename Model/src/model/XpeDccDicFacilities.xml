@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+    xmlns="http://xmlns.oracle.com/bc4j"
+    Name="XpeDccDicFacilities"
+    Version="12.2.1.0.31"
+    InheritPersonalization="merge"
+    BindingStyle="OracleName"
+    CustomQuery="true"
+    PageIterMode="Full">
+    <DesignTime>
+        <Attr Name="_isExpertMode" Value="true"/>
+    </DesignTime>
+    <Properties>
+        <SchemaBasedProperties>
+            <LABEL
+                ResId="model.XpeDccDicFacilities_LABEL"/>
+        </SchemaBasedProperties>
+    </Properties>
+    <SQLQuery><![CDATA[SELECT XPE_LOOKUP_ID, XPE_LOOKUP_DESC FROM XPE_DCC_LOOKUP_MASTER WHERE XPE_LOOKUP_TYPE = 'FAC']]></SQLQuery>
+    <ViewAttribute
+        Name="XpeLookupId"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="255"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        AliasName="XPE_LOOKUP_ID"
+        Expression="XPE_LOOKUP_ID"
+        SQLType="VARCHAR">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="3"/>
+        </DesignTime>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="XpeLookupDesc"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="20"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        AliasName="XPE_LOOKUP_DESC"
+        Expression="XPE_LOOKUP_DESC"
+        SQLType="VARCHAR">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </ViewAttribute>
+    <AttrArray Name="KeyAttributes">
+        <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <ResourceBundle>
+        <PropertiesBundle
+            PropertiesFile="model.ModelBundle"/>
+    </ResourceBundle>
+</ViewObject>

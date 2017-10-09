@@ -1,0 +1,341 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGridLayout id="pgl2">
+        <af:gridRow marginTop="5px" height="auto" id="gr2">
+            <af:gridCell marginStart="5px" width="100%" id="gc2" halign="stretch" valign="stretch" marginEnd="5px">
+                <af:train value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}" id="t1"/>
+            </af:gridCell>
+        </af:gridRow>
+        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
+            <af:gridCell marginStart="5px" width="100%" id="gc4" halign="stretch" valign="stretch" marginEnd="5px">
+                <af:panelBox id="pb1"
+                             text="#{pageFlowScope.ContractType eq 'NEW' ? 'Customer Details' : 'Search and Select Existing Contract'}" styleClass="AFStretchWidth">
+                    <af:panelGridLayout id="pgl1">
+                        <af:gridRow marginTop="5px" height="auto" id="gr1"
+                                    rendered="#{pageFlowScope.ContractType eq 'NEW'}">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1">
+                                <af:selectOneRadio id="sor_cust" label="#{bindings.Customer_Type.label}" layout="horizontal"
+                                                   autoSubmit="true" value="#{bindings.Customer_Type.inputValue}"
+                                                   valueChangeListener="#{pageFlowScope.XpeDccNewContractMBean.onCustomerTypeValueChange}"
+                                                   required="true">
+                                    <f:selectItems value="#{bindings.Customer_Type.items}" id="si7"/>
+                                    <f:validator binding="#{bindings.Customer_Type.validator}"/>
+                                </af:selectOneRadio>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" height="auto" id="gr5">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3">
+                                <af:panelHeader text="#{bindings.Customer_Type.inputValue eq 'NEW'?'Enter New Customer Details':bindings.Customer_Type.inputValue eq 'EXT'?'Search and Select Existing Customer':''}"
+                                                id="ph3" partialTriggers="sor_cust">
+                                    <af:switcher id="s1" defaultFacet="EMPTY"
+                                                 facetName="#{pageFlowScope.ContractType eq 'NEW'? bindings.Customer_Type.inputValue: 'EXTCONTRACT'}">
+                                        <f:facet name="NEW">
+                                            <af:panelFormLayout id="pfl2" maxColumns="2" rows="7">
+                                                <af:inputText value="#{bindings.CompanyName.inputValue}"
+                                                              label="#{bindings.CompanyName.hints.label}"
+                                                              required="#{bindings.CompanyName.hints.mandatory}"
+                                                              columns="#{bindings.CompanyName.hints.displayWidth}"
+                                                              maximumLength="#{bindings.CompanyName.hints.precision}"
+                                                              shortDesc="#{bindings.CompanyName.hints.tooltip}"
+                                                              id="it23" autoSubmit="true">
+                                                    <f:validator binding="#{bindings.CompanyName.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.BillingAddress1.inputValue}"
+                                                              label="#{bindings.BillingAddress1.hints.label}"
+                                                              required="#{bindings.BillingAddress1.hints.mandatory}"
+                                                              columns="#{bindings.BillingAddress1.hints.displayWidth}"
+                                                              maximumLength="#{bindings.BillingAddress1.hints.precision}"
+                                                              shortDesc="#{bindings.BillingAddress1.hints.tooltip}"
+                                                              id="it19" autoSubmit="true">
+                                                    <f:validator binding="#{bindings.BillingAddress1.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.BillingAddress2.inputValue}"
+                                                              label="#{bindings.BillingAddress2.hints.label}"
+                                                              required="#{bindings.BillingAddress2.hints.mandatory}"
+                                                              columns="#{bindings.BillingAddress2.hints.displayWidth}"
+                                                              maximumLength="#{bindings.BillingAddress2.hints.precision}"
+                                                              shortDesc="#{bindings.BillingAddress2.hints.tooltip}"
+                                                              id="it20" autoSubmit="true">
+                                                    <f:validator binding="#{bindings.BillingAddress2.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.City.inputValue}"
+                                                              label="#{bindings.City.hints.label}"
+                                                              required="#{bindings.City.hints.mandatory}"
+                                                              columns="#{bindings.City.hints.displayWidth}"
+                                                              maximumLength="#{bindings.City.hints.precision}"
+                                                              shortDesc="#{bindings.City.hints.tooltip}" id="it22"
+                                                              autoSubmit="true">
+                                                    <f:validator binding="#{bindings.City.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.State.inputValue}"
+                                                              label="#{bindings.State.hints.label}"
+                                                              required="#{bindings.State.hints.mandatory}"
+                                                              columns="#{bindings.State.hints.displayWidth}"
+                                                              maximumLength="#{bindings.State.hints.precision}"
+                                                              shortDesc="#{bindings.State.hints.tooltip}" id="it36"
+                                                              autoSubmit="true">
+                                                    <f:validator binding="#{bindings.State.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.Country.inputValue}"
+                                                              label="#{bindings.Country.hints.label}"
+                                                              required="#{bindings.Country.hints.mandatory}"
+                                                              columns="#{bindings.Country.hints.displayWidth}"
+                                                              maximumLength="#{bindings.Country.hints.precision}"
+                                                              shortDesc="#{bindings.Country.hints.tooltip}" id="it26"
+                                                              autoSubmit="true">
+                                                    <f:validator binding="#{bindings.Country.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.Postal.inputValue}"
+                                                              label="#{bindings.Postal.hints.label}"
+                                                              required="#{bindings.Postal.hints.mandatory}"
+                                                              columns="#{bindings.Postal.hints.displayWidth}"
+                                                              maximumLength="#{bindings.Postal.hints.precision}"
+                                                              shortDesc="#{bindings.Postal.hints.tooltip}" id="it35"
+                                                              autoSubmit="true">
+                                                    <f:validator binding="#{bindings.Postal.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.MailingAddress1.inputValue}"
+                                                              label="#{bindings.MailingAddress1.hints.label}"
+                                                              required="#{bindings.MailingAddress1.hints.mandatory}"
+                                                              columns="#{bindings.MailingAddress1.hints.displayWidth}"
+                                                              maximumLength="#{bindings.MailingAddress1.hints.precision}"
+                                                              shortDesc="#{bindings.MailingAddress1.hints.tooltip}"
+                                                              id="it28" autoSubmit="true">
+                                                    <f:validator binding="#{bindings.MailingAddress1.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.MailingAddress2.inputValue}"
+                                                              label="#{bindings.MailingAddress2.hints.label}"
+                                                              required="#{bindings.MailingAddress2.hints.mandatory}"
+                                                              columns="#{bindings.MailingAddress2.hints.displayWidth}"
+                                                              maximumLength="#{bindings.MailingAddress2.hints.precision}"
+                                                              shortDesc="#{bindings.MailingAddress2.hints.tooltip}"
+                                                              id="it29" autoSubmit="true">
+                                                    <f:validator binding="#{bindings.MailingAddress2.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.MailingCity.inputValue}"
+                                                              label="#{bindings.MailingCity.hints.label}"
+                                                              required="#{bindings.MailingCity.hints.mandatory}"
+                                                              columns="#{bindings.MailingCity.hints.displayWidth}"
+                                                              maximumLength="#{bindings.MailingCity.hints.precision}"
+                                                              shortDesc="#{bindings.MailingCity.hints.tooltip}"
+                                                              id="it30" autoSubmit="true">
+                                                    <f:validator binding="#{bindings.MailingCity.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.MailingState.inputValue}"
+                                                              label="#{bindings.MailingState.hints.label}"
+                                                              required="#{bindings.MailingState.hints.mandatory}"
+                                                              columns="#{bindings.MailingState.hints.displayWidth}"
+                                                              maximumLength="#{bindings.MailingState.hints.precision}"
+                                                              shortDesc="#{bindings.MailingState.hints.tooltip}"
+                                                              id="it33" autoSubmit="true">
+                                                    <f:validator binding="#{bindings.MailingState.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.MailingCountry.inputValue}"
+                                                              label="#{bindings.MailingCountry.hints.label}"
+                                                              required="#{bindings.MailingCountry.hints.mandatory}"
+                                                              columns="#{bindings.MailingCountry.hints.displayWidth}"
+                                                              maximumLength="#{bindings.MailingCountry.hints.precision}"
+                                                              shortDesc="#{bindings.MailingCountry.hints.tooltip}"
+                                                              id="it31" autoSubmit="true">
+                                                    <f:validator binding="#{bindings.MailingCountry.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.MailingPostal.inputValue}"
+                                                              label="#{bindings.MailingPostal.hints.label}"
+                                                              required="#{bindings.MailingPostal.hints.mandatory}"
+                                                              columns="#{bindings.MailingPostal.hints.displayWidth}"
+                                                              maximumLength="#{bindings.MailingPostal.hints.precision}"
+                                                              shortDesc="#{bindings.MailingPostal.hints.tooltip}"
+                                                              id="it32" autoSubmit="true">
+                                                    <f:validator binding="#{bindings.MailingPostal.validator}"/>
+                                                </af:inputText>
+                                            </af:panelFormLayout>
+                                            <af:selectOneRadio value="#{bindings.MailBillAddress.inputValue}"
+                                                               label="#{bindings.MailBillAddress.label}"
+                                                               shortDesc="#{bindings.MailBillAddress.hints.tooltip}"
+                                                               id="sor2" layout="horizontal" autoSubmit="true"
+                                                               required="true">
+                                                <f:selectItems value="#{bindings.MailBillAddress.items}" id="si1"/>
+                                                <f:validator binding="#{bindings.MailBillAddress.validator}"/>
+                                            </af:selectOneRadio>
+                                            <af:panelFormLayout id="pfl3" maxColumns="2" rows="3">
+                                                <af:inputText value="#{bindings.ContactName.inputValue}"
+                                                              label="#{bindings.ContactName.hints.label}"
+                                                              required="#{bindings.ContactName.hints.mandatory}"
+                                                              columns="#{bindings.ContactName.hints.displayWidth}"
+                                                              maximumLength="#{bindings.ContactName.hints.precision}"
+                                                              shortDesc="#{bindings.ContactName.hints.tooltip}"
+                                                              id="it24" autoSubmit="true">
+                                                    <f:validator binding="#{bindings.ContactName.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.Title.inputValue}"
+                                                              label="#{bindings.Title.hints.label}"
+                                                              required="#{bindings.Title.hints.mandatory}"
+                                                              columns="#{bindings.Title.hints.displayWidth}"
+                                                              maximumLength="#{bindings.Title.hints.precision}"
+                                                              shortDesc="#{bindings.Title.hints.tooltip}" id="it37"
+                                                              autoSubmit="true">
+                                                    <f:validator binding="#{bindings.Title.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.ContactType.inputValue}"
+                                                              label="#{bindings.ContactType.hints.label}"
+                                                              required="#{bindings.ContactType.hints.mandatory}"
+                                                              columns="#{bindings.ContactType.hints.displayWidth}"
+                                                              maximumLength="#{bindings.ContactType.hints.precision}"
+                                                              shortDesc="#{bindings.ContactType.hints.tooltip}"
+                                                              id="it25" autoSubmit="true">
+                                                    <f:validator binding="#{bindings.ContactType.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.Email.inputValue}"
+                                                              label="#{bindings.Email.hints.label}"
+                                                              required="#{bindings.Email.hints.mandatory}"
+                                                              columns="#{bindings.Email.hints.displayWidth}"
+                                                              maximumLength="#{bindings.Email.hints.precision}"
+                                                              shortDesc="#{bindings.Email.hints.tooltip}" id="it27"
+                                                              autoSubmit="true">
+                                                    <f:validator binding="#{bindings.Email.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.PhoneNum.inputValue}"
+                                                              label="#{bindings.PhoneNum.hints.label}"
+                                                              required="#{bindings.PhoneNum.hints.mandatory}"
+                                                              columns="#{bindings.PhoneNum.hints.displayWidth}"
+                                                              maximumLength="#{bindings.PhoneNum.hints.precision}"
+                                                              shortDesc="#{bindings.PhoneNum.hints.tooltip}" id="it34"
+                                                              autoSubmit="true">
+                                                    <f:validator binding="#{bindings.PhoneNum.validator}"/>
+                                                </af:inputText>
+                                            </af:panelFormLayout>
+                                        </f:facet>
+                                        <f:facet name="EXT">
+                                            <af:panelGroupLayout layout="vertical" id="pgl3">
+                                                <af:query id="qryId1" headerText="Search" disclosed="true"
+                                                          value="#{bindings.NewContractCustomerSearchQuery.queryDescriptor}"
+                                                          model="#{bindings.NewContractCustomerSearchQuery.queryModel}"
+                                                          queryListener="#{bindings.NewContractCustomerSearchQuery.processQuery}"
+                                                          queryOperationListener="#{bindings.NewContractCustomerSearchQuery.processQueryOperation}"
+                                                          resultComponentId="::resId1"/>
+                                                <af:table value="#{bindings.XpeDccNewContractCustomerSearchROVO.collectionModel}"
+                                                          var="row"
+                                                          rows="#{bindings.XpeDccNewContractCustomerSearchROVO.rangeSize}"
+                                                          emptyText="#{bindings.XpeDccNewContractCustomerSearchROVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                          rowBandingInterval="0"
+                                                          selectedRowKeys="#{bindings.XpeDccNewContractCustomerSearchROVO.collectionModel.selectedRow}"
+                                                          selectionListener="#{bindings.XpeDccNewContractCustomerSearchROVO.collectionModel.makeCurrent}"
+                                                          rowSelection="single"
+                                                          fetchSize="#{bindings.XpeDccNewContractCustomerSearchROVO.rangeSize}"
+                                                          id="resId1" columnStretching="last"
+                                                          contentDelivery="immediate">
+                                                    <af:column headerText="#{bindings.XpeDccNewContractCustomerSearchROVO.hints.CustId.label}"
+                                                               id="resId1c1">
+                                                        <af:link text="#{row.CustId}" id="l1"
+                                                                 action="#{controllerContext.currentViewPort.taskFlowContext.trainModel.getNext}"/>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.XpeDccNewContractCustomerSearchROVO.hints.Name1.label}"
+                                                               id="resId1c2">
+                                                        <af:outputText value="#{row.Name1}"
+                                                                       shortDesc="#{bindings.XpeDccNewContractCustomerSearchROVO.hints.Name1.tooltip}"
+                                                                       id="ot2"/>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.XpeDccNewContractCustomerSearchROVO.hints.Country.label}"
+                                                               id="resId1c3">
+                                                        <af:outputText value="#{row.Country}"
+                                                                       shortDesc="#{bindings.XpeDccNewContractCustomerSearchROVO.hints.Country.tooltip}"
+                                                                       id="ot3"/>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.XpeDccNewContractCustomerSearchROVO.hints.Address1.label}"
+                                                               id="resId1c4">
+                                                        <af:outputText value="#{row.Address1}"
+                                                                       shortDesc="#{bindings.XpeDccNewContractCustomerSearchROVO.hints.Address1.tooltip}"
+                                                                       id="ot4"/>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.XpeDccNewContractCustomerSearchROVO.hints.City.label}"
+                                                               id="resId1c5">
+                                                        <af:outputText value="#{row.City}"
+                                                                       shortDesc="#{bindings.XpeDccNewContractCustomerSearchROVO.hints.City.tooltip}"
+                                                                       id="ot5"/>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.XpeDccNewContractCustomerSearchROVO.hints.State.label}"
+                                                               id="resId1c6">
+                                                        <af:outputText value="#{row.State}"
+                                                                       shortDesc="#{bindings.XpeDccNewContractCustomerSearchROVO.hints.State.tooltip}"
+                                                                       id="ot6"/>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.XpeDccNewContractCustomerSearchROVO.hints.Postal.label}"
+                                                               id="resId1c7">
+                                                        <af:outputText value="#{row.Postal}"
+                                                                       shortDesc="#{bindings.XpeDccNewContractCustomerSearchROVO.hints.Postal.tooltip}"
+                                                                       id="ot7"/>
+                                                    </af:column>
+                                                </af:table>
+                                            </af:panelGroupLayout>
+                                        </f:facet>
+                                        <f:facet name="EMPTY"/>
+                                        <f:facet name="EXTCONTRACT">
+                                            <af:panelGroupLayout layout="vertical" id="pgl4">
+                                                <af:query id="qryId2" headerText="Search" disclosed="true"
+                                                          value="#{bindings.ContractSearchCriteriaQuery.queryDescriptor}"
+                                                          model="#{bindings.ContractSearchCriteriaQuery.queryModel}"
+                                                          queryListener="#{bindings.ContractSearchCriteriaQuery.processQuery}"
+                                                          queryOperationListener="#{bindings.ContractSearchCriteriaQuery.processQueryOperation}"
+                                                          resultComponentId="::resId2"/>
+                                                <af:table value="#{bindings.XpeDccContractSearchROVO.collectionModel}"
+                                                          var="row"
+                                                          rows="#{bindings.XpeDccContractSearchROVO.rangeSize}"
+                                                          emptyText="#{bindings.XpeDccContractSearchROVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                          rowBandingInterval="0"
+                                                          selectedRowKeys="#{bindings.XpeDccContractSearchROVO.collectionModel.selectedRow}"
+                                                          selectionListener="#{bindings.XpeDccContractSearchROVO.collectionModel.makeCurrent}"
+                                                          rowSelection="single"
+                                                          fetchSize="#{bindings.XpeDccContractSearchROVO.rangeSize}"
+                                                          id="resId2" contentDelivery="immediate"
+                                                          styleClass="AFStretchWidth" columnStretching="last">
+                                                    <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.XpeContractId.label}"
+                                                               id="resId2c1">
+                                                        <af:outputText value="#{row.XpeContractId}"
+                                                                       shortDesc="#{bindings.XpeDccContractSearchROVO.hints.XpeContractId.tooltip}"
+                                                                       id="ot1"/>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.XpeContractVersion.label}"
+                                                               id="c1">
+                                                        <af:outputText value="#{row.XpeContractVersion}"
+                                                                       shortDesc="#{bindings.XpeDccContractSearchROVO.hints.XpeContractVersion.tooltip}"
+                                                                       id="ot9"/>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.XpeContractDesc.label}"
+                                                               id="resId2c2">
+                                                        <af:outputText value="#{row.XpeContractDesc}"
+                                                                       shortDesc="#{bindings.XpeDccContractSearchROVO.hints.XpeContractDesc.tooltip}"
+                                                                       id="ot8"/>
+                                                    </af:column>
+                                                </af:table>
+                                            </af:panelGroupLayout>
+                                        </f:facet>
+                                    </af:switcher>
+                                </af:panelHeader>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr6">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5">
+                                <af:selectOneRadio value="#{bindings.Business_Type.inputValue}"
+                                                   label="#{bindings.Business_Type.label}"
+                                                   required="#{bindings.Business_Type.hints.mandatory}"
+                                                   shortDesc="#{bindings.Business_Type.hints.tooltip}" id="sor3"
+                                                   layout="horizontal"
+                                                   visible="#{bindings.Customer_Type.inputValue ne null}"
+                                                   partialTriggers="sor_cust">
+                                    <f:selectItems value="#{bindings.Business_Type.items}" id="si2"/>
+                                    <f:validator binding="#{bindings.Business_Type.validator}"/>
+                                </af:selectOneRadio>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </af:panelBox>
+            </af:gridCell>
+        </af:gridRow>
+        <af:gridRow height="auto" id="gr4">
+            <af:gridCell marginStart="5px" width="100%" id="gc6" halign="stretch" marginEnd="5px" valign="stretch">
+                <af:trainButtonBar value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}" id="tbb1"/>
+            </af:gridCell>
+        </af:gridRow>
+    </af:panelGridLayout>
+</ui:composition>

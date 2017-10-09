@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+    xmlns="http://xmlns.oracle.com/bc4j"
+    Name="PsCisXpeUdcaHistoryVw"
+    Version="12.2.1.0.31"
+    InheritPersonalization="merge"
+    DBObjectType="table"
+    DBObjectName="PS_CIS_XPE_UDCA_HISTORY_VW"
+    AliasName="PsCisXpeUdcaHistoryVw"
+    BindingStyle="OracleName">
+    <Attribute
+        Name="Opc"
+        Precision="9"
+        ColumnName="OPC"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="PS_CIS_XPE_UDCA_HISTORY_VW"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="9"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="Dpc"
+        Precision="9"
+        ColumnName="DPC"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="PS_CIS_XPE_UDCA_HISTORY_VW"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="9"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="MessageType"
+        ColumnName="MESSAGE_TYPE"
+        SQLType="NUMERIC"
+        Type="java.math.BigDecimal"
+        ColumnType="NUMBER"
+        TableName="PS_CIS_XPE_UDCA_HISTORY_VW"
+        PrimaryKey="true"/>
+    <Attribute
+        Name="Ocn"
+        Precision="4"
+        ColumnName="OCN"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="PS_CIS_XPE_UDCA_HISTORY_VW"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="4"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="MessageDate"
+        ColumnName="MESSAGE_DATE"
+        SQLType="DATE"
+        Type="java.sql.Timestamp"
+        ColumnType="DATE"
+        TableName="PS_CIS_XPE_UDCA_HISTORY_VW"
+        PrimaryKey="true"/>
+    <Attribute
+        Name="MessageCount"
+        ColumnName="MESSAGE_COUNT"
+        SQLType="NUMERIC"
+        Type="java.math.BigDecimal"
+        ColumnType="NUMBER"
+        TableName="PS_CIS_XPE_UDCA_HISTORY_VW"/>
+    <Attribute
+        Name="CompCount"
+        ColumnName="COMP_COUNT"
+        SQLType="NUMERIC"
+        Type="java.math.BigDecimal"
+        ColumnType="NUMBER"
+        TableName="PS_CIS_XPE_UDCA_HISTORY_VW"/>
+    <Attribute
+        Name="NonCompCount"
+        ColumnName="NON_COMP_COUNT"
+        SQLType="NUMERIC"
+        Type="java.math.BigDecimal"
+        ColumnType="NUMBER"
+        TableName="PS_CIS_XPE_UDCA_HISTORY_VW"/>
+    <Key
+        Name="PscisxpeudcahistoryvwPrimaryKey"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DBObjectName" Value="PSCISXPEUDCAHISTORYVW_PRIMARY_"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.PsCisXpeUdcaHistoryVw.Opc"/>
+            <Item Value="model.PsCisXpeUdcaHistoryVw.Dpc"/>
+            <Item Value="model.PsCisXpeUdcaHistoryVw.MessageType"/>
+            <Item Value="model.PsCisXpeUdcaHistoryVw.Ocn"/>
+            <Item Value="model.PsCisXpeUdcaHistoryVw.MessageDate"/>
+        </AttrArray>
+    </Key>
+</Entity>

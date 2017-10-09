@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+    xmlns="http://xmlns.oracle.com/bc4j"
+    Name="PsCisXpeActTyp"
+    Version="12.2.1.0.31"
+    InheritPersonalization="merge"
+    DBObjectType="table"
+    DBObjectName="PS_CIS_XPE_ACT_TYP"
+    AliasName="PsCisXpeActTyp"
+    BindingStyle="OracleName">
+    <Attribute
+        Name="Actiontype"
+        IsNotNull="true"
+        Precision="30"
+        ColumnName="ACTIONTYPE"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="PS_CIS_XPE_ACT_TYP"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="30"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="Descr100"
+        Precision="100"
+        ColumnName="DESCR100"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="PS_CIS_XPE_ACT_TYP">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="100"/>
+        </DesignTime>
+    </Attribute>
+    <Key
+        Name="PsCisXpeActionTypePk"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DBObjectName" Value="PS_CIS_XPE_ACTION_TYPE_PK"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.PsCisXpeActTyp.Actiontype"/>
+        </AttrArray>
+    </Key>
+</Entity>

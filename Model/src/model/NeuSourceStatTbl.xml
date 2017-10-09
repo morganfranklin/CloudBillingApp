@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+    xmlns="http://xmlns.oracle.com/bc4j"
+    Name="NeuSourceStatTbl"
+    Version="12.2.1.0.31"
+    InheritPersonalization="merge"
+    DBObjectType="table"
+    DBObjectName="NEU_SOURCE_STAT_TBL"
+    AliasName="NeuSourceStatTbl"
+    BindingStyle="OracleName">
+    <Attribute
+        Name="MsgStatus"
+        IsNotNull="true"
+        Precision="1"
+        ColumnName="MSG_STATUS"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="NEU_SOURCE_STAT_TBL"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="1"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="MsgStatusDesc"
+        Precision="20"
+        ColumnName="MSG_STATUS_DESC"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="NEU_SOURCE_STAT_TBL">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Key
+        Name="NeuSourceStatTblPk"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DBObjectName" Value="NEU_SOURCE_STAT_TBL_PK"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.NeuSourceStatTbl.MsgStatus"/>
+        </AttrArray>
+    </Key>
+</Entity>

@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="newContractSetup">
+    <default-activity>clearNewContract</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__35">
+      <name>ContractType</name>
+      <value>#{pageFlowScope.ContractType}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <managed-bean id="__2">
+      <managed-bean-name>XpeDccNewContractMBean</managed-bean-name>
+      <managed-bean-class>view.XpeDccNewContractMBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__25">
+      <managed-bean-name>XpeDccNewContractBBean</managed-bean-name>
+      <managed-bean-class>view.XpeDccNewContractBBean</managed-bean-class>
+      <managed-bean-scope>backingBean</managed-bean-scope>
+    </managed-bean>
+    <view id="customer">
+      <page>/newContractSetup1.jsff</page>
+      <train-stop>
+        <display-name>Customer</display-name>
+        <sequential>true</sequential>
+      </train-stop>
+    </view>
+    <view id="contractHeaderVersion">
+      <page>/newContractSetup.jsff</page>
+      <train-stop>
+        <display-name>Contract Header</display-name>
+        <outcome>CreateHeaderVersion</outcome>
+        <sequential>false</sequential>
+      </train-stop>
+      <input-page-parameter id="__1">
+        <from-value>#{'one'}</from-value>
+        <to-value>#{pageFlowScope.contractDataEntryFacet}</to-value>
+      </input-page-parameter>
+    </view>
+    <view id="contractVersion">
+      <page>/newContractSetup.jsff</page>
+      <train-stop>
+        <display-name>Contract Version</display-name>
+        <sequential>true</sequential>
+      </train-stop>
+      <input-page-parameter id="__3">
+        <from-value>#{'two'}</from-value>
+        <to-value>#{pageFlowScope.contractDataEntryFacet}</to-value>
+      </input-page-parameter>
+    </view>
+    <view id="contractLinePriceCarrier">
+      <page>/newContractSetup.jsff</page>
+      <train-stop>
+        <display-name>Contract LPC</display-name>
+        <outcome>CreateLPC</outcome>
+        <sequential>false</sequential>
+      </train-stop>
+      <input-page-parameter id="__4">
+        <from-value>#{'three'}</from-value>
+        <to-value>#{pageFlowScope.contractDataEntryFacet}</to-value>
+      </input-page-parameter>
+    </view>
+    <view id="contractNotes">
+      <page>/newContractSetup.jsff</page>
+      <train-stop>
+        <display-name>Contract Notes</display-name>
+        <outcome>CreateNotes</outcome>
+        <sequential>false</sequential>
+      </train-stop>
+      <input-page-parameter id="__6">
+        <from-value>#{'four'}</from-value>
+        <to-value>#{pageFlowScope.contractDataEntryFacet}</to-value>
+      </input-page-parameter>
+    </view>
+    <view id="review">
+      <page>/newContractSetup2.jsff</page>
+     <train-stop>
+        <display-name>Review</display-name>
+        <sequential>true</sequential>
+      </train-stop>
+      <input-page-parameter id="__8">
+        <from-value>#{'five'}</from-value>
+        <to-value>#{pageFlowScope.contractDataEntryFacet}</to-value>
+      </input-page-parameter>
+    </view>
+    <view id="success">
+      <page>/newContractSetup2.jsff</page>
+      <input-page-parameter id="__10">
+        <from-value>#{'eight'}</from-value>
+        <to-value>#{pageFlowScope.contractDataEntryFacet}</to-value>
+      </input-page-parameter>
+    </view>
+    <method-call id="NewContractHeaderCreateInsert">
+      <method>#{pageFlowScope.XpeDccNewContractMBean.initializeVersionRow}</method>
+      <outcome>
+        <fixed-outcome>NewContractHeaderCreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="NewContractNotesCreateInsert">
+      <method>#{pageFlowScope.XpeDccNewContractMBean.initializeNewContractNotesRow}</method>
+      <outcome>
+        <fixed-outcome>NewContractNotesCreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <task-flow-return id="taskFlowReturn">
+      <outcome>
+        <name>parent</name>
+      </outcome>
+    </task-flow-return>
+    <method-call id="clearNewContract">
+      <method>#{bindings.clearNewContract.execute}</method>
+      <outcome>
+        <fixed-outcome>clearNewContract</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="LPCCreateInsert">
+      <method>#{pageFlowScope.XpeDccNewContractMBean.initializeNewLPCRow}</method>
+      <outcome>
+        <fixed-outcome>LPCCreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="termsAndConditions">
+      <page>/newContractSetup2.jsff</page>
+      <train-stop>
+        <display-name>Terms and Conditions</display-name>
+        <sequential>true</sequential>
+      </train-stop>
+      <input-page-parameter id="__24">
+        <from-value>#{'six'}</from-value>
+        <to-value>#{pageFlowScope.contractDataEntryFacet}</to-value>
+      </input-page-parameter>
+    </view>
+    <view id="previewPDF">
+      <page>/newContractSetup2.jsff</page>
+      <train-stop>
+        <display-name>Preview</display-name>
+        <outcome>PreviewPDF</outcome>
+        <sequential>false</sequential>
+      </train-stop>
+      <input-page-parameter id="__26">
+        <from-value>#{'seven'}</from-value>
+        <to-value>#{pageFlowScope.contractDataEntryFacet}</to-value>
+      </input-page-parameter>
+    </view>
+    <method-call id="BuildPDF">
+      <method>#{pageFlowScope.XpeDccNewContractMBean.buildPDF}</method>
+      <outcome>
+        <fixed-outcome>BuildPDF</fixed-outcome>
+      </outcome>
+    </method-call>
+    <train/>
+    <control-flow-rule id="__5">
+      <from-activity-id>NewContractHeaderCreateInsert</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>NewContractHeaderCreateInsert</from-outcome>
+        <to-activity-id>contractHeaderVersion</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__15">
+      <from-activity-id>NewContractNotesCreateInsert</from-activity-id>
+      <control-flow-case id="__16">
+        <from-outcome>NewContractNotesCreateInsert</from-outcome>
+        <to-activity-id>contractNotes</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__17">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__18">
+        <from-outcome>CreateHeaderVersion</from-outcome>
+        <to-activity-id>NewContractHeaderCreateInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__14">
+        <from-outcome>CreateNotes</from-outcome>
+        <to-activity-id>NewContractNotesCreateInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__23">
+        <from-outcome>CreateLPC</from-outcome>
+        <to-activity-id>LPCCreateInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__27">
+        <from-outcome>PreviewPDF</from-outcome>
+        <to-activity-id>BuildPDF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__11">
+      <from-activity-id>success</from-activity-id>
+      <control-flow-case id="__12">
+        <from-outcome>parent</from-outcome>
+        <to-activity-id>taskFlowReturn</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__20">
+      <from-activity-id>clearNewContract</from-activity-id>
+      <control-flow-case id="__21">
+        <from-outcome>clearNewContract</from-outcome>
+        <to-activity-id>customer</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__9">
+      <from-activity-id>LPCCreateInsert</from-activity-id>
+      <control-flow-case id="__22">
+        <from-outcome>LPCCreateInsert</from-outcome>
+        <to-activity-id>contractLinePriceCarrier</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__13">
+      <from-activity-id>previewPDF</from-activity-id>
+      <control-flow-case id="__19">
+        <from-outcome>success</from-outcome>
+        <to-activity-id>success</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__28">
+      <from-activity-id>BuildPDF</from-activity-id>
+      <control-flow-case id="__29">
+        <from-outcome>BuildPDF</from-outcome>
+        <to-activity-id>previewPDF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

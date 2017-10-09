@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="addDestinationPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XpeDccCfgNewDestinationsCreationEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewDestinationsCreationEOVOIterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="XpeDccCfgNewDstAssTerminalsCreationEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewDstAssTerminalsCreationEOVOIterator" ChangeEventPolicy="ppr"/>
+    <taskFlow id="terminalSearch1" taskFlowId="/WEB-INF/terminalSearch.xml#terminalSearch" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="XpeDccCfgNewDestinationsCreationEOVOIterator" id="DestinationDesc">
+      <AttrNames>
+        <Item Value="DestinationDesc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewDestinationsCreationEOVOIterator" id="DestinationId">
+      <AttrNames>
+        <Item Value="DestinationId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgNewDestinationsCreationEOVOIterator" StaticList="false" Uses="LOV_Inactive"
+          id="Inactive" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgNewDestinationsCreationEOVOIterator" id="State">
+      <AttrNames>
+        <Item Value="State"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="XpeDccCfgNewDstAssTerminalsCreationEOVOIterator" id="XpeDccCfgNewDstAssTerminalsCreationEOVO">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccCfgDstAssTerminalsEOVO"
+                      Name="XpeDccCfgNewDstAssTerminalsCreationEOVO0">
+        <AttrNames>
+          <Item Value="Inactive"/>
+          <Item Value="InactiveDate"/>
+          <Item Value="TerminalDesc"/>
+          <Item Value="TerminalId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+  </bindings>
+</pageDefinition>

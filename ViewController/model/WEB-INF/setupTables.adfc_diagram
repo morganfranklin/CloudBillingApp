@@ -1,0 +1,26 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">setupTable</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="start">true</property>
+      <property
+         name="x">364.5</property>
+      <property
+         name="y">382.09766</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>setupTable&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="page">/setupTable.jsff</property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="thumbnailExpanded">false</property>
+   </View>
+</SDM>

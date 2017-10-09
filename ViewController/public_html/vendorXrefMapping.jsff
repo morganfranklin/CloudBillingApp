@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGridLayout id="pgl1">
+        <af:gridRow marginTop="5px" height="85px" id="gr1">
+            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1" halign="stretch" valign="stretch">
+                <af:panelBox text="Cross-reference Data" id="pb1" showDisclosure="false" background="light">
+                    <f:facet name="toolbar"/>
+                    <af:panelGridLayout id="pgl2">
+                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3">
+                                <af:button text="Refresh" id="b1"/>
+                                <af:button text="Scan Folder" id="b2" disabled="true"/>
+                                <af:button text="Forced Refresh" id="b3" disabled="true"/>
+                                <af:button text="Tiered Pricing" id="b4"/>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </af:panelBox>
+            </af:gridCell>
+        </af:gridRow>
+        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
+            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" halign="stretch" valign="stretch">
+                <af:panelBox text="Mapping Tables" id="pb2" showDisclosure="false">
+                    <f:facet name="toolbar"/>
+                    <af:panelTabbed position="above" id="pt1" dimensionsFrom="parent" inlineStyle="width:636px;">
+                        <af:showDetailItem id="tab1" text="Vendor-Ocn Mapping" disclosed="true">
+                            <af:panelGridLayout id="pgl3" dimensionsFrom="children">
+                                <af:gridRow marginTop="5px" id="gr5" height="145px">
+                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5"
+                                                 halign="stretch">
+                                        <af:table value="#{bindings.NeuTnsVndrXrefView1.collectionModel}" var="row"
+                                                  rows="#{bindings.NeuTnsVndrXrefView1.rangeSize}"
+                                                  emptyText="#{bindings.NeuTnsVndrXrefView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                  rowBandingInterval="0"
+                                                  fetchSize="#{bindings.NeuTnsVndrXrefView1.rangeSize}"
+                                                  filterModel="#{bindings.NeuTnsVndrXrefView1Query.queryDescriptor}"
+                                                  filterVisible="true"
+                                                  queryListener="#{bindings.NeuTnsVndrXrefView1Query.processQuery}"
+                                                  varStatus="vs" id="t1">
+                                            <af:column sortProperty="#{bindings.NeuTnsVndrXrefView1.hints.Ocn.name}"
+                                                       filterable="true" sortable="true"
+                                                       headerText="#{bindings.NeuTnsVndrXrefView1.hints.Ocn.label}"
+                                                       id="c1">
+                                                <af:inputListOfValues id="ocnId"
+                                                                      popupTitle="Search and Select: #{bindings.NeuTnsVndrXrefView1.hints.Ocn.label}"
+                                                                      value="#{row.bindings.Ocn.inputValue}"
+                                                                      model="#{row.bindings.Ocn.listOfValuesModel}"
+                                                                      required="#{bindings.NeuTnsVndrXrefView1.hints.Ocn.mandatory}"
+                                                                      columns="#{bindings.NeuTnsVndrXrefView1.hints.Ocn.displayWidth}"
+                                                                      shortDesc="#{bindings.NeuTnsVndrXrefView1.hints.Ocn.tooltip}">
+                                                    <f:validator binding="#{row.bindings.Ocn.validator}"/>
+                                                </af:inputListOfValues>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.NeuTnsVndrXrefView1.hints.MsgType.name}"
+                                                       filterable="true" sortable="true"
+                                                       headerText="#{bindings.NeuTnsVndrXrefView1.hints.MsgType.label}"
+                                                       id="c2">
+                                                <af:inputText value="#{row.bindings.MsgType.inputValue}"
+                                                              label="#{bindings.NeuTnsVndrXrefView1.hints.MsgType.label}"
+                                                              required="#{bindings.NeuTnsVndrXrefView1.hints.MsgType.mandatory}"
+                                                              columns="#{bindings.NeuTnsVndrXrefView1.hints.MsgType.displayWidth}"
+                                                              maximumLength="#{bindings.NeuTnsVndrXrefView1.hints.MsgType.precision}"
+                                                              shortDesc="#{bindings.NeuTnsVndrXrefView1.hints.MsgType.tooltip}"
+                                                              id="it1">
+                                                    <f:validator binding="#{row.bindings.MsgType.validator}"/>
+                                                </af:inputText>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.NeuTnsVndrXrefView1.hints.VendorId.name}"
+                                                       filterable="true" sortable="true" headerText="Vendor Id" id="c3">
+                                                <af:inputListOfValues id="vendorIdId"
+                                                                      popupTitle="Search and Select: #{bindings.NeuTnsVndrXrefView1.hints.VendorId.label}"
+                                                                      value="#{row.bindings.VendorId.inputValue}"
+                                                                      model="#{row.bindings.VendorId.listOfValuesModel}"
+                                                                      required="#{bindings.NeuTnsVndrXrefView1.hints.VendorId.mandatory}"
+                                                                      columns="#{bindings.NeuTnsVndrXrefView1.hints.VendorId.displayWidth}"
+                                                                      shortDesc="#{bindings.NeuTnsVndrXrefView1.hints.VendorId.tooltip}">
+                                                    <f:validator binding="#{row.bindings.VendorId.validator}"/>
+                                                </af:inputListOfValues>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.NeuTnsVndrXrefView1.hints.EffDate.name}"
+                                                       filterable="true" sortable="true"
+                                                       headerText="#{bindings.NeuTnsVndrXrefView1.hints.EffDate.label}"
+                                                       id="c4">
+                                                <f:facet name="filter">
+                                                    <af:inputDate value="#{bindings.NeuTnsVndrXrefView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.EffDate.value}"
+                                                                  id="id1">
+                                                        <af:convertDateTime pattern="#{bindings.NeuTnsVndrXrefView1.hints.EffDate.format}"/>
+                                                    </af:inputDate>
+                                                </f:facet>
+                                                <af:inputDate value="#{row.bindings.EffDate.inputValue}"
+                                                              label="#{bindings.NeuTnsVndrXrefView1.hints.EffDate.label}"
+                                                              required="#{bindings.NeuTnsVndrXrefView1.hints.EffDate.mandatory}"
+                                                              columns="#{bindings.NeuTnsVndrXrefView1.hints.EffDate.displayWidth}"
+                                                              shortDesc="#{bindings.NeuTnsVndrXrefView1.hints.EffDate.tooltip}"
+                                                              id="id2">
+                                                    <f:validator binding="#{row.bindings.EffDate.validator}"/>
+                                                    <af:convertDateTime pattern="#{bindings.NeuTnsVndrXrefView1.hints.EffDate.format}"/>
+                                                </af:inputDate>
+                                            </af:column>
+                                        </af:table>
+                                    </af:gridCell>
+                                </af:gridRow>
+                                <af:gridRow marginTop="5px" marginBottom="5px" id="gr6">
+                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6"
+                                                 halign="stretch">
+                                        <af:panelFormLayout id="pfl1">
+                                            <af:inputText value="#{bindings.CalcPercent.inputValue}" label="Prefix"
+                                                          required="#{bindings.CalcPercent.hints.mandatory}"
+                                                          columns="#{bindings.CalcPercent.hints.displayWidth}"
+                                                          maximumLength="#{bindings.CalcPercent.hints.precision}"
+                                                          shortDesc="#{bindings.CalcPercent.hints.tooltip}" id="it2">
+                                                <f:validator binding="#{bindings.CalcPercent.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.CalcPercent.format}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.CalcRate.inputValue}" label="Suffix"
+                                                          required="#{bindings.CalcRate.hints.mandatory}"
+                                                          columns="#{bindings.CalcRate.hints.displayWidth}"
+                                                          maximumLength="#{bindings.CalcRate.hints.precision}"
+                                                          shortDesc="#{bindings.CalcRate.hints.tooltip}" id="it3">
+                                                <f:validator binding="#{bindings.CalcRate.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.CalcRate.format}"/>
+                                            </af:inputText>
+                                        </af:panelFormLayout>
+                                    </af:gridCell>
+                                </af:gridRow>
+                            </af:panelGridLayout>
+                        </af:showDetailItem>
+                        <af:showDetailItem id="tab2" text="Customer-Opc Mapping">
+                            <af:panelGridLayout id="pgl4">
+                                <af:gridRow marginTop="5px" height="auto" id="gr4">
+                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4">
+                                        <af:table value="#{bindings.NeuTnsCustXrefView1.collectionModel}" var="row"
+                                                  rows="#{bindings.NeuTnsCustXrefView1.rangeSize}"
+                                                  emptyText="#{bindings.NeuTnsCustXrefView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                  rowBandingInterval="0"
+                                                  selectedRowKeys="#{bindings.NeuTnsCustXrefView1.collectionModel.selectedRow}"
+                                                  selectionListener="#{bindings.NeuTnsCustXrefView1.collectionModel.makeCurrent}"
+                                                  rowSelection="single"
+                                                  fetchSize="#{bindings.NeuTnsCustXrefView1.rangeSize}"
+                                                  filterModel="#{bindings.NeuTnsCustXrefView1Query.queryDescriptor}"
+                                                  filterVisible="true"
+                                                  queryListener="#{bindings.NeuTnsCustXrefView1Query.processQuery}"
+                                                  varStatus="vs" id="t2">
+                                            <af:column sortProperty="#{bindings.NeuTnsCustXrefView1.hints.Opc.name}"
+                                                       filterable="true" sortable="true"
+                                                       headerText="#{bindings.NeuTnsCustXrefView1.hints.Opc.label}"
+                                                       id="c5">
+                                                <af:inputComboboxListOfValues id="opcId"
+                                                                              popupTitle="Search and Select: #{bindings.NeuTnsCustXrefView1.hints.Opc.label}"
+                                                                              value="#{row.bindings.Opc.inputValue}"
+                                                                              model="#{row.bindings.Opc.listOfValuesModel}"
+                                                                              required="#{bindings.NeuTnsCustXrefView1.hints.Opc.mandatory}"
+                                                                              columns="#{bindings.NeuTnsCustXrefView1.hints.Opc.displayWidth}"
+                                                                              shortDesc="#{bindings.NeuTnsCustXrefView1.hints.Opc.tooltip}">
+                                                    <f:validator binding="#{row.bindings.Opc.validator}"/>
+                                                </af:inputComboboxListOfValues>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.NeuTnsCustXrefView1.hints.MsgType.name}"
+                                                       filterable="true" sortable="true"
+                                                       headerText="#{bindings.NeuTnsCustXrefView1.hints.MsgType.label}"
+                                                       id="c6">
+                                                <af:inputText value="#{row.bindings.MsgType.inputValue}"
+                                                              label="#{bindings.NeuTnsCustXrefView1.hints.MsgType.label}"
+                                                              required="#{bindings.NeuTnsCustXrefView1.hints.MsgType.mandatory}"
+                                                              columns="#{bindings.NeuTnsCustXrefView1.hints.MsgType.displayWidth}"
+                                                              maximumLength="#{bindings.NeuTnsCustXrefView1.hints.MsgType.precision}"
+                                                              shortDesc="#{bindings.NeuTnsCustXrefView1.hints.MsgType.tooltip}"
+                                                              id="it4">
+                                                    <f:validator binding="#{row.bindings.MsgType.validator}"/>
+                                                </af:inputText>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.NeuTnsCustXrefView1.hints.CustId.name}"
+                                                       filterable="true" sortable="true" headerText="Customer Id"
+                                                       id="c7">
+                                                <af:inputComboboxListOfValues id="custIdId"
+                                                                              popupTitle="Search and Select: #{bindings.NeuTnsCustXrefView1.hints.CustId.label}"
+                                                                              value="#{row.bindings.CustId.inputValue}"
+                                                                              model="#{row.bindings.CustId.listOfValuesModel}"
+                                                                              required="#{bindings.NeuTnsCustXrefView1.hints.CustId.mandatory}"
+                                                                              columns="#{bindings.NeuTnsCustXrefView1.hints.CustId.displayWidth}"
+                                                                              shortDesc="#{bindings.NeuTnsCustXrefView1.hints.CustId.tooltip}">
+                                                    <f:validator binding="#{row.bindings.CustId.validator}"/>
+                                                </af:inputComboboxListOfValues>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.NeuTnsCustXrefView1.hints.EffDate.name}"
+                                                       filterable="true" sortable="true"
+                                                       headerText="#{bindings.NeuTnsCustXrefView1.hints.EffDate.label}"
+                                                       id="c8">
+                                                <f:facet name="filter">
+                                                    <af:inputDate value="#{bindings.NeuTnsCustXrefView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.EffDate.value}"
+                                                                  id="id3">
+                                                        <af:convertDateTime pattern="#{bindings.NeuTnsCustXrefView1.hints.EffDate.format}"/>
+                                                    </af:inputDate>
+                                                </f:facet>
+                                                <af:inputDate value="#{row.bindings.EffDate.inputValue}"
+                                                              label="#{bindings.NeuTnsCustXrefView1.hints.EffDate.label}"
+                                                              required="#{bindings.NeuTnsCustXrefView1.hints.EffDate.mandatory}"
+                                                              columns="#{bindings.NeuTnsCustXrefView1.hints.EffDate.displayWidth}"
+                                                              shortDesc="#{bindings.NeuTnsCustXrefView1.hints.EffDate.tooltip}"
+                                                              id="id4">
+                                                    <f:validator binding="#{row.bindings.EffDate.validator}"/>
+                                                    <af:convertDateTime pattern="#{bindings.NeuTnsCustXrefView1.hints.EffDate.format}"/>
+                                                </af:inputDate>
+                                            </af:column>
+                                        </af:table>
+                                    </af:gridCell>
+                                </af:gridRow>
+                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr7">
+                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc7">
+                                        <af:panelFormLayout id="pfl2">
+                                            <af:inputText value="#{bindings.BillRate.inputValue}" label="Suffix"
+                                                          required="#{bindings.BillRate.hints.mandatory}"
+                                                          columns="#{bindings.BillRate.hints.displayWidth}"
+                                                          maximumLength="#{bindings.BillRate.hints.precision}"
+                                                          shortDesc="#{bindings.BillRate.hints.tooltip}" id="it5">
+                                                <f:validator binding="#{bindings.BillRate.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.BillRate.format}"/>
+                                            </af:inputText>
+                                            <af:selectBooleanCheckbox value="#{bindings.SwitchTrans.inputValue}"
+                                                                      label="#{bindings.SwitchTrans.label}"
+                                                                      shortDesc="#{bindings.SwitchTrans.hints.tooltip}"
+                                                                      id="sbc1"/>
+                                        </af:panelFormLayout>
+                                    </af:gridCell>
+                                </af:gridRow>
+                            </af:panelGridLayout>
+                        </af:showDetailItem>
+                    </af:panelTabbed>
+                </af:panelBox>
+            </af:gridCell>
+        </af:gridRow>
+    </af:panelGridLayout>
+</ui:composition>

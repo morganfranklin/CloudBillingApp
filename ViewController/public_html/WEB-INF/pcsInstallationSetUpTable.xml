@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="pcsInstallationSetUpTable">
+    <default-activity>pcsInstallationSetUp</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__13">
+      <managed-bean-name>PcsInstallationSetUpTableMBean</managed-bean-name>
+      <managed-bean-class>view.PcsInstallationSetUpTableMBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__14">
+      <managed-bean-name>PcsInstallationSetUpTableBBean</managed-bean-name>
+      <managed-bean-class>view.PcsInstallationSetUpTableBBean</managed-bean-class>
+      <managed-bean-scope>backingBean</managed-bean-scope>
+    </managed-bean>
+    <view id="pcsInstallationSetUp">
+      <page>/pcsInstallationSetUp.jsff</page>
+    </view>
+    <method-call id="SetCurrentRowWithKeyValue">
+      <method>#{bindings.setCurrentRowWithKeyValue.execute}</method>
+      <outcome>
+        <fixed-outcome>setCurrentRowWithKeyValue</fixed-outcome>
+      </outcome>
+    </method-call>
+    <router id="AddOrEdit">
+      <case id="__8">
+        <expression>#{pageFlowScope.NavFlow eq 'EDIT'}</expression>
+        <outcome>Edit</outcome>
+      </case>
+      <default-outcome>Add</default-outcome>
+    </router>
+    <view id="AddPcsSites">
+      <page>/AddPcsSites.jsff</page>
+    </view>
+    <view id="EditPcsSites">
+      <page>/EditPcsSites.jsff</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>pcsInstallationSetUp</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>setCurrentRow</from-outcome>
+        <to-activity-id>SetCurrentRowWithKeyValue</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>SetCurrentRowWithKeyValue</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>setCurrentRowWithKeyValue</from-outcome>
+        <to-activity-id>AddOrEdit</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>AddOrEdit</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>Add</from-outcome>
+        <to-activity-id>AddPcsSites</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__7">
+        <from-outcome>Edit</from-outcome>
+        <to-activity-id>EditPcsSites</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__9">
+      <from-activity-id>EditPcsSites</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome>Back</from-outcome>
+        <to-activity-id>pcsInstallationSetUp</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__11">
+      <from-activity-id>AddPcsSites</from-activity-id>
+      <control-flow-case id="__12">
+        <from-outcome>Back</from-outcome>
+        <to-activity-id>pcsInstallationSetUp</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

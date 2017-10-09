@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XpeDccCfgOriginsFkAssoc"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="XpeDccCfgOriginsEO"
+    Cardinality="1"
+    Source="true"
+    Owner="model.entities.XpeDccCfgOriginsEO"
+    CascadeDelete="true"
+    LockLevel="NONE"
+    CascadeUpdate="true">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="XpeDccCfgOriginsEO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgOriginsEO.OriginId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="XpeDccCfgOgnAssTerminalsEO"
+    Cardinality="-1"
+    Owner="model.entities.XpeDccCfgOgnAssTerminalsEO"
+    HasOwner="true">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="XpeDccCfgOgnAssTerminalsEO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgOgnAssTerminalsEO.OriginId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

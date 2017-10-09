@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.0.31" id="DataBindings"
+             SeparateXMLFiles="false" Package="view" ClientType="Generic">
+    <definitionFactories>
+        <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+                 className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+        <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+        <factory nameSpace="http://xmlns.oracle.com/adfm/dvt"
+                 className="oracle.adfinternal.view.faces.dvt.model.binding.FacesBindingFactory"/>
+    </definitionFactories>
+    <pageMap>
+        <page path="/IntegrationDash.jsf" usageId="view_IntegrationDashPageDef"/>
+        <page path="/transmittedDataView.jsff" usageId="view_transmittedDataViewPageDef"/>
+        <page path="/distilledData.jsff" usageId="view_distilledDataPageDef"/>
+        <page path="/vendorXrefMapping.jsff" usageId="view_vendorXrefMappingPageDef"/>
+        <page path="/billingEvents.jsff" usageId="view_billingEventsPageDef"/>
+        <page path="/voucherEvents.jsff" usageId="view_voucherEventsPageDef"/>
+        <page path="/rulesetDefinition.jsff" usageId="view_rulesetDefinitionPageDef"/>
+        <page path="/lookupSets.jsff" usageId="view_lookupSetsPageDef"/>
+        <page path="/mappedContracts.jsff" usageId="view_mappedContractsPageDef"/>
+        <page path="/executionPlan.jsff" usageId="view_executionPlanPageDef"/>
+        <page path="/rulesets.jsff" usageId="view_rulesetsPageDef"/>
+        <page path="/WEB-INF/actions.xml#actions@ExecuteWithParams"
+              usageId="view_actions_actions_ExecuteWithParamsPageDef"/>
+        <page path="/adminStats.jsff" usageId="view_adminStatsPageDef"/>
+        <page path="/contractMaster.jsff" usageId="view_contractMasterPageDef"/>
+        <page path="/dccContractSearch.jsff" usageId="view_dccContractSearchPageDef"/>
+        <page path="/dccContractMain.jsff" usageId="view_dccContractMainPageDef"/>
+        <page path="/dccContractVersion.jsff" usageId="view_dccContractVersionPageDef"/>
+        <page path="/dccContractLine.jsff" usageId="view_dccContractLinePageDef"/>
+        <page path="/dccCarriers.jsff" usageId="view_dccCarriersPageDef"/>
+        <page path="/WEB-INF/dccContractMaintenance.xml#dccContractMaintenance@refreshAllVO"
+              usageId="view_dccContractMaintenance_dccContractMaintenance_refreshAllVOPageDef"/>
+        <page path="/WEB-INF/dccContractMaintenance.xml#dccContractMaintenance@reexecuteVersion"
+              usageId="view_dccContractMaintenance_dccContractMaintenance_Execute1PageDef"/>
+        <page path="/WEB-INF/dccContractMaintenance.xml#dccContractMaintenance@reexecuteContractLine"
+              usageId="view_dccContractMaintenance_dccContractMaintenance_Execute2PageDef"/>
+        <page path="/WEB-INF/dccContractMaintenance.xml#dccContractMaintenance@reexecuteCustomerSearch"
+              usageId="view_dccContractMaintenance_dccContractMaintenance_ExecutePageDef"/>
+        <page path="/dccAddContract.jsff" usageId="view_dccAddContractPageDef"/>
+        <page path="/WEB-INF/dccContractMaintenance.xml#dccContractMaintenance@InitializeVersionRow"
+              usageId="view_dccContractMaintenance_dccContractMaintenance_createVersionRowPageDef"/>
+        <page path="/newContractSetup.jsff" usageId="view_newContractSetupPageDef"/>
+        <page path="/WEB-INF/newContractSetup.xml#newContractSetup@NewContractHeaderCreateInsert"
+              usageId="view_newContractSetup_newContractSetup_CreateInsertPageDef"/>
+        <page path="/newContractSetup1.jsff" usageId="view_newContractSetup1PageDef"/>
+        <page path="/newContractSetup2.jsff" usageId="view_newContractSetup2PageDef"/>
+        <page path="/WEB-INF/newContractSetup.xml#newContractSetup@NewContractNotesCreateInsert"
+              usageId="view_newContractSetup_newContractSetup_CreateInsertPageDef1"/>
+        <page path="/dccTermMaster.jsff" usageId="view_dccTermMasterPageDef"/>
+        <page path="/dccTerms.jsff" usageId="view_dccTermsPageDef"/>
+        <page path="/WEB-INF/newContractSetup.xml#newContractSetup@clearNewContract"
+              usageId="view_newContractSetup_newContractSetup_clearNewContractPageDef"/>
+        <page path="/WEB-INF/termsMaster.xml#termsMaster@clearTermMaster"
+              usageId="view_termsMaster_termsMaster_clearTermMasterPageDef"/>
+        <page path="/terminalSetUp.jsff" usageId="view_terminalSetUpPageDef"/>
+        <page path="/setupTable.jsff" usageId="view_setupTablePageDef"/>
+        <page path="/searchDestination.jsff" usageId="view_searchDestinationPageDef"/>
+        <page path="/addDestination.jsff" usageId="view_addDestinationPageDef"/>
+        <page path="/editDestination.jsff" usageId="view_editDestinationPageDef"/>
+        <page path="/WEB-INF/newContractSetup.xml#newContractSetup@LPCCreateInsert"
+              usageId="view_newContractSetupP_newContractSetup_LPCCreateInsertPageDef"/>
+        <page path="/WEB-INF/newContractSetup.xml#newContractSetup@BuildPDF"
+              usageId="view_newContractSetupP_newContractSetup_BuildPDFPageDef"/>
+        <page path="/countiesSetUp.jsff" usageId="view_countiesSetUpPageDef"/>
+        <page path="/carriersSetUp.jsff" usageId="view_carriersSetUpPageDef"/>
+        <page path="/vehiclesSetUp.jsff" usageId="view_vehiclesSetUpPageDef"/>
+        <page path="/originsSetUp.jsff" usageId="view_originsSetUpPageDef"/>
+        <page path="/AddOriginSetUp.jsff" usageId="view_AddOriginSetUpPageDef"/>
+        <page path="/EditOriginSetUp.jsff" usageId="view_EditOriginSetUpPageDef"/>
+        <page path="/WEB-INF/originsSetUpTable.xml#originsSetUpTable@SetCurrentRowWithKeyValue"
+              usageId="view_originsSetUpTable_originsSetUpTable_SetCurrentRowWithKeyValuePageDef"/>
+        <page path="/pcsInstallationSetUp.jsff" usageId="view_pcsInstallationSetUpPageDef"/>
+        <page path="/WEB-INF/pcsInstallationSetUpTable.xml#pcsInstallationSetUpTable@SetCurrentRowWithKeyValue"
+              usageId="view_pcsInstallationSetUpTable_pcsInstallationSetUpTable_SetCurrentRowWithKeyValuePageDef"/>
+        <page path="/AddPcsSites.jsff" usageId="view_AddPcsSitesPageDef"/>
+        <page path="/EditPcsSites.jsff" usageId="view_EditPcsSitesPageDef"/>
+        <page path="/productServiceSetUp.jsff" usageId="view_productServiceSetUpPageDef"/>
+        <page path="/newContractSearch.jsff" usageId="view_newContractSearchPageDef"/>
+        <page path="/WEB-INF/productServiceSetUpTable.xml#productServiceSetUpTable@SetCurrentRowWithKeyValue"
+              usageId="view_productServiceSetUpTable_productServiceSetUpTable_SetCurrentRowWithKeyValuePageDef"/>
+        <page path="/addProductService.jsff" usageId="view_addProductServicePageDef"/>
+        <page path="/editProductService.jsff" usageId="view_editProductServicePageDef"/>
+        <page path="/generalSetUp.jsff" usageId="view_generalSetUpPageDef"/>
+    </pageMap>
+    <pageDefinitionUsages>
+        <page id="view_IntegrationDashPageDef" path="view.pageDefs.IntegrationDashPageDef"/>
+        <page id="view_transmittedDataViewPageDef" path="view.pageDefs.transmittedDataViewPageDef"/>
+        <page id="view_distilledDataPageDef" path="view.pageDefs.distilledDataPageDef"/>
+        <page id="view_vendorXrefMappingPageDef" path="view.pageDefs.vendorXrefMappingPageDef"/>
+        <page id="view_billingEventsPageDef" path="view.pageDefs.billingEventsPageDef"/>
+        <page id="view_voucherEventsPageDef" path="view.pageDefs.voucherEventsPageDef"/>
+        <page id="view_rulesetDefinitionPageDef" path="view.pageDefs.rulesetDefinitionPageDef"/>
+        <page id="view_lookupSetsPageDef" path="view.pageDefs.lookupSetsPageDef"/>
+        <page id="view_mappedContractsPageDef" path="view.pageDefs.mappedContractsPageDef"/>
+        <page id="view_executionPlanPageDef" path="view.pageDefs.executionPlanPageDef"/>
+        <page id="view_rulesetsPageDef" path="view.pageDefs.rulesetsPageDef"/>
+        <page id="view_actions_actions_ExecuteWithParamsPageDef"
+              path="view.pageDefs.actions_actions_ExecuteWithParamsPageDef"/>
+        <page id="view_adminStatsPageDef" path="view.pageDefs.adminStatsPageDef"/>
+        <page id="view_contractMasterPageDef" path="view.pageDefs.contractMasterPageDef"/>
+        <page id="view_dccContractSearchPageDef" path="view.pageDefs.dccContractSearchPageDef"/>
+        <page id="view_dccContractPageDef" path="view.pageDefs.dccContractPageDef"/>
+        <page id="view_dccContractMainPageDef" path="view.pageDefs.dccContractMainPageDef"/>
+        <page id="view_dccContractVersionPageDef" path="view.pageDefs.dccContractVersionPageDef"/>
+        <page id="view_dccContractLinePageDef" path="view.pageDefs.dccContractLinePageDef"/>
+        <page id="view_dccCarriersPageDef" path="view.pageDefs.dccCarriersPageDef"/>
+        <page id="view_dccContractMaintenance_dccContractMaintenance_ExecutePageDef"
+              path="view.pageDefs.dccContractMaintenance_dccContractMaintenance_ExecutePageDef"/>
+        <page id="view_dccContractMaintenance_dccContractMaintenance_Execute1PageDef"
+              path="view.pageDefs.dccContractMaintenance_dccContractMaintenance_Execute1PageDef"/>
+        <page id="view_dccContractMaintenance_dccContractMaintenance_Execute2PageDef"
+              path="view.pageDefs.dccContractMaintenance_dccContractMaintenance_Execute2PageDef"/>
+        <page id="view_dccContractMaintenance_dccContractMaintenance_refreshAllVOPageDef"
+              path="view.pageDefs.dccContractMaintenance_dccContractMaintenance_refreshAllVOPageDef"/>
+        <page id="view_dccAddContractPageDef" path="view.pageDefs.dccAddContractPageDef"/>
+        <page id="view_dccContractMaintenance_dccContractMaintenance_createVersionRowPageDef"
+              path="view.pageDefs.dccContractMaintenance_dccContractMaintenance_createVersionRowPageDef"/>
+        <page id="view_newContractSetupPageDef" path="view.pageDefs.newContractSetupPageDef"/>
+        <page id="view_newContractSetup_newContractSetup_CreateInsertPageDef"
+              path="view.pageDefs.newContractSetup_newContractSetup_CreateInsertPageDef"/>
+        <page id="view_newContractSetup1PageDef" path="view.pageDefs.newContractSetup1PageDef"/>
+        <page id="view_newContractSetup2PageDef" path="view.pageDefs.newContractSetup2PageDef"/>
+        <page id="view_newContractSetup_newContractSetup_CreateInsertPageDef1"
+              path="view.pageDefs.newContractSetup_newContractSetup_CreateInsertPageDef1"/>
+        <page id="view_dccTermMasterPageDef" path="view.pageDefs.dccTermMasterPageDef"/>
+        <page id="view_dccTermsPageDef" path="view.pageDefs.dccTermsPageDef"/>
+        <page id="view_newContractSetup_newContractSetup_clearNewContractPageDef"
+              path="view.pageDefs.newContractSetup_newContractSetup_clearNewContractPageDef"/>
+        <page id="view_termsMaster_termsMaster_clearTermMasterPageDef"
+              path="view.pageDefs.termsMaster_termsMaster_clearTermMasterPageDef"/>
+        <page id="view_terminalSetUpPageDef" path="view.pageDefs.terminalSetUpPageDef"/>
+        <page id="view_setupTablePageDef" path="view.pageDefs.setupTablePageDef"/>
+        <page id="view_searchDestinationPageDef" path="view.pageDefs.searchDestinationPageDef"/>
+        <page id="view_addDestinationPageDef" path="view.pageDefs.addDestinationPageDef"/>
+        <page id="view_editDestinationPageDef" path="view.pageDefs.editDestinationPageDef"/>
+        <page id="view_newContractSetupP_newContractSetup_LPCCreateInsertPageDef"
+              path="view.pageDefs.newContractSetupP_newContractSetup_LPCCreateInsertPageDef"/>
+        <page id="view_newContractSetupP_newContractSetup_BuildPDFPageDef"
+              path="view.pageDefs.newContractSetupP_newContractSetup_BuildPDFPageDef"/>
+        <page id="view_countiesSetUpPageDef" path="view.pageDefs.countiesSetUpPageDef"/>
+        <page id="view_carriersSetUpPageDef" path="view.pageDefs.carriersSetUpPageDef"/>
+        <page id="view_vehiclesSetUpPageDef" path="view.pageDefs.vehiclesSetUpPageDef"/>
+        <page id="view_originsSetUpPageDef" path="view.pageDefs.originsSetUpPageDef"/>
+        <page id="view_AddOriginSetUpPageDef" path="view.pageDefs.AddOriginSetUpPageDef"/>
+        <page id="view_EditOriginSetUpPageDef" path="view.pageDefs.EditOriginSetUpPageDef"/>
+        <page id="view_originsSetUpTable_originsSetUpTable_SetCurrentRowWithKeyValuePageDef"
+              path="view.pageDefs.originsSetUpTable_originsSetUpTable_SetCurrentRowWithKeyValuePageDef"/>
+        <page id="view_pcsInstallationSetUpPageDef" path="view.pageDefs.pcsInstallationSetUpPageDef"/>
+        <page id="view_pcsInstallationSetUpTable_pcsInstallationSetUpTable_SetCurrentRowWithKeyValuePageDef"
+              path="view.pageDefs.pcsInstallationSetUpTable_pcsInstallationSetUpTable_SetCurrentRowWithKeyValuePageDef"/>
+        <page id="view_AddPcsSitesPageDef" path="view.pageDefs.AddPcsSitesPageDef"/>
+        <page id="view_EditPcsSitesPageDef" path="view.pageDefs.EditPcsSitesPageDef"/>
+        <page id="view_productServiceSetUpPageDef" path="view.pageDefs.productServiceSetUpPageDef"/>
+        <page id="view_newContractSearchPageDef" path="view.pageDefs.newContractSearchPageDef"/>
+        <page id="view_productServiceSetUpTable_productServiceSetUpTable_SetCurrentRowWithKeyValuePageDef"
+              path="view.pageDefs.productServiceSetUpTable_productServiceSetUpTable_SetCurrentRowWithKeyValuePageDef"/>
+        <page id="view_addProductServicePageDef" path="view.pageDefs.addProductServicePageDef"/>
+        <page id="view_editProductServicePageDef" path="view.pageDefs.editProductServicePageDef"/>
+        <page id="view_generalSetUpPageDef" path="view.pageDefs.generalSetUpPageDef"/>
+    </pageDefinitionUsages>
+    <dataControlUsages>
+        <BC4JDataControl id="AppModuleDataControl" Package="model"
+                         FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                         SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                         SupportsSortCollection="true" Configuration="AppModuleLocal" syncMode="Immediate"
+                         xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    </dataControlUsages>
+</Application>

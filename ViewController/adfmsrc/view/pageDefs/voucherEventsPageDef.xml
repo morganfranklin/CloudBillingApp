@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="voucherEventsPageDef"
+                Package="view.pageDefs">
+    <parameters/>
+    <executables>
+        <variableIterator id="variables"/>
+        <iterator Binds="PsCisXpeProcessView1" RangeSize="25" DataControl="AppModuleDataControl"
+                  id="PsCisXpeProcessView1Iterator"/>
+        <searchRegion Binds="PsCisXpeProcessView1Iterator" Criteria=""
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="PsCisXpeProcessView1Query"/>
+    </executables>
+    <bindings>
+        <tree IterBinding="PsCisXpeProcessView1Iterator" id="PsCisXpeProcessView1">
+            <nodeDefinition DefName="model.PsCisXpeProcessView" Name="PsCisXpeProcessView10">
+                <AttrNames>
+                    <Item Value="Processid"/>
+                    <Item Value="CisExecPlanCode"/>
+                    <Item Value="CisExecPlanStep"/>
+                    <Item Value="CisExecutionSeq"/>
+                    <Item Value="StatusMsg"/>
+                    <Item Value="ActualStartDt"/>
+                    <Item Value="ActualFinishDt"/>
+                    <Item Value="LastUpdateDate"/>
+                    <Item Value="Descr100"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <action IterBinding="PsCisXpeProcessView1Iterator" id="Execute" RequiresUpdateModel="true"
+                Action="iteratorExecute"/>
+    </bindings>
+</pageDefinition>

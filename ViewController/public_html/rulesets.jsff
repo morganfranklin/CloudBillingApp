@@ -1,0 +1,547 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGridLayout id="pgl1">
+        <af:gridRow marginTop="5px" marginBottom="5px" id="gr2">
+            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" halign="stretch" valign="stretch">
+                <af:panelBox text="Rule sets #{bindings.CisRuleSetCode.inputValue}" id="pb2" showDisclosure="true">
+                    <f:facet name="toolbar"/>
+                    <af:table value="#{bindings.PsCisXpeRulesetView1.collectionModel}" var="row"
+                              rows="#{bindings.PsCisXpeRulesetView1.rangeSize}"
+                              emptyText="#{bindings.PsCisXpeRulesetView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.PsCisXpeRulesetView1.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.PsCisXpeRulesetView1.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.PsCisXpeRulesetView1.rangeSize}"
+                              filterModel="#{bindings.PsCisXpeRulesetView1Query.queryDescriptor}" filterVisible="true"
+                              queryListener="#{bindings.PsCisXpeRulesetView1Query.processQuery}" varStatus="vs" id="t1"
+                              partialTriggers="::b1 ::b8 ::b9 ::b10 ::b11 ::b12">
+                        <af:column sortProperty="#{bindings.PsCisXpeRulesetView1.hints.CisRuleSetCode.name}"
+                                   filterable="true" sortable="true" headerText="Rule Set Code" id="c1" width="211">
+                            <af:inputText value="#{row.bindings.CisRuleSetCode.inputValue}"
+                                          label="#{bindings.PsCisXpeRulesetView1.hints.CisRuleSetCode.label}"
+                                          required="#{bindings.PsCisXpeRulesetView1.hints.CisRuleSetCode.mandatory}"
+                                          columns="#{bindings.PsCisXpeRulesetView1.hints.CisRuleSetCode.displayWidth}"
+                                          maximumLength="#{bindings.PsCisXpeRulesetView1.hints.CisRuleSetCode.precision}"
+                                          shortDesc="#{bindings.PsCisXpeRulesetView1.hints.CisRuleSetCode.tooltip}"
+                                          id="it1">
+                                <f:validator binding="#{row.bindings.CisRuleSetCode.validator}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.PsCisXpeRulesetView1.hints.CisRuleSetDescr.name}"
+                                   filterable="true" sortable="true" headerText="Rule Set Description" id="c2"
+                                   width="227">
+                            <af:inputText value="#{row.bindings.CisRuleSetDescr.inputValue}"
+                                          label="#{bindings.PsCisXpeRulesetView1.hints.CisRuleSetDescr.label}"
+                                          required="#{bindings.PsCisXpeRulesetView1.hints.CisRuleSetDescr.mandatory}"
+                                          columns="#{bindings.PsCisXpeRulesetView1.hints.CisRuleSetDescr.displayWidth}"
+                                          maximumLength="#{bindings.PsCisXpeRulesetView1.hints.CisRuleSetDescr.precision}"
+                                          shortDesc="#{bindings.PsCisXpeRulesetView1.hints.CisRuleSetDescr.tooltip}"
+                                          id="it2">
+                                <f:validator binding="#{row.bindings.CisRuleSetDescr.validator}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.PsCisXpeRulesetView1.hints.ActiveFlag.name}"
+                                   filterable="true" sortable="true" headerText="Active / Inactive" id="c3" width="165">
+                            <af:selectOneChoice value="#{row.bindings.ActiveFlag.inputValue}"
+                                                label="#{row.bindings.ActiveFlag.label}"
+                                                required="#{bindings.PsCisXpeRulesetView1.hints.ActiveFlag.mandatory}"
+                                                shortDesc="#{bindings.PsCisXpeRulesetView1.hints.ActiveFlag.tooltip}"
+                                                id="soc1">
+                                <f:selectItems value="#{row.bindings.ActiveFlag.items}" id="si1"/>
+                                <f:validator binding="#{row.bindings.ActiveFlag.validator}"/>
+                            </af:selectOneChoice>
+                        </af:column>
+                    </af:table>
+                    <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
+                               disabled="#{!bindings.Commit.enabled}" id="b1"/>
+                    <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                               disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b8">
+                        <af:resetActionListener/>
+                    </af:button>
+                    <af:button actionListener="#{bindings.CreateInsert.execute}" text="Insert"
+                               disabled="#{!bindings.CreateInsert.enabled}" id="b9"/>
+                    <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                               disabled="#{!bindings.Delete.enabled}" id="b10"/>
+                    <af:button actionListener="#{bindings.First1.execute}" text="First"
+                               disabled="#{!bindings.First1.enabled}" partialSubmit="true" id="b11"/>
+                    <af:button actionListener="#{bindings.Last1.execute}" text="Last"
+                               disabled="#{!bindings.Last1.enabled}" partialSubmit="true" id="b12"/>
+                </af:panelBox>
+            </af:gridCell>
+        </af:gridRow>
+        <af:gridRow id="gr1">
+            <af:gridCell id="gc1" width="auto" halign="stretch">
+                <af:panelBox text="Rule #{bindings.CisRuleCode}" id="pb3">
+                    <f:facet name="toolbar"/>
+                    <af:table value="#{bindings.PsCisXpeRuleView2.collectionModel}" var="row"
+                              rows="#{bindings.PsCisXpeRuleView2.rangeSize}"
+                              emptyText="#{bindings.PsCisXpeRuleView2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.PsCisXpeRuleView2.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.PsCisXpeRuleView2.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.PsCisXpeRuleView2.rangeSize}"
+                              filterModel="#{bindings.PsCisXpeRuleView2Query.queryDescriptor}" filterVisible="true"
+                              queryListener="#{bindings.PsCisXpeRuleView2Query.processQuery}" varStatus="vs" id="t2"
+                              partialTriggers="::b4 ::b5 ::b6 ::b7">
+                        <af:column sortProperty="#{bindings.PsCisXpeRuleView2.hints.CisRuleCode.name}" filterable="true"
+                                   sortable="true" headerText="Rule Code" id="c4" width="175">
+                            <af:inputText value="#{row.bindings.CisRuleCode.inputValue}"
+                                          label="#{bindings.PsCisXpeRuleView2.hints.CisRuleCode.label}"
+                                          required="#{bindings.PsCisXpeRuleView2.hints.CisRuleCode.mandatory}"
+                                          columns="#{bindings.PsCisXpeRuleView2.hints.CisRuleCode.displayWidth}"
+                                          maximumLength="#{bindings.PsCisXpeRuleView2.hints.CisRuleCode.precision}"
+                                          shortDesc="#{bindings.PsCisXpeRuleView2.hints.CisRuleCode.tooltip}" id="it3">
+                                <f:validator binding="#{row.bindings.CisRuleCode.validator}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.PsCisXpeRuleView2.hints.SeqNbr.name}" filterable="true"
+                                   sortable="true" headerText="Sequence Number" id="c5" width="86">
+                            <af:inputText value="#{row.bindings.SeqNbr.inputValue}"
+                                          label="#{bindings.PsCisXpeRuleView2.hints.SeqNbr.label}"
+                                          required="#{bindings.PsCisXpeRuleView2.hints.SeqNbr.mandatory}"
+                                          columns="#{bindings.PsCisXpeRuleView2.hints.SeqNbr.displayWidth}"
+                                          maximumLength="#{bindings.PsCisXpeRuleView2.hints.SeqNbr.precision}"
+                                          shortDesc="#{bindings.PsCisXpeRuleView2.hints.SeqNbr.tooltip}" id="it4">
+                                <f:validator binding="#{row.bindings.SeqNbr.validator}"/>
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.PsCisXpeRuleView2.hints.SeqNbr.format}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.PsCisXpeRuleView2.hints.CisRuleName.name}" filterable="true"
+                                   sortable="true" headerText="Rule Description" id="c6" width="178">
+                            <af:inputText value="#{row.bindings.CisRuleName.inputValue}"
+                                          label="#{bindings.PsCisXpeRuleView2.hints.CisRuleName.label}"
+                                          required="#{bindings.PsCisXpeRuleView2.hints.CisRuleName.mandatory}"
+                                          columns="#{bindings.PsCisXpeRuleView2.hints.CisRuleName.displayWidth}"
+                                          maximumLength="#{bindings.PsCisXpeRuleView2.hints.CisRuleName.precision}"
+                                          shortDesc="#{bindings.PsCisXpeRuleView2.hints.CisRuleName.tooltip}" id="it5">
+                                <f:validator binding="#{row.bindings.CisRuleName.validator}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.PsCisXpeRuleView2.hints.CisConditionCode.name}"
+                                   filterable="true" sortable="true" headerText="Condition" id="c7" width="146">
+                            <af:selectOneChoice value="#{row.bindings.CisConditionCode.inputValue}"
+                                                label="#{row.bindings.CisConditionCode.label}"
+                                                required="#{bindings.PsCisXpeRuleView2.hints.CisConditionCode.mandatory}"
+                                                shortDesc="#{bindings.PsCisXpeRuleView2.hints.CisConditionCode.tooltip}"
+                                                id="soc2">
+                                <f:selectItems value="#{row.bindings.CisConditionCode.items}" id="si2"/>
+                                <f:validator binding="#{row.bindings.CisConditionCode.validator}"/>
+                            </af:selectOneChoice>
+                        </af:column>
+                    </af:table>
+                    <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
+                               disabled="#{!bindings.Commit.enabled}" id="b2"/>
+                    <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                               disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b3">
+                        <af:resetActionListener/>
+                    </af:button>
+                    <af:button actionListener="#{bindings.CreateInsert1.execute}" text="Insert"
+                               disabled="#{!bindings.CreateInsert1.enabled}" id="b4"/>
+                    <af:button actionListener="#{bindings.Delete1.execute}" text="Delete"
+                               disabled="#{!bindings.Delete1.enabled}" id="b5"/>
+                    <af:button actionListener="#{bindings.First.execute}" text="First"
+                               disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b6"/>
+                    <af:button actionListener="#{bindings.Last.execute}" text="Last"
+                               disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b7"/>
+                    <af:button actionListener="#{bindings.ExecuteWithParams.execute}" text="Refresh Actions"
+                               disabled="#{!bindings.ExecuteWithParams.enabled}" id="b19"/>
+                </af:panelBox>
+            </af:gridCell>
+        </af:gridRow>
+        <af:gridRow id="gr5">
+            <af:gridCell id="gc5" halign="stretch" valign="stretch">
+                <af:panelBox text="Configuration Details" id="pb4">
+                    <f:facet name="toolbar"/>
+                    <af:panelTabbed position="above" id="pt1" inlineStyle="width:auto;">
+                        <af:showDetailItem id="actions" text="Actions">
+                            <af:panelBox text="Action #{bindings.CisActionCode} Type " id="pb1">
+                                <f:facet name="toolbar"/>
+                                <af:table value="#{bindings.PsCisXpeActionView1.collectionModel}" var="row"
+                                          rows="#{bindings.PsCisXpeActionView1.rangeSize}"
+                                          emptyText="#{bindings.PsCisXpeActionView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.PsCisXpeActionView1.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.PsCisXpeActionView1.collectionModel.makeCurrent}"
+                                          rowSelection="single" fetchSize="#{bindings.PsCisXpeActionView1.rangeSize}"
+                                          filterModel="#{bindings.PsCisXpeActionView1Query.queryDescriptor}"
+                                          filterVisible="true"
+                                          queryListener="#{bindings.PsCisXpeActionView1Query.processQuery}"
+                                          varStatus="vs" id="t3" partialTriggers="::b19">
+                                    <af:column sortProperty="#{bindings.PsCisXpeActionView1.hints.CisActionCode.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.PsCisXpeActionView1.hints.CisActionCode.label}"
+                                               id="c8" width="203">
+                                        <af:inputText value="#{row.bindings.CisActionCode.inputValue}"
+                                                      label="#{bindings.PsCisXpeActionView1.hints.CisActionCode.label}"
+                                                      required="#{bindings.PsCisXpeActionView1.hints.CisActionCode.mandatory}"
+                                                      columns="#{bindings.PsCisXpeActionView1.hints.CisActionCode.displayWidth}"
+                                                      maximumLength="#{bindings.PsCisXpeActionView1.hints.CisActionCode.precision}"
+                                                      shortDesc="#{bindings.PsCisXpeActionView1.hints.CisActionCode.tooltip}"
+                                                      id="it6">
+                                            <f:validator binding="#{row.bindings.CisActionCode.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.PsCisXpeActionView1.hints.Actiontype.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.PsCisXpeActionView1.hints.Actiontype.label}"
+                                               id="c9" width="210">
+                                        <af:selectOneChoice value="#{row.bindings.Actiontype.inputValue}"
+                                                            label="#{row.bindings.Actiontype.label}"
+                                                            required="#{bindings.PsCisXpeActionView1.hints.Actiontype.mandatory}"
+                                                            shortDesc="#{bindings.PsCisXpeActionView1.hints.Actiontype.tooltip}"
+                                                            id="soc3">
+                                            <f:selectItems value="#{row.bindings.Actiontype.items}" id="si3"/>
+                                            <f:validator binding="#{row.bindings.Actiontype.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.PsCisXpeActionView1.hints.CisRuleCode.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.PsCisXpeActionView1.hints.CisRuleCode.label}"
+                                               id="c10" width="146">
+                                        <af:inputText value="#{row.bindings.CisRuleCode.inputValue}"
+                                                      label="#{bindings.PsCisXpeActionView1.hints.CisRuleCode.label}"
+                                                      required="#{bindings.PsCisXpeActionView1.hints.CisRuleCode.mandatory}"
+                                                      columns="#{bindings.PsCisXpeActionView1.hints.CisRuleCode.displayWidth}"
+                                                      maximumLength="#{bindings.PsCisXpeActionView1.hints.CisRuleCode.precision}"
+                                                      shortDesc="#{bindings.PsCisXpeActionView1.hints.CisRuleCode.tooltip}"
+                                                      id="it7">
+                                            <f:validator binding="#{row.bindings.CisRuleCode.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                </af:table>
+                                <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
+                                           disabled="#{!bindings.Commit.enabled}" id="b13"/>
+                                <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b14">
+                                    <af:resetActionListener/>
+                                </af:button>
+                                <af:button actionListener="#{bindings.CreateInsert2.execute}" text="Insert"
+                                           disabled="#{!bindings.CreateInsert2.enabled}" id="b15"/>
+                                <af:button actionListener="#{bindings.Delete2.execute}" text="Delete"
+                                           disabled="#{!bindings.Delete2.enabled}" id="b16"/>
+                                <af:button text="First" disabled="#{!bindings.First2.enabled}" partialSubmit="true"
+                                           id="b17" actionListener="#{bindings.First2.execute}"/>
+                                <af:button actionListener="#{bindings.Last2.execute}" text="Last"
+                                           disabled="#{!bindings.Last2.enabled}" partialSubmit="true" id="b18"/>
+                                <af:button actionListener="#{bindings.ExecuteWithParams1.execute}"
+                                           text="Refresh Mappings" disabled="#{!bindings.ExecuteWithParams1.enabled}"
+                                           id="b25"/>
+                            </af:panelBox>
+                            <af:panelFormLayout id="pfl1">
+                                <af:inputText value="#{bindings.CisCustomSql.inputValue}"
+                                              label="#{bindings.CisCustomSql.hints.label}"
+                                              required="#{bindings.CisCustomSql.hints.mandatory}"
+                                              columns="#{bindings.CisCustomSql.hints.displayWidth}"
+                                              maximumLength="#{bindings.CisCustomSql.hints.precision}"
+                                              shortDesc="#{bindings.CisCustomSql.hints.tooltip}" id="it8">
+                                    <f:validator binding="#{bindings.CisCustomSql.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.CisDetailCode.inputValue}"
+                                              label="#{bindings.CisDetailCode.hints.label}"
+                                              required="#{bindings.CisDetailCode.hints.mandatory}"
+                                              columns="#{bindings.CisDetailCode.hints.displayWidth}"
+                                              maximumLength="#{bindings.CisDetailCode.hints.precision}"
+                                              shortDesc="#{bindings.CisDetailCode.hints.tooltip}" id="it9">
+                                    <f:validator binding="#{bindings.CisDetailCode.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.DtlSeqNbr.inputValue}"
+                                              label="#{bindings.DtlSeqNbr.hints.label}"
+                                              required="#{bindings.DtlSeqNbr.hints.mandatory}"
+                                              columns="#{bindings.DtlSeqNbr.hints.displayWidth}"
+                                              maximumLength="#{bindings.DtlSeqNbr.hints.precision}"
+                                              shortDesc="#{bindings.DtlSeqNbr.hints.tooltip}" id="it10">
+                                    <f:validator binding="#{bindings.DtlSeqNbr.validator}"/>
+                                    <af:convertNumber groupingUsed="false" pattern="#{bindings.DtlSeqNbr.format}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.CisActionCode.inputValue}"
+                                              label="#{bindings.CisActionCode.hints.label}"
+                                              required="#{bindings.CisActionCode.hints.mandatory}"
+                                              columns="#{bindings.CisActionCode.hints.displayWidth}"
+                                              maximumLength="#{bindings.CisActionCode.hints.precision}"
+                                              shortDesc="#{bindings.CisActionCode.hints.tooltip}" id="it11">
+                                    <f:validator binding="#{bindings.CisActionCode.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.CisOperator1.inputValue}"
+                                              label="#{bindings.CisOperator1.hints.label}"
+                                              required="#{bindings.CisOperator1.hints.mandatory}"
+                                              columns="#{bindings.CisOperator1.hints.displayWidth}"
+                                              maximumLength="#{bindings.CisOperator1.hints.precision}"
+                                              shortDesc="#{bindings.CisOperator1.hints.tooltip}" id="it12">
+                                    <f:validator binding="#{bindings.CisOperator1.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.CisPrefix.inputValue}"
+                                              label="#{bindings.CisPrefix.hints.label}"
+                                              required="#{bindings.CisPrefix.hints.mandatory}"
+                                              columns="#{bindings.CisPrefix.hints.displayWidth}"
+                                              maximumLength="#{bindings.CisPrefix.hints.precision}"
+                                              shortDesc="#{bindings.CisPrefix.hints.tooltip}" id="it13">
+                                    <f:validator binding="#{bindings.CisPrefix.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.CisAttrLeft.inputValue}"
+                                              label="#{bindings.CisAttrLeft.hints.label}"
+                                              required="#{bindings.CisAttrLeft.hints.mandatory}"
+                                              columns="#{bindings.CisAttrLeft.hints.displayWidth}"
+                                              maximumLength="#{bindings.CisAttrLeft.hints.precision}"
+                                              shortDesc="#{bindings.CisAttrLeft.hints.tooltip}" id="it14">
+                                    <f:validator binding="#{bindings.CisAttrLeft.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.CisOperator2.inputValue}"
+                                              label="#{bindings.CisOperator2.hints.label}"
+                                              required="#{bindings.CisOperator2.hints.mandatory}"
+                                              columns="#{bindings.CisOperator2.hints.displayWidth}"
+                                              maximumLength="#{bindings.CisOperator2.hints.precision}"
+                                              shortDesc="#{bindings.CisOperator2.hints.tooltip}" id="it15">
+                                    <f:validator binding="#{bindings.CisOperator2.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.CisAttrRight.inputValue}"
+                                              label="#{bindings.CisAttrRight.hints.label}"
+                                              required="#{bindings.CisAttrRight.hints.mandatory}"
+                                              columns="#{bindings.CisAttrRight.hints.displayWidth}"
+                                              maximumLength="#{bindings.CisAttrRight.hints.precision}"
+                                              shortDesc="#{bindings.CisAttrRight.hints.tooltip}" id="it16">
+                                    <f:validator binding="#{bindings.CisAttrRight.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.CisAttrConst.inputValue}"
+                                              label="#{bindings.CisAttrConst.hints.label}"
+                                              required="#{bindings.CisAttrConst.hints.mandatory}"
+                                              columns="#{bindings.CisAttrConst.hints.displayWidth}"
+                                              maximumLength="#{bindings.CisAttrConst.hints.precision}"
+                                              shortDesc="#{bindings.CisAttrConst.hints.tooltip}" id="it17">
+                                    <f:validator binding="#{bindings.CisAttrConst.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.CisSuffixValue.inputValue}"
+                                              label="#{bindings.CisSuffixValue.hints.label}"
+                                              required="#{bindings.CisSuffixValue.hints.mandatory}"
+                                              columns="#{bindings.CisSuffixValue.hints.displayWidth}"
+                                              maximumLength="#{bindings.CisSuffixValue.hints.precision}"
+                                              shortDesc="#{bindings.CisSuffixValue.hints.tooltip}" id="it18">
+                                    <f:validator binding="#{bindings.CisSuffixValue.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.CisOperator3.inputValue}"
+                                              label="#{bindings.CisOperator3.hints.label}"
+                                              required="#{bindings.CisOperator3.hints.mandatory}"
+                                              columns="#{bindings.CisOperator3.hints.displayWidth}"
+                                              maximumLength="#{bindings.CisOperator3.hints.precision}"
+                                              shortDesc="#{bindings.CisOperator3.hints.tooltip}" id="it19">
+                                    <f:validator binding="#{bindings.CisOperator3.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.CisCustCondition.inputValue}"
+                                              label="#{bindings.CisCustCondition.hints.label}"
+                                              required="#{bindings.CisCustCondition.hints.mandatory}"
+                                              columns="#{bindings.CisCustCondition.hints.displayWidth}"
+                                              maximumLength="#{bindings.CisCustCondition.hints.precision}"
+                                              shortDesc="#{bindings.CisCustCondition.hints.tooltip}" id="it20">
+                                    <f:validator binding="#{bindings.CisCustCondition.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.CisCustomProcess.inputValue}"
+                                              label="#{bindings.CisCustomProcess.hints.label}"
+                                              required="#{bindings.CisCustomProcess.hints.mandatory}"
+                                              columns="#{bindings.CisCustomProcess.hints.displayWidth}"
+                                              maximumLength="#{bindings.CisCustomProcess.hints.precision}"
+                                              shortDesc="#{bindings.CisCustomProcess.hints.tooltip}" id="it21">
+                                    <f:validator binding="#{bindings.CisCustomProcess.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.Parm1.inputValue}" label="#{bindings.Parm1.hints.label}"
+                                              required="#{bindings.Parm1.hints.mandatory}"
+                                              columns="#{bindings.Parm1.hints.displayWidth}"
+                                              maximumLength="#{bindings.Parm1.hints.precision}"
+                                              shortDesc="#{bindings.Parm1.hints.tooltip}" id="it22">
+                                    <f:validator binding="#{bindings.Parm1.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.Parm2.inputValue}" label="#{bindings.Parm2.hints.label}"
+                                              required="#{bindings.Parm2.hints.mandatory}"
+                                              columns="#{bindings.Parm2.hints.displayWidth}"
+                                              maximumLength="#{bindings.Parm2.hints.precision}"
+                                              shortDesc="#{bindings.Parm2.hints.tooltip}" id="it23">
+                                    <f:validator binding="#{bindings.Parm2.validator}"/>
+                                </af:inputText>
+                                <f:facet name="footer">
+                                    <af:panelGroupLayout layout="vertical" id="pgl2">
+                                        <af:panelGroupLayout layout="horizontal" id="pgl3">
+                                            <af:button actionListener="#{bindings.First3.execute}" text="First3"
+                                                       disabled="#{!bindings.First3.enabled}" partialSubmit="true"
+                                                       id="b20"/>
+                                            <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
+                                                       disabled="#{!bindings.Previous.enabled}" partialSubmit="true"
+                                                       id="b21"/>
+                                            <af:button actionListener="#{bindings.Next.execute}" text="Next"
+                                                       disabled="#{!bindings.Next.enabled}" partialSubmit="true"
+                                                       id="b22"/>
+                                            <af:button actionListener="#{bindings.Last3.execute}" text="Last3"
+                                                       disabled="#{!bindings.Last3.enabled}" partialSubmit="true"
+                                                       id="b23"/>
+                                        </af:panelGroupLayout>
+                                        <af:button text="Submit" id="b24"/>
+                                    </af:panelGroupLayout>
+                                </f:facet>
+                            </af:panelFormLayout>
+                        </af:showDetailItem>
+                        <af:showDetailItem id="mapping" text="Mapping">
+                            <af:panelBox text="Mapping Definition" id="pb5">
+                                <f:facet name="toolbar"/>
+                                <af:table value="#{bindings.PsCisXpeMappingView1.collectionModel}" var="row"
+                                          rows="#{bindings.PsCisXpeMappingView1.rangeSize}"
+                                          emptyText="#{bindings.PsCisXpeMappingView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.PsCisXpeMappingView1.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.PsCisXpeMappingView1.collectionModel.makeCurrent}"
+                                          rowSelection="single" fetchSize="#{bindings.PsCisXpeMappingView1.rangeSize}"
+                                          filterModel="#{bindings.PsCisXpeMappingView1Query.queryDescriptor}"
+                                          filterVisible="true"
+                                          queryListener="#{bindings.PsCisXpeMappingView1Query.processQuery}"
+                                          varStatus="vs" id="t4" partialTriggers="::b25 ::b26 ::b27 ::b33 ::b34">
+                                    <af:column sortProperty="#{bindings.PsCisXpeMappingView1.hints.Tablename.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.PsCisXpeMappingView1.hints.Tablename.label}"
+                                               id="c11" minimumWidth="35">
+                                        <af:inputText value="#{row.bindings.Tablename.inputValue}"
+                                                      label="#{bindings.PsCisXpeMappingView1.hints.Tablename.label}"
+                                                      required="#{bindings.PsCisXpeMappingView1.hints.Tablename.mandatory}"
+                                                      columns="#{bindings.PsCisXpeMappingView1.hints.Tablename.displayWidth}"
+                                                      maximumLength="#{bindings.PsCisXpeMappingView1.hints.Tablename.precision}"
+                                                      shortDesc="#{bindings.PsCisXpeMappingView1.hints.Tablename.tooltip}"
+                                                      id="it24">
+                                            <f:validator binding="#{row.bindings.Tablename.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                </af:table>
+                                <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
+                                           disabled="#{!bindings.Commit.enabled}" id="b35"/>
+                                <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b36">
+                                    <af:resetActionListener/>
+                                </af:button>
+                                <af:button actionListener="#{bindings.CreateInsert3.execute}" text="Insert"
+                                           disabled="#{!bindings.CreateInsert3.enabled}" id="b27"/>
+                                <af:button actionListener="#{bindings.Delete3.execute}" text="Delete"
+                                           disabled="#{!bindings.Delete3.enabled}" id="b26"/>
+                                <af:button actionListener="#{bindings.First4.execute}" text="First"
+                                           disabled="#{!bindings.First4.enabled}" partialSubmit="true" id="b33"/>
+                                <af:button actionListener="#{bindings.Last4.execute}" text="Last"
+                                           disabled="#{!bindings.Last4.enabled}" partialSubmit="true" id="b34"/>
+                            </af:panelBox>
+                            <af:panelFormLayout id="pfl2">
+                                <af:inputText value="#{bindings.Tablename.inputValue}"
+                                              label="#{bindings.Tablename.hints.label}"
+                                              required="#{bindings.Tablename.hints.mandatory}"
+                                              columns="#{bindings.Tablename.hints.displayWidth}"
+                                              maximumLength="#{bindings.Tablename.hints.precision}"
+                                              shortDesc="#{bindings.Tablename.hints.tooltip}" id="it25">
+                                    <f:validator binding="#{bindings.Tablename.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.CisActionCode1.inputValue}"
+                                              label="#{bindings.CisActionCode1.hints.label}"
+                                              required="#{bindings.CisActionCode1.hints.mandatory}"
+                                              columns="#{bindings.CisActionCode1.hints.displayWidth}"
+                                              maximumLength="#{bindings.CisActionCode1.hints.precision}"
+                                              shortDesc="#{bindings.CisActionCode1.hints.tooltip}" id="it26">
+                                    <f:validator binding="#{bindings.CisActionCode1.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.Seqno.inputValue}" label="#{bindings.Seqno.hints.label}"
+                                              required="#{bindings.Seqno.hints.mandatory}"
+                                              columns="#{bindings.Seqno.hints.displayWidth}"
+                                              maximumLength="#{bindings.Seqno.hints.precision}"
+                                              shortDesc="#{bindings.Seqno.hints.tooltip}" id="it27">
+                                    <f:validator binding="#{bindings.Seqno.validator}"/>
+                                    <af:convertNumber groupingUsed="false" pattern="#{bindings.Seqno.format}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.GenericField.inputValue}"
+                                              label="#{bindings.GenericField.hints.label}"
+                                              required="#{bindings.GenericField.hints.mandatory}"
+                                              columns="#{bindings.GenericField.hints.displayWidth}"
+                                              maximumLength="#{bindings.GenericField.hints.precision}"
+                                              shortDesc="#{bindings.GenericField.hints.tooltip}" id="it28">
+                                    <f:validator binding="#{bindings.GenericField.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.CisNativeField.inputValue}"
+                                              label="#{bindings.CisNativeField.hints.label}"
+                                              required="#{bindings.CisNativeField.hints.mandatory}"
+                                              columns="#{bindings.CisNativeField.hints.displayWidth}"
+                                              maximumLength="#{bindings.CisNativeField.hints.precision}"
+                                              shortDesc="#{bindings.CisNativeField.hints.tooltip}" id="it29">
+                                    <f:validator binding="#{bindings.CisNativeField.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.CisConstantField.inputValue}"
+                                              label="#{bindings.CisConstantField.hints.label}"
+                                              required="#{bindings.CisConstantField.hints.mandatory}"
+                                              columns="#{bindings.CisConstantField.hints.displayWidth}"
+                                              maximumLength="#{bindings.CisConstantField.hints.precision}"
+                                              shortDesc="#{bindings.CisConstantField.hints.tooltip}" id="it30">
+                                    <f:validator binding="#{bindings.CisConstantField.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.IsKey.inputValue}" label="#{bindings.IsKey.hints.label}"
+                                              required="#{bindings.IsKey.hints.mandatory}"
+                                              columns="#{bindings.IsKey.hints.displayWidth}"
+                                              maximumLength="#{bindings.IsKey.hints.precision}"
+                                              shortDesc="#{bindings.IsKey.hints.tooltip}" id="it31">
+                                    <f:validator binding="#{bindings.IsKey.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.WhereClause1.inputValue}"
+                                              label="#{bindings.WhereClause1.hints.label}"
+                                              required="#{bindings.WhereClause1.hints.mandatory}"
+                                              columns="#{bindings.WhereClause1.hints.displayWidth}"
+                                              maximumLength="#{bindings.WhereClause1.hints.precision}"
+                                              shortDesc="#{bindings.WhereClause1.hints.tooltip}" id="it32">
+                                    <f:validator binding="#{bindings.WhereClause1.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.AppTblName.inputValue}"
+                                              label="#{bindings.AppTblName.hints.label}"
+                                              required="#{bindings.AppTblName.hints.mandatory}"
+                                              columns="#{bindings.AppTblName.hints.displayWidth}"
+                                              maximumLength="#{bindings.AppTblName.hints.precision}"
+                                              shortDesc="#{bindings.AppTblName.hints.tooltip}" id="it33">
+                                    <f:validator binding="#{bindings.AppTblName.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.DpTargetfield.inputValue}"
+                                              label="#{bindings.DpTargetfield.hints.label}"
+                                              required="#{bindings.DpTargetfield.hints.mandatory}"
+                                              columns="#{bindings.DpTargetfield.hints.displayWidth}"
+                                              maximumLength="#{bindings.DpTargetfield.hints.precision}"
+                                              shortDesc="#{bindings.DpTargetfield.hints.tooltip}" id="it34">
+                                    <f:validator binding="#{bindings.DpTargetfield.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.CisAggregateType.inputValue}"
+                                              label="#{bindings.CisAggregateType.hints.label}"
+                                              required="#{bindings.CisAggregateType.hints.mandatory}"
+                                              columns="#{bindings.CisAggregateType.hints.displayWidth}"
+                                              maximumLength="#{bindings.CisAggregateType.hints.precision}"
+                                              shortDesc="#{bindings.CisAggregateType.hints.tooltip}" id="it35">
+                                    <f:validator binding="#{bindings.CisAggregateType.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.LblDescr.inputValue}"
+                                              label="#{bindings.LblDescr.hints.label}"
+                                              required="#{bindings.LblDescr.hints.mandatory}"
+                                              columns="#{bindings.LblDescr.hints.displayWidth}"
+                                              maximumLength="#{bindings.LblDescr.hints.precision}"
+                                              shortDesc="#{bindings.LblDescr.hints.tooltip}" id="it36">
+                                    <f:validator binding="#{bindings.LblDescr.validator}"/>
+                                </af:inputText>
+                                <f:facet name="footer">
+                                    <af:panelGroupLayout layout="vertical" id="pgl4">
+                                        <af:panelGroupLayout layout="horizontal" id="pgl5">
+                                            <af:button actionListener="#{bindings.First2.execute}" text="First2"
+                                                       disabled="#{!bindings.First2.enabled}" partialSubmit="true"
+                                                       id="b28"/>
+                                            <af:button actionListener="#{bindings.Previous1.execute}" text="Previous1"
+                                                       disabled="#{!bindings.Previous1.enabled}" partialSubmit="true"
+                                                       id="b29"/>
+                                            <af:button actionListener="#{bindings.Next1.execute}" text="Next1"
+                                                       disabled="#{!bindings.Next1.enabled}" partialSubmit="true"
+                                                       id="b30"/>
+                                            <af:button actionListener="#{bindings.Last2.execute}" text="Last2"
+                                                       disabled="#{!bindings.Last2.enabled}" partialSubmit="true"
+                                                       id="b31"/>
+                                        </af:panelGroupLayout>
+                                        <af:button text="Submit" id="b32"/>
+                                    </af:panelGroupLayout>
+                                </f:facet>
+                            </af:panelFormLayout>
+                        </af:showDetailItem>
+                    </af:panelTabbed>
+                </af:panelBox>
+            </af:gridCell>
+        </af:gridRow>
+    </af:panelGridLayout>
+</ui:composition>

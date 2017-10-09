@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="rulesetDefinitionPageDef"
+                Package="view.pageDefs">
+    <parameters/>
+    <executables>
+        <variableIterator id="variables"/>
+        <iterator Binds="NeuRuleTblView1" RangeSize="25" DataControl="AppModuleDataControl"
+                  id="NeuRuleTblView1Iterator"/>
+        <iterator Binds="NeuCondTblView2" RangeSize="25" DataControl="AppModuleDataControl"
+                  id="NeuCondTblView2Iterator"/>
+        <iterator Binds="NeuActionTblView2" RangeSize="25" DataControl="AppModuleDataControl"
+                  id="NeuActionTblView2Iterator"/>
+    </executables>
+    <bindings>
+        <tree IterBinding="NeuRuleTblView1Iterator" id="NeuRuleTblView1">
+            <nodeDefinition DefName="model.NeuRuleTblView" Name="NeuRuleTblView10">
+                <AttrNames>
+                    <Item Value="RuleCd"/>
+                    <Item Value="RuleDescription"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <attributeValues IterBinding="NeuCondTblView2Iterator" id="CondCd">
+            <AttrNames>
+                <Item Value="CondCd"/>
+            </AttrNames>
+        </attributeValues>
+        <listOfValues IterBinding="NeuCondTblView2Iterator" StaticList="false" Uses="LOV_RuleOper" id="RuleOper"/>
+        <attributeValues IterBinding="NeuCondTblView2Iterator" id="CondPrefix">
+            <AttrNames>
+                <Item Value="CondPrefix"/>
+            </AttrNames>
+        </attributeValues>
+        <listOfValues IterBinding="NeuCondTblView2Iterator" StaticList="false" Uses="LOV_AttrLeft" id="AttrLeft"/>
+        <listOfValues IterBinding="NeuCondTblView2Iterator" StaticList="false" Uses="LOV_CondOper" id="CondOper"/>
+        <attributeValues IterBinding="NeuCondTblView2Iterator" id="AttrRight">
+            <AttrNames>
+                <Item Value="AttrRight"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="NeuCondTblView2Iterator" id="Value">
+            <AttrNames>
+                <Item Value="Value"/>
+            </AttrNames>
+        </attributeValues>
+        <listOfValues IterBinding="NeuCondTblView2Iterator" StaticList="false" Uses="LOV_CustomCond" id="CustomCond"/>
+        <attributeValues IterBinding="NeuCondTblView2Iterator" id="CondSuffix">
+            <AttrNames>
+                <Item Value="CondSuffix"/>
+            </AttrNames>
+        </attributeValues>
+        <action IterBinding="NeuCondTblView2Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+        <action IterBinding="NeuCondTblView2Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+        <action IterBinding="NeuCondTblView2Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+        <action IterBinding="NeuCondTblView2Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+        <attributeValues IterBinding="NeuActionTblView2Iterator" id="ActionCd">
+            <AttrNames>
+                <Item Value="ActionCd"/>
+            </AttrNames>
+        </attributeValues>
+        <listOfValues IterBinding="NeuActionTblView2Iterator" StaticList="false" Uses="LOV_ActionType" id="ActionType"/>
+        <listOfValues IterBinding="NeuActionTblView2Iterator" StaticList="false" Uses="LOV_Dimension" id="Dimension"/>
+        <attributeValues IterBinding="NeuActionTblView2Iterator" id="Value1">
+            <AttrNames>
+                <Item Value="Value"/>
+            </AttrNames>
+        </attributeValues>
+        <listOfValues IterBinding="NeuActionTblView2Iterator" StaticList="false" Uses="LOV_MappingTable"
+                      id="MappingTable"/>
+        <attributeValues IterBinding="NeuActionTblView2Iterator" id="ActionValue">
+            <AttrNames>
+                <Item Value="ActionValue"/>
+            </AttrNames>
+        </attributeValues>
+        <action IterBinding="NeuActionTblView2Iterator" id="First1" RequiresUpdateModel="true" Action="first"/>
+        <action IterBinding="NeuActionTblView2Iterator" id="Previous1" RequiresUpdateModel="true" Action="previous"/>
+        <action IterBinding="NeuActionTblView2Iterator" id="Next1" RequiresUpdateModel="true" Action="next"/>
+        <action IterBinding="NeuActionTblView2Iterator" id="Last1" RequiresUpdateModel="true" Action="last"/>
+    </bindings>
+</pageDefinition>

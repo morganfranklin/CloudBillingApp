@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="dccContractSearchPageDef"
+                Package="view.pageDefs">
+    <parameters/>
+    <executables>
+        <variableIterator id="variables"/>
+        <iterator Binds="XpeDccCustomerSearch1" RangeSize="25" DataControl="AppModuleDataControl"
+                  id="XpeDccCustomerSearch1Iterator"/>
+        <searchRegion Criteria="__ImplicitViewCriteria__"
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                      Binds="XpeDccCustomerSearch1Iterator" id="ImplicitViewCriteriaQuery"/>
+        <iterator Binds="XpeDccContractsView1" RangeSize="25" DataControl="AppModuleDataControl"
+                  id="XpeDccContractsView1Iterator"/>
+    </executables>
+    <bindings>
+        <tree IterBinding="XpeDccCustomerSearch1Iterator" id="XpeDccCustomerSearch1">
+            <nodeDefinition DefName="model.XpeDccCustomerSearch" Name="XpeDccCustomerSearch10">
+                <AttrNames>
+                    <Item Value="XpeContractId"/>
+                    <Item Value="XpeContractDesc"/>
+                    <Item Value="CustId"/>
+                    <Item Value="Name1"/>
+                    <Item Value="Descr"/>
+                    <Item Value="Country"/>
+                    <Item Value="Address1"/>
+                    <Item Value="City"/>
+                    <Item Value="State"/>
+                    <Item Value="Postal"/>
+                    <Item Value="XpeSwApprNbr"/>
+                    <Item Value="XpeContractStatus"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+        <attributeValues IterBinding="XpeDccContractsView1Iterator" id="XpeContractId">
+            <AttrNames>
+                <Item Value="XpeContractId"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccContractsView1Iterator" id="XpeContractDesc">
+            <AttrNames>
+                <Item Value="XpeContractDesc"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccContractsView1Iterator" id="Setid">
+            <AttrNames>
+                <Item Value="Setid"/>
+            </AttrNames>
+        </attributeValues>
+        <listOfValues IterBinding="XpeDccContractsView1Iterator" StaticList="false" Uses="LOV_CustId" id="CustId"/>
+        <attributeValues IterBinding="XpeDccContractsView1Iterator" id="CreatedBy">
+            <AttrNames>
+                <Item Value="CreatedBy"/>
+            </AttrNames>
+        </attributeValues>
+        <list IterBinding="XpeDccContractsView1Iterator" StaticList="false" Uses="LOV_CurrencyCd" id="CurrencyCd"
+              DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+        <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false"
+                Action="rollbackTransaction"/>
+        <action IterBinding="XpeDccContractsView1Iterator" id="CreateInsert"
+                InstanceName="AppModuleDataControl.XpeDccContractsView1" DataControl="AppModuleDataControl"
+                RequiresUpdateModel="true" Action="createInsertRow"/>
+    </bindings>
+</pageDefinition>

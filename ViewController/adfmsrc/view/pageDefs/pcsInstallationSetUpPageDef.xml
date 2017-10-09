@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="pcsInstallationSetUpPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XpeDccCfgPcsEOVO" RangeSize="25" DataControl="AppModuleDataControl" id="XpeDccCfgPcsEOVOIterator"/>
+    <searchRegion Criteria="PCSCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="XpeDccCfgPcsEOVOIterator" id="PCSCriteriaQuery"/>
+    <iterator Binds="XpeDccCfgPcsAssTerminalsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgPcsAssTerminalsEOVOIterator"/>
+    <iterator Binds="XpeDccCfgNewPcsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewPcsEOVOIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="XpeDccCfgPcsEOVOIterator" id="XpeDccCfgPcsEOVO">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccCfgPcsEOVO" Name="XpeDccCfgPcsEOVO0">
+        <AttrNames>
+          <Item Value="SiteId"/>
+          <Item Value="SiteDesc"/>
+          <Item Value="FacilityId"/>
+          <Item Value="DbLink"/>
+          <Item Value="PrintStage"/>
+          <Item Value="Activate"/>
+          <Item Value="DirectToCustomer"/>
+          <Item Value="EmailNotificationGroup"/>
+          <Item Value="Inactive"/>
+          <Item Value="InactiveDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="XpeDccCfgPcsAssTerminalsEOVOIterator" id="XpeDccCfgPcsAssTerminalsEOVO">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccCfgPcsAssTerminalsEOVO"
+                      Name="XpeDccCfgPcsAssTerminalsEOVO0">
+        <AttrNames>
+          <Item Value="TerminalId"/>
+          <Item Value="TerminalDesc"/>
+          <Item Value="SiteId"/>
+          <Item Value="Inactive"/>
+          <Item Value="InactiveDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="XpeDccCfgNewPcsEOVOIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <attributeValues IterBinding="XpeDccCfgNewPcsEOVOIterator" id="SiteId">
+      <AttrNames>
+        <Item Value="SiteId"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

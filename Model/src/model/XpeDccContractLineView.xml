@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+    xmlns="http://xmlns.oracle.com/bc4j"
+    Name="XpeDccContractLineView"
+    Version="12.2.1.11.57"
+    InheritPersonalization="merge"
+    SelectListFlags="1"
+    FromListFlags="1"
+    WhereFlags="1"
+    BindingStyle="OracleName"
+    CustomQuery="false"
+    SelectAllAttributes="false"
+    PageIterMode="Full"
+    RowClass="model.XpeDccContractLineViewRowImpl"
+    ComponentClass="model.XpeDccContractLineViewImpl">
+    <DesignTime>
+        <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+        <Attr Name="_isCodegen" Value="true"/>
+    </DesignTime>
+    <ViewAccessor
+        Name="XpeDccDicFacilities1"
+        ViewObjectName="model.XpeDccDicFacilities"
+        RowLevelBinds="true"/>
+    <ViewAccessor
+        Name="XpeDccDicProducts1"
+        ViewObjectName="model.XpeDccDicProducts"
+        RowLevelBinds="true"/>
+    <ViewAccessor
+        Name="XpeDccDicProducts2"
+        ViewObjectName="model.XpeDccDicProducts"
+        RowLevelBinds="true"/>
+    <ViewAccessor
+        Name="XpeDccDicPeriods1"
+        ViewObjectName="model.XpeDccDicPeriods"
+        RowLevelBinds="true"/>
+    <ViewAccessor
+        Name="XpeDccDicUnitsOfMeasure1"
+        ViewObjectName="model.XpeDccDicUnitsOfMeasure"
+        RowLevelBinds="true"/>
+    <ViewAccessor
+        Name="XpeDccDicCurrency1"
+        ViewObjectName="model.XpeDccDicCurrency"
+        RowLevelBinds="true"/>
+    <ViewAccessor
+        Name="LookupSharedAppModule_BusinessUnitLOV"
+        ViewObjectName="model.views.readonly.XpeDccDicNewContractSetupROVO"
+        AMUsageName="LookupSharedAppModule"
+        ViewInstanceName="XpeDccDicNewContractSetupROVO"
+        RowLevelBinds="true">
+        <ParameterMap>
+            <PIMap Variable="bind_Lookup_Type">
+                <TransientExpression
+                    trustMode="untrusted"
+                    Name="ExpressionScript"><![CDATA['BUS']]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ListBinding
+        Name="LOV_XpeFacility"
+        ListVOName="XpeDccDicFacilities1"
+        ListRangeSize="-1"
+        NullValueFlag="start"
+        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="XpeFacility"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="XpeLookupId"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="XpeLookupDesc"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_XpeProductId"
+        ListVOName="XpeDccDicProducts1"
+        ListRangeSize="-1"
+        NullValueFlag="start"
+        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="XpeProductId"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="XpeLookupId"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="XpeLookupDesc"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_XpeProductUom"
+        ListVOName="XpeDccDicUnitsOfMeasure1"
+        ListRangeSize="-1"
+        NullValueFlag="start"
+        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="XpeProductUom"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="XpeLookupId"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="XpeLookupDesc"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_XpePeriodType"
+        ListVOName="XpeDccDicPeriods1"
+        ListRangeSize="-1"
+        NullValueFlag="start"
+        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="XpePeriodType"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="XpeLookupId"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="XpeLookupDesc"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_CurrencyCd"
+        ListVOName="XpeDccDicCurrency1"
+        ListRangeSize="-1"
+        NullValueFlag="start"
+        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="CurrencyCd"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="XpeLookupId"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_BusinessUnitGl"
+        ListVOName="LookupSharedAppModule_BusinessUnitLOV"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="BusinessUnitGl"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="XpeLookupId"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="XpeLookupDesc"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <EntityUsage
+        Name="XpeDccContractLine"
+        Entity="model.XpeDccContractLine"/>
+    <ViewAttribute
+        Name="XpeContractId"
+        IsNotNull="true"
+        PrecisionRule="true"
+        EntityAttrName="XpeContractId"
+        EntityUsage="XpeDccContractLine"
+        AliasName="XPE_CONTRACT_ID">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContractLineView.XpeContractId_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="XpeContractVersion"
+        IsNotNull="true"
+        PrecisionRule="true"
+        EntityAttrName="XpeContractVersion"
+        EntityUsage="XpeDccContractLine"
+        AliasName="XPE_CONTRACT_VERSION">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContractLineView.XpeContractVersion_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="XpeContractLine"
+        IsNotNull="true"
+        PrecisionRule="true"
+        EntityAttrName="XpeContractLine"
+        EntityUsage="XpeDccContractLine"
+        AliasName="XPE_CONTRACT_LINE">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContractLineView.XpeContractLine_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="XpeFacility"
+        PrecisionRule="true"
+        EntityAttrName="XpeFacility"
+        EntityUsage="XpeDccContractLine"
+        AliasName="XPE_FACILITY"
+        LOVName="LOV_XpeFacility">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+                <DISPLAYWIDTH
+                    Value="20"/>
+                <LABEL
+                    ResId="model.XpeDccContractLineView.XpeFacility_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="XpeProductId"
+        PrecisionRule="true"
+        EntityAttrName="XpeProductId"
+        EntityUsage="XpeDccContractLine"
+        AliasName="XPE_PRODUCT_ID"
+        LOVName="LOV_XpeProductId">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+                <DISPLAYWIDTH
+                    Value="20"/>
+                <LABEL
+                    ResId="model.XpeDccContractLineView.XpeProductId_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="XpeProductUom"
+        PrecisionRule="true"
+        EntityAttrName="XpeProductUom"
+        EntityUsage="XpeDccContractLine"
+        AliasName="XPE_PRODUCT_UOM"
+        LOVName="LOV_XpeProductUom">
+        <Properties>
+            <SchemaBasedProperties>
+                <DISPLAYWIDTH
+                    Value="20"/>
+                <CONTROLTYPE
+                    Value="choice"/>
+                <LABEL
+                    ResId="model.XpeDccContractLineView.XpeProductUom_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="XpeQtyMin"
+        PrecisionRule="true"
+        EntityAttrName="XpeQtyMin"
+        EntityUsage="XpeDccContractLine"
+        AliasName="XPE_QTY_MIN"/>
+    <ViewAttribute
+        Name="XpeQtyMax"
+        PrecisionRule="true"
+        EntityAttrName="XpeQtyMax"
+        EntityUsage="XpeDccContractLine"
+        AliasName="XPE_QTY_MAX"/>
+    <ViewAttribute
+        Name="XpePeriodType"
+        PrecisionRule="true"
+        EntityAttrName="XpePeriodType"
+        EntityUsage="XpeDccContractLine"
+        AliasName="XPE_PERIOD_TYPE"
+        LOVName="LOV_XpePeriodType">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+                <DISPLAYWIDTH
+                    Value="20"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="XpeSwApprNbr"
+        PrecisionRule="true"
+        EntityAttrName="XpeSwApprNbr"
+        EntityUsage="XpeDccContractLine"
+        AliasName="XPE_SW_APPR_NBR">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContractLineView.XpeSwApprNbr_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="CurrencyCd"
+        PrecisionRule="true"
+        EntityAttrName="CurrencyCd"
+        EntityUsage="XpeDccContractLine"
+        AliasName="CURRENCY_CD"
+        LOVName="LOV_CurrencyCd">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="BusinessUnitGl"
+        PrecisionRule="true"
+        EntityAttrName="BusinessUnitGl"
+        EntityUsage="XpeDccContractLine"
+        AliasName="BUSINESS_UNIT_GL"
+        LOVName="LOV_BusinessUnitGl">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewLinkAccessor
+        Name="XpeDccContractDocTermView"
+        ViewLink="model.XpeDccContractDocTermFk1Link"
+        Type="oracle.jbo.RowIterator"
+        IsUpdateable="false"/>
+    <ViewLinkAccessor
+        Name="XpeDccContractPricingTermView"
+        ViewLink="model.XpeDccContractPricingFk1Link"
+        Type="oracle.jbo.RowIterator"
+        IsUpdateable="false"/>
+    <ResourceBundle>
+        <PropertiesBundle
+            PropertiesFile="model.ModelBundle"/>
+    </ResourceBundle>
+</ViewObject>

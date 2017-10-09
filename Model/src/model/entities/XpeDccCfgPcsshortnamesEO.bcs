@@ -1,0 +1,12 @@
+//Groovy Scripts for model.entities.XpeDccCfgPcsshortnamesEO
+
+package model.entities
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="PcsshortnameId")
+def PcsshortnameId_ExpressionScript_Expression()
+{
+adf.object.nextVal("XPE_DCC_CFG_PCSSHORTNAMES_SEQ")
+}
+

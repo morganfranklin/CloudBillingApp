@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="newContractSetup2PageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XpeDccNewContractVersionView" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccNewContractVersionViewIterator" ChangeEventPolicy="none"/>
+    <iterator Binds="XpeDccNewContractNotesView" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccNewContractNotesViewIterator" ChangeEventPolicy="none"/>
+    <iterator Binds="XpeDccNewContractLPCROVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccNewContractLPCROVOIterator" ChangeEventPolicy="none"/>
+    <iterator Binds="XpeDccTermsContractEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccTermsContractEOVOIterator"/>
+    <iterator Binds="XpeDccNewContractSetupROVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccNewContractSetupROVOIterator" ChangeEventPolicy="none"/>
+    <iterator Binds="XpeDmsCustomerEOVO" RangeSize="10" DataControl="AppModuleDataControl"
+              id="XpeDmsCustomerEOVOIterator" ChangeEventPolicy="none"/>
+    <iterator Binds="XpeDccNewContractCustomerSearchROVO" RangeSize="10" DataControl="AppModuleDataControl"
+              id="XpeDccNewContractCustomerSearchROVOIterator" ChangeEventPolicy="none"/>
+  </executables>
+  <bindings>
+    <list IterBinding="XpeDccNewContractVersionViewIterator" StaticList="false" Uses="LOV_XpeWasteType"
+          id="XpeWasteType" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccNewContractVersionViewIterator" StaticList="false" Uses="LOV_XpeContractSubType"
+          id="XpeContractSubType" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccNewContractVersionViewIterator" StaticList="false" Uses="LOV_XpeAgreementType"
+          id="XpeAgreementType" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccNewContractVersionViewIterator" StaticList="false" Uses="LOV_BusinessUnitGl"
+          id="BusinessUnitGl" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccNewContractVersionViewIterator" id="XpeAsOfDate">
+      <AttrNames>
+        <Item Value="XpeAsOfDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractVersionViewIterator" id="XpeStartDate">
+      <AttrNames>
+        <Item Value="XpeStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractVersionViewIterator" id="XpeEndDate">
+      <AttrNames>
+        <Item Value="XpeEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractNotesViewIterator" id="XpeNoteDttm">
+      <AttrNames>
+        <Item Value="XpeNoteDttm"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractNotesViewIterator" id="XpeNoteType">
+      <AttrNames>
+        <Item Value="XpeNoteType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractNotesViewIterator" id="XpeNote">
+      <AttrNames>
+        <Item Value="XpeNote"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractNotesViewIterator" id="XpeNoteLong">
+      <AttrNames>
+        <Item Value="XpeNoteLong"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractNotesViewIterator" id="XpeUser">
+      <AttrNames>
+        <Item Value="XpeUser"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="XpeDccNewContractLPCROVOIterator" id="XpeDccNewContractLPCROVO">
+      <nodeDefinition DefName="model.views.readonly.XpeDccNewContractLPCROVO" Name="XpeDccNewContractLPCROVO0">
+        <AttrNames>
+          <Item Value="LineNumber"/>
+          <Item Value="Facility"/>
+          <Item Value="ProductId"/>
+          <Item Value="ProductUom"/>
+          <Item Value="SwApprNbr"/>
+          <Item Value="PricingTermType"/>
+          <Item Value="Rate"/>
+          <Item Value="PeriodType"/>
+          <Item Value="CarrierId"/>
+          <Item Value="VehicleType"/>
+          <Item Value="VehicleNbr"/>
+          <Item Value="SubNbr"/>
+          <Item Value="BusinessUnitGl"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="newContractCreation" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="newContractCreation" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="data.AppModuleDataControl.dataProvider"
+                  ReturnName="data.AppModuleDataControl.methodResults.newContractCreation_AppModuleDataControl_dataProvider_newContractCreation_result"/>
+    <list IterBinding="XpeDccNewContractVersionViewIterator" StaticList="false" Uses="LOV_XpeTermId" id="XpeTermId"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccTermsContractEOVOIterator" id="XpeDccClause">
+      <AttrNames>
+        <Item Value="XpeDccClause"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccTermsContractEOVOIterator" id="XpeDccSeq">
+      <AttrNames>
+        <Item Value="XpeDccSeq"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccTermsContractEOVOIterator" id="XpeDccTermTemplate">
+      <AttrNames>
+        <Item Value="XpeDccTermTemplate"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="XpeDccTermsContractEOVOIterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="XpeDccTermsContractEOVOIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="XpeDccTermsContractEOVOIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="XpeDccTermsContractEOVOIterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="XpeDccTermsContractEOVOIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <methodAction id="fetchClauseForMasterTerm" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="fetchClauseForMasterTerm" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="data.AppModuleDataControl.dataProvider"/>
+    <attributeValues IterBinding="XpeDccTermsContractEOVOIterator" id="XpeDccTerm">
+      <AttrNames>
+        <Item Value="XpeDccTerm"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="createTermContractRow" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="createTermContractRow" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="data.AppModuleDataControl.dataProvider">
+      <NamedData NDName="termId" NDValue="#{bindings.XpeTermId.inputValue}" NDType="java.lang.String"/>
+    </methodAction>
+    <list IterBinding="XpeDccNewContractSetupROVOIterator" StaticList="false" Uses="LOV_RFF_TAG" id="RFF_TAG"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDmsCustomerEOVOIterator" id="CompanyName">
+      <AttrNames>
+        <Item Value="CompanyName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractCustomerSearchROVOIterator" id="CustomerName">
+      <AttrNames>
+        <Item Value="Name1"/>
+      </AttrNames>
+    </attributeValues>
+    <list Uses="LOV_Customer_Type" StaticList="false" IterBinding="XpeDccNewContractSetupROVOIterator"
+          id="Customer_Type"/>
+  </bindings>
+</pageDefinition>

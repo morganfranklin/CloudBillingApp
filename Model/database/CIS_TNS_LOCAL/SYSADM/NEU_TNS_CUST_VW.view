@@ -1,0 +1,31 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<view xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
+  <name>NEU_TNS_CUST_VW</name>
+  <SQLQuery>
+    <queryString>SELECT OPC
+    
+FROM SYSADM.NEU_ALL_SOURCE_TBL 
+GROUP BY OPC</queryString>
+  </SQLQuery>
+  <columns>
+    <column>
+      <name>OPC</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">10</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+  </columns>
+  <forceOnCreate>false</forceOnCreate>
+  <schema>
+    <name>SYSADM</name>
+  </schema>
+</view>

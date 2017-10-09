@@ -1,0 +1,388 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGridLayout id="pgl1">
+        <af:gridRow marginTop="5px" id="gr1">
+            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1" halign="stretch" valign="stretch">
+                <af:panelBox text="Contract Pricing Term Setup" id="pb1" showDisclosure="false" background="light">
+                    <f:facet name="toolbar"/>
+                    <af:panelGridLayout id="pgl2">
+                        <af:gridRow id="gr4">
+                            <af:gridCell id="gc4" halign="stretch" valign="stretch">
+                                <af:panelFormLayout id="pfl1">
+                                    <af:inputText value="#{bindings.XpeContractId.inputValue}"
+                                                  label="#{bindings.XpeContractId.hints.label}"
+                                                  required="#{bindings.XpeContractId.hints.mandatory}"
+                                                  columns="#{bindings.XpeContractId.hints.displayWidth}"
+                                                  maximumLength="#{bindings.XpeContractId.hints.precision}"
+                                                  shortDesc="#{bindings.XpeContractId.hints.tooltip}" id="it1">
+                                        <f:validator binding="#{bindings.XpeContractId.validator}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.XpeContractVersion.inputValue}"
+                                                  label="#{bindings.XpeContractVersion.hints.label}"
+                                                  required="#{bindings.XpeContractVersion.hints.mandatory}"
+                                                  columns="#{bindings.XpeContractVersion.hints.displayWidth}"
+                                                  maximumLength="#{bindings.XpeContractVersion.hints.precision}"
+                                                  shortDesc="#{bindings.XpeContractVersion.hints.tooltip}" id="it2">
+                                        <f:validator binding="#{bindings.XpeContractVersion.validator}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.XpeContractLine.inputValue}"
+                                                  label="#{bindings.XpeContractLine.hints.label}"
+                                                  required="#{bindings.XpeContractLine.hints.mandatory}"
+                                                  columns="#{bindings.XpeContractLine.hints.displayWidth}"
+                                                  maximumLength="#{bindings.XpeContractLine.hints.precision}"
+                                                  shortDesc="#{bindings.XpeContractLine.hints.tooltip}" id="it3">
+                                        <f:validator binding="#{bindings.XpeContractLine.validator}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.XpePricingTermLine.inputValue}"
+                                                  label="#{bindings.XpePricingTermLine.hints.label}"
+                                                  required="#{bindings.XpePricingTermLine.hints.mandatory}"
+                                                  columns="#{bindings.XpePricingTermLine.hints.displayWidth}"
+                                                  maximumLength="#{bindings.XpePricingTermLine.hints.precision}"
+                                                  shortDesc="#{bindings.XpePricingTermLine.hints.tooltip}" id="it4">
+                                        <f:validator binding="#{bindings.XpePricingTermLine.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.XpePricingTermLine.format}"/>
+                                    </af:inputText>
+                                    <af:selectOneChoice value="#{bindings.XpePricingTermType.inputValue}"
+                                                        label="#{bindings.XpePricingTermType.label}"
+                                                        required="#{bindings.XpePricingTermType.hints.mandatory}"
+                                                        shortDesc="#{bindings.XpePricingTermType.hints.tooltip}"
+                                                        id="soc1">
+                                        <f:selectItems value="#{bindings.XpePricingTermType.items}" id="si1"/>
+                                        <f:validator binding="#{bindings.XpePricingTermType.validator}"/>
+                                    </af:selectOneChoice>
+                                    <af:inputText value="#{bindings.XpeQtyMax.inputValue}"
+                                                  label="#{bindings.XpeQtyMax.hints.label}"
+                                                  required="#{bindings.XpeQtyMax.hints.mandatory}"
+                                                  columns="#{bindings.XpeQtyMax.hints.displayWidth}"
+                                                  maximumLength="#{bindings.XpeQtyMax.hints.precision}"
+                                                  shortDesc="#{bindings.XpeQtyMax.hints.tooltip}" id="it5">
+                                        <f:validator binding="#{bindings.XpeQtyMax.validator}"/>
+                                        <af:convertNumber groupingUsed="false" pattern="#{bindings.XpeQtyMax.format}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.XpeRate.inputValue}"
+                                                  label="#{bindings.XpeRate.hints.label}"
+                                                  required="#{bindings.XpeRate.hints.mandatory}"
+                                                  columns="#{bindings.XpeRate.hints.displayWidth}"
+                                                  maximumLength="#{bindings.XpeRate.hints.precision}"
+                                                  shortDesc="#{bindings.XpeRate.hints.tooltip}" id="it6">
+                                        <f:validator binding="#{bindings.XpeRate.validator}"/>
+                                        <af:convertNumber groupingUsed="false" pattern="#{bindings.XpeRate.format}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.XpeChargeOverMin.inputValue}"
+                                                  label="#{bindings.XpeChargeOverMin.hints.label}"
+                                                  required="#{bindings.XpeChargeOverMin.hints.mandatory}"
+                                                  columns="#{bindings.XpeChargeOverMin.hints.displayWidth}"
+                                                  maximumLength="#{bindings.XpeChargeOverMin.hints.precision}"
+                                                  shortDesc="#{bindings.XpeChargeOverMin.hints.tooltip}" id="it7">
+                                        <f:validator binding="#{bindings.XpeChargeOverMin.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.XpeChargeOverMin.format}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.XpeChargeOverMax.inputValue}"
+                                                  label="#{bindings.XpeChargeOverMax.hints.label}"
+                                                  required="#{bindings.XpeChargeOverMax.hints.mandatory}"
+                                                  columns="#{bindings.XpeChargeOverMax.hints.displayWidth}"
+                                                  maximumLength="#{bindings.XpeChargeOverMax.hints.precision}"
+                                                  shortDesc="#{bindings.XpeChargeOverMax.hints.tooltip}" id="it8">
+                                        <f:validator binding="#{bindings.XpeChargeOverMax.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.XpeChargeOverMax.format}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.XpeChargeDesc.inputValue}"
+                                                  label="#{bindings.XpeChargeDesc.hints.label}"
+                                                  required="#{bindings.XpeChargeDesc.hints.mandatory}"
+                                                  columns="#{bindings.XpeChargeDesc.hints.displayWidth}"
+                                                  maximumLength="#{bindings.XpeChargeDesc.hints.precision}"
+                                                  shortDesc="#{bindings.XpeChargeDesc.hints.tooltip}" id="it9">
+                                        <f:validator binding="#{bindings.XpeChargeDesc.validator}"/>
+                                    </af:inputText>
+                                    <af:selectOneChoice value="#{bindings.XpeRolloverType.inputValue}"
+                                                        label="#{bindings.XpeRolloverType.label}"
+                                                        required="#{bindings.XpeRolloverType.hints.mandatory}"
+                                                        shortDesc="#{bindings.XpeRolloverType.hints.tooltip}" id="soc2">
+                                        <f:selectItems value="#{bindings.XpeRolloverType.items}" id="si2"/>
+                                        <f:validator binding="#{bindings.XpeRolloverType.validator}"/>
+                                    </af:selectOneChoice>
+                                    <af:selectOneChoice value="#{bindings.XpeResetType.inputValue}"
+                                                        label="#{bindings.XpeResetType.label}"
+                                                        required="#{bindings.XpeResetType.hints.mandatory}"
+                                                        shortDesc="#{bindings.XpeResetType.hints.tooltip}" id="soc3">
+                                        <f:selectItems value="#{bindings.XpeResetType.items}" id="si3"/>
+                                        <f:validator binding="#{bindings.XpeResetType.validator}"/>
+                                    </af:selectOneChoice>
+                                    <af:selectOneChoice value="#{bindings.XpePeriodType.inputValue}"
+                                                        label="#{bindings.XpePeriodType.label}"
+                                                        required="#{bindings.XpePeriodType.hints.mandatory}"
+                                                        shortDesc="#{bindings.XpePeriodType.hints.tooltip}" id="soc4">
+                                        <f:selectItems value="#{bindings.XpePeriodType.items}" id="si4"/>
+                                        <f:validator binding="#{bindings.XpePeriodType.validator}"/>
+                                    </af:selectOneChoice>
+                                    <af:inputText value="#{bindings.XpePeriodNbr.inputValue}"
+                                                  label="#{bindings.XpePeriodNbr.hints.label}"
+                                                  required="#{bindings.XpePeriodNbr.hints.mandatory}"
+                                                  columns="#{bindings.XpePeriodNbr.hints.displayWidth}"
+                                                  maximumLength="#{bindings.XpePeriodNbr.hints.precision}"
+                                                  shortDesc="#{bindings.XpePeriodNbr.hints.tooltip}" id="it10">
+                                        <f:validator binding="#{bindings.XpePeriodNbr.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.XpePeriodNbr.format}"/>
+                                    </af:inputText>
+                                    <f:facet name="footer"/>
+                                </af:panelFormLayout>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3" halign="stretch"
+                                         valign="stretch">
+                                <af:button text="Refresh" id="b1"/>
+                                <af:button text="Submit" id="b2"/>
+                                <af:button text="Back" id="b3" action="goBack"/>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </af:panelBox>
+            </af:gridCell>
+        </af:gridRow>
+        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
+            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" halign="stretch" valign="stretch">
+                <af:panelBox text="Carriers and Term Overrides" id="pb2" showDisclosure="false">
+                    <f:facet name="toolbar"/>
+                    <af:panelTabbed position="above" id="pt1" dimensionsFrom="auto">
+                        <af:showDetailItem id="tab1" text="Carriers" disclosed="true">
+                            <af:table value="#{bindings.XpeDccContractCarrierView3.collectionModel}" var="row"
+                                      rows="#{bindings.XpeDccContractCarrierView3.rangeSize}"
+                                      emptyText="#{bindings.XpeDccContractCarrierView3.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.XpeDccContractCarrierView3.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.XpeDccContractCarrierView3.collectionModel.makeCurrent}"
+                                      rowSelection="single" fetchSize="#{bindings.XpeDccContractCarrierView3.rangeSize}"
+                                      filterModel="#{bindings.XpeDccContractCarrierView3Query.queryDescriptor}"
+                                      filterVisible="true"
+                                      queryListener="#{bindings.XpeDccContractCarrierView3Query.processQuery}"
+                                      varStatus="vs" id="t1">
+                                <af:column sortProperty="#{bindings.XpeDccContractCarrierView3.hints.XpeCarrierId.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.XpeDccContractCarrierView3.hints.XpeCarrierId.label}"
+                                           id="c1">
+                                    <af:selectOneChoice value="#{row.bindings.XpeCarrierId.inputValue}"
+                                                        label="#{row.bindings.XpeCarrierId.label}"
+                                                        required="#{bindings.XpeDccContractCarrierView3.hints.XpeCarrierId.mandatory}"
+                                                        shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeCarrierId.tooltip}"
+                                                        id="soc5">
+                                        <f:selectItems value="#{row.bindings.XpeCarrierId.items}" id="si5"/>
+                                        <f:validator binding="#{row.bindings.XpeCarrierId.validator}"/>
+                                    </af:selectOneChoice>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleType.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleType.label}"
+                                           id="c2">
+                                    <af:selectOneChoice value="#{row.bindings.XpeVehicleType.inputValue}"
+                                                        label="#{row.bindings.XpeVehicleType.label}"
+                                                        required="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleType.mandatory}"
+                                                        shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleType.tooltip}"
+                                                        id="soc6">
+                                        <f:selectItems value="#{row.bindings.XpeVehicleType.items}" id="si6"/>
+                                        <f:validator binding="#{row.bindings.XpeVehicleType.validator}"/>
+                                    </af:selectOneChoice>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.XpeDccContractCarrierView3.hints.XpeSubNbr.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.XpeDccContractCarrierView3.hints.XpeSubNbr.label}"
+                                           id="c3">
+                                    <af:inputText value="#{row.bindings.XpeSubNbr.inputValue}"
+                                                  label="#{bindings.XpeDccContractCarrierView3.hints.XpeSubNbr.label}"
+                                                  required="#{bindings.XpeDccContractCarrierView3.hints.XpeSubNbr.mandatory}"
+                                                  columns="#{bindings.XpeDccContractCarrierView3.hints.XpeSubNbr.displayWidth}"
+                                                  maximumLength="#{bindings.XpeDccContractCarrierView3.hints.XpeSubNbr.precision}"
+                                                  shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeSubNbr.tooltip}"
+                                                  id="it11">
+                                        <f:validator binding="#{row.bindings.XpeSubNbr.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.XpeDccContractCarrierView3.hints.XpeSubNbr.format}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleNbr.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleNbr.label}"
+                                           id="c4">
+                                    <af:inputText value="#{row.bindings.XpeVehicleNbr.inputValue}"
+                                                  label="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleNbr.label}"
+                                                  required="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleNbr.mandatory}"
+                                                  columns="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleNbr.displayWidth}"
+                                                  maximumLength="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleNbr.precision}"
+                                                  shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleNbr.tooltip}"
+                                                  id="it12">
+                                        <f:validator binding="#{row.bindings.XpeVehicleNbr.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.label}"
+                                           id="c5">
+                                    <af:inputText value="#{row.bindings.XpeRateOverride.inputValue}"
+                                                  label="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.label}"
+                                                  required="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.mandatory}"
+                                                  columns="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.displayWidth}"
+                                                  maximumLength="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.precision}"
+                                                  shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.tooltip}"
+                                                  id="it13">
+                                        <f:validator binding="#{row.bindings.XpeRateOverride.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.format}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.label}"
+                                           id="c6">
+                                    <af:inputText value="#{row.bindings.XpeSurcharge.inputValue}"
+                                                  label="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.label}"
+                                                  required="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.mandatory}"
+                                                  columns="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.displayWidth}"
+                                                  maximumLength="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.precision}"
+                                                  shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.tooltip}"
+                                                  id="it14">
+                                        <f:validator binding="#{row.bindings.XpeSurcharge.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.format}"/>
+                                    </af:inputText>
+                                </af:column>
+                            </af:table>
+                        </af:showDetailItem>
+                        <af:showDetailItem id="tab2" text="Pricing Overrides / Custom Terms">
+                            <af:table value="#{bindings.XpeDccContractPricingOverView2.collectionModel}" var="row"
+                                      rows="#{bindings.XpeDccContractPricingOverView2.rangeSize}"
+                                      emptyText="#{bindings.XpeDccContractPricingOverView2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      fetchSize="#{bindings.XpeDccContractPricingOverView2.rangeSize}" id="t2">
+                                <af:column headerText="#{bindings.XpeDccContractPricingOverView2.hints.XpeContractOverNbr.label}"
+                                           id="c7">
+                                    <af:inputText value="#{row.bindings.XpeContractOverNbr.inputValue}"
+                                                  label="#{bindings.XpeDccContractPricingOverView2.hints.XpeContractOverNbr.label}"
+                                                  required="#{bindings.XpeDccContractPricingOverView2.hints.XpeContractOverNbr.mandatory}"
+                                                  columns="#{bindings.XpeDccContractPricingOverView2.hints.XpeContractOverNbr.displayWidth}"
+                                                  maximumLength="#{bindings.XpeDccContractPricingOverView2.hints.XpeContractOverNbr.precision}"
+                                                  shortDesc="#{bindings.XpeDccContractPricingOverView2.hints.XpeContractOverNbr.tooltip}"
+                                                  id="it15">
+                                        <f:validator binding="#{row.bindings.XpeContractOverNbr.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.XpeDccContractPricingOverView2.hints.XpeContractOverNbr.format}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.XpeDccContractPricingOverView2.hints.XpeOverType.label}"
+                                           id="c8">
+                                    <af:selectOneChoice value="#{row.bindings.XpeOverType.inputValue}"
+                                                        label="#{row.bindings.XpeOverType.label}"
+                                                        required="#{bindings.XpeDccContractPricingOverView2.hints.XpeOverType.mandatory}"
+                                                        shortDesc="#{bindings.XpeDccContractPricingOverView2.hints.XpeOverType.tooltip}"
+                                                        id="soc7">
+                                        <f:selectItems value="#{row.bindings.XpeOverType.items}" id="si7"/>
+                                        <f:validator binding="#{row.bindings.XpeOverType.validator}"/>
+                                    </af:selectOneChoice>
+                                </af:column>
+                                <af:column headerText="#{bindings.XpeDccContractPricingOverView2.hints.XpeOverStart.label}"
+                                           id="c9">
+                                    <af:inputDate value="#{row.bindings.XpeOverStart.inputValue}"
+                                                  label="#{bindings.XpeDccContractPricingOverView2.hints.XpeOverStart.label}"
+                                                  required="#{bindings.XpeDccContractPricingOverView2.hints.XpeOverStart.mandatory}"
+                                                  columns="#{bindings.XpeDccContractPricingOverView2.hints.XpeOverStart.displayWidth}"
+                                                  shortDesc="#{bindings.XpeDccContractPricingOverView2.hints.XpeOverStart.tooltip}"
+                                                  id="id1">
+                                        <f:validator binding="#{row.bindings.XpeOverStart.validator}"/>
+                                        <af:convertDateTime pattern="#{bindings.XpeDccContractPricingOverView2.hints.XpeOverStart.format}"/>
+                                    </af:inputDate>
+                                </af:column>
+                                <af:column headerText="#{bindings.XpeDccContractPricingOverView2.hints.XpeOverEnd.label}"
+                                           id="c10">
+                                    <af:inputDate value="#{row.bindings.XpeOverEnd.inputValue}"
+                                                  label="#{bindings.XpeDccContractPricingOverView2.hints.XpeOverEnd.label}"
+                                                  required="#{bindings.XpeDccContractPricingOverView2.hints.XpeOverEnd.mandatory}"
+                                                  columns="#{bindings.XpeDccContractPricingOverView2.hints.XpeOverEnd.displayWidth}"
+                                                  shortDesc="#{bindings.XpeDccContractPricingOverView2.hints.XpeOverEnd.tooltip}"
+                                                  id="id2">
+                                        <f:validator binding="#{row.bindings.XpeOverEnd.validator}"/>
+                                        <af:convertDateTime pattern="#{bindings.XpeDccContractPricingOverView2.hints.XpeOverEnd.format}"/>
+                                    </af:inputDate>
+                                </af:column>
+                                <af:column headerText="#{bindings.XpeDccContractPricingOverView2.hints.XpeSourceFld.label}"
+                                           id="c11">
+                                    <af:selectOneChoice value="#{row.bindings.XpeSourceFld.inputValue}"
+                                                        label="#{row.bindings.XpeSourceFld.label}"
+                                                        required="#{bindings.XpeDccContractPricingOverView2.hints.XpeSourceFld.mandatory}"
+                                                        shortDesc="#{bindings.XpeDccContractPricingOverView2.hints.XpeSourceFld.tooltip}"
+                                                        id="soc8">
+                                        <f:selectItems value="#{row.bindings.XpeSourceFld.items}" id="si8"/>
+                                        <f:validator binding="#{row.bindings.XpeSourceFld.validator}"/>
+                                    </af:selectOneChoice>
+                                </af:column>
+                                <af:column headerText="#{bindings.XpeDccContractPricingOverView2.hints.XpeCondition.label}"
+                                           id="c12">
+                                    <af:selectOneChoice value="#{row.bindings.XpeCondition.inputValue}"
+                                                        label="#{row.bindings.XpeCondition.label}"
+                                                        required="#{bindings.XpeDccContractPricingOverView2.hints.XpeCondition.mandatory}"
+                                                        shortDesc="#{bindings.XpeDccContractPricingOverView2.hints.XpeCondition.tooltip}"
+                                                        id="soc9">
+                                        <f:selectItems value="#{row.bindings.XpeCondition.items}" id="si9"/>
+                                        <f:validator binding="#{row.bindings.XpeCondition.validator}"/>
+                                    </af:selectOneChoice>
+                                </af:column>
+                                <af:column headerText="#{bindings.XpeDccContractPricingOverView2.hints.XpeCheck.label}"
+                                           id="c13">
+                                    <af:inputText value="#{row.bindings.XpeCheck.inputValue}"
+                                                  label="#{bindings.XpeDccContractPricingOverView2.hints.XpeCheck.label}"
+                                                  required="#{bindings.XpeDccContractPricingOverView2.hints.XpeCheck.mandatory}"
+                                                  columns="#{bindings.XpeDccContractPricingOverView2.hints.XpeCheck.displayWidth}"
+                                                  maximumLength="#{bindings.XpeDccContractPricingOverView2.hints.XpeCheck.precision}"
+                                                  shortDesc="#{bindings.XpeDccContractPricingOverView2.hints.XpeCheck.tooltip}"
+                                                  id="it16">
+                                        <f:validator binding="#{row.bindings.XpeCheck.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.XpeDccContractPricingOverView2.hints.XpeTargetFld.label}"
+                                           id="c14">
+                                    <af:selectOneChoice value="#{row.bindings.XpeTargetFld.inputValue}"
+                                                        label="#{row.bindings.XpeTargetFld.label}"
+                                                        required="#{bindings.XpeDccContractPricingOverView2.hints.XpeTargetFld.mandatory}"
+                                                        shortDesc="#{bindings.XpeDccContractPricingOverView2.hints.XpeTargetFld.tooltip}"
+                                                        id="soc10">
+                                        <f:selectItems value="#{row.bindings.XpeTargetFld.items}" id="si10"/>
+                                        <f:validator binding="#{row.bindings.XpeTargetFld.validator}"/>
+                                    </af:selectOneChoice>
+                                </af:column>
+                                <af:column headerText="#{bindings.XpeDccContractPricingOverView2.hints.XpeOverMsg.label}"
+                                           id="c15">
+                                    <af:inputText value="#{row.bindings.XpeOverMsg.inputValue}"
+                                                  label="#{bindings.XpeDccContractPricingOverView2.hints.XpeOverMsg.label}"
+                                                  required="#{bindings.XpeDccContractPricingOverView2.hints.XpeOverMsg.mandatory}"
+                                                  columns="#{bindings.XpeDccContractPricingOverView2.hints.XpeOverMsg.displayWidth}"
+                                                  maximumLength="#{bindings.XpeDccContractPricingOverView2.hints.XpeOverMsg.precision}"
+                                                  shortDesc="#{bindings.XpeDccContractPricingOverView2.hints.XpeOverMsg.tooltip}"
+                                                  id="it17">
+                                        <f:validator binding="#{row.bindings.XpeOverMsg.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.XpeDccContractPricingOverView2.hints.XpeOverDesc.label}"
+                                           id="c16">
+                                    <af:inputText value="#{row.bindings.XpeOverDesc.inputValue}"
+                                                  label="#{bindings.XpeDccContractPricingOverView2.hints.XpeOverDesc.label}"
+                                                  required="#{bindings.XpeDccContractPricingOverView2.hints.XpeOverDesc.mandatory}"
+                                                  columns="#{bindings.XpeDccContractPricingOverView2.hints.XpeOverDesc.displayWidth}"
+                                                  maximumLength="#{bindings.XpeDccContractPricingOverView2.hints.XpeOverDesc.precision}"
+                                                  shortDesc="#{bindings.XpeDccContractPricingOverView2.hints.XpeOverDesc.tooltip}"
+                                                  id="it18">
+                                        <f:validator binding="#{row.bindings.XpeOverDesc.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                            </af:table>
+                        </af:showDetailItem>
+                        <af:showDetailItem id="tab3" text="TBD3"/>
+                        <af:showDetailItem text="TBD4" id="sdi1"/>
+                    </af:panelTabbed>
+                </af:panelBox>
+            </af:gridCell>
+        </af:gridRow>
+    </af:panelGridLayout>
+</ui:composition>

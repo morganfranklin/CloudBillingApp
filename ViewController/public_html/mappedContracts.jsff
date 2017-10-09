@@ -1,0 +1,306 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGridLayout id="pgl1">
+        <af:gridRow marginTop="5px" height="85px" id="gr1">
+            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1" halign="stretch" valign="stretch">
+                <af:panelBox text="Enterprise Contracts and Quotes Data" id="pb1" showDisclosure="false"
+                             background="light">
+                    <f:facet name="toolbar"/>
+                    <af:panelGridLayout id="pgl2">
+                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3" halign="stretch"
+                                         valign="stretch">
+                                <af:button text="Refresh" id="b1"/>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </af:panelBox>
+            </af:gridCell>
+        </af:gridRow>
+        <af:gridRow marginTop="5px" height="400px" marginBottom="5px" id="gr2">
+            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" halign="stretch" valign="stretch">
+                <af:panelBox text="Mapped Contracts / Quotes View" id="pb2" showDisclosure="false">
+                    <f:facet name="toolbar"/>
+                    <af:table value="#{bindings.PsCisXpeContrView1.collectionModel}" var="row"
+                              rows="#{bindings.PsCisXpeContrView1.rangeSize}"
+                              emptyText="#{bindings.PsCisXpeContrView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.PsCisXpeContrView1.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.PsCisXpeContrView1.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.PsCisXpeContrView1.rangeSize}"
+                              filterModel="#{bindings.PsCisXpeContrView1Query.queryDescriptor}" filterVisible="true"
+                              queryListener="#{bindings.PsCisXpeContrView1Query.processQuery}" varStatus="vs" id="t1">
+                        <af:column sortProperty="#{bindings.PsCisXpeContrView1.hints.BusinessUnitCa.name}"
+                                   filterable="true" sortable="true" headerText="Contracts Unit" id="c1">
+                            <af:outputText value="#{row.BusinessUnitCa}"
+                                           shortDesc="#{bindings.PsCisXpeContrView1.hints.BusinessUnitCa.tooltip}"
+                                           id="ot1"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.PsCisXpeContrView1.hints.ContractNum.name}"
+                                   filterable="true" sortable="true" headerText="CPQ Contract" id="c2">
+                            <af:outputText value="#{row.ContractNum}"
+                                           shortDesc="#{bindings.PsCisXpeContrView1.hints.ContractNum.tooltip}"
+                                           id="ot2"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.PsCisXpeContrView1.hints.ContractType.name}"
+                                   filterable="true" sortable="true" headerText="Contract Type" id="c3">
+                            <af:outputText value="#{row.ContractType}"
+                                           shortDesc="#{bindings.PsCisXpeContrView1.hints.ContractType.tooltip}"
+                                           id="ot3"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.PsCisXpeContrView1.hints.ProductId.name}" filterable="true"
+                                   sortable="true" headerText="Product Id" id="c4">
+                            <af:outputText value="#{row.ProductId}"
+                                           shortDesc="#{bindings.PsCisXpeContrView1.hints.ProductId.tooltip}" id="ot4"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.PsCisXpeContrView1.hints.ProductDescr.name}"
+                                   filterable="true" sortable="true" headerText="Description" id="c5">
+                            <af:outputText value="#{row.ProductDescr}"
+                                           shortDesc="#{bindings.PsCisXpeContrView1.hints.ProductDescr.tooltip}"
+                                           id="ot5"/>
+                        </af:column>
+                    </af:table>
+                </af:panelBox>
+            </af:gridCell>
+        </af:gridRow>
+        <af:gridRow id="gr4">
+            <af:gridCell id="gc4" halign="stretch" valign="stretch" width="100%">
+                <af:panelBox text="Transaction Details" id="pb3">
+                    <f:facet name="toolbar"/>
+                    <af:panelFormLayout id="pfl1">
+                        <af:inputText value="#{bindings.Processid.inputValue}" label="Process Id"
+                                      required="#{bindings.Processid.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.Processid.hints.displayWidth}"
+                                      maximumLength="#{bindings.Processid.hints.precision}"
+                                      shortDesc="#{bindings.Processid.hints.tooltip}" id="it1">
+                            <f:validator binding="#{bindings.Processid.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.Processid.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.CisPrcsReqstId.inputValue}" label="Request Id"
+                                      required="#{bindings.CisPrcsReqstId.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.CisPrcsReqstId.hints.displayWidth}"
+                                      maximumLength="#{bindings.CisPrcsReqstId.hints.precision}"
+                                      shortDesc="#{bindings.CisPrcsReqstId.hints.tooltip}" id="it2">
+                            <f:validator binding="#{bindings.CisPrcsReqstId.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.CisPrcsReqstId.format}"/>
+                        </af:inputText>
+                        <af:inputDate value="#{bindings.KeyDate01.inputValue}" readOnly="true" label="Key Date"
+                                      required="#{bindings.KeyDate01.hints.mandatory}"
+                                      columns="#{bindings.KeyDate01.hints.displayWidth}"
+                                      shortDesc="#{bindings.KeyDate01.hints.tooltip}" id="id1">
+                            <f:validator binding="#{bindings.KeyDate01.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.KeyDate01.format}"/>
+                        </af:inputDate>
+                        <af:inputText value="#{bindings.BusinessUnitCa.inputValue}" label="CPQ Business Unit"
+                                      required="#{bindings.BusinessUnitCa.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.BusinessUnitCa.hints.displayWidth}"
+                                      maximumLength="#{bindings.BusinessUnitCa.hints.precision}"
+                                      shortDesc="#{bindings.BusinessUnitCa.hints.tooltip}" id="it3">
+                            <f:validator binding="#{bindings.BusinessUnitCa.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.ContractNum.inputValue}" label="Contract Number"
+                                      required="#{bindings.ContractNum.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.ContractNum.hints.displayWidth}"
+                                      maximumLength="#{bindings.ContractNum.hints.precision}"
+                                      shortDesc="#{bindings.ContractNum.hints.tooltip}" id="it4">
+                            <f:validator binding="#{bindings.ContractNum.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.ContractType.inputValue}" label="Contract Type"
+                                      required="#{bindings.ContractType.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.ContractType.hints.displayWidth}"
+                                      maximumLength="#{bindings.ContractType.hints.precision}"
+                                      shortDesc="#{bindings.ContractType.hints.tooltip}" id="it5">
+                            <f:validator binding="#{bindings.ContractType.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.ContractLineNum.inputValue}" label="Contract Line"
+                                      required="#{bindings.ContractLineNum.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.ContractLineNum.hints.displayWidth}"
+                                      maximumLength="#{bindings.ContractLineNum.hints.precision}"
+                                      shortDesc="#{bindings.ContractLineNum.hints.tooltip}" id="it6">
+                            <f:validator binding="#{bindings.ContractLineNum.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.ContractLineNum.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.ProductId.inputValue}" label="Product Id"
+                                      required="#{bindings.ProductId.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.ProductId.hints.displayWidth}"
+                                      maximumLength="#{bindings.ProductId.hints.precision}"
+                                      shortDesc="#{bindings.ProductId.hints.tooltip}" id="it7">
+                            <f:validator binding="#{bindings.ProductId.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.ProductDescr.inputValue}" label="Product Description"
+                                      required="#{bindings.ProductDescr.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.ProductDescr.hints.displayWidth}"
+                                      maximumLength="#{bindings.ProductDescr.hints.precision}"
+                                      shortDesc="#{bindings.ProductDescr.hints.tooltip}" id="it8">
+                            <f:validator binding="#{bindings.ProductDescr.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.UomRecv.inputValue}" label="Receiving UOM"
+                                      required="#{bindings.UomRecv.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.UomRecv.hints.displayWidth}"
+                                      maximumLength="#{bindings.UomRecv.hints.precision}"
+                                      shortDesc="#{bindings.UomRecv.hints.tooltip}" id="it9">
+                            <f:validator binding="#{bindings.UomRecv.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.BusinessUnitPc.inputValue}" label="Project Unit"
+                                      required="#{bindings.BusinessUnitPc.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.BusinessUnitPc.hints.displayWidth}"
+                                      maximumLength="#{bindings.BusinessUnitPc.hints.precision}"
+                                      shortDesc="#{bindings.BusinessUnitPc.hints.tooltip}" id="it10">
+                            <f:validator binding="#{bindings.BusinessUnitPc.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.ProjectId.inputValue}" label="Project Id"
+                                      required="#{bindings.ProjectId.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.ProjectId.hints.displayWidth}"
+                                      maximumLength="#{bindings.ProjectId.hints.precision}"
+                                      shortDesc="#{bindings.ProjectId.hints.tooltip}" id="it11">
+                            <f:validator binding="#{bindings.ProjectId.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.ActivityId.inputValue}" label="Activity / Task Id"
+                                      required="#{bindings.ActivityId.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.ActivityId.hints.displayWidth}"
+                                      maximumLength="#{bindings.ActivityId.hints.precision}"
+                                      shortDesc="#{bindings.ActivityId.hints.tooltip}" id="it12">
+                            <f:validator binding="#{bindings.ActivityId.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.RatePlan.inputValue}" label="Rate Plan"
+                                      required="#{bindings.RatePlan.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.RatePlan.hints.displayWidth}"
+                                      maximumLength="#{bindings.RatePlan.hints.precision}"
+                                      shortDesc="#{bindings.RatePlan.hints.tooltip}" id="it14">
+                            <f:validator binding="#{bindings.RatePlan.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.RateAmt.inputValue}" label="Rate Amount"
+                                      required="#{bindings.RateAmt.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.RateAmt.hints.displayWidth}"
+                                      maximumLength="#{bindings.RateAmt.hints.precision}"
+                                      shortDesc="#{bindings.RateAmt.hints.tooltip}" id="it15">
+                            <f:validator binding="#{bindings.RateAmt.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.RateAmt.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.PcTransId.inputValue}" label="Project Transaction"
+                                      required="#{bindings.PcTransId.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.PcTransId.hints.displayWidth}"
+                                      maximumLength="#{bindings.PcTransId.hints.precision}"
+                                      shortDesc="#{bindings.PcTransId.hints.tooltip}" id="it16">
+                            <f:validator binding="#{bindings.PcTransId.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.CisTierFreq.inputValue}" label="Tier Frequency"
+                                      required="#{bindings.CisTierFreq.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.CisTierFreq.hints.displayWidth}"
+                                      maximumLength="#{bindings.CisTierFreq.hints.precision}"
+                                      shortDesc="#{bindings.CisTierFreq.hints.tooltip}" id="it17">
+                            <f:validator binding="#{bindings.CisTierFreq.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.SeqNbr.inputValue}" label="Sequence Number"
+                                      required="#{bindings.SeqNbr.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.SeqNbr.hints.displayWidth}"
+                                      maximumLength="#{bindings.SeqNbr.hints.precision}"
+                                      shortDesc="#{bindings.SeqNbr.hints.tooltip}" id="it18">
+                            <f:validator binding="#{bindings.SeqNbr.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.SeqNbr.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.LineNo.inputValue}" label="Line Number"
+                                      required="#{bindings.LineNo.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.LineNo.hints.displayWidth}"
+                                      maximumLength="#{bindings.LineNo.hints.precision}"
+                                      shortDesc="#{bindings.LineNo.hints.tooltip}" id="it19">
+                            <f:validator binding="#{bindings.LineNo.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.LineNo.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.PcBreakQtyLow.inputValue}" label="Minimum Break"
+                                      required="#{bindings.PcBreakQtyLow.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.PcBreakQtyLow.hints.displayWidth}"
+                                      maximumLength="#{bindings.PcBreakQtyLow.hints.precision}"
+                                      shortDesc="#{bindings.PcBreakQtyLow.hints.tooltip}" id="it20">
+                            <f:validator binding="#{bindings.PcBreakQtyLow.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.PcBreakQtyLow.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.PcBreakQtyHigh.inputValue}" label="Maximum Break"
+                                      required="#{bindings.PcBreakQtyHigh.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.PcBreakQtyHigh.hints.displayWidth}"
+                                      maximumLength="#{bindings.PcBreakQtyHigh.hints.precision}"
+                                      shortDesc="#{bindings.PcBreakQtyHigh.hints.tooltip}" id="it21">
+                            <f:validator binding="#{bindings.PcBreakQtyHigh.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.PcBreakQtyHigh.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.CisAdjustmentAmt.inputValue}" label="Adjustment Amount"
+                                      required="#{bindings.CisAdjustmentAmt.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.CisAdjustmentAmt.hints.displayWidth}"
+                                      maximumLength="#{bindings.CisAdjustmentAmt.hints.precision}"
+                                      shortDesc="#{bindings.CisAdjustmentAmt.hints.tooltip}" id="it22">
+                            <f:validator binding="#{bindings.CisAdjustmentAmt.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.CisAdjustmentAmt.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.AdjustmentPct.inputValue}" label="Adjustment Percentage"
+                                      required="#{bindings.AdjustmentPct.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.AdjustmentPct.hints.displayWidth}"
+                                      maximumLength="#{bindings.AdjustmentPct.hints.precision}"
+                                      shortDesc="#{bindings.AdjustmentPct.hints.tooltip}" id="it23">
+                            <f:validator binding="#{bindings.AdjustmentPct.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.AdjustmentPct.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.Rollover.inputValue}" label="Rollover"
+                                      required="#{bindings.Rollover.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.Rollover.hints.displayWidth}"
+                                      maximumLength="#{bindings.Rollover.hints.precision}"
+                                      shortDesc="#{bindings.Rollover.hints.tooltip}" id="it24">
+                            <f:validator binding="#{bindings.Rollover.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.Amount.inputValue}" label="Amount"
+                                      required="#{bindings.Amount.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.Amount.hints.displayWidth}"
+                                      maximumLength="#{bindings.Amount.hints.precision}"
+                                      shortDesc="#{bindings.Amount.hints.tooltip}" id="it25">
+                            <f:validator binding="#{bindings.Amount.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.Amount.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.BookCaToDfr.inputValue}" label="Deferred Booking"
+                                      required="#{bindings.BookCaToDfr.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.BookCaToDfr.hints.displayWidth}"
+                                      maximumLength="#{bindings.BookCaToDfr.hints.precision}"
+                                      shortDesc="#{bindings.BookCaToDfr.hints.tooltip}" id="it26">
+                            <f:validator binding="#{bindings.BookCaToDfr.validator}"/>
+                        </af:inputText>
+                        <af:inputDate value="#{bindings.StartDt.inputValue}" readOnly="true" label="Start Date"
+                                      required="#{bindings.StartDt.hints.mandatory}"
+                                      columns="#{bindings.StartDt.hints.displayWidth}"
+                                      shortDesc="#{bindings.StartDt.hints.tooltip}" id="id2">
+                            <f:validator binding="#{bindings.StartDt.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.StartDt.format}"/>
+                        </af:inputDate>
+                        <af:inputDate value="#{bindings.EndDt.inputValue}" readOnly="true" label="End Date"
+                                      required="#{bindings.EndDt.hints.mandatory}"
+                                      columns="#{bindings.EndDt.hints.displayWidth}"
+                                      shortDesc="#{bindings.EndDt.hints.tooltip}" id="id3">
+                            <f:validator binding="#{bindings.EndDt.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.EndDt.format}"/>
+                        </af:inputDate>
+                        <af:inputText value="#{bindings.ThresholdAmt.inputValue}" label="Threshold Amount"
+                                      required="#{bindings.ThresholdAmt.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.ThresholdAmt.hints.displayWidth}"
+                                      maximumLength="#{bindings.ThresholdAmt.hints.precision}"
+                                      shortDesc="#{bindings.ThresholdAmt.hints.tooltip}" id="it27">
+                            <f:validator binding="#{bindings.ThresholdAmt.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.ThresholdAmt.format}"/>
+                        </af:inputText>
+                        <af:inputDate value="#{bindings.LastUpdateDate.inputValue}" readOnly="true" label="Last Updated"
+                                      required="#{bindings.LastUpdateDate.hints.mandatory}"
+                                      columns="#{bindings.LastUpdateDate.hints.displayWidth}"
+                                      shortDesc="#{bindings.LastUpdateDate.hints.tooltip}" id="id4">
+                            <f:validator binding="#{bindings.LastUpdateDate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.LastUpdateDate.format}"/>
+                        </af:inputDate>
+                        <af:inputText value="#{bindings.Refresh.inputValue}" label="Refreshed"
+                                      required="#{bindings.Refresh.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.Refresh.hints.displayWidth}"
+                                      maximumLength="#{bindings.Refresh.hints.precision}"
+                                      shortDesc="#{bindings.Refresh.hints.tooltip}" id="it28">
+                            <f:validator binding="#{bindings.Refresh.validator}"/>
+                        </af:inputText>
+                    </af:panelFormLayout>
+                </af:panelBox>
+            </af:gridCell>
+        </af:gridRow>
+    </af:panelGridLayout>
+</ui:composition>

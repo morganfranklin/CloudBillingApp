@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57"
+                id="dccContractMaintenance_dccContractMaintenance_Execute2PageDef" Package="view.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="XpeDccContractLineView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccContractLineView1Iterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="XpeDccContractLineView1Iterator" id="Execute" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

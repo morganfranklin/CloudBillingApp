@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+    xmlns="http://xmlns.oracle.com/bc4j"
+    Name="NeuRuleTbl"
+    Version="12.2.1.0.31"
+    InheritPersonalization="merge"
+    DBObjectType="table"
+    DBObjectName="NEU_RULE_TBL"
+    AliasName="NeuRuleTbl"
+    BindingStyle="OracleName">
+    <Attribute
+        Name="RulesetCd"
+        IsNotNull="true"
+        Precision="20"
+        ColumnName="RULESET_CD"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="NEU_RULE_TBL"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="SystemSource"
+        IsNotNull="true"
+        Precision="20"
+        ColumnName="SYSTEM_SOURCE"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="NEU_RULE_TBL"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="RuleCd"
+        IsNotNull="true"
+        Precision="20"
+        ColumnName="RULE_CD"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="NEU_RULE_TBL"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="RuleDescription"
+        Precision="50"
+        ColumnName="RULE_DESCRIPTION"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="NEU_RULE_TBL">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="50"/>
+        </DesignTime>
+    </Attribute>
+    <AccessorAttribute
+        Name="NeuRulesetTbl1"
+        Association="model.NeuRuleTblFk1Assoc"
+        AssociationEnd="model.NeuRuleTblFk1Assoc.NeuRulesetTbl1"
+        AssociationOtherEnd="model.NeuRuleTblFk1Assoc.NeuRuleTbl"
+        Type="oracle.jbo.server.EntityImpl"
+        IsUpdateable="true"/>
+    <AccessorAttribute
+        Name="NeuCondTbl"
+        Association="model.NeuCondTblFk1Assoc"
+        AssociationEnd="model.NeuCondTblFk1Assoc.NeuCondTbl"
+        AssociationOtherEnd="model.NeuCondTblFk1Assoc.NeuRuleTbl"
+        Type="oracle.jbo.RowIterator"
+        IsUpdateable="false"/>
+    <AccessorAttribute
+        Name="NeuActionTbl"
+        Association="model.NeuActionTblFk1Assoc"
+        AssociationEnd="model.NeuActionTblFk1Assoc.NeuActionTbl"
+        AssociationOtherEnd="model.NeuActionTblFk1Assoc.NeuRuleTbl"
+        Type="oracle.jbo.RowIterator"
+        IsUpdateable="false"/>
+    <Key
+        Name="NeuRuleTblPk"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DBObjectName" Value="NEU_RULE_TBL_PK"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.NeuRuleTbl.RulesetCd"/>
+            <Item Value="model.NeuRuleTbl.SystemSource"/>
+            <Item Value="model.NeuRuleTbl.RuleCd"/>
+        </AttrArray>
+    </Key>
+    <Key
+        Name="NeuRuleTblFk1">
+        <DesignTime>
+            <Attr Name="_referencedKey" Value="NEU_RULESET_TBL_PK"/>
+            <Attr Name="_isForeign" Value="true"/>
+            <Attr Name="_DBObjectName" Value="NEU_RULE_TBL_FK1"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.NeuRuleTbl.RulesetCd"/>
+            <Item Value="model.NeuRuleTbl.SystemSource"/>
+        </AttrArray>
+    </Key>
+</Entity>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+    xmlns="http://xmlns.oracle.com/bc4j"
+    Name="NeuParAllTbl"
+    Version="12.2.1.0.31"
+    InheritPersonalization="merge"
+    DBObjectType="table"
+    DBObjectName="NEU_PAR_ALL_TBL"
+    AliasName="NeuParAllTbl"
+    BindingStyle="OracleName">
+    <Attribute
+        Name="ParType"
+        IsNotNull="true"
+        Precision="20"
+        ColumnName="PAR_TYPE"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="NEU_PAR_ALL_TBL"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="Parameter"
+        IsNotNull="true"
+        Precision="20"
+        ColumnName="PARAMETER"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="NEU_PAR_ALL_TBL"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="Description"
+        Precision="50"
+        ColumnName="DESCRIPTION"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="NEU_PAR_ALL_TBL">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="50"/>
+        </DesignTime>
+    </Attribute>
+    <Key
+        Name="NeuParAllTblPk"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DBObjectName" Value="NEU_PAR_ALL_TBL_PK"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.NeuParAllTbl.ParType"/>
+            <Item Value="model.NeuParAllTbl.Parameter"/>
+        </AttrArray>
+    </Key>
+</Entity>

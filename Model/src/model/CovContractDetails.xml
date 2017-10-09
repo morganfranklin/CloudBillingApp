@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+    xmlns="http://xmlns.oracle.com/bc4j"
+    Name="CovContractDetails"
+    Version="12.2.1.0.31"
+    InheritPersonalization="merge"
+    DBObjectType="table"
+    DBObjectName="COV_CONTRACT_DETAILS"
+    AliasName="CovContractDetails"
+    BindingStyle="OracleName">
+    <Attribute
+        Name="DealNumber"
+        IsNotNull="true"
+        Precision="40"
+        ColumnName="DEAL_NUMBER"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="COV_CONTRACT_DETAILS"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="40"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="ContractLine"
+        IsNotNull="true"
+        Precision="10"
+        ColumnName="CONTRACT_LINE"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="COV_CONTRACT_DETAILS"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="10"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="DetailClass"
+        IsNotNull="true"
+        Precision="10"
+        ColumnName="DETAIL_CLASS"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="COV_CONTRACT_DETAILS"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="10"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="SeqNum"
+        IsNotNull="true"
+        Precision="5"
+        Scale="0"
+        ColumnName="SEQ_NUM"
+        SQLType="NUMERIC"
+        Type="java.lang.Integer"
+        ColumnType="NUMBER"
+        TableName="COV_CONTRACT_DETAILS"
+        PrimaryKey="true"/>
+    <Attribute
+        Name="Selection"
+        Precision="20"
+        ColumnName="SELECTION"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="COV_CONTRACT_DETAILS">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="Char1"
+        Precision="20"
+        ColumnName="CHAR1"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="COV_CONTRACT_DETAILS">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="Char2"
+        Precision="20"
+        ColumnName="CHAR2"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="COV_CONTRACT_DETAILS">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="Effdt1"
+        ColumnName="EFFDT1"
+        SQLType="DATE"
+        Type="java.sql.Timestamp"
+        ColumnType="DATE"
+        TableName="COV_CONTRACT_DETAILS"/>
+    <Attribute
+        Name="Effdt2"
+        ColumnName="EFFDT2"
+        SQLType="DATE"
+        Type="java.sql.Timestamp"
+        ColumnType="DATE"
+        TableName="COV_CONTRACT_DETAILS"/>
+    <Attribute
+        Name="Number1"
+        Precision="10"
+        Scale="2"
+        ColumnName="NUMBER1"
+        SQLType="NUMERIC"
+        Type="java.math.BigDecimal"
+        ColumnType="NUMBER"
+        TableName="COV_CONTRACT_DETAILS"/>
+    <Attribute
+        Name="Number2"
+        Precision="10"
+        Scale="2"
+        ColumnName="NUMBER2"
+        SQLType="NUMERIC"
+        Type="java.math.BigDecimal"
+        ColumnType="NUMBER"
+        TableName="COV_CONTRACT_DETAILS"/>
+    <Attribute
+        Name="Number3"
+        Precision="10"
+        Scale="5"
+        ColumnName="NUMBER3"
+        SQLType="NUMERIC"
+        Type="java.math.BigDecimal"
+        ColumnType="NUMBER"
+        TableName="COV_CONTRACT_DETAILS"/>
+    <Attribute
+        Name="Ruleset1"
+        Precision="50"
+        ColumnName="RULESET1"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="COV_CONTRACT_DETAILS">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="50"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="Ruleset2"
+        Precision="50"
+        ColumnName="RULESET2"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="COV_CONTRACT_DETAILS">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="50"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="Char3"
+        Precision="254"
+        ColumnName="CHAR3"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="COV_CONTRACT_DETAILS">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="254"/>
+        </DesignTime>
+    </Attribute>
+    <AccessorAttribute
+        Name="CovContracts"
+        Association="model.CovContractDetailsFk1Assoc"
+        AssociationEnd="model.CovContractDetailsFk1Assoc.CovContracts"
+        AssociationOtherEnd="model.CovContractDetailsFk1Assoc.CovContractDetails"
+        Type="oracle.jbo.server.EntityImpl"
+        IsUpdateable="true"/>
+    <AccessorAttribute
+        Name="CovContractLines"
+        Association="model.CovContractDetailsFk2Assoc"
+        AssociationEnd="model.CovContractDetailsFk2Assoc.CovContractLines"
+        AssociationOtherEnd="model.CovContractDetailsFk2Assoc.CovContractDetails"
+        Type="oracle.jbo.server.EntityImpl"
+        IsUpdateable="true"/>
+    <Key
+        Name="CovContractDetailsPk"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DBObjectName" Value="COV_CONTRACT_DETAILS_PK"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.CovContractDetails.DealNumber"/>
+            <Item Value="model.CovContractDetails.ContractLine"/>
+            <Item Value="model.CovContractDetails.SeqNum"/>
+            <Item Value="model.CovContractDetails.DetailClass"/>
+        </AttrArray>
+    </Key>
+    <Key
+        Name="CovContractDetailsFk1">
+        <DesignTime>
+            <Attr Name="_referencedKey" Value="COV_CONTRACTS_PK"/>
+            <Attr Name="_isForeign" Value="true"/>
+            <Attr Name="_DBObjectName" Value="COV_CONTRACT_DETAILS_FK1"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.CovContractDetails.DealNumber"/>
+        </AttrArray>
+    </Key>
+    <Key
+        Name="CovContractDetailsFk2">
+        <DesignTime>
+            <Attr Name="_referencedKey" Value="COV_CONTRACT_LINE_PK"/>
+            <Attr Name="_isForeign" Value="true"/>
+            <Attr Name="_DBObjectName" Value="COV_CONTRACT_DETAILS_FK2"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.CovContractDetails.DealNumber"/>
+            <Item Value="model.CovContractDetails.ContractLine"/>
+        </AttrArray>
+    </Key>
+</Entity>

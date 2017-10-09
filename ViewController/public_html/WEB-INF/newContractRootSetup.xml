@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="newContractRootSetup">
+    <default-activity>newContractSetup</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <task-flow-call id="newContractSetup">
+      <task-flow-reference>
+        <document>/WEB-INF/newContractSetup.xml</document>
+        <id>newContractSetup</id>
+      </task-flow-reference>
+      <input-parameter id="__6">
+        <name>ContractType</name>
+        <value>#{'NEW'}</value>
+      </input-parameter>
+    </task-flow-call>
+    <task-flow-call id="newContractSetup1">
+      <task-flow-reference>
+        <document>/WEB-INF/newContractSetup.xml</document>
+        <id>newContractSetup</id>
+      </task-flow-reference>
+      <input-parameter id="__7">
+        <name>ContractType</name>
+        <value>#{'NEW'}</value>
+      </input-parameter>
+    </task-flow-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>newContractSetup</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>parent</from-outcome>
+        <to-activity-id>newContractSetup1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>newContractSetup1</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>parent</from-outcome>
+        <to-activity-id>newContractSetup</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

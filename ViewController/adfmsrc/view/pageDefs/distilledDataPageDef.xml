@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="distilledDataPageDef"
+                Package="view.pageDefs">
+    <parameters/>
+    <executables>
+        <variableIterator id="variables"/>
+        <iterator Binds="PsCisXpeImportView1" RangeSize="25" DataControl="AppModuleDataControl"
+                  id="PsCisXpeImportView1Iterator"/>
+        <searchRegion Binds="PsCisXpeImportView1Iterator" Criteria=""
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="PsCisXpeImportView1Query"/>
+        <iterator Binds="PsCisXpeImpContrVwView1" RangeSize="25" DataControl="AppModuleDataControl"
+                  id="PsCisXpeImpContrVwView1Iterator"/>
+        <searchRegion Criteria="Standard" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                      Binds="PsCisXpeImpContrVwView1Iterator" id="PsCisXpeImpContrVwViewCriteriaQuery"/>
+    </executables>
+    <bindings>
+        <tree IterBinding="PsCisXpeImportView1Iterator" id="PsCisXpeImportView1">
+            <nodeDefinition DefName="model.PsCisXpeImportView" Name="PsCisXpeImportView10">
+                <AttrNames>
+                    <Item Value="Key1"/>
+                    <Item Value="Key2"/>
+                    <Item Value="Key3"/>
+                    <Item Value="KeyDate01"/>
+                    <Item Value="CisTargetCustid1"/>
+                    <Item Value="CisTargtcust1det1"/>
+                    <Item Value="CisTargtcust1det2"/>
+                    <Item Value="CisTargtcust1det3"/>
+                    <Item Value="CisTargetVendor1"/>
+                    <Item Value="AttrValue3"/>
+                    <Item Value="AttrValue4"/>
+                    <Item Value="AttrValue5"/>
+                    <Item Value="Qty1"/>
+                    <Item Value="Qty2"/>
+                    <Item Value="Qty3"/>
+                    <Item Value="CisTransAggQty1"/>
+                    <Item Value="CisTransBiAmt1"/>
+                    <Item Value="CisStatus"/>
+                    <Item Value="ErrorMessage"/>
+                    <Item Value="Key4"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <attributeValues IterBinding="PsCisXpeImportView1Iterator" id="Processid">
+            <AttrNames>
+                <Item Value="Processid"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeImportView1Iterator" id="CisPrcsReqstId">
+            <AttrNames>
+                <Item Value="CisPrcsReqstId"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeImportView1Iterator" id="CisExecPlanCode">
+            <AttrNames>
+                <Item Value="CisExecPlanCode"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeImportView1Iterator" id="CisExecPlanStep">
+            <AttrNames>
+                <Item Value="CisExecPlanStep"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeImportView1Iterator" id="CisExecDate">
+            <AttrNames>
+                <Item Value="CisExecDate"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeImportView1Iterator" id="CisStage">
+            <AttrNames>
+                <Item Value="CisStage"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeImportView1Iterator" id="ContractNum">
+            <AttrNames>
+                <Item Value="ContractNum"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeImportView1Iterator" id="ContractType">
+            <AttrNames>
+                <Item Value="ContractType"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeImportView1Iterator" id="ContractLineNum">
+            <AttrNames>
+                <Item Value="ContractLineNum"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeImportView1Iterator" id="BusinessUnitPc">
+            <AttrNames>
+                <Item Value="BusinessUnitPc"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeImportView1Iterator" id="ProjectId">
+            <AttrNames>
+                <Item Value="ProjectId"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeImportView1Iterator" id="ActivityId">
+            <AttrNames>
+                <Item Value="ActivityId"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeImportView1Iterator" id="ResourceId">
+            <AttrNames>
+                <Item Value="ResourceId"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeImportView1Iterator" id="ProcessFlag">
+            <AttrNames>
+                <Item Value="ProcessFlag"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeImportView1Iterator" id="Chartfield1">
+            <AttrNames>
+                <Item Value="Chartfield1"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeImportView1Iterator" id="Chartfield2">
+            <AttrNames>
+                <Item Value="Chartfield2"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeImportView1Iterator" id="Chartfield3">
+            <AttrNames>
+                <Item Value="Chartfield3"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeImportView1Iterator" id="CisChartfield4">
+            <AttrNames>
+                <Item Value="CisChartfield4"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeImportView1Iterator" id="CisChartfield5">
+            <AttrNames>
+                <Item Value="CisChartfield5"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeImportView1Iterator" id="CisChartfield6">
+            <AttrNames>
+                <Item Value="CisChartfield6"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeImportView1Iterator" id="CisChartfield7">
+            <AttrNames>
+                <Item Value="CisChartfield7"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeImportView1Iterator" id="CisChartfield8">
+            <AttrNames>
+                <Item Value="CisChartfield8"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeImportView1Iterator" id="CisChartfield9">
+            <AttrNames>
+                <Item Value="CisChartfield9"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeImportView1Iterator" id="CisChartfield10">
+            <AttrNames>
+                <Item Value="CisChartfield10"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeImportView1Iterator" id="CisStatus">
+            <AttrNames>
+                <Item Value="CisStatus"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeImportView1Iterator" id="ErrorMessage">
+            <AttrNames>
+                <Item Value="ErrorMessage"/>
+            </AttrNames>
+        </attributeValues>
+        <tree IterBinding="PsCisXpeImpContrVwView1Iterator" id="PsCisXpeImpContrVwView1">
+            <nodeDefinition DefName="model.PsCisXpeImpContrVwView" Name="PsCisXpeImpContrVwView10">
+                <AttrNames>
+                    <Item Value="Key1"/>
+                    <Item Value="Key2"/>
+                    <Item Value="Key3"/>
+                    <Item Value="Key4"/>
+                    <Item Value="KeyDate01"/>
+                    <Item Value="CisTargtcust1det1"/>
+                    <Item Value="CisTargtcust1det2"/>
+                    <Item Value="CisTargetVendor1"/>
+                    <Item Value="CisStatus"/>
+                    <Item Value="ErrorMessage"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <action IterBinding="PsCisXpeImportView1Iterator" id="Execute" RequiresUpdateModel="true"
+                Action="iteratorExecute"/>
+    </bindings>
+</pageDefinition>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="EditPcsSitesPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XpeDccCfgNewPcsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewPcsEOVOIterator"/>
+    <iterator Binds="XpeDccCfgNewPcsAssTerminalsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewPcsAssTerminalsEOVOIterator"/>
+    <taskFlow id="terminalSearch1" taskFlowId="/WEB-INF/terminalSearch.xml#terminalSearch" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="XpeDccCfgNewPcsEOVOIterator" id="SiteId">
+      <AttrNames>
+        <Item Value="SiteId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewPcsEOVOIterator" id="SiteDesc">
+      <AttrNames>
+        <Item Value="SiteDesc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewPcsEOVOIterator" id="FacilityId">
+      <AttrNames>
+        <Item Value="FacilityId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewPcsEOVOIterator" id="DbLink">
+      <AttrNames>
+        <Item Value="DbLink"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgNewPcsEOVOIterator" StaticList="false" Uses="LOV_PrintStage" id="PrintStage"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgNewPcsEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgNewPcsEOVOIterator" id="InactiveDate">
+      <AttrNames>
+        <Item Value="InactiveDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgNewPcsEOVOIterator" StaticList="false" Uses="LOV_Activate" id="Activate"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgNewPcsEOVOIterator" StaticList="false" Uses="LOV_DirectToCustomer"
+          id="DirectToCustomer" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgNewPcsEOVOIterator" id="EmailNotificationGroup">
+      <AttrNames>
+        <Item Value="EmailNotificationGroup"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="XpeDccCfgNewPcsAssTerminalsEOVOIterator" id="XpeDccCfgNewPcsAssTerminalsEOVO">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccCfgPcsAssTerminalsEOVO"
+                      Name="XpeDccCfgNewPcsAssTerminalsEOVO0">
+        <AttrNames>
+          <Item Value="TerminalId"/>
+          <Item Value="TerminalDesc"/>
+          <Item Value="SiteId"/>
+          <Item Value="Inactive"/>
+          <Item Value="InactiveDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <attributeValues IterBinding="XpeDccCfgNewPcsAssTerminalsEOVOIterator" id="TerminalId">
+      <AttrNames>
+        <Item Value="TerminalId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewPcsAssTerminalsEOVOIterator" id="TerminalDesc">
+      <AttrNames>
+        <Item Value="TerminalDesc"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgNewPcsAssTerminalsEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive1"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgNewPcsAssTerminalsEOVOIterator" id="InactiveDate1">
+      <AttrNames>
+        <Item Value="InactiveDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewPcsAssTerminalsEOVOIterator" id="SiteId1">
+      <AttrNames>
+        <Item Value="SiteId"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

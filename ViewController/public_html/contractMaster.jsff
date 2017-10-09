@@ -1,0 +1,501 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGridLayout id="pgl1">
+        <af:gridRow marginTop="5px" marginBottom="0px" id="gr2">
+            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" halign="stretch" valign="stretch">
+                <af:panelBox text="Contract Header" id="pb2" showDisclosure="true">
+                    <f:facet name="toolbar"/>
+                    <af:panelGroupLayout layout="vertical" id="pgl2">
+                        <af:panelHeader text=" " id="ph1">
+                            <af:query id="qryId1" headerText="search parameters" disclosed="true"
+                                      value="#{bindings.ImplicitViewCriteriaQuery.queryDescriptor}"
+                                      model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                                      queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}"
+                                      queryOperationListener="#{bindings.ImplicitViewCriteriaQuery.processQueryOperation}"
+                                      resultComponentId="::resId1"/>
+                        </af:panelHeader>
+                        <af:table value="#{bindings.CovContractsView1.collectionModel}" var="row"
+                                  rows="#{bindings.CovContractsView1.rangeSize}"
+                                  emptyText="#{bindings.CovContractsView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.CovContractsView1.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.CovContractsView1.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.CovContractsView1.rangeSize}"
+                                  filterModel="#{bindings.ImplicitViewCriteriaQuery.queryDescriptor}"
+                                  filterVisible="true"
+                                  queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}" varStatus="vs"
+                                  id="resId1">
+                            <af:column id="c11" headerText="#{bindings.CovContractsView1.hints.DealNumber.label}">
+                                <af:outputText value="#{row.DealNumber}" id="ot1"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.CovContractsView1.hints.PsCustomerId.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.CovContractsView1.hints.PsCustomerId.label}"
+                                       id="resId1c2">
+                                <af:outputText value="#{row.PsCustomerId}"
+                                               shortDesc="#{bindings.CovContractsView1.hints.PsCustomerId.tooltip}"
+                                               id="ot2"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.CovContractsView1.hints.BillToCustId.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.CovContractsView1.hints.BillToCustId.label}"
+                                       id="resId1c3">
+                                <af:outputText value="#{row.BillToCustId}"
+                                               shortDesc="#{bindings.CovContractsView1.hints.BillToCustId.tooltip}"
+                                               id="ot3"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.CovContractsView1.hints.EffectiveFrom.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.CovContractsView1.hints.EffectiveFrom.label}"
+                                       id="resId1c4">
+                                <f:facet name="filter">
+                                    <af:inputDate value="#{bindings.ImplicitViewCriteriaQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.EffectiveFrom.value}"
+                                                  id="id1">
+                                        <af:convertDateTime pattern="#{bindings.CovContractsView1.hints.EffectiveFrom.format}"/>
+                                    </af:inputDate>
+                                </f:facet>
+                                <af:outputText value="#{row.EffectiveFrom}"
+                                               shortDesc="#{bindings.CovContractsView1.hints.EffectiveFrom.tooltip}"
+                                               id="ot4">
+                                    <af:convertDateTime pattern="#{bindings.CovContractsView1.hints.EffectiveFrom.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.CovContractsView1.hints.EffectiveTo.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.CovContractsView1.hints.EffectiveTo.label}" id="resId1c5">
+                                <f:facet name="filter">
+                                    <af:inputDate value="#{bindings.ImplicitViewCriteriaQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.EffectiveTo.value}"
+                                                  id="id2">
+                                        <af:convertDateTime pattern="#{bindings.CovContractsView1.hints.EffectiveTo.format}"/>
+                                    </af:inputDate>
+                                </f:facet>
+                                <af:outputText value="#{row.EffectiveTo}"
+                                               shortDesc="#{bindings.CovContractsView1.hints.EffectiveTo.tooltip}"
+                                               id="ot5">
+                                    <af:convertDateTime pattern="#{bindings.CovContractsView1.hints.EffectiveTo.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.CovContractsView1.hints.Source.name}" sortable="true"
+                                       headerText="#{bindings.CovContractsView1.hints.Source.label}" filterable="true"
+                                       id="resId1c6">
+                                <af:outputText value="#{row.Source}"
+                                               shortDesc="#{bindings.CovContractsView1.hints.Source.tooltip}" id="ot6"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.CovContractsView1.hints.ApprovalStatus.name}"
+                                       sortable="true"
+                                       headerText="#{bindings.CovContractsView1.hints.ApprovalStatus.label}"
+                                       filterable="true" id="resId1c7">
+                                <af:outputText value="#{row.ApprovalStatus}"
+                                               shortDesc="#{bindings.CovContractsView1.hints.ApprovalStatus.tooltip}"
+                                               id="ot7"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.CovContractsView1.hints.TotalValue.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.CovContractsView1.hints.TotalValue.label}" id="resId1c8">
+                                <af:outputText value="#{row.TotalValue}"
+                                               shortDesc="#{bindings.CovContractsView1.hints.TotalValue.tooltip}"
+                                               id="ot8">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.CovContractsView1.hints.TotalValue.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.CovContractsView1.hints.DelinquentValue.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.CovContractsView1.hints.DelinquentValue.label}"
+                                       id="resId1c9">
+                                <af:outputText value="#{row.DelinquentValue}"
+                                               shortDesc="#{bindings.CovContractsView1.hints.DelinquentValue.tooltip}"
+                                               id="ot9">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.CovContractsView1.hints.DelinquentValue.format}"/>
+                                </af:outputText>
+                            </af:column>
+                        </af:table>
+                    </af:panelGroupLayout>
+                </af:panelBox>
+            </af:gridCell>
+        </af:gridRow>
+        <af:gridRow id="gr1">
+            <af:gridCell id="gc1" width="auto" halign="stretch">
+                <af:panelBox text="Contract Details" id="pb3">
+                    <f:facet name="toolbar"/>
+                    <af:panelTabbed position="above" id="pt2" dimensionsFrom="parent" inlineStyle="width:1054px;">
+                        <af:showDetailItem id="tab1" text="Contract Line Setup" disclosed="true" halign="stretch">
+                            <af:table value="#{bindings.CovContractLinesView2.collectionModel}" var="row"
+                                      rows="#{bindings.CovContractLinesView2.rangeSize}"
+                                      emptyText="#{bindings.CovContractLinesView2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.CovContractLinesView2.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.CovContractLinesView2.collectionModel.makeCurrent}"
+                                      rowSelection="single" fetchSize="#{bindings.CovContractLinesView2.rangeSize}"
+                                      id="t1">
+                                <af:column sortProperty="#{bindings.CovContractLinesView2.hints.ContractLine.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.CovContractLinesView2.hints.ContractLine.label}"
+                                           id="c1">
+                                    <af:inputText value="#{row.bindings.ContractLine.inputValue}"
+                                                  label="#{bindings.CovContractLinesView2.hints.ContractLine.label}"
+                                                  required="#{bindings.CovContractLinesView2.hints.ContractLine.mandatory}"
+                                                  columns="#{bindings.CovContractLinesView2.hints.ContractLine.displayWidth}"
+                                                  maximumLength="#{bindings.CovContractLinesView2.hints.ContractLine.precision}"
+                                                  shortDesc="#{bindings.CovContractLinesView2.hints.ContractLine.tooltip}"
+                                                  id="it1">
+                                        <f:validator binding="#{row.bindings.ContractLine.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CovContractLinesView2.hints.PoNumber.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.CovContractLinesView2.hints.PoNumber.label}" id="c2">
+                                    <af:inputText value="#{row.bindings.PoNumber.inputValue}"
+                                                  label="#{bindings.CovContractLinesView2.hints.PoNumber.label}"
+                                                  required="#{bindings.CovContractLinesView2.hints.PoNumber.mandatory}"
+                                                  columns="#{bindings.CovContractLinesView2.hints.PoNumber.displayWidth}"
+                                                  maximumLength="#{bindings.CovContractLinesView2.hints.PoNumber.precision}"
+                                                  shortDesc="#{bindings.CovContractLinesView2.hints.PoNumber.tooltip}"
+                                                  id="it2">
+                                        <f:validator binding="#{row.bindings.PoNumber.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CovContractLinesView2.hints.ApprovalNumber.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.CovContractLinesView2.hints.ApprovalNumber.label}"
+                                           id="c3">
+                                    <af:inputText value="#{row.bindings.ApprovalNumber.inputValue}"
+                                                  label="#{bindings.CovContractLinesView2.hints.ApprovalNumber.label}"
+                                                  required="#{bindings.CovContractLinesView2.hints.ApprovalNumber.mandatory}"
+                                                  columns="#{bindings.CovContractLinesView2.hints.ApprovalNumber.displayWidth}"
+                                                  maximumLength="#{bindings.CovContractLinesView2.hints.ApprovalNumber.precision}"
+                                                  shortDesc="#{bindings.CovContractLinesView2.hints.ApprovalNumber.tooltip}"
+                                                  id="it3">
+                                        <f:validator binding="#{row.bindings.ApprovalNumber.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CovContractLinesView2.hints.Destination.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.CovContractLinesView2.hints.Destination.label}"
+                                           id="c4">
+                                    <af:selectOneChoice value="#{row.bindings.Destination.inputValue}"
+                                                        label="#{row.bindings.Destination.label}"
+                                                        required="#{bindings.CovContractLinesView2.hints.Destination.mandatory}"
+                                                        shortDesc="#{bindings.CovContractLinesView2.hints.Destination.tooltip}"
+                                                        id="soc1">
+                                        <f:selectItems value="#{row.bindings.Destination.items}" id="si1"/>
+                                        <f:validator binding="#{row.bindings.Destination.validator}"/>
+                                    </af:selectOneChoice>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CovContractLinesView2.hints.WasteLaborCategory.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.CovContractLinesView2.hints.WasteLaborCategory.label}"
+                                           id="c5">
+                                    <af:inputListOfValues id="wasteLaborCategoryId"
+                                                          popupTitle="Search and Select: #{bindings.CovContractLinesView2.hints.WasteLaborCategory.label}"
+                                                          value="#{row.bindings.WasteLaborCategory.inputValue}"
+                                                          model="#{row.bindings.WasteLaborCategory.listOfValuesModel}"
+                                                          required="#{bindings.CovContractLinesView2.hints.WasteLaborCategory.mandatory}"
+                                                          columns="#{bindings.CovContractLinesView2.hints.WasteLaborCategory.displayWidth}"
+                                                          shortDesc="#{bindings.CovContractLinesView2.hints.WasteLaborCategory.tooltip}">
+                                        <f:validator binding="#{row.bindings.WasteLaborCategory.validator}"/>
+                                    </af:inputListOfValues>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CovContractLinesView2.hints.Material.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.CovContractLinesView2.hints.Material.label}" id="c6">
+                                    <af:inputListOfValues id="materialId"
+                                                          popupTitle="Search and Select: #{bindings.CovContractLinesView2.hints.Material.label}"
+                                                          value="#{row.bindings.Material.inputValue}"
+                                                          model="#{row.bindings.Material.listOfValuesModel}"
+                                                          required="#{bindings.CovContractLinesView2.hints.Material.mandatory}"
+                                                          columns="#{bindings.CovContractLinesView2.hints.Material.displayWidth}"
+                                                          shortDesc="#{bindings.CovContractLinesView2.hints.Material.tooltip}">
+                                        <f:validator binding="#{row.bindings.Material.validator}"/>
+                                    </af:inputListOfValues>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CovContractLinesView2.hints.Carrier.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.CovContractLinesView2.hints.Carrier.label}" id="c7">
+                                    <af:inputListOfValues id="carrierId"
+                                                          popupTitle="Search and Select: #{bindings.CovContractLinesView2.hints.Carrier.label}"
+                                                          value="#{row.bindings.Carrier.inputValue}"
+                                                          model="#{row.bindings.Carrier.listOfValuesModel}"
+                                                          required="#{bindings.CovContractLinesView2.hints.Carrier.mandatory}"
+                                                          columns="#{bindings.CovContractLinesView2.hints.Carrier.displayWidth}"
+                                                          shortDesc="#{bindings.CovContractLinesView2.hints.Carrier.tooltip}">
+                                        <f:validator binding="#{row.bindings.Carrier.validator}"/>
+                                    </af:inputListOfValues>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CovContractLinesView2.hints.VehicleType.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.CovContractLinesView2.hints.VehicleType.label}"
+                                           id="c8">
+                                    <af:selectOneChoice value="#{row.bindings.VehicleType.inputValue}"
+                                                        label="#{row.bindings.VehicleType.label}"
+                                                        required="#{bindings.CovContractLinesView2.hints.VehicleType.mandatory}"
+                                                        shortDesc="#{bindings.CovContractLinesView2.hints.VehicleType.tooltip}"
+                                                        id="soc2">
+                                        <f:selectItems value="#{row.bindings.VehicleType.items}" id="si2"/>
+                                        <f:validator binding="#{row.bindings.VehicleType.validator}"/>
+                                    </af:selectOneChoice>
+                                </af:column>
+                            </af:table>
+                        </af:showDetailItem>
+                        <af:showDetailItem text="Terms and Conditions" id="sdi1">
+                            <af:button text="PDF preview" id="b1"/>
+                            <af:table value="#{bindings.CovTerms1.collectionModel}" var="row"
+                                      rows="#{bindings.CovTerms1.rangeSize}"
+                                      emptyText="#{bindings.CovTerms1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.CovTerms1.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.CovTerms1.collectionModel.makeCurrent}"
+                                      rowSelection="single" fetchSize="#{bindings.CovTerms1.rangeSize}" id="t3">
+                                <af:column headerText="#{bindings.CovTerms1.hints.Clause.label}" id="c18" width="900">
+                                    <af:outputText value="#{row.Clause}"
+                                                   shortDesc="#{bindings.CovTerms1.hints.Clause.tooltip}" id="ot10"/>
+                                </af:column>
+                            </af:table>
+                        </af:showDetailItem>
+                        <af:showDetailItem id="tab2" text="Usage Data">
+                            <af:button text="Refresh" id="b2"/>
+                            <af:table value="#{bindings.CovUnbill1.collectionModel}" var="row"
+                                      rows="#{bindings.CovUnbill1.rangeSize}"
+                                      emptyText="#{bindings.CovUnbill1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.CovUnbill1.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.CovUnbill1.collectionModel.makeCurrent}"
+                                      rowSelection="single" fetchSize="#{bindings.CovUnbill1.rangeSize}" id="t4">
+                                <af:column sortProperty="#{bindings.CovUnbill1.hints.SeqNum.name}" sortable="true"
+                                           headerText="Sequence Number" id="c19" width="170">
+                                    <af:outputText value="#{row.SeqNum}"
+                                                   shortDesc="#{bindings.CovUnbill1.hints.SeqNum.tooltip}" id="ot11">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.CovUnbill1.hints.SeqNum.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CovUnbill1.hints.ScalesRead.name}" sortable="true"
+                                           headerText="Scales Read" id="c20" width="141">
+                                    <af:outputText value="#{row.ScalesRead}"
+                                                   shortDesc="#{bindings.CovUnbill1.hints.ScalesRead.tooltip}"
+                                                   id="ot12"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CovUnbill1.hints.ScalesDate.name}" sortable="true"
+                                           headerText="Date Read" id="c21" width="51">
+                                    <af:outputText value="#{row.ScalesDate}"
+                                                   shortDesc="#{bindings.CovUnbill1.hints.ScalesDate.tooltip}"
+                                                   id="ot13">
+                                        <af:convertDateTime pattern="#{bindings.CovUnbill1.hints.ScalesDate.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CovUnbill1.hints.ScalesRead1.name}" sortable="true"
+                                           headerText="Billable Quantity Read" id="c22" width="288">
+                                    <af:outputText value="#{row.ScalesRead1}"
+                                                   shortDesc="#{bindings.CovUnbill1.hints.ScalesRead1.tooltip}"
+                                                   id="ot14">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.CovUnbill1.hints.ScalesRead1.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                            </af:table>
+                        </af:showDetailItem>
+                        <af:showDetailItem id="tab3" text="Billing Preview">
+                            <af:table value="#{bindings.CovBill1.collectionModel}" var="row"
+                                      rows="#{bindings.CovBill1.rangeSize}"
+                                      emptyText="#{bindings.CovBill1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.CovBill1.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.CovBill1.collectionModel.makeCurrent}"
+                                      rowSelection="single" fetchSize="#{bindings.CovBill1.rangeSize}" id="t5">
+                                <af:column sortProperty="#{bindings.CovBill1.hints.SeqNum.name}" sortable="true"
+                                           headerText="#{bindings.CovBill1.hints.SeqNum.label}" id="c23" width="178">
+                                    <af:outputText value="#{row.SeqNum}"
+                                                   shortDesc="#{bindings.CovBill1.hints.SeqNum.tooltip}" id="ot15">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.CovBill1.hints.SeqNum.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CovBill1.hints.BillLineDesc.name}" sortable="true"
+                                           headerText="#{bindings.CovBill1.hints.BillLineDesc.label}" id="c24"
+                                           width="215">
+                                    <af:outputText value="#{row.BillLineDesc}"
+                                                   shortDesc="#{bindings.CovBill1.hints.BillLineDesc.tooltip}"
+                                                   id="ot16"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CovBill1.hints.LineAmount.name}" sortable="true"
+                                           headerText="#{bindings.CovBill1.hints.LineAmount.label}" id="c25"
+                                           width="220">
+                                    <af:outputText value="#{row.LineAmount}"
+                                                   shortDesc="#{bindings.CovBill1.hints.LineAmount.tooltip}" id="ot17">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.CovBill1.hints.LineAmount.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                            </af:table>
+                        </af:showDetailItem>
+                        <af:showDetailItem id="tab4" text="Collection Activities">
+                            <af:outputText value="No Application Configuration Data Available" id="ot18"/>
+                        </af:showDetailItem>
+                        <af:showDetailItem text="Audit" id="sdi2">
+                            <af:table value="#{bindings.CovAudit1.collectionModel}" var="row"
+                                      rows="#{bindings.CovAudit1.rangeSize}"
+                                      emptyText="#{bindings.CovAudit1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.CovAudit1.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.CovAudit1.collectionModel.makeCurrent}"
+                                      rowSelection="single" fetchSize="#{bindings.CovAudit1.rangeSize}" id="t6">
+                                <af:column sortProperty="#{bindings.CovAudit1.hints.SeqNum.name}" sortable="true"
+                                           headerText="Sequence Number" id="c26" width="211">
+                                    <af:outputText value="#{row.SeqNum}"
+                                                   shortDesc="#{bindings.CovAudit1.hints.SeqNum.tooltip}" id="ot19">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.CovAudit1.hints.SeqNum.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CovAudit1.hints.EventDateTime.name}" sortable="true"
+                                           headerText="Audit Time" id="c27" width="11">
+                                    <af:outputText value="#{row.EventDateTime}"
+                                                   shortDesc="#{bindings.CovAudit1.hints.EventDateTime.tooltip}"
+                                                   id="ot20">
+                                        <af:convertDateTime pattern="#{bindings.CovAudit1.hints.EventDateTime.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CovAudit1.hints.AuditMessage.name}" sortable="true"
+                                           headerText="Audit Message" id="c28" width="375">
+                                    <af:outputText value="#{row.AuditMessage}"
+                                                   shortDesc="#{bindings.CovAudit1.hints.AuditMessage.tooltip}"
+                                                   id="ot21"/>
+                                </af:column>
+                            </af:table>
+                        </af:showDetailItem>
+                    </af:panelTabbed>
+                </af:panelBox>
+            </af:gridCell>
+        </af:gridRow>
+        <af:gridRow id="gr5">
+            <af:gridCell id="gc5" halign="stretch" valign="stretch">
+                <af:panelBox text="Contract Line Configuration" id="pb4">
+                    <f:facet name="toolbar"/>
+                    <af:panelTabbed position="above" id="pt1" inlineStyle="width:auto;">
+                        <af:showDetailItem id="actions" text="Standard Parameters">
+                            <af:table value="#{bindings.CovContractDetailsView2.collectionModel}" var="row"
+                                      rows="#{bindings.CovContractDetailsView2.rangeSize}"
+                                      emptyText="#{bindings.CovContractDetailsView2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.CovContractDetailsView2.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.CovContractDetailsView2.collectionModel.makeCurrent}"
+                                      rowSelection="single" fetchSize="#{bindings.CovContractDetailsView2.rangeSize}"
+                                      id="t2">
+                                <af:column sortProperty="#{bindings.CovContractDetailsView2.hints.SeqNum.name}"
+                                           sortable="true" headerText="Sequence Number" id="c9">
+                                    <af:inputText value="#{row.bindings.SeqNum.inputValue}"
+                                                  label="#{bindings.CovContractDetailsView2.hints.SeqNum.label}"
+                                                  required="#{bindings.CovContractDetailsView2.hints.SeqNum.mandatory}"
+                                                  columns="#{bindings.CovContractDetailsView2.hints.SeqNum.displayWidth}"
+                                                  maximumLength="#{bindings.CovContractDetailsView2.hints.SeqNum.precision}"
+                                                  shortDesc="#{bindings.CovContractDetailsView2.hints.SeqNum.tooltip}"
+                                                  id="it4">
+                                        <f:validator binding="#{row.bindings.SeqNum.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.CovContractDetailsView2.hints.SeqNum.format}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CovContractDetailsView2.hints.Selection.name}"
+                                           sortable="true" headerText="Pricing Type" id="c10">
+                                    <af:selectOneChoice value="#{row.bindings.Selection.inputValue}"
+                                                        label="#{row.bindings.Selection.label}"
+                                                        required="#{bindings.CovContractDetailsView2.hints.Selection.mandatory}"
+                                                        shortDesc="#{bindings.CovContractDetailsView2.hints.Selection.tooltip}"
+                                                        id="soc3">
+                                        <f:selectItems value="#{row.bindings.Selection.items}" id="si3"/>
+                                        <f:validator binding="#{row.bindings.Selection.validator}"/>
+                                    </af:selectOneChoice>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CovContractDetailsView2.hints.Char1.name}"
+                                           sortable="true" headerText="Description" id="c12">
+                                    <af:inputText value="#{row.bindings.Char1.inputValue}"
+                                                  label="#{bindings.CovContractDetailsView2.hints.Char1.label}"
+                                                  required="#{bindings.CovContractDetailsView2.hints.Char1.mandatory}"
+                                                  columns="#{bindings.CovContractDetailsView2.hints.Char1.displayWidth}"
+                                                  maximumLength="#{bindings.CovContractDetailsView2.hints.Char1.precision}"
+                                                  shortDesc="#{bindings.CovContractDetailsView2.hints.Char1.tooltip}"
+                                                  id="it5">
+                                        <f:validator binding="#{row.bindings.Char1.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CovContractDetailsView2.hints.Effdt1.name}"
+                                           sortable="true" headerText="From Date" id="c13">
+                                    <af:inputDate value="#{row.bindings.Effdt1.inputValue}"
+                                                  label="#{bindings.CovContractDetailsView2.hints.Effdt1.label}"
+                                                  required="#{bindings.CovContractDetailsView2.hints.Effdt1.mandatory}"
+                                                  columns="#{bindings.CovContractDetailsView2.hints.Effdt1.displayWidth}"
+                                                  shortDesc="#{bindings.CovContractDetailsView2.hints.Effdt1.tooltip}"
+                                                  id="id3">
+                                        <f:validator binding="#{row.bindings.Effdt1.validator}"/>
+                                        <af:convertDateTime pattern="#{bindings.CovContractDetailsView2.hints.Effdt1.format}"/>
+                                    </af:inputDate>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CovContractDetailsView2.hints.Effdt2.name}"
+                                           sortable="true" headerText="To Date" id="c14">
+                                    <af:inputDate value="#{row.bindings.Effdt2.inputValue}"
+                                                  label="#{bindings.CovContractDetailsView2.hints.Effdt2.label}"
+                                                  required="#{bindings.CovContractDetailsView2.hints.Effdt2.mandatory}"
+                                                  columns="#{bindings.CovContractDetailsView2.hints.Effdt2.displayWidth}"
+                                                  shortDesc="#{bindings.CovContractDetailsView2.hints.Effdt2.tooltip}"
+                                                  id="id4">
+                                        <f:validator binding="#{row.bindings.Effdt2.validator}"/>
+                                        <af:convertDateTime pattern="#{bindings.CovContractDetailsView2.hints.Effdt2.format}"/>
+                                    </af:inputDate>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CovContractDetailsView2.hints.Number1.name}"
+                                           sortable="true" headerText="Min" id="c15">
+                                    <af:inputText value="#{row.bindings.Number1.inputValue}"
+                                                  label="#{bindings.CovContractDetailsView2.hints.Number1.label}"
+                                                  required="#{bindings.CovContractDetailsView2.hints.Number1.mandatory}"
+                                                  columns="#{bindings.CovContractDetailsView2.hints.Number1.displayWidth}"
+                                                  maximumLength="#{bindings.CovContractDetailsView2.hints.Number1.precision}"
+                                                  shortDesc="#{bindings.CovContractDetailsView2.hints.Number1.tooltip}"
+                                                  id="it6">
+                                        <f:validator binding="#{row.bindings.Number1.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.CovContractDetailsView2.hints.Number1.format}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CovContractDetailsView2.hints.Number2.name}"
+                                           sortable="true" headerText="Max" id="c16">
+                                    <af:inputText value="#{row.bindings.Number2.inputValue}"
+                                                  label="#{bindings.CovContractDetailsView2.hints.Number2.label}"
+                                                  required="#{bindings.CovContractDetailsView2.hints.Number2.mandatory}"
+                                                  columns="#{bindings.CovContractDetailsView2.hints.Number2.displayWidth}"
+                                                  maximumLength="#{bindings.CovContractDetailsView2.hints.Number2.precision}"
+                                                  shortDesc="#{bindings.CovContractDetailsView2.hints.Number2.tooltip}"
+                                                  id="it7">
+                                        <f:validator binding="#{row.bindings.Number2.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.CovContractDetailsView2.hints.Number2.format}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CovContractDetailsView2.hints.Number3.name}"
+                                           sortable="true" headerText="Price" id="c17">
+                                    <af:inputText value="#{row.bindings.Number3.inputValue}"
+                                                  label="#{bindings.CovContractDetailsView2.hints.Number3.label}"
+                                                  required="#{bindings.CovContractDetailsView2.hints.Number3.mandatory}"
+                                                  columns="#{bindings.CovContractDetailsView2.hints.Number3.displayWidth}"
+                                                  maximumLength="#{bindings.CovContractDetailsView2.hints.Number3.precision}"
+                                                  shortDesc="#{bindings.CovContractDetailsView2.hints.Number3.tooltip}"
+                                                  id="it8">
+                                        <f:validator binding="#{row.bindings.Number3.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.CovContractDetailsView2.hints.Number3.format}"/>
+                                    </af:inputText>
+                                </af:column>
+                            </af:table>
+                        </af:showDetailItem>
+                        <af:showDetailItem id="mapping" text="Mapping">
+                            <af:panelBox text="Mapping Definition" id="pb5">
+                                <f:facet name="toolbar"/>
+                            </af:panelBox>
+                        </af:showDetailItem>
+                    </af:panelTabbed>
+                </af:panelBox>
+            </af:gridCell>
+        </af:gridRow>
+    </af:panelGridLayout>
+</ui:composition>

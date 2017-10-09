@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XpeDccTermsForMasterTermROVO"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  ComponentClass="model.views.readonly.XpeDccTermsForMasterTermROVOImpl"
+  RowClass="model.views.readonly.XpeDccTermsForMasterTermROVORowImpl"
+  FetchSize="10"
+  FetchMode="FETCH_AS_NEEDED">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Variable
+    Name="bind_Term"
+    Kind="where"
+    Type="java.lang.String"/>
+  <SQLQuery><![CDATA[SELECT      
+    XPE_DCC_TERM_MASTER.XPE_DCC_TERM,       
+    XPE_DCC_TERMS.XPE_DCC_CLAUSE,      
+    XPE_DCC_TERMS.XPE_DCC_SEQ,      
+    XPE_DCC_TERMS.XPE_DCC_TERM_TEMPLATE      
+FROM      
+    XPE_DCC_TERM_MASTER, XPE_DCC_TERMS      
+WHERE      
+    XPE_DCC_TERM_MASTER.XPE_DCC_TERM = XPE_DCC_TERMS.XPE_DCC_TERM     
+    AND XPE_DCC_TERM_MASTER.XPE_DCC_TERM=:bind_Term  
+ORDER BY XPE_DCC_SEQ DESC]]></SQLQuery>
+  <ViewAttribute
+    Name="XpeDccTerm"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="XPE_DCC_TERM"
+    Expression="XPE_DCC_TERM"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="XpeDccClause"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="XPE_DCC_CLAUSE"
+    Expression="XPE_DCC_CLAUSE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="XpeDccSeq"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="5"
+    Scale="0"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    AliasName="XPE_DCC_SEQ"
+    Expression="XPE_DCC_SEQ"
+    SQLType="INTEGER"/>
+  <ViewAttribute
+    Name="XpeDccTermTemplate"
+    IsUpdateable="false"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.ClobDomain"
+    ColumnType="CLOB"
+    AliasName="XPE_DCC_TERM_TEMPLATE"
+    Expression="XPE_DCC_TERM_TEMPLATE"
+    SQLType="CLOB"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="XpeDccClause"/>
+  </AttrArray>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.views.readonly.XpeDccTermsForMasterTermROVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

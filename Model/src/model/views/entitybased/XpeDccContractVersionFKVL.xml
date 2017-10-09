@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XpeDccContractVersionFKVL"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  EntityAssociation="model.XpeDccContractVersionFk1Assoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.views.entitybased.XpeDccContractVersionFKVL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="XpeDccNewContractsEOVO"
+    Cardinality="1"
+    Source="true"
+    Owner="model.views.entitybased.XpeDccNewContractsEOVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="XpeDccNewContractsEOVO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.views.entitybased.XpeDccNewContractsEOVO.XpeContractId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="XpeDccContractVersionView"
+    Cardinality="-1"
+    Owner="model.XpeDccContractVersionView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="XpeDccContractVersionView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.XpeDccContractVersionView.XpeContractId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+    xmlns="http://xmlns.oracle.com/bc4j"
+    Name="NeuVendorsVw"
+    Version="12.2.1.0.31"
+    InheritPersonalization="merge"
+    DBObjectType="table"
+    DBObjectName="NEU_VENDORS_VW"
+    AliasName="NeuVendorsVw"
+    BindingStyle="OracleName">
+    <Attribute
+        Name="VendorId"
+        IsNotNull="true"
+        Precision="10"
+        ColumnName="VENDOR_ID"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="NEU_VENDORS_VW"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="10"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="Name1"
+        IsNotNull="true"
+        Precision="40"
+        ColumnName="NAME1"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="NEU_VENDORS_VW"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="40"/>
+        </DesignTime>
+    </Attribute>
+    <Key
+        Name="NeuvendorsvwPrimaryKey"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DBObjectName" Value="NEUVENDORSVW_PRIMARY_KEY"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.NeuVendorsVw.VendorId"/>
+            <Item Value="model.NeuVendorsVw.Name1"/>
+        </AttrArray>
+    </Key>
+</Entity>

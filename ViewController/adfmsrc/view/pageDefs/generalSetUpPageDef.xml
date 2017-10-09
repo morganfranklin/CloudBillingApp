@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="generalSetUpPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XpeDccCfgGeneralEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgGeneralEOVOIterator"/>
+    <searchRegion Criteria="GeneralCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="XpeDccCfgGeneralEOVOIterator" id="GeneralCriteriaQuery"/>
+    <iterator Binds="XpeDccCfgNewGeneralEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewGeneralEOVOIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="XpeDccCfgGeneralEOVOIterator" id="XpeDccCfgGeneralEOVO">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccCfgGeneralEOVO" Name="XpeDccCfgGeneralEOVO0">
+        <AttrNames>
+          <Item Value="ItemId"/>
+          <Item Value="ItemListType"/>
+          <Item Value="ValidValue"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="XpeDccCfgNewGeneralEOVOIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <attributeValues IterBinding="XpeDccCfgNewGeneralEOVOIterator" id="ItemId">
+      <AttrNames>
+        <Item Value="ItemId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgNewGeneralEOVOIterator" StaticList="false" Uses="LOV_ItemListType" id="ItemListType"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgNewGeneralEOVOIterator" id="ValidValue">
+      <AttrNames>
+        <Item Value="ValidValue"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="XpeDccCfgNewGeneralEOVOIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PriceRequestInternal:PriceRequestInternalType xmlns:ns0="http://xmlns.oracle.com/adf/svc/types/"
+                                               xmlns:PriceRequestInternal="http://xmlns.oracle.com/apps/scm/pricing/priceExecution/pricingProcesses/PriceRequestInternal"
+                                               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                               xsi:type="PriceRequestInternal:PriceRequestInternalType">
+    <PriceRequestInternal:BasisChargeQueue/>
+    <PriceRequestInternal:BasisChargeSetup/>
+    <PriceRequestInternal:BasisQueue/>
+    <PriceRequestInternal:BasisSetup>
+        <PriceRequestInternal:PriceElementCode>Frown</PriceRequestInternal:PriceElementCode>
+    </PriceRequestInternal:BasisSetup>
+    <PriceRequestInternal:BasisSetup>
+        <PriceRequestInternal:PriceElementCode>upon</PriceRequestInternal:PriceElementCode>
+    </PriceRequestInternal:BasisSetup>
+    <PriceRequestInternal:ChargeCandidate/>
+    <PriceRequestInternal:ChargeGuideline/>
+    <PriceRequestInternal:ChargeGuidelineCandidate/>
+    <PriceRequestInternal:ChargeInput>
+        <PriceRequestInternal:EstimatedUsageQuantity unitCode="0" xmlns:tns="http://xmlns.oracle.com/adf/svc/errors/"/>
+    </PriceRequestInternal:ChargeInput>
+    <PriceRequestInternal:CostElement/>
+    <PriceRequestInternal:CurrencyConversionRate/>
+    <PriceRequestInternal:CurrencyConversionType/>
+    <PriceRequestInternal:CustomerPricingProfile/>
+    <PriceRequestInternal:DiscountCandidate/>
+    <PriceRequestInternal:Header>
+        <PriceRequestInternal:CustomerId>1010</PriceRequestInternal:CustomerId>
+        <PriceRequestInternal:HeaderId/>
+    </PriceRequestInternal:Header>
+    <PriceRequestInternal:ItemAttribute/>
+    <PriceRequestInternal:LineSummary>
+        <PriceRequestInternal:LineQuantity unitCode="0" xmlns:tns="http://xmlns.oracle.com/adf/svc/errors/"/>
+    </PriceRequestInternal:LineSummary>
+    <PriceRequestInternal:ManualPriceAdjustment>
+        <PriceRequestInternal:BasisElementCode/>
+        <PriceRequestInternal:ChargeDefinitionId/>
+        <PriceRequestInternal:ChargeParentEntityCode/>
+        <PriceRequestInternal:ChargeParentEntityId/>
+        <PriceRequestInternal:ManualPriceAdjustmentId/>
+    </PriceRequestInternal:ManualPriceAdjustment>
+    <PriceRequestInternal:MatrixQueue/>
+    <PriceRequestInternal:PartyAttribute/>
+    <PriceRequestInternal:PartyGroupProfile/>
+    <PriceRequestInternal:PartyOrganizationProfile/>
+    <PriceRequestInternal:PartyPersonProfile/>
+    <PriceRequestInternal:PricingGuideline/>
+    <PriceRequestInternal:PricingObjectParameter/>
+    <PriceRequestInternal:PricingParameter/>
+    <PriceRequestInternal:PricingServiceParameter>
+        <PriceRequestInternal:ChargeIdCntr>10</PriceRequestInternal:ChargeIdCntr>
+    </PriceRequestInternal:PricingServiceParameter>
+    <PriceRequestInternal:PricingServiceParameter>
+        <PriceRequestInternal:ChargeIdCntr>20</PriceRequestInternal:ChargeIdCntr>
+    </PriceRequestInternal:PricingServiceParameter>
+    <PriceRequestInternal:PricingTerm>
+        <PriceRequestInternal:PricingTermId/>
+    </PriceRequestInternal:PricingTerm>
+    <PriceRequestInternal:ProductGroup/>
+    <PriceRequestInternal:SpreadAdjustment/>
+    <PriceRequestInternal:SpreadCharge/>
+    <PriceRequestInternal:StepParameter/>
+    <PriceRequestInternal:TermQueue/>
+    <PriceRequestInternal:TermSetup/>
+    <PriceRequestInternal:TierHeaderSetup/>
+    <PriceRequestInternal:TierLineMap/>
+    <PriceRequestInternal:TierLineQueue/>
+    <PriceRequestInternal:TierLineSetup>
+        <PriceRequestInternal:AdjustmentAmount>5</PriceRequestInternal:AdjustmentAmount>
+        <PriceRequestInternal:MaximumValue>1000</PriceRequestInternal:MaximumValue>
+        <PriceRequestInternal:MinimumValue>0</PriceRequestInternal:MinimumValue>
+        <PriceRequestInternal:PriceElementCode>Tier 1</PriceRequestInternal:PriceElementCode>
+    </PriceRequestInternal:TierLineSetup>
+    <PriceRequestInternal:TierLineSetup>
+        <PriceRequestInternal:AdjustmentAmount>4</PriceRequestInternal:AdjustmentAmount>
+        <PriceRequestInternal:MaximumValue>5000</PriceRequestInternal:MaximumValue>
+        <PriceRequestInternal:MinimumValue>1001</PriceRequestInternal:MinimumValue>
+        <PriceRequestInternal:PriceElementCode>Tier 2</PriceRequestInternal:PriceElementCode>
+    </PriceRequestInternal:TierLineSetup>
+    <PriceRequestInternal:TierLineSetup>
+        <PriceRequestInternal:AdjustmentAmount>2</PriceRequestInternal:AdjustmentAmount>
+        <PriceRequestInternal:MaximumValue>99999999999</PriceRequestInternal:MaximumValue>
+        <PriceRequestInternal:MinimumValue>5001</PriceRequestInternal:MinimumValue>
+        <PriceRequestInternal:PriceElementCode>Tier 3</PriceRequestInternal:PriceElementCode>
+    </PriceRequestInternal:TierLineSetup>
+    <PriceRequestInternal:TierQueue/>
+    <PriceRequestInternal:PricingMessage>
+        <PriceRequestInternal:PricingMessageId/>
+    </PriceRequestInternal:PricingMessage>
+    <PriceRequestInternal:TaxLineDetail>
+        <PriceRequestInternal:TaxAmount currencyCode="0" xmlns:tns="http://xmlns.oracle.com/adf/svc/errors/"/>
+        <PriceRequestInternal:TaxLineDetailId/>
+        <PriceRequestInternal:TaxableAmount currencyCode="0" xmlns:tns="http://xmlns.oracle.com/adf/svc/errors/"/>
+    </PriceRequestInternal:TaxLineDetail>
+    <PriceRequestInternal:PricingHdrEff_Custom/>
+    <PriceRequestInternal:OrderLineEff_Custom>
+        <PriceRequestInternal:EffLineId_Custom/>
+    </PriceRequestInternal:OrderLineEff_Custom>
+    <PriceRequestInternal:LinePrcOverrideEff_Custom>
+        <PriceRequestInternal:FulfillLineId_Custom/>
+    </PriceRequestInternal:LinePrcOverrideEff_Custom>
+    <PriceRequestInternal:PriceViolation>
+        <PriceRequestInternal:PriceViolationId/>
+    </PriceRequestInternal:PriceViolation>
+    <PriceRequestInternal:SalesOrderTotal>
+        <PriceRequestInternal:TotalAmount currencyCode="0" xmlns:tns="http://xmlns.oracle.com/adf/svc/errors/"/>
+        <PriceRequestInternal:TotalId/>
+    </PriceRequestInternal:SalesOrderTotal>
+    <PriceRequestInternal:SalesOrderTotalComponent>
+        <PriceRequestInternal:TotalComponentId/>
+    </PriceRequestInternal:SalesOrderTotalComponent>
+    <PriceRequestInternal:Line>
+        <PriceRequestInternal:ExtendedQuantity unitCode="0" xmlns:tns="http://xmlns.oracle.com/adf/svc/errors/"/>
+        <PriceRequestInternal:HeaderId/>
+        <PriceRequestInternal:LineCategoryCode/>
+        <PriceRequestInternal:LineId/>
+        <PriceRequestInternal:LineQuantity unitCode="0" xmlns:tns="http://xmlns.oracle.com/adf/svc/errors/"/>
+        <PriceRequestInternal:PerModelUnitQuantity unitCode="0" xmlns:tns="http://xmlns.oracle.com/adf/svc/errors/"/>
+        <PriceRequestInternal:ServiceDuration unitCode="0" xmlns:tns="http://xmlns.oracle.com/adf/svc/errors/"/>
+    </PriceRequestInternal:Line>
+    <PriceRequestInternal:Charge>
+        <PriceRequestInternal:ChargeId/>
+        <PriceRequestInternal:FloorUnitPrice currencyCode="0" xmlns:tns="http://xmlns.oracle.com/adf/svc/errors/"/>
+        <PriceRequestInternal:GSAUnitPrice currencyCode="0" xmlns:tns="http://xmlns.oracle.com/adf/svc/errors/"/>
+        <PriceRequestInternal:PricedQuantity unitCode="0" xmlns:tns="http://xmlns.oracle.com/adf/svc/errors/"/>
+    </PriceRequestInternal:Charge>
+    <PriceRequestInternal:LineAttribute>
+        <PriceRequestInternal:AttributeId/>
+        <PriceRequestInternal:DataTypeCode/>
+        <PriceRequestInternal:HeaderId/>
+        <PriceRequestInternal:InternalName/>
+        <PriceRequestInternal:LineAttributeId/>
+        <PriceRequestInternal:LineId/>
+    </PriceRequestInternal:LineAttribute>
+    <PriceRequestInternal:ChargeComponent>
+        <PriceRequestInternal:BasePrice>5</PriceRequestInternal:BasePrice>
+        <PriceRequestInternal:ExplanationMsg>Tier 1</PriceRequestInternal:ExplanationMsg>
+        <PriceRequestInternal:ChargeComponentId/>
+        <PriceRequestInternal:ChargeId/>
+        <PriceRequestInternal:ExtendedAmount currencyCode="0" xmlns:tns="http://xmlns.oracle.com/adf/svc/errors/"/>
+        <PriceRequestInternal:HeaderCurrencyExtendedAmount currencyCode="0"
+                                                           xmlns:tns="http://xmlns.oracle.com/adf/svc/errors/"/>
+        <PriceRequestInternal:HeaderCurrencyUnitPrice currencyCode="0"
+                                                      xmlns:tns="http://xmlns.oracle.com/adf/svc/errors/"/>
+        <PriceRequestInternal:UnitPrice currencyCode="0" xmlns:tns="http://xmlns.oracle.com/adf/svc/errors/"/>
+        <PriceRequestInternal:MaximumUnitPrice currencyCode="0" xmlns:tns="http://xmlns.oracle.com/adf/svc/errors/"/>
+        <PriceRequestInternal:MinimumUnitPrice currencyCode="0" xmlns:tns="http://xmlns.oracle.com/adf/svc/errors/"/>
+    </PriceRequestInternal:ChargeComponent>
+    <PriceRequestInternal:ChangeSummary logging="false" xmlns:sdo="commonj.sdo"/>
+</PriceRequestInternal:PriceRequestInternalType>

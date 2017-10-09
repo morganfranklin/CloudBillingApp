@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XpeDccContractsAttachmFk2Assoc"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge">
+    <DesignTime>
+        <Attr Name="_isCodegen" Value="true"/>
+    </DesignTime>
+    <AssociationEnd
+      Name="XpeDccContractVersion"
+      Cardinality="1"
+      Source="true"
+      Owner="model.XpeDccContractVersion">
+        <DesignTime>
+            <Attr Name="_isUpdateable" Value="true"/>
+            <Attr Name="_aggregation" Value="0"/>
+            <Attr Name="_finderName" Value="XpeDccContractVersion"/>
+            <Attr Name="_foreignKey" Value="model.XpeDccContractVersion.XpeDccContractVersionPk"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.XpeDccContractVersion.XpeContractId"/>
+            <Item Value="model.XpeDccContractVersion.XpeContractVersion"/>
+        </AttrArray>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="XpeDccContractsAttachments"
+      Cardinality="-1"
+      Owner="model.XpeDccContractsAttachments">
+        <DesignTime>
+            <Attr Name="_isUpdateable" Value="true"/>
+            <Attr Name="_aggregation" Value="0"/>
+            <Attr Name="_finderName" Value="XpeDccContractsAttachments"/>
+            <Attr Name="_foreignKey" Value="model.XpeDccContractsAttachments.XpeDccContractsAttachmFk2"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.XpeDccContractsAttachments.XpeContractId"/>
+            <Item Value="model.XpeDccContractsAttachments.XpeContractVersion"/>
+        </AttrArray>
+    </AssociationEnd>
+</Association>

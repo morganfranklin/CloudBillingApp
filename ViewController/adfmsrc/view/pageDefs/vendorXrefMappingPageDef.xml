@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="vendorXrefMappingPageDef"
+                Package="view.pageDefs">
+    <parameters/>
+    <executables>
+        <variableIterator id="variables"/>
+        <iterator Binds="NeuTnsVndrXrefView1" RangeSize="25" DataControl="AppModuleDataControl"
+                  id="NeuTnsVndrXrefView1Iterator"/>
+        <searchRegion Binds="NeuTnsVndrXrefView1Iterator" Criteria=""
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="NeuTnsVndrXrefView1Query"/>
+        <iterator Binds="NeuTnsCustXrefView1" RangeSize="25" DataControl="AppModuleDataControl"
+                  id="NeuTnsCustXrefView1Iterator"/>
+        <searchRegion Binds="NeuTnsCustXrefView1Iterator" Criteria=""
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="NeuTnsCustXrefView1Query"/>
+    </executables>
+    <bindings>
+        <tree IterBinding="NeuTnsVndrXrefView1Iterator" id="NeuTnsVndrXrefView1">
+            <nodeDefinition DefName="model.NeuTnsVndrXrefView" Name="NeuTnsVndrXrefView10">
+                <AttrNames>
+                    <Item Value="Ocn"/>
+                    <Item Value="MsgType"/>
+                    <Item Value="VendorId"/>
+                    <Item Value="EffDate"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <attributeValues IterBinding="NeuTnsVndrXrefView1Iterator" id="CalcPercent">
+            <AttrNames>
+                <Item Value="CalcPercent"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="NeuTnsVndrXrefView1Iterator" id="CalcRate">
+            <AttrNames>
+                <Item Value="CalcRate"/>
+            </AttrNames>
+        </attributeValues>
+        <tree IterBinding="NeuTnsCustXrefView1Iterator" id="NeuTnsCustXrefView1">
+            <nodeDefinition DefName="model.NeuTnsCustXrefView" Name="NeuTnsCustXrefView10">
+                <AttrNames>
+                    <Item Value="Opc"/>
+                    <Item Value="MsgType"/>
+                    <Item Value="CustId"/>
+                    <Item Value="EffDate"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <attributeValues IterBinding="NeuTnsCustXrefView1Iterator" id="BillRate">
+            <AttrNames>
+                <Item Value="BillRate"/>
+            </AttrNames>
+        </attributeValues>
+        <button IterBinding="NeuTnsCustXrefView1Iterator" id="SwitchTrans" DTSupportsMRU="false">
+            <AttrNames>
+                <Item Value="SwitchTrans"/>
+            </AttrNames>
+        </button>
+    </bindings>
+</pageDefinition>

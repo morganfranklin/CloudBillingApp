@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57"
+                id="dccContractMaintenance_dccContractMaintenance_createVersionRowPageDef" Package="view.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator id="XpeDccContractsView1Iterator" Binds="XpeDccContractsView1" DataControl="AppModuleDataControl"
+              RangeSize="25"/>
+  </executables>
+  <bindings/>
+</pageDefinition>

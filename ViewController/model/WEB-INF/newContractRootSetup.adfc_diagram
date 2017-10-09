@@ -1,0 +1,61 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <TaskFlowCall
+      id="TaskFlowCall2">
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>newContractSetup&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="activityId">newContractSetup</property>
+      <property
+         name="x">183.3623</property>
+      <property
+         name="y">325.83887</property>
+      <property
+         name="documentReference">/WEB-INF/newContractSetup.xml</property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="taskFlowId">newContractSetup</property>
+   </TaskFlowCall>
+   <TaskFlowCall
+      id="TaskFlowCall3">
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>newContractSetup1&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="activityId">newContractSetup1</property>
+      <property
+         name="x">534.6992</property>
+      <property
+         name="y">344.1494</property>
+      <property
+         name="documentReference">/WEB-INF/newContractSetup.xml</property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="taskFlowId">newContractSetup</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="TaskFlowCall2"
+      to="TaskFlowCall3">
+      <property
+         name="fromOutcome">parent</property>
+      <property
+         name="sdm:polyPoints">R46,224.59998,321.98828,493.69922,340.29883,L46</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase5"
+      from="TaskFlowCall3"
+      to="TaskFlowCall2">
+      <property
+         name="fromOutcome">parent</property>
+      <property
+         name="sdm:polyPoints">L54,493.46146,347.29883,224.3623,328.98828,R54</property>
+   </ControlFlowCase>
+</SDM>

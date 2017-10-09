@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="mappedContractsPageDef"
+                Package="view.pageDefs">
+    <parameters/>
+    <executables>
+        <variableIterator id="variables"/>
+        <iterator Binds="PsCisXpeContrView1" RangeSize="25" DataControl="AppModuleDataControl"
+                  id="PsCisXpeContrView1Iterator"/>
+        <searchRegion Binds="PsCisXpeContrView1Iterator" Criteria=""
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="PsCisXpeContrView1Query"/>
+    </executables>
+    <bindings>
+        <tree IterBinding="PsCisXpeContrView1Iterator" id="PsCisXpeContrView1">
+            <nodeDefinition DefName="model.PsCisXpeContrView" Name="PsCisXpeContrView10">
+                <AttrNames>
+                    <Item Value="BusinessUnitCa"/>
+                    <Item Value="ContractNum"/>
+                    <Item Value="ContractType"/>
+                    <Item Value="ProductId"/>
+                    <Item Value="ProductDescr"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <attributeValues IterBinding="PsCisXpeContrView1Iterator" id="Processid">
+            <AttrNames>
+                <Item Value="Processid"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeContrView1Iterator" id="CisPrcsReqstId">
+            <AttrNames>
+                <Item Value="CisPrcsReqstId"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeContrView1Iterator" id="KeyDate01">
+            <AttrNames>
+                <Item Value="KeyDate01"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeContrView1Iterator" id="BusinessUnitCa">
+            <AttrNames>
+                <Item Value="BusinessUnitCa"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeContrView1Iterator" id="ContractNum">
+            <AttrNames>
+                <Item Value="ContractNum"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeContrView1Iterator" id="ContractType">
+            <AttrNames>
+                <Item Value="ContractType"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeContrView1Iterator" id="ContractLineNum">
+            <AttrNames>
+                <Item Value="ContractLineNum"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeContrView1Iterator" id="ProductId">
+            <AttrNames>
+                <Item Value="ProductId"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeContrView1Iterator" id="ProductDescr">
+            <AttrNames>
+                <Item Value="ProductDescr"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeContrView1Iterator" id="UomRecv">
+            <AttrNames>
+                <Item Value="UomRecv"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeContrView1Iterator" id="BusinessUnitPc">
+            <AttrNames>
+                <Item Value="BusinessUnitPc"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeContrView1Iterator" id="ProjectId">
+            <AttrNames>
+                <Item Value="ProjectId"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeContrView1Iterator" id="ActivityId">
+            <AttrNames>
+                <Item Value="ActivityId"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeContrView1Iterator" id="RatePlan">
+            <AttrNames>
+                <Item Value="RatePlan"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeContrView1Iterator" id="RateAmt">
+            <AttrNames>
+                <Item Value="RateAmt"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeContrView1Iterator" id="PcTransId">
+            <AttrNames>
+                <Item Value="PcTransId"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeContrView1Iterator" id="CisTierFreq">
+            <AttrNames>
+                <Item Value="CisTierFreq"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeContrView1Iterator" id="SeqNbr">
+            <AttrNames>
+                <Item Value="SeqNbr"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeContrView1Iterator" id="LineNo">
+            <AttrNames>
+                <Item Value="LineNo"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeContrView1Iterator" id="PcBreakQtyLow">
+            <AttrNames>
+                <Item Value="PcBreakQtyLow"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeContrView1Iterator" id="PcBreakQtyHigh">
+            <AttrNames>
+                <Item Value="PcBreakQtyHigh"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeContrView1Iterator" id="CisAdjustmentAmt">
+            <AttrNames>
+                <Item Value="CisAdjustmentAmt"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeContrView1Iterator" id="AdjustmentPct">
+            <AttrNames>
+                <Item Value="AdjustmentPct"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeContrView1Iterator" id="Rollover">
+            <AttrNames>
+                <Item Value="Rollover"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeContrView1Iterator" id="Amount">
+            <AttrNames>
+                <Item Value="Amount"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeContrView1Iterator" id="BookCaToDfr">
+            <AttrNames>
+                <Item Value="BookCaToDfr"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeContrView1Iterator" id="StartDt">
+            <AttrNames>
+                <Item Value="StartDt"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeContrView1Iterator" id="EndDt">
+            <AttrNames>
+                <Item Value="EndDt"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeContrView1Iterator" id="ThresholdAmt">
+            <AttrNames>
+                <Item Value="ThresholdAmt"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeContrView1Iterator" id="LastUpdateDate">
+            <AttrNames>
+                <Item Value="LastUpdateDate"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="PsCisXpeContrView1Iterator" id="Refresh">
+            <AttrNames>
+                <Item Value="Refresh"/>
+            </AttrNames>
+        </attributeValues>
+    </bindings>
+</pageDefinition>

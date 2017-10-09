@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+    xmlns="http://xmlns.oracle.com/bc4j"
+    Name="PsCisXpeUdcaCurrentVwView"
+    Version="12.2.1.0.31"
+    InheritPersonalization="merge"
+    BindingStyle="OracleName"
+    CustomQuery="true"
+    PageIterMode="Full">
+    <DesignTime>
+        <Attr Name="_isExpertMode" Value="true"/>
+    </DesignTime>
+    <SQLQuery><![CDATA[SELECT PsCisXpeUdcaCurrentVw.OPC,       
+       PsCisXpeUdcaCurrentVw.DPC,       
+       PsCisXpeUdcaCurrentVw.MESSAGE_TYPE,       
+       PsCisXpeUdcaCurrentVw.OCN,       
+       PsCisXpeUdcaCurrentVw.MESSAGE_DATE,       
+       PsCisXpeUdcaCurrentVw.MESSAGE_COUNT,       
+       PsCisXpeUdcaCurrentVw.COMP_COUNT,       
+       PsCisXpeUdcaCurrentVw.NON_COMP_COUNT       
+FROM PS_CIS_XPE_UDCA_CLOSED_VW PsCisXpeUdcaCurrentVw]]></SQLQuery>
+    <ViewAttribute
+        Name="Opc"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="9"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        AliasName="OPC"
+        Expression="OPC"
+        SQLType="VARCHAR">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="9"/>
+            <Attr Name="_description" Value="OPC"/>
+        </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.PsCisXpeUdcaCurrentVwView.Opc_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="Dpc"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="9"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        AliasName="DPC"
+        Expression="DPC"
+        SQLType="VARCHAR">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="9"/>
+            <Attr Name="_description" Value="DPC"/>
+        </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.PsCisXpeUdcaCurrentVwView.Dpc_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="MessageType"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Type="java.math.BigDecimal"
+        ColumnType="NUMBER"
+        AliasName="MESSAGE_TYPE"
+        Expression="MESSAGE_TYPE"
+        SQLType="NUMERIC">
+        <DesignTime>
+            <Attr Name="_description" Value="Message Type"/>
+        </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.PsCisXpeUdcaCurrentVwView.MessageType_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="Ocn"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="4"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        AliasName="OCN"
+        Expression="OCN"
+        SQLType="VARCHAR">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="4"/>
+            <Attr Name="_description" Value="OCN"/>
+        </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.PsCisXpeUdcaCurrentVwView.Ocn_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="MessageDate"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Type="java.sql.Timestamp"
+        ColumnType="DATE"
+        AliasName="MESSAGE_DATE"
+        Expression="MESSAGE_DATE"
+        SQLType="DATE">
+        <DesignTime>
+            <Attr Name="_description" Value="Message Date"/>
+        </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.PsCisXpeUdcaCurrentVwView.MessageDate_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="MessageCount"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Type="java.math.BigDecimal"
+        ColumnType="NUMBER"
+        AliasName="MESSAGE_COUNT"
+        Expression="MESSAGE_COUNT"
+        SQLType="NUMERIC"
+        IsQueriable="false">
+        <DesignTime>
+            <Attr Name="_description" Value="Message Count"/>
+        </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.PsCisXpeUdcaCurrentVwView.MessageCount_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="CompCount"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Type="java.math.BigDecimal"
+        ColumnType="NUMBER"
+        AliasName="COMP_COUNT"
+        Expression="COMP_COUNT"
+        SQLType="NUMERIC"
+        IsQueriable="false">
+        <DesignTime>
+            <Attr Name="_description" Value="Comp Count"/>
+        </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.PsCisXpeUdcaCurrentVwView.CompCount_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="NonCompCount"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Type="java.math.BigDecimal"
+        ColumnType="NUMBER"
+        AliasName="NON_COMP_COUNT"
+        Expression="NON_COMP_COUNT"
+        SQLType="NUMERIC"
+        IsQueriable="false">
+        <DesignTime>
+            <Attr Name="_description" Value="Non-Comp Count"/>
+        </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.PsCisXpeUdcaCurrentVwView.NonCompCount_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <AttrArray Name="KeyAttributes">
+        <Item Value="Opc"/>
+        <Item Value="Dpc"/>
+        <Item Value="MessageType"/>
+        <Item Value="Ocn"/>
+        <Item Value="MessageDate"/>
+        <Item Value="MessageCount"/>
+        <Item Value="CompCount"/>
+        <Item Value="NonCompCount"/>
+    </AttrArray>
+    <ResourceBundle>
+        <PropertiesBundle
+            PropertiesFile="model.ModelBundle"/>
+    </ResourceBundle>
+</ViewObject>

@@ -1,0 +1,12 @@
+//Groovy Scripts for model.entities.XpeDccCfgOriginsEO
+
+package model.entities
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="OriginId")
+def OriginId_ExpressionScript_Expression()
+{
+adf.object.nextVal("XPE_DCC_CFG_ORIGINS_SEQ")
+}
+

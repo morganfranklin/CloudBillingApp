@@ -1,0 +1,12 @@
+//Groovy Scripts for model.XpeDccContractVersion
+
+package model
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="XpeContractVersion")
+def XpeContractVersion_ExpressionScript_Expression()
+{
+adf.object.nextVal("XPE_DCC_CONTRACT_VERSION_SEQ")
+}
+

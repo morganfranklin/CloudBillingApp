@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="newContractSearchPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XpeDccContractSearchROVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccContractSearchROVOIterator"/>
+    <searchRegion Criteria="ContractSearchCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="XpeDccContractSearchROVOIterator" id="ContractSearchCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="XpeDccContractSearchROVOIterator" id="XpeDccContractSearchROVO">
+      <nodeDefinition DefName="model.views.readonly.XpeDccContractSearchROVO" Name="XpeDccContractSearchROVO0">
+        <AttrNames>
+          <Item Value="XpeContractId"/>
+          <Item Value="XpeContractDesc"/>
+          <Item Value="Setid"/>
+          <Item Value="CustId"/>
+          <Item Value="Name1"/>
+          <Item Value="Descr"/>
+          <Item Value="Country"/>
+          <Item Value="Address1"/>
+          <Item Value="Address2"/>
+          <Item Value="City"/>
+          <Item Value="State"/>
+          <Item Value="Postal"/>
+          <Item Value="XpeSwApprNbr"/>
+          <Item Value="XpeContractStatus"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

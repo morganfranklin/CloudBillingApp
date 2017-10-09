@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XpeDccTermsFKVL"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  EntityAssociation="model.entities.associations.XpeDccTermsFkAssoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.views.entitybased.XpeDccTermsFKVL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="XpeDccTermMasterEOVO"
+    Cardinality="1"
+    Source="true"
+    Owner="model.views.entitybased.XpeDccTermMasterEOVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="XpeDccTermMasterEOVO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.views.entitybased.XpeDccTermMasterEOVO.XpeDccTerm"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="XpeDccTermsEOVO"
+    Cardinality="-1"
+    Owner="model.views.entitybased.XpeDccTermsEOVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="XpeDccTermsEOVO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.views.entitybased.XpeDccTermsEOVO.XpeDccTerm"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="carriersSetUpPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XpeDccCfgCarriersEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgCarriersEOVOIterator"/>
+    <searchRegion Criteria="CarriersCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="XpeDccCfgCarriersEOVOIterator" id="CarriersCriteriaQuery"/>
+    <iterator Binds="XpeDccCfgNewCarriersCreationEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewCarriersCreationEOVOIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="XpeDccCfgCarriersEOVOIterator" id="XpeDccCfgCarriersEOVO">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccCfgCarriersEOVO" Name="XpeDccCfgCarriersEOVO0">
+        <AttrNames>
+          <Item Value="CarrierId"/>
+          <Item Value="CarrierName"/>
+          <Item Value="State"/>
+          <Item Value="Inactive"/>
+          <Item Value="InactiveDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <action IterBinding="XpeDccCfgNewCarriersCreationEOVOIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <attributeValues IterBinding="XpeDccCfgNewCarriersCreationEOVOIterator" id="CarrierId">
+      <AttrNames>
+        <Item Value="CarrierId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewCarriersCreationEOVOIterator" id="CarrierName">
+      <AttrNames>
+        <Item Value="CarrierName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewCarriersCreationEOVOIterator" id="State">
+      <AttrNames>
+        <Item Value="State"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgNewCarriersCreationEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgNewCarriersCreationEOVOIterator" id="InactiveDate">
+      <AttrNames>
+        <Item Value="InactiveDate"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

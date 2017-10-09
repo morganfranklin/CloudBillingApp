@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="editProductServicePageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XpeDccCfgNewProductserviceEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewProductserviceEOVOIterator"/>
+    <iterator Binds="XpeDccCfgNewUomEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewUomEOVOIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="XpeDccCfgNewProductserviceEOVOIterator" id="ItemId">
+      <AttrNames>
+        <Item Value="ItemId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgNewProductserviceEOVOIterator" StaticList="false" Uses="LOV_ItemType" id="ItemType"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgNewProductserviceEOVOIterator" id="Description">
+      <AttrNames>
+        <Item Value="Description"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgNewProductserviceEOVOIterator" StaticList="false" Uses="LOV_Inoutbound"
+          id="Inoutbound" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <listOfValues IterBinding="XpeDccCfgNewProductserviceEOVOIterator" StaticList="false" Uses="LOV_Category"
+                  id="Category"/>
+    <listOfValues IterBinding="XpeDccCfgNewProductserviceEOVOIterator" StaticList="false" Uses="LOV_ClassId"
+                  id="ClassId"/>
+    <list IterBinding="XpeDccCfgNewProductserviceEOVOIterator" StaticList="false" Uses="LOV_ClassType" id="ClassType"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgNewProductserviceEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgNewProductserviceEOVOIterator" id="InactiveDate">
+      <AttrNames>
+        <Item Value="InactiveDate"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="XpeDccCfgNewUomEOVOIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <tree IterBinding="XpeDccCfgNewUomEOVOIterator" id="XpeDccCfgNewUomEOVO">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccCfgUomEOVO" Name="XpeDccCfgNewUomEOVO0">
+        <AttrNames>
+          <Item Value="Uom"/>
+          <Item Value="UomDesc"/>
+          <Item Value="ItemId"/>
+          <Item Value="FeedMethod"/>
+          <Item Value="Inactive"/>
+          <Item Value="InactiveDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <listOfValues IterBinding="XpeDccCfgNewUomEOVOIterator" StaticList="false" Uses="LOV_Uom" id="Uom"/>
+    <attributeValues IterBinding="XpeDccCfgNewUomEOVOIterator" id="UomDesc">
+      <AttrNames>
+        <Item Value="UomDesc"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgNewUomEOVOIterator" StaticList="false" Uses="LOV_FeedMethod" id="FeedMethod"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgNewUomEOVOIterator" id="ItemId1">
+      <AttrNames>
+        <Item Value="ItemId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewUomEOVOIterator" id="Uom1">
+      <AttrNames>
+        <Item Value="Uom"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewUomEOVOIterator" id="Inactive1">
+      <AttrNames>
+        <Item Value="Inactive"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewUomEOVOIterator" id="InactiveDate1">
+      <AttrNames>
+        <Item Value="InactiveDate"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

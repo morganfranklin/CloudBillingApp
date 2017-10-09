@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XpeDccCfgOgnAssTerminalsEO"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="XPE_DCC_CFG_OGN_ASS_TERMINALS"
+  AliasName="XpeDccCfgOgnAssTerminalsEO"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="TerminalId"
+    IsUpdateable="while_insert"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="TERMINAL_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_OGN_ASS_TERMINALS"
+    PrimaryKey="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OriginId"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="ORIGIN_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_OGN_ASS_TERMINALS"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TerminalDesc"
+    Precision="45"
+    ColumnName="TERMINAL_DESC"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_OGN_ASS_TERMINALS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="45"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Inactive"
+    Precision="1"
+    ColumnName="INACTIVE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_OGN_ASS_TERMINALS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="InactiveDate"
+    ColumnName="INACTIVE_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XPE_DCC_CFG_OGN_ASS_TERMINALS"/>
+  <Attribute
+    Name="CreatedBy"
+    Precision="20"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_OGN_ASS_TERMINALS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedDate"
+    ColumnName="CREATED_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XPE_DCC_CFG_OGN_ASS_TERMINALS"/>
+  <Attribute
+    Name="LastUpdatedBy"
+    Precision="20"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_OGN_ASS_TERMINALS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedDate"
+    ColumnName="LAST_UPDATED_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XPE_DCC_CFG_OGN_ASS_TERMINALS"/>
+  <AccessorAttribute
+    Name="XpeDccCfgTerminalsEO"
+    Association="model.entities.associations.XpeDccCfgTerminalsFk2Assoc"
+    AssociationEnd="model.entities.associations.XpeDccCfgTerminalsFk2Assoc.XpeDccCfgTerminalsEO"
+    AssociationOtherEnd="model.entities.associations.XpeDccCfgTerminalsFk2Assoc.XpeDccCfgOgnAssTerminalsEO"
+    Type="model.entities.XpeDccCfgTerminalsEOImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="XpeDccCfgOriginsEO"
+    Association="model.entities.associations.XpeDccCfgOriginsFkAssoc"
+    AssociationEnd="model.entities.associations.XpeDccCfgOriginsFkAssoc.XpeDccCfgOriginsEO"
+    AssociationOtherEnd="model.entities.associations.XpeDccCfgOriginsFkAssoc.XpeDccCfgOgnAssTerminalsEO"
+    Type="model.entities.XpeDccCfgOriginsEOImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="XpeDccCfgOgnAssTmsPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_OGN_ASS_TMS_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgOgnAssTerminalsEO.TerminalId"/>
+      <Item Value="model.entities.XpeDccCfgOgnAssTerminalsEO.OriginId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgOriginsFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="UK_XPE_DCC_CFG_ORIGINS_EO"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_ORIGINS_FK"/>
+      <Attr Name="_isCascadeDelete" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgOgnAssTerminalsEO.OriginId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgTerminalsFk2">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="XPE_DCC_CFG_TERMINALS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_TERMINALS_FK2"/>
+      <Attr Name="_isCascadeDelete" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgOgnAssTerminalsEO.TerminalId"/>
+    </AttrArray>
+  </Key>
+</Entity>

@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+    <af:panelGridLayout id="pgl1">
+        <af:gridRow marginTop="5px" height="85px" id="gr1">
+            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1" halign="stretch" valign="stretch">
+                <af:panelBox text="Admin Homepage" id="pb1" showDisclosure="false" background="light">
+                    <f:facet name="toolbar"/>
+                    <af:panelGridLayout id="pgl2">
+                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3" halign="stretch"
+                                         valign="stretch">
+                                <af:button actionListener="#{bindings.Execute.execute}" text="Refresh"
+                                           disabled="#{!bindings.Execute.enabled}" id="b2"/>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </af:panelBox>
+            </af:gridCell>
+        </af:gridRow>
+        <af:gridRow marginTop="5px" height="115px" marginBottom="5px" id="gr2">
+            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" halign="stretch" valign="stretch">
+                <af:panelBox text="Launched Processes" id="pb2" showDisclosure="false">
+                    <f:facet name="toolbar"/>
+                    <af:panelGridLayout id="pgl3">
+                        <af:gridRow marginTop="0px" height="auto" id="gr4">
+                            <af:gridCell marginStart="0px" width="25%" id="gc4" halign="center">
+                                <af:outputText value="Errors Count" id="ot1"/>
+                                <dvt:statusMeterGauge orientation="circular" inlineStyle="width:50px;height:50px"
+                                                      id="statusMeterGauge1" maximum="300"
+                                                      value="#{bindings.ErrorsCount.inputValue}" minimum="0">
+                                    <dvt:gaugeMetricLabel rendered="true" id="gml1"/>
+                                    <dvt:gaugeThreshold color="#00ff00" maximum="20" id="thr1"/>
+                                    <dvt:gaugeThreshold color="#ffff00" maximum="70" id="thr2"/>
+                                    <dvt:gaugeThreshold color="#d62800" id="thr3"/>
+                                </dvt:statusMeterGauge>
+                            </af:gridCell>
+                            <af:gridCell marginStart="0px" width="25%" id="gc5" halign="center">
+                                <af:outputText value="Active Processes" id="ot2"/>
+                                <dvt:statusMeterGauge orientation="circular" inlineStyle="width:50px;height:50px"
+                                                      id="statusMeterGauge2" maximum="100"
+                                                      value="#{bindings.ProcessCount.inputValue}" minimum="0">
+                                    <dvt:gaugeMetricLabel rendered="true" id="gml2"/>
+                                    <dvt:gaugeThreshold color="#00ff00" maximum="20" id="thr4"/>
+                                    <dvt:gaugeThreshold color="#ffff00" maximum="30" id="thr5"/>
+                                    <dvt:gaugeThreshold color="#d62800" id="thr6"/>
+                                </dvt:statusMeterGauge>
+                            </af:gridCell>
+                            <af:gridCell marginStart="0px" width="25%" id="gc6" halign="center">
+                                <af:outputText value="Pending Contracts" id="ot3"/>
+                                <dvt:statusMeterGauge orientation="circular" inlineStyle="width:50px;height:50px"
+                                                      id="statusMeterGauge3" maximum="100"
+                                                      value="#{bindings.PendingContracts.inputValue}" minimum="0">
+                                    <dvt:gaugeMetricLabel rendered="true" id="gml3"/>
+                                    <dvt:gaugeThreshold color="#00ff00" maximum="5" id="thr7"/>
+                                    <dvt:gaugeThreshold color="#ffff00" maximum="10" id="thr8"/>
+                                    <dvt:gaugeThreshold color="#d62800" id="thr9"/>
+                                </dvt:statusMeterGauge>
+                            </af:gridCell>
+                            <af:gridCell marginStart="0px" width="25%" marginEnd="0px" id="gc7" halign="center">
+                                <af:outputText value="Pending Transactions" id="ot4"/>
+                                <dvt:statusMeterGauge orientation="circular" inlineStyle="width:50px;height:50px"
+                                                      id="statusMeterGauge4" maximum="200"
+                                                      value="#{bindings.PendingTransactions.inputValue}" minimum="0">
+                                    <dvt:gaugeMetricLabel rendered="true" id="gml4"/>
+                                    <dvt:gaugeThreshold color="#00ff00" maximum="50" id="thr10"/>
+                                    <dvt:gaugeThreshold color="#ffff00" maximum="100" id="thr11"/>
+                                    <dvt:gaugeThreshold color="#d62800" id="thr12"/>
+                                </dvt:statusMeterGauge>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </af:panelBox>
+            </af:gridCell>
+        </af:gridRow>
+        <af:gridRow id="gr8" height="350px">
+            <af:gridCell id="gc14" width="100%" halign="stretch" valign="stretch">
+                <af:panelBox text="Current Period Transaction Breakdown" id="pb3" showDisclosure="false">
+                    <f:facet name="toolbar"/>
+                    <af:panelGridLayout id="pgl4">
+                        <af:gridRow marginTop="0px" height="auto" marginBottom="0px" id="gr9">
+                            <af:gridCell marginStart="0px" width="50%" id="gc15">
+                                <dvt:pieChart id="pieChart1" var="row"
+                                              value="#{bindings.ProcessingStatView1.collectionModel}"
+                                              centerLabel="Current Transactions Breakdown"
+                                              hideAndShowBehavior="withRescale" hoverBehavior="dim"
+                                              selectionEffect="highlightAndExplode">
+                                    <dvt:chartLegend id="cl1"/>
+                                    <dvt:pieDataItem id="di1" label="#{row.Status}" value="#{row.TransactionCount}"/>
+                                </dvt:pieChart>
+                            </af:gridCell>
+                            <af:gridCell marginStart="0px" width="50%" marginEnd="0px" id="gc16">
+                                <dvt:pieChart id="pieChart2" var="row"
+                                              value="#{bindings.NeuStatErrorTypes1.collectionModel}"
+                                              centerLabel="Error Breakdown" selectionEffect="highlightAndExplode"
+                                              hoverBehavior="dim" hideAndShowBehavior="withRescale">
+                                    <dvt:chartLegend id="cl2"/>
+                                    <dvt:pieDataItem id="di2" label="#{row.ErrorDesc}" value="#{row.ErrorCount}"/>
+                                </dvt:pieChart>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </af:panelBox>
+            </af:gridCell>
+        </af:gridRow>
+    </af:panelGridLayout>
+</ui:composition>

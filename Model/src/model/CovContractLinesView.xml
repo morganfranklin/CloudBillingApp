@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+    xmlns="http://xmlns.oracle.com/bc4j"
+    Name="CovContractLinesView"
+    Version="12.2.1.0.31"
+    InheritPersonalization="merge"
+    SelectListFlags="1"
+    FromListFlags="1"
+    WhereFlags="1"
+    BindingStyle="OracleName"
+    CustomQuery="false"
+    SelectAllAttributes="false"
+    PageIterMode="Full">
+    <ViewAccessor
+        Name="CovDictionaryDestination1"
+        ViewObjectName="model.CovDictionaryDestination"
+        RowLevelBinds="true"/>
+    <ViewAccessor
+        Name="CovDictionaryWaste1"
+        ViewObjectName="model.CovDictionaryWaste"
+        RowLevelBinds="true"/>
+    <ViewAccessor
+        Name="CovDictionaryMaterial1"
+        ViewObjectName="model.CovDictionaryMaterial"
+        RowLevelBinds="true"/>
+    <ViewAccessor
+        Name="CovDictionaryMaterial2"
+        ViewObjectName="model.CovDictionaryMaterial"
+        RowLevelBinds="true"/>
+    <ViewAccessor
+        Name="CovDictionaryCarrier1"
+        ViewObjectName="model.CovDictionaryCarrier"
+        RowLevelBinds="true"/>
+    <ViewAccessor
+        Name="CovDictionaryVehicle1"
+        ViewObjectName="model.CovDictionaryVehicle"
+        RowLevelBinds="true"/>
+    <ViewAccessor
+        Name="PsCisXpeRulesetView1"
+        ViewObjectName="model.PsCisXpeRulesetView"
+        RowLevelBinds="true"/>
+    <ListBinding
+        Name="LOV_Destination"
+        ListVOName="CovDictionaryDestination1"
+        ListRangeSize="-1"
+        NullValueFlag="start"
+        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="Destination"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="DestinationCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="DestinationName"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_WasteLaborCategory"
+        ListVOName="CovDictionaryWaste1"
+        ListRangeSize="-1"
+        ComboRowCountHint="10"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="WasteLaborCategory"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="WasteType"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="WasteType"/>
+            <Item Value="WasteDescription"/>
+        </AttrArray>
+        <DisplayCriteria
+            Hint="showAndExecute"/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_Material"
+        ListVOName="CovDictionaryMaterial1"
+        ListRangeSize="-1"
+        ComboRowCountHint="10"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="Material"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="MaterialCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="MaterialCode"/>
+            <Item Value="MaterialName"/>
+        </AttrArray>
+        <DisplayCriteria
+            Hint="showAndExecute"/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_Carrier"
+        ListVOName="CovDictionaryCarrier1"
+        ListRangeSize="-1"
+        ComboRowCountHint="10"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="Carrier"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="CarrierCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="CarrierCode"/>
+            <Item Value="CarrierName"/>
+        </AttrArray>
+        <DisplayCriteria
+            Hint="showAndExecute"/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_VehicleType"
+        ListVOName="CovDictionaryVehicle1"
+        ListRangeSize="-1"
+        NullValueFlag="start"
+        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="VehicleType"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VehicleCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VehicleCode"/>
+            <Item Value="VehicleName"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_AccountingRuleset"
+        ListVOName="PsCisXpeRulesetView1"
+        ListRangeSize="-1"
+        NullValueFlag="start"
+        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="AccountingRuleset"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="CisRuleSetCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="CisRuleSetCode"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <EntityUsage
+        Name="CovContractLines"
+        Entity="model.CovContractLines"/>
+    <ViewAttribute
+        Name="DealNumber"
+        IsNotNull="true"
+        PrecisionRule="true"
+        EntityAttrName="DealNumber"
+        EntityUsage="CovContractLines"
+        AliasName="DEAL_NUMBER">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.CovContractLinesView.DealNumber_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="ContractLine"
+        IsNotNull="true"
+        PrecisionRule="true"
+        EntityAttrName="ContractLine"
+        EntityUsage="CovContractLines"
+        AliasName="CONTRACT_LINE">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.CovContractLinesView.ContractLine_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="PoNumber"
+        PrecisionRule="true"
+        EntityAttrName="PoNumber"
+        EntityUsage="CovContractLines"
+        AliasName="PO_NUMBER">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.CovContractLinesView.PoNumber_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="ApprovalNumber"
+        PrecisionRule="true"
+        EntityAttrName="ApprovalNumber"
+        EntityUsage="CovContractLines"
+        AliasName="APPROVAL_NUMBER">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.CovContractLinesView.ApprovalNumber_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="Destination"
+        PrecisionRule="true"
+        EntityAttrName="Destination"
+        EntityUsage="CovContractLines"
+        AliasName="DESTINATION"
+        LOVName="LOV_Destination">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="WasteLaborCategory"
+        PrecisionRule="true"
+        EntityAttrName="WasteLaborCategory"
+        EntityUsage="CovContractLines"
+        AliasName="WASTE_LABOR_CATEGORY"
+        LOVName="LOV_WasteLaborCategory">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.CovContractLinesView.WasteLaborCategory_LABEL"/>
+                <CONTROLTYPE
+                    Value="input_text_lov"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="Material"
+        PrecisionRule="true"
+        EntityAttrName="Material"
+        EntityUsage="CovContractLines"
+        AliasName="MATERIAL"
+        LOVName="LOV_Material">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="input_text_lov"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="Carrier"
+        PrecisionRule="true"
+        EntityAttrName="Carrier"
+        EntityUsage="CovContractLines"
+        AliasName="CARRIER"
+        LOVName="LOV_Carrier">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="input_text_lov"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="VehicleType"
+        PrecisionRule="true"
+        EntityAttrName="VehicleType"
+        EntityUsage="CovContractLines"
+        AliasName="VEHICLE_TYPE"
+        LOVName="LOV_VehicleType">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.CovContractLinesView.VehicleType_LABEL"/>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="AccountingRuleset"
+        PrecisionRule="true"
+        EntityAttrName="AccountingRuleset"
+        EntityUsage="CovContractLines"
+        AliasName="ACCOUNTING_RULESET"
+        LOVName="LOV_AccountingRuleset">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.CovContractLinesView.AccountingRuleset_LABEL"/>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewLinkAccessor
+        Name="CovContractDetailsView"
+        ViewLink="model.CovContractDetailsFk2Link"
+        Type="oracle.jbo.RowIterator"
+        IsUpdateable="false"/>
+    <ResourceBundle>
+        <PropertiesBundle
+            PropertiesFile="model.ModelBundle"/>
+    </ResourceBundle>
+</ViewObject>

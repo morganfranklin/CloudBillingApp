@@ -1,0 +1,239 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Cloud Billing Engine" id="d1">
+        <af:messages id="m1"/>
+        <af:form usesUpload="true" id="f1">
+            <af:pageTemplate viewId="/oracle/templates/tabletFirstTemplate.jspx" id="pt1">
+                <f:facet name="header">
+                    <af:outputText value="Cloud Billing Engine" id="ot2"/>
+                </f:facet>
+                <f:facet name="status">
+                    <af:outputText value="Welcome #{PeopleSoftCallSecurityFilter.retrievedToken} #{PeopleSoftCallSecurityFilter.accessLimit}!"
+                                   id="ot1"/>
+                </f:facet>
+                <f:facet name="appNav">
+                    <af:inputListOfValues label="Platform" popupTitle="Search and Result Dialog" id="ilov1"
+                                          value="Covanta Scales"/>
+                </f:facet>
+                <f:facet name="globalLinks">
+                    <af:link text="Sign Out" id="l13"
+                             destination="https://finance.neustar.biz/psp/fsprd91/EMPLOYEE/ERP/h/?tab=DEFAULT"/>
+                </f:facet>
+                <f:facet name="footer"/>
+                <f:facet name="center">
+                    <af:panelGridLayout id="pgl1">
+                        <af:gridRow height="auto" id="gr1">
+                            <af:gridCell width="100%" id="gc1" halign="stretch" marginStart="5px" marginEnd="5px">
+                                <af:region value="#{bindings.dynamicRegion1.regionModel}" id="r1"
+                                           partialTriggers="::l1 ::l2 ::l3 ::l4 ::l5 ::l9 ::l1 ::l9 ::l8 ::l15 ::l16 ::l17 ::l18 ::l18 ::l18 ::l19 ::l12 ::l20 ::l21 ::l23"/>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2"/>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </f:facet>
+                <f:facet name="start">
+                    <af:panelGridLayout id="pgl2">
+                        <af:gridRow marginTop="5px" height="auto" id="gr3">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3" halign="stretch">
+                                <af:panelBox text="Integration Manager" id="pb1">
+                                    <f:facet name="toolbar"/>
+                                    <af:panelGridLayout id="pgl3">
+                                        <af:gridRow marginTop="5px" height="auto" id="gr7">
+                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc7">
+                                                <af:link text="Raw Usage Data Display"
+                                                         action="#{viewScope.integrationDashboardRegionName.transmittedData}"
+                                                         id="l2"/>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow marginTop="5px" height="auto" id="gr6">
+                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6">
+                                                <af:link text="ERP Cloud Billing Data"
+                                                         action="#{viewScope.integrationDashboardRegionName.distilledData}"
+                                                         id="l1"/>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow marginTop="5px" height="auto" id="gr8">
+                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc8">
+                                                <af:link text="Contracts and Transactions" id="l6"
+                                                         action="#{viewScope.integrationDashboardRegionName.lookupSets}"/>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr9">
+                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc9">
+                                                <af:link text="Web Services Definition" id="l7"/>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow id="gr10">
+                                            <af:gridCell id="gc10">
+                                                <af:link text="Contract Master"
+                                                         action="#{viewScope.integrationDashboardRegionName.contractMaster}"
+                                                         id="l19"/>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                    </af:panelGridLayout>
+                                </af:panelBox>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" height="auto" id="gr4">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4" halign="stretch">
+                                <af:panelBox text="Configuration" id="pb2" showDisclosure="true">
+                                    <f:facet name="toolbar"/>
+                                    <af:panelGridLayout id="pgl4">
+                                        <af:gridRow id="gr20">
+                                            <af:gridCell id="gc20">
+                                                <af:link text="Enterprise Contracts"
+                                                         action="#{viewScope.integrationDashboardRegionName.mappedContracts}"
+                                                         id="l15"/>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow id="gr22" marginTop="5px">
+                                            <af:gridCell id="gc22" width="auto">
+                                                <af:link text="Rules and Rule sets"
+                                                         action="#{viewScope.integrationDashboardRegionName.rulesets}"
+                                                         id="l16"
+                                                         rendered="#{PeopleSoftCallSecurityFilter.accessLimit != 'R' &amp;&amp; PeopleSoftCallSecurityFilter.accessLimit != 'B'}"/>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow marginTop="5px" height="auto" id="gr12">
+                                            <af:gridCell marginStart="5px" marginEnd="5px" id="gc12">
+                                                <af:link text="Cross-reference Data"
+                                                         action="#{viewScope.integrationDashboardRegionName.crossReferences}"
+                                                         id="l3"/>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow id="gr23" marginTop="5px">
+                                            <af:gridCell id="gc23">
+                                                <af:link text="Execution Plans"
+                                                         action="#{viewScope.integrationDashboardRegionName.executionPlan}"
+                                                         id="l17"
+                                                         rendered="#{PeopleSoftCallSecurityFilter.accessLimit != 'E' &amp;&amp; PeopleSoftCallSecurityFilter.accessLimit != 'B'}"/>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow marginTop="5px" height="auto" id="gr13">
+                                            <af:gridCell marginStart="5px" marginEnd="5px" id="gc13">
+                                                <af:link text="Processing Rules Definition"
+                                                         action="#{viewScope.integrationDashboardRegionName.rulesetConfiguration}"
+                                                         id="l9" rendered="false"/>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr14">
+                                            <af:gridCell marginStart="5px" marginEnd="5px" id="gc14">
+                                                <af:link text="Lookup sets"
+                                                         action="#{viewScope.integrationDashboardRegionName.lookupSets}"
+                                                         id="l8"/>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                    </af:panelGridLayout>
+                                </af:panelBox>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr5">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5" halign="stretch">
+                                <af:panelBox text="Cycle Manager" id="pb3" showDisclosure="true">
+                                    <f:facet name="toolbar"/>
+                                    <af:panelGridLayout id="pgl5">
+                                        <af:gridRow marginTop="5px" height="auto" id="gr15">
+                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc15">
+                                                <af:link text="Accounting Events"
+                                                         action="#{viewScope.integrationDashboardRegionName.billingEvents}"
+                                                         id="l4"/>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow marginTop="5px" height="auto" id="gr16">
+                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc16">
+                                                <af:link text="Voucher Events"
+                                                         action="#{viewScope.integrationDashboardRegionName.voucherEvents}"
+                                                         id="l5"/>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow marginTop="5px" height="auto" id="gr19">
+                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc19">
+                                                <af:link text="Contract Management" id="l14"
+                                                         action="#{viewScope.integrationDashboardRegionName.dccContractMaintenance}"/>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                         <af:gridRow marginTop="5px" height="auto" id="gr25">
+                                            <af:gridCell id="gc25" width="100%" marginStart="5px" marginEnd="5px">
+                                                <af:link text="New Contract" id="l20"
+                                                         action="#{viewScope.integrationDashboardRegionName.newContract}"/>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow marginTop="5px" height="auto" id="gr28">
+                                            <af:gridCell id="gc28" width="100%" marginStart="5px" marginEnd="5px">
+                                                <af:link text="Update Contract" id="l23"
+                                                         action="#{viewScope.integrationDashboardRegionName.updateContract}"/>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow marginTop="5px" height="auto" id="gr26">
+                                            <af:gridCell id="gc26" width="100%" marginStart="5px" marginEnd="5px">
+                                                <af:link text="Terms Master" id="l21"
+                                                         action="#{viewScope.integrationDashboardRegionName.termMaster}"/>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow id="gr27" marginTop="5px" marginBottom="5px">
+                                            <af:gridCell id="gc27" width="100%" marginStart="5px" marginEnd="5px">
+                                                <af:link text="Set Up Tables" id="l22" action="#{viewScope.integrationDashboardRegionName.setUpTables}"/>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                    </af:panelGridLayout>
+                                </af:panelBox>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow id="gr11">
+                            <af:gridCell id="gc11" halign="stretch">
+                                <af:panelBox text="Status Monitor" id="pb4" showDisclosure="false" background="light">
+                                    <f:facet name="toolbar"/>
+                                    <af:panelGridLayout id="pgl6">
+                                        <af:gridRow id="gr24" marginTop="5px">
+                                            <af:gridCell id="gc24" width="100%" marginStart="5px" marginEnd="5px">
+                                                <af:link text="Administrator Home"
+                                                         action="#{viewScope.integrationDashboardRegionName.adminStats}"
+                                                         id="l18"/>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow marginTop="5px" height="auto" id="gr17">
+                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc17">
+                                                <af:link text="Cloud Integration Docker Log" id="l10"
+                                                         action="#{viewScope.integrationDashboardRegionName.voucherEvents}"/>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr18">
+                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc18">
+                                                <af:link text="Calculation Log" id="l11"/>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow id="gr21">
+                                            <af:gridCell id="gc21">
+                                                <af:link text="dccContractMaintenance"
+                                                         action="#{viewScope.integrationDashboardRegionName.dccContractMaintenance}"
+                                                         id="l12"/>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                    </af:panelGridLayout>
+                                </af:panelBox>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </f:facet>
+                <f:facet name="end"/>
+                <f:attribute name="startWidth" value="210px"/>
+                <f:attribute name="endWidth" value="0px"/>
+                <f:attribute name="brandingMaxWidth" value="1044px"/>
+            </af:pageTemplate>
+        </af:form>
+        <af:serverListener type="onloadEvent" method="#{PeopleSoftCallSecurityFilter.validateToken}"/>
+        <af:clientListener method="triggerOnLoad" type="load"/>
+        <af:resource type="javascript">
+          function triggerOnLoad(event) {
+              AdfCustomEvent.queue(event.getSource(), "onloadEvent", 
+              {
+              },
+              false);
+              return true;
+          }
+        </af:resource>
+    </af:document>
+</f:view>

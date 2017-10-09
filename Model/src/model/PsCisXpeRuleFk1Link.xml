@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+    xmlns="http://xmlns.oracle.com/bc4j"
+    Name="PsCisXpeRuleFk1Link"
+    Version="12.2.1.0.31"
+    InheritPersonalization="merge"
+    EntityAssociation="model.PsCisXpeRuleFk1Assoc">
+    <ViewLinkDefEnd
+        Name="PsCisXpeRulcondView"
+        Cardinality="1"
+        Source="true"
+        Owner="model.PsCisXpeRulcondView">
+        <DesignTime>
+            <Attr Name="_isUpdateable" Value="true"/>
+            <Attr Name="_finderName" Value="PsCisXpeRulcondView"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.PsCisXpeRulcondView.CisConditionCode"/>
+        </AttrArray>
+    </ViewLinkDefEnd>
+    <ViewLinkDefEnd
+        Name="PsCisXpeRuleView"
+        Cardinality="-1"
+        Owner="model.PsCisXpeRuleView">
+        <DesignTime>
+            <Attr Name="_isUpdateable" Value="true"/>
+            <Attr Name="_finderName" Value="PsCisXpeRuleView"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.PsCisXpeRuleView.CisConditionCode"/>
+        </AttrArray>
+    </ViewLinkDefEnd>
+</ViewLink>

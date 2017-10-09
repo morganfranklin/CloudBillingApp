@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="dccContractMainPageDef"
+                Package="view.pageDefs">
+    <parameters/>
+    <executables>
+        <variableIterator id="variables"/>
+        <iterator Binds="XpeDccContractsView2" RangeSize="25" DataControl="AppModuleDataControl"
+                  id="XpeDccContractsView1Iterator"/>
+        <iterator Binds="XpeDccContractVersionView1" RangeSize="25" DataControl="AppModuleDataControl"
+                  id="XpeDccContractVersionView2Iterator"/>
+        <iterator Binds="XpeDccContractPartyView1" RangeSize="25" DataControl="AppModuleDataControl"
+                  id="XpeDccContractPartyView2Iterator"/>
+        <iterator Binds="XpeDccPlatformEventView3" RangeSize="25" DataControl="AppModuleDataControl"
+                  id="XpeDccPlatformEventView2Iterator"/>
+        <searchRegion Binds="XpeDccPlatformEventView2Iterator" Criteria=""
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                      id="XpeDccPlatformEventView2Query"/>
+    </executables>
+    <bindings>
+        <attributeValues IterBinding="XpeDccContractsView1Iterator" id="XpeContractId">
+            <AttrNames>
+                <Item Value="XpeContractId"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccContractsView1Iterator" id="XpeContractDesc">
+            <AttrNames>
+                <Item Value="XpeContractDesc"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccContractsView1Iterator" id="Setid">
+            <AttrNames>
+                <Item Value="Setid"/>
+            </AttrNames>
+        </attributeValues>
+        <listOfValues IterBinding="XpeDccContractsView1Iterator" StaticList="false" Uses="LOV_CustId" id="CustId"/>
+        <attributeValues IterBinding="XpeDccContractsView1Iterator" id="CreatedBy">
+            <AttrNames>
+                <Item Value="CreatedBy"/>
+            </AttrNames>
+        </attributeValues>
+        <list IterBinding="XpeDccContractsView1Iterator" StaticList="false" Uses="LOV_CurrencyCd" id="CurrencyCd"
+              DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+        <tree IterBinding="XpeDccContractVersionView2Iterator" id="XpeDccContractVersionView2">
+            <nodeDefinition DefName="model.XpeDccContractVersionView" Name="XpeDccContractVersionView20">
+                <AttrNames>
+                    <Item Value="XpeContractVersion"/>
+                    <Item Value="XpeContractStatus"/>
+                    <Item Value="XpeStartDate"/>
+                    <Item Value="XpeEndDate"/>
+                    <Item Value="XpeContractTemplate"/>
+                    <Item Value="BusinessUnitGl"/>
+                    <Item Value="CurrencyCd"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <tree IterBinding="XpeDccContractPartyView2Iterator" id="XpeDccContractPartyView2">
+            <nodeDefinition DefName="model.XpeDccContractPartyView" Name="XpeDccContractPartyView20">
+                <AttrNames>
+                    <Item Value="Setid"/>
+                    <Item Value="CustId"/>
+                    <Item Value="XpePrimary"/>
+                    <Item Value="XpePartyType"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <tree IterBinding="XpeDccPlatformEventView2Iterator" id="XpeDccPlatformEventView2">
+            <nodeDefinition DefName="model.XpeDccPlatformEventView" Name="XpeDccPlatformEventView20">
+                <AttrNames>
+                    <Item Value="XpeEventNbr"/>
+                    <Item Value="XpeEventDttm"/>
+                    <Item Value="XpeEventType"/>
+                    <Item Value="XpeCarrierId"/>
+                    <Item Value="XpeVehicleNbr"/>
+                    <Item Value="XpeEventRef"/>
+                    <Item Value="XpeEventUom"/>
+                    <Item Value="XpeEventQty"/>
+                    <Item Value="XpeResultUom"/>
+                    <Item Value="XpeResultQty"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+        <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+                DataControl="AppModuleDataControl"/>
+        <tree IterBinding="XpeDccContractVersionView2Iterator" id="XpeDccContractVersionView1">
+            <nodeDefinition DefName="model.XpeDccContractVersionView" Name="XpeDccContractVersionView10">
+                <AttrNames>
+                    <Item Value="XpeContractId"/>
+                    <Item Value="XpeContractVersion"/>
+                    <Item Value="XpeContractStatus"/>
+                    <Item Value="XpeStartDate"/>
+                    <Item Value="XpeEndDate"/>
+                    <Item Value="XpeNewTermMode"/>
+                    <Item Value="CreatedBy"/>
+                    <Item Value="UpdatedBy"/>
+                    <Item Value="XpeBillOptionsSet"/>
+                    <Item Value="XpeAcctgOptionsSet"/>
+                    <Item Value="XpeContractTemplate"/>
+                    <Item Value="BusinessUnitGl"/>
+                    <Item Value="CurrencyCd"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <action IterBinding="XpeDccContractVersionView2Iterator" id="CreateInsert" RequiresUpdateModel="true"
+                Action="createInsertRow"/>
+        <attributeValues IterBinding="XpeDccContractsView1Iterator" id="Name1">
+            <AttrNames>
+                <Item Value="Name1"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccContractsView1Iterator" id="XpeDccPcsname">
+            <AttrNames>
+                <Item Value="XpeDccPcsname"/>
+            </AttrNames>
+        </attributeValues>
+    </bindings>
+</pageDefinition>

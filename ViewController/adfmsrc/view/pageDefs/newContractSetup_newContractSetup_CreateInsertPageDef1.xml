@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57"
+                id="newContractSetup_newContractSetup_CreateInsertPageDef1" Package="view.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="XpeDccNewContractNotesView" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccNewContractNotesViewIterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="XpeDccNewContractNotesViewIterator" id="NotesCreateInsert"
+            InstanceName="AppModuleDataControl.XpeDccNewContractNotesView" DataControl="AppModuleDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

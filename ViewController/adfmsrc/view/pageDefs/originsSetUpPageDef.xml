@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="originsSetUpPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XpeDccCfgOriginsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgOriginsEOVOIterator"/>
+    <searchRegion Criteria="OriginsCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="XpeDccCfgOriginsEOVOIterator" id="OriginsCriteriaQuery"/>
+    <iterator Binds="XpeDccCfgOgnAssTerminalsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgOgnAssTerminalsEOVOIterator"/>
+    <iterator Binds="XpeDccCfgNewOriginsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewOriginsEOVOIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="XpeDccCfgOriginsEOVOIterator" id="XpeDccCfgOriginsEOVO">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccCfgOriginsEOVO" Name="XpeDccCfgOriginsEOVO0">
+        <AttrNames>
+          <Item Value="OriginId"/>
+          <Item Value="OriginDesc"/>
+          <Item Value="County"/>
+          <Item Value="State"/>
+          <Item Value="Inactive"/>
+          <Item Value="InactiveDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="XpeDccCfgOgnAssTerminalsEOVOIterator" id="XpeDccCfgOgnAssTerminalsEOVO">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccCfgOgnAssTerminalsEOVO"
+                      Name="XpeDccCfgOgnAssTerminalsEOVO0">
+        <AttrNames>
+          <Item Value="TerminalId"/>
+          <Item Value="TerminalDesc"/>
+          <Item Value="OriginId"/>
+          <Item Value="Inactive"/>
+          <Item Value="InactiveDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="XpeDccCfgNewOriginsEOVOIterator" id="OriginId">
+      <AttrNames>
+        <Item Value="OriginId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="XpeDccCfgNewOriginsEOVOIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

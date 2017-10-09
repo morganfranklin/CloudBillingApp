@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+    xmlns="http://xmlns.oracle.com/bc4j"
+    Name="NeuCondTblFk1Link"
+    Version="12.2.1.0.31"
+    InheritPersonalization="merge"
+    EntityAssociation="model.NeuCondTblFk1Assoc">
+    <ViewLinkDefEnd
+        Name="NeuRuleTblView"
+        Cardinality="1"
+        Source="true"
+        Owner="model.NeuRuleTblView">
+        <DesignTime>
+            <Attr Name="_isUpdateable" Value="true"/>
+            <Attr Name="_minCardinality" Value="1"/>
+            <Attr Name="_finderName" Value="NeuRuleTblView"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.NeuRuleTblView.RulesetCd"/>
+            <Item Value="model.NeuRuleTblView.SystemSource"/>
+            <Item Value="model.NeuRuleTblView.RuleCd"/>
+        </AttrArray>
+    </ViewLinkDefEnd>
+    <ViewLinkDefEnd
+        Name="NeuCondTblView"
+        Cardinality="-1"
+        Owner="model.NeuCondTblView">
+        <DesignTime>
+            <Attr Name="_isUpdateable" Value="true"/>
+            <Attr Name="_finderName" Value="NeuCondTblView"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.NeuCondTblView.RulesetCd"/>
+            <Item Value="model.NeuCondTblView.SystemSource"/>
+            <Item Value="model.NeuCondTblView.RuleCd"/>
+        </AttrArray>
+    </ViewLinkDefEnd>
+</ViewLink>

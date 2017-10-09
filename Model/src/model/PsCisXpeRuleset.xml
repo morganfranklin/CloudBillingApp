@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+    xmlns="http://xmlns.oracle.com/bc4j"
+    Name="PsCisXpeRuleset"
+    Version="12.2.1.0.31"
+    InheritPersonalization="merge"
+    DBObjectType="table"
+    DBObjectName="PS_CIS_XPE_RULESET"
+    AliasName="PsCisXpeRuleset"
+    BindingStyle="OracleName">
+    <Attribute
+        Name="CisRuleSetCode"
+        IsNotNull="true"
+        Precision="50"
+        ColumnName="CIS_RULE_SET_CODE"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="PS_CIS_XPE_RULESET"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="50"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="CisRuleSetDescr"
+        Precision="100"
+        ColumnName="CIS_RULE_SET_DESCR"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="PS_CIS_XPE_RULESET">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="100"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="ActiveFlag"
+        Precision="1"
+        ColumnName="ACTIVE_FLAG"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="PS_CIS_XPE_RULESET">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="1"/>
+        </DesignTime>
+    </Attribute>
+    <AccessorAttribute
+        Name="PsCisXpeRule"
+        Association="model.PsCisXpeRuleRuleSetFk1Assoc"
+        AssociationEnd="model.PsCisXpeRuleRuleSetFk1Assoc.PsCisXpeRule"
+        AssociationOtherEnd="model.PsCisXpeRuleRuleSetFk1Assoc.PsCisXpeRuleset"
+        Type="oracle.jbo.RowIterator"
+        IsUpdateable="false"/>
+    <Key
+        Name="PsCisXpeRuleSetPk"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DBObjectName" Value="PS_CIS_XPE_RULE_SET_PK"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.PsCisXpeRuleset.CisRuleSetCode"/>
+        </AttrArray>
+    </Key>
+</Entity>

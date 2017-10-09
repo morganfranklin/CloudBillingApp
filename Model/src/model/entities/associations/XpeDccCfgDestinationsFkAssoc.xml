@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XpeDccCfgDestinationsFkAssoc"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="XpeDccCfgDestinationsEO"
+    Cardinality="1"
+    Source="true"
+    Owner="model.entities.XpeDccCfgDestinationsEO"
+    CascadeDelete="true"
+    LockLevel="NONE"
+    CascadeUpdate="true">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="XpeDccCfgDestinationsEO"/>
+      <Attr Name="_foreignKey" Value="model.entities.XpeDccCfgDestinationsEO.XpeDccCfgDestinationsPk"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgDestinationsEO.DestinationId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="XpeDccCfgDstAssTerminalsEO"
+    Cardinality="-1"
+    Owner="model.entities.XpeDccCfgDstAssTerminalsEO"
+    HasOwner="true">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="XpeDccCfgDstAssTerminalsEO"/>
+      <Attr Name="_foreignKey" Value="model.entities.XpeDccCfgDstAssTerminalsEO.XpeDccCfgDestinationsFk"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgDstAssTerminalsEO.DestinationId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

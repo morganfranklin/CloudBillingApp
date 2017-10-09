@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout layout="vertical" id="pgl1">
+    <af:panelHeader text="Term Master" id="ph1">
+      <af:query id="qryId1" headerText="Search" disclosed="true"
+                value="#{bindings.XpeDccTermMasterEOVOCriteriaQuery.queryDescriptor}"
+                model="#{bindings.XpeDccTermMasterEOVOCriteriaQuery.queryModel}"
+                queryListener="#{bindings.XpeDccTermMasterEOVOCriteriaQuery.processQuery}"
+                queryOperationListener="#{bindings.XpeDccTermMasterEOVOCriteriaQuery.processQueryOperation}"
+                resultComponentId="::resId1"/>
+    </af:panelHeader>
+    <af:panelGroupLayout id="pg1" layout="horizontal" partialTriggers="b_del">
+      <af:button text="Add Master Term" id="b_add" action="#{bindings.CreateInsert.execute}"
+                 actionListener="#{pageFlowScope.XpeDccTermsMasterMBean.onTermsMasterCreation}"/>
+      <af:button actionListener="#{bindings.Delete.execute}" text="Delete Master Term" id="b_del"
+                 disabled="#{bindings.XpeDccTermMasterEOVOIterator.estimatedRowCount eq 0}"
+                 partialTriggers="b_add b_sav b_can qryId1"/>
+      <af:button actionListener="#{bindings.Commit.execute}" text="Save" id="b_sav"/>
+      <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel" immediate="true" id="b_can">
+        <af:resetActionListener/>
+      </af:button>
+    </af:panelGroupLayout>
+    <af:table value="#{bindings.XpeDccTermMasterEOVO.collectionModel}" var="row"
+              rows="#{bindings.XpeDccTermMasterEOVO.rangeSize}"
+              emptyText="#{bindings.XpeDccTermMasterEOVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+              rowBandingInterval="1" selectedRowKeys="#{bindings.XpeDccTermMasterEOVO.collectionModel.selectedRow}"
+              selectionListener="#{bindings.XpeDccTermMasterEOVO.collectionModel.makeCurrent}" rowSelection="single"
+              fetchSize="#{bindings.XpeDccTermMasterEOVO.rangeSize}" id="resId1"
+              partialTriggers="::b_del ::b_can ::b_add"
+              contentDelivery="immediate" columnStretching="last" autoHeightRows="0">
+      <af:column headerText="#{bindings.XpeDccTermMasterEOVO.hints.XpeDccTerm.label}" id="resId1c2">
+        <af:link text="#{row.XpeDccTerm}" id="l1" action="terms"/>
+      </af:column>
+      <af:column headerText="#{bindings.XpeDccTermMasterEOVO.hints.XpeDccStatus.label}" id="resId1c1">
+        <af:outputText value="#{row.XpeDccStatus}"
+                       shortDesc="#{bindings.XpeDccTermMasterEOVO.hints.XpeDccStatus.tooltip}" id="ot1"/>
+      </af:column>
+      <af:column headerText="#{bindings.XpeDccTermMasterEOVO.hints.XpeWasteType.label}" id="c2">
+        <af:selectOneChoice value="#{row.bindings.XpeWasteType.inputValue}" label="#{row.bindings.XpeWasteType.label}"
+                            required="#{bindings.XpeDccTermMasterEOVO.hints.XpeWasteType.mandatory}"
+                            shortDesc="#{bindings.XpeDccTermMasterEOVO.hints.XpeWasteType.tooltip}" readOnly="true"
+                            id="soc5">
+          <f:selectItems value="#{row.bindings.XpeWasteType.items}" id="si4"/>
+          <f:validator binding="#{row.bindings.XpeWasteType.validator}"/>
+        </af:selectOneChoice>
+      </af:column>
+      <af:column headerText="#{bindings.XpeDccTermMasterEOVO.hints.XpeContractSubType.label}" id="c3">
+        <af:selectOneChoice value="#{row.bindings.XpeContractSubType.inputValue}"
+                            label="#{row.bindings.XpeContractSubType.label}"
+                            required="#{bindings.XpeDccTermMasterEOVO.hints.XpeContractSubType.mandatory}"
+                            shortDesc="#{bindings.XpeDccTermMasterEOVO.hints.XpeContractSubType.tooltip}"
+                            readOnly="true" id="soc6">
+          <f:selectItems value="#{row.bindings.XpeContractSubType.items}" id="si6"/>
+          <f:validator binding="#{row.bindings.XpeContractSubType.validator}"/>
+        </af:selectOneChoice>
+      </af:column>
+      <af:column headerText="#{bindings.XpeDccTermMasterEOVO.hints.XpeAgreementType.label}" id="c1">
+        <af:selectOneChoice value="#{row.bindings.XpeAgreementType.inputValue}"
+                            label="#{row.bindings.XpeAgreementType.label}"
+                            required="#{bindings.XpeDccTermMasterEOVO.hints.XpeAgreementType.mandatory}"
+                            shortDesc="#{bindings.XpeDccTermMasterEOVO.hints.XpeAgreementType.tooltip}" readOnly="true"
+                            id="soc4">
+          <f:selectItems value="#{row.bindings.XpeAgreementType.items}" id="si5"/>
+          <f:validator binding="#{row.bindings.XpeAgreementType.validator}"/>
+        </af:selectOneChoice>
+      </af:column>
+      <af:column headerText="#{bindings.XpeDccTermMasterEOVO.hints.XpeDccTermDesc.label}" id="resId1c3">
+        <af:outputText value="#{row.XpeDccTermDesc}"
+                       shortDesc="#{bindings.XpeDccTermMasterEOVO.hints.XpeDccTermDesc.tooltip}" id="ot3"/>
+      </af:column>
+    </af:table>
+    <af:popup autoCancel="disabled" id="p1" contentDelivery="lazyUncached" animate="false"
+              binding="#{backingBeanScope.XpeDccTermsMasterBBean.termsMaster_popup}">
+      <af:dialog id="d1" title="New Master Term" type="none" closeIconVisible="false">
+        <f:facet name="buttonBar">
+          <af:button text="Save" id="b2" action="#{bindings.Commit.execute}"
+                     actionListener="#{pageFlowScope.XpeDccTermsMasterMBean.onTermsMasterSaveOrCancel}"/>
+          <af:button text="Cancel" immediate="true" id="b3"
+                     action="#{bindings.Rollback.execute}"
+                     actionListener="#{pageFlowScope.XpeDccTermsMasterMBean.onTermsMasterSaveOrCancel}">
+            <af:resetActionListener/>
+          </af:button>
+        </f:facet>
+        <af:panelFormLayout id="pfl1">
+          <af:inputText value="#{bindings.XpeDccTerm.inputValue}" label="#{bindings.XpeDccTerm.hints.label}"
+                        required="#{bindings.XpeDccTerm.hints.mandatory}"
+                        columns="#{bindings.XpeDccTerm.hints.displayWidth}"
+                        maximumLength="#{bindings.XpeDccTerm.hints.precision}"
+                        shortDesc="#{bindings.XpeDccTerm.hints.tooltip}" id="it1">
+            <f:validator binding="#{bindings.XpeDccTerm.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.XpeDccStatus.inputValue}" label="#{bindings.XpeDccStatus.hints.label}"
+                        required="#{bindings.XpeDccStatus.hints.mandatory}"
+                        columns="#{bindings.XpeDccStatus.hints.displayWidth}"
+                        maximumLength="#{bindings.XpeDccStatus.hints.precision}"
+                        shortDesc="#{bindings.XpeDccStatus.hints.tooltip}" id="it2">
+            <f:validator binding="#{bindings.XpeDccStatus.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.XpeDccTermDesc.inputValue}" label="#{bindings.XpeDccTermDesc.hints.label}"
+                        required="#{bindings.XpeDccTermDesc.hints.mandatory}"
+                        columns="#{bindings.XpeDccTermDesc.hints.displayWidth}"
+                        maximumLength="#{bindings.XpeDccTermDesc.hints.precision}"
+                        shortDesc="#{bindings.XpeDccTermDesc.hints.tooltip}" id="it3">
+            <f:validator binding="#{bindings.XpeDccTermDesc.validator}"/>
+          </af:inputText>
+          <af:selectOneChoice value="#{bindings.XpeWasteType.inputValue}" label="#{bindings.XpeWasteType.label}"
+                              shortDesc="#{bindings.XpeWasteType.hints.tooltip}" id="soc2" autoSubmit="true"
+                              required="true">
+            <f:selectItems value="#{bindings.XpeWasteType.items}" id="si3"/>
+            <f:validator binding="#{bindings.XpeWasteType.validator}"/>
+          </af:selectOneChoice>
+          <af:selectOneChoice value="#{bindings.XpeContractSubType.inputValue}"
+                              label="#{bindings.XpeContractSubType.label}"
+                              required="#{bindings.XpeContractSubType.hints.mandatory}"
+                              shortDesc="#{bindings.XpeContractSubType.hints.tooltip}" id="soc1" partialTriggers="soc2"
+                              autoSubmit="true">
+            <f:selectItems value="#{bindings.XpeContractSubType.items}" id="si2"/>
+            <f:validator binding="#{bindings.XpeContractSubType.validator}"/>
+          </af:selectOneChoice>
+          <af:selectOneChoice value="#{bindings.XpeAgreementType.inputValue}" label="#{bindings.XpeAgreementType.label}"
+                              required="#{bindings.XpeAgreementType.hints.mandatory}"
+                              shortDesc="#{bindings.XpeAgreementType.hints.tooltip}" id="soc3"
+                              partialTriggers="soc2 soc1" autoSubmit="true">
+            <f:selectItems value="#{bindings.XpeAgreementType.items}" id="si1"/>
+            <f:validator binding="#{bindings.XpeAgreementType.validator}"/>
+          </af:selectOneChoice>
+        </af:panelFormLayout>
+      </af:dialog>
+    </af:popup>
+  </af:panelGroupLayout>
+</ui:composition>

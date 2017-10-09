@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="EditOriginSetUpPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XpeDccCfgOriginsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgOriginsEOVOIterator"/>
+    <iterator Binds="XpeDccCfgOgnAssTerminalsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgOgnAssTerminalsEOVOIterator"/>
+    <iterator Binds="XpeDccCfgNewOgnAssTerminalsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewOgnAssTerminalsEOVOIterator"/>
+    <taskFlow id="terminalSearch1" taskFlowId="/WEB-INF/terminalSearch.xml#terminalSearch" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <attributeValues IterBinding="XpeDccCfgOriginsEOVOIterator" id="OriginId">
+      <AttrNames>
+        <Item Value="OriginId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgOriginsEOVOIterator" id="OriginDesc">
+      <AttrNames>
+        <Item Value="OriginDesc"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="XpeDccCfgOriginsEOVOIterator" StaticList="false" Uses="LOV_County" id="County"/>
+    <list IterBinding="XpeDccCfgOriginsEOVOIterator" StaticList="false" Uses="LOV_State" id="State"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgOriginsEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgOriginsEOVOIterator" id="InactiveDate">
+      <AttrNames>
+        <Item Value="InactiveDate"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="XpeDccCfgOgnAssTerminalsEOVOIterator" id="XpeDccCfgOgnAssTerminalsEOVO">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccCfgOgnAssTerminalsEOVO"
+                      Name="XpeDccCfgOgnAssTerminalsEOVO0">
+        <AttrNames>
+          <Item Value="TerminalId"/>
+          <Item Value="TerminalDesc"/>
+          <Item Value="OriginId"/>
+          <Item Value="Inactive"/>
+          <Item Value="InactiveDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="XpeDccCfgNewOgnAssTerminalsEOVOIterator" id="OriginId1">
+      <AttrNames>
+        <Item Value="OriginId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewOgnAssTerminalsEOVOIterator" id="TerminalId">
+      <AttrNames>
+        <Item Value="TerminalId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewOgnAssTerminalsEOVOIterator" id="TerminalDesc">
+      <AttrNames>
+        <Item Value="TerminalDesc"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgNewOgnAssTerminalsEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive1"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgNewOgnAssTerminalsEOVOIterator" id="InactiveDate1">
+      <AttrNames>
+        <Item Value="InactiveDate"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

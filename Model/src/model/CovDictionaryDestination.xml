@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+    xmlns="http://xmlns.oracle.com/bc4j"
+    Name="CovDictionaryDestination"
+    Version="12.2.1.0.31"
+    InheritPersonalization="merge"
+    BindingStyle="OracleName"
+    CustomQuery="true"
+    PageIterMode="Full">
+    <DesignTime>
+        <Attr Name="_isExpertMode" Value="true"/>
+    </DesignTime>
+    <Properties>
+        <SchemaBasedProperties>
+            <LABEL
+                ResId="model.CovDictionaryDestination_LABEL"/>
+        </SchemaBasedProperties>
+    </Properties>
+    <SQLQuery><![CDATA[SELECT LOOKUP_CODE AS DESTINATION_CODE, LOOKUP_DESC AS DESTINATION_NAME 
+FROM  
+COV_LOOKUPS  
+WHERE  
+DETAIL_CLASS = 'DEST' 
+ORDER BY SEQ_NUM]]></SQLQuery>
+    <ViewAttribute
+        Name="DestinationCode"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="20"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        AliasName="DESTINATION_CODE"
+        Expression="DESTINATION_CODE"
+        SQLType="VARCHAR">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="DestinationName"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="50"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        AliasName="DESTINATION_NAME"
+        Expression="DESTINATION_NAME"
+        SQLType="VARCHAR">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="50"/>
+        </DesignTime>
+    </ViewAttribute>
+    <AttrArray Name="KeyAttributes">
+        <Item Value="DestinationCode"/>
+    </AttrArray>
+    <ResourceBundle>
+        <PropertiesBundle
+            PropertiesFile="model.ModelBundle"/>
+    </ResourceBundle>
+</ViewObject>

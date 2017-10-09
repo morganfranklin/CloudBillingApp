@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+    xmlns="http://xmlns.oracle.com/bc4j"
+    Name="NeuRulesetTbl"
+    Version="12.2.1.0.31"
+    InheritPersonalization="merge"
+    DBObjectType="table"
+    DBObjectName="NEU_RULESET_TBL"
+    AliasName="NeuRulesetTbl"
+    BindingStyle="OracleName">
+    <Attribute
+        Name="RulesetCd"
+        IsNotNull="true"
+        Precision="20"
+        ColumnName="RULESET_CD"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="NEU_RULESET_TBL"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="SystemSource"
+        IsNotNull="true"
+        Precision="20"
+        ColumnName="SYSTEM_SOURCE"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="NEU_RULESET_TBL"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="Description"
+        Precision="50"
+        ColumnName="DESCRIPTION"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="NEU_RULESET_TBL">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="50"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="Effdt"
+        ColumnName="EFFDT"
+        SQLType="DATE"
+        Type="java.sql.Timestamp"
+        ColumnType="DATE"
+        TableName="NEU_RULESET_TBL"/>
+    <Attribute
+        Name="EffStatus"
+        Precision="1"
+        ColumnName="EFF_STATUS"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="NEU_RULESET_TBL">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="1"/>
+        </DesignTime>
+    </Attribute>
+    <Key
+        Name="NeuRulesetTblPk"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DBObjectName" Value="NEU_RULESET_TBL_PK"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.NeuRulesetTbl.RulesetCd"/>
+            <Item Value="model.NeuRulesetTbl.SystemSource"/>
+        </AttrArray>
+    </Key>
+</Entity>

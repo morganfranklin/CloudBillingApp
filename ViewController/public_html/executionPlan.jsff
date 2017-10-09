@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGridLayout id="pgl1">
+        <af:gridRow marginTop="5px" height="115px" id="gr1">
+            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1" halign="stretch" valign="stretch">
+                <af:panelBox text="Data Processing" id="pb1" showDisclosure="false" background="light">
+                    <f:facet name="toolbar"/>
+                    <af:panelGridLayout id="pgl2">
+                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
+                            <af:gridCell marginStart="5px" width="155px" id="gc3">
+                                <af:button text="Launch Execution Plan" id="b14"
+                                           action="#{PlanLauncher.launchPlanInstance}"/>
+                                <af:selectBooleanCheckbox text="Test Run" id="sbc1"
+                                                          value="#{PlanLauncher.selectedTestRun}"/>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="250px" id="gc8">
+                                <af:inputDate label="From Date" id="id1" value="#{PlanLauncher.selectedFromDate}"/>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="240px" marginEnd="5px" id="gc9">
+                                <af:inputDate label="To Date" id="id2" value="#{PlanLauncher.selectedToDate}"/>
+                            </af:gridCell>
+                            <af:gridCell id="gc6" width="auto"/>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </af:panelBox>
+            </af:gridCell>
+        </af:gridRow>
+        <af:gridRow marginTop="5px" marginBottom="5px" id="gr2">
+            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" halign="stretch" valign="stretch">
+                <af:panelBox text="Execution Plans" id="pb2">
+                    <f:facet name="toolbar"/>
+                    <af:table value="#{bindings.PsCisXpeExecplnView1.collectionModel}" var="row"
+                              rows="#{bindings.PsCisXpeExecplnView1.rangeSize}"
+                              emptyText="#{bindings.PsCisXpeExecplnView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.PsCisXpeExecplnView1.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.PsCisXpeExecplnView1.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.PsCisXpeExecplnView1.rangeSize}"
+                              filterModel="#{bindings.PsCisXpeExecplnView1Query.queryDescriptor}" filterVisible="true"
+                              queryListener="#{bindings.PsCisXpeExecplnView1Query.processQuery}" varStatus="vs" id="t1"
+                              partialTriggers="::b2 ::b3 ::b4 ::b5 ::b10 ::b11 ::b12 ::b13">
+                        <af:column sortProperty="#{bindings.PsCisXpeExecplnView1.hints.CisExecPlanCode.name}"
+                                   filterable="true" sortable="true" headerText="Execution Plan Code" id="c1"
+                                   width="133">
+                            <af:inputText value="#{row.bindings.CisExecPlanCode.inputValue}"
+                                          label="#{bindings.PsCisXpeExecplnView1.hints.CisExecPlanCode.label}"
+                                          required="#{bindings.PsCisXpeExecplnView1.hints.CisExecPlanCode.mandatory}"
+                                          columns="#{bindings.PsCisXpeExecplnView1.hints.CisExecPlanCode.displayWidth}"
+                                          maximumLength="#{bindings.PsCisXpeExecplnView1.hints.CisExecPlanCode.precision}"
+                                          shortDesc="#{bindings.PsCisXpeExecplnView1.hints.CisExecPlanCode.tooltip}"
+                                          id="it1">
+                                <f:validator binding="#{row.bindings.CisExecPlanCode.validator}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.PsCisXpeExecplnView1.hints.Descr100.name}" filterable="true"
+                                   sortable="true" headerText="Description" id="c3" width="394">
+                            <af:inputText value="#{row.bindings.Descr100.inputValue}"
+                                          label="#{bindings.PsCisXpeExecplnView1.hints.Descr100.label}"
+                                          required="#{bindings.PsCisXpeExecplnView1.hints.Descr100.mandatory}"
+                                          columns="#{bindings.PsCisXpeExecplnView1.hints.Descr100.displayWidth}"
+                                          maximumLength="#{bindings.PsCisXpeExecplnView1.hints.Descr100.precision}"
+                                          shortDesc="#{bindings.PsCisXpeExecplnView1.hints.Descr100.tooltip}" id="it3">
+                                <f:validator binding="#{row.bindings.Descr100.validator}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.PsCisXpeExecplnView1.hints.SeqNbr.name}" filterable="true"
+                                   sortable="true" headerText="Sequence Nbr" id="c4" width="99">
+                            <af:inputText value="#{row.bindings.SeqNbr.inputValue}"
+                                          label="#{bindings.PsCisXpeExecplnView1.hints.SeqNbr.label}"
+                                          required="#{bindings.PsCisXpeExecplnView1.hints.SeqNbr.mandatory}"
+                                          columns="#{bindings.PsCisXpeExecplnView1.hints.SeqNbr.displayWidth}"
+                                          maximumLength="#{bindings.PsCisXpeExecplnView1.hints.SeqNbr.precision}"
+                                          shortDesc="#{bindings.PsCisXpeExecplnView1.hints.SeqNbr.tooltip}" id="it4">
+                                <f:validator binding="#{row.bindings.SeqNbr.validator}"/>
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.PsCisXpeExecplnView1.hints.SeqNbr.format}"/>
+                            </af:inputText>
+                        </af:column>
+                        <f:facet name="footer"/>
+                    </af:table>
+                    <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
+                               disabled="#{!bindings.Commit.enabled}" id="b6"/>
+                    <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                               disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b7">
+                        <af:resetActionListener/>
+                    </af:button>
+                    <af:button actionListener="#{bindings.CreateInsert.execute}" text="Insert"
+                               disabled="#{!bindings.CreateInsert.enabled}" id="b2"/>
+                    <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                               disabled="#{!bindings.Delete.enabled}" id="b3"/>
+                    <af:button actionListener="#{bindings.First.execute}" text="First"
+                               disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b4"/>
+                    <af:button actionListener="#{bindings.Last.execute}" text="Last"
+                               disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b5"/>
+                    <af:outputText value="#{bindings.CisExecPlanCode.inputValue}"
+                                   shortDesc="#{bindings.CisExecPlanCode.hints.tooltip}" id="ot1" rendered="false"/>
+                </af:panelBox>
+            </af:gridCell>
+        </af:gridRow>
+        <af:gridRow id="gr5">
+            <af:gridCell id="gc5" width="100%" valign="stretch" halign="stretch">
+                <af:panelBox text="Execution steps" id="pb3">
+                    <f:facet name="toolbar"/>
+                    <af:table value="#{bindings.PsCisXpeExecstpView2.collectionModel}" var="row"
+                              rows="#{bindings.PsCisXpeExecstpView2.rangeSize}"
+                              emptyText="#{bindings.PsCisXpeExecstpView2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.PsCisXpeExecstpView2.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.PsCisXpeExecstpView2.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.PsCisXpeExecstpView2.rangeSize}"
+                              filterModel="#{bindings.PsCisXpeExecstpView2Query.queryDescriptor}" filterVisible="true"
+                              queryListener="#{bindings.PsCisXpeExecstpView2Query.processQuery}" varStatus="vs" id="t2">
+                        <af:column sortProperty="#{bindings.PsCisXpeExecstpView2.hints.CisExecPlanStep.name}"
+                                   filterable="true" sortable="true" headerText="Execution Step" id="c5" width="100">
+                            <af:inputText value="#{row.bindings.CisExecPlanStep.inputValue}"
+                                          label="#{bindings.PsCisXpeExecstpView2.hints.CisExecPlanStep.label}"
+                                          required="#{bindings.PsCisXpeExecstpView2.hints.CisExecPlanStep.mandatory}"
+                                          columns="#{bindings.PsCisXpeExecstpView2.hints.CisExecPlanStep.displayWidth}"
+                                          maximumLength="#{bindings.PsCisXpeExecstpView2.hints.CisExecPlanStep.precision}"
+                                          shortDesc="#{bindings.PsCisXpeExecstpView2.hints.CisExecPlanStep.tooltip}"
+                                          id="it5">
+                                <f:validator binding="#{row.bindings.CisExecPlanStep.validator}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.PsCisXpeExecstpView2.hints.CisExecutionSeq.name}"
+                                   filterable="true" sortable="true" headerText="Sequence Nbr" id="c6" width="100">
+                            <af:inputText value="#{row.bindings.CisExecutionSeq.inputValue}"
+                                          label="#{bindings.PsCisXpeExecstpView2.hints.CisExecutionSeq.label}"
+                                          required="#{bindings.PsCisXpeExecstpView2.hints.CisExecutionSeq.mandatory}"
+                                          columns="#{bindings.PsCisXpeExecstpView2.hints.CisExecutionSeq.displayWidth}"
+                                          maximumLength="#{bindings.PsCisXpeExecstpView2.hints.CisExecutionSeq.precision}"
+                                          shortDesc="#{bindings.PsCisXpeExecstpView2.hints.CisExecutionSeq.tooltip}"
+                                          id="it6">
+                                <f:validator binding="#{row.bindings.CisExecutionSeq.validator}"/>
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.PsCisXpeExecstpView2.hints.CisExecutionSeq.format}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.PsCisXpeExecstpView2.hints.CisRuleSetCode.name}"
+                                   filterable="true" sortable="true" headerText="Rule Set Code" id="c7" width="210">
+                            <af:selectOneChoice value="#{row.bindings.CisRuleSetCode.inputValue}"
+                                                label="#{row.bindings.CisRuleSetCode.label}"
+                                                required="#{bindings.PsCisXpeExecstpView2.hints.CisRuleSetCode.mandatory}"
+                                                shortDesc="#{bindings.PsCisXpeExecstpView2.hints.CisRuleSetCode.tooltip}"
+                                                id="soc1">
+                                <f:selectItems value="#{row.bindings.CisRuleSetCode.items}" id="si1"/>
+                                <f:validator binding="#{row.bindings.CisRuleSetCode.validator}"/>
+                            </af:selectOneChoice>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.PsCisXpeExecstpView2.hints.Descr100.name}" filterable="true"
+                                   sortable="true" headerText="Description" id="c8" width="205">
+                            <af:inputText value="#{row.bindings.Descr100.inputValue}"
+                                          label="#{bindings.PsCisXpeExecstpView2.hints.Descr100.label}"
+                                          required="#{bindings.PsCisXpeExecstpView2.hints.Descr100.mandatory}"
+                                          columns="#{bindings.PsCisXpeExecstpView2.hints.Descr100.displayWidth}"
+                                          maximumLength="#{bindings.PsCisXpeExecstpView2.hints.Descr100.precision}"
+                                          shortDesc="#{bindings.PsCisXpeExecstpView2.hints.Descr100.tooltip}" id="it7">
+                                <f:validator binding="#{row.bindings.Descr100.validator}"/>
+                            </af:inputText>
+                        </af:column>
+                    </af:table>
+                    <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
+                               disabled="#{!bindings.Commit.enabled}" id="b8"/>
+                    <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                               disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b9">
+                        <af:resetActionListener/>
+                    </af:button>
+                    <af:button actionListener="#{bindings.CreateInsert.execute}" text="Insert"
+                               disabled="#{!bindings.CreateInsert.enabled}" id="b10"/>
+                    <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                               disabled="#{!bindings.Delete.enabled}" id="b11"/>
+                    <af:button actionListener="#{bindings.First.execute}" text="First"
+                               disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b12"/>
+                    <af:button actionListener="#{bindings.Last.execute}" text="Last"
+                               disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b13"/>
+                </af:panelBox>
+            </af:gridCell>
+        </af:gridRow>
+        <af:gridRow id="gr4">
+            <af:gridCell id="gc4" halign="stretch" valign="stretch" width="100%"/>
+        </af:gridRow>
+    </af:panelGridLayout>
+</ui:composition>

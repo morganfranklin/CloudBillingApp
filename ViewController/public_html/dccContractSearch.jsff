@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelFormLayout id="pfl1">
+        <af:panelGroupLayout layout="vertical" id="pgl1">
+            <af:panelHeader text="Contract Search" id="ph1">
+                <af:query id="qryId1" headerText="Search" disclosed="true"
+                          value="#{bindings.ImplicitViewCriteriaQuery.queryDescriptor}"
+                          model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                          queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}"
+                          queryOperationListener="#{bindings.ImplicitViewCriteriaQuery.processQueryOperation}"
+                          resultComponentId="::resId1"/>
+            </af:panelHeader>
+        <!--    <af:button actionListener="#{backingBeanScope.XpeDccMainBean.addContractActionListener}"
+                       text="Add Contract"></af:button>-->
+            <af:button action="addContract" text="Add Contract Wizard"></af:button>
+            <af:popup contentDelivery="lazyUncached" id="p1" autoCancel="disabled"
+                      popupCanceledListener="#{backingBeanScope.XpeDccMainBean.contractPopupCancelListener}">
+                <af:panelWindow modal="true" closeIconVisible="true">
+                    <af:panelGroupLayout layout="horizontal">
+                        <af:panelFormLayout labelAlignment="start" id="pfl2">
+                            <af:inputText value="#{bindings.XpeContractId.inputValue}"
+                                          label="#{bindings.XpeContractId.hints.label}"
+                                          required="#{bindings.XpeContractId.hints.mandatory}"
+                                          columns="#{bindings.XpeContractId.hints.displayWidth}"
+                                          maximumLength="#{bindings.XpeContractId.hints.precision}"
+                                          shortDesc="#{bindings.XpeContractId.hints.tooltip}" id="it1">
+                                <f:validator binding="#{bindings.XpeContractId.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.XpeContractDesc.inputValue}"
+                                          label="#{bindings.XpeContractDesc.hints.label}"
+                                          required="#{bindings.XpeContractDesc.hints.mandatory}"
+                                          columns="#{bindings.XpeContractDesc.hints.displayWidth}"
+                                          maximumLength="#{bindings.XpeContractDesc.hints.precision}"
+                                          shortDesc="#{bindings.XpeContractDesc.hints.tooltip}" id="it2">
+                                <f:validator binding="#{bindings.XpeContractDesc.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.Setid.inputValue}" label="#{bindings.Setid.hints.label}"
+                                          required="#{bindings.Setid.hints.mandatory}"
+                                          columns="#{bindings.Setid.hints.displayWidth}"
+                                          maximumLength="#{bindings.Setid.hints.precision}"
+                                          shortDesc="#{bindings.Setid.hints.tooltip}" id="it3">
+                                <f:validator binding="#{bindings.Setid.validator}"/>
+                            </af:inputText>
+                            <af:inputListOfValues id="custIdId"
+                                                  popupTitle="Search and Select: #{bindings.CustId.hints.label}"
+                                                  value="#{bindings.CustId.inputValue}"
+                                                  label="#{bindings.CustId.hints.label}"
+                                                  model="#{bindings.CustId.listOfValuesModel}"
+                                                  required="#{bindings.CustId.hints.mandatory}"
+                                                  columns="#{bindings.CustId.hints.displayWidth}"
+                                                  shortDesc="#{bindings.CustId.hints.tooltip}">
+                                <f:validator binding="#{bindings.CustId.validator}"/>
+                            </af:inputListOfValues>
+                            <af:inputText value="#{bindings.CreatedBy.inputValue}"
+                                          label="#{bindings.CreatedBy.hints.label}"
+                                          required="#{bindings.CreatedBy.hints.mandatory}"
+                                          columns="#{bindings.CreatedBy.hints.displayWidth}"
+                                          maximumLength="#{bindings.CreatedBy.hints.precision}"
+                                          shortDesc="#{bindings.CreatedBy.hints.tooltip}" id="it4">
+                                <f:validator binding="#{bindings.CreatedBy.validator}"/>
+                            </af:inputText>
+                            <af:selectOneChoice value="#{bindings.CurrencyCd.inputValue}"
+                                                label="#{bindings.CurrencyCd.label}"
+                                                required="#{bindings.CurrencyCd.hints.mandatory}"
+                                                shortDesc="#{bindings.CurrencyCd.hints.tooltip}" id="soc1">
+                                <f:selectItems value="#{bindings.CurrencyCd.items}" id="si1"/>
+                                <f:validator binding="#{bindings.CurrencyCd.validator}"/>
+                            </af:selectOneChoice>
+                            <af:button actionListener="#{bindings.Commit.execute}" text="Submit"
+                                       disabled="#{!bindings.Commit.enabled}" id="b2"/>
+                        </af:panelFormLayout>
+                    </af:panelGroupLayout>
+                </af:panelWindow>
+            </af:popup>
+            <af:table value="#{bindings.XpeDccCustomerSearch1.collectionModel}" var="row"
+                      rows="#{bindings.XpeDccCustomerSearch1.rangeSize}"
+                      emptyText="#{bindings.XpeDccCustomerSearch1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      contentDelivery="lazy" rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.XpeDccCustomerSearch1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.XpeDccCustomerSearch1.collectionModel.makeCurrent}"
+                      rowSelection="single" fetchSize="#{bindings.XpeDccCustomerSearch1.rangeSize}" id="resId1">
+                <af:column sortProperty="#{bindings.XpeDccCustomerSearch1.hints.XpeContractId.name}" sortable="true"
+                           headerText="#{bindings.XpeDccCustomerSearch1.hints.XpeContractId.label}" id="resId1c1">
+                    <af:link text="#{row.XpeContractId}" id="l1" action="toDccContractMaster"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.XpeDccCustomerSearch1.hints.XpeContractDesc.name}" sortable="true"
+                           headerText="#{bindings.XpeDccCustomerSearch1.hints.XpeContractDesc.label}" id="resId1c2">
+                    <af:outputText value="#{row.XpeContractDesc}"
+                                   shortDesc="#{bindings.XpeDccCustomerSearch1.hints.XpeContractDesc.tooltip}"
+                                   id="ot2"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.XpeDccCustomerSearch1.hints.CustId.name}" sortable="true"
+                           headerText="#{bindings.XpeDccCustomerSearch1.hints.CustId.label}" id="resId1c3">
+                    <af:outputText value="#{row.CustId}"
+                                   shortDesc="#{bindings.XpeDccCustomerSearch1.hints.CustId.tooltip}" id="ot3"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.XpeDccCustomerSearch1.hints.Name1.name}" sortable="true"
+                           headerText="#{bindings.XpeDccCustomerSearch1.hints.Name1.label}" id="resId1c4">
+                    <af:outputText value="#{row.Name1}"
+                                   shortDesc="#{bindings.XpeDccCustomerSearch1.hints.Name1.tooltip}" id="ot4"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.XpeDccCustomerSearch1.hints.Descr.name}" sortable="true"
+                           headerText="#{bindings.XpeDccCustomerSearch1.hints.Descr.label}" id="resId1c5">
+                    <af:outputText value="#{row.Descr}"
+                                   shortDesc="#{bindings.XpeDccCustomerSearch1.hints.Descr.tooltip}" id="ot5"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.XpeDccCustomerSearch1.hints.Country.name}" sortable="true"
+                           headerText="#{bindings.XpeDccCustomerSearch1.hints.Country.label}" id="resId1c6">
+                    <af:outputText value="#{row.Country}"
+                                   shortDesc="#{bindings.XpeDccCustomerSearch1.hints.Country.tooltip}" id="ot6"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.XpeDccCustomerSearch1.hints.Address1.name}" sortable="true"
+                           headerText="#{bindings.XpeDccCustomerSearch1.hints.Address1.label}" id="resId1c7">
+                    <af:outputText value="#{row.Address1}"
+                                   shortDesc="#{bindings.XpeDccCustomerSearch1.hints.Address1.tooltip}" id="ot7"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.XpeDccCustomerSearch1.hints.City.name}" sortable="true"
+                           headerText="#{bindings.XpeDccCustomerSearch1.hints.City.label}" id="resId1c8">
+                    <af:outputText value="#{row.City}" shortDesc="#{bindings.XpeDccCustomerSearch1.hints.City.tooltip}"
+                                   id="ot8"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.XpeDccCustomerSearch1.hints.State.name}" sortable="true"
+                           headerText="#{bindings.XpeDccCustomerSearch1.hints.State.label}" id="c1">
+                    <af:outputText value="#{row.State}"
+                                   shortDesc="#{bindings.XpeDccCustomerSearch1.hints.State.tooltip}" id="ot1"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.XpeDccCustomerSearch1.hints.Postal.name}" sortable="true"
+                           headerText="#{bindings.XpeDccCustomerSearch1.hints.Postal.label}" id="c2">
+                    <af:outputText value="#{row.Postal}"
+                                   shortDesc="#{bindings.XpeDccCustomerSearch1.hints.Postal.tooltip}" id="ot9"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.XpeDccCustomerSearch1.hints.XpeSwApprNbr.name}" sortable="true"
+                           headerText="#{bindings.XpeDccCustomerSearch1.hints.XpeSwApprNbr.label}" id="c3">
+                    <af:outputText value="#{row.XpeSwApprNbr}"
+                                   shortDesc="#{bindings.XpeDccCustomerSearch1.hints.XpeSwApprNbr.tooltip}" id="ot10"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.XpeDccCustomerSearch1.hints.XpeContractStatus.name}" sortable="true"
+                           headerText="#{bindings.XpeDccCustomerSearch1.hints.XpeContractStatus.label}" id="c4">
+                    <af:outputText value="#{row.XpeContractStatus}"
+                                   shortDesc="#{bindings.XpeDccCustomerSearch1.hints.XpeContractStatus.tooltip}"
+                                   id="ot11"/>
+                </af:column>
+            </af:table>
+        </af:panelGroupLayout>
+        <f:facet name="footer"/>
+    </af:panelFormLayout>
+</ui:composition>

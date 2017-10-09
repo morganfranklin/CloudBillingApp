@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="countiesSetUpPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XpeDccCfgCountiesEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgCountiesEOVOIterator"/>
+    <searchRegion Criteria="CountiesCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="XpeDccCfgCountiesEOVOIterator" id="CountiesCriteriaQuery"/>
+    <iterator Binds="XpeDccCfgNewCountiesCreationEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewCountiesCreationEOVOIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="XpeDccCfgCountiesEOVOIterator" id="XpeDccCfgCountiesEOVO">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccCfgCountiesEOVO" Name="XpeDccCfgCountiesEOVO0">
+        <AttrNames>
+          <Item Value="CountyId"/>
+          <Item Value="CountyName"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreatedDate"/>
+          <Item Value="Inactive"/>
+          <Item Value="InactiveDate"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="LastUpdatedDate"/>
+          <Item Value="State"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <action IterBinding="XpeDccCfgNewCountiesCreationEOVOIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <attributeValues IterBinding="XpeDccCfgNewCountiesCreationEOVOIterator" id="CountyId">
+      <AttrNames>
+        <Item Value="CountyId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewCountiesCreationEOVOIterator" id="CountyName">
+      <AttrNames>
+        <Item Value="CountyName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewCountiesCreationEOVOIterator" id="State">
+      <AttrNames>
+        <Item Value="State"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgNewCountiesCreationEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgNewCountiesCreationEOVOIterator" id="InactiveDate">
+      <AttrNames>
+        <Item Value="InactiveDate"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+    xmlns="http://xmlns.oracle.com/bc4j"
+    Name="CovLookups1"
+    Version="12.2.1.0.31"
+    InheritPersonalization="merge"
+    DBObjectType="table"
+    DBObjectName="COV_LOOKUPS"
+    AliasName="CovLookups1"
+    BindingStyle="OracleName">
+    <Attribute
+        Name="DetailClass"
+        IsNotNull="true"
+        Precision="10"
+        ColumnName="DETAIL_CLASS"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="COV_LOOKUPS"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="10"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="LookupCode"
+        IsNotNull="true"
+        Precision="20"
+        ColumnName="LOOKUP_CODE"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="COV_LOOKUPS"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="LookupDesc"
+        IsNotNull="true"
+        Precision="50"
+        ColumnName="LOOKUP_DESC"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="COV_LOOKUPS">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="50"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="SeqNum"
+        Precision="5"
+        Scale="0"
+        ColumnName="SEQ_NUM"
+        SQLType="NUMERIC"
+        Type="java.lang.Integer"
+        ColumnType="NUMBER"
+        TableName="COV_LOOKUPS"/>
+    <Key
+        Name="CovLookupsPk"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DBObjectName" Value="COV_LOOKUPS_PK"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.CovLookups1.DetailClass"/>
+            <Item Value="model.CovLookups1.LookupCode"/>
+        </AttrArray>
+    </Key>
+</Entity>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57"
+                id="dccContractMaintenance_dccContractMaintenance_refreshAllVOPageDef" Package="view.pageDefs"
+                SkipValidation="true">
+    <parameters/>
+    <executables>
+        <iterator Binds="XpeDccContractVersionView1" RangeSize="25" DataControl="AppModuleDataControl"
+                  id="XpeDccContractVersionView1Iterator" />
+        <iterator Binds="XpeDccContractsView2" RangeSize="10" DataControl="AppModuleDataControl"
+                  id="XpeDccContractsView2Iterator"/>
+        <iterator Binds="XpeDccContractPartyView1" RangeSize="10" DataControl="AppModuleDataControl"
+                  id="XpeDccContractPartyView1Iterator"/>
+        <iterator Binds="XpeDccPlatformEventView3" RangeSize="10" DataControl="AppModuleDataControl"
+                  id="XpeDccPlatformEventView3Iterator"/>
+        <iterator Binds="XpeDccContractLineView1" RangeSize="10" DataControl="AppModuleDataControl"
+                  id="XpeDccContractLineView1Iterator"/>
+        <iterator Binds="XpeDccContractNotesView1" RangeSize="10" DataControl="AppModuleDataControl"
+                  id="XpeDccContractNotesView1Iterator"/>
+        <iterator Binds="XpeDccContractDocTermView1" RangeSize="10" DataControl="AppModuleDataControl"
+                  id="XpeDccContractDocTermView1Iterator"/>
+        <iterator Binds="XpeDccContractPricingTermView1" RangeSize="10" DataControl="AppModuleDataControl"
+                  id="XpeDccContractPricingTermView1Iterator"/>
+        <iterator Binds="XpeDccContractCarrierView1" RangeSize="10" DataControl="AppModuleDataControl"
+                  id="XpeDccContractCarrierView1Iterator"/>
+        <iterator Binds="XpeDccContractPricingOverView1" RangeSize="10" DataControl="AppModuleDataControl"
+                  id="XpeDccContractPricingOverView1Iterator"/>
+    </executables>
+    <bindings>
+        <action IterBinding="XpeDccContractVersionView1Iterator" id="excecuteVersionVO" RequiresUpdateModel="true"
+                Action="iteratorExecute"/>
+        <action IterBinding="XpeDccContractsView2Iterator" id="executeContractVO"
+                InstanceName="AppModuleDataControl.XpeDccContractsView2" DataControl="AppModuleDataControl"
+                RequiresUpdateModel="true" Action="iteratorExecute"/>
+        <action IterBinding="XpeDccContractPartyView1Iterator" id="executePartyVO"
+                InstanceName="AppModuleDataControl.XpeDccContractPartyView1" DataControl="AppModuleDataControl"
+                RequiresUpdateModel="true" Action="iteratorExecute"/>
+        <action IterBinding="XpeDccPlatformEventView3Iterator" id="executeEventVO"
+                InstanceName="AppModuleDataControl.XpeDccPlatformEventView3" DataControl="AppModuleDataControl"
+                RequiresUpdateModel="true" Action="iteratorExecute"/>
+        <action IterBinding="XpeDccContractLineView1Iterator" id="executeContractLineVO"
+                InstanceName="AppModuleDataControl.XpeDccContractLineView1" DataControl="AppModuleDataControl"
+                RequiresUpdateModel="true" Action="iteratorExecute"/>
+        <action IterBinding="XpeDccContractNotesView1Iterator" id="executeContractNotes"
+                InstanceName="AppModuleDataControl.XpeDccContractNotesView1" DataControl="AppModuleDataControl"
+                RequiresUpdateModel="true" Action="iteratorExecute"/>
+        <action IterBinding="XpeDccContractDocTermView1Iterator" id="executeContractDocTermVO"
+                InstanceName="AppModuleDataControl.XpeDccContractDocTermView1" DataControl="AppModuleDataControl"
+                RequiresUpdateModel="true" Action="iteratorExecute"/>
+        <action IterBinding="XpeDccContractPricingTermView1Iterator" id="executeContractPricingTerm"
+                InstanceName="AppModuleDataControl.XpeDccContractPricingTermView1" DataControl="AppModuleDataControl"
+                RequiresUpdateModel="true" Action="iteratorExecute"/>
+        <action IterBinding="XpeDccContractCarrierView1Iterator" id="executeContractCarrierVO"
+                InstanceName="AppModuleDataControl.XpeDccContractCarrierView1" DataControl="AppModuleDataControl"
+                RequiresUpdateModel="true" Action="iteratorExecute"/>
+        <action IterBinding="XpeDccContractPricingOverView1Iterator" id="executeContractPricingOverview"
+                InstanceName="AppModuleDataControl.XpeDccContractPricingOverView1" DataControl="AppModuleDataControl"
+                RequiresUpdateModel="true" Action="iteratorExecute"/>
+    </bindings>
+</pageDefinition>

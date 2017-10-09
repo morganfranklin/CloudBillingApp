@@ -1,0 +1,13 @@
+//Groovy Scripts for model.XpeDccContracts
+
+package model
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+import oracle.jbo.script.annotation.RefreshExpression;
+
+@TransientValueExpression(attributeName="XpeContractId")
+def XpeContractId_ExpressionScript_Expression()
+{
+adf.object.nextVal("XPE_DCC_CONTRACT_SEQ")
+}
+

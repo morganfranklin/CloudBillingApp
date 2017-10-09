@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="executionPlanPageDef"
+                Package="view.pageDefs">
+    <parameters/>
+    <executables>
+        <variableIterator id="variables"/>
+        <iterator Binds="PsCisXpeExecplnView1" RangeSize="5" DataControl="AppModuleDataControl"
+                  id="PsCisXpeExecplnView1Iterator"/>
+        <searchRegion Binds="PsCisXpeExecplnView1Iterator" Criteria=""
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="PsCisXpeExecplnView1Query"/>
+        <iterator Binds="PsCisXpeExecstpView2" RangeSize="25" DataControl="AppModuleDataControl"
+                  id="PsCisXpeExecstpView2Iterator"/>
+        <searchRegion Binds="PsCisXpeExecstpView2Iterator" Criteria=""
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="PsCisXpeExecstpView2Query"/>
+    </executables>
+    <bindings>
+        <tree IterBinding="PsCisXpeExecplnView1Iterator" id="PsCisXpeExecplnView1">
+            <nodeDefinition DefName="model.PsCisXpeExecplnView" Name="PsCisXpeExecplnView10">
+                <AttrNames>
+                    <Item Value="CisExecPlanCode"/>
+                    <Item Value="InPlatform"/>
+                    <Item Value="Descr100"/>
+                    <Item Value="SeqNbr"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <action IterBinding="PsCisXpeExecplnView1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+                Action="createInsertRow"/>
+        <action IterBinding="PsCisXpeExecplnView1Iterator" id="Delete" RequiresUpdateModel="false"
+                Action="removeCurrentRow"/>
+        <action IterBinding="PsCisXpeExecplnView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+        <action IterBinding="PsCisXpeExecplnView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+        <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+        <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+                DataControl="AppModuleDataControl"/>
+        <tree IterBinding="PsCisXpeExecstpView2Iterator" id="PsCisXpeExecstpView2">
+            <nodeDefinition DefName="model.PsCisXpeExecstpView" Name="PsCisXpeExecstpView20">
+                <AttrNames>
+                    <Item Value="CisExecPlanStep"/>
+                    <Item Value="CisExecutionSeq"/>
+                    <Item Value="CisRuleSetCode"/>
+                    <Item Value="Descr100"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <attributeValues IterBinding="PsCisXpeExecplnView1Iterator" id="CisExecPlanCode">
+            <AttrNames>
+                <Item Value="CisExecPlanCode"/>
+            </AttrNames>
+        </attributeValues>
+    </bindings>
+</pageDefinition>

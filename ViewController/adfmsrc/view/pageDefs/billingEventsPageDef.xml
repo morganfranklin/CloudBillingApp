@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="billingEventsPageDef"
+                Package="view.pageDefs">
+    <parameters/>
+    <executables>
+        <variableIterator id="variables"/>
+        <iterator Binds="NeuEventBillTblView1" RangeSize="25" DataControl="AppModuleDataControl"
+                  id="NeuEventBillTblView1Iterator"/>
+        <searchRegion Binds="NeuEventBillTblView1Iterator" Criteria=""
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="NeuEventBillTblView1Query"/>
+    </executables>
+    <bindings>
+        <tree IterBinding="NeuEventBillTblView1Iterator" id="NeuEventBillTblView1">
+            <nodeDefinition DefName="model.NeuEventBillTblView" Name="NeuEventBillTblView10">
+                <AttrNames>
+                    <Item Value="Opc"/>
+                    <Item Value="CustId"/>
+                    <Item Value="InvoiceId"/>
+                    <Item Value="InvoiceDate"/>
+                    <Item Value="Qty"/>
+                    <Item Value="Amount"/>
+                    <Item Value="MsgStatus"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+    </bindings>
+</pageDefinition>

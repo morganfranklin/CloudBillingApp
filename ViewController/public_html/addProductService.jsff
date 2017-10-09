@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl1">
+    <af:panelHeader text="Product Service" id="ph1">
+      <f:facet name="context"/>
+      <f:facet name="toolbar"/>
+      <f:facet name="menuBar"/>
+      <f:facet name="legend"/>
+      <f:facet name="info"/>
+      <af:panelFormLayout id="pfl1">
+        <af:inputText value="#{bindings.ItemId.inputValue}" label="#{bindings.ItemId.hints.label}"
+                      required="#{bindings.ItemId.hints.mandatory}" columns="#{bindings.ItemId.hints.displayWidth}"
+                      maximumLength="#{bindings.ItemId.hints.precision}" shortDesc="#{bindings.ItemId.hints.tooltip}"
+                      id="it3">
+          <f:validator binding="#{bindings.ItemId.validator}"/>
+        </af:inputText>
+        <af:selectOneChoice value="#{bindings.ItemType.inputValue}" label="#{bindings.ItemType.label}"
+                            required="#{bindings.ItemType.hints.mandatory}"
+                            shortDesc="#{bindings.ItemType.hints.tooltip}" id="soc1">
+          <f:selectItems value="#{bindings.ItemType.items}" id="si1"/>
+          <f:validator binding="#{bindings.ItemType.validator}"/>
+        </af:selectOneChoice>
+        <af:selectOneChoice value="#{bindings.Inoutbound.inputValue}" label="#{bindings.Inoutbound.label}"
+                            required="#{bindings.Inoutbound.hints.mandatory}"
+                            shortDesc="#{bindings.Inoutbound.hints.tooltip}" id="soc2">
+          <f:selectItems value="#{bindings.Inoutbound.items}" id="si2"/>
+          <f:validator binding="#{bindings.Inoutbound.validator}"/>
+        </af:selectOneChoice>
+        <af:inputText value="#{bindings.Description.inputValue}" label="#{bindings.Description.hints.label}"
+                      required="#{bindings.Description.hints.mandatory}"
+                      columns="#{bindings.Description.hints.displayWidth}"
+                      maximumLength="#{bindings.Description.hints.precision}"
+                      shortDesc="#{bindings.Description.hints.tooltip}" id="it1">
+          <f:validator binding="#{bindings.Description.validator}"/>
+        </af:inputText>
+        <af:inputListOfValues id="categoryId" popupTitle="Search and Select: #{bindings.Category.hints.label}"
+                              value="#{bindings.Category.inputValue}" label="#{bindings.Category.hints.label}"
+                              model="#{bindings.Category.listOfValuesModel}"
+                              required="#{bindings.Category.hints.mandatory}"
+                              columns="#{bindings.Category.hints.displayWidth}"
+                              shortDesc="#{bindings.Category.hints.tooltip}">
+          <f:validator binding="#{bindings.Category.validator}"/>
+        </af:inputListOfValues>
+        <af:inputListOfValues id="classIdId" popupTitle="Search and Select: #{bindings.ClassId.hints.label}"
+                              value="#{bindings.ClassId.inputValue}" label="#{bindings.ClassId.hints.label}"
+                              model="#{bindings.ClassId.listOfValuesModel}"
+                              required="#{bindings.ClassId.hints.mandatory}"
+                              columns="#{bindings.ClassId.hints.displayWidth}"
+                              shortDesc="#{bindings.ClassId.hints.tooltip}">
+          <f:validator binding="#{bindings.ClassId.validator}"/>
+        </af:inputListOfValues>
+        <af:selectOneChoice value="#{bindings.ClassType.inputValue}" label="#{bindings.ClassType.label}"
+                            required="#{bindings.ClassType.hints.mandatory}"
+                            shortDesc="#{bindings.ClassType.hints.tooltip}" id="soc3">
+          <f:selectItems value="#{bindings.ClassType.items}" id="si3"/>
+          <f:validator binding="#{bindings.ClassType.validator}"/>
+        </af:selectOneChoice>
+      </af:panelFormLayout>
+    </af:panelHeader>
+    <af:panelHeader text="Unit of Measure" id="ph2">
+      <f:facet name="context"/>
+      <f:facet name="toolbar">
+        <af:toolbar id="t2">
+          <af:button action="#{bindings.CreateInsert.execute}" text="Add"
+                     disabled="#{!bindings.CreateInsert.enabled}" id="b5"
+                     actionListener="#{pageFlowScope.ProductServiceSetUpTableMBean.onProductUomCreation}"/>
+        </af:toolbar>
+      </f:facet>
+      <f:facet name="menuBar"/>
+      <f:facet name="legend"/>
+      <f:facet name="info"/>
+      <af:table value="#{bindings.XpeDccCfgNewUomEOVO.collectionModel}" var="row"
+                rows="#{bindings.XpeDccCfgNewUomEOVO.rangeSize}"
+                emptyText="#{bindings.XpeDccCfgNewUomEOVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                rowBandingInterval="0" selectedRowKeys="#{bindings.XpeDccCfgNewUomEOVO.collectionModel.selectedRow}"
+                selectionListener="#{bindings.XpeDccCfgNewUomEOVO.collectionModel.makeCurrent}" rowSelection="single"
+                fetchSize="#{bindings.XpeDccCfgNewUomEOVO.rangeSize}" id="t1"
+                contentDelivery="immediate" columnStretching="last" partialTriggers="::b5">
+        <af:column headerText="#{bindings.XpeDccCfgNewUomEOVO.hints.Uom.label}" id="c1">
+          <af:outputText value="#{row.Uom}" shortDesc="#{bindings.XpeDccCfgNewUomEOVO.hints.Uom.tooltip}" id="ot2"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgNewUomEOVO.hints.UomDesc.label}" id="c2">
+          <af:outputText value="#{row.UomDesc}" shortDesc="#{bindings.XpeDccCfgNewUomEOVO.hints.UomDesc.tooltip}"
+                         id="ot3"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgNewUomEOVO.hints.ItemId.label}" id="c3">
+          <af:outputText value="#{row.ItemId}" shortDesc="#{bindings.XpeDccCfgNewUomEOVO.hints.ItemId.tooltip}"
+                         id="ot4"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgNewUomEOVO.hints.FeedMethod.label}" id="c4">
+          <af:selectOneChoice value="#{row.bindings.FeedMethod.inputValue}" label="#{row.bindings.FeedMethod.label}"
+                              required="#{bindings.XpeDccCfgNewUomEOVO.hints.FeedMethod.mandatory}"
+                              shortDesc="#{bindings.XpeDccCfgNewUomEOVO.hints.FeedMethod.tooltip}" readOnly="true"
+                              id="soc4">
+            <f:selectItems value="#{row.bindings.FeedMethod.items}" id="si4"/>
+            <f:validator binding="#{row.bindings.FeedMethod.validator}"/>
+          </af:selectOneChoice>
+        </af:column>
+      </af:table>
+    </af:panelHeader>
+    <af:group id="g1">
+      <af:button actionListener="#{bindings.Commit.execute}" text="Save" 
+                 id="b1"/>
+      <af:button actionListener="#{bindings.Rollback.execute}" text="Back" 
+                 immediate="true" id="b2" action="Back">
+        <af:resetActionListener/>
+      </af:button>
+    </af:group>
+    <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
+              binding="#{backingBeanScope.ProductServiceSetUpTableBBean.productServiceUomAddItem_popup}">
+      <af:dialog id="d1" type="none" title="Add Unit of Measure" closeIconVisible="false">
+        <f:facet name="buttonBar">
+          <af:button text="Ok" id="b3"
+                     actionListener="#{pageFlowScope.ProductServiceSetUpTableMBean.productServiceUomSaveorCancel}"/>
+          <af:button text="Cancel" id="b4"
+                     actionListener="#{pageFlowScope.ProductServiceSetUpTableMBean.productServiceUomSaveorCancel}"/>
+        </f:facet>
+        <af:panelFormLayout id="pfl2">
+          <af:inputListOfValues id="uomId" popupTitle="Search and Select: #{bindings.Uom.hints.label}"
+                                value="#{bindings.Uom.inputValue}" label="#{bindings.Uom.hints.label}"
+                                model="#{bindings.Uom.listOfValuesModel}" required="#{bindings.Uom.hints.mandatory}"
+                                columns="#{bindings.Uom.hints.displayWidth}" shortDesc="#{bindings.Uom.hints.tooltip}">
+            <f:validator binding="#{bindings.Uom.validator}"/>
+          </af:inputListOfValues>
+          <af:inputText value="#{bindings.UomDesc.inputValue}" label="#{bindings.UomDesc.hints.label}"
+                        required="#{bindings.UomDesc.hints.mandatory}" columns="#{bindings.UomDesc.hints.displayWidth}"
+                        maximumLength="#{bindings.UomDesc.hints.precision}"
+                        shortDesc="#{bindings.UomDesc.hints.tooltip}" id="it2">
+            <f:validator binding="#{bindings.UomDesc.validator}"/>
+          </af:inputText>
+          <af:selectOneChoice value="#{bindings.FeedMethod.inputValue}" label="#{bindings.FeedMethod.label}"
+                              required="#{bindings.FeedMethod.hints.mandatory}"
+                              shortDesc="#{bindings.FeedMethod.hints.tooltip}" id="soc5">
+            <f:selectItems value="#{bindings.FeedMethod.items}" id="si5"/>
+            <f:validator binding="#{bindings.FeedMethod.validator}"/>
+          </af:selectOneChoice>
+          <af:panelLabelAndMessage label="#{bindings.ItemId1.hints.label}" id="plam2">
+            <af:outputText value="#{bindings.ItemId1.inputValue}" shortDesc="#{bindings.ItemId1.hints.tooltip}"
+                           id="ot5"/>
+          </af:panelLabelAndMessage>
+        </af:panelFormLayout>
+      </af:dialog>
+    </af:popup>
+  </af:panelGroupLayout>
+</ui:composition>

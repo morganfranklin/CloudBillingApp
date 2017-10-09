@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout layout="vertical" id="pgl1">
+    <af:panelHeader text="Carriers Set Up" id="ph1">
+      <af:query id="qryId1" headerText="Search" disclosed="true"
+                value="#{bindings.CarriersCriteriaQuery.queryDescriptor}"
+                model="#{bindings.CarriersCriteriaQuery.queryModel}"
+                queryListener="#{bindings.CarriersCriteriaQuery.processQuery}"
+                queryOperationListener="#{bindings.CarriersCriteriaQuery.processQueryOperation}"
+                resultComponentId="::resId1"/>
+    </af:panelHeader>
+    <af:button action="#{bindings.CreateInsert.execute}" text="Add Item"
+               disabled="#{!bindings.CreateInsert.enabled}" id="b1"
+               actionListener="#{pageFlowScope.CarriersSetUpTableMBean.onCarriersCreation}"/>
+    <af:table value="#{bindings.XpeDccCfgCarriersEOVO.collectionModel}" var="row"
+              rows="#{bindings.XpeDccCfgCarriersEOVO.rangeSize}"
+              emptyText="#{bindings.XpeDccCfgCarriersEOVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+              rowBandingInterval="0" selectedRowKeys="#{bindings.XpeDccCfgCarriersEOVO.collectionModel.selectedRow}"
+              selectionListener="#{bindings.XpeDccCfgCarriersEOVO.collectionModel.makeCurrent}" rowSelection="single"
+              fetchSize="#{bindings.XpeDccCfgCarriersEOVO.rangeSize}" id="resId1" partialTriggers="::b1 ::b5 ::b3">
+      <af:column headerText="#{bindings.XpeDccCfgCarriersEOVO.hints.CarrierId.label}" id="resId1c1">
+        <af:link text="#{row.CarrierId}" id="l1" partialSubmit="true"
+                 actionListener="#{pageFlowScope.CarriersSetUpTableMBean.onCarrierEdit}"/>
+      </af:column>
+      <af:column headerText="#{bindings.XpeDccCfgCarriersEOVO.hints.CarrierName.label}" id="resId1c2">
+        <af:outputText value="#{row.CarrierName}"
+                       shortDesc="#{bindings.XpeDccCfgCarriersEOVO.hints.CarrierName.tooltip}" id="ot2"/>
+      </af:column>
+      <af:column headerText="#{bindings.XpeDccCfgCarriersEOVO.hints.State.label}" id="resId1c3">
+        <af:outputText value="#{row.State}" shortDesc="#{bindings.XpeDccCfgCarriersEOVO.hints.State.tooltip}" id="ot3"/>
+      </af:column>
+      <af:column headerText="#{bindings.XpeDccCfgCarriersEOVO.hints.Inactive.label}" id="resId1c4">
+        <af:selectOneChoice value="#{row.bindings.Inactive.inputValue}" label="#{row.bindings.Inactive.label}"
+                            required="#{bindings.XpeDccCfgCarriersEOVO.hints.Inactive.mandatory}"
+                            shortDesc="#{bindings.XpeDccCfgCarriersEOVO.hints.Inactive.tooltip}" readOnly="true"
+                            id="soc1">
+          <f:selectItems value="#{row.bindings.Inactive.items}" id="si1"/>
+          <f:validator binding="#{row.bindings.Inactive.validator}"/>
+        </af:selectOneChoice>
+      </af:column>
+      <af:column headerText="#{bindings.XpeDccCfgCarriersEOVO.hints.InactiveDate.label}" id="resId1c5">
+        <af:outputText value="#{row.InactiveDate}"
+                       shortDesc="#{bindings.XpeDccCfgCarriersEOVO.hints.InactiveDate.tooltip}" id="ot4">
+          <af:convertDateTime pattern="#{bindings.XpeDccCfgCarriersEOVO.hints.InactiveDate.format}"/>
+        </af:outputText>
+      </af:column>
+    </af:table>
+    <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
+              binding="#{backingBeanScope.CarriersSetUpTableBBean.carrierAddItem_popup}">
+      <af:dialog id="d1" type="none" title="Carrier Details" closeIconVisible="false">
+        <f:facet name="buttonBar">
+          <af:button action="#{bindings.Commit.execute}" text="Save" disabled="#{!bindings.Commit.enabled}"
+                     id="b4" actionListener="#{pageFlowScope.CarriersSetUpTableMBean.onCarrierCreationSaveorCancel}"/>
+          <af:button action="#{bindings.Rollback.execute}" text="Cancel"
+                     disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b5"
+                     actionListener="#{pageFlowScope.CarriersSetUpTableMBean.onCarrierCreationSaveorCancel}">
+            <af:resetActionListener/>
+          </af:button>
+        </f:facet>
+        <af:panelFormLayout id="pfl1">
+          <af:panelLabelAndMessage label="#{bindings.CarrierId.hints.label}" id="plam1">
+            <af:outputText value="#{bindings.CarrierId.inputValue}" shortDesc="#{bindings.CarrierId.hints.tooltip}"
+                           id="ot1"/>
+          </af:panelLabelAndMessage>
+          <af:inputText value="#{bindings.CarrierName.inputValue}" label="#{bindings.CarrierName.hints.label}"
+                        required="#{bindings.CarrierName.hints.mandatory}"
+                        columns="#{bindings.CarrierName.hints.displayWidth}"
+                        maximumLength="#{bindings.CarrierName.hints.precision}"
+                        shortDesc="#{bindings.CarrierName.hints.tooltip}" id="it1" autoSubmit="true">
+            <f:validator binding="#{bindings.CarrierName.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.State.inputValue}" label="#{bindings.State.hints.label}"
+                        required="#{bindings.State.hints.mandatory}" columns="#{bindings.State.hints.displayWidth}"
+                        maximumLength="#{bindings.State.hints.precision}" shortDesc="#{bindings.State.hints.tooltip}"
+                        id="it2" autoSubmit="true">
+            <f:validator binding="#{bindings.State.validator}"/>
+          </af:inputText>
+        </af:panelFormLayout>
+      </af:dialog>
+    </af:popup>
+    <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
+              binding="#{backingBeanScope.CarriersSetUpTableBBean.carrierEditItem_popup}">
+      <af:dialog id="d2" type="none" title="Carrier Details" closeIconVisible="false">
+        <f:facet name="buttonBar">
+          <af:button action="#{bindings.Commit.execute}" text="Save" disabled="#{!bindings.Commit.enabled}"
+                     id="b2" actionListener="#{pageFlowScope.CarriersSetUpTableMBean.onCarrierEditSaveorCancel}"/>
+          <af:button action="#{bindings.Rollback.execute}" text="Cancel"
+                     disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b3"
+                     actionListener="#{pageFlowScope.CarriersSetUpTableMBean.onCarrierEditSaveorCancel}">
+            <af:resetActionListener/>
+          </af:button>
+        </f:facet>
+        <af:panelFormLayout id="pfl2">
+          <af:panelLabelAndMessage label="#{bindings.CarrierId.hints.label}" id="plam2">
+            <af:outputText value="#{bindings.CarrierId.inputValue}" shortDesc="#{bindings.CarrierId.hints.tooltip}"
+                           id="ot5"/>
+          </af:panelLabelAndMessage>
+          <af:inputText value="#{bindings.CarrierName.inputValue}" label="#{bindings.CarrierName.hints.label}"
+                        required="#{bindings.CarrierName.hints.mandatory}"
+                        columns="#{bindings.CarrierName.hints.displayWidth}"
+                        maximumLength="#{bindings.CarrierName.hints.precision}"
+                        shortDesc="#{bindings.CarrierName.hints.tooltip}" id="it3" autoSubmit="true">
+            <f:validator binding="#{bindings.CarrierName.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.State.inputValue}" label="#{bindings.State.hints.label}"
+                        required="#{bindings.State.hints.mandatory}" columns="#{bindings.State.hints.displayWidth}"
+                        maximumLength="#{bindings.State.hints.precision}" shortDesc="#{bindings.State.hints.tooltip}"
+                        id="it4" autoSubmit="true">
+            <f:validator binding="#{bindings.State.validator}"/>
+          </af:inputText>
+          <af:selectOneChoice value="#{bindings.Inactive.inputValue}" label="#{bindings.Inactive.label}"
+                              required="#{bindings.Inactive.hints.mandatory}"
+                              shortDesc="#{bindings.Inactive.hints.tooltip}" id="soc2" autoSubmit="true">
+            <f:selectItems value="#{bindings.Inactive.items}" id="si2"/>
+            <f:validator binding="#{bindings.Inactive.validator}"/>
+          </af:selectOneChoice>
+          <af:inputDate value="#{bindings.InactiveDate.inputValue}" label="#{bindings.InactiveDate.hints.label}"
+                        required="#{bindings.InactiveDate.hints.mandatory}"
+                        columns="#{bindings.InactiveDate.hints.displayWidth}"
+                        shortDesc="#{bindings.InactiveDate.hints.tooltip}" id="id1" autoSubmit="true">
+            <f:validator binding="#{bindings.InactiveDate.validator}"/>
+            <af:convertDateTime pattern="#{bindings.InactiveDate.format}"/>
+          </af:inputDate>
+        </af:panelFormLayout>
+      </af:dialog>
+    </af:popup>
+  </af:panelGroupLayout>
+</ui:composition>

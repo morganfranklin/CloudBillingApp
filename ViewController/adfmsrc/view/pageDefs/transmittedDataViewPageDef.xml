@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="transmittedDataViewPageDef"
+                Package="view.pageDefs">
+    <parameters/>
+    <executables>
+        <variableIterator id="variables"/>
+        <iterator Binds="PsCisXpeUdcaCurrentVwView1" RangeSize="25" DataControl="AppModuleDataControl"
+                  id="PsCisXpeUdcaCurrentVwView1Iterator"/>
+        <searchRegion Criteria="__ImplicitViewCriteria__"
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                      Binds="PsCisXpeUdcaCurrentVwView1Iterator" id="ImplicitViewCriteriaQuery"/>
+        <iterator Binds="PsCisXpeUdcaClosedVwView1" RangeSize="25" DataControl="AppModuleDataControl"
+                  id="PsCisXpeUdcaClosedVwView1Iterator"/>
+        <searchRegion Criteria="__ImplicitViewCriteria__"
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                      Binds="PsCisXpeUdcaClosedVwView1Iterator" id="ImplicitViewCriteriaQuery1"/>
+        <iterator Binds="PsCisXpeUdcaHistoryVwView1" RangeSize="25" DataControl="AppModuleDataControl"
+                  id="PsCisXpeUdcaHistoryVwView1Iterator"/>
+        <searchRegion Criteria="__ImplicitViewCriteria__"
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                      Binds="PsCisXpeUdcaHistoryVwView1Iterator" id="ImplicitViewCriteriaQuery2"/>
+    </executables>
+    <bindings>
+        <tree IterBinding="PsCisXpeUdcaCurrentVwView1Iterator" id="PsCisXpeUdcaCurrentVwView1">
+            <nodeDefinition DefName="model.PsCisXpeUdcaCurrentVwView" Name="PsCisXpeUdcaCurrentVwView10">
+                <AttrNames>
+                    <Item Value="Opc"/>
+                    <Item Value="Dpc"/>
+                    <Item Value="MessageType"/>
+                    <Item Value="Ocn"/>
+                    <Item Value="MessageDate"/>
+                    <Item Value="MessageCount"/>
+                    <Item Value="CompCount"/>
+                    <Item Value="NonCompCount"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <tree IterBinding="PsCisXpeUdcaClosedVwView1Iterator" id="PsCisXpeUdcaClosedVwView1">
+            <nodeDefinition DefName="model.PsCisXpeUdcaClosedVwView" Name="PsCisXpeUdcaClosedVwView10">
+                <AttrNames>
+                    <Item Value="Opc"/>
+                    <Item Value="Dpc"/>
+                    <Item Value="MessageType"/>
+                    <Item Value="Ocn"/>
+                    <Item Value="MessageDate"/>
+                    <Item Value="MessageCount"/>
+                    <Item Value="CompCount"/>
+                    <Item Value="NonCompCount"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <tree IterBinding="PsCisXpeUdcaHistoryVwView1Iterator" id="PsCisXpeUdcaHistoryVwView1">
+            <nodeDefinition DefName="model.PsCisXpeUdcaHistoryVwView" Name="PsCisXpeUdcaHistoryVwView10">
+                <AttrNames>
+                    <Item Value="Opc"/>
+                    <Item Value="Dpc"/>
+                    <Item Value="MessageType"/>
+                    <Item Value="Ocn"/>
+                    <Item Value="MessageDate"/>
+                    <Item Value="MessageCount"/>
+                    <Item Value="CompCount"/>
+                    <Item Value="NonCompCount"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+    </bindings>
+</pageDefinition>

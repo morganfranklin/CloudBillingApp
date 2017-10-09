@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+    xmlns="http://xmlns.oracle.com/bc4j"
+    Name="PsCisXpeActionDetailFk1Link"
+    Version="12.2.1.0.31"
+    InheritPersonalization="merge"
+    EntityAssociation="model.PsCisXpeActionDetailFk1Assoc">
+    <ViewLinkDefEnd
+        Name="PsCisXpeActionView"
+        Cardinality="1"
+        Source="true"
+        Owner="model.PsCisXpeActionView">
+        <DesignTime>
+            <Attr Name="_isUpdateable" Value="true"/>
+            <Attr Name="_finderName" Value="PsCisXpeActionView"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.PsCisXpeActionView.CisActionCode"/>
+        </AttrArray>
+    </ViewLinkDefEnd>
+    <ViewLinkDefEnd
+        Name="PsCisXpeActDtlView"
+        Cardinality="-1"
+        Owner="model.PsCisXpeActDtlView">
+        <DesignTime>
+            <Attr Name="_isUpdateable" Value="true"/>
+            <Attr Name="_finderName" Value="PsCisXpeActDtlView"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.PsCisXpeActDtlView.CisActionCode"/>
+        </AttrArray>
+    </ViewLinkDefEnd>
+</ViewLink>

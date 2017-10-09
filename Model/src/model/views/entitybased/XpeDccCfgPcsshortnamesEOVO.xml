@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XpeDccCfgPcsshortnamesEOVO"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="XpeDccShortNameCustomerSearchROVO_LOV"
+    ViewObjectName="model.views.readonly.XpeDccShortNameCustomerSearchROVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="XpeDccShortNameSoldLocSearchROVO_LOV"
+    ViewObjectName="model.views.readonly.XpeDccShortNameSoldLocSearchROVO"
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="bind_CustId">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA[CovSoldId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="XpeDccShortNameBillLocSearchROVO_LOV"
+    ViewObjectName="model.views.readonly.XpeDccShortNameBillLocSearchROVO"
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="bind_CustId">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA[CovBillId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_CovId"
+    ListVOName="XpeDccShortNameCustomerSearchROVO_LOV"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CovId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="CustomerName"/>
+      <Item Value="CovBillId"/>
+      <Item Value="CovSoldId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CustId"/>
+      <Item Value="CustomerName"/>
+      <Item Value="CustId"/>
+      <Item Value="CustId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CustId"/>
+      <Item Value="CustomerName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CovSoldId"
+    ListVOName="XpeDccShortNameCustomerSearchROVO_LOV"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CovSoldId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CustId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CustId"/>
+      <Item Value="CustomerName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CovBillId"
+    ListVOName="XpeDccShortNameCustomerSearchROVO_LOV"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CovBillId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CustId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CustId"/>
+      <Item Value="CustomerName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CovSoldLocNum"
+    ListVOName="XpeDccShortNameSoldLocSearchROVO_LOV"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CovSoldLocNum"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="COV_Sold_Address1"/>
+      <Item Value="COV_Sold_Address2"/>
+      <Item Value="COV_Sold_City"/>
+      <Item Value="COV_Sold_State"/>
+      <Item Value="COV_Sold_Zip"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="AddressSeqNum"/>
+      <Item Value="Address1"/>
+      <Item Value="Address2"/>
+      <Item Value="City"/>
+      <Item Value="State"/>
+      <Item Value="Postal"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="AddressSeqNum"/>
+      <Item Value="State"/>
+      <Item Value="City"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CovBillLocNum"
+    ListVOName="XpeDccShortNameBillLocSearchROVO_LOV"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CovBillLocNum"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="COV_Bill_Address1"/>
+      <Item Value="COV_Bill_Address2"/>
+      <Item Value="COV_Bill_City"/>
+      <Item Value="COV_Bill_State"/>
+      <Item Value="COV_Bill_Zip"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="AddressSeqNum"/>
+      <Item Value="Address1"/>
+      <Item Value="Address2"/>
+      <Item Value="City"/>
+      <Item Value="State"/>
+      <Item Value="Postal"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="AddressSeqNum"/>
+      <Item Value="State"/>
+      <Item Value="City"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT XpeDccCfgPcsshortnamesEO.ACCOUNT_CLASS,          
+       XpeDccCfgPcsshortnamesEO.CREATED_BY,          
+       XpeDccCfgPcsshortnamesEO.CREATED_DATE,          
+       XpeDccCfgPcsshortnamesEO.INACTIVE,          
+       XpeDccCfgPcsshortnamesEO.INACTIVE_DATE,          
+       XpeDccCfgPcsshortnamesEO.LAST_UPDATED_BY,          
+       XpeDccCfgPcsshortnamesEO.LAST_UPDATED_DATE,          
+       XpeDccCfgPcsshortnamesEO.PCSSHORT_NAME,          
+       XpeDccCfgPcsshortnamesEO.PCSSHORTNAME_ID,          
+       XpeDccCfgPcsshortnamesEO.COV_ID,          
+       XpeDccCfgPcsshortnamesEO.COV_SOLD_ID,          
+       XpeDccCfgPcsshortnamesEO.COV_BILL_ID, 
+       XpeDccCfgPcsshortnamesEO.COV_SOLD_LOC_NUM,          
+       XpeDccCfgPcsshortnamesEO.COV_BILL_LOC_NUM,  
+       A.SETID, A.CUST_ID, A.NAME1 AS CUSTOMER_NAME        
+FROM  XPE_DCC_CFG_PCSSHORTNAMES XpeDccCfgPcsshortnamesEO,PS_CUSTOMER A     
+where A.SETID='SHARE'                             
+AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
+  <EntityUsage
+    Name="XpeDccCfgPcsshortnamesEO"
+    Entity="model.entities.XpeDccCfgPcsshortnamesEO"/>
+  <ViewAttribute
+    Name="AccountClass"
+    PrecisionRule="true"
+    EntityAttrName="AccountClass"
+    EntityUsage="XpeDccCfgPcsshortnamesEO"
+    AliasName="ACCOUNT_CLASS"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="XpeDccCfgPcsshortnamesEO"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="CreatedDate"
+    PrecisionRule="true"
+    EntityAttrName="CreatedDate"
+    EntityUsage="XpeDccCfgPcsshortnamesEO"
+    AliasName="CREATED_DATE"/>
+  <ViewAttribute
+    Name="Inactive"
+    PrecisionRule="true"
+    EntityAttrName="Inactive"
+    EntityUsage="XpeDccCfgPcsshortnamesEO"
+    AliasName="INACTIVE"/>
+  <ViewAttribute
+    Name="InactiveDate"
+    PrecisionRule="true"
+    EntityAttrName="InactiveDate"
+    EntityUsage="XpeDccCfgPcsshortnamesEO"
+    AliasName="INACTIVE_DATE"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="XpeDccCfgPcsshortnamesEO"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="LastUpdatedDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedDate"
+    EntityUsage="XpeDccCfgPcsshortnamesEO"
+    AliasName="LAST_UPDATED_DATE"/>
+  <ViewAttribute
+    Name="PcsshortName"
+    PrecisionRule="true"
+    EntityAttrName="PcsshortName"
+    EntityUsage="XpeDccCfgPcsshortnamesEO"
+    AliasName="PCSSHORT_NAME"/>
+  <ViewAttribute
+    Name="PcsshortnameId"
+    IsUpdateable="while_insert"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PcsshortnameId"
+    EntityUsage="XpeDccCfgPcsshortnamesEO"
+    AliasName="PCSSHORTNAME_ID"/>
+  <ViewAttribute
+    Name="CovId"
+    PrecisionRule="true"
+    EntityAttrName="CovId"
+    EntityUsage="XpeDccCfgPcsshortnamesEO"
+    AliasName="COV_ID"
+    LOVName="LOV_CovId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CovSoldId"
+    PrecisionRule="true"
+    EntityAttrName="CovSoldId"
+    EntityUsage="XpeDccCfgPcsshortnamesEO"
+    AliasName="COV_SOLD_ID"
+    LOVName="LOV_CovSoldId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CovBillId"
+    PrecisionRule="true"
+    EntityAttrName="CovBillId"
+    EntityUsage="XpeDccCfgPcsshortnamesEO"
+    AliasName="COV_BILL_ID"
+    LOVName="LOV_CovBillId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CovSoldLocNum"
+    PrecisionRule="true"
+    EntityAttrName="CovSoldLocNum"
+    EntityUsage="XpeDccCfgPcsshortnamesEO"
+    AliasName="COV_SOLD_LOC_NUM"
+    LOVName="LOV_CovSoldLocNum">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CovBillLocNum"
+    PrecisionRule="true"
+    EntityAttrName="CovBillLocNum"
+    EntityUsage="XpeDccCfgPcsshortnamesEO"
+    AliasName="COV_BILL_LOC_NUM"
+    LOVName="LOV_CovBillLocNum">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Setid"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="5"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SETID"
+    Expression="SETID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CustId"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="15"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CUST_ID"
+    Expression="CUST_ID"
+    SQLType="VARCHAR"
+    IsUpdateable="false">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CustomerName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="40"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CUSTOMER_NAME"
+    Expression="CUSTOMER_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="40"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="COV_Sold_Address1"
+    IsSelected="false"
+    IsPersistent="false"
+    Type="java.lang.String"
+    AliasName="COV_Sold_Address1"
+    SQLType="VARCHAR"
+    ColumnType="$none$"
+    Passivate="true"/>
+  <ViewAttribute
+    Name="COV_Sold_Address2"
+    IsSelected="false"
+    IsPersistent="false"
+    Type="java.lang.String"
+    AliasName="COV_Sold_Address2"
+    SQLType="VARCHAR"
+    ColumnType="$none$"
+    Passivate="true"/>
+  <ViewAttribute
+    Name="COV_Sold_City"
+    IsSelected="false"
+    IsPersistent="false"
+    Type="java.lang.String"
+    AliasName="COV_Sold_City"
+    SQLType="VARCHAR"
+    ColumnType="$none$"
+    Passivate="true"/>
+  <ViewAttribute
+    Name="COV_Sold_State"
+    IsSelected="false"
+    IsPersistent="false"
+    Type="java.lang.String"
+    AliasName="COV_Sold_State"
+    SQLType="VARCHAR"
+    ColumnType="$none$"
+    Passivate="true"/>
+  <ViewAttribute
+    Name="COV_Sold_Zip"
+    IsSelected="false"
+    IsPersistent="false"
+    Type="java.lang.String"
+    AliasName="COV_Sold_Zip"
+    SQLType="VARCHAR"
+    ColumnType="$none$"
+    Passivate="true"/>
+    <ViewAttribute
+    Name="COV_Bill_Address1"
+    IsSelected="false"
+    IsPersistent="false"
+    Type="java.lang.String"
+    AliasName="COV_Bill_Address1"
+    SQLType="VARCHAR"
+      ColumnType="$none$"
+      Passivate="true"/>
+  <ViewAttribute
+    Name="COV_Bill_Address2"
+    IsSelected="false"
+    IsPersistent="false"
+    Type="java.lang.String"
+    AliasName="COV_Bill_Address2"
+    SQLType="VARCHAR"
+    ColumnType="$none$"
+    Passivate="true"/>
+  <ViewAttribute
+    Name="COV_Bill_City"
+    IsSelected="false"
+    IsPersistent="false"
+    Type="java.lang.String"
+    AliasName="COV_Bill_City"
+    SQLType="VARCHAR"
+    ColumnType="$none$"
+    Passivate="true"/>
+  <ViewAttribute
+    Name="COV_Bill_State"
+    IsSelected="false"
+    IsPersistent="false"
+    Type="java.lang.String"
+    AliasName="COV_Bill_State"
+    SQLType="VARCHAR"
+    Passivate="true"
+    ColumnType="$none$"/>
+  <ViewAttribute
+    Name="COV_Bill_Zip"
+    IsSelected="false"
+    IsPersistent="false"
+    Type="java.lang.String"
+    AliasName="COV_Bill_Zip"
+    SQLType="VARCHAR"
+    Passivate="true"
+    ColumnType="$none$"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

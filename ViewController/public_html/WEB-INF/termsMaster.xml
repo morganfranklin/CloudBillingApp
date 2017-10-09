@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="termsMaster">
+    <default-activity>clearTermMaster</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__3">
+      <managed-bean-name>XpeDccTermsMasterMBean</managed-bean-name>
+      <managed-bean-class>view.XpeDccTermsMasterMBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__4">
+      <managed-bean-name>XpeDccTermsMasterBBean</managed-bean-name>
+      <managed-bean-class>view.XpeDccTermsMasterBBean</managed-bean-class>
+      <managed-bean-scope>backingBean</managed-bean-scope>
+    </managed-bean>
+    <view id="dccTermMaster">
+      <page>/dccTermMaster.jsff</page>
+    </view>
+    <view id="dccTerms">
+      <page>/dccTerms.jsff</page>
+    </view>
+    <method-call id="clearTermMaster">
+      <method>#{bindings.clearTermMaster.execute}</method>
+      <outcome>
+        <fixed-outcome>clearTermMaster</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>dccTermMaster</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>terms</from-outcome>
+        <to-activity-id>dccTerms</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>dccTerms</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>master</from-outcome>
+        <to-activity-id>dccTermMaster</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id>clearTermMaster</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome>clearTermMaster</from-outcome>
+        <to-activity-id>dccTermMaster</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="AddOriginSetUpPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XpeDccCfgNewOriginsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewOriginsEOVOIterator"/>
+    <iterator Binds="XpeDccCfgNewOgnAssTerminalsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewOgnAssTerminalsEOVOIterator"/>
+    <taskFlow id="terminalSearch1" taskFlowId="/WEB-INF/terminalSearch.xml#terminalSearch" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <attributeValues IterBinding="XpeDccCfgNewOriginsEOVOIterator" id="OriginId">
+      <AttrNames>
+        <Item Value="OriginId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewOriginsEOVOIterator" id="OriginDesc">
+      <AttrNames>
+        <Item Value="OriginDesc"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="XpeDccCfgNewOriginsEOVOIterator" StaticList="false" Uses="LOV_County" id="County"/>
+    <list IterBinding="XpeDccCfgNewOriginsEOVOIterator" StaticList="false" Uses="LOV_State" id="State"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <tree IterBinding="XpeDccCfgNewOgnAssTerminalsEOVOIterator" id="XpeDccCfgNewOgnAssTerminalsEOVO">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccCfgOgnAssTerminalsEOVO"
+                      Name="XpeDccCfgNewOgnAssTerminalsEOVO0">
+        <AttrNames>
+          <Item Value="TerminalId"/>
+          <Item Value="TerminalDesc"/>
+          <Item Value="OriginId"/>
+          <Item Value="Inactive"/>
+          <Item Value="InactiveDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

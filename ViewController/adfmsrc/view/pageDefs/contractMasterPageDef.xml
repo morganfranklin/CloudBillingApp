@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="contractMasterPageDef"
+                Package="view.pageDefs">
+    <parameters/>
+    <executables>
+        <variableIterator id="variables"/>
+        <iterator Binds="CovContractsView1" RangeSize="25" DataControl="AppModuleDataControl"
+                  id="CovContractsView1Iterator"/>
+        <searchRegion Criteria="__ImplicitViewCriteria__"
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" Binds="CovContractsView1Iterator"
+                      id="ImplicitViewCriteriaQuery"/>
+        <iterator Binds="CovContractLinesView2" RangeSize="25" DataControl="AppModuleDataControl"
+                  id="CovContractLinesView2Iterator"/>
+        <iterator Binds="CovContractDetailsView2" RangeSize="25" DataControl="AppModuleDataControl"
+                  id="CovContractDetailsView2Iterator"/>
+        <iterator Binds="CovTerms1" RangeSize="25" DataControl="AppModuleDataControl" id="CovTerms1Iterator"/>
+        <iterator Binds="CovUnbill1" RangeSize="25" DataControl="AppModuleDataControl" id="CovUnbill1Iterator"/>
+        <iterator Binds="CovBill1" RangeSize="25" DataControl="AppModuleDataControl" id="CovBill1Iterator"/>
+        <iterator Binds="CovAudit1" RangeSize="25" DataControl="AppModuleDataControl" id="CovAudit1Iterator"/>
+    </executables>
+    <bindings>
+        <tree IterBinding="CovContractsView1Iterator" id="CovContractsView1">
+            <nodeDefinition DefName="model.CovContractsView" Name="CovContractsView10">
+                <AttrNames>
+                    <Item Value="DealNumber"/>
+                    <Item Value="PsCustomerId"/>
+                    <Item Value="BillToCustId"/>
+                    <Item Value="EffectiveFrom"/>
+                    <Item Value="EffectiveTo"/>
+                    <Item Value="Source"/>
+                    <Item Value="ApprovalStatus"/>
+                    <Item Value="TotalValue"/>
+                    <Item Value="DelinquentValue"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <tree IterBinding="CovContractLinesView2Iterator" id="CovContractLinesView2">
+            <nodeDefinition DefName="model.CovContractLinesView" Name="CovContractLinesView20">
+                <AttrNames>
+                    <Item Value="ContractLine"/>
+                    <Item Value="PoNumber"/>
+                    <Item Value="ApprovalNumber"/>
+                    <Item Value="Destination"/>
+                    <Item Value="WasteLaborCategory"/>
+                    <Item Value="Material"/>
+                    <Item Value="Carrier"/>
+                    <Item Value="VehicleType"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <tree IterBinding="CovContractDetailsView2Iterator" id="CovContractDetailsView2">
+            <nodeDefinition DefName="model.CovContractDetailsView" Name="CovContractDetailsView20">
+                <AttrNames>
+                    <Item Value="SeqNum"/>
+                    <Item Value="Selection"/>
+                    <Item Value="Char1"/>
+                    <Item Value="Effdt1"/>
+                    <Item Value="Effdt2"/>
+                    <Item Value="Number1"/>
+                    <Item Value="Number2"/>
+                    <Item Value="Number3"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <tree IterBinding="CovTerms1Iterator" id="CovTerms1">
+            <nodeDefinition DefName="model.CovTerms" Name="CovTerms10">
+                <AttrNames>
+                    <Item Value="Clause"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <tree IterBinding="CovUnbill1Iterator" id="CovUnbill1">
+            <nodeDefinition DefName="model.CovUnbill" Name="CovUnbill10">
+                <AttrNames>
+                    <Item Value="SeqNum"/>
+                    <Item Value="ScalesRead"/>
+                    <Item Value="ScalesDate"/>
+                    <Item Value="ScalesRead1"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <tree IterBinding="CovBill1Iterator" id="CovBill1">
+            <nodeDefinition DefName="model.CovBill" Name="CovBill10">
+                <AttrNames>
+                    <Item Value="SeqNum"/>
+                    <Item Value="BillLineDesc"/>
+                    <Item Value="LineAmount"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <tree IterBinding="CovAudit1Iterator" id="CovAudit1">
+            <nodeDefinition DefName="model.CovAudit" Name="CovAudit10">
+                <AttrNames>
+                    <Item Value="SeqNum"/>
+                    <Item Value="EventDateTime"/>
+                    <Item Value="AuditMessage"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+    </bindings>
+</pageDefinition>

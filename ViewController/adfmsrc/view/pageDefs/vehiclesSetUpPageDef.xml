@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="vehiclesSetUpPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XpeDccCfgVehiclesEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgVehiclesEOVOIterator"/>
+    <searchRegion Criteria="VehiclesCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="XpeDccCfgVehiclesEOVOIterator" id="VehiclesCriteriaQuery"/>
+    <iterator Binds="XpeDccCfgNewVehiclesCreationEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewVehiclesCreationEOVOIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="XpeDccCfgVehiclesEOVOIterator" id="XpeDccCfgVehiclesEOVO">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccCfgVehiclesEOVO" Name="XpeDccCfgVehiclesEOVO0">
+        <AttrNames>
+          <Item Value="VehicleId"/>
+          <Item Value="VehicleType"/>
+          <Item Value="VehicleDesc"/>
+          <Item Value="RequireTrailer"/>
+          <Item Value="Inactive"/>
+          <Item Value="InactiveDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <action IterBinding="XpeDccCfgNewVehiclesCreationEOVOIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <attributeValues IterBinding="XpeDccCfgNewVehiclesCreationEOVOIterator" id="VehicleId">
+      <AttrNames>
+        <Item Value="VehicleId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewVehiclesCreationEOVOIterator" id="VehicleType">
+      <AttrNames>
+        <Item Value="VehicleType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewVehiclesCreationEOVOIterator" id="VehicleDesc">
+      <AttrNames>
+        <Item Value="VehicleDesc"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgNewVehiclesCreationEOVOIterator" StaticList="false" Uses="LOV_RequireTrailer"
+          id="RequireTrailer" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgNewVehiclesCreationEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgNewVehiclesCreationEOVOIterator" id="InactiveDate">
+      <AttrNames>
+        <Item Value="InactiveDate"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

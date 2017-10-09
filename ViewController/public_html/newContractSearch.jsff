@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:panelGroupLayout layout="vertical" id="pgl1">
+    <af:panelHeader text="XpeDccContractSearchROVO" id="ph1">
+      <af:query id="qryId1" headerText="Search" disclosed="true"
+                value="#{bindings.ContractSearchCriteriaQuery.queryDescriptor}"
+                model="#{bindings.ContractSearchCriteriaQuery.queryModel}"
+                queryListener="#{bindings.ContractSearchCriteriaQuery.processQuery}"
+                queryOperationListener="#{bindings.ContractSearchCriteriaQuery.processQueryOperation}"
+                resultComponentId="::resId1"/>
+    </af:panelHeader>
+    <af:table value="#{bindings.XpeDccContractSearchROVO.collectionModel}" var="row"
+              rows="#{bindings.XpeDccContractSearchROVO.rangeSize}"
+              emptyText="#{bindings.XpeDccContractSearchROVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+              rowBandingInterval="0" selectedRowKeys="#{bindings.XpeDccContractSearchROVO.collectionModel.selectedRow}"
+              selectionListener="#{bindings.XpeDccContractSearchROVO.collectionModel.makeCurrent}" rowSelection="single"
+              fetchSize="#{bindings.XpeDccContractSearchROVO.rangeSize}" id="resId1">
+      <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.XpeContractId.label}" id="resId1c1">
+        <af:outputText value="#{row.XpeContractId}"
+                       shortDesc="#{bindings.XpeDccContractSearchROVO.hints.XpeContractId.tooltip}" id="ot1"/>
+      </af:column>
+      <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.XpeContractDesc.label}" id="resId1c2">
+        <af:outputText value="#{row.XpeContractDesc}"
+                       shortDesc="#{bindings.XpeDccContractSearchROVO.hints.XpeContractDesc.tooltip}" id="ot2"/>
+      </af:column>
+      <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.Setid.label}" id="resId1c3">
+        <af:outputText value="#{row.Setid}" shortDesc="#{bindings.XpeDccContractSearchROVO.hints.Setid.tooltip}"
+                       id="ot3"/>
+      </af:column>
+      <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.CustId.label}" id="resId1c4">
+        <af:outputText value="#{row.CustId}" shortDesc="#{bindings.XpeDccContractSearchROVO.hints.CustId.tooltip}"
+                       id="ot4"/>
+      </af:column>
+      <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.Name1.label}" id="resId1c5">
+        <af:outputText value="#{row.Name1}" shortDesc="#{bindings.XpeDccContractSearchROVO.hints.Name1.tooltip}"
+                       id="ot5"/>
+      </af:column>
+      <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.Descr.label}" id="resId1c6">
+        <af:outputText value="#{row.Descr}" shortDesc="#{bindings.XpeDccContractSearchROVO.hints.Descr.tooltip}"
+                       id="ot6"/>
+      </af:column>
+      <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.Country.label}" id="resId1c7">
+        <af:outputText value="#{row.Country}" shortDesc="#{bindings.XpeDccContractSearchROVO.hints.Country.tooltip}"
+                       id="ot7"/>
+      </af:column>
+      <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.Address1.label}" id="resId1c8">
+        <af:outputText value="#{row.Address1}" shortDesc="#{bindings.XpeDccContractSearchROVO.hints.Address1.tooltip}"
+                       id="ot8"/>
+      </af:column>
+      <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.Address2.label}" id="resId1c9">
+        <af:outputText value="#{row.Address2}" shortDesc="#{bindings.XpeDccContractSearchROVO.hints.Address2.tooltip}"
+                       id="ot9"/>
+      </af:column>
+      <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.City.label}" id="resId1c10">
+        <af:outputText value="#{row.City}" shortDesc="#{bindings.XpeDccContractSearchROVO.hints.City.tooltip}"
+                       id="ot10"/>
+      </af:column>
+      <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.State.label}" id="resId1c11">
+        <af:outputText value="#{row.State}" shortDesc="#{bindings.XpeDccContractSearchROVO.hints.State.tooltip}"
+                       id="ot11"/>
+      </af:column>
+      <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.Postal.label}" id="resId1c12">
+        <af:outputText value="#{row.Postal}" shortDesc="#{bindings.XpeDccContractSearchROVO.hints.Postal.tooltip}"
+                       id="ot12"/>
+      </af:column>
+      <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.XpeSwApprNbr.label}" id="resId1c13">
+        <af:outputText value="#{row.XpeSwApprNbr}"
+                       shortDesc="#{bindings.XpeDccContractSearchROVO.hints.XpeSwApprNbr.tooltip}" id="ot13"/>
+      </af:column>
+      <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.XpeContractStatus.label}" id="resId1c14">
+        <af:outputText value="#{row.XpeContractStatus}"
+                       shortDesc="#{bindings.XpeDccContractSearchROVO.hints.XpeContractStatus.tooltip}" id="ot14"/>
+      </af:column>
+    </af:table>
+  </af:panelGroupLayout>
+</ui:composition>

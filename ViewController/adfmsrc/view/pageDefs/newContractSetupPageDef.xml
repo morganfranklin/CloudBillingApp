@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="newContractSetupPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XpeDccNewContractLPCROVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccNewContractLPCROVOIterator" ChangeEventPolicy="none"/>
+    <iterator Binds="XpeDccNewContractVersionView" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccNewContractVersionViewIterator" ChangeEventPolicy="none"/>
+    <iterator Binds="XpeDccNewContractNotesView" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccNewContractNotesViewIterator" ChangeEventPolicy="none"/>
+    <iterator Binds="XpeDccNewContractLineView" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccNewContractLineViewIterator"/>
+    <iterator Binds="XpeDccNewContractPricingTermView" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccNewContractPricingTermViewIterator"/>
+    <iterator Binds="XpeDccNewContractCarrierView" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccNewContractCarrierViewIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="XpeDccNewContractLPCROVOIterator" id="XpeDccNewContractLPCROVO">
+      <nodeDefinition DefName="model.views.readonly.XpeDccNewContractLPCROVO" Name="XpeDccNewContractLPCROVO0">
+        <AttrNames>
+          <Item Value="LineNumber"/>
+          <Item Value="Facility"/>
+          <Item Value="ProductId"/>
+          <Item Value="ProductUom"/>
+          <Item Value="BusinessUnitGl"/>
+          <Item Value="SwApprNbr"/>
+          <Item Value="PricingTermLine"/>
+          <Item Value="PricingTermType"/>
+          <Item Value="Rate"/>
+          <Item Value="PeriodType"/>
+          <Item Value="CarrierId"/>
+          <Item Value="VehicleType"/>
+          <Item Value="VehicleNbr"/>
+          <Item Value="SubNbr"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="XpeDccNewContractLPCROVOIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <list IterBinding="XpeDccNewContractVersionViewIterator" StaticList="false" Uses="LOV_XpeAgreementType"
+          id="XpeAgreementType" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccNewContractVersionViewIterator" StaticList="false" Uses="LOV_XpeWasteType"
+          id="XpeWasteType" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccNewContractVersionViewIterator" StaticList="false" Uses="LOV_XpeContractSubType"
+          id="XpeContractSubType" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccNewContractVersionViewIterator" StaticList="false" Uses="LOV_BusinessUnitGl"
+          id="BusinessUnitGl" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccNewContractVersionViewIterator" id="XpeAsOfDate">
+      <AttrNames>
+        <Item Value="XpeAsOfDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractVersionViewIterator" id="XpeStartDate">
+      <AttrNames>
+        <Item Value="XpeStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractVersionViewIterator" id="XpeEndDate">
+      <AttrNames>
+        <Item Value="XpeEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractNotesViewIterator" id="XpeNote">
+      <AttrNames>
+        <Item Value="XpeNote"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractNotesViewIterator" id="XpeNoteLong">
+      <AttrNames>
+        <Item Value="XpeNoteLong"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractNotesViewIterator" id="XpeNoteDttm">
+      <AttrNames>
+        <Item Value="XpeNoteDttm"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractNotesViewIterator" id="XpeUser">
+      <AttrNames>
+        <Item Value="XpeUser"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractNotesViewIterator" id="XpeNoteType">
+      <AttrNames>
+        <Item Value="XpeNoteType"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="XpeDccNewContractLPCROVOIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <tree IterBinding="XpeDccNewContractLineViewIterator" id="XpeDccNewContractLineView">
+      <nodeDefinition DefName="model.XpeDccContractLineView" Name="XpeDccNewContractLineView0">
+        <AttrNames>
+          <Item Value="XpeContractLine"/>
+          <Item Value="BusinessUnitGl"/>
+          <Item Value="XpeFacility"/>
+          <Item Value="XpeProductId"/>
+          <Item Value="XpeProductUom"/>
+          <Item Value="XpeSwApprNbr"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="XpeDccNewContractPricingTermViewIterator" id="XpeDccNewContractPricingTermView">
+      <nodeDefinition DefName="model.XpeDccContractPricingTermView" Name="XpeDccNewContractPricingTermView0">
+        <AttrNames>
+          <Item Value="XpePricingTermLine"/>
+          <Item Value="XpePricingTermType"/>
+          <Item Value="XpeRate"/>
+          <Item Value="XpePeriodType"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="XpeDccNewContractCarrierViewIterator" id="XpeDccNewContractCarrierView">
+      <nodeDefinition DefName="model.XpeDccContractCarrierView" Name="XpeDccNewContractCarrierView0">
+        <AttrNames>
+          <Item Value="XpeCarrierId"/>
+          <Item Value="XpeVehicleType"/>
+          <Item Value="XpeVehicleNbr"/>
+          <Item Value="XpeSubNbr"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="XpeDccNewContractLineViewIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="XpeDccNewContractLineViewIterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="XpeDccNewContractPricingTermViewIterator" id="CreateInsert2" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="XpeDccNewContractPricingTermViewIterator" id="Delete2" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="XpeDccNewContractCarrierViewIterator" id="CreateInsert3" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="XpeDccNewContractCarrierViewIterator" id="Delete3" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

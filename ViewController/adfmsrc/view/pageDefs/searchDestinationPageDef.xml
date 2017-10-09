@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="searchDestinationPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XpeDccCfgDestinationsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgDestinationsEOVOIterator" ChangeEventPolicy="none"/>
+    <searchRegion Criteria="DestinationsCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="XpeDccCfgDestinationsEOVOIterator" id="DestinationsCriteriaQuery"/>
+    <iterator Binds="XpeDccCfgDstAssTerminalsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgDstAssTerminalsEOVOIterator" ChangeEventPolicy="none"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="XpeDccCfgDestinationsEOVOIterator" id="XpeDccCfgDestinationsEOVO">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccCfgDestinationsEOVO" Name="XpeDccCfgDestinationsEOVO0">
+        <AttrNames>
+          <Item Value="DestinationId"/>
+          <Item Value="DestinationDesc"/>
+          <Item Value="State"/>
+          <Item Value="Inactive"/>
+          <Item Value="InactiveDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="XpeDccCfgDstAssTerminalsEOVOIterator" id="XpeDccCfgDstAssTerminalsEOVO">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccCfgDstAssTerminalsEOVO"
+                      Name="XpeDccCfgDstAssTerminalsEOVO0">
+        <AttrNames>
+          <Item Value="TerminalId"/>
+          <Item Value="TerminalDesc"/>
+          <Item Value="Inactive"/>
+          <Item Value="InactiveDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

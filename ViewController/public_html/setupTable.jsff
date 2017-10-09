@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelSplitter id="ps1" splitterPosition="150">
+    <f:facet name="first">
+      <af:panelGridLayout id="pgl1">
+        <af:gridRow marginTop="5px" height="auto" id="gr1">
+          <af:gridCell marginStart="5px" width="100%" id="gc1">
+            <af:panelBox text="Locations" id="pb1">
+              <af:panelGridLayout id="pgl2">
+                <af:gridRow marginTop="5px" height="auto" id="gr2">
+                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2">
+                    <af:link text="Terminals" action="#{viewScope.SetupTableMBean.terminalSetUpTable}"
+                             id="l4" partialSubmit="true"/>
+                  </af:gridCell>
+                </af:gridRow>
+                <af:gridRow marginTop="5px" height="auto" id="gr3">
+                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3">
+                    <af:link text="Destinations" action="#{viewScope.SetupTableMBean.destinationSetUpTable}"
+                             id="l1" partialSubmit="true"/>
+                  </af:gridCell>
+                </af:gridRow>
+                <af:gridRow marginTop="5px" height="auto" id="gr5">
+                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5">
+                    <af:link text="Counties" id="l2" partialSubmit="true"
+                             action="#{viewScope.SetupTableMBean.countiesSetUpTable}"/>
+                  </af:gridCell>
+                </af:gridRow>
+                <af:gridRow marginTop="5px" height="auto" id="gr6">
+                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6">
+                    <af:link text="Carriers" id="l5" partialSubmit="true"
+                             action="#{viewScope.SetupTableMBean.carriersSetUpTable}"/>
+                  </af:gridCell>
+                </af:gridRow>
+                <af:gridRow marginTop="5px" height="auto" id="gr7">
+                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc7">
+                    <af:link text="Vehicle Types" id="l6" partialSubmit="true"
+                             action="#{viewScope.SetupTableMBean.vehicleTypesSetUpTable}"/>
+                  </af:gridCell>
+                </af:gridRow>
+                <af:gridRow marginTop="5px" height="auto" id="gr8">
+                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc8">
+                    <af:link text="Origins" id="l7" partialSubmit="true"
+                             action="#{viewScope.SetupTableMBean.originsSetUpTable}"/>
+                  </af:gridCell>
+                </af:gridRow>
+                <af:gridRow marginTop="5px" height="auto" id="gr9">
+                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc9">
+                    <af:link text="PCS Installation" id="l8" partialSubmit="true"
+                             action="#{viewScope.SetupTableMBean.pcsInstallationSetUpTable}"/>
+                  </af:gridCell>
+                </af:gridRow>
+                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr10">
+                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc10">
+                    <af:link text="General Set Up" id="l9" action="#{viewScope.SetupTableMBean.generalSetUpTable}"
+                             partialSubmit="true"/>
+                  </af:gridCell>
+                </af:gridRow>
+                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
+                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4">
+                    <af:link text="Product Service" id="l3"
+                             action="#{viewScope.SetupTableMBean.productServiceSetUpTable}" partialSubmit="true"/>
+                  </af:gridCell>
+                </af:gridRow>
+              </af:panelGridLayout>
+            </af:panelBox>
+          </af:gridCell>
+        </af:gridRow>
+      </af:panelGridLayout>
+    </f:facet>
+    <f:facet name="second">
+      <af:region value="#{bindings.dynamicRegion1.regionModel}" id="r1"
+                 partialTriggers="::l4 ::l1 ::l2 ::l5 ::l6 ::l7 ::l8 ::l3 ::l9"/>
+    </f:facet>
+  </af:panelSplitter>
+</ui:composition>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<skins xmlns="http://myfaces.apache.org/trinidad/skin">
+    <skin>
+        <id>neustar_skin.desktop</id>
+        <family>neustar_skin</family>
+        <extends>alta-v1.desktop</extends>
+        <render-kit-id>org.apache.myfaces.trinidad.desktop</render-kit-id>
+        <style-sheet-name>skins/neustar_skin/neustar_skin.css</style-sheet-name>
+        <bundle-name>view.skinBundle</bundle-name>
+    </skin>
+</skins>

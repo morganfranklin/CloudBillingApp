@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+    xmlns="http://xmlns.oracle.com/bc4j"
+    Name="XpeDccContractNotesView"
+    Version="12.2.1.11.57"
+    InheritPersonalization="merge"
+    SelectListFlags="1"
+    FromListFlags="1"
+    WhereFlags="1"
+    BindingStyle="OracleName"
+    CustomQuery="false"
+    SelectAllAttributes="false"
+    PageIterMode="Full"
+    RowClass="model.XpeDccContractNotesViewRowImpl"
+    ComponentClass="model.XpeDccContractNotesViewImpl">
+    <DesignTime>
+        <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+        <Attr Name="_isCodegen" Value="true"/>
+    </DesignTime>
+    <EntityUsage
+        Name="XpeDccContractNotes"
+        Entity="model.XpeDccContractNotes"/>
+    <ViewAttribute
+        Name="XpeContractId"
+        IsNotNull="true"
+        PrecisionRule="true"
+        EntityAttrName="XpeContractId"
+        EntityUsage="XpeDccContractNotes"
+        AliasName="XPE_CONTRACT_ID"/>
+    <ViewAttribute
+        Name="XpeContractVersion"
+        IsNotNull="true"
+        PrecisionRule="true"
+        EntityAttrName="XpeContractVersion"
+        EntityUsage="XpeDccContractNotes"
+        AliasName="XPE_CONTRACT_VERSION"/>
+    <ViewAttribute
+        Name="XpeNoteDttm"
+        IsNotNull="true"
+        PrecisionRule="true"
+        EntityAttrName="XpeNoteDttm"
+        EntityUsage="XpeDccContractNotes"
+        AliasName="XPE_NOTE_DTTM"/>
+    <ViewAttribute
+        Name="XpeNote"
+        PrecisionRule="true"
+        EntityAttrName="XpeNote"
+        EntityUsage="XpeDccContractNotes"
+        AliasName="XPE_NOTE"/>
+    <ViewAttribute
+        Name="XpeUser"
+        IsNotNull="true"
+        PrecisionRule="true"
+        EntityAttrName="XpeUser"
+        EntityUsage="XpeDccContractNotes"
+        AliasName="XPE_USER"/>
+    <ViewAttribute
+        Name="XpeNoteLong"
+        IsQueriable="false"
+        PrecisionRule="true"
+        EntityAttrName="XpeNoteLong"
+        EntityUsage="XpeDccContractNotes"
+        AliasName="XPE_NOTE_LONG"/>
+    <ViewAttribute
+        Name="XpeNoteType"
+        IsNotNull="true"
+        PrecisionRule="true"
+        EntityAttrName="XpeNoteType"
+        EntityUsage="XpeDccContractNotes"
+        AliasName="XPE_NOTE_TYPE"/>
+</ViewObject>

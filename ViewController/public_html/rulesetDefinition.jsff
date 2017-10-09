@@ -1,0 +1,231 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGridLayout id="pgl1">
+        <af:gridRow marginTop="5px" height="110px" id="gr1">
+            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1" halign="stretch" valign="stretch">
+                <af:panelBox text="Rules in this ruleset" id="pb1" showDisclosure="false" background="light">
+                    <f:facet name="toolbar"/>
+                    <af:panelGridLayout id="pgl2">
+                        <af:gridRow id="gr4">
+                            <af:gridCell id="gc4" halign="stretch">
+                                <af:table value="#{bindings.NeuRuleTblView1.collectionModel}" var="row"
+                                          rows="#{bindings.NeuRuleTblView1.rangeSize}"
+                                          emptyText="#{bindings.NeuRuleTblView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.NeuRuleTblView1.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.NeuRuleTblView1.collectionModel.makeCurrent}"
+                                          rowSelection="single" fetchSize="#{bindings.NeuRuleTblView1.rangeSize}"
+                                          id="t1" width="653">
+                                    <af:column sortProperty="#{bindings.NeuRuleTblView1.hints.RuleCd.name}"
+                                               sortable="true" headerText="Rule Code" id="c1" width="160">
+                                        <af:inputText value="#{row.bindings.RuleCd.inputValue}"
+                                                      label="#{bindings.NeuRuleTblView1.hints.RuleCd.label}"
+                                                      required="#{bindings.NeuRuleTblView1.hints.RuleCd.mandatory}"
+                                                      columns="#{bindings.NeuRuleTblView1.hints.RuleCd.displayWidth}"
+                                                      maximumLength="#{bindings.NeuRuleTblView1.hints.RuleCd.precision}"
+                                                      shortDesc="#{bindings.NeuRuleTblView1.hints.RuleCd.tooltip}"
+                                                      id="it1">
+                                            <f:validator binding="#{row.bindings.RuleCd.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.NeuRuleTblView1.hints.RuleDescription.name}"
+                                               sortable="true" headerText="Rule Description" id="c2" width="456">
+                                        <af:inputText value="#{row.bindings.RuleDescription.inputValue}"
+                                                      label="#{bindings.NeuRuleTblView1.hints.RuleDescription.label}"
+                                                      required="#{bindings.NeuRuleTblView1.hints.RuleDescription.mandatory}"
+                                                      columns="#{bindings.NeuRuleTblView1.hints.RuleDescription.displayWidth}"
+                                                      maximumLength="#{bindings.NeuRuleTblView1.hints.RuleDescription.precision}"
+                                                      shortDesc="#{bindings.NeuRuleTblView1.hints.RuleDescription.tooltip}"
+                                                      id="it2">
+                                            <f:validator binding="#{row.bindings.RuleDescription.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                </af:table>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </af:panelBox>
+            </af:gridCell>
+        </af:gridRow>
+        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
+            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" halign="stretch" valign="stretch">
+                <af:panelBox text="Rule Details" id="pb2" showDisclosure="false">
+                    <f:facet name="toolbar"/>
+                    <af:panelTabbed position="above" id="pt1" inlineStyle="width:645px; height:447px;"
+                                    dimensionsFrom="auto">
+                        <af:showDetailItem id="tab1" text="Conditions">
+                            <af:panelFormLayout id="pfl1">
+                                <af:inputText value="#{bindings.CondCd.inputValue}" label="Code"
+                                              required="#{bindings.CondCd.hints.mandatory}"
+                                              columns="#{bindings.CondCd.hints.displayWidth}"
+                                              maximumLength="#{bindings.CondCd.hints.precision}"
+                                              shortDesc="#{bindings.CondCd.hints.tooltip}" id="it3">
+                                    <f:validator binding="#{bindings.CondCd.validator}"/>
+                                </af:inputText>
+                                <af:inputListOfValues id="ruleOperId"
+                                                      popupTitle="Search and Select: #{bindings.RuleOper.hints.label}"
+                                                      value="#{bindings.RuleOper.inputValue}" label="Rule Operator"
+                                                      model="#{bindings.RuleOper.listOfValuesModel}"
+                                                      required="#{bindings.RuleOper.hints.mandatory}"
+                                                      columns="#{bindings.RuleOper.hints.displayWidth}"
+                                                      shortDesc="#{bindings.RuleOper.hints.tooltip}">
+                                    <f:validator binding="#{bindings.RuleOper.validator}"/>
+                                </af:inputListOfValues>
+                                <af:inputText value="#{bindings.CondPrefix.inputValue}" label="Prefix"
+                                              required="#{bindings.CondPrefix.hints.mandatory}"
+                                              columns="#{bindings.CondPrefix.hints.displayWidth}"
+                                              maximumLength="#{bindings.CondPrefix.hints.precision}"
+                                              shortDesc="#{bindings.CondPrefix.hints.tooltip}" id="it4">
+                                    <f:validator binding="#{bindings.CondPrefix.validator}"/>
+                                </af:inputText>
+                                <af:inputListOfValues id="attrLeftId"
+                                                      popupTitle="Search and Select: #{bindings.AttrLeft.hints.label}"
+                                                      value="#{bindings.AttrLeft.inputValue}" label="Attribute Left"
+                                                      model="#{bindings.AttrLeft.listOfValuesModel}"
+                                                      required="#{bindings.AttrLeft.hints.mandatory}"
+                                                      columns="#{bindings.AttrLeft.hints.displayWidth}"
+                                                      shortDesc="#{bindings.AttrLeft.hints.tooltip}">
+                                    <f:validator binding="#{bindings.AttrLeft.validator}"/>
+                                </af:inputListOfValues>
+                                <af:inputListOfValues id="condOperId"
+                                                      popupTitle="Search and Select: #{bindings.CondOper.hints.label}"
+                                                      value="#{bindings.CondOper.inputValue}" label="Operator"
+                                                      model="#{bindings.CondOper.listOfValuesModel}"
+                                                      required="#{bindings.CondOper.hints.mandatory}"
+                                                      columns="#{bindings.CondOper.hints.displayWidth}"
+                                                      shortDesc="#{bindings.CondOper.hints.tooltip}">
+                                    <f:validator binding="#{bindings.CondOper.validator}"/>
+                                </af:inputListOfValues>
+                                <af:inputText value="#{bindings.AttrRight.inputValue}" label="Attribute Right"
+                                              required="#{bindings.AttrRight.hints.mandatory}"
+                                              columns="#{bindings.AttrRight.hints.displayWidth}"
+                                              maximumLength="#{bindings.AttrRight.hints.precision}"
+                                              shortDesc="#{bindings.AttrRight.hints.tooltip}" id="it5">
+                                    <f:validator binding="#{bindings.AttrRight.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.Value.inputValue}" label="#{bindings.Value.hints.label}"
+                                              required="#{bindings.Value.hints.mandatory}"
+                                              columns="#{bindings.Value.hints.displayWidth}"
+                                              maximumLength="#{bindings.Value.hints.precision}"
+                                              shortDesc="#{bindings.Value.hints.tooltip}" id="it6">
+                                    <f:validator binding="#{bindings.Value.validator}"/>
+                                </af:inputText>
+                                <af:inputListOfValues id="customCondId"
+                                                      popupTitle="Search and Select: #{bindings.CustomCond.hints.label}"
+                                                      value="#{bindings.CustomCond.inputValue}" label="Custom Condition"
+                                                      model="#{bindings.CustomCond.listOfValuesModel}"
+                                                      required="#{bindings.CustomCond.hints.mandatory}"
+                                                      columns="#{bindings.CustomCond.hints.displayWidth}"
+                                                      shortDesc="#{bindings.CustomCond.hints.tooltip}">
+                                    <f:validator binding="#{bindings.CustomCond.validator}"/>
+                                </af:inputListOfValues>
+                                <af:inputText value="#{bindings.CondSuffix.inputValue}" label="Suffix"
+                                              required="#{bindings.CondSuffix.hints.mandatory}"
+                                              columns="#{bindings.CondSuffix.hints.displayWidth}"
+                                              maximumLength="#{bindings.CondSuffix.hints.precision}"
+                                              shortDesc="#{bindings.CondSuffix.hints.tooltip}" id="it7">
+                                    <f:validator binding="#{bindings.CondSuffix.validator}"/>
+                                </af:inputText>
+                                <f:facet name="footer">
+                                    <af:panelGroupLayout layout="vertical" id="pgl3" inlineStyle="width:342px;">
+                                        <af:panelGroupLayout layout="horizontal" id="pgl4">
+                                            <af:button actionListener="#{bindings.First.execute}" text="First"
+                                                       disabled="#{!bindings.First.enabled}" partialSubmit="true"
+                                                       id="b1"/>
+                                            <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
+                                                       disabled="#{!bindings.Previous.enabled}" partialSubmit="true"
+                                                       id="b2"/>
+                                            <af:button actionListener="#{bindings.Next.execute}" text="Next"
+                                                       disabled="#{!bindings.Next.enabled}" partialSubmit="true"
+                                                       id="b3"/>
+                                            <af:button actionListener="#{bindings.Last.execute}" text="Last"
+                                                       disabled="#{!bindings.Last.enabled}" partialSubmit="true"
+                                                       id="b4"/>
+                                            <af:button text="Submit" id="b5"/>
+                                        </af:panelGroupLayout>
+                                    </af:panelGroupLayout>
+                                </f:facet>
+                            </af:panelFormLayout>
+                        </af:showDetailItem>
+                        <af:showDetailItem id="tab2" text="Actions">
+                            <af:panelFormLayout id="pfl2" inlineStyle="height:267px;">
+                                <af:inputText value="#{bindings.ActionCd.inputValue}" label="Code"
+                                              required="#{bindings.ActionCd.hints.mandatory}"
+                                              columns="#{bindings.ActionCd.hints.displayWidth}"
+                                              maximumLength="#{bindings.ActionCd.hints.precision}"
+                                              shortDesc="#{bindings.ActionCd.hints.tooltip}" id="it8">
+                                    <f:validator binding="#{bindings.ActionCd.validator}"/>
+                                </af:inputText>
+                                <af:inputListOfValues id="actionTypeId"
+                                                      popupTitle="Search and Select: #{bindings.ActionType.hints.label}"
+                                                      value="#{bindings.ActionType.inputValue}" label="Action Type"
+                                                      model="#{bindings.ActionType.listOfValuesModel}"
+                                                      required="#{bindings.ActionType.hints.mandatory}"
+                                                      columns="#{bindings.ActionType.hints.displayWidth}"
+                                                      shortDesc="#{bindings.ActionType.hints.tooltip}">
+                                    <f:validator binding="#{bindings.ActionType.validator}"/>
+                                </af:inputListOfValues>
+                                <af:inputListOfValues id="dimensionId"
+                                                      popupTitle="Search and Select: #{bindings.Dimension.hints.label}"
+                                                      value="#{bindings.Dimension.inputValue}"
+                                                      label="#{bindings.Dimension.hints.label}"
+                                                      model="#{bindings.Dimension.listOfValuesModel}"
+                                                      required="#{bindings.Dimension.hints.mandatory}"
+                                                      columns="#{bindings.Dimension.hints.displayWidth}"
+                                                      shortDesc="#{bindings.Dimension.hints.tooltip}">
+                                    <f:validator binding="#{bindings.Dimension.validator}"/>
+                                </af:inputListOfValues>
+                                <af:inputText value="#{bindings.Value1.inputValue}"
+                                              label="#{bindings.Value1.hints.label}"
+                                              required="#{bindings.Value1.hints.mandatory}"
+                                              columns="#{bindings.Value1.hints.displayWidth}"
+                                              maximumLength="#{bindings.Value1.hints.precision}"
+                                              shortDesc="#{bindings.Value1.hints.tooltip}" id="it9">
+                                    <f:validator binding="#{bindings.Value1.validator}"/>
+                                </af:inputText>
+                                <af:inputListOfValues id="mappingTableId"
+                                                      popupTitle="Search and Select: #{bindings.MappingTable.hints.label}"
+                                                      value="#{bindings.MappingTable.inputValue}"
+                                                      label="#{bindings.MappingTable.hints.label}"
+                                                      model="#{bindings.MappingTable.listOfValuesModel}"
+                                                      required="#{bindings.MappingTable.hints.mandatory}"
+                                                      columns="#{bindings.MappingTable.hints.displayWidth}"
+                                                      shortDesc="#{bindings.MappingTable.hints.tooltip}">
+                                    <f:validator binding="#{bindings.MappingTable.validator}"/>
+                                </af:inputListOfValues>
+                                <af:inputText value="#{bindings.ActionValue.inputValue}"
+                                              label="#{bindings.ActionValue.hints.label}"
+                                              required="#{bindings.ActionValue.hints.mandatory}"
+                                              columns="#{bindings.ActionValue.hints.displayWidth}"
+                                              maximumLength="#{bindings.ActionValue.hints.precision}"
+                                              shortDesc="#{bindings.ActionValue.hints.tooltip}" id="it10">
+                                    <f:validator binding="#{bindings.ActionValue.validator}"/>
+                                </af:inputText>
+                                <f:facet name="footer">
+                                    <af:panelGroupLayout layout="vertical" id="pgl5" inlineStyle="width:330px;">
+                                        <af:panelGroupLayout layout="horizontal" id="pgl6">
+                                            <af:button actionListener="#{bindings.First1.execute}" text="First"
+                                                       disabled="#{!bindings.First1.enabled}" partialSubmit="true"
+                                                       id="b6"/>
+                                            <af:button actionListener="#{bindings.Previous1.execute}" text="Previous"
+                                                       disabled="#{!bindings.Previous1.enabled}" partialSubmit="true"
+                                                       id="b7"/>
+                                            <af:button actionListener="#{bindings.Next1.execute}" text="Next"
+                                                       disabled="#{!bindings.Next1.enabled}" partialSubmit="true"
+                                                       id="b8"/>
+                                            <af:button actionListener="#{bindings.Last1.execute}" text="Last"
+                                                       disabled="#{!bindings.Last1.enabled}" partialSubmit="true"
+                                                       id="b9"/>
+                                            <af:button text="Submit" id="b10"/>
+                                        </af:panelGroupLayout>
+                                    </af:panelGroupLayout>
+                                </f:facet>
+                            </af:panelFormLayout>
+                        </af:showDetailItem>
+                    </af:panelTabbed>
+                </af:panelBox>
+            </af:gridCell>
+        </af:gridRow>
+    </af:panelGridLayout>
+</ui:composition>

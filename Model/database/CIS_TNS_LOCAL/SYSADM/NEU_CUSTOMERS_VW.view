@@ -1,0 +1,23 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<view xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
+  <name>NEU_CUSTOMERS_VW</name>
+  <SQLQuery>
+    <queryString> SELECT A.CUST_ID, A.NAME1 
+  FROM SYSADM.PS_CUSTOMER A 
+  WHERE ( A.SETID = &apos;SHARE&apos; ) </queryString>
+  </SQLQuery>
+  <columns>
+    <column>
+      <name>CUST_ID</name>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <name>NAME1</name>
+      <notNull>false</notNull>
+    </column>
+  </columns>
+  <forceOnCreate>false</forceOnCreate>
+  <schema>
+    <name>SYSADM</name>
+  </schema>
+</view>

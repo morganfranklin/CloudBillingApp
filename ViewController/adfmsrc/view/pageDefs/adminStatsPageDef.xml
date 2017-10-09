@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="adminStatsPageDef"
+                Package="view.pageDefs">
+    <parameters/>
+    <executables>
+        <variableIterator id="variables"/>
+        <iterator Binds="NeuStatErrorsCount1" RangeSize="1" DataControl="AppModuleDataControl"
+                  id="NeuStatErrorsCount1Iterator"/>
+        <iterator Binds="NeuStatActiveProcesses1" RangeSize="1" DataControl="AppModuleDataControl"
+                  id="NeuStatActiveProcesses1Iterator"/>
+        <iterator Binds="NeuStatPendingContracts1" RangeSize="1" DataControl="AppModuleDataControl"
+                  id="NeuStatPendingContracts1Iterator"/>
+        <iterator Binds="NeuStatPendingTransactions1" RangeSize="1" DataControl="AppModuleDataControl"
+                  id="NeuStatPendingTransactions1Iterator"/>
+        <iterator Binds="ProcessingStatView1" RangeSize="-1" DataControl="AppModuleDataControl"
+                  id="ProcessingStatView1Iterator"/>
+        <iterator Binds="NeuStatErrorTypes1" RangeSize="-1" DataControl="AppModuleDataControl"
+                  id="NeuStatErrorTypes1Iterator"/>
+    </executables>
+    <bindings>
+        <attributeValues IterBinding="NeuStatErrorsCount1Iterator" id="ErrorsCount">
+            <AttrNames>
+                <Item Value="ErrorsCount"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="NeuStatActiveProcesses1Iterator" id="ProcessCount">
+            <AttrNames>
+                <Item Value="ProcessCount"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="NeuStatPendingContracts1Iterator" id="PendingContracts">
+            <AttrNames>
+                <Item Value="PendingContracts"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="NeuStatPendingTransactions1Iterator" id="PendingTransactions">
+            <AttrNames>
+                <Item Value="PendingTransactions"/>
+            </AttrNames>
+        </attributeValues>
+        <tree IterBinding="ProcessingStatView1Iterator" id="ProcessingStatView1" ChangeEventPolicy="ppr">
+            <nodeDefinition DefName="model.NeuProcessingStatView" Name="ProcessingStatView1">
+                <AttrNames>
+                    <Item Value="TransactionCount"/>
+                    <Item Value="Status"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <tree IterBinding="NeuStatErrorTypes1Iterator" id="NeuStatErrorTypes1" ChangeEventPolicy="ppr">
+            <nodeDefinition DefName="model.NeuStatErrorTypes" Name="NeuStatErrorTypes1">
+                <AttrNames>
+                    <Item Value="ErrorCount"/>
+                    <Item Value="ErrorDesc"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+    </bindings>
+</pageDefinition>

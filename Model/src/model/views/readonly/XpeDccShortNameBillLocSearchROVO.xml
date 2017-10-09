@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XpeDccShortNameBillLocSearchROVO"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.views.readonly.XpeDccShortNameBillLocSearchROVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="bind_CustId"
+    Kind="where"
+    Type="java.lang.String"/>
+  <SQLQuery><![CDATA[SELECT A.ADDRESS_SEQ_NUM, B.ADDRESS1,   
+B.ADDRESS2, B.CITY, B.STATE, B.POSTAL   
+FROM PS_CUST_ADDR_SEQ A, PS_CUST_ADDRESS B  
+WHERE A.SETID = 'SHARE'  
+AND A.CUST_ID =:bind_CustId AND A.BILL_TO_ADDR = 'Y' AND A.SETID = B.SETID  
+AND A.CUST_ID = B.CUST_ID AND A.ADDRESS_SEQ_NUM = B.ADDRESS_SEQ_NUM  
+AND B.EFFDT = (SELECT MAX(B_ED.EFFDT) FROM PS_CUST_ADDRESS B_ED  
+WHERE B.SETID = B_ED.SETID AND B.CUST_ID = B_ED.CUST_ID AND B.ADDRESS_SEQ_NUM = B_ED.ADDRESS_SEQ_NUM AND B_ED.EFFDT <= SYSDATE)]]></SQLQuery>
+  <ViewAttribute
+    Name="AddressSeqNum"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigInteger"
+    ColumnType="BIGINT"
+    AliasName="ADDRESS_SEQ_NUM"
+    Expression="ADDRESS_SEQ_NUM"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="Address1"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="55"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ADDRESS1"
+    Expression="ADDRESS1"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="55"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Address2"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="55"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ADDRESS2"
+    Expression="ADDRESS2"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="55"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="City"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CITY"
+    Expression="CITY"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="State"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="6"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="STATE"
+    Expression="STATE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Postal"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="12"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="POSTAL"
+    Expression="POSTAL"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="12"/>
+    </DesignTime>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="AddressSeqNum"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

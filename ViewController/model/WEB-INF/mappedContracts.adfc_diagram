@@ -1,0 +1,29 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1">
+      <property
+         name="x">91.5</property>
+      <property
+         name="y">266.5</property>
+   </OverallProperties>
+   <View
+      id="View2">
+      <property
+         name="activityId">mappedContractsView</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">14.5</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>mappedContractsView&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">40.695312</property>
+      <property
+         name="page">/mappedContracts.jsff</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+</SDM>

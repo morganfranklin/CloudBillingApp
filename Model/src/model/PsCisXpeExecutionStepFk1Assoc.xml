@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+    xmlns="http://xmlns.oracle.com/bc4j"
+    Name="PsCisXpeExecutionStepFk1Assoc"
+    Version="12.2.1.0.31"
+    InheritPersonalization="merge">
+    <DesignTime>
+        <Attr Name="_isCodegen" Value="true"/>
+    </DesignTime>
+    <AssociationEnd
+        Name="PsCisXpeExecpln"
+        Cardinality="1"
+        Source="true"
+        Owner="model.PsCisXpeExecpln">
+        <DesignTime>
+            <Attr Name="_isUpdateable" Value="true"/>
+            <Attr Name="_minCardinality" Value="1"/>
+            <Attr Name="_aggregation" Value="0"/>
+            <Attr Name="_finderName" Value="PsCisXpeExecpln"/>
+            <Attr Name="_foreignKey" Value="model.PsCisXpeExecpln.PsCisXpeExecutionPlanPk"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.PsCisXpeExecpln.CisExecPlanCode"/>
+        </AttrArray>
+    </AssociationEnd>
+    <AssociationEnd
+        Name="PsCisXpeExecstp"
+        Cardinality="-1"
+        Owner="model.PsCisXpeExecstp">
+        <DesignTime>
+            <Attr Name="_isUpdateable" Value="true"/>
+            <Attr Name="_aggregation" Value="0"/>
+            <Attr Name="_finderName" Value="PsCisXpeExecstp"/>
+            <Attr Name="_foreignKey" Value="model.PsCisXpeExecstp.PsCisXpeExecutionStepFk1"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.PsCisXpeExecstp.CisExecPlanCode"/>
+        </AttrArray>
+    </AssociationEnd>
+</Association>

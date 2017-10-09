@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+    xmlns="http://xmlns.oracle.com/bc4j"
+    Name="XpeDccContractCarrierFk1Link"
+    Version="12.2.1.0.31"
+    InheritPersonalization="merge"
+    EntityAssociation="model.XpeDccContractCarrierFk1Assoc">
+    <ViewLinkDefEnd
+        Name="XpeDccContractPricingTermView"
+        Cardinality="1"
+        Source="true"
+        Owner="model.XpeDccContractPricingTermView">
+        <DesignTime>
+            <Attr Name="_isUpdateable" Value="true"/>
+            <Attr Name="_minCardinality" Value="1"/>
+            <Attr Name="_finderName" Value="XpeDccContractPricingTermView"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.XpeDccContractPricingTermView.XpeContractId"/>
+            <Item Value="model.XpeDccContractPricingTermView.XpePricingTermLine"/>
+            <Item Value="model.XpeDccContractPricingTermView.XpeContractLine"/>
+            <Item Value="model.XpeDccContractPricingTermView.XpeContractVersion"/>
+        </AttrArray>
+    </ViewLinkDefEnd>
+    <ViewLinkDefEnd
+        Name="XpeDccContractCarrierView"
+        Cardinality="-1"
+        Owner="model.XpeDccContractCarrierView">
+        <DesignTime>
+            <Attr Name="_isUpdateable" Value="true"/>
+            <Attr Name="_finderName" Value="XpeDccContractCarrierView"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.XpeDccContractCarrierView.XpeContractId"/>
+            <Item Value="model.XpeDccContractCarrierView.XpePricingTermLine"/>
+            <Item Value="model.XpeDccContractCarrierView.XpeContractLine"/>
+            <Item Value="model.XpeDccContractCarrierView.XpeContractVersion"/>
+        </AttrArray>
+    </ViewLinkDefEnd>
+</ViewLink>

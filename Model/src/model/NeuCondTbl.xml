@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+    xmlns="http://xmlns.oracle.com/bc4j"
+    Name="NeuCondTbl"
+    Version="12.2.1.0.31"
+    InheritPersonalization="merge"
+    DBObjectType="table"
+    DBObjectName="NEU_COND_TBL"
+    AliasName="NeuCondTbl"
+    BindingStyle="OracleName">
+    <Attribute
+        Name="RulesetCd"
+        IsNotNull="true"
+        Precision="20"
+        ColumnName="RULESET_CD"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="NEU_COND_TBL"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="SystemSource"
+        IsNotNull="true"
+        Precision="20"
+        ColumnName="SYSTEM_SOURCE"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="NEU_COND_TBL"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="RuleCd"
+        IsNotNull="true"
+        Precision="20"
+        ColumnName="RULE_CD"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="NEU_COND_TBL"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="CondCd"
+        IsNotNull="true"
+        Precision="20"
+        ColumnName="COND_CD"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="NEU_COND_TBL"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="RuleOper"
+        Precision="20"
+        ColumnName="RULE_OPER"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="NEU_COND_TBL">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="CondPrefix"
+        Precision="5"
+        ColumnName="COND_PREFIX"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="NEU_COND_TBL">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="5"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="AttrLeft"
+        Precision="20"
+        ColumnName="ATTR_LEFT"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="NEU_COND_TBL">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="CondOper"
+        Precision="20"
+        ColumnName="COND_OPER"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="NEU_COND_TBL">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="AttrRight"
+        Precision="20"
+        ColumnName="ATTR_RIGHT"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="NEU_COND_TBL">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="Value"
+        Precision="20"
+        ColumnName="VALUE"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="NEU_COND_TBL">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="CustomCond"
+        Precision="20"
+        ColumnName="CUSTOM_COND"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="NEU_COND_TBL">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="Column1"
+        Precision="5"
+        ColumnName="COLUMN1"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="NEU_COND_TBL">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="5"/>
+        </DesignTime>
+    </Attribute>
+    <AccessorAttribute
+        Name="NeuRuleTbl"
+        Association="model.NeuCondTblFk1Assoc"
+        AssociationEnd="model.NeuCondTblFk1Assoc.NeuRuleTbl"
+        AssociationOtherEnd="model.NeuCondTblFk1Assoc.NeuCondTbl"
+        Type="oracle.jbo.server.EntityImpl"
+        IsUpdateable="true"/>
+    <Key
+        Name="NeuCondTblPk"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DBObjectName" Value="NEU_COND_TBL_PK"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.NeuCondTbl.RulesetCd"/>
+            <Item Value="model.NeuCondTbl.SystemSource"/>
+            <Item Value="model.NeuCondTbl.RuleCd"/>
+            <Item Value="model.NeuCondTbl.CondCd"/>
+        </AttrArray>
+    </Key>
+    <Key
+        Name="NeuCondTblFk1">
+        <DesignTime>
+            <Attr Name="_referencedKey" Value="NEU_RULE_TBL_PK"/>
+            <Attr Name="_isForeign" Value="true"/>
+            <Attr Name="_DBObjectName" Value="NEU_COND_TBL_FK1"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.NeuCondTbl.RulesetCd"/>
+            <Item Value="model.NeuCondTbl.SystemSource"/>
+            <Item Value="model.NeuCondTbl.RuleCd"/>
+        </AttrArray>
+    </Key>
+</Entity>

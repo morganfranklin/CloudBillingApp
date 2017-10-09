@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGroupLayout layout="vertical" id="pgl2">
+        <af:panelHeader text="Destination Details" id="ph4">
+            <af:panelFormLayout id="pfl1">
+                <af:inputText value="#{bindings.DestinationId.inputValue}" label="#{bindings.DestinationId.hints.label}"
+                              required="#{bindings.DestinationId.hints.mandatory}"
+                              columns="#{bindings.DestinationId.hints.displayWidth}"
+                              maximumLength="#{bindings.DestinationId.hints.precision}"
+                              shortDesc="#{bindings.DestinationId.hints.tooltip}" id="it1" disabled="true">
+                    <f:validator binding="#{bindings.DestinationId.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.DestinationDesc.inputValue}"
+                              label="#{bindings.DestinationDesc.hints.label}"
+                              required="#{bindings.DestinationDesc.hints.mandatory}"
+                              columns="#{bindings.DestinationDesc.hints.displayWidth}"
+                              maximumLength="#{bindings.DestinationDesc.hints.precision}"
+                              shortDesc="#{bindings.DestinationDesc.hints.tooltip}" id="it2">
+                    <f:validator binding="#{bindings.DestinationDesc.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.State.inputValue}" label="#{bindings.State.hints.label}"
+                              required="#{bindings.State.hints.mandatory}"
+                              columns="#{bindings.State.hints.displayWidth}"
+                              maximumLength="#{bindings.State.hints.precision}"
+                              shortDesc="#{bindings.State.hints.tooltip}" id="it3">
+                    <f:validator binding="#{bindings.State.validator}"/>
+                </af:inputText>
+            </af:panelFormLayout>
+        </af:panelHeader>
+        <af:panelHeader text="Associated Terminals" id="ph5">
+            <af:table rows="#{bindings.XpeDccCfgNewDstAssTerminalsCreationEOVO.rangeSize}"
+                      fetchSize="#{bindings.XpeDccCfgNewDstAssTerminalsCreationEOVO.rangeSize}"
+                      emptyText="#{bindings.XpeDccCfgNewDstAssTerminalsCreationEOVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      var="row" value="#{bindings.XpeDccCfgNewDstAssTerminalsCreationEOVO.collectionModel}"
+                      rowBandingInterval="1"
+                      selectedRowKeys="#{bindings.XpeDccCfgNewDstAssTerminalsCreationEOVO.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.XpeDccCfgNewDstAssTerminalsCreationEOVO.collectionModel.makeCurrent}"
+                      rowSelection="single" id="t2" columnStretching="last" contentDelivery="immediate">
+                <af:column headerText="#{bindings.XpeDccCfgNewDstAssTerminalsCreationEOVO.hints.TerminalId.label}"
+                           id="c9">
+                    <af:outputText value="#{row.TerminalId}"
+                                   shortDesc="#{bindings.XpeDccCfgNewDstAssTerminalsCreationEOVO.hints.TerminalId.tooltip}"
+                                   id="ot23"/>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgNewDstAssTerminalsCreationEOVO.hints.TerminalDesc.label}"
+                           id="c8">
+                    <af:outputText value="#{row.TerminalDesc}"
+                                   shortDesc="#{bindings.XpeDccCfgNewDstAssTerminalsCreationEOVO.hints.TerminalDesc.tooltip}"
+                                   id="ot22"/>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgNewDstAssTerminalsCreationEOVO.hints.Inactive.label}"
+                           id="c4">
+                    <af:selectOneChoice value="#{row.bindings.Inactive.inputValue}"
+                                        label="#{row.bindings.Inactive.label}"
+                                        required="#{bindings.XpeDccCfgNewDstAssTerminalsCreationEOVO.hints.Inactive.mandatory}"
+                                        shortDesc="#{bindings.XpeDccCfgNewDstAssTerminalsCreationEOVO.hints.Inactive.tooltip}"
+                                        readOnly="true" id="soc3">
+                        <f:selectItems value="#{row.bindings.Inactive.items}" id="si3"/>
+                        <f:validator binding="#{row.bindings.Inactive.validator}"/>
+                    </af:selectOneChoice>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgNewDstAssTerminalsCreationEOVO.hints.InactiveDate.label}"
+                           id="c5">
+                    <af:outputText value="#{row.InactiveDate}"
+                                   shortDesc="#{bindings.XpeDccCfgNewDstAssTerminalsCreationEOVO.hints.InactiveDate.tooltip}"
+                                   id="ot15">
+                        <af:convertDateTime pattern="#{bindings.XpeDccCfgNewDstAssTerminalsCreationEOVO.hints.InactiveDate.format}"/>
+                    </af:outputText>
+                </af:column>
+            </af:table>
+            <f:facet name="toolbar">
+                <af:button text="Add" id="b6" actionListener="#{pageFlowScope.XpeCfgTableSetupMBean.onTerminalSearch}"/>
+            </f:facet>
+        </af:panelHeader>
+        <af:group id="g1">
+            <af:button actionListener="#{bindings.Commit.execute}" text="Save"
+                       id="b1"/>
+            <af:button actionListener="#{bindings.Rollback.execute}" text="Back" immediate="true" id="b2" action="Back">
+                <af:resetActionListener/>
+            </af:button>
+        </af:group>
+        <af:popup autoCancel="disabled" id="p1" contentDelivery="lazyUncached"
+                  binding="#{backingBeanScope.XpeCfgTableSetupBBean.terminalSearch_popup}">
+            <af:dialog id="d1" type="none" closeIconVisible="false">
+                <af:region value="#{bindings.terminalSearch1.regionModel}" id="r1"/>
+                <f:facet name="buttonBar">
+                    <af:button text="Ok" id="b3"
+                               actionListener="#{pageFlowScope.XpeCfgTableSetupMBean.onTerminalSearchSaveOrCancel}"/>
+                    <af:button text="Cancel" id="b4"
+                               actionListener="#{pageFlowScope.XpeCfgTableSetupMBean.onTerminalSearchSaveOrCancel}"/>
+                </f:facet>
+            </af:dialog>
+        </af:popup>
+    </af:panelGroupLayout>
+</ui:composition>

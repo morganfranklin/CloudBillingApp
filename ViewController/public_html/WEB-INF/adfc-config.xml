@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+    <task-flow-call id="secureXPEflow">
+        <task-flow-reference>
+            <document>/WEB-INF/secureXPEflow.xml</document>
+            <id>secureXPEflow</id>
+        </task-flow-reference>
+    </task-flow-call>
+    <managed-bean id="__1">
+        <managed-bean-name>integrationDashboardRegionName</managed-bean-name>
+        <managed-bean-class>view.integrationDashboardRegionName</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__2">
+        <managed-bean-name>PeopleSoftCallSecurityFilter</managed-bean-name>
+        <managed-bean-class>view.PeopleSoftCallSecurityFilter</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+</adfc-config>

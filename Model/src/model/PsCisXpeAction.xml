@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+    xmlns="http://xmlns.oracle.com/bc4j"
+    Name="PsCisXpeAction"
+    Version="12.2.1.0.31"
+    InheritPersonalization="merge"
+    DBObjectType="table"
+    DBObjectName="PS_CIS_XPE_ACTION"
+    AliasName="PsCisXpeAction"
+    BindingStyle="OracleName">
+    <Attribute
+        Name="CisActionCode"
+        IsNotNull="true"
+        Precision="50"
+        ColumnName="CIS_ACTION_CODE"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="PS_CIS_XPE_ACTION"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="50"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="Actiontype"
+        Precision="30"
+        ColumnName="ACTIONTYPE"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="PS_CIS_XPE_ACTION">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="30"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="CisRuleCode"
+        Precision="50"
+        ColumnName="CIS_RULE_CODE"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="PS_CIS_XPE_ACTION">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="50"/>
+        </DesignTime>
+    </Attribute>
+    <AccessorAttribute
+        Name="PsCisXpeActDtl"
+        Association="model.PsCisXpeActionDetailFk1Assoc"
+        AssociationEnd="model.PsCisXpeActionDetailFk1Assoc.PsCisXpeActDtl"
+        AssociationOtherEnd="model.PsCisXpeActionDetailFk1Assoc.PsCisXpeAction"
+        Type="oracle.jbo.RowIterator"
+        IsUpdateable="false"/>
+    <Key
+        Name="PsCisXpeActionPk"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DBObjectName" Value="PS_CIS_XPE_ACTION_PK"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.PsCisXpeAction.CisActionCode"/>
+        </AttrArray>
+    </Key>
+    <Key
+        Name="PsCisXpeActionFk1">
+        <DesignTime>
+            <Attr Name="_referencedKey" Value="PS_CIS_XPE_ACTION_TYPE_PK"/>
+            <Attr Name="_isForeign" Value="true"/>
+            <Attr Name="_DBObjectName" Value="PS_CIS_XPE_ACTION_FK1"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.PsCisXpeAction.Actiontype"/>
+        </AttrArray>
+    </Key>
+    <Key
+        Name="PsCisXpeActionRuleFk1">
+        <DesignTime>
+            <Attr Name="_referencedKey" Value="PS_CIS_XPE_RULE_PK"/>
+            <Attr Name="_isForeign" Value="true"/>
+            <Attr Name="_DBObjectName" Value="PS_CIS_XPE_ACTION_RULE_FK1"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.PsCisXpeAction.CisRuleCode"/>
+        </AttrArray>
+    </Key>
+    <Key
+        Name="fk_PsCisXpeAction">
+        <DesignTime>
+            <Attr Name="_referencedKey" Value="PS_CIS_XPE_RULE_PK"/>
+            <Attr Name="_isForeign" Value="true"/>
+            <Attr Name="_DBObjectName" Value="FK_PS_CIS_XPE_ACTION"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.PsCisXpeAction.CisRuleCode"/>
+        </AttrArray>
+    </Key>
+    <Key
+        Name="fk_PsCisXpeAction1">
+        <DesignTime>
+            <Attr Name="_referencedKey" Value="PS_CIS_XPE_RULE_PK"/>
+            <Attr Name="_isForeign" Value="true"/>
+            <Attr Name="_DBObjectName" Value="FK_PS_CIS_XPE_ACTION1"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.PsCisXpeAction.CisRuleCode"/>
+        </AttrArray>
+    </Key>
+</Entity>

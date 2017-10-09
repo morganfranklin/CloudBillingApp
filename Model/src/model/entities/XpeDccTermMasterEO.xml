@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XpeDccTermMasterEO"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="XPE_DCC_TERM_MASTER"
+  AliasName="XpeDccTermMasterEO"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="XpeDccTerm"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="XPE_DCC_TERM"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_TERM_MASTER"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="XpeDccStatus"
+    Precision="3"
+    ColumnName="XPE_DCC_STATUS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_TERM_MASTER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="XpeDccTermDesc"
+    Precision="100"
+    ColumnName="XPE_DCC_TERM_DESC"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_TERM_MASTER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="XpeContractSubType"
+    Precision="3"
+    ColumnName="XPE_CONTRACT_SUB_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_TERM_MASTER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="XpeWasteType"
+    Precision="3"
+    ColumnName="XPE_WASTE_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_TERM_MASTER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="XpeAgreementType"
+    Precision="3"
+    ColumnName="XPE_AGREEMENT_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_TERM_MASTER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="XpeDccTermsEO"
+    Association="model.entities.associations.XpeDccTermsFkAssoc"
+    AssociationEnd="model.entities.associations.XpeDccTermsFkAssoc.XpeDccTermsEO"
+    AssociationOtherEnd="model.entities.associations.XpeDccTermsFkAssoc.XpeDccTermMaster"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="XpeDccTermMasterPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_TERM_MASTER_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccTermMasterEO.XpeDccTerm"/>
+    </AttrArray>
+  </Key>
+</Entity>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+    xmlns="http://xmlns.oracle.com/bc4j"
+    Name="XpeDccLookupMaster"
+    Version="12.2.1.0.31"
+    InheritPersonalization="merge"
+    DBObjectType="table"
+    DBObjectName="XPE_DCC_LOOKUP_MASTER"
+    AliasName="XpeDccLookupMaster"
+    BindingStyle="OracleName">
+    <Attribute
+        Name="XpeLookupType"
+        IsNotNull="true"
+        Precision="5"
+        ColumnName="XPE_LOOKUP_TYPE"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="XPE_DCC_LOOKUP_MASTER"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="5"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="XpeLookupId"
+        IsNotNull="true"
+        Precision="3"
+        ColumnName="XPE_LOOKUP_ID"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="XPE_DCC_LOOKUP_MASTER"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="3"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="XpeLookupDesc"
+        Precision="20"
+        ColumnName="XPE_LOOKUP_DESC"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="XPE_DCC_LOOKUP_MASTER">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Key
+        Name="XpeDccLookupMasterPk"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DBObjectName" Value="XPE_DCC_LOOKUP_MASTER_PK"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.XpeDccLookupMaster.XpeLookupType"/>
+            <Item Value="model.XpeDccLookupMaster.XpeLookupId"/>
+        </AttrArray>
+    </Key>
+</Entity>

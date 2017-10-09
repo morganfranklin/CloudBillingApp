@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+    <task-flow-definition id="dccContractMaintenance">
+        <default-activity>dccContractSearch</default-activity>
+        <data-control-scope>
+            <shared/>
+        </data-control-scope>
+        <managed-bean id="__16">
+            <managed-bean-name>XpeDccMainBean</managed-bean-name>
+            <managed-bean-class>view.XpeDccMainBean</managed-bean-class>
+            <managed-bean-scope>backingBean</managed-bean-scope>
+        </managed-bean>
+        <managed-bean id="__33">
+            <managed-bean-name>FileUploadDownloadBean</managed-bean-name>
+            <managed-bean-class>view.FileUploadDownloadBean</managed-bean-class>
+            <managed-bean-scope>pageFlow</managed-bean-scope>
+        </managed-bean>
+        <view id="dccContractSearch">
+            <page>/dccContractSearch.jsff</page>
+        </view>
+        <view id="dccContractMain">
+            <page>/dccContractMain.jsff</page>
+        </view>
+        <view id="dccContractLine">
+            <page>/dccContractLine.jsff</page>
+        </view>
+        <view id="dccContractTerm">
+            <page>/dccCarriers.jsff</page>
+        </view>
+        <view id="dccContractVersion">
+            <page>/dccContractVersion.jsff</page>
+        </view>
+        <method-call id="reexecuteCustomerSearch">
+            <method>#{bindings.Execute.execute}</method>
+            <outcome>
+                <fixed-outcome>Execute</fixed-outcome>
+            </outcome>
+        </method-call>
+        <method-call id="reexecuteVersion">
+            <method>#{bindings.excecuteVersionVO.execute}</method>
+            <outcome>
+                <fixed-outcome>Execute</fixed-outcome>
+            </outcome>
+        </method-call>
+        <method-call id="reexecuteContractLine">
+            <method>#{bindings.Execute.execute}</method>
+            <outcome>
+                <fixed-outcome>Execute</fixed-outcome>
+            </outcome>
+        </method-call>
+        <method-call id="refreshAllVO">
+            <method>#{backingBeanScope.XpeDccMainBean.refreshAllViewObject}</method>
+            <outcome>
+                <fixed-outcome>refreshDone</fixed-outcome>
+            </outcome>
+        </method-call>
+        <view id="dccAddContract">
+            <page>/dccAddContract.jsff</page>
+        </view>
+        <method-call id="InitializeVersionRow">
+            <method>#{backingBeanScope.XpeDccMainBean.InitializeVersionRow}</method>
+            <outcome>
+                <fixed-outcome>goAddContract</fixed-outcome>
+            </outcome>
+        </method-call>
+        <control-flow-rule id="__1">
+            <from-activity-id>dccContractSearch</from-activity-id>
+            <control-flow-case id="__2">
+                <from-outcome>toDccContractMaster</from-outcome>
+                <to-activity-id>dccContractMain</to-activity-id>
+            </control-flow-case>
+            <control-flow-case id="__38">
+                <from-outcome>addContract</from-outcome>
+                <to-activity-id>InitializeVersionRow</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__3">
+            <from-activity-id>dccContractMain</from-activity-id>
+            <control-flow-case id="__4">
+                <from-outcome>goBack</from-outcome>
+                <to-activity-id>reexecuteCustomerSearch</to-activity-id>
+            </control-flow-case>
+            <control-flow-case id="__5">
+                <from-outcome>toContractVersion</from-outcome>
+                <to-activity-id>dccContractVersion</to-activity-id>
+            </control-flow-case>
+            <control-flow-case id="__17">
+                <from-outcome>reexecuteVersion</from-outcome>
+                <to-activity-id>reexecuteVersion</to-activity-id>
+            </control-flow-case>
+            <control-flow-case id="__20">
+                <from-outcome>refreshAll</from-outcome>
+                <to-activity-id>refreshAllVO</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__6">
+            <from-activity-id>dccContractVersion</from-activity-id>
+            <control-flow-case id="__7">
+                <from-outcome>goBack</from-outcome>
+                <to-activity-id>dccContractMain</to-activity-id>
+            </control-flow-case>
+            <control-flow-case id="__8">
+                <from-outcome>toContractLine</from-outcome>
+                <to-activity-id>dccContractLine</to-activity-id>
+            </control-flow-case>
+            <control-flow-case id="__21">
+                <from-outcome>reexecuteContractLine</from-outcome>
+                <to-activity-id>reexecuteContractLine</to-activity-id>
+            </control-flow-case>
+            <control-flow-case id="__26">
+                <from-outcome>refreshAll</from-outcome>
+                <to-activity-id>refreshAllVO</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__9">
+            <from-activity-id>dccContractLine</from-activity-id>
+            <control-flow-case id="__10">
+                <from-outcome>goBack</from-outcome>
+                <to-activity-id>dccContractVersion</to-activity-id>
+            </control-flow-case>
+            <control-flow-case id="__11">
+                <from-outcome>toTermDetails</from-outcome>
+                <to-activity-id>dccContractTerm</to-activity-id>
+            </control-flow-case>
+            <control-flow-case id="__28">
+                <from-outcome>refreshAll</from-outcome>
+                <to-activity-id>refreshAllVO</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__12">
+            <from-activity-id>dccContractTerm</from-activity-id>
+            <control-flow-case id="__13">
+                <from-outcome>goBack</from-outcome>
+                <to-activity-id>dccContractLine</to-activity-id>
+            </control-flow-case>
+            <control-flow-case id="__30">
+                <from-outcome>refreshAll</from-outcome>
+                <to-activity-id>refreshAllVO</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__14">
+            <from-activity-id>reexecuteCustomerSearch</from-activity-id>
+            <control-flow-case id="__15">
+                <from-outcome>Execute</from-outcome>
+                <to-activity-id>dccContractSearch</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__18">
+            <from-activity-id>reexecuteVersion</from-activity-id>
+            <control-flow-case id="__19">
+                <from-outcome>Execute</from-outcome>
+                <to-activity-id>dccContractMain</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__22">
+            <from-activity-id>reexecuteContractLine</from-activity-id>
+            <control-flow-case id="__23">
+                <from-outcome>Execute</from-outcome>
+                <to-activity-id>dccContractVersion</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__24">
+            <from-activity-id>refreshAllVO</from-activity-id>
+            <control-flow-case id="__25">
+                <from-outcome>refreshDone</from-outcome>
+                <to-activity-id>dccContractMain</to-activity-id>
+            </control-flow-case>
+            <control-flow-case id="__27">
+                <from-outcome>refreshDone</from-outcome>
+                <to-activity-id>dccContractVersion</to-activity-id>
+            </control-flow-case>
+            <control-flow-case id="__29">
+                <from-outcome>refreshDone</from-outcome>
+                <to-activity-id>dccContractLine</to-activity-id>
+            </control-flow-case>
+            <control-flow-case id="__31">
+                <from-outcome>refreshDone</from-outcome>
+                <to-activity-id>dccContractTerm</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__32">
+            <from-activity-id>dccAddContract</from-activity-id>
+            <control-flow-case id="__34">
+                <from-outcome>back</from-outcome>
+                <to-activity-id>dccContractSearch</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__35">
+            <from-activity-id>InitializeVersionRow</from-activity-id>
+            <control-flow-case id="__36">
+                <from-outcome>goAddContract</from-outcome>
+                <to-activity-id>dccAddContract</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <use-page-fragments/>
+    </task-flow-definition>
+</adfc-config>

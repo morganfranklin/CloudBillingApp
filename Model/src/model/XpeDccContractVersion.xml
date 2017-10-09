@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+    xmlns="http://xmlns.oracle.com/bc4j"
+    Name="XpeDccContractVersion"
+    Version="12.2.1.11.57"
+    InheritPersonalization="merge"
+    DBObjectType="table"
+    DBObjectName="XPE_DCC_CONTRACT_VERSION"
+    AliasName="XpeDccContractVersion"
+    BindingStyle="OracleName"
+    RowClass="model.XpeDccContractVersionImpl">
+    <DesignTime>
+        <Attr Name="_codeGenFlag2" Value="Init|Access"/>
+        <Attr Name="_isCodegen" Value="true"/>
+    </DesignTime>
+    <Attribute
+        Name="XpeContractId"
+        IsNotNull="true"
+        Precision="20"
+        ColumnName="XPE_CONTRACT_ID"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="XPE_DCC_CONTRACT_VERSION"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="XpeContractVersion"
+        IsNotNull="true"
+        Precision="20"
+        ColumnName="XPE_CONTRACT_VERSION"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="XPE_DCC_CONTRACT_VERSION"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="XpeContractStatus"
+        Precision="3"
+        ColumnName="XPE_CONTRACT_STATUS"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="XPE_DCC_CONTRACT_VERSION">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="3"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="XpeStartDate"
+        ColumnName="XPE_START_DATE"
+        SQLType="TIMESTAMP"
+        Type="java.sql.Timestamp"
+        ColumnType="TIMESTAMP"
+        TableName="XPE_DCC_CONTRACT_VERSION"/>
+    <Attribute
+        Name="XpeEndDate"
+        ColumnName="XPE_END_DATE"
+        SQLType="TIMESTAMP"
+        Type="java.sql.Timestamp"
+        ColumnType="TIMESTAMP"
+        TableName="XPE_DCC_CONTRACT_VERSION"/>
+    <Attribute
+        Name="XpeNewTermMode"
+        Precision="3"
+        ColumnName="XPE_NEW_TERM_MODE"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="XPE_DCC_CONTRACT_VERSION">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="3"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="CreatedBy"
+        Precision="20"
+        ColumnName="CREATED_BY"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="XPE_DCC_CONTRACT_VERSION">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="UpdatedBy"
+        Precision="20"
+        ColumnName="UPDATED_BY"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="XPE_DCC_CONTRACT_VERSION">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="XpeBillOptionsSet"
+        Precision="10"
+        ColumnName="XPE_BILL_OPTIONS_SET"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="XPE_DCC_CONTRACT_VERSION">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="10"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="XpeAcctgOptionsSet"
+        Precision="10"
+        ColumnName="XPE_ACCTG_OPTIONS_SET"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="XPE_DCC_CONTRACT_VERSION">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="10"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="XpeContractTemplate"
+        Precision="20"
+        ColumnName="XPE_CONTRACT_TEMPLATE"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="XPE_DCC_CONTRACT_VERSION">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="BusinessUnitGl"
+        Precision="5"
+        ColumnName="BUSINESS_UNIT_GL"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="XPE_DCC_CONTRACT_VERSION">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="5"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="CurrencyCd"
+        Precision="3"
+        ColumnName="CURRENCY_CD"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="XPE_DCC_CONTRACT_VERSION">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="3"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="XpeWasteType"
+        Precision="3"
+        ColumnName="XPE_WASTE_TYPE"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="XPE_DCC_CONTRACT_VERSION">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="3"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="XpeContractSubType"
+        Precision="3"
+        ColumnName="XPE_CONTRACT_SUB_TYPE"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="XPE_DCC_CONTRACT_VERSION">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="3"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="XpeAgreementType"
+        Precision="3"
+        ColumnName="XPE_AGREEMENT_TYPE"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="XPE_DCC_CONTRACT_VERSION">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="3"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="XpeAsOfDate"
+        ColumnName="XPE_AS_OF_DATE"
+        SQLType="TIMESTAMP"
+        Type="java.sql.Timestamp"
+        ColumnType="TIMESTAMP"
+        TableName="XPE_DCC_CONTRACT_VERSION"/>
+    <AccessorAttribute
+        Name="XpeDccContractNotes"
+        Association="model.XpeDccContractNotesFk1Assoc"
+        AssociationEnd="model.XpeDccContractNotesFk1Assoc.XpeDccContractNotes"
+        AssociationOtherEnd="model.XpeDccContractNotesFk1Assoc.XpeDccContractVersion"
+        Type="oracle.jbo.RowIterator"
+        IsUpdateable="false"/>
+    <AccessorAttribute
+        Name="XpeDccContractLine"
+        Association="model.XpeDccContractLineFk1Assoc"
+        AssociationEnd="model.XpeDccContractLineFk1Assoc.XpeDccContractLine"
+        AssociationOtherEnd="model.XpeDccContractLineFk1Assoc.XpeDccContractVersion"
+        Type="oracle.jbo.RowIterator"
+        IsUpdateable="false"/>
+    <AccessorAttribute
+        Name="XpeDccContracts"
+        Association="model.XpeDccContractVersionFk1Assoc"
+        AssociationEnd="model.XpeDccContractVersionFk1Assoc.XpeDccContracts"
+        AssociationOtherEnd="model.XpeDccContractVersionFk1Assoc.XpeDccContractVersion"
+        Type="oracle.jbo.server.EntityImpl"
+        IsUpdateable="true"/>
+    <AccessorAttribute
+        Name="XpeDccWorkflow"
+        Association="model.XpeDccWorkflowFk1Assoc"
+        AssociationEnd="model.XpeDccWorkflowFk1Assoc.XpeDccWorkflow"
+        AssociationOtherEnd="model.XpeDccWorkflowFk1Assoc.XpeDccContractVersion"
+        Type="oracle.jbo.RowIterator"
+        IsUpdateable="false"/>
+    <AccessorAttribute
+        Name="XpeDccContractsAttachments"
+        Association="model.XpeDccContractsAttachmFk2Assoc"
+        AssociationEnd="model.XpeDccContractsAttachmFk2Assoc.XpeDccContractsAttachments"
+        AssociationOtherEnd="model.XpeDccContractsAttachmFk2Assoc.XpeDccContractVersion"
+        Type="oracle.jbo.RowIterator"
+        IsUpdateable="false"/>
+    <Key
+        Name="XpeDccContractVersionPk"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DBObjectName" Value="XPE_DCC_CONTRACT_VERSION_PK"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.XpeDccContractVersion.XpeContractId"/>
+            <Item Value="model.XpeDccContractVersion.XpeContractVersion"/>
+        </AttrArray>
+    </Key>
+    <Key
+        Name="XpeDccContractVersionFk1">
+        <DesignTime>
+            <Attr Name="_isCascadeDelete" Value="true"/>
+            <Attr Name="_referencedKey" Value="XPE_DCC_CONTRACTS_PK"/>
+            <Attr Name="_isForeign" Value="true"/>
+            <Attr Name="_DBObjectName" Value="XPE_DCC_CONTRACT_VERSION_FK1"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.XpeDccContractVersion.XpeContractId"/>
+        </AttrArray>
+    </Key>
+</Entity>

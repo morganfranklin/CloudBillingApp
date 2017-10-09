@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+    xmlns="http://xmlns.oracle.com/bc4j"
+    Name="NeuRuleTblFk1Link"
+    Version="12.2.1.0.31"
+    InheritPersonalization="merge"
+    EntityAssociation="model.NeuRuleTblFk1Assoc">
+    <ViewLinkDefEnd
+        Name="NeuRulesetTbl1View"
+        Cardinality="1"
+        Source="true"
+        Owner="model.NeuRulesetTbl1View">
+        <DesignTime>
+            <Attr Name="_isUpdateable" Value="true"/>
+            <Attr Name="_minCardinality" Value="1"/>
+            <Attr Name="_finderName" Value="NeuRulesetTbl1View"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.NeuRulesetTbl1View.RulesetCd"/>
+            <Item Value="model.NeuRulesetTbl1View.SystemSource"/>
+        </AttrArray>
+    </ViewLinkDefEnd>
+    <ViewLinkDefEnd
+        Name="NeuRuleTblView"
+        Cardinality="-1"
+        Owner="model.NeuRuleTblView">
+        <DesignTime>
+            <Attr Name="_isUpdateable" Value="true"/>
+            <Attr Name="_finderName" Value="NeuRuleTblView"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.NeuRuleTblView.RulesetCd"/>
+            <Item Value="model.NeuRuleTblView.SystemSource"/>
+        </AttrArray>
+    </ViewLinkDefEnd>
+</ViewLink>

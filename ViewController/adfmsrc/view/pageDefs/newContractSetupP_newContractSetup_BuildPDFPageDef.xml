@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57"
+                id="newContractSetupP_newContractSetup_BuildPDFPageDef" Package="view.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XpeDmsCustomerEOVO" RangeSize="10" DataControl="AppModuleDataControl"
+              id="XpeDmsCustomerEOVOIterator"/>
+    <iterator Binds="XpeDccNewContractCustomerSearchROVO" RangeSize="10" DataControl="AppModuleDataControl"
+              id="XpeDccNewContractCustomerSearchROVOIterator"/>
+    <iterator Binds="XpeDccNewContractVersionView" RangeSize="10" DataControl="AppModuleDataControl"
+              id="XpeDccNewContractVersionViewIterator"/>
+    <iterator Binds="XpeDccNewContractSetupROVO" RangeSize="10" DataControl="AppModuleDataControl"
+              id="XpeDccNewContractSetupROVOIterator"/>
+    <iterator Binds="XpeDccNewContractNotesView" RangeSize="10" DataControl="AppModuleDataControl"
+              id="XpeDccNewContractNotesViewIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="XpeDmsCustomerEOVOIterator" id="City">
+      <AttrNames>
+        <Item Value="City"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDmsCustomerEOVOIterator" id="CompanyName">
+      <AttrNames>
+        <Item Value="CompanyName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDmsCustomerEOVOIterator" id="ContactName">
+      <AttrNames>
+        <Item Value="ContactName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDmsCustomerEOVOIterator" id="Postal">
+      <AttrNames>
+        <Item Value="Postal"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDmsCustomerEOVOIterator" id="State">
+      <AttrNames>
+        <Item Value="State"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDmsCustomerEOVOIterator" id="MailingAddress1">
+      <AttrNames>
+        <Item Value="MailingAddress1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractCustomerSearchROVOIterator" id="EXTCustomerName">
+      <AttrNames>
+        <Item Value="Name1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractCustomerSearchROVOIterator" id="EXTAddress1">
+      <AttrNames>
+        <Item Value="Address1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractCustomerSearchROVOIterator" id="EXTCity">
+      <AttrNames>
+        <Item Value="City"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractCustomerSearchROVOIterator" id="EXTState">
+      <AttrNames>
+        <Item Value="State"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractCustomerSearchROVOIterator" id="EXTPostal">
+      <AttrNames>
+        <Item Value="Postal"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractVersionViewIterator" id="XpeAsOfDate">
+      <AttrNames>
+        <Item Value="XpeAsOfDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractVersionViewIterator" id="XpeStartDate">
+      <AttrNames>
+        <Item Value="XpeStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractVersionViewIterator" id="XpeEndDate">
+      <AttrNames>
+        <Item Value="XpeEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractSetupROVOIterator" id="Customer_Type">
+      <AttrNames>
+        <Item Value="Customer_Type"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractSetupROVOIterator" id="Business_Type">
+      <AttrNames>
+        <Item Value="Business_Type"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractVersionViewIterator" id="XpeWasteType">
+      <AttrNames>
+        <Item Value="XpeWasteType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractVersionViewIterator" id="XpeContractSubType">
+      <AttrNames>
+        <Item Value="XpeContractSubType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractVersionViewIterator" id="XpeAgreementType">
+      <AttrNames>
+        <Item Value="XpeAgreementType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractCustomerSearchROVOIterator" id="CustId">
+      <AttrNames>
+        <Item Value="CustId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractNotesViewIterator" id="XpeUser">
+      <AttrNames>
+        <Item Value="XpeUser"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractNotesViewIterator" id="XpeNote">
+      <AttrNames>
+        <Item Value="XpeNote"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDmsCustomerEOVOIterator" id="MailingAddress2">
+      <AttrNames>
+        <Item Value="MailingAddress2"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDmsCustomerEOVOIterator" id="Title">
+      <AttrNames>
+        <Item Value="Title"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDmsCustomerEOVOIterator" id="PhoneNum">
+      <AttrNames>
+        <Item Value="PhoneNum"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDmsCustomerEOVOIterator" id="Email">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDmsCustomerEOVOIterator" id="BillingAddress1">
+      <AttrNames>
+        <Item Value="BillingAddress1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDmsCustomerEOVOIterator" id="BillingAddress2">
+      <AttrNames>
+        <Item Value="BillingAddress2"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDmsCustomerEOVOIterator" id="MailingCity">
+      <AttrNames>
+        <Item Value="MailingCity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDmsCustomerEOVOIterator" id="MailingState">
+      <AttrNames>
+        <Item Value="MailingState"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDmsCustomerEOVOIterator" id="MailingPostal">
+      <AttrNames>
+        <Item Value="MailingPostal"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

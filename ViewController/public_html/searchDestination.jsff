@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGroupLayout layout="vertical" id="pgl1">
+        <af:panelHeader text="Destinations Set Up" id="ph1">
+            <af:query id="qryId1" headerText="Search" disclosed="true"
+                      value="#{bindings.DestinationsCriteriaQuery.queryDescriptor}"
+                      model="#{bindings.DestinationsCriteriaQuery.queryModel}"
+                      queryListener="#{bindings.DestinationsCriteriaQuery.processQuery}"
+                      queryOperationListener="#{bindings.DestinationsCriteriaQuery.processQueryOperation}"
+                      resultComponentId="::resId1"/>
+        </af:panelHeader>
+        <af:panelHeader text="Destinations" id="ph2">
+            <af:table value="#{bindings.XpeDccCfgDestinationsEOVO.collectionModel}" var="row"
+                      rows="#{bindings.XpeDccCfgDestinationsEOVO.rangeSize}"
+                      emptyText="#{bindings.XpeDccCfgDestinationsEOVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="1"
+                      selectedRowKeys="#{bindings.XpeDccCfgDestinationsEOVO.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.XpeDccCfgDestinationsEOVO.collectionModel.makeCurrent}"
+                      rowSelection="single" fetchSize="#{bindings.XpeDccCfgDestinationsEOVO.rangeSize}" id="resId1"
+                      contentDelivery="immediate" columnStretching="last">
+                <af:column headerText="#{bindings.XpeDccCfgDestinationsEOVO.hints.DestinationId.label}" id="resId1c1">
+                    <af:link text="#{row.DestinationId}" id="l1" partialSubmit="true" action="Edit"/>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgDestinationsEOVO.hints.DestinationDesc.label}" id="resId1c2">
+                    <af:outputText value="#{row.DestinationDesc}"
+                                   shortDesc="#{bindings.XpeDccCfgDestinationsEOVO.hints.DestinationDesc.tooltip}"
+                                   id="ot2"/>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgDestinationsEOVO.hints.State.label}" id="resId1c3">
+                    <af:outputText value="#{row.State}"
+                                   shortDesc="#{bindings.XpeDccCfgDestinationsEOVO.hints.State.tooltip}" id="ot3"/>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgDestinationsEOVO.hints.Inactive.label}" id="resId1c4">
+                    <af:selectOneChoice value="#{row.bindings.Inactive.inputValue}"
+                                        label="#{row.bindings.Inactive.label}"
+                                        required="#{bindings.XpeDccCfgDestinationsEOVO.hints.Inactive.mandatory}"
+                                        shortDesc="#{bindings.XpeDccCfgDestinationsEOVO.hints.Inactive.tooltip}"
+                                        readOnly="true" id="soc1">
+                        <f:selectItems value="#{row.bindings.Inactive.items}" id="si1"/>
+                        <f:validator binding="#{row.bindings.Inactive.validator}"/>
+                    </af:selectOneChoice>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgDestinationsEOVO.hints.InactiveDate.label}" id="resId1c5">
+                    <af:outputText value="#{row.InactiveDate}"
+                                   shortDesc="#{bindings.XpeDccCfgDestinationsEOVO.hints.InactiveDate.tooltip}"
+                                   id="ot4">
+                        <af:convertDateTime pattern="#{bindings.XpeDccCfgDestinationsEOVO.hints.InactiveDate.format}"/>
+                    </af:outputText>
+                </af:column>
+            </af:table>
+            <f:facet name="toolbar">
+                <af:button text="Add Item" id="b1" action="Add"/>
+            </f:facet>
+        </af:panelHeader>
+        <af:panelHeader text="Associated Terminals" id="ph3">
+            <af:table rows="#{bindings.XpeDccCfgDstAssTerminalsEOVO.rangeSize}"
+                      fetchSize="#{bindings.XpeDccCfgDstAssTerminalsEOVO.rangeSize}"
+                      emptyText="#{bindings.XpeDccCfgDstAssTerminalsEOVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      var="row" value="#{bindings.XpeDccCfgDstAssTerminalsEOVO.collectionModel}" rowBandingInterval="1"
+                      selectedRowKeys="#{bindings.XpeDccCfgDstAssTerminalsEOVO.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.XpeDccCfgDstAssTerminalsEOVO.collectionModel.makeCurrent}"
+                      rowSelection="single" id="t1" contentDelivery="immediate" columnStretching="last">
+                <af:column headerText="#{bindings.XpeDccCfgDstAssTerminalsEOVO.hints.TerminalId.label}" id="c18">
+                    <af:outputText value="#{row.TerminalId}"
+                                   shortDesc="#{bindings.XpeDccCfgDstAssTerminalsEOVO.hints.TerminalId.tooltip}"
+                                   id="ot21"/>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgDstAssTerminalsEOVO.hints.TerminalDesc.label}" id="c17">
+                    <af:outputText value="#{row.TerminalDesc}"
+                                   shortDesc="#{bindings.XpeDccCfgDstAssTerminalsEOVO.hints.TerminalDesc.tooltip}"
+                                   id="ot20"/>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgDstAssTerminalsEOVO.hints.Inactive.label}"
+                           id="c13">
+                    <af:outputText value="#{row.Inactive}"
+                                   shortDesc="#{bindings.XpeDccCfgDstAssTerminalsEOVO.hints.Inactive.tooltip}"
+                                   id="ot16"/>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgDstAssTerminalsEOVO.hints.InactiveDate.label}" id="c14">
+                    <af:outputText value="#{row.InactiveDate}"
+                                   shortDesc="#{bindings.XpeDccCfgDstAssTerminalsEOVO.hints.InactiveDate.tooltip}"
+                                   id="ot17">
+                        <af:convertDateTime pattern="#{bindings.XpeDccCfgDstAssTerminalsEOVO.hints.InactiveDate.format}"/>
+                    </af:outputText>
+                </af:column>
+            </af:table>
+        </af:panelHeader>
+    </af:panelGroupLayout>
+</ui:composition>

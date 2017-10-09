@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="dccContractLinePageDef"
+                Package="view.pageDefs">
+    <parameters/>
+    <executables>
+        <variableIterator id="variables"/>
+        <iterator id="XpeDccContractLineView3Iterator" Binds="XpeDccContractLineView1"
+                  DataControl="AppModuleDataControl" RangeSize="25"/>
+        <iterator id="XpeDccContractPricingTermView3Iterator" Binds="XpeDccContractPricingTermView1"
+                  DataControl="AppModuleDataControl" RangeSize="25"/>
+        <iterator Binds="XpeDccContractPricingOverView1" RangeSize="25" DataControl="AppModuleDataControl"
+                  id="XpeDccContractPricingOverView1Iterator"/>
+    </executables>
+    <bindings>
+        <attributeValues IterBinding="XpeDccContractLineView3Iterator" id="XpeContractId">
+            <AttrNames>
+                <Item Value="XpeContractId"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccContractLineView3Iterator" id="XpeContractVersion">
+            <AttrNames>
+                <Item Value="XpeContractVersion"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccContractLineView3Iterator" id="XpeContractLine">
+            <AttrNames>
+                <Item Value="XpeContractLine"/>
+            </AttrNames>
+        </attributeValues>
+        <list IterBinding="XpeDccContractLineView3Iterator" StaticList="false" Uses="LOV_XpeFacility" id="XpeFacility"
+              DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+        <list IterBinding="XpeDccContractLineView3Iterator" StaticList="false" Uses="LOV_XpeProductId" id="XpeProductId"
+              DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+        <list IterBinding="XpeDccContractLineView3Iterator" StaticList="false" Uses="LOV_XpeProductUom"
+              id="XpeProductUom" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+        <attributeValues IterBinding="XpeDccContractLineView3Iterator" id="XpeQtyMin">
+            <AttrNames>
+                <Item Value="XpeQtyMin"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccContractLineView3Iterator" id="XpeQtyMax">
+            <AttrNames>
+                <Item Value="XpeQtyMax"/>
+            </AttrNames>
+        </attributeValues>
+        <list IterBinding="XpeDccContractLineView3Iterator" StaticList="false" Uses="LOV_XpePeriodType"
+              id="XpePeriodType" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+        <tree IterBinding="XpeDccContractPricingTermView3Iterator" id="XpeDccContractPricingTermView2">
+            <nodeDefinition DefName="model.XpeDccContractPricingTermView" Name="XpeDccContractPricingTermView20">
+                <AttrNames>
+                    <Item Value="XpePricingTermLine"/>
+                    <Item Value="XpePricingTermType"/>
+                    <Item Value="XpeQtyMax"/>
+                    <Item Value="XpeRate"/>
+                    <Item Value="XpeChargeOverMin"/>
+                    <Item Value="XpeChargeOverMax"/>
+                    <Item Value="XpePeriodType"/>
+                    <Item Value="XpePeriodNbr"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+        <action IterBinding="XpeDccContractPricingTermView3Iterator" id="CreateInsert" RequiresUpdateModel="true"
+                Action="createInsertRow"/>
+        <attributeValues IterBinding="XpeDccContractLineView3Iterator" id="XpeSwApprNbr">
+            <AttrNames>
+                <Item Value="XpeSwApprNbr"/>
+            </AttrNames>
+        </attributeValues>
+        <tree IterBinding="XpeDccContractPricingOverView1Iterator" id="XpeDccContractPricingOverView1">
+            <nodeDefinition DefName="model.XpeDccContractPricingOverView" Name="XpeDccContractPricingOverView10">
+                <AttrNames>
+                    <Item Value="XpeContractOverNbr"/>
+                    <Item Value="XpeOverStart"/>
+                    <Item Value="XpeOverEnd"/>
+                    <Item Value="XpeOverType"/>
+                    <Item Value="XpeSourceFld"/>
+                    <Item Value="XpeCondition"/>
+                    <Item Value="XpeTargetFld"/>
+                    <Item Value="XpeCheck"/>
+                    <Item Value="XpeOverMsg"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <list IterBinding="XpeDccContractLineView3Iterator" StaticList="false" Uses="LOV_CurrencyCd" id="CurrencyCd"
+              DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    </bindings>
+</pageDefinition>

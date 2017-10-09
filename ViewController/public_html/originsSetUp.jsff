@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGroupLayout layout="vertical" id="pgl1">
+        <af:panelHeader text="Origins Set Up" id="ph1">
+            <af:query id="qryId1" headerText="Search" disclosed="true"
+                      value="#{bindings.OriginsCriteriaQuery.queryDescriptor}"
+                      model="#{bindings.OriginsCriteriaQuery.queryModel}"
+                      queryListener="#{bindings.OriginsCriteriaQuery.processQuery}"
+                      queryOperationListener="#{bindings.OriginsCriteriaQuery.processQueryOperation}"
+                      resultComponentId="::resId1"/>
+        </af:panelHeader>
+        <af:panelHeader text="Origins" id="ph2">
+            <f:facet name="context"/>
+            <f:facet name="toolbar">
+                <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add Item"
+                           disabled="#{!bindings.CreateInsert.enabled}" id="b1" action="setCurrentRow">
+                    <af:setActionListener from="#{bindings.OriginId.inputValue}" to="#{pageFlowScope.OriginId}"/>
+                    <af:setActionListener from="ADD" to="#{pageFlowScope.NavFlow}"/>
+                </af:button>
+            </f:facet>
+            <f:facet name="menuBar"/>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+            <af:table value="#{bindings.XpeDccCfgOriginsEOVO.collectionModel}" var="row"
+                      rows="#{bindings.XpeDccCfgOriginsEOVO.rangeSize}"
+                      emptyText="#{bindings.XpeDccCfgOriginsEOVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.XpeDccCfgOriginsEOVO.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.XpeDccCfgOriginsEOVO.collectionModel.makeCurrent}"
+                      rowSelection="single" fetchSize="#{bindings.XpeDccCfgOriginsEOVO.rangeSize}" id="resId1"
+                      contentDelivery="immediate" columnStretching="last" partialTriggers="::b1">
+                <af:column headerText="#{bindings.XpeDccCfgOriginsEOVO.hints.OriginId.label}" id="resId1c1">
+                    <af:link text="#{row.OriginId}" id="l1" partialSubmit="true" action="setCurrentRow">
+                        <af:setActionListener from="#{bindings.OriginId.inputValue}" to="#{pageFlowScope.OriginId}"/>
+                        <af:setActionListener from="EDIT" to="#{pageFlowScope.NavFlow}"/>
+                    </af:link>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgOriginsEOVO.hints.OriginDesc.label}" id="resId1c2">
+                    <af:outputText value="#{row.OriginDesc}"
+                                   shortDesc="#{bindings.XpeDccCfgOriginsEOVO.hints.OriginDesc.tooltip}" id="ot2"/>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgOriginsEOVO.hints.County.label}" id="resId1c3">
+                    <af:outputText value="#{row.County}"
+                                   shortDesc="#{bindings.XpeDccCfgOriginsEOVO.hints.County.tooltip}" id="ot3"/>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgOriginsEOVO.hints.State.label}" id="resId1c4">
+                    <af:selectOneChoice value="#{row.bindings.State.inputValue}" label="#{row.bindings.State.label}"
+                                        required="#{bindings.XpeDccCfgOriginsEOVO.hints.State.mandatory}"
+                                        shortDesc="#{bindings.XpeDccCfgOriginsEOVO.hints.State.tooltip}" readOnly="true"
+                                        id="soc1">
+                        <f:selectItems value="#{row.bindings.State.items}" id="si1"/>
+                        <f:validator binding="#{row.bindings.State.validator}"/>
+                    </af:selectOneChoice>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgOriginsEOVO.hints.Inactive.label}" id="resId1c5">
+                    <af:selectOneChoice value="#{row.bindings.Inactive.inputValue}"
+                                        label="#{row.bindings.Inactive.label}"
+                                        required="#{bindings.XpeDccCfgOriginsEOVO.hints.Inactive.mandatory}"
+                                        shortDesc="#{bindings.XpeDccCfgOriginsEOVO.hints.Inactive.tooltip}"
+                                        readOnly="true" id="soc2">
+                        <f:selectItems value="#{row.bindings.Inactive.items}" id="si2"/>
+                        <f:validator binding="#{row.bindings.Inactive.validator}"/>
+                    </af:selectOneChoice>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgOriginsEOVO.hints.InactiveDate.label}" id="resId1c6">
+                    <af:outputText value="#{row.InactiveDate}"
+                                   shortDesc="#{bindings.XpeDccCfgOriginsEOVO.hints.InactiveDate.tooltip}" id="ot4">
+                        <af:convertDateTime pattern="#{bindings.XpeDccCfgOriginsEOVO.hints.InactiveDate.format}"/>
+                    </af:outputText>
+                </af:column>
+            </af:table>
+        </af:panelHeader>
+        <af:panelHeader text="Associated Terminals" id="ph3">
+            <f:facet name="context"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+            <af:table value="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.collectionModel}" var="row"
+                      rows="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.rangeSize}"
+                      emptyText="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.collectionModel.makeCurrent}"
+                      rowSelection="single" fetchSize="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.rangeSize}" id="t1">
+                <af:column headerText="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.hints.TerminalId.label}" id="c1">
+                    <af:outputText value="#{row.TerminalId}"
+                                   shortDesc="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.hints.TerminalId.tooltip}"
+                                   id="ot5"/>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.hints.TerminalDesc.label}" id="c2">
+                    <af:outputText value="#{row.TerminalDesc}"
+                                   shortDesc="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.hints.TerminalDesc.tooltip}"
+                                   id="ot6"/>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.hints.OriginId.label}" id="c3">
+                    <af:outputText value="#{row.OriginId}"
+                                   shortDesc="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.hints.OriginId.tooltip}"
+                                   id="ot7"/>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.hints.Inactive.label}" id="c4">
+                    <af:selectOneChoice value="#{row.bindings.Inactive.inputValue}"
+                                        label="#{row.bindings.Inactive.label}"
+                                        required="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.hints.Inactive.mandatory}"
+                                        shortDesc="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.hints.Inactive.tooltip}"
+                                        readOnly="true" id="soc3">
+                        <f:selectItems value="#{row.bindings.Inactive.items}" id="si3"/>
+                        <f:validator binding="#{row.bindings.Inactive.validator}"/>
+                    </af:selectOneChoice>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.hints.InactiveDate.label}" id="c5">
+                    <af:outputText value="#{row.InactiveDate}"
+                                   shortDesc="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.hints.InactiveDate.tooltip}"
+                                   id="ot8">
+                        <af:convertDateTime pattern="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.hints.InactiveDate.format}"/>
+                    </af:outputText>
+                </af:column>
+            </af:table>
+        </af:panelHeader>
+    </af:panelGroupLayout>
+</ui:composition>

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+    xmlns="http://xmlns.oracle.com/bc4j"
+    Name="PsCisXpeMapDtl"
+    Version="12.2.1.0.31"
+    InheritPersonalization="merge"
+    DBObjectType="table"
+    DBObjectName="PS_CIS_XPE_MAP_DTL"
+    AliasName="PsCisXpeMapDtl"
+    BindingStyle="OracleName">
+    <Attribute
+        Name="Tablename"
+        IsNotNull="true"
+        Precision="30"
+        ColumnName="TABLENAME"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="PS_CIS_XPE_MAP_DTL"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="30"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="CisActionCode"
+        IsNotNull="true"
+        Precision="50"
+        ColumnName="CIS_ACTION_CODE"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="PS_CIS_XPE_MAP_DTL"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="50"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="Seqno"
+        IsNotNull="true"
+        Precision="5"
+        Scale="0"
+        ColumnName="SEQNO"
+        SQLType="NUMERIC"
+        Type="java.lang.Integer"
+        ColumnType="NUMBER"
+        TableName="PS_CIS_XPE_MAP_DTL"
+        PrimaryKey="true"/>
+    <Attribute
+        Name="GenericField"
+        Precision="40"
+        ColumnName="GENERIC_FIELD"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="PS_CIS_XPE_MAP_DTL">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="40"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="CisNativeField"
+        Precision="40"
+        ColumnName="CIS_NATIVE_FIELD"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="PS_CIS_XPE_MAP_DTL">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="40"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="CisConstantField"
+        Precision="80"
+        ColumnName="CIS_CONSTANT_FIELD"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="PS_CIS_XPE_MAP_DTL">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="80"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="IsKey"
+        Precision="1"
+        ColumnName="IS_KEY"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="PS_CIS_XPE_MAP_DTL">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="1"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="WhereClause1"
+        Precision="254"
+        ColumnName="WHERE_CLAUSE1"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="PS_CIS_XPE_MAP_DTL">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="254"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="AppTblName"
+        Precision="64"
+        ColumnName="APP_TBL_NAME"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="PS_CIS_XPE_MAP_DTL">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="64"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="DpTargetfield"
+        Precision="20"
+        ColumnName="DP_TARGETFIELD"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="PS_CIS_XPE_MAP_DTL">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="CisAggregateType"
+        Precision="40"
+        ColumnName="CIS_AGGREGATE_TYPE"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="PS_CIS_XPE_MAP_DTL">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="40"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="LblDescr"
+        Precision="150"
+        ColumnName="LBL_DESCR"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="PS_CIS_XPE_MAP_DTL">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="150"/>
+        </DesignTime>
+    </Attribute>
+    <AccessorAttribute
+        Name="PsCisXpeMapping"
+        Association="model.PsCisXpeMappingDetailFk1Assoc"
+        AssociationEnd="model.PsCisXpeMappingDetailFk1Assoc.PsCisXpeMapping"
+        AssociationOtherEnd="model.PsCisXpeMappingDetailFk1Assoc.PsCisXpeMapDtl"
+        Type="oracle.jbo.server.EntityImpl"
+        IsUpdateable="true"/>
+    <Key
+        Name="PsCisXpeMappingDetailPk"
+        PrimaryKey="true">
+        <DesignTime>
+            <Attr Name="_DBObjectName" Value="PS_CIS_XPE_MAPPING_DETAIL_PK"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.PsCisXpeMapDtl.Tablename"/>
+            <Item Value="model.PsCisXpeMapDtl.Seqno"/>
+            <Item Value="model.PsCisXpeMapDtl.CisActionCode"/>
+        </AttrArray>
+    </Key>
+    <Key
+        Name="PsCisXpeMappingDetailFk1">
+        <DesignTime>
+            <Attr Name="_referencedKey" Value="PS_CIS_XPE_MAPPING_PK"/>
+            <Attr Name="_isForeign" Value="true"/>
+            <Attr Name="_DBObjectName" Value="PS_CIS_XPE_MAPPING_DETAIL_FK1"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.PsCisXpeMapDtl.Tablename"/>
+            <Item Value="model.PsCisXpeMapDtl.CisActionCode"/>
+        </AttrArray>
+    </Key>
+</Entity>

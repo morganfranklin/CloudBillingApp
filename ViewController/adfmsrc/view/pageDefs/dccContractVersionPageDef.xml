@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="dccContractVersionPageDef"
+                Package="view.pageDefs">
+    <parameters/>
+    <executables>
+        <variableIterator id="variables"/>
+        <searchRegion Binds="XpeDccContractLineView3Iterator" Criteria=""
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                      id="XpeDccContractLineView2Query"/>
+        <searchRegion Binds="XpeDccContractNotesView3Iterator" Criteria=""
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                      id="XpeDccContractNotesView2Query"/>
+        <searchRegion Binds="XpeDccWorkflowView3Iterator" Criteria=""
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="XpeDccWorkflowView2Query"/>
+        <iterator id="XpeDccContractVersionView2Iterator" Binds="XpeDccContractVersionView1"
+                  DataControl="AppModuleDataControl" RangeSize="25"/>
+        <iterator id="XpeDccContractLineView3Iterator" Binds="XpeDccContractLineView1"
+                  DataControl="AppModuleDataControl" RangeSize="25"/>
+        <iterator id="XpeDccContractNotesView3Iterator" Binds="XpeDccContractNotesView1"
+                  DataControl="AppModuleDataControl" RangeSize="25"/>
+        <iterator id="XpeDccWorkflowView3Iterator" Binds="XpeDccWorkflowView2" DataControl="AppModuleDataControl"
+                  RangeSize="25"/>
+        <iterator Binds="XpeDccContractsAttachmentsView1" RangeSize="25" DataControl="AppModuleDataControl"
+                  id="XpeDccContractsAttachmentsView1Iterator"/>
+        <iterator Binds="XpeDccContractsView2" RangeSize="10" DataControl="AppModuleDataControl"
+                  id="XpeDccContractsView2Iterator"/>
+        <iterator Binds="XpeDccContractsView1" RangeSize="10" DataControl="AppModuleDataControl"
+                  id="XpeDccContractsView1Iterator"/>
+    </executables>
+    <bindings>
+        <attributeValues IterBinding="XpeDccContractVersionView2Iterator" id="XpeContractId">
+            <AttrNames>
+                <Item Value="XpeContractId"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccContractVersionView2Iterator" id="XpeContractVersion">
+            <AttrNames>
+                <Item Value="XpeContractVersion"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccContractVersionView2Iterator" id="XpeContractStatus">
+            <AttrNames>
+                <Item Value="XpeContractStatus"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccContractVersionView2Iterator" id="XpeStartDate">
+            <AttrNames>
+                <Item Value="XpeStartDate"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccContractVersionView2Iterator" id="XpeEndDate">
+            <AttrNames>
+                <Item Value="XpeEndDate"/>
+            </AttrNames>
+        </attributeValues>
+        <list IterBinding="XpeDccContractVersionView2Iterator" StaticList="false" Uses="LOV_XpeNewTermMode"
+              id="XpeNewTermMode" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+        <attributeValues IterBinding="XpeDccContractVersionView2Iterator" id="UpdatedBy">
+            <AttrNames>
+                <Item Value="UpdatedBy"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccContractVersionView2Iterator" id="CreatedBy">
+            <AttrNames>
+                <Item Value="CreatedBy"/>
+            </AttrNames>
+        </attributeValues>
+        <list IterBinding="XpeDccContractVersionView2Iterator" StaticList="false" Uses="LOV_XpeBillOptionsSet"
+              id="XpeBillOptionsSet" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+        <list IterBinding="XpeDccContractVersionView2Iterator" StaticList="false" Uses="LOV_XpeAcctgOptionsSet"
+              id="XpeAcctgOptionsSet" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+        <attributeValues IterBinding="XpeDccContractVersionView2Iterator" id="XpeContractTemplate">
+            <AttrNames>
+                <Item Value="XpeContractTemplate"/>
+            </AttrNames>
+        </attributeValues>
+        <list IterBinding="XpeDccContractVersionView2Iterator" StaticList="false" Uses="LOV_BusinessUnitGl"
+              id="BusinessUnitGl" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+        <list IterBinding="XpeDccContractVersionView2Iterator" StaticList="false" Uses="LOV_CurrencyCd" id="CurrencyCd"
+              DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+        <tree IterBinding="XpeDccContractLineView3Iterator" id="XpeDccContractLineView2">
+            <nodeDefinition DefName="model.XpeDccContractLineView" Name="XpeDccContractLineView20">
+                <AttrNames>
+                    <Item Value="XpeContractLine"/>
+                    <Item Value="XpeFacility"/>
+                    <Item Value="XpeProductId"/>
+                    <Item Value="XpeProductUom"/>
+                    <Item Value="XpeQtyMin"/>
+                    <Item Value="XpeQtyMax"/>
+                    <Item Value="XpePeriodType"/>
+                    <Item Value="XpeSwApprNbr"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <tree IterBinding="XpeDccWorkflowView3Iterator" id="XpeDccWorkflowView2">
+            <nodeDefinition DefName="model.XpeDccWorkflowView" Name="XpeDccWorkflowView20">
+                <AttrNames>
+                    <Item Value="XpeWfNbr"/>
+                    <Item Value="XpeWfType"/>
+                    <Item Value="XpeWfDttm"/>
+                    <Item Value="XpeWfUser"/>
+                    <Item Value="XpeWfComment"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <tree IterBinding="XpeDccContractNotesView3Iterator" id="XpeDccContractNotesView2">
+            <nodeDefinition DefName="model.XpeDccContractNotesView" Name="XpeDccContractNotesView20">
+                <AttrNames>
+                    <Item Value="XpeNoteDttm"/>
+                    <Item Value="XpeNoteType"/>
+                    <Item Value="XpeNote"/>
+                    <Item Value="XpeUser"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+        <action IterBinding="XpeDccContractLineView3Iterator" id="CreateInsert" RequiresUpdateModel="true"
+                Action="createInsertRow"/>
+        <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+                DataControl="AppModuleDataControl"/>
+        <action IterBinding="XpeDccContractNotesView3Iterator" id="CreateInsert1" RequiresUpdateModel="true"
+                Action="createInsertRow"/>
+        <tree IterBinding="XpeDccContractsAttachmentsView1Iterator" id="XpeDccContractsAttachmentsView1">
+            <nodeDefinition DefName="model.XpeDccContractsAttachmentsView" Name="XpeDccContractsAttachmentsView10">
+                <AttrNames>
+                    <Item Value="UploadFile"/>
+                    <Item Value="Name"/>
+                    <Item Value="XpeContractId"/>
+                    <Item Value="XpeContractVersion"/>
+                    <Item Value="RowID"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <methodAction id="uploadFiletoDB" RequiresUpdateModel="true" Action="invokeMethod" MethodName="uploadFiletoDB"
+                      IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                      InstanceName="data.AppModuleDataControl.dataProvider"
+                      ReturnName="data.AppModuleDataControl.methodResults.uploadFiletoDB_AppModuleDataControl_dataProvider_uploadFiletoDB_result">
+            <NamedData NDName="filename" NDType="java.lang.String"/>
+            <NamedData NDName="blob" NDType="oracle.jbo.domain.BlobDomain"/>
+        </methodAction>
+        <attributeValues IterBinding="XpeDccContractsView1Iterator" id="XpeContractId1">
+            <AttrNames>
+                <Item Value="XpeContractId"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccContractsView1Iterator" id="XpeContractDesc">
+            <AttrNames>
+                <Item Value="XpeContractDesc"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccContractsView1Iterator" id="Setid">
+            <AttrNames>
+                <Item Value="Setid"/>
+            </AttrNames>
+        </attributeValues>
+        <listOfValues Uses="LOV_CustId" StaticList="false" IterBinding="XpeDccContractsView1Iterator" id="CustId"/>
+        <action IterBinding="XpeDccContractsView1Iterator" id="CreateInsert2"
+                InstanceName="AppModuleDataControl.XpeDccContractsView1" DataControl="AppModuleDataControl"
+                RequiresUpdateModel="true" Action="createInsertRow"/>
+        <methodAction id="copyContractRow" RequiresUpdateModel="true" Action="invokeMethod" MethodName="copyContractRow"
+                      IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                      InstanceName="data.AppModuleDataControl.dataProvider"/>
+    </bindings>
+</pageDefinition>
