@@ -296,7 +296,8 @@
                                                                        id="ot1"/>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.XpeContractVersion.label}"
-                                                               id="c1">
+                                                               id="c1" width="100" minimumWidth="12"
+                                                               headerNoWrap="true">
                                                         <af:outputText value="#{row.XpeContractVersion}"
                                                                        shortDesc="#{bindings.XpeDccContractSearchROVO.hints.XpeContractVersion.tooltip}"
                                                                        id="ot9"/>
