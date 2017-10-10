@@ -148,8 +148,19 @@
           <Item Value="State"/>
           <Item Value="Postal"/>
           <Item Value="XpeSwApprNbr"/>
+          <Item Value="SalesPerson"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <attributeValues IterBinding="XpeDmsCustomerEOVOIterator" id="CustomerTier">
+      <AttrNames>
+        <Item Value="CustomerTier"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDmsCustomerEOVOIterator" id="ProductTier">
+      <AttrNames>
+        <Item Value="ProductTier"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

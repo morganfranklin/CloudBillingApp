@@ -36,6 +36,7 @@ public class XpeDccContractVersionImpl extends EntityImpl {
         XpeContractSubType,
         XpeAgreementType,
         XpeAsOfDate,
+        SalesPerson,
         XpeDccContractNotes,
         XpeDccContractLine,
         XpeDccContracts,
@@ -82,6 +83,7 @@ public class XpeDccContractVersionImpl extends EntityImpl {
     public static final int XPECONTRACTSUBTYPE = AttributesEnum.XpeContractSubType.index();
     public static final int XPEAGREEMENTTYPE = AttributesEnum.XpeAgreementType.index();
     public static final int XPEASOFDATE = AttributesEnum.XpeAsOfDate.index();
+    public static final int SALESPERSON = AttributesEnum.SalesPerson.index();
     public static final int XPEDCCCONTRACTNOTES = AttributesEnum.XpeDccContractNotes.index();
     public static final int XPEDCCCONTRACTLINE = AttributesEnum.XpeDccContractLine.index();
     public static final int XPEDCCCONTRACTS = AttributesEnum.XpeDccContracts.index();
@@ -372,6 +374,22 @@ public class XpeDccContractVersionImpl extends EntityImpl {
      */
     public void setXpeAsOfDate(Timestamp value) {
         setAttributeInternal(XPEASOFDATE, value);
+    }
+
+    /**
+     * Gets the attribute value for SalesPerson, using the alias name SalesPerson.
+     * @return the value of SalesPerson
+     */
+    public String getSalesPerson() {
+        return (String) getAttributeInternal(SALESPERSON);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for SalesPerson.
+     * @param value value to set the SalesPerson
+     */
+    public void setSalesPerson(String value) {
+        setAttributeInternal(SALESPERSON, value);
     }
 
     /**

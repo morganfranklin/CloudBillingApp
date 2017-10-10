@@ -1,5 +1,7 @@
 package model.views.entitybased;
 
+import model.entities.XpeDmsCustomerEOImpl;
+
 import oracle.jbo.server.EntityImpl;
 import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
@@ -9,6 +11,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class XpeDmsCustomerEOVORowImpl extends ViewRowImpl {
+
     public static final int ENTITY_XPEDMSCUSTOMEREO = 0;
 
     /**
@@ -35,8 +38,11 @@ public class XpeDmsCustomerEOVORowImpl extends ViewRowImpl {
         Postal,
         SetId,
         State,
-        Title;
-        private static AttributesEnum[] vals = null;
+        Title,
+        ProductTier,
+        CustomerTier;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -58,6 +64,7 @@ public class XpeDmsCustomerEOVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
     public static final int BILLINGADDRESS1 = AttributesEnum.BillingAddress1.index();
     public static final int BILLINGADDRESS2 = AttributesEnum.BillingAddress2.index();
     public static final int BUSINESSTYPE = AttributesEnum.BusinessType.index();
@@ -79,6 +86,8 @@ public class XpeDmsCustomerEOVORowImpl extends ViewRowImpl {
     public static final int SETID = AttributesEnum.SetId.index();
     public static final int STATE = AttributesEnum.State.index();
     public static final int TITLE = AttributesEnum.Title.index();
+    public static final int PRODUCTTIER = AttributesEnum.ProductTier.index();
+    public static final int CUSTOMERTIER = AttributesEnum.CustomerTier.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -90,8 +99,8 @@ public class XpeDmsCustomerEOVORowImpl extends ViewRowImpl {
      * Gets XpeDmsCustomerEO entity object.
      * @return the XpeDmsCustomerEO
      */
-    public EntityImpl getXpeDmsCustomerEO() {
-        return (EntityImpl) getEntity(ENTITY_XPEDMSCUSTOMEREO);
+    public XpeDmsCustomerEOImpl getXpeDmsCustomerEO() {
+        return (XpeDmsCustomerEOImpl) getEntity(ENTITY_XPEDMSCUSTOMEREO);
     }
 
     /**
@@ -428,6 +437,38 @@ public class XpeDmsCustomerEOVORowImpl extends ViewRowImpl {
      */
     public void setTitle(String value) {
         setAttributeInternal(TITLE, value);
+    }
+
+    /**
+     * Gets the attribute value for PRODUCT_TIER using the alias name ProductTier.
+     * @return the PRODUCT_TIER
+     */
+    public String getProductTier() {
+        return (String) getAttributeInternal(PRODUCTTIER);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for PRODUCT_TIER using the alias name ProductTier.
+     * @param value value to set the PRODUCT_TIER
+     */
+    public void setProductTier(String value) {
+        setAttributeInternal(PRODUCTTIER, value);
+    }
+
+    /**
+     * Gets the attribute value for CUSTOMER_TIER using the alias name CustomerTier.
+     * @return the CUSTOMER_TIER
+     */
+    public String getCustomerTier() {
+        return (String) getAttributeInternal(CUSTOMERTIER);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for CUSTOMER_TIER using the alias name CustomerTier.
+     * @param value value to set the CUSTOMER_TIER
+     */
+    public void setCustomerTier(String value) {
+        setAttributeInternal(CUSTOMERTIER, value);
     }
 }
 

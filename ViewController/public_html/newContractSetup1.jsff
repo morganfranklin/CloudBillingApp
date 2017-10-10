@@ -158,7 +158,7 @@
                                                 <f:selectItems value="#{bindings.MailBillAddress.items}" id="si1"/>
                                                 <f:validator binding="#{bindings.MailBillAddress.validator}"/>
                                             </af:selectOneRadio>
-                                            <af:panelFormLayout id="pfl3" maxColumns="2" rows="3">
+                                            <af:panelFormLayout id="pfl3" maxColumns="2" rows="4">
                                                 <af:inputText value="#{bindings.ContactName.inputValue}"
                                                               label="#{bindings.ContactName.hints.label}"
                                                               required="#{bindings.ContactName.hints.mandatory}"
@@ -203,6 +203,24 @@
                                                               shortDesc="#{bindings.PhoneNum.hints.tooltip}" id="it34"
                                                               autoSubmit="true">
                                                     <f:validator binding="#{bindings.PhoneNum.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.CustomerTier.inputValue}"
+                                                              label="#{bindings.CustomerTier.hints.label}"
+                                                              required="#{bindings.CustomerTier.hints.mandatory}"
+                                                              columns="#{bindings.CustomerTier.hints.displayWidth}"
+                                                              maximumLength="#{bindings.CustomerTier.hints.precision}"
+                                                              shortDesc="#{bindings.CustomerTier.hints.tooltip}"
+                                                              id="it1" autoSubmit="true">
+                                                    <f:validator binding="#{bindings.CustomerTier.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.ProductTier.inputValue}"
+                                                              label="#{bindings.ProductTier.hints.label}"
+                                                              required="#{bindings.ProductTier.hints.mandatory}"
+                                                              columns="#{bindings.ProductTier.hints.displayWidth}"
+                                                              maximumLength="#{bindings.ProductTier.hints.precision}"
+                                                              shortDesc="#{bindings.ProductTier.hints.tooltip}"
+                                                              id="it2" autoSubmit="true">
+                                                    <f:validator binding="#{bindings.ProductTier.validator}"/>
                                                 </af:inputText>
                                             </af:panelFormLayout>
                                         </f:facet>
@@ -287,7 +305,7 @@
                                                           selectionListener="#{bindings.XpeDccContractSearchROVO.collectionModel.makeCurrent}"
                                                           rowSelection="single"
                                                           fetchSize="#{bindings.XpeDccContractSearchROVO.rangeSize}"
-                                                          id="resId2">
+                                                          id="resId2" contentDelivery="immediate">
                                                     <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.XpeContractId.label}"
                                                                id="resId2c1">
                                                         <af:outputText value="#{row.XpeContractId}"
@@ -371,6 +389,12 @@
                                                         <af:outputText value="#{row.XpeSwApprNbr}"
                                                                        shortDesc="#{bindings.XpeDccContractSearchROVO.hints.XpeSwApprNbr.tooltip}"
                                                                        id="ot20"/>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.SalesPerson.label}"
+                                                               id="c1">
+                                                        <af:outputText value="#{row.SalesPerson}"
+                                                                       shortDesc="#{bindings.XpeDccContractSearchROVO.hints.SalesPerson.tooltip}"
+                                                                       id="ot21"/>
                                                     </af:column>
                                                 </af:table>
                                             </af:panelGroupLayout>

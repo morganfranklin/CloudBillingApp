@@ -163,7 +163,7 @@
                                         </af:gridRow>
                                         <af:gridRow marginTop="5px" height="auto" id="gr28">
                                             <af:gridCell id="gc28" width="100%" marginStart="5px" marginEnd="5px">
-                                                <af:link text="Update Contract" id="l23"
+                                                <af:link text="Contract Renewal" id="l23"
                                                          action="#{viewScope.integrationDashboardRegionName.updateContract}"/>
                                             </af:gridCell>
                                         </af:gridRow>

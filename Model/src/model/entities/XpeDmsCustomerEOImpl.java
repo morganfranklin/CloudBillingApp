@@ -35,7 +35,9 @@ public class XpeDmsCustomerEOImpl extends EntityImpl {
         ContactType,
         ContactName,
         Title,
-        BusinessType;
+        BusinessType,
+        ProductTier,
+        CustomerTier;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -58,6 +60,7 @@ public class XpeDmsCustomerEOImpl extends EntityImpl {
             return vals;
         }
     }
+
     public static final int CUSTID = AttributesEnum.CustId.index();
     public static final int SETID = AttributesEnum.SetId.index();
     public static final int COMPANYNAME = AttributesEnum.CompanyName.index();
@@ -79,6 +82,8 @@ public class XpeDmsCustomerEOImpl extends EntityImpl {
     public static final int CONTACTNAME = AttributesEnum.ContactName.index();
     public static final int TITLE = AttributesEnum.Title.index();
     public static final int BUSINESSTYPE = AttributesEnum.BusinessType.index();
+    public static final int PRODUCTTIER = AttributesEnum.ProductTier.index();
+    public static final int CUSTOMERTIER = AttributesEnum.CustomerTier.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -101,7 +106,8 @@ public class XpeDmsCustomerEOImpl extends EntityImpl {
     public static synchronized EntityDefImpl getDefinitionObject() {
         return EntityDefImpl.findDefObject("model.entities.XpeDmsCustomerEO");
     }
-    
+
+
     protected String nextVal(String sequenceName) {
         SequenceImpl s = new SequenceImpl(sequenceName, getDBTransaction());
         return "TMP"+s.getSequenceNumber().toString();

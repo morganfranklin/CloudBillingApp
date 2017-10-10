@@ -567,6 +567,19 @@
                 Value="XpeWasteType"/>
         </Dependencies>
     </ViewAttribute>
+    <ViewAttribute
+        Name="SalesPerson"
+        PrecisionRule="true"
+        EntityAttrName="SalesPerson"
+        EntityUsage="XpeDccContractVersion"
+        AliasName="SALES_PERSON">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContractVersionView.SalesPerson_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
     <ViewLinkAccessor
         Name="XpeDccContractNotesView"
         ViewLink="model.XpeDccContractNotesFk1Link"

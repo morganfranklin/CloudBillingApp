@@ -208,6 +208,18 @@
         Type="java.sql.Timestamp"
         ColumnType="TIMESTAMP"
         TableName="XPE_DCC_CONTRACT_VERSION"/>
+    <Attribute
+        Name="SalesPerson"
+        Precision="40"
+        ColumnName="SALES_PERSON"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="XPE_DCC_CONTRACT_VERSION">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="40"/>
+        </DesignTime>
+    </Attribute>
     <AccessorAttribute
         Name="XpeDccContractNotes"
         Association="model.XpeDccContractNotesFk1Assoc"

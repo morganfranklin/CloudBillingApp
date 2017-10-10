@@ -122,6 +122,15 @@
                                                     </af:inputDate>
                                                 </f:facet>
                                             </af:panelLabelAndMessage>
+                                            <af:inputText value="#{bindings.SalesPerson.inputValue}"
+                                                          label="#{bindings.SalesPerson.hints.label}"
+                                                          required="#{bindings.SalesPerson.hints.mandatory}"
+                                                          columns="#{bindings.SalesPerson.hints.displayWidth}"
+                                                          maximumLength="#{bindings.SalesPerson.hints.precision}"
+                                                          shortDesc="#{bindings.SalesPerson.hints.tooltip}" id="it13"
+                                                          autoSubmit="true">
+                                                <f:validator binding="#{bindings.SalesPerson.validator}"/>
+                                            </af:inputText>
                                         </af:panelFormLayout>
                                     </af:panelBox>
                                 </af:gridCell>
@@ -394,6 +403,42 @@
                                                     <f:validator binding="#{row.bindings.XpeProductUom.validator}"/>
                                                 </af:selectOneChoice>
                                             </af:column>
+                                            <af:column headerText="#{bindings.XpeDccNewContractLineView.hints.XpeQtyMin.label}"
+                                                       id="c23">
+                                                <af:inputText value="#{row.bindings.XpeQtyMin.inputValue}"
+                                                              label="#{bindings.XpeDccNewContractLineView.hints.XpeQtyMin.label}"
+                                                              required="#{bindings.XpeDccNewContractLineView.hints.XpeQtyMin.mandatory}"
+                                                              columns="#{bindings.XpeDccNewContractLineView.hints.XpeQtyMin.displayWidth}"
+                                                              maximumLength="#{bindings.XpeDccNewContractLineView.hints.XpeQtyMin.precision}"
+                                                              shortDesc="#{bindings.XpeDccNewContractLineView.hints.XpeQtyMin.tooltip}"
+                                                              id="it15">
+                                                    <f:validator binding="#{row.bindings.XpeQtyMin.validator}"/>
+                                                </af:inputText>
+                                            </af:column>
+                                            <af:column headerText="#{bindings.XpeDccNewContractLineView.hints.XpeQtyMax.label}"
+                                                       id="c24">
+                                                <af:inputText value="#{row.bindings.XpeQtyMax.inputValue}"
+                                                              label="#{bindings.XpeDccNewContractLineView.hints.XpeQtyMax.label}"
+                                                              required="#{bindings.XpeDccNewContractLineView.hints.XpeQtyMax.mandatory}"
+                                                              columns="#{bindings.XpeDccNewContractLineView.hints.XpeQtyMax.displayWidth}"
+                                                              maximumLength="#{bindings.XpeDccNewContractLineView.hints.XpeQtyMax.precision}"
+                                                              shortDesc="#{bindings.XpeDccNewContractLineView.hints.XpeQtyMax.tooltip}"
+                                                              id="it16">
+                                                    <f:validator binding="#{row.bindings.XpeQtyMax.validator}"/>
+                                                </af:inputText>
+                                            </af:column>
+                                            <af:column headerText="#{bindings.XpeDccNewContractLineView.hints.XpePeriodType.label}"
+                                                       id="c22">
+                                                <af:selectOneChoice value="#{row.bindings.XpePeriodType.inputValue}"
+                                                                    label="#{row.bindings.XpePeriodType.label}"
+                                                                    required="#{bindings.XpeDccNewContractLineView.hints.XpePeriodType.mandatory}"
+                                                                    shortDesc="#{bindings.XpeDccNewContractLineView.hints.XpePeriodType.tooltip}"
+                                                                    id="soc10">
+                                                    <f:selectItems value="#{row.bindings.XpePeriodType.items}"
+                                                                   id="si10"/>
+                                                    <f:validator binding="#{row.bindings.XpePeriodType.validator}"/>
+                                                </af:selectOneChoice>
+                                            </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractLineView.hints.XpeSwApprNbr.label}"
                                                        id="c15">
                                                 <af:inputText value="#{row.bindings.XpeSwApprNbr.inputValue}"
@@ -430,7 +475,7 @@
                                                   styleClass="AFStretchWidth" contentDelivery="immediate"
                                                   partialTriggers="::b4">
                                             <af:column headerText="#{bindings.XpeDccNewContractPricingTermView.hints.XpePricingTermLine.label}"
-                                                       id="c21">
+                                                       id="c21" headerNoWrap="true" width="120">
                                                 <af:inputText value="#{row.bindings.XpePricingTermLine.inputValue}"
                                                               label="#{bindings.XpeDccNewContractPricingTermView.hints.XpePricingTermLine.label}"
                                                               required="#{bindings.XpeDccNewContractPricingTermView.hints.XpePricingTermLine.mandatory}"
@@ -442,7 +487,7 @@
                                                 </af:inputText>
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractPricingTermView.hints.XpePricingTermType.label}"
-                                                       id="c31">
+                                                       id="c31" headerNoWrap="true" width="120">
                                                 <af:selectOneChoice value="#{row.bindings.XpePricingTermType.inputValue}"
                                                                     label="#{row.bindings.XpePricingTermType.label}"
                                                                     required="#{bindings.XpeDccNewContractPricingTermView.hints.XpePricingTermType.mandatory}"
@@ -545,6 +590,18 @@
                                                     <f:validator binding="#{row.bindings.XpeVehicleNbr.validator}"/>
                                                 </af:inputText>
                                             </af:column>
+                                            <af:column headerText="#{bindings.XpeDccNewContractCarrierView.hints.XpeRateOverride.label}"
+                                                       id="c27">
+                                                <af:inputText value="#{row.bindings.XpeRateOverride.inputValue}"
+                                                              label="#{bindings.XpeDccNewContractCarrierView.hints.XpeRateOverride.label}"
+                                                              required="#{bindings.XpeDccNewContractCarrierView.hints.XpeRateOverride.mandatory}"
+                                                              columns="#{bindings.XpeDccNewContractCarrierView.hints.XpeRateOverride.displayWidth}"
+                                                              maximumLength="#{bindings.XpeDccNewContractCarrierView.hints.XpeRateOverride.precision}"
+                                                              shortDesc="#{bindings.XpeDccNewContractCarrierView.hints.XpeRateOverride.tooltip}"
+                                                              id="it18">
+                                                    <f:validator binding="#{row.bindings.XpeRateOverride.validator}"/>
+                                                </af:inputText>
+                                            </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractCarrierView.hints.XpeSubNbr.label}"
                                                        id="c16">
                                                 <af:inputText value="#{row.bindings.XpeSubNbr.inputValue}"
@@ -555,6 +612,20 @@
                                                               shortDesc="#{bindings.XpeDccNewContractCarrierView.hints.XpeSubNbr.tooltip}"
                                                               id="it1">
                                                     <f:validator binding="#{row.bindings.XpeSubNbr.validator}"/>
+                                                </af:inputText>
+                                            </af:column>
+                                            <af:column headerText="#{bindings.XpeDccNewContractCarrierView.hints.XpeSurcharge.label}"
+                                                       id="c25">
+                                                <af:inputText value="#{row.bindings.XpeSurcharge.inputValue}"
+                                                              label="#{bindings.XpeDccNewContractCarrierView.hints.XpeSurcharge.label}"
+                                                              required="#{bindings.XpeDccNewContractCarrierView.hints.XpeSurcharge.mandatory}"
+                                                              columns="#{bindings.XpeDccNewContractCarrierView.hints.XpeSurcharge.displayWidth}"
+                                                              maximumLength="#{bindings.XpeDccNewContractCarrierView.hints.XpeSurcharge.precision}"
+                                                              shortDesc="#{bindings.XpeDccNewContractCarrierView.hints.XpeSurcharge.tooltip}"
+                                                              id="it19">
+                                                    <f:validator binding="#{row.bindings.XpeSurcharge.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.XpeDccNewContractCarrierView.hints.XpeSurcharge.format}"/>
                                                 </af:inputText>
                                             </af:column>
                                         </af:table>

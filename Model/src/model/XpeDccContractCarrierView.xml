@@ -165,13 +165,27 @@
         PrecisionRule="true"
         EntityAttrName="XpeRateOverride"
         EntityUsage="XpeDccContractCarrier"
-        AliasName="XPE_RATE_OVERRIDE"/>
+        AliasName="XPE_RATE_OVERRIDE">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContractCarrierView.XpeRateOverride_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
     <ViewAttribute
         Name="XpeSurcharge"
         PrecisionRule="true"
         EntityAttrName="XpeSurcharge"
         EntityUsage="XpeDccContractCarrier"
-        AliasName="XPE_SURCHARGE"/>
+        AliasName="XPE_SURCHARGE">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContractCarrierView.XpeSurcharge_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
     <ViewLinkAccessor
         Name="XpeDccContractCarrierOverView"
         ViewLink="model.XpeDccContractCarrierFk2Assoc1Link"

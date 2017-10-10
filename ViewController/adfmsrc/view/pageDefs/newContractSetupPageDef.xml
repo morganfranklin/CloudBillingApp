@@ -98,6 +98,9 @@
           <Item Value="XpeFacility"/>
           <Item Value="XpeProductId"/>
           <Item Value="XpeProductUom"/>
+          <Item Value="XpeQtyMin"/>
+          <Item Value="XpeQtyMax"/>
+          <Item Value="XpePeriodType"/>
           <Item Value="XpeSwApprNbr"/>
         </AttrNames>
       </nodeDefinition>
@@ -118,7 +121,9 @@
           <Item Value="XpeCarrierId"/>
           <Item Value="XpeVehicleType"/>
           <Item Value="XpeVehicleNbr"/>
+          <Item Value="XpeRateOverride"/>
           <Item Value="XpeSubNbr"/>
+          <Item Value="XpeSurcharge"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -134,5 +139,10 @@
             Action="createInsertRow"/>
     <action IterBinding="XpeDccNewContractCarrierViewIterator" id="Delete3" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
+    <attributeValues IterBinding="XpeDccNewContractVersionViewIterator" id="SalesPerson">
+      <AttrNames>
+        <Item Value="SalesPerson"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
