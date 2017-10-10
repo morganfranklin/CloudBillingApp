@@ -66,4 +66,9 @@ public class SetupTableRegionName implements Serializable {
         setDynamicTaskFlowId("/WEB-INF/generalSetUpTable.xml#generalSetUpTable");
         return null;
     }
+
+    public String pcsShortNameSetUpTable() {
+        setDynamicTaskFlowId("/WEB-INF/pcsShortNameSetUpTable.xml#pcsShortNameSetUpTable");
+        return null;
+    }
 }

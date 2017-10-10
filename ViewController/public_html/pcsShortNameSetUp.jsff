@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout layout="vertical" id="pgl1">
+    <af:panelHeader text="PCS Short Name Set Up" id="ph1">
+      <af:query id="qryId1" headerText="Search" disclosed="true"
+                value="#{bindings.PCSShortNameCriteriaQuery.queryDescriptor}"
+                model="#{bindings.PCSShortNameCriteriaQuery.queryModel}"
+                queryListener="#{bindings.PCSShortNameCriteriaQuery.processQuery}"
+                queryOperationListener="#{bindings.PCSShortNameCriteriaQuery.processQueryOperation}"
+                resultComponentId="::resId1"/>
+    </af:panelHeader>
+    <af:panelHeader text="PCS Short Names" id="ph2">
+      <f:facet name="context"/>
+      <f:facet name="toolbar">
+        <af:toolbar id="t1">
+          <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add Item"
+                     disabled="#{!bindings.CreateInsert.enabled}" id="b1" action="setCurrentRow">
+            <af:setActionListener from="#{bindings.PcsshortnameId.inputValue}" to="#{pageFlowScope.PcsShortNameId}"/>
+            <af:setActionListener from="ADD" to="#{pageFlowScope.NavFlow}"/>
+          </af:button>
+        </af:toolbar>
+      </f:facet>
+      <f:facet name="menuBar"/>
+      <f:facet name="legend"/>
+      <f:facet name="info"/>
+      <af:table value="#{bindings.XpeDccCfgPcsshortnamesEOVO.collectionModel}" var="row"
+                rows="#{bindings.XpeDccCfgPcsshortnamesEOVO.rangeSize}"
+                emptyText="#{bindings.XpeDccCfgPcsshortnamesEOVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                rowBandingInterval="0"
+                selectedRowKeys="#{bindings.XpeDccCfgPcsshortnamesEOVO.collectionModel.selectedRow}"
+                selectionListener="#{bindings.XpeDccCfgPcsshortnamesEOVO.collectionModel.makeCurrent}"
+                rowSelection="single" fetchSize="#{bindings.XpeDccCfgPcsshortnamesEOVO.rangeSize}" id="resId1"
+                contentDelivery="immediate" columnStretching="last">
+        <af:column headerText="#{bindings.XpeDccCfgPcsshortnamesEOVO.hints.PcsshortnameId.label}" id="resId1c1">
+          <af:link text="#{row.PcsshortnameId}" id="l1" partialSubmit="true" action="setCurrentRow">
+            <af:setActionListener from="#{row.PcsshortnameId}" to="#{pageFlowScope.PcsShortNameId}"/>
+            <af:setActionListener from="EDIT" to="#{pageFlowScope.NavFlow}"/>
+          </af:link>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgPcsshortnamesEOVO.hints.PcsshortName.label}" id="resId1c2">
+          <af:outputText value="#{row.PcsshortName}"
+                         shortDesc="#{bindings.XpeDccCfgPcsshortnamesEOVO.hints.PcsshortName.tooltip}" id="ot2"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgPcsshortnamesEOVO.hints.AccountClass.label}" id="resId1c3">
+          <af:outputText value="#{row.AccountClass}"
+                         shortDesc="#{bindings.XpeDccCfgPcsshortnamesEOVO.hints.AccountClass.tooltip}" id="ot3"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgPcsshortnamesEOVO.hints.CustId.label}" id="resId1c4">
+          <af:outputText value="#{row.CustId}" shortDesc="#{bindings.XpeDccCfgPcsshortnamesEOVO.hints.CustId.tooltip}"
+                         id="ot4"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgPcsshortnamesEOVO.hints.CustomerName.label}" id="resId1c5">
+          <af:outputText value="#{row.CustomerName}"
+                         shortDesc="#{bindings.XpeDccCfgPcsshortnamesEOVO.hints.CustomerName.tooltip}" id="ot5"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgPcsshortnamesEOVO.hints.Inactive.label}" id="resId1c6">
+          <af:outputText value="#{row.Inactive}"
+                         shortDesc="#{bindings.XpeDccCfgPcsshortnamesEOVO.hints.Inactive.tooltip}" id="ot6"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgPcsshortnamesEOVO.hints.InactiveDate.label}" id="resId1c7">
+          <af:outputText value="#{row.InactiveDate}"
+                         shortDesc="#{bindings.XpeDccCfgPcsshortnamesEOVO.hints.InactiveDate.tooltip}" id="ot7">
+            <af:convertDateTime pattern="#{bindings.XpeDccCfgPcsshortnamesEOVO.hints.InactiveDate.format}"/>
+          </af:outputText>
+        </af:column>
+      </af:table>
+    </af:panelHeader>
+  </af:panelGroupLayout>
+</ui:composition>

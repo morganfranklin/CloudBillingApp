@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="editPcsShortNamesPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XpeDccCfgPcsshortnamesEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgPcsshortnamesEOVOIterator"/>
+  </executables>
+  <bindings>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <attributeValues IterBinding="XpeDccCfgPcsshortnamesEOVOIterator" id="PcsshortnameId">
+      <AttrNames>
+        <Item Value="PcsshortnameId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgPcsshortnamesEOVOIterator" id="PcsshortName">
+      <AttrNames>
+        <Item Value="PcsshortName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgPcsshortnamesEOVOIterator" id="AccountClass">
+      <AttrNames>
+        <Item Value="AccountClass"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgPcsshortnamesEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgPcsshortnamesEOVOIterator" id="InactiveDate">
+      <AttrNames>
+        <Item Value="InactiveDate"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="XpeDccCfgPcsshortnamesEOVOIterator" StaticList="false" Uses="LOV_CovId" id="CovId"/>
+    <attributeValues IterBinding="XpeDccCfgPcsshortnamesEOVOIterator" id="CustomerName">
+      <AttrNames>
+        <Item Value="CustomerName"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="XpeDccCfgPcsshortnamesEOVOIterator" StaticList="false" Uses="LOV_CovSoldLocNum"
+                  id="CovSoldLocNum"/>
+    <attributeValues IterBinding="XpeDccCfgPcsshortnamesEOVOIterator" id="COV_Sold_Address1">
+      <AttrNames>
+        <Item Value="COV_Sold_Address1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgPcsshortnamesEOVOIterator" id="COV_Sold_Address2">
+      <AttrNames>
+        <Item Value="COV_Sold_Address2"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgPcsshortnamesEOVOIterator" id="COV_Sold_City">
+      <AttrNames>
+        <Item Value="COV_Sold_City"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgPcsshortnamesEOVOIterator" id="COV_Sold_State">
+      <AttrNames>
+        <Item Value="COV_Sold_State"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgPcsshortnamesEOVOIterator" id="COV_Sold_Zip">
+      <AttrNames>
+        <Item Value="COV_Sold_Zip"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="XpeDccCfgPcsshortnamesEOVOIterator" StaticList="false" Uses="LOV_CovBillLocNum"
+                  id="CovBillLocNum"/>
+    <attributeValues IterBinding="XpeDccCfgPcsshortnamesEOVOIterator" id="COV_Bill_Address1">
+      <AttrNames>
+        <Item Value="COV_Bill_Address1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgPcsshortnamesEOVOIterator" id="COV_Bill_Address2">
+      <AttrNames>
+        <Item Value="COV_Bill_Address2"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgPcsshortnamesEOVOIterator" id="COV_Bill_City">
+      <AttrNames>
+        <Item Value="COV_Bill_City"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgPcsshortnamesEOVOIterator" id="COV_Bill_State">
+      <AttrNames>
+        <Item Value="COV_Bill_State"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgPcsshortnamesEOVOIterator" id="COV_Bill_Zip">
+      <AttrNames>
+        <Item Value="COV_Bill_Zip"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

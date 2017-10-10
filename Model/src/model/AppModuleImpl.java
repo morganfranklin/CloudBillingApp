@@ -2039,5 +2039,13 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     public ViewObjectImpl getXpeDccCfgNewGeneralEOVO() {
         return (ViewObjectImpl) findViewObject("XpeDccCfgNewGeneralEOVO");
     }
+
+    /**
+     * Container's getter for XpeDccCfgPcsshortnamesEOVO1.
+     * @return XpeDccCfgPcsshortnamesEOVO1
+     */
+    public ViewObjectImpl getXpeDccCfgNewPcsshortnamesEOVO() {
+        return (ViewObjectImpl) findViewObject("XpeDccCfgNewPcsshortnamesEOVO");
+    }
 }
 

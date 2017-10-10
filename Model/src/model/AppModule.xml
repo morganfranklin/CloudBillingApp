@@ -547,6 +547,9 @@
     <ViewUsage
         Name="XpeDccCfgNewGeneralEOVO"
         ViewObjectName="model.views.entitybased.XpeDccCfgGeneralEOVO"/>
+    <ViewUsage
+        Name="XpeDccCfgNewPcsshortnamesEOVO"
+        ViewObjectName="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO"/>
     <ViewLinkUsage
         Name="NeuRuleTblFk1Link1"
         ViewLinkObjectName="model.NeuRuleTblFk1Link"

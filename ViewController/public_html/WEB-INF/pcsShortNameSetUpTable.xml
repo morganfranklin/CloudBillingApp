@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="pcsShortNameSetUpTable">
+    <default-activity>pcsShortNameSetUp</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <view id="pcsShortNameSetUp">
+      <page>/pcsShortNameSetUp.jsff</page>
+    </view>
+    <method-call id="SetCurrentRowWithKeyValue">
+      <method>#{bindings.setCurrentRowWithKeyValue.execute}</method>
+      <outcome>
+        <fixed-outcome>setCurrentRowWithKeyValue</fixed-outcome>
+      </outcome>
+    </method-call>
+    <router id="AddOrEdit">
+      <case id="__12">
+        <expression>#{pageFlowScope.NavFlow eq 'Edit'}</expression>
+        <outcome>Edit</outcome>
+      </case>
+      <default-outcome>Add</default-outcome>
+    </router>
+    <view id="addPcsShortNames">
+      <page>/addPcsShortNames.jsff</page>
+    </view>
+    <view id="editPcsShortNames">
+      <page>/editPcsShortNames.jsff</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>pcsShortNameSetUp</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>setCurrentRow</from-outcome>
+        <to-activity-id>SetCurrentRowWithKeyValue</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>SetCurrentRowWithKeyValue</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>setCurrentRowWithKeyValue</from-outcome>
+        <to-activity-id>AddOrEdit</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>AddOrEdit</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>Edit</from-outcome>
+        <to-activity-id>editPcsShortNames</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__7">
+        <from-outcome>Add</from-outcome>
+        <to-activity-id>addPcsShortNames</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id>addPcsShortNames</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome>Back</from-outcome>
+        <to-activity-id>pcsShortNameSetUp</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__10">
+      <from-activity-id>editPcsShortNames</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome>Back</from-outcome>
+        <to-activity-id>pcsShortNameSetUp</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

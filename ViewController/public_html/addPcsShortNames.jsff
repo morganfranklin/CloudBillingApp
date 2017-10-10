@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl1">
+    <af:panelHeader text="PCS Short Name Details" id="ph1">
+      <f:facet name="context"/>
+      <f:facet name="toolbar"/>
+      <f:facet name="menuBar"/>
+      <f:facet name="legend"/>
+      <f:facet name="info"/>
+      <af:panelFormLayout id="pfl1">
+        <af:panelLabelAndMessage label="#{bindings.PcsshortnameId.hints.label}" id="plam1">
+          <af:outputText value="#{bindings.PcsshortnameId.inputValue}"
+                         shortDesc="#{bindings.PcsshortnameId.hints.tooltip}" id="ot1"/>
+        </af:panelLabelAndMessage>
+        <af:inputText value="#{bindings.PcsshortName.inputValue}" label="#{bindings.PcsshortName.hints.label}"
+                      required="#{bindings.PcsshortName.hints.mandatory}"
+                      columns="#{bindings.PcsshortName.hints.displayWidth}"
+                      maximumLength="#{bindings.PcsshortName.hints.precision}"
+                      shortDesc="#{bindings.PcsshortName.hints.tooltip}" id="it1">
+          <f:validator binding="#{bindings.PcsshortName.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.AccountClass.inputValue}" label="#{bindings.AccountClass.hints.label}"
+                      required="#{bindings.AccountClass.hints.mandatory}"
+                      columns="#{bindings.AccountClass.hints.displayWidth}"
+                      maximumLength="#{bindings.AccountClass.hints.precision}"
+                      shortDesc="#{bindings.AccountClass.hints.tooltip}" id="it2">
+          <f:validator binding="#{bindings.AccountClass.validator}"/>
+        </af:inputText>
+      </af:panelFormLayout>
+    </af:panelHeader>
+    <af:panelHeader text="Customer Details" id="ph2">
+      <f:facet name="context"/>
+      <f:facet name="toolbar"/>
+      <f:facet name="menuBar"/>
+      <f:facet name="legend"/>
+      <f:facet name="info"/>
+      <af:panelFormLayout id="pfl2">
+        <af:inputListOfValues id="covIdId" popupTitle="Search and Select: #{bindings.CovId.hints.label}"
+                              value="#{bindings.CovId.inputValue}" label="#{bindings.CovId.hints.label}"
+                              model="#{bindings.CovId.listOfValuesModel}" required="#{bindings.CovId.hints.mandatory}"
+                              columns="#{bindings.CovId.hints.displayWidth}"
+                              shortDesc="#{bindings.CovId.hints.tooltip}">
+          <f:validator binding="#{bindings.CovId.validator}"/>
+        </af:inputListOfValues>
+        <af:panelLabelAndMessage label="#{bindings.CustomerName.hints.label}" partialTriggers="covIdId" id="plam2">
+          <af:outputText value="#{bindings.CustomerName.inputValue}" partialTriggers="covIdId"
+                         shortDesc="#{bindings.CustomerName.hints.tooltip}" id="ot2"/>
+        </af:panelLabelAndMessage>
+      </af:panelFormLayout>
+    </af:panelHeader>
+    <af:panelGroupLayout id="pgl2" layout="horizontal">
+      <af:panelHeader text="Sold To : Address Seen on Scale Syatem" id="ph3">
+        <f:facet name="context"/>
+        <f:facet name="toolbar"/>
+        <f:facet name="menuBar"/>
+        <f:facet name="legend"/>
+        <f:facet name="info"/>
+        <af:panelFormLayout id="pfl3">
+          <af:inputListOfValues id="ilov1" popupTitle="Search and Select: #{bindings.CovId.hints.label}"
+                                value="#{bindings.CovId.inputValue}" label="#{bindings.CovId.hints.label}"
+                                model="#{bindings.CovId.listOfValuesModel}" required="#{bindings.CovId.hints.mandatory}"
+                                columns="#{bindings.CovId.hints.displayWidth}"
+                                shortDesc="#{bindings.CovId.hints.tooltip}">
+            <f:validator binding="#{bindings.CovId.validator}"/>
+          </af:inputListOfValues>
+          <af:inputListOfValues id="covSoldLocNumId"
+                                popupTitle="Search and Select: #{bindings.CovSoldLocNum.hints.label}"
+                                value="#{bindings.CovSoldLocNum.inputValue}"
+                                label="#{bindings.CovSoldLocNum.hints.label}"
+                                model="#{bindings.CovSoldLocNum.listOfValuesModel}"
+                                required="#{bindings.CovSoldLocNum.hints.mandatory}"
+                                columns="#{bindings.CovSoldLocNum.hints.displayWidth}"
+                                shortDesc="#{bindings.CovSoldLocNum.hints.tooltip}">
+            <f:validator binding="#{bindings.CovSoldLocNum.validator}"/>
+          </af:inputListOfValues>
+          <af:inputText value="#{bindings.COV_Sold_Address1.inputValue}"
+                        label="#{bindings.COV_Sold_Address1.hints.label}"
+                        required="#{bindings.COV_Sold_Address1.hints.mandatory}"
+                        columns="#{bindings.COV_Sold_Address1.hints.displayWidth}"
+                        maximumLength="#{bindings.COV_Sold_Address1.hints.precision}"
+                        shortDesc="#{bindings.COV_Sold_Address1.hints.tooltip}" partialTriggers="covSoldLocNumId"
+                        id="it3">
+            <f:validator binding="#{bindings.COV_Sold_Address1.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.COV_Sold_Address2.inputValue}"
+                        label="#{bindings.COV_Sold_Address2.hints.label}"
+                        required="#{bindings.COV_Sold_Address2.hints.mandatory}"
+                        columns="#{bindings.COV_Sold_Address2.hints.displayWidth}"
+                        maximumLength="#{bindings.COV_Sold_Address2.hints.precision}"
+                        shortDesc="#{bindings.COV_Sold_Address2.hints.tooltip}" partialTriggers="covSoldLocNumId"
+                        id="it4">
+            <f:validator binding="#{bindings.COV_Sold_Address2.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.COV_Sold_City.inputValue}" label="#{bindings.COV_Sold_City.hints.label}"
+                        required="#{bindings.COV_Sold_City.hints.mandatory}"
+                        columns="#{bindings.COV_Sold_City.hints.displayWidth}"
+                        maximumLength="#{bindings.COV_Sold_City.hints.precision}"
+                        shortDesc="#{bindings.COV_Sold_City.hints.tooltip}" partialTriggers="covSoldLocNumId" id="it5">
+            <f:validator binding="#{bindings.COV_Sold_City.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.COV_Sold_State.inputValue}" label="#{bindings.COV_Sold_State.hints.label}"
+                        required="#{bindings.COV_Sold_State.hints.mandatory}"
+                        columns="#{bindings.COV_Sold_State.hints.displayWidth}"
+                        maximumLength="#{bindings.COV_Sold_State.hints.precision}"
+                        shortDesc="#{bindings.COV_Sold_State.hints.tooltip}" partialTriggers="covSoldLocNumId" id="it6">
+            <f:validator binding="#{bindings.COV_Sold_State.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.COV_Sold_Zip.inputValue}" label="#{bindings.COV_Sold_Zip.hints.label}"
+                        required="#{bindings.COV_Sold_Zip.hints.mandatory}"
+                        columns="#{bindings.COV_Sold_Zip.hints.displayWidth}"
+                        maximumLength="#{bindings.COV_Sold_Zip.hints.precision}"
+                        shortDesc="#{bindings.COV_Sold_Zip.hints.tooltip}" partialTriggers="covSoldLocNumId" id="it7">
+            <f:validator binding="#{bindings.COV_Sold_Zip.validator}"/>
+          </af:inputText>
+        </af:panelFormLayout>
+      </af:panelHeader>
+      <af:panelHeader text="Bill To : Address Seen on Invoice" id="ph4">
+        <f:facet name="context"/>
+        <f:facet name="toolbar"/>
+        <f:facet name="menuBar"/>
+        <f:facet name="legend"/>
+        <f:facet name="info"/>
+        <af:panelFormLayout id="pfl4">
+          <af:inputListOfValues id="ilov2" popupTitle="Search and Select: #{bindings.CovId.hints.label}"
+                                value="#{bindings.CovId.inputValue}" label="#{bindings.CovId.hints.label}"
+                                model="#{bindings.CovId.listOfValuesModel}" required="#{bindings.CovId.hints.mandatory}"
+                                columns="#{bindings.CovId.hints.displayWidth}"
+                                shortDesc="#{bindings.CovId.hints.tooltip}">
+            <f:validator binding="#{bindings.CovId.validator}"/>
+          </af:inputListOfValues>
+          <af:inputListOfValues id="covBillLocNumId"
+                                popupTitle="Search and Select: #{bindings.CovBillLocNum.hints.label}"
+                                value="#{bindings.CovBillLocNum.inputValue}"
+                                label="#{bindings.CovBillLocNum.hints.label}"
+                                model="#{bindings.CovBillLocNum.listOfValuesModel}"
+                                required="#{bindings.CovBillLocNum.hints.mandatory}"
+                                columns="#{bindings.CovBillLocNum.hints.displayWidth}"
+                                shortDesc="#{bindings.CovBillLocNum.hints.tooltip}">
+            <f:validator binding="#{bindings.CovBillLocNum.validator}"/>
+          </af:inputListOfValues>
+          <af:inputText value="#{bindings.COV_Bill_Address1.inputValue}"
+                        label="#{bindings.COV_Bill_Address1.hints.label}"
+                        required="#{bindings.COV_Bill_Address1.hints.mandatory}"
+                        columns="#{bindings.COV_Bill_Address1.hints.displayWidth}"
+                        maximumLength="#{bindings.COV_Bill_Address1.hints.precision}"
+                        shortDesc="#{bindings.COV_Bill_Address1.hints.tooltip}" partialTriggers="covBillLocNumId"
+                        id="it8">
+            <f:validator binding="#{bindings.COV_Bill_Address1.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.COV_Bill_Address2.inputValue}"
+                        label="#{bindings.COV_Bill_Address2.hints.label}"
+                        required="#{bindings.COV_Bill_Address2.hints.mandatory}"
+                        columns="#{bindings.COV_Bill_Address2.hints.displayWidth}"
+                        maximumLength="#{bindings.COV_Bill_Address2.hints.precision}"
+                        shortDesc="#{bindings.COV_Bill_Address2.hints.tooltip}" partialTriggers="covBillLocNumId"
+                        id="it9">
+            <f:validator binding="#{bindings.COV_Bill_Address2.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.COV_Bill_City.inputValue}" label="#{bindings.COV_Bill_City.hints.label}"
+                        required="#{bindings.COV_Bill_City.hints.mandatory}"
+                        columns="#{bindings.COV_Bill_City.hints.displayWidth}"
+                        maximumLength="#{bindings.COV_Bill_City.hints.precision}"
+                        shortDesc="#{bindings.COV_Bill_City.hints.tooltip}" partialTriggers="covBillLocNumId" id="it10">
+            <f:validator binding="#{bindings.COV_Bill_City.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.COV_Bill_State.inputValue}" label="#{bindings.COV_Bill_State.hints.label}"
+                        required="#{bindings.COV_Bill_State.hints.mandatory}"
+                        columns="#{bindings.COV_Bill_State.hints.displayWidth}"
+                        maximumLength="#{bindings.COV_Bill_State.hints.precision}"
+                        shortDesc="#{bindings.COV_Bill_State.hints.tooltip}" partialTriggers="covBillLocNumId"
+                        id="it11">
+            <f:validator binding="#{bindings.COV_Bill_State.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.COV_Bill_Zip.inputValue}" label="#{bindings.COV_Bill_Zip.hints.label}"
+                        required="#{bindings.COV_Bill_Zip.hints.mandatory}"
+                        columns="#{bindings.COV_Bill_Zip.hints.displayWidth}"
+                        maximumLength="#{bindings.COV_Bill_Zip.hints.precision}"
+                        shortDesc="#{bindings.COV_Bill_Zip.hints.tooltip}" partialTriggers="covBillLocNumId" id="it12">
+            <f:validator binding="#{bindings.COV_Bill_Zip.validator}"/>
+          </af:inputText>
+        </af:panelFormLayout>
+      </af:panelHeader>
+    </af:panelGroupLayout>
+    <af:spacer width="10" height="10" id="s2"/>
+    <af:group id="g1">
+      <af:button actionListener="#{bindings.Commit.execute}" text="Save" 
+                 id="b1"/>
+      <af:spacer width="10" height="10" id="s1"/>
+      <af:button actionListener="#{bindings.Rollback.execute}" text="Back" 
+                 immediate="true" id="b2" action="Back">
+        <af:resetActionListener/>
+      </af:button>
+    </af:group>
+  </af:panelGroupLayout>
+</ui:composition>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="addPcsShortNamesPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XpeDccCfgNewPcsshortnamesEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewPcsshortnamesEOVOIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" id="PcsshortnameId">
+      <AttrNames>
+        <Item Value="PcsshortnameId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" id="PcsshortName">
+      <AttrNames>
+        <Item Value="PcsshortName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" id="AccountClass">
+      <AttrNames>
+        <Item Value="AccountClass"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" StaticList="false" Uses="LOV_CovId" id="CovId"/>
+    <attributeValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" id="CustomerName">
+      <AttrNames>
+        <Item Value="CustomerName"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" StaticList="false" Uses="LOV_CovSoldLocNum"
+                  id="CovSoldLocNum"/>
+    <attributeValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" id="COV_Sold_Address1">
+      <AttrNames>
+        <Item Value="COV_Sold_Address1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" id="COV_Sold_Address2">
+      <AttrNames>
+        <Item Value="COV_Sold_Address2"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" id="COV_Sold_City">
+      <AttrNames>
+        <Item Value="COV_Sold_City"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" id="COV_Sold_State">
+      <AttrNames>
+        <Item Value="COV_Sold_State"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" id="COV_Sold_Zip">
+      <AttrNames>
+        <Item Value="COV_Sold_Zip"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" StaticList="false" Uses="LOV_CovBillLocNum"
+                  id="CovBillLocNum"/>
+    <attributeValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" id="COV_Bill_Address1">
+      <AttrNames>
+        <Item Value="COV_Bill_Address1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" id="COV_Bill_Address2">
+      <AttrNames>
+        <Item Value="COV_Bill_Address2"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" id="COV_Bill_City">
+      <AttrNames>
+        <Item Value="COV_Bill_City"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" id="COV_Bill_State">
+      <AttrNames>
+        <Item Value="COV_Bill_State"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" id="COV_Bill_Zip">
+      <AttrNames>
+        <Item Value="COV_Bill_Zip"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+  </bindings>
+</pageDefinition>

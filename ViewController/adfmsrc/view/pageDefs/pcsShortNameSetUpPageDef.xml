@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="pcsShortNameSetUpPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XpeDccCfgPcsshortnamesEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgPcsshortnamesEOVOIterator"/>
+    <searchRegion Criteria="PCSShortNameCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="XpeDccCfgPcsshortnamesEOVOIterator" id="PCSShortNameCriteriaQuery"/>
+    <iterator Binds="XpeDccCfgNewPcsshortnamesEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewPcsshortnamesEOVOIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="XpeDccCfgPcsshortnamesEOVOIterator" id="XpeDccCfgPcsshortnamesEOVO">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO" Name="XpeDccCfgPcsshortnamesEOVO0">
+        <AttrNames>
+          <Item Value="PcsshortnameId"/>
+          <Item Value="PcsshortName"/>
+          <Item Value="AccountClass"/>
+          <Item Value="CustId"/>
+          <Item Value="CustomerName"/>
+          <Item Value="Inactive"/>
+          <Item Value="InactiveDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <attributeValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" id="PcsshortnameId">
+      <AttrNames>
+        <Item Value="PcsshortnameId"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

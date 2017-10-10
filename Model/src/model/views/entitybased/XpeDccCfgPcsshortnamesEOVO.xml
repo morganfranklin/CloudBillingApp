@@ -18,6 +18,22 @@
         ResId="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <Variable
+    Name="bind_PcsShortNameId"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bind_PcsShortName"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bind_AccountClass"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bind_CovId"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="XpeDccShortNameCustomerSearchROVO_LOV"
     ViewObjectName="model.views.readonly.XpeDccShortNameCustomerSearchROVO"
@@ -43,6 +59,20 @@
         <TransientExpression
           trustMode="untrusted"
           Name="ExpressionScript"><![CDATA[CovBillId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="LookupSharedAppModule_XpeDccDicNewContractSetupROVO1"
+    ViewObjectName="model.views.readonly.XpeDccDicNewContractSetupROVO"
+    AMUsageName="LookupSharedAppModule"
+    ViewInstanceName="XpeDccDicNewContractSetupROVO"
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="bind_Lookup_Type">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA['YON']]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
@@ -185,6 +215,25 @@
     <DisplayCriteria
       Hint="showAndExecute"/>
   </ListBinding>
+  <ListBinding
+    Name="LOV_Inactive"
+    ListVOName="LookupSharedAppModule_XpeDccDicNewContractSetupROVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Inactive"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <SQLQuery><![CDATA[SELECT XpeDccCfgPcsshortnamesEO.ACCOUNT_CLASS,          
        XpeDccCfgPcsshortnamesEO.CREATED_BY,          
        XpeDccCfgPcsshortnamesEO.CREATED_DATE,          
@@ -229,7 +278,15 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
     PrecisionRule="true"
     EntityAttrName="Inactive"
     EntityUsage="XpeDccCfgPcsshortnamesEO"
-    AliasName="INACTIVE"/>
+    AliasName="INACTIVE"
+    LOVName="LOV_Inactive">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="InactiveDate"
     PrecisionRule="true"
@@ -466,6 +523,66 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
     SQLType="VARCHAR"
     Passivate="true"
     ColumnType="$none$"/>
+  <ViewCriteria
+    Name="PCSShortNameCriteria"
+    ViewObjectName="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="XpeDccCfgPcsshortnamesEOVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="XpeDccCfgPcsshortnamesEOVOCriteria_XpeDccCfgPcsshortnamesEOVOCriteria_row_0_AccountClass"
+        ViewAttribute="AccountClass"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_AccountClass"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="PcsshortName"
+        ViewAttribute="PcsshortName"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_PcsShortName"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="PcsshortnameId"
+        ViewAttribute="PcsshortnameId"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_PcsShortNameId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="CovId"
+        ViewAttribute="CovId"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_CovId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>
