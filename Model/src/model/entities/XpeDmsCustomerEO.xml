@@ -273,6 +273,30 @@
       <Attr Name="_DisplaySize" Value="4"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="ProductTier"
+    Precision="40"
+    ColumnName="PRODUCT_TIER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DMS_CUSTOMER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="40"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CustomerTier"
+    Precision="40"
+    ColumnName="CUSTOMER_TIER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DMS_CUSTOMER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="40"/>
+    </DesignTime>
+  </Attribute>
   <Key
     Name="XpeDmsCustomerPk"
     PrimaryKey="true">

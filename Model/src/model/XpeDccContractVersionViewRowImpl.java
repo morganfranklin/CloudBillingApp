@@ -39,6 +39,7 @@ public class XpeDccContractVersionViewRowImpl extends ViewRowImpl {
         XpeWasteType,
         XpeContractSubType,
         XpeTermId,
+        SalesPerson,
         XpeDccContractNotesView,
         XpeDccContractLineView,
         XpeDccWorkflowView,
@@ -96,6 +97,7 @@ public class XpeDccContractVersionViewRowImpl extends ViewRowImpl {
     public static final int XPEWASTETYPE = AttributesEnum.XpeWasteType.index();
     public static final int XPECONTRACTSUBTYPE = AttributesEnum.XpeContractSubType.index();
     public static final int XPETERMID = AttributesEnum.XpeTermId.index();
+    public static final int SALESPERSON = AttributesEnum.SalesPerson.index();
     public static final int XPEDCCCONTRACTNOTESVIEW = AttributesEnum.XpeDccContractNotesView.index();
     public static final int XPEDCCCONTRACTLINEVIEW = AttributesEnum.XpeDccContractLineView.index();
     public static final int XPEDCCWORKFLOWVIEW = AttributesEnum.XpeDccWorkflowView.index();
@@ -415,6 +417,22 @@ public class XpeDccContractVersionViewRowImpl extends ViewRowImpl {
      */
     public void setXpeTermId(String value) {
         setAttributeInternal(XPETERMID, value);
+    }
+
+    /**
+     * Gets the attribute value for SALES_PERSON using the alias name SalesPerson.
+     * @return the SALES_PERSON
+     */
+    public String getSalesPerson() {
+        return (String) getAttributeInternal(SALESPERSON);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for SALES_PERSON using the alias name SalesPerson.
+     * @param value value to set the SALES_PERSON
+     */
+    public void setSalesPerson(String value) {
+        setAttributeInternal(SALESPERSON, value);
     }
 
     /**

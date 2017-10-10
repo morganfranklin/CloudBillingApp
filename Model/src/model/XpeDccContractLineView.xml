@@ -271,13 +271,27 @@
         PrecisionRule="true"
         EntityAttrName="XpeQtyMin"
         EntityUsage="XpeDccContractLine"
-        AliasName="XPE_QTY_MIN"/>
+        AliasName="XPE_QTY_MIN">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContractLineView.XpeQtyMin_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
     <ViewAttribute
         Name="XpeQtyMax"
         PrecisionRule="true"
         EntityAttrName="XpeQtyMax"
         EntityUsage="XpeDccContractLine"
-        AliasName="XPE_QTY_MAX"/>
+        AliasName="XPE_QTY_MAX">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContractLineView.XpeQtyMax_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
     <ViewAttribute
         Name="XpePeriodType"
         PrecisionRule="true"
@@ -291,6 +305,8 @@
                     Value="choice"/>
                 <DISPLAYWIDTH
                     Value="20"/>
+                <LABEL
+                    ResId="model.XpeDccContractLineView.XpePeriodType_LABEL"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>
@@ -332,6 +348,8 @@
             <SchemaBasedProperties>
                 <CONTROLTYPE
                     Value="choice"/>
+                <LABEL
+                    ResId="model.XpeDccContractLineView.BusinessUnitGl_LABEL"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>

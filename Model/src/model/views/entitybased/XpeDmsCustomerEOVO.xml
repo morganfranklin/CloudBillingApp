@@ -157,6 +157,32 @@
     EntityAttrName="Title"
     EntityUsage="XpeDmsCustomerEO"
     AliasName="TITLE"/>
+  <ViewAttribute
+    Name="ProductTier"
+    PrecisionRule="true"
+    EntityAttrName="ProductTier"
+    EntityUsage="XpeDmsCustomerEO"
+    AliasName="PRODUCT_TIER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDmsCustomerEOVO.ProductTier_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CustomerTier"
+    PrecisionRule="true"
+    EntityAttrName="CustomerTier"
+    EntityUsage="XpeDmsCustomerEO"
+    AliasName="CUSTOMER_TIER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDmsCustomerEOVO.CustomerTier_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="XpeDmsCustomerEmptyEOVOCriteria"
     ViewObjectName="model.views.entitybased.XpeDmsCustomerEOVO"

@@ -25,7 +25,8 @@ public class XpeDccContractSearchROVORowImpl extends ViewRowImpl {
         State,
         Postal,
         XpeSwApprNbr,
-        XpeContractVersion;
+        XpeContractVersion,
+        SalesPerson;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -64,6 +65,7 @@ public class XpeDccContractSearchROVORowImpl extends ViewRowImpl {
     public static final int POSTAL = AttributesEnum.Postal.index();
     public static final int XPESWAPPRNBR = AttributesEnum.XpeSwApprNbr.index();
     public static final int XPECONTRACTVERSION = AttributesEnum.XpeContractVersion.index();
+    public static final int SALESPERSON = AttributesEnum.SalesPerson.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -181,6 +183,14 @@ public class XpeDccContractSearchROVORowImpl extends ViewRowImpl {
      */
     public String getXpeContractVersion() {
         return (String) getAttributeInternal(XPECONTRACTVERSION);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute SalesPerson.
+     * @return the SalesPerson
+     */
+    public String getSalesPerson() {
+        return (String) getAttributeInternal(SALESPERSON);
     }
 
 
