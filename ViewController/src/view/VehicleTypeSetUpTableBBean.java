@@ -1,10 +1,12 @@
 package view;
 
 import oracle.adf.view.rich.component.rich.RichPopup;
+import oracle.adf.view.rich.component.rich.data.RichTable;
 
 public class VehicleTypeSetUpTableBBean {
     private RichPopup vehicleTypeAddItem_popup;
     private RichPopup vehicleTypeSetUpEdit_popup;
+    private RichTable vehicleTypeSetUpTblBind;
 
     public VehicleTypeSetUpTableBBean() {
     }
@@ -23,5 +25,13 @@ public class VehicleTypeSetUpTableBBean {
 
     public RichPopup getVehicleTypeSetUpEdit_popup() {
         return vehicleTypeSetUpEdit_popup;
+    }
+
+    public void setVehicleTypeSetUpTblBind(RichTable vehicleTypeSetUpTblBind) {
+        this.vehicleTypeSetUpTblBind = vehicleTypeSetUpTblBind;
+    }
+
+    public RichTable getVehicleTypeSetUpTblBind() {
+        return vehicleTypeSetUpTblBind;
     }
 }

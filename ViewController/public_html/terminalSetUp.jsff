@@ -2,15 +2,15 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
   <af:panelGroupLayout layout="vertical" id="pgl1">
-    <af:panelHeader text="Terminals Set Up" id="ph1">
-      <af:query id="qryId1" headerText="Search" disclosed="true"
+    <af:panelHeader text="Terminals Set Up" id="ph1" size="3">
+      <af:query id="qryId1" headerText="Search Terminals" disclosed="true"
                 value="#{bindings.TerminalsCriteriaQuery.queryDescriptor}"
                 model="#{bindings.TerminalsCriteriaQuery.queryModel}"
                 queryListener="#{bindings.TerminalsCriteriaQuery.processQuery}"
-                queryOperationListener="#{bindings.TerminalsCriteriaQuery.processQueryOperation}"
+                queryOperationListener="#{pageFlowScope.XpeCfgTableSetupMBean.queryOperationListener}"
                 resultComponentId="::resId1"/>
     </af:panelHeader>
-    <af:panelHeader text="Terminals" id="ph2">
+    <af:panelHeader text="Terminals" id="ph2" size="5">
       <f:facet name="context"/>
       <f:facet name="toolbar">
         <af:toolbar id="t1">
@@ -28,7 +28,8 @@
                 rowBandingInterval="1" selectedRowKeys="#{bindings.XpeDccCfgTerminalsEOVO.collectionModel.selectedRow}"
                 selectionListener="#{bindings.XpeDccCfgTerminalsEOVO.collectionModel.makeCurrent}" rowSelection="single"
                 fetchSize="#{bindings.XpeDccCfgTerminalsEOVO.rangeSize}" id="resId1" columnStretching="last"
-                contentDelivery="immediate" partialTriggers="::b5">
+                contentDelivery="immediate" partialTriggers="::b5"
+                binding="#{backingBeanScope.XpeCfgTableSetupBBean.terminalSetUpTblBind}">
         <af:column headerText="#{bindings.XpeDccCfgTerminalsEOVO.hints.TerminalId.label}" id="resId1c1">
           <af:link text="#{row.TerminalId}" id="l1" partialSubmit="true"
                    actionListener="#{pageFlowScope.XpeCfgTableSetupMBean.onTerminalEdit}"/>
@@ -118,7 +119,8 @@
         </af:dialog>
       </af:popup>
       <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
-                binding="#{backingBeanScope.XpeCfgTableSetupBBean.terminalEditItem_popup}">
+                binding="#{backingBeanScope.XpeCfgTableSetupBBean.terminalEditItem_popup}"
+                contentDelivery="lazyUncached">
         <af:dialog id="d2" title="Terminal Details" type="none" closeIconVisible="false">
           <f:facet name="buttonBar">
             <af:button text="Save" id="b5" action="#{bindings.Commit.execute}"
@@ -162,7 +164,8 @@
             </af:selectOneChoice>
             <af:selectOneChoice value="#{bindings.Inactive1.inputValue}" label="#{bindings.Inactive1.label}"
                                 required="#{bindings.Inactive1.hints.mandatory}"
-                                shortDesc="#{bindings.Inactive1.hints.tooltip}" id="soc6" autoSubmit="true">
+                                shortDesc="#{bindings.Inactive1.hints.tooltip}" id="soc6" autoSubmit="true"
+                                valueChangeListener="#{pageFlowScope.XpeCfgTableSetupMBean.onInActiveValChgLstnr}">
               <f:selectItems value="#{bindings.Inactive1.items}" id="si6"/>
               <f:validator binding="#{bindings.Inactive1.validator}"/>
             </af:selectOneChoice>

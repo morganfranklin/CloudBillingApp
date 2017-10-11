@@ -2,23 +2,23 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
   <af:panelGroupLayout layout="vertical" id="pgl1">
-    <af:panelHeader text="General Set Up" id="ph1">
-      <af:query id="qryId1" headerText="Search" disclosed="true"
+    <af:panelHeader text="General Set Up" id="ph1" size="3">
+      <af:query id="qryId1" headerText="Search General Items" disclosed="true"
                 value="#{bindings.GeneralCriteriaQuery.queryDescriptor}"
                 model="#{bindings.GeneralCriteriaQuery.queryModel}"
                 queryListener="#{bindings.GeneralCriteriaQuery.processQuery}"
-                queryOperationListener="#{bindings.GeneralCriteriaQuery.processQueryOperation}"
+                queryOperationListener="#{pageFlowScope.generalSetUpTableMBean.queryOperationListener}"
                 resultComponentId="::resId1"/>
     </af:panelHeader>
-    <af:panelHeader text="General Items" id="ph2">
+    <af:panelHeader text="General Items" id="ph2" size="5">
       <f:facet name="context"/>
       <f:facet name="toolbar">
         <af:toolbar id="t1">
           <af:button action="#{bindings.CreateInsert.execute}" text="Add Item"
                      disabled="#{!bindings.CreateInsert.enabled}" id="b1"
                      actionListener="#{pageFlowScope.generalSetUpTableMBean.onGeneralItemCreation}"/>
-          <af:button action="#{bindings.Delete.execute}" text="Delete" disabled="#{!bindings.Delete.enabled}" id="b6"
-                     actionListener="#{pageFlowScope.generalSetUpTableMBean.onGeneralItemDelete}"/>
+          <!--<af:button action="#{bindings.Delete.execute}" text="Delete" disabled="#{!bindings.Delete.enabled}" id="b6"
+                     actionListener="#{pageFlowScope.generalSetUpTableMBean.onGeneralItemDelete}"/>-->
         </af:toolbar>
       </f:facet>
       <f:facet name="menuBar"/>
@@ -30,7 +30,7 @@
                 rowBandingInterval="0" selectedRowKeys="#{bindings.XpeDccCfgGeneralEOVO.collectionModel.selectedRow}"
                 selectionListener="#{bindings.XpeDccCfgGeneralEOVO.collectionModel.makeCurrent}" rowSelection="single"
                 fetchSize="#{bindings.XpeDccCfgGeneralEOVO.rangeSize}" id="resId1" contentDelivery="immediate"
-                columnStretching="last">
+                columnStretching="last" binding="#{backingBeanScope.GeneralSetUpTableBBean.generalSetUpTblBind}">
         <af:column headerText="#{bindings.XpeDccCfgGeneralEOVO.hints.ItemId.label}" id="resId1c1">
           <af:link text="#{row.ItemId}" id="l1" partialSubmit="true"
                    actionListener="#{pageFlowScope.generalSetUpTableMBean.onGeneralItemEdit}"/>
@@ -51,7 +51,8 @@
       </af:table>
     </af:panelHeader>
     <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
-              binding="#{backingBeanScope.GeneralSetUpTableBBean.generalItemAddItem_popup}">
+              binding="#{backingBeanScope.GeneralSetUpTableBBean.generalItemAddItem_popup}"
+              contentDelivery="lazyUncached">
       <af:dialog id="d1" type="none" title="General Item Details" closeIconVisible="false">
         <f:facet name="buttonBar">
           <af:button action="#{bindings.Commit.execute}" text="Save" disabled="#{!bindings.Commit.enabled}"
@@ -86,7 +87,8 @@
       </af:dialog>
     </af:popup>
     <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
-              binding="#{backingBeanScope.GeneralSetUpTableBBean.generalItemEditItem_popup}">
+              binding="#{backingBeanScope.GeneralSetUpTableBBean.generalItemEditItem_popup}"
+              contentDelivery="lazyUncached">
       <af:dialog id="d2" type="none" title="General Item Details" closeIconVisible="false">
         <f:facet name="buttonBar">
           <af:button action="#{bindings.Commit.execute}" text="Save" 
@@ -98,21 +100,22 @@
           </af:button>
         </f:facet>
         <af:panelFormLayout id="pfl2">
-          <af:panelLabelAndMessage label="#{bindings.ItemId.hints.label}" id="plam1">
-            <af:outputText value="#{bindings.ItemId.inputValue}" shortDesc="#{bindings.ItemId.hints.tooltip}" id="ot3"/>
+          <af:panelLabelAndMessage label="#{bindings.ItemId1.hints.label}" id="plam1">
+            <af:outputText value="#{bindings.ItemId1.inputValue}" shortDesc="#{bindings.ItemId1.hints.tooltip}"
+                           id="ot1"/>
           </af:panelLabelAndMessage>
-          <af:selectOneChoice value="#{bindings.ItemListType.inputValue}" label="#{bindings.ItemListType.label}"
-                              required="#{bindings.ItemListType.hints.mandatory}"
-                              shortDesc="#{bindings.ItemListType.hints.tooltip}" readOnly="true" id="soc3">
-            <f:selectItems value="#{bindings.ItemListType.items}" id="si3"/>
-            <f:validator binding="#{bindings.ItemListType.validator}"/>
+          <af:selectOneChoice value="#{bindings.ItemListType1.inputValue}" label="#{bindings.ItemListType1.label}"
+                              required="#{bindings.ItemListType1.hints.mandatory}"
+                              shortDesc="#{bindings.ItemListType1.hints.tooltip}" id="soc3">
+            <f:selectItems value="#{bindings.ItemListType1.items}" id="si3"/>
+            <f:validator binding="#{bindings.ItemListType1.validator}"/>
           </af:selectOneChoice>
-          <af:inputText value="#{bindings.ValidValue.inputValue}" label="#{bindings.ValidValue.hints.label}"
-                        required="#{bindings.ValidValue.hints.mandatory}"
-                        columns="#{bindings.ValidValue.hints.displayWidth}"
-                        maximumLength="#{bindings.ValidValue.hints.precision}"
-                        shortDesc="#{bindings.ValidValue.hints.tooltip}" id="it3" autoSubmit="true">
-            <f:validator binding="#{bindings.ValidValue.validator}"/>
+          <af:inputText value="#{bindings.ValidValue1.inputValue}" label="#{bindings.ValidValue1.hints.label}"
+                        required="#{bindings.ValidValue1.hints.mandatory}"
+                        columns="#{bindings.ValidValue1.hints.displayWidth}"
+                        maximumLength="#{bindings.ValidValue1.hints.precision}"
+                        shortDesc="#{bindings.ValidValue1.hints.tooltip}" id="it3">
+            <f:validator binding="#{bindings.ValidValue1.validator}"/>
           </af:inputText>
         </af:panelFormLayout>
       </af:dialog>

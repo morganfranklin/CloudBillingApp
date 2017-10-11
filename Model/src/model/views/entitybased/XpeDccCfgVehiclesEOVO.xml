@@ -111,6 +111,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgVehiclesEOVO.Inactive_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -119,7 +121,14 @@
     PrecisionRule="true"
     EntityAttrName="InactiveDate"
     EntityUsage="XpeDccCfgVehiclesEO"
-    AliasName="INACTIVE_DATE"/>
+    AliasName="INACTIVE_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgVehiclesEOVO.InactiveDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
@@ -143,6 +152,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgVehiclesEOVO.RequireTrailer_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -151,7 +162,14 @@
     PrecisionRule="true"
     EntityAttrName="VehicleDesc"
     EntityUsage="XpeDccCfgVehiclesEO"
-    AliasName="VEHICLE_DESC"/>
+    AliasName="VEHICLE_DESC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgVehiclesEOVO.VehicleDesc_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="VehicleId"
     IsUpdateable="while_insert"
@@ -159,50 +177,29 @@
     PrecisionRule="true"
     EntityAttrName="VehicleId"
     EntityUsage="XpeDccCfgVehiclesEO"
-    AliasName="VEHICLE_ID"/>
+    AliasName="VEHICLE_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgVehiclesEOVO.VehicleId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="VehicleType"
     PrecisionRule="true"
     EntityAttrName="VehicleType"
     EntityUsage="XpeDccCfgVehiclesEO"
-    AliasName="VEHICLE_TYPE"/>
-  <ViewCriteria
-    Name="EmptyVehiclesCriteria"
-    ViewObjectName="model.views.entitybased.XpeDccCfgVehiclesEOVO"
-    Conjunction="AND">
-    <Properties Name="_Props">
-      <CustomProperties>
-        <Property
-          Name="autoExecute"
-          Value="false"/>
-        <Property
-          Name="mode"
-          Value="Basic"/>
-        <Property
-          Name="allowConjunctionOverride"
-          Value="true"/>
-        <Property
-          Name="showInList"
-          Value="true"/>
-        <Property
-          Name="displayOperators"
-          Value="InAdvancedMode"/>
-      </CustomProperties>
+    AliasName="VEHICLE_TYPE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgVehiclesEOVO.VehicleType_LABEL"/>
+      </SchemaBasedProperties>
     </Properties>
-    <ViewCriteriaRow
-      Name="XpeDccCfgVehiclesEOVOCriteria_row_0"
-      UpperColumns="1">
-      <ViewCriteriaItem
-        Name="VehicleId"
-        ViewAttribute="VehicleId"
-        Operator="ISBLANK"
-        Conjunction="AND"
-        Value=""
-        Required="Optional"/>
-    </ViewCriteriaRow>
-  </ViewCriteria>
+  </ViewAttribute>
   <ViewCriteria
-    Name="VehiclesCriteria"
+    Name="VehicleTypesCriteria"
     ViewObjectName="model.views.entitybased.XpeDccCfgVehiclesEOVO"
     Conjunction="AND">
     <Properties Name="_Props">

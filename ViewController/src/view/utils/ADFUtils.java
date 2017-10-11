@@ -34,6 +34,8 @@ import oracle.jbo.Key;
 import oracle.jbo.Row;
 import oracle.jbo.ViewObject;
 
+import oracle.xdo.batch.object.Email;
+
 
 /**
  * A series of convenience functions for dealing with ADF Bindings.
@@ -528,5 +530,4 @@ public class ADFUtils {
 
         return exp.getValue(elContext);
     }
-
 }

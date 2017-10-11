@@ -42,9 +42,24 @@
         <Item Value="State"/>
       </AttrNames>
     </attributeValues>
-    <list IterBinding="XpeDccCfgNewCarriersCreationEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive"
+    <attributeValues IterBinding="XpeDccCfgCarriersEOVOIterator" id="CarrierId1">
+      <AttrNames>
+        <Item Value="CarrierId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgCarriersEOVOIterator" id="CarrierName1">
+      <AttrNames>
+        <Item Value="CarrierName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgCarriersEOVOIterator" id="State1">
+      <AttrNames>
+        <Item Value="State"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgCarriersEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
-    <attributeValues IterBinding="XpeDccCfgNewCarriersCreationEOVOIterator" id="InactiveDate">
+    <attributeValues IterBinding="XpeDccCfgCarriersEOVOIterator" id="InactiveDate">
       <AttrNames>
         <Item Value="InactiveDate"/>
       </AttrNames>

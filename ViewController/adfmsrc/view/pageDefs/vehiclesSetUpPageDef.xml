@@ -6,7 +6,7 @@
     <variableIterator id="variables"/>
     <iterator Binds="XpeDccCfgVehiclesEOVO" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccCfgVehiclesEOVOIterator"/>
-    <searchRegion Criteria="VehiclesCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+    <searchRegion Criteria="VehicleTypesCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="XpeDccCfgVehiclesEOVOIterator" id="VehiclesCriteriaQuery"/>
     <iterator Binds="XpeDccCfgNewVehiclesCreationEOVO" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccCfgNewVehiclesCreationEOVOIterator"/>
@@ -47,7 +47,26 @@
           id="RequireTrailer" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <list IterBinding="XpeDccCfgNewVehiclesCreationEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
-    <attributeValues IterBinding="XpeDccCfgNewVehiclesCreationEOVOIterator" id="InactiveDate">
+    <attributeValues IterBinding="XpeDccCfgVehiclesEOVOIterator" id="VehicleId1">
+      <AttrNames>
+        <Item Value="VehicleId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgVehiclesEOVOIterator" id="VehicleType1">
+      <AttrNames>
+        <Item Value="VehicleType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgVehiclesEOVOIterator" id="VehicleDesc1">
+      <AttrNames>
+        <Item Value="VehicleDesc"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgVehiclesEOVOIterator" StaticList="false" Uses="LOV_RequireTrailer"
+          id="RequireTrailer1" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgVehiclesEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive1"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgVehiclesEOVOIterator" id="InactiveDate">
       <AttrNames>
         <Item Value="InactiveDate"/>
       </AttrNames>

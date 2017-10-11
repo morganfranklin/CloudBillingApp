@@ -31,11 +31,6 @@
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
     <action IterBinding="XpeDccCfgNewCountiesCreationEOVOIterator" id="CreateInsert" RequiresUpdateModel="true"
             Action="createInsertRow"/>
-    <attributeValues IterBinding="XpeDccCfgNewCountiesCreationEOVOIterator" id="CountyId">
-      <AttrNames>
-        <Item Value="CountyId"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="XpeDccCfgNewCountiesCreationEOVOIterator" id="CountyName">
       <AttrNames>
         <Item Value="CountyName"/>
@@ -48,9 +43,31 @@
     </attributeValues>
     <list IterBinding="XpeDccCfgNewCountiesCreationEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
-    <attributeValues IterBinding="XpeDccCfgNewCountiesCreationEOVOIterator" id="InactiveDate">
+    <attributeValues IterBinding="XpeDccCfgCountiesEOVOIterator" id="CountyId1">
+      <AttrNames>
+        <Item Value="CountyId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgCountiesEOVOIterator" id="CountyName1">
+      <AttrNames>
+        <Item Value="CountyName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgCountiesEOVOIterator" id="State1">
+      <AttrNames>
+        <Item Value="State"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgCountiesEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive1"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgCountiesEOVOIterator" id="InactiveDate">
       <AttrNames>
         <Item Value="InactiveDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewCountiesCreationEOVOIterator" id="CountyId">
+      <AttrNames>
+        <Item Value="CountyId"/>
       </AttrNames>
     </attributeValues>
   </bindings>

@@ -31,14 +31,6 @@
     Name="bind_State"
     Kind="viewcriteria"
     Type="java.lang.String"/>
-  <Variable
-    Name="bind_Inactive"
-    Kind="viewcriteria"
-    Type="java.lang.String"/>
-  <Variable
-    Name="bind_InactiveDate"
-    Kind="viewcriteria"
-    Type="java.sql.Timestamp"/>
   <ViewAccessor
     Name="LookupSharedAppModule_YONLOV"
     ViewObjectName="model.views.readonly.XpeDccDicNewContractSetupROVO"
@@ -81,13 +73,27 @@
     PrecisionRule="true"
     EntityAttrName="CountyId"
     EntityUsage="XpeDccCfgCountiesEO"
-    AliasName="COUNTY_ID"/>
+    AliasName="COUNTY_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgCountiesEOVO.CountyId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CountyName"
     PrecisionRule="true"
     EntityAttrName="CountyName"
     EntityUsage="XpeDccCfgCountiesEO"
-    AliasName="COUNTY_NAME"/>
+    AliasName="COUNTY_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgCountiesEOVO.CountyName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedBy"
     PrecisionRule="true"
@@ -111,6 +117,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgCountiesEOVO.Inactive_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -119,7 +127,14 @@
     PrecisionRule="true"
     EntityAttrName="InactiveDate"
     EntityUsage="XpeDccCfgCountiesEO"
-    AliasName="INACTIVE_DATE"/>
+    AliasName="INACTIVE_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgCountiesEOVO.InactiveDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
@@ -138,41 +153,14 @@
     PrecisionRule="true"
     EntityAttrName="State"
     EntityUsage="XpeDccCfgCountiesEO"
-    AliasName="STATE"/>
-  <ViewCriteria
-    Name="EmptyCountiesCriteria"
-    ViewObjectName="model.views.entitybased.XpeDccCfgCountiesEOVO"
-    Conjunction="AND">
-    <Properties Name="_Props">
-      <CustomProperties>
-        <Property
-          Name="autoExecute"
-          Value="false"/>
-        <Property
-          Name="mode"
-          Value="Basic"/>
-        <Property
-          Name="allowConjunctionOverride"
-          Value="true"/>
-        <Property
-          Name="showInList"
-          Value="true"/>
-        <Property
-          Name="displayOperators"
-          Value="InAdvancedMode"/>
-      </CustomProperties>
+    AliasName="STATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgCountiesEOVO.State_LABEL"/>
+      </SchemaBasedProperties>
     </Properties>
-    <ViewCriteriaRow
-      Name="XpeDccCfgCountiesEOVOCriteria_row_0"
-      UpperColumns="1">
-      <ViewCriteriaItem
-        Name="XpeDccCfgCountiesEOVOCriteria_XpeDccCfgCountiesEOVOCriteria_row_0_CountyId"
-        ViewAttribute="CountyId"
-        Operator="ISBLANK"
-        Conjunction="AND"
-        Required="Optional"/>
-    </ViewCriteriaRow>
-  </ViewCriteria>
+  </ViewAttribute>
   <ViewCriteria
     Name="CountiesCriteria"
     ViewObjectName="model.views.entitybased.XpeDccCfgCountiesEOVO"
@@ -213,22 +201,6 @@
         Operator="="
         Conjunction="AND"
         Value=":bind_CountyName"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="Inactive"
-        ViewAttribute="Inactive"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_Inactive"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="InactiveDate"
-        ViewAttribute="InactiveDate"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_InactiveDate"
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem

@@ -24,6 +24,8 @@ import model.views.readonly.XpeDccTermsForMasterTermROVORowImpl;
 import oracle.jbo.Row;
 import oracle.jbo.RowIterator;
 import oracle.jbo.RowSetIterator;
+import oracle.jbo.ViewCriteria;
+import oracle.jbo.ViewObject;
 import oracle.jbo.domain.BlobDomain;
 import oracle.jbo.server.ApplicationModuleImpl;
 import oracle.jbo.server.ViewLinkImpl;
@@ -2046,6 +2048,13 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public ViewObjectImpl getXpeDccCfgNewPcsshortnamesEOVO() {
         return (ViewObjectImpl) findViewObject("XpeDccCfgNewPcsshortnamesEOVO");
+    }
+    
+    public void resetQueryResult(String paramVOName, String criteriaName){
+        ViewObjectImpl paramVo = (ViewObjectImpl) this.findViewObject(paramVOName);
+        ViewCriteria vc = paramVo.getViewCriteria(criteriaName);
+        paramVo.removeViewCriteria(criteriaName);
+        paramVo.applyViewCriteria(vc);
     }
 }
 

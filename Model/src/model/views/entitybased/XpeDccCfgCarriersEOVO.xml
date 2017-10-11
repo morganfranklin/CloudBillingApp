@@ -31,14 +31,6 @@
     Name="bindState"
     Kind="viewcriteria"
     Type="java.lang.String"/>
-  <Variable
-    Name="bind_Inactive"
-    Kind="viewcriteria"
-    Type="java.lang.String"/>
-  <Variable
-    Name="bind_InactiveDate"
-    Kind="viewcriteria"
-    Type="java.sql.Timestamp"/>
   <ViewAccessor
     Name="LookupSharedAppModule_YONLOV"
     ViewObjectName="model.views.readonly.XpeDccDicNewContractSetupROVO"
@@ -81,13 +73,27 @@
     PrecisionRule="true"
     EntityAttrName="CarrierId"
     EntityUsage="XpeDccCfgCarriersEO"
-    AliasName="CARRIER_ID"/>
+    AliasName="CARRIER_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgCarriersEOVO.CarrierId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CarrierName"
     PrecisionRule="true"
     EntityAttrName="CarrierName"
     EntityUsage="XpeDccCfgCarriersEO"
-    AliasName="CARRIER_NAME"/>
+    AliasName="CARRIER_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgCarriersEOVO.CarrierName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedBy"
     PrecisionRule="true"
@@ -111,6 +117,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgCarriersEOVO.Inactive_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -119,7 +127,14 @@
     PrecisionRule="true"
     EntityAttrName="InactiveDate"
     EntityUsage="XpeDccCfgCarriersEO"
-    AliasName="INACTIVE_DATE"/>
+    AliasName="INACTIVE_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgCarriersEOVO.InactiveDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
@@ -137,41 +152,14 @@
     PrecisionRule="true"
     EntityAttrName="State"
     EntityUsage="XpeDccCfgCarriersEO"
-    AliasName="STATE"/>
-  <ViewCriteria
-    Name="EmptyCarriersCriteria"
-    ViewObjectName="model.views.entitybased.XpeDccCfgCarriersEOVO"
-    Conjunction="AND">
-    <Properties Name="_Props">
-      <CustomProperties>
-        <Property
-          Name="autoExecute"
-          Value="false"/>
-        <Property
-          Name="mode"
-          Value="Basic"/>
-        <Property
-          Name="allowConjunctionOverride"
-          Value="true"/>
-        <Property
-          Name="showInList"
-          Value="true"/>
-        <Property
-          Name="displayOperators"
-          Value="InAdvancedMode"/>
-      </CustomProperties>
+    AliasName="STATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgCarriersEOVO.State_LABEL"/>
+      </SchemaBasedProperties>
     </Properties>
-    <ViewCriteriaRow
-      Name="XpeDccCfgCarriersEOVOCriteria_row_0"
-      UpperColumns="1">
-      <ViewCriteriaItem
-        Name="XpeDccCfgCarriersEOVOCriteria_XpeDccCfgCarriersEOVOCriteria_row_0_CarrierId"
-        ViewAttribute="CarrierId"
-        Operator="ISBLANK"
-        Conjunction="AND"
-        Required="Optional"/>
-    </ViewCriteriaRow>
-  </ViewCriteria>
+  </ViewAttribute>
   <ViewCriteria
     Name="CarriersCriteria"
     ViewObjectName="model.views.entitybased.XpeDccCfgCarriersEOVO"
@@ -212,22 +200,6 @@
         Operator="="
         Conjunction="AND"
         Value=":bind_CarrierName"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="Inactive"
-        ViewAttribute="Inactive"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_Inactive"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="InactiveDate"
-        ViewAttribute="InactiveDate"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_InactiveDate"
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem

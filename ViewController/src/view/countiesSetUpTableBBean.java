@@ -1,10 +1,12 @@
 package view;
 
 import oracle.adf.view.rich.component.rich.RichPopup;
+import oracle.adf.view.rich.component.rich.data.RichTable;
 
 public class countiesSetUpTableBBean {
     private RichPopup countyAddItem_popup;
     private RichPopup countyEditItem_popp;
+    private RichTable countySetUpTblBind;
 
     public countiesSetUpTableBBean() {
     }
@@ -23,5 +25,13 @@ public class countiesSetUpTableBBean {
 
     public RichPopup getCountyEditItem_popp() {
         return countyEditItem_popp;
+    }
+
+    public void setCountySetUpTblBind(RichTable countySetUpTblBind) {
+        this.countySetUpTblBind = countySetUpTblBind;
+    }
+
+    public RichTable getCountySetUpTblBind() {
+        return countySetUpTblBind;
     }
 }

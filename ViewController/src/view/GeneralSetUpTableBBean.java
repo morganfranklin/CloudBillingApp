@@ -1,10 +1,12 @@
 package view;
 
 import oracle.adf.view.rich.component.rich.RichPopup;
+import oracle.adf.view.rich.component.rich.data.RichTable;
 
 public class GeneralSetUpTableBBean {
     private RichPopup generalItemAddItem_popup;
     private RichPopup generalItemEditItem_popup;
+    private RichTable generalSetUpTblBind;
 
     public GeneralSetUpTableBBean() {
     }
@@ -23,5 +25,13 @@ public class GeneralSetUpTableBBean {
 
     public RichPopup getGeneralItemEditItem_popup() {
         return generalItemEditItem_popup;
+    }
+
+    public void setGeneralSetUpTblBind(RichTable generalSetUpTblBind) {
+        this.generalSetUpTblBind = generalSetUpTblBind;
+    }
+
+    public RichTable getGeneralSetUpTblBind() {
+        return generalSetUpTblBind;
     }
 }

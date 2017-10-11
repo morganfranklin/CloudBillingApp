@@ -39,5 +39,17 @@
     </attributeValues>
     <action IterBinding="XpeDccCfgNewGeneralEOVOIterator" id="Delete" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
+    <attributeValues IterBinding="XpeDccCfgGeneralEOVOIterator" id="ItemId1">
+      <AttrNames>
+        <Item Value="ItemId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgGeneralEOVOIterator" StaticList="false" Uses="LOV_ItemListType" id="ItemListType1"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgGeneralEOVOIterator" id="ValidValue1">
+      <AttrNames>
+        <Item Value="ValidValue"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

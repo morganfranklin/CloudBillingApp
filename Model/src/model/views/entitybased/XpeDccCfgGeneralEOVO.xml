@@ -85,7 +85,14 @@
     PrecisionRule="true"
     EntityAttrName="ItemId"
     EntityUsage="XpeDccCfgGeneralEO"
-    AliasName="ITEM_ID"/>
+    AliasName="ITEM_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgGeneralEOVO.ItemId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ItemListType"
     IsUpdateable="while_insert"
@@ -99,6 +106,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgGeneralEOVO.ItemListType_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -119,7 +128,14 @@
     PrecisionRule="true"
     EntityAttrName="ValidValue"
     EntityUsage="XpeDccCfgGeneralEO"
-    AliasName="VALID_VALUE"/>
+    AliasName="VALID_VALUE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgGeneralEOVO.ValidValue_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="GeneralCriteria"
     ViewObjectName="model.views.entitybased.XpeDccCfgGeneralEOVO"
