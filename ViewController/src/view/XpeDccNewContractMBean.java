@@ -17,6 +17,8 @@ import model.XpeDccContractVersionViewRowImpl;
 
 import model.views.entitybased.XpeDccNewContractsEOVOImpl;
 import model.views.entitybased.XpeDccNewContractsEOVORowImpl;
+import model.views.entitybased.XpeDccTermsContractEOVOImpl;
+import model.views.entitybased.XpeDccTermsContractEOVORowImpl;
 import model.views.entitybased.XpeDmsCustomerEOVOImpl;
 import model.views.entitybased.XpeDmsCustomerEOVORowImpl;
 import model.views.readonly.XpeDccNewContractCustomerSearchROVOImpl;
@@ -25,10 +27,15 @@ import model.views.readonly.XpeDccNewContractCustomerSearchROVORowImpl;
 import oracle.adf.model.BindingContext;
 import oracle.adf.view.rich.component.rich.RichPopup;
 
+import oracle.adf.view.rich.context.AdfFacesContext;
+
 import oracle.binding.BindingContainer;
 import oracle.binding.OperationBinding;
 
+import oracle.jbo.RowSetIterator;
 import oracle.jbo.domain.ClobDomain;
+
+import org.dom4j.CDATA;
 
 import view.utils.ADFUtils;
 
@@ -206,6 +213,7 @@ public class XpeDccNewContractMBean implements Serializable {
                                           new ClobDomain(template.toString()));
                 
             System.err.println("HTML: " + template.toString());
+            AdfFacesContext.getCurrentInstance().addPartialTarget(this.getXpeDccNewContractBBean().getTermTemplateRTE());
 
         } catch (Exception ex) {
             // TODO: Add catch code
@@ -217,26 +225,17 @@ public class XpeDccNewContractMBean implements Serializable {
 
         try {
             ClobDomain html = (ClobDomain) ADFUtils.evaluateEL("#{bindings.XpeDccTermTemplate.inputValue}");
-            Reader initialReader = html.getCharacterStream();
 
-            char[] charBuffer = new char[8 * 1024];
-            StringBuilder htmlBuilder = new StringBuilder();
-            int numCharsRead;
-            while ((numCharsRead = initialReader.read(charBuffer, 0, charBuffer.length)) != -1) {
-                htmlBuilder.append(charBuffer, 0, numCharsRead);
-            }
-            initialReader.close();
-            replaceHtml(htmlBuilder.toString());
-
+            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("PDF", FileOperations.genPdfRep(buildXML(replaceHtml(convertClobToString(html))), FileOperations.getRTFAsInputStream("TermPreview")));
             this.getXpeDccNewContractBBean().getHtml_popup().show(new RichPopup.PopupHints());
-        } catch (IOException ioe) {
+        } catch (Exception ex) {
             // TODO: Add catch code
-            ioe.printStackTrace();
+            ex.printStackTrace();
         }
     }
 
-    private void replaceHtml(String htmlString) {
-        ADFUtils.setvalueToExpression("#{pageFlowScope.html}", null);
+    private String replaceHtml(String htmlString) {
+        //ADFUtils.setvalueToExpression("#{pageFlowScope.html}", null);
         if (null != htmlString && htmlString.length() > 0) {
             String customerType = ADFUtils.getValueFrmExpression("#{bindings.Customer_Type.attributeValue}");
             System.err.println("customerType: "+customerType);
@@ -246,12 +245,16 @@ public class XpeDccNewContractMBean implements Serializable {
             else if ("EXT".equals(customerType))
                 htmlString = htmlString.replaceAll("\\{CUSTOMER NAME\\}",
                                           (String) ADFUtils.evaluateEL("#{bindings.CustomerName.inputValue}"));
+            else
+                htmlString = htmlString.replaceAll("\\{CUSTOMER NAME\\}",
+                                          (String) ADFUtils.evaluateEL("#{bindings.Name1.inputValue}"));
             
             htmlString = htmlString.replaceAll("\\{WASTE TYPE\\}",  ADFUtils.getValueFrmExpression("#{bindings.XpeWasteType.inputValue}"));
             htmlString = htmlString.replaceAll("\\{CONTRACT SUB TYPE\\}",  ADFUtils.getValueFrmExpression("#{bindings.XpeContractSubType.inputValue}"));
             htmlString = htmlString.replaceAll("\\{AGREEMENT TYPE\\}",  ADFUtils.getValueFrmExpression("#{bindings.XpeAgreementType.inputValue}"));
-            ADFUtils.setvalueToExpression("#{pageFlowScope.html}", htmlString);
+            //ADFUtils.setvalueToExpression("#{pageFlowScope.html}", htmlString);
         }
+        return htmlString;
     }
     
     public void buildPDF(){
@@ -259,48 +262,75 @@ public class XpeDccNewContractMBean implements Serializable {
     }
     
     
-    private byte[] buildXML(){
+    private byte[] buildXML(String html){
         byte[] dataBytes = null;
+        String xmlTag = "<?xml version=\"1.0\" encoding=\"windows-1252\"?>";
         try {
             StringBuilder xmlBuilder = new StringBuilder();
+            xmlBuilder.append(xmlTag);
+            xmlBuilder.append("<TERM_DETAILS>");
+            xmlBuilder.append("<TERM_DETAILS_ROW>");
+            xmlBuilder.append("<HTML_TEXT>").append("<![CDATA[").append(html).append("]]>").append("</HTML_TEXT>");
+            xmlBuilder.append("</TERM_DETAILS_ROW>");
+            xmlBuilder.append("</TERM_DETAILS>");
+
+            System.out.println(xmlBuilder.toString());
+
+            dataBytes = xmlBuilder.toString().getBytes();
+        } catch (Exception e) {
+            // TODO: Add catch code
+            e.printStackTrace();
+        }
+        return dataBytes;
+    }
+    
+    private byte[] buildXML(){
+        byte[] dataBytes = null;
+        String xmlTag = "<?xml version=\"1.0\" encoding=\"windows-1252\"?>";
+        try {
+            StringBuilder xmlBuilder = new StringBuilder();
+            xmlBuilder.append(xmlTag);
             xmlBuilder.append("<CONTRACT_DETAILS>");
             xmlBuilder.append("<CONTRACT_DETAILS_ROW>");
             String customerType = ADFUtils.getValueFrmExpression("#{bindings.Customer_Type.attributeValue}");
             System.err.println("customerType: "+customerType);
             if ("NEW".equals(customerType)){
                 xmlBuilder.append("<CUSTOMER_ID>").append("NEW").append("</CUSTOMER_ID>");
-                xmlBuilder.append("<CUSTOMER_NAME>").append(ADFUtils.getValueFrmExpression("#{bindings.CompanyName.inputValue}")).append("</CUSTOMER_NAME>");
-                xmlBuilder.append("<CUSTOMER_ADDRESS>").append(ADFUtils.getValueFrmExpression("#{bindings.MailingAddress1.inputValue}")).append("</CUSTOMER_ADDRESS>");
-                xmlBuilder.append("<CUSTOMER_ADDRESS1>").append(ADFUtils.getValueFrmExpression("#{bindings.MailingAddress2.inputValue}")).append("</CUSTOMER_ADDRESS1>");
-                xmlBuilder.append("<CITY>").append(ADFUtils.getValueFrmExpression("#{bindings.MailingCity.inputValue}")).append("</CITY>");
-                xmlBuilder.append("<STATE>").append(ADFUtils.getValueFrmExpression("#{bindings.MailingState.inputValue}")).append("</STATE>");
-                xmlBuilder.append("<POSTAL_CODE>").append(ADFUtils.getValueFrmExpression("#{bindings.MailingPostal.inputValue}")).append("</POSTAL_CODE>");
+                xmlBuilder.append("<CUSTOMER_NAME>").append(checkIfNull(ADFUtils.getValueFrmExpression("#{bindings.CompanyName.inputValue}"))).append("</CUSTOMER_NAME>");
+                xmlBuilder.append("<CUSTOMER_ADDRESS>").append(checkIfNull(ADFUtils.getValueFrmExpression("#{bindings.MailingAddress1.inputValue}"))).append("</CUSTOMER_ADDRESS>");
+                xmlBuilder.append("<CUSTOMER_ADDRESS1>").append(checkIfNull(ADFUtils.getValueFrmExpression("#{bindings.MailingAddress2.inputValue}"))).append("</CUSTOMER_ADDRESS1>");
+                xmlBuilder.append("<CITY>").append(checkIfNull(ADFUtils.getValueFrmExpression("#{bindings.MailingCity.inputValue}"))).append("</CITY>");
+                xmlBuilder.append("<STATE>").append(checkIfNull(ADFUtils.getValueFrmExpression("#{bindings.MailingState.inputValue}"))).append("</STATE>");
+                xmlBuilder.append("<POSTAL_CODE>").append(checkIfNull(ADFUtils.getValueFrmExpression("#{bindings.MailingPostal.inputValue}"))).append("</POSTAL_CODE>");
                 
-                xmlBuilder.append("<CONTACT_NAME>").append(ADFUtils.getValueFrmExpression("#{bindings.ContactName.inputValue}")).append("</CONTACT_NAME>");
-                xmlBuilder.append("<CONTACT_TITLE>").append(ADFUtils.getValueFrmExpression("#{bindings.Title.inputValue}")).append("</CONTACT_TITLE>");
-                xmlBuilder.append("<CONTACT_PHONE>").append(ADFUtils.getValueFrmExpression("#{bindings.PhoneNum.inputValue}")).append("</CONTACT_PHONE>");
-                xmlBuilder.append("<CONTACT_EMAIL>").append(ADFUtils.getValueFrmExpression("#{bindings.Email.inputValue}")).append("</CONTACT_EMAIL>");
+                xmlBuilder.append("<CONTACT_NAME>").append(checkIfNull(ADFUtils.getValueFrmExpression("#{bindings.ContactName.inputValue}"))).append("</CONTACT_NAME>");
+                xmlBuilder.append("<CONTACT_TITLE>").append(checkIfNull(ADFUtils.getValueFrmExpression("#{bindings.Title.inputValue}"))).append("</CONTACT_TITLE>");
+                xmlBuilder.append("<CONTACT_PHONE>").append(checkIfNull(ADFUtils.getValueFrmExpression("#{bindings.PhoneNum.inputValue}"))).append("</CONTACT_PHONE>");
+                xmlBuilder.append("<CONTACT_EMAIL>").append(checkIfNull(ADFUtils.getValueFrmExpression("#{bindings.Email.inputValue}"))).append("</CONTACT_EMAIL>");
                 
-                xmlBuilder.append("<BILLING_ADDRESS1>").append(ADFUtils.getValueFrmExpression("#{bindings.BillingAddress1.inputValue}")).append("</BILLING_ADDRESS1>");
-                xmlBuilder.append("<BILLING_ADDRESS2>").append(ADFUtils.getValueFrmExpression("#{bindings.BillingAddress2.inputValue}")).append("</BILLING_ADDRESS2>");
-                xmlBuilder.append("<BILLING_CITY>").append(ADFUtils.getValueFrmExpression("#{bindings.City.inputValue}")).append("</BILLING_CITY>");
-                xmlBuilder.append("<BILLING_STATE>").append(ADFUtils.getValueFrmExpression("#{bindings.State.inputValue}")).append("</BILLING_STATE>");
-                xmlBuilder.append("<BILLING_POSTAL_CODE>").append(ADFUtils.getValueFrmExpression("#{bindings.Postal.inputValue}")).append("</BILLING_POSTAL_CODE>");
+                xmlBuilder.append("<BILLING_ADDRESS1>").append(checkIfNull(ADFUtils.getValueFrmExpression("#{bindings.BillingAddress1.inputValue}"))).append("</BILLING_ADDRESS1>");
+                xmlBuilder.append("<BILLING_ADDRESS2>").append(checkIfNull(ADFUtils.getValueFrmExpression("#{bindings.BillingAddress2.inputValue}"))).append("</BILLING_ADDRESS2>");
+                xmlBuilder.append("<BILLING_CITY>").append(checkIfNull(ADFUtils.getValueFrmExpression("#{bindings.City.inputValue}"))).append("</BILLING_CITY>");
+                xmlBuilder.append("<BILLING_STATE>").append(checkIfNull(ADFUtils.getValueFrmExpression("#{bindings.State.inputValue}"))).append("</BILLING_STATE>");
+                xmlBuilder.append("<BILLING_POSTAL_CODE>").append(checkIfNull(ADFUtils.getValueFrmExpression("#{bindings.Postal.inputValue}"))).append("</BILLING_POSTAL_CODE>");
             }else if ("EXT".equals(customerType)){
-                xmlBuilder.append("<CUSTOMER_NAME>").append(ADFUtils.getValueFrmExpression("#{bindings.EXTCustomerName.inputValue}")).append("</CUSTOMER_NAME>");
+                xmlBuilder.append("<CUSTOMER_NAME>").append(checkIfNull(ADFUtils.getValueFrmExpression("#{bindings.EXTCustomerName.inputValue}"))).append("</CUSTOMER_NAME>");
                 //xmlBuilder.append("<CONTACT_NAME>").append(ADFUtils.getValueFrmExpression("#{bindings.ContactName.inputValue}")).append("</CONTACT_NAME>");
-                xmlBuilder.append("<CUSTOMER_ADDRESS>").append(ADFUtils.getValueFrmExpression("#{bindings.EXTAddress1.inputValue}")).append("</CUSTOMER_ADDRESS>");
-                xmlBuilder.append("<CITY>").append(ADFUtils.getValueFrmExpression("#{bindings.EXTCity.inputValue}")).append("</CITY>");
-                xmlBuilder.append("<STATE>").append(ADFUtils.getValueFrmExpression("#{bindings.EXTState.inputValue}")).append("</STATE>");
-                xmlBuilder.append("<POSTAL_CODE>").append(ADFUtils.getValueFrmExpression("#{bindings.EXTPostal.inputValue}")).append("</POSTAL_CODE>");
-                xmlBuilder.append("<CUSTOMER_ID>").append(ADFUtils.getValueFrmExpression("#{bindings.CustId.inputValue}")).append("</CUSTOMER_ID>");
+                xmlBuilder.append("<CUSTOMER_ADDRESS>").append(checkIfNull(ADFUtils.getValueFrmExpression("#{bindings.EXTAddress1.inputValue}"))).append("</CUSTOMER_ADDRESS>");
+                xmlBuilder.append("<CITY>").append(checkIfNull(ADFUtils.getValueFrmExpression("#{bindings.EXTCity.inputValue}"))).append("</CITY>");
+                xmlBuilder.append("<STATE>").append(checkIfNull(ADFUtils.getValueFrmExpression("#{bindings.EXTState.inputValue}"))).append("</STATE>");
+                xmlBuilder.append("<POSTAL_CODE>").append(checkIfNull(ADFUtils.getValueFrmExpression("#{bindings.EXTPostal.inputValue}"))).append("</POSTAL_CODE>");
+                xmlBuilder.append("<CUSTOMER_ID>").append(checkIfNull(ADFUtils.getValueFrmExpression("#{bindings.CustId.inputValue}"))).append("</CUSTOMER_ID>");
             }
-            xmlBuilder.append("<BUSINESS_TYPE>").append(ADFUtils.getValueFrmExpression("#{bindings.Business_Type.attributeValue}")).append("</BUSINESS_TYPE>");
+            xmlBuilder.append("<BUSINESS_TYPE>").append(checkIfNull(ADFUtils.getValueFrmExpression("#{bindings.Business_Type.attributeValue}"))).append("</BUSINESS_TYPE>");
             xmlBuilder.append("<AS_OF_DATE>").append(formatDate(ADFUtils.getValueFrmExpression("#{bindings.XpeAsOfDate.inputValue}"))).append("</AS_OF_DATE>");
             xmlBuilder.append("<FROM_DATE>").append(formatDate(ADFUtils.getValueFrmExpression("#{bindings.XpeStartDate.inputValue}"))).append("</FROM_DATE>");
             xmlBuilder.append("<TO_DATE>").append(formatDate(ADFUtils.getValueFrmExpression("#{bindings.XpeEndDate.inputValue}"))).append("</TO_DATE>");
-            xmlBuilder.append("<USER_NAME>").append(ADFUtils.getValueFrmExpression("#{bindings.XpeUser.inputValue}")).append("</USER_NAME>");
-            xmlBuilder.append("<CUSTOMER_NOTES>").append(ADFUtils.getValueFrmExpression("#{bindings.XpeNote.inputValue}")).append("</CUSTOMER_NOTES>");
+            xmlBuilder.append("<USER_NAME>").append(checkIfNull(ADFUtils.getValueFrmExpression("#{bindings.XpeUser.inputValue}"))).append("</USER_NAME>");
+            xmlBuilder.append("<CUSTOMER_NOTES>").append(checkIfNull(ADFUtils.getValueFrmExpression("#{bindings.XpeNote.inputValue}"))).append("</CUSTOMER_NOTES>");
+            
+            xmlBuilder = buildXMLForTerms(xmlBuilder);
+            
             xmlBuilder.append("</CONTRACT_DETAILS_ROW>");
             xmlBuilder.append("</CONTRACT_DETAILS>");
 
@@ -312,6 +342,24 @@ public class XpeDccNewContractMBean implements Serializable {
             e.printStackTrace();
         }
         return dataBytes;
+    }
+    
+    public StringBuilder buildXMLForTerms(StringBuilder xmlBuilder){
+        try {
+            XpeDccTermsContractEOVOImpl xpeDccTermsContractEOVO = (XpeDccTermsContractEOVOImpl)ADFUtils.findViewObjectFromIteratorName("XpeDccTermsContractEOVOIterator");
+            RowSetIterator rowsetIterator = xpeDccTermsContractEOVO.createRowSetIterator(null);
+            while(rowsetIterator.hasNext()){
+                XpeDccTermsContractEOVORowImpl xpeDccTermsContractEOVORow =(XpeDccTermsContractEOVORowImpl)rowsetIterator.next();
+            xmlBuilder.append("<TERM_DETAILS_ROW>");
+            xmlBuilder.append("<HTML_TEXT>").append("<![CDATA[").append(replaceHtml(convertClobToString(xpeDccTermsContractEOVORow.getXpeDccTermTemplate()))).append("]]>").append("</HTML_TEXT>");
+            xmlBuilder.append("</TERM_DETAILS_ROW>");
+            }
+            System.out.println(xmlBuilder.toString());
+        } catch (Exception e) {
+            // TODO: Add catch code
+            e.printStackTrace();
+        }
+        return xmlBuilder;
     }
     
     private String getTemplateName() {
@@ -337,7 +385,7 @@ public class XpeDccNewContractMBean implements Serializable {
                    "yyyy-MM-dd hh:mm:ss");
            SimpleDateFormat  formatter = new SimpleDateFormat("MM/dd/yyyy");
         try {
-            if (null != dateInString) {
+            if (null != dateInString && dateInString.trim().length()>0) {
                 Date date = dateFormat.parse(dateInString);
                 System.out.println(date);
                 return formatter.format(date);
@@ -345,6 +393,30 @@ public class XpeDccNewContractMBean implements Serializable {
         } catch (ParseException e) {
                e.printStackTrace();
            }
-          return null;
+          return "";
        }
+
+    private String convertClobToString(ClobDomain html) {
+        StringBuilder htmlBuilder = new StringBuilder();
+        try {
+            Reader initialReader = html.getCharacterStream();
+            char[] charBuffer = new char[8 * 1024];
+            int numCharsRead;
+            while ((numCharsRead = initialReader.read(charBuffer, 0, charBuffer.length)) != -1) {
+                htmlBuilder.append(charBuffer, 0, numCharsRead);
+            }
+            initialReader.close();
+        } catch (IOException ioe) {
+            // TODO: Add catch code
+            ioe.printStackTrace();
+        }
+        return htmlBuilder.toString();
+    }
+    
+    private String checkIfNull(String val){ 
+        if(null==val || val.trim().length()==0)
+          return "";
+        else
+         return val;
+    }
 }

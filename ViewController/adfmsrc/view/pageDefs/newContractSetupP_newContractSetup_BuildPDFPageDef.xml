@@ -14,6 +14,8 @@
               id="XpeDccNewContractSetupROVOIterator"/>
     <iterator Binds="XpeDccNewContractNotesView" RangeSize="10" DataControl="AppModuleDataControl"
               id="XpeDccNewContractNotesViewIterator"/>
+    <iterator id="XpeDccTermsContractEOVOIterator" Binds="XpeDccTermsContractEOVO" DataControl="AppModuleDataControl"
+              RangeSize="25"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="XpeDmsCustomerEOVOIterator" id="City">

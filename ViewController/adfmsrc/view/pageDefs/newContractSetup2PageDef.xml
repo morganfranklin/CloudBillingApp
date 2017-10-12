@@ -11,13 +11,15 @@
     <iterator Binds="XpeDccNewContractLPCROVO" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccNewContractLPCROVOIterator" ChangeEventPolicy="none"/>
     <iterator Binds="XpeDccTermsContractEOVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccTermsContractEOVOIterator"/>
+              id="XpeDccTermsContractEOVOIterator" ChangeEventPolicy="none"/>
     <iterator Binds="XpeDccNewContractSetupROVO" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccNewContractSetupROVOIterator" ChangeEventPolicy="none"/>
     <iterator Binds="XpeDmsCustomerEOVO" RangeSize="10" DataControl="AppModuleDataControl"
               id="XpeDmsCustomerEOVOIterator" ChangeEventPolicy="none"/>
     <iterator Binds="XpeDccNewContractCustomerSearchROVO" RangeSize="10" DataControl="AppModuleDataControl"
               id="XpeDccNewContractCustomerSearchROVOIterator" ChangeEventPolicy="none"/>
+    <iterator Binds="XpeDccContractSearchROVO" RangeSize="10" DataControl="AppModuleDataControl"
+              id="XpeDccContractSearchROVOIterator"/>
   </executables>
   <bindings>
     <list IterBinding="XpeDccNewContractVersionViewIterator" StaticList="false" Uses="LOV_XpeWasteType"
@@ -108,10 +110,6 @@
         <Item Value="XpeDccTermTemplate"/>
       </AttrNames>
     </attributeValues>
-    <action IterBinding="XpeDccTermsContractEOVOIterator" id="First" RequiresUpdateModel="true" Action="first"/>
-    <action IterBinding="XpeDccTermsContractEOVOIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
-    <action IterBinding="XpeDccTermsContractEOVOIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
-    <action IterBinding="XpeDccTermsContractEOVOIterator" id="Last" RequiresUpdateModel="true" Action="last"/>
     <action IterBinding="XpeDccTermsContractEOVOIterator" id="Delete" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
     <methodAction id="fetchClauseForMasterTerm" RequiresUpdateModel="true" Action="invokeMethod"
@@ -141,5 +139,26 @@
     </attributeValues>
     <list Uses="LOV_Customer_Type" StaticList="false" IterBinding="XpeDccNewContractSetupROVOIterator"
           id="Customer_Type"/>
+    <attributeValues IterBinding="XpeDccContractSearchROVOIterator" id="Name1">
+      <AttrNames>
+        <Item Value="Name1"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="XpeDccTermsContractEOVOIterator" id="XpeDccTermsContractEOVO">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccTermsContractEOVO" Name="XpeDccTermsContractEOVO0">
+        <AttrNames>
+          <Item Value="XpeDccClause"/>
+          <Item Value="XpeDccContractId"/>
+          <Item Value="XpeDccSeq"/>
+          <Item Value="XpeDccTerm"/>
+          <Item Value="XpeDccTermTemplate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="XpeDccTermsContractEOVOIterator" id="setCurrentRowWithKey"
+            InstanceName="AppModuleDataControl.XpeDccTermsContractEOVO" DataControl="AppModuleDataControl"
+            RequiresUpdateModel="false" Action="setCurrentRowWithKey">
+      <NamedData NDName="rowKey" NDValue="#{row.rowKeyStr}" NDType="java.lang.String"/>
+    </action>
   </bindings>
 </pageDefinition>
