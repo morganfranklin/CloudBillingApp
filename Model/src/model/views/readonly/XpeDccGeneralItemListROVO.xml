@@ -20,12 +20,11 @@
   </Properties>
   <Variable
     Name="bind_ItemListType"
-    Kind="where"
+    Kind="viewcriteria"
     Type="java.lang.String"/>
-  <SQLQuery><![CDATA[SELECT ITEM_ID, 
-ITEM_LIST_TYPE  
-FROM XPE_DCC_CFG_GENERAL  
-WHERE ITEM_LIST_TYPE=:bind_ItemListType]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT ITEM_ID,  
+ITEM_LIST_TYPE   
+FROM XPE_DCC_CFG_GENERAL]]></SQLQuery>
   <ViewAttribute
     Name="ItemId"
     IsUpdateable="false"
@@ -40,6 +39,14 @@ WHERE ITEM_LIST_TYPE=:bind_ItemListType]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="40"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="15"/>
+        <LABEL
+          ResId="model.views.readonly.XpeDccGeneralItemListROVO.ItemId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="ItemListType"
@@ -55,7 +62,49 @@ WHERE ITEM_LIST_TYPE=:bind_ItemListType]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="3"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccGeneralItemListROVO.ItemListType_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
+  <ViewCriteria
+    Name="findByItemListType"
+    ViewObjectName="model.views.readonly.XpeDccGeneralItemListROVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="XpeDccGeneralItemListROVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="ItemListType"
+        ViewAttribute="ItemListType"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_ItemListType"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <AttrArray Name="KeyAttributes">
     <Item Value="ItemId"/>
     <Item Value="ItemListType"/>

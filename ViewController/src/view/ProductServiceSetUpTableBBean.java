@@ -1,10 +1,12 @@
 package view;
 
 import oracle.adf.view.rich.component.rich.RichPopup;
+import oracle.adf.view.rich.component.rich.data.RichTable;
 
 public class ProductServiceSetUpTableBBean {
     private RichPopup productServiceUomAddItem_popup;
     private RichPopup productServiceUomEditItem_popup;
+    private RichTable productServiceSetUpTblBind;
 
     public ProductServiceSetUpTableBBean() {
     }
@@ -23,5 +25,13 @@ public class ProductServiceSetUpTableBBean {
 
     public RichPopup getProductServiceUomEditItem_popup() {
         return productServiceUomEditItem_popup;
+    }
+
+    public void setProductServiceSetUpTblBind(RichTable productServiceSetUpTblBind) {
+        this.productServiceSetUpTblBind = productServiceSetUpTblBind;
+    }
+
+    public RichTable getProductServiceSetUpTblBind() {
+        return productServiceSetUpTblBind;
     }
 }

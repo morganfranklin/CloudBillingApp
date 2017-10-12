@@ -2,7 +2,8 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
   <af:panelGroupLayout id="pgl1">
-    <af:panelHeader text="PCS Installation" id="ph1">
+    <af:panelGroupLayout id="pgl2" layout="horizontal">
+    <af:panelHeader text="PCS Installation" id="ph1" size="5">
       <f:facet name="context"/>
       <f:facet name="toolbar"/>
       <f:facet name="menuBar"/>
@@ -39,20 +40,23 @@
         </af:selectOneChoice>
         <af:selectOneChoice value="#{bindings.Inactive.inputValue}" label="#{bindings.Inactive.label}"
                             required="#{bindings.Inactive.hints.mandatory}"
-                            shortDesc="#{bindings.Inactive.hints.tooltip}" id="soc2">
+                            shortDesc="#{bindings.Inactive.hints.tooltip}" id="soc2" autoSubmit="true"
+                            valueChangeListener="#{pageFlowScope.PcsInstallationSetUpTableMBean.onPcsSiteEditInactiveValChgLstnr}">
           <f:selectItems value="#{bindings.Inactive.items}" id="si2"/>
           <f:validator binding="#{bindings.Inactive.validator}"/>
         </af:selectOneChoice>
         <af:inputDate value="#{bindings.InactiveDate.inputValue}" label="#{bindings.InactiveDate.hints.label}"
                       required="#{bindings.InactiveDate.hints.mandatory}"
                       columns="#{bindings.InactiveDate.hints.displayWidth}"
-                      shortDesc="#{bindings.InactiveDate.hints.tooltip}" id="id1">
+                      shortDesc="#{bindings.InactiveDate.hints.tooltip}" id="id1" autoSubmit="true"
+                      partialTriggers="soc2">
           <f:validator binding="#{bindings.InactiveDate.validator}"/>
           <af:convertDateTime pattern="#{bindings.InactiveDate.format}"/>
         </af:inputDate>
       </af:panelFormLayout>
     </af:panelHeader>
-    <af:panelHeader text="Credit Module" id="ph2">
+      <af:spacer width="10" height="10" id="s2"/>
+      <af:panelHeader text="Credit Module" id="ph2" size="5">
       <f:facet name="context"/>
       <f:facet name="toolbar"/>
       <f:facet name="menuBar"/>
@@ -81,7 +85,9 @@
         </af:inputText>
       </af:panelFormLayout>
     </af:panelHeader>
-    <af:panelHeader text="PCS Associated Terminals" id="ph3">
+    </af:panelGroupLayout>
+    <af:spacer width="10" height="10" id="s1"/>
+    <af:panelHeader text="PCS Associated Terminals" id="ph3" size="5">
       <f:facet name="context"/>
       <f:facet name="toolbar">
         <af:toolbar id="t2">
@@ -132,6 +138,7 @@
     <af:group id="g1">
       <af:button actionListener="#{bindings.Commit.execute}" text="Save" 
                  id="b1"/>
+      <af:spacer width="10" height="10" id="s3"/>
       <af:button actionListener="#{bindings.Rollback.execute}" text="Back" 
                  immediate="true" id="b2" action="Back">
         <af:resetActionListener/>
@@ -143,9 +150,9 @@
         <af:region value="#{bindings.terminalSearch1.regionModel}" id="r1"/>
         <f:facet name="buttonBar">
           <af:button text="Ok" id="b6"
-                     actionListener="#{pageFlowScope.PcsInstallationSetUpTableMBean.pcsTerminalSearchSaveorCancel}"/>
+                     actionListener="#{pageFlowScope.PcsInstallationSetUpTableMBean.pcsTerminalSearchSave}"/>
           <af:button text="cancel" id="b7"
-                     actionListener="#{pageFlowScope.PcsInstallationSetUpTableMBean.pcsTerminalSearchSaveorCancel}"/>
+                     actionListener="#{pageFlowScope.PcsInstallationSetUpTableMBean.pcsTerminalSearchCancel}"/>
         </f:facet>
       </af:dialog>
     </af:popup>
@@ -173,14 +180,16 @@
           </af:panelLabelAndMessage>
           <af:selectOneChoice value="#{bindings.Inactive1.inputValue}" label="#{bindings.Inactive1.label}"
                               required="#{bindings.Inactive1.hints.mandatory}"
-                              shortDesc="#{bindings.Inactive1.hints.tooltip}" id="soc6">
+                              shortDesc="#{bindings.Inactive1.hints.tooltip}" id="soc6" autoSubmit="true"
+                              valueChangeListener="#{pageFlowScope.PcsInstallationSetUpTableMBean.onTerminalEditInactiveValChgLstnr}">
             <f:selectItems value="#{bindings.Inactive1.items}" id="si6"/>
             <f:validator binding="#{bindings.Inactive1.validator}"/>
           </af:selectOneChoice>
           <af:inputDate value="#{bindings.InactiveDate1.inputValue}" label="#{bindings.InactiveDate1.hints.label}"
                         required="#{bindings.InactiveDate1.hints.mandatory}"
                         columns="#{bindings.InactiveDate1.hints.displayWidth}"
-                        shortDesc="#{bindings.InactiveDate1.hints.tooltip}" id="id2">
+                        shortDesc="#{bindings.InactiveDate1.hints.tooltip}" id="id2" autoSubmit="true"
+                        partialTriggers="soc6">
             <f:validator binding="#{bindings.InactiveDate1.validator}"/>
             <af:convertDateTime pattern="#{bindings.InactiveDate1.format}"/>
           </af:inputDate>

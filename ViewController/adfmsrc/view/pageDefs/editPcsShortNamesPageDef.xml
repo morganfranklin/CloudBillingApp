@@ -6,6 +6,8 @@
     <variableIterator id="variables"/>
     <iterator Binds="XpeDccCfgPcsshortnamesEOVO" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccCfgPcsshortnamesEOVOIterator"/>
+    <iterator Binds="XpeDccCfgNewPcsshortnamesEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewPcsshortnamesEOVOIterator"/>
   </executables>
   <bindings>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
@@ -92,5 +94,12 @@
         <Item Value="COV_Bill_Zip"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" id="BillCycleId">
+      <AttrNames>
+        <Item Value="BillCycleId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" StaticList="false" Uses="LOV_InvSupress" id="InvSupress"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

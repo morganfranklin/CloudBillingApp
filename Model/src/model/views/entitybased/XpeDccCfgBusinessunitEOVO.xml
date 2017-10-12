@@ -31,6 +31,9 @@
     Name="XpeDccGeneralItemList_ACLOV"
     ViewObjectName="model.views.readonly.XpeDccGeneralItemListROVO"
     RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="findByItemListType"
+      FullName="model.views.readonly.XpeDccGeneralItemListROVO.findByItemListType"/>
     <ParameterMap>
       <PIMap Variable="bind_ItemListType">
         <TransientExpression

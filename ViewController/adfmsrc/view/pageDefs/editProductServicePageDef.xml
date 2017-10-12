@@ -24,10 +24,6 @@
     </attributeValues>
     <list IterBinding="XpeDccCfgNewProductserviceEOVOIterator" StaticList="false" Uses="LOV_Inoutbound"
           id="Inoutbound" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
-    <listOfValues IterBinding="XpeDccCfgNewProductserviceEOVOIterator" StaticList="false" Uses="LOV_Category"
-                  id="Category"/>
-    <listOfValues IterBinding="XpeDccCfgNewProductserviceEOVOIterator" StaticList="false" Uses="LOV_ClassId"
-                  id="ClassId"/>
     <list IterBinding="XpeDccCfgNewProductserviceEOVOIterator" StaticList="false" Uses="LOV_ClassType" id="ClassType"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <list IterBinding="XpeDccCfgNewProductserviceEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive"
@@ -53,7 +49,6 @@
     </tree>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
-    <listOfValues IterBinding="XpeDccCfgNewUomEOVOIterator" StaticList="false" Uses="LOV_Uom" id="Uom"/>
     <attributeValues IterBinding="XpeDccCfgNewUomEOVOIterator" id="UomDesc">
       <AttrNames>
         <Item Value="UomDesc"/>
@@ -66,20 +61,18 @@
         <Item Value="ItemId"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="XpeDccCfgNewUomEOVOIterator" id="Uom1">
-      <AttrNames>
-        <Item Value="Uom"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="XpeDccCfgNewUomEOVOIterator" id="Inactive1">
-      <AttrNames>
-        <Item Value="Inactive"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="XpeDccCfgNewUomEOVOIterator" id="InactiveDate1">
       <AttrNames>
         <Item Value="InactiveDate"/>
       </AttrNames>
     </attributeValues>
+    <list IterBinding="XpeDccCfgNewUomEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgNewProductserviceEOVOIterator" StaticList="false" Uses="LOV_ClassId" id="ClassId"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgNewProductserviceEOVOIterator" StaticList="false" Uses="LOV_Category" id="Category"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgNewUomEOVOIterator" StaticList="false" Uses="LOV_Uom" id="Uom" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

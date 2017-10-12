@@ -169,6 +169,30 @@
     Type="java.math.BigInteger"
     ColumnType="NUMBER"
     TableName="XPE_DCC_CFG_PCSSHORTNAMES"/>
+  <Attribute
+    Name="BillCycleId"
+    Precision="15"
+    ColumnName="BILL_CYCLE_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_PCSSHORTNAMES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="InvSupress"
+    Precision="1"
+    ColumnName="INV_SUPRESS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_PCSSHORTNAMES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
   <Key
     Name="XpeDccCfgPcsshortnamesCovIdCheck">
     <DesignTime>

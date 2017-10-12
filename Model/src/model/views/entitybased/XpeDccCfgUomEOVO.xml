@@ -17,6 +17,9 @@
     Name="XpeDccGeneralItemListROVO_UOMLOV"
     ViewObjectName="model.views.readonly.XpeDccGeneralItemListROVO"
     RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="findByItemListType"
+      FullName="model.views.readonly.XpeDccGeneralItemListROVO.findByItemListType"/>
     <ParameterMap>
       <PIMap Variable="bind_ItemListType">
         <TransientExpression
@@ -39,11 +42,24 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="LookupSharedAppModule_XpeDccDicNewContractSetupROVO1"
+    ViewObjectName="model.views.readonly.XpeDccDicNewContractSetupROVO"
+    AMUsageName="LookupSharedAppModule"
+    ViewInstanceName="XpeDccDicNewContractSetupROVO"
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="bind_Lookup_Type">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA['YON']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LOV_Uom"
     ListVOName="XpeDccGeneralItemListROVO_UOMLOV"
     ListRangeSize="-1"
-    ComboRowCountHint="10"
     NullValueFlag="none"
     MRUCount="0">
     <AttrArray Name="AttrNames">
@@ -54,11 +70,9 @@
       <Item Value="ItemId"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="ItemId"/>
       <Item Value="ItemListType"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <ListBinding
     Name="LOV_FeedMethod"
@@ -68,6 +82,24 @@
     MRUCount="0">
     <AttrArray Name="AttrNames">
       <Item Value="FeedMethod"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Inactive"
+    ListVOName="LookupSharedAppModule_XpeDccDicNewContractSetupROVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Inactive"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
@@ -105,6 +137,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgUomEOVO.FeedMethod_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -113,13 +147,31 @@
     PrecisionRule="true"
     EntityAttrName="Inactive"
     EntityUsage="XpeDccCfgUomEO"
-    AliasName="INACTIVE"/>
+    AliasName="INACTIVE"
+    LOVName="LOV_Inactive"
+    DefaultValue="N">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgUomEOVO.Inactive_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="InactiveDate"
     PrecisionRule="true"
     EntityAttrName="InactiveDate"
     EntityUsage="XpeDccCfgUomEO"
-    AliasName="INACTIVE_DATE"/>
+    AliasName="INACTIVE_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgUomEOVO.InactiveDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ItemId"
     IsUpdateable="false"
@@ -127,7 +179,14 @@
     PrecisionRule="true"
     EntityAttrName="ItemId"
     EntityUsage="XpeDccCfgUomEO"
-    AliasName="ITEM_ID"/>
+    AliasName="ITEM_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgUomEOVO.ItemId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
@@ -150,8 +209,10 @@
     LOVName="LOV_Uom">
     <Properties>
       <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgUomEOVO.Uom_LABEL"/>
         <CONTROLTYPE
-          Value="input_text_lov"/>
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -160,5 +221,16 @@
     PrecisionRule="true"
     EntityAttrName="UomDesc"
     EntityUsage="XpeDccCfgUomEO"
-    AliasName="UOM_DESC"/>
+    AliasName="UOM_DESC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgUomEOVO.UomDesc_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

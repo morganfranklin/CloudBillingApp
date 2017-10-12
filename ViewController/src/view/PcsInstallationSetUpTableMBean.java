@@ -1,11 +1,15 @@
 package view;
 
+import java.sql.Timestamp;
+
 import javax.el.ELContext;
 import javax.el.ExpressionFactory;
 import javax.el.MethodExpression;
 
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+
+import javax.faces.event.ValueChangeEvent;
 
 import model.views.entitybased.XpeDccCfgOriginsEOVOImpl;
 import model.views.entitybased.XpeDccCfgOriginsEOVORowImpl;
@@ -105,5 +109,17 @@ public class PcsInstallationSetUpTableMBean {
 
     public void pcsTerminalSearchCancel(ActionEvent actionEvent) {
         this.getPcsInstallationSetUpTableBBean().getPcsTerminalAddItem_popup().hide();
+    }
+
+    public void onTerminalEditInactiveValChgLstnr(ValueChangeEvent valueChangeEvent) {
+        JSFUtils.setExpressionValue("#{bindings.InactiveDate1.inputValue}", new Timestamp(System.currentTimeMillis()));
+    }
+
+    public void onTerminalAddInactiveValChgLstnr(ValueChangeEvent valueChangeEvent) {
+        JSFUtils.setExpressionValue("#{bindings.InactiveDate.inputValue}", new Timestamp(System.currentTimeMillis()));
+    }
+
+    public void onPcsSiteEditInactiveValChgLstnr(ValueChangeEvent valueChangeEvent) {
+        JSFUtils.setExpressionValue("#{bindings.InactiveDate.inputValue}", new Timestamp(System.currentTimeMillis()));
     }
 }

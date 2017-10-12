@@ -59,5 +59,27 @@
                   MethodName="addAssTerminalToPCSInstallation" IsViewObjectMethod="false"
                   DataControl="AppModuleDataControl" InstanceName="data.AppModuleDataControl.dataProvider"
                   ReturnName="data.AppModuleDataControl.methodResults.addAssTerminalToPCSInstallation_AppModuleDataControl_dataProvider_addAssTerminalToPCSInstallation_result"/>
+    <attributeValues IterBinding="XpeDccCfgNewPcsAssTerminalsEOVOIterator" id="TerminalId">
+      <AttrNames>
+        <Item Value="TerminalId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewPcsAssTerminalsEOVOIterator" id="TerminalDesc">
+      <AttrNames>
+        <Item Value="TerminalDesc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewPcsAssTerminalsEOVOIterator" id="SiteId1">
+      <AttrNames>
+        <Item Value="SiteId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgNewPcsAssTerminalsEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgNewPcsAssTerminalsEOVOIterator" id="InactiveDate">
+      <AttrNames>
+        <Item Value="InactiveDate"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

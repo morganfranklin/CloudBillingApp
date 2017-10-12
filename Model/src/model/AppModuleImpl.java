@@ -14,6 +14,8 @@ import model.views.entitybased.XpeDccCfgPcsAssTerminalsEOVOImpl;
 import model.views.entitybased.XpeDccCfgPcsAssTerminalsEOVORowImpl;
 import model.views.entitybased.XpeDccCfgPcsEOVOImpl;
 import model.views.entitybased.XpeDccCfgPcsEOVORowImpl;
+import model.views.entitybased.XpeDccCfgPcsshortnamesEOVOImpl;
+import model.views.entitybased.XpeDccCfgProductserviceEOVOImpl;
 import model.views.entitybased.XpeDccCfgTerminalsEOVOImpl;
 import model.views.entitybased.XpeDccNewContractsEOVOImpl;
 import model.views.entitybased.XpeDccTermsContractEOVOImpl;
@@ -1859,8 +1861,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      * Container's getter for XpeDccCfgPcsshortnamesEOVO1.
      * @return XpeDccCfgPcsshortnamesEOVO1
      */
-    public ViewObjectImpl getXpeDccCfgPcsshortnamesEOVO() {
-        return (ViewObjectImpl) findViewObject("XpeDccCfgPcsshortnamesEOVO");
+    public XpeDccCfgPcsshortnamesEOVOImpl getXpeDccCfgPcsshortnamesEOVO() {
+        return (XpeDccCfgPcsshortnamesEOVOImpl) findViewObject("XpeDccCfgPcsshortnamesEOVO");
     }
 
     /**
@@ -1875,8 +1877,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      * Container's getter for XpeDccCfgProductserviceEOVO1.
      * @return XpeDccCfgProductserviceEOVO1
      */
-    public ViewObjectImpl getXpeDccCfgProductserviceEOVO() {
-        return (ViewObjectImpl) findViewObject("XpeDccCfgProductserviceEOVO");
+    public XpeDccCfgProductserviceEOVOImpl getXpeDccCfgProductserviceEOVO() {
+        return (XpeDccCfgProductserviceEOVOImpl) findViewObject("XpeDccCfgProductserviceEOVO");
     }
 
     /**
@@ -2028,8 +2030,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      * Container's getter for XpeDccCfgProductserviceEOVO1.
      * @return XpeDccCfgProductserviceEOVO1
      */
-    public ViewObjectImpl getXpeDccCfgNewProductserviceEOVO() {
-        return (ViewObjectImpl) findViewObject("XpeDccCfgNewProductserviceEOVO");
+    public XpeDccCfgProductserviceEOVOImpl getXpeDccCfgNewProductserviceEOVO() {
+        return (XpeDccCfgProductserviceEOVOImpl) findViewObject("XpeDccCfgNewProductserviceEOVO");
     }
 
     /**
@@ -2060,8 +2062,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      * Container's getter for XpeDccCfgPcsshortnamesEOVO1.
      * @return XpeDccCfgPcsshortnamesEOVO1
      */
-    public ViewObjectImpl getXpeDccCfgNewPcsshortnamesEOVO() {
-        return (ViewObjectImpl) findViewObject("XpeDccCfgNewPcsshortnamesEOVO");
+    public XpeDccCfgPcsshortnamesEOVOImpl getXpeDccCfgNewPcsshortnamesEOVO() {
+        return (XpeDccCfgPcsshortnamesEOVOImpl) findViewObject("XpeDccCfgNewPcsshortnamesEOVO");
     }
     
     public void resetQueryResult(String paramVOName, String criteriaName){

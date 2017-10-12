@@ -35,6 +35,14 @@ WHERE SETID='SHARE']]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="40"/>
+        <LABEL
+          ResId="model.views.readonly.XpeDccShortNameCustomerSearchROVO.CustId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="CustomerName"
@@ -50,6 +58,12 @@ WHERE SETID='SHARE']]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="40"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccShortNameCustomerSearchROVO.CustomerName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <AttrArray Name="KeyAttributes">
     <Item Value="CustId"/>

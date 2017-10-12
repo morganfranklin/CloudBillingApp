@@ -5,6 +5,16 @@
     <data-control-scope>
       <shared/>
     </data-control-scope>
+    <managed-bean id="__13">
+      <managed-bean-name>PcsShortNameSetUpTableBean</managed-bean-name>
+      <managed-bean-class>view.PcsShortNameSetUpTableBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__14">
+      <managed-bean-name>PcsShortNameSetUpTableBBean</managed-bean-name>
+      <managed-bean-class>view.PcsShortNameSetUpTableBBean</managed-bean-class>
+      <managed-bean-scope>backingBean</managed-bean-scope>
+    </managed-bean>
     <view id="pcsShortNameSetUp">
       <page>/pcsShortNameSetUp.jsff</page>
     </view>
@@ -16,7 +26,7 @@
     </method-call>
     <router id="AddOrEdit">
       <case id="__12">
-        <expression>#{pageFlowScope.NavFlow eq 'Edit'}</expression>
+        <expression>#{pageFlowScope.NavFlow eq 'EDIT'}</expression>
         <outcome>Edit</outcome>
       </case>
       <default-outcome>Add</default-outcome>

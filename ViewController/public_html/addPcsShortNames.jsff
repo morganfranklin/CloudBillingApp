@@ -2,7 +2,8 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
   <af:panelGroupLayout id="pgl1">
-    <af:panelHeader text="PCS Short Name Details" id="ph1">
+    <af:panelGroupLayout id="pgl3" layout="horizontal">
+    <af:panelHeader text="PCS Short Name Details" id="ph1" size="5">
       <f:facet name="context"/>
       <f:facet name="toolbar"/>
       <f:facet name="menuBar"/>
@@ -27,9 +28,23 @@
                       shortDesc="#{bindings.AccountClass.hints.tooltip}" id="it2">
           <f:validator binding="#{bindings.AccountClass.validator}"/>
         </af:inputText>
-      </af:panelFormLayout>
+          <af:inputText value="#{bindings.BillCycleId.inputValue}" label="#{bindings.BillCycleId.hints.label}"
+                        required="#{bindings.BillCycleId.hints.mandatory}"
+                        columns="#{bindings.BillCycleId.hints.displayWidth}"
+                        maximumLength="#{bindings.BillCycleId.hints.precision}"
+                        shortDesc="#{bindings.BillCycleId.hints.tooltip}" id="it13">
+            <f:validator binding="#{bindings.BillCycleId.validator}"/>
+          </af:inputText>
+          <af:selectOneChoice value="#{bindings.InvSupress.inputValue}" label="#{bindings.InvSupress.label}"
+                              required="#{bindings.InvSupress.hints.mandatory}"
+                              shortDesc="#{bindings.InvSupress.hints.tooltip}" id="soc1">
+            <f:selectItems value="#{bindings.InvSupress.items}" id="si1"/>
+            <f:validator binding="#{bindings.InvSupress.validator}"/>
+          </af:selectOneChoice>
+        </af:panelFormLayout>
     </af:panelHeader>
-    <af:panelHeader text="Customer Details" id="ph2">
+    <af:spacer width="10" height="10" id="s3"/>
+    <af:panelHeader text="Customer Details" id="ph2" size="5">
       <f:facet name="context"/>
       <f:facet name="toolbar"/>
       <f:facet name="menuBar"/>
@@ -40,7 +55,7 @@
                               value="#{bindings.CovId.inputValue}" label="#{bindings.CovId.hints.label}"
                               model="#{bindings.CovId.listOfValuesModel}" required="#{bindings.CovId.hints.mandatory}"
                               columns="#{bindings.CovId.hints.displayWidth}"
-                              shortDesc="#{bindings.CovId.hints.tooltip}">
+                              shortDesc="#{bindings.CovId.hints.tooltip}" autoSubmit="true">
           <f:validator binding="#{bindings.CovId.validator}"/>
         </af:inputListOfValues>
         <af:panelLabelAndMessage label="#{bindings.CustomerName.hints.label}" partialTriggers="covIdId" id="plam2">
@@ -49,8 +64,10 @@
         </af:panelLabelAndMessage>
       </af:panelFormLayout>
     </af:panelHeader>
+    </af:panelGroupLayout>
+    <af:spacer width="10" height="10" id="s4"/>
     <af:panelGroupLayout id="pgl2" layout="horizontal">
-      <af:panelHeader text="Sold To : Address Seen on Scale Syatem" id="ph3">
+      <af:panelHeader text="Sold To : Address Seen on Scale Syatem" id="ph3" size="5">
         <f:facet name="context"/>
         <f:facet name="toolbar"/>
         <f:facet name="menuBar"/>
@@ -61,7 +78,7 @@
                                 value="#{bindings.CovId.inputValue}" label="#{bindings.CovId.hints.label}"
                                 model="#{bindings.CovId.listOfValuesModel}" required="#{bindings.CovId.hints.mandatory}"
                                 columns="#{bindings.CovId.hints.displayWidth}"
-                                shortDesc="#{bindings.CovId.hints.tooltip}">
+                                shortDesc="#{bindings.CovId.hints.tooltip}" autoSubmit="true">
             <f:validator binding="#{bindings.CovId.validator}"/>
           </af:inputListOfValues>
           <af:inputListOfValues id="covSoldLocNumId"
@@ -71,7 +88,8 @@
                                 model="#{bindings.CovSoldLocNum.listOfValuesModel}"
                                 required="#{bindings.CovSoldLocNum.hints.mandatory}"
                                 columns="#{bindings.CovSoldLocNum.hints.displayWidth}"
-                                shortDesc="#{bindings.CovSoldLocNum.hints.tooltip}">
+                                shortDesc="#{bindings.CovSoldLocNum.hints.tooltip}" autoSubmit="true"
+                                partialTriggers="covIdId ilov1">
             <f:validator binding="#{bindings.CovSoldLocNum.validator}"/>
           </af:inputListOfValues>
           <af:inputText value="#{bindings.COV_Sold_Address1.inputValue}"
@@ -115,7 +133,7 @@
           </af:inputText>
         </af:panelFormLayout>
       </af:panelHeader>
-      <af:panelHeader text="Bill To : Address Seen on Invoice" id="ph4">
+      <af:panelHeader text="Bill To : Address Seen on Invoice" id="ph4" size="5">
         <f:facet name="context"/>
         <f:facet name="toolbar"/>
         <f:facet name="menuBar"/>
@@ -126,7 +144,7 @@
                                 value="#{bindings.CovId.inputValue}" label="#{bindings.CovId.hints.label}"
                                 model="#{bindings.CovId.listOfValuesModel}" required="#{bindings.CovId.hints.mandatory}"
                                 columns="#{bindings.CovId.hints.displayWidth}"
-                                shortDesc="#{bindings.CovId.hints.tooltip}">
+                                shortDesc="#{bindings.CovId.hints.tooltip}" autoSubmit="true">
             <f:validator binding="#{bindings.CovId.validator}"/>
           </af:inputListOfValues>
           <af:inputListOfValues id="covBillLocNumId"
@@ -136,7 +154,8 @@
                                 model="#{bindings.CovBillLocNum.listOfValuesModel}"
                                 required="#{bindings.CovBillLocNum.hints.mandatory}"
                                 columns="#{bindings.CovBillLocNum.hints.displayWidth}"
-                                shortDesc="#{bindings.CovBillLocNum.hints.tooltip}">
+                                shortDesc="#{bindings.CovBillLocNum.hints.tooltip}" autoSubmit="true"
+                                partialTriggers="covIdId ilov2">
             <f:validator binding="#{bindings.CovBillLocNum.validator}"/>
           </af:inputListOfValues>
           <af:inputText value="#{bindings.COV_Bill_Address1.inputValue}"

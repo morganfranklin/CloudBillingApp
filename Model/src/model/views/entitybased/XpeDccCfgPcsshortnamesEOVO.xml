@@ -8,9 +8,13 @@
   InheritPersonalization="merge"
   BindingStyle="OracleName"
   CustomQuery="true"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="model.views.entitybased.XpeDccCfgPcsshortnamesEOVORowImpl"
+  ComponentClass="model.views.entitybased.XpeDccCfgPcsshortnamesEOVOImpl">
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <Properties>
     <SchemaBasedProperties>
@@ -27,11 +31,7 @@
     Kind="viewcriteria"
     Type="java.lang.String"/>
   <Variable
-    Name="bind_AccountClass"
-    Kind="viewcriteria"
-    Type="java.lang.String"/>
-  <Variable
-    Name="bind_CovId"
+    Name="bind_BillCycleId"
     Kind="viewcriteria"
     Type="java.lang.String"/>
   <ViewAccessor
@@ -234,23 +234,41 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
-  <SQLQuery><![CDATA[SELECT XpeDccCfgPcsshortnamesEO.ACCOUNT_CLASS,          
-       XpeDccCfgPcsshortnamesEO.CREATED_BY,          
-       XpeDccCfgPcsshortnamesEO.CREATED_DATE,          
-       XpeDccCfgPcsshortnamesEO.INACTIVE,          
-       XpeDccCfgPcsshortnamesEO.INACTIVE_DATE,          
-       XpeDccCfgPcsshortnamesEO.LAST_UPDATED_BY,          
-       XpeDccCfgPcsshortnamesEO.LAST_UPDATED_DATE,          
-       XpeDccCfgPcsshortnamesEO.PCSSHORT_NAME,          
-       XpeDccCfgPcsshortnamesEO.PCSSHORTNAME_ID,          
-       XpeDccCfgPcsshortnamesEO.COV_ID,          
-       XpeDccCfgPcsshortnamesEO.COV_SOLD_ID,          
-       XpeDccCfgPcsshortnamesEO.COV_BILL_ID, 
-       XpeDccCfgPcsshortnamesEO.COV_SOLD_LOC_NUM,          
-       XpeDccCfgPcsshortnamesEO.COV_BILL_LOC_NUM,  
-       A.SETID, A.CUST_ID, A.NAME1 AS CUSTOMER_NAME        
-FROM  XPE_DCC_CFG_PCSSHORTNAMES XpeDccCfgPcsshortnamesEO,PS_CUSTOMER A     
-where A.SETID='SHARE'                             
+  <ListBinding
+    Name="LOV_InvSupress"
+    ListVOName="LookupSharedAppModule_XpeDccDicNewContractSetupROVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="InvSupress"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT XpeDccCfgPcsshortnamesEO.ACCOUNT_CLASS,            
+       XpeDccCfgPcsshortnamesEO.CREATED_BY,            
+       XpeDccCfgPcsshortnamesEO.CREATED_DATE,            
+       XpeDccCfgPcsshortnamesEO.INACTIVE,            
+       XpeDccCfgPcsshortnamesEO.INACTIVE_DATE,            
+       XpeDccCfgPcsshortnamesEO.LAST_UPDATED_BY,            
+       XpeDccCfgPcsshortnamesEO.LAST_UPDATED_DATE,            
+       XpeDccCfgPcsshortnamesEO.PCSSHORT_NAME,            
+       XpeDccCfgPcsshortnamesEO.PCSSHORTNAME_ID,            
+       XpeDccCfgPcsshortnamesEO.COV_ID,            
+       XpeDccCfgPcsshortnamesEO.COV_SOLD_ID,            
+       XpeDccCfgPcsshortnamesEO.COV_BILL_ID,   
+       XpeDccCfgPcsshortnamesEO.COV_SOLD_LOC_NUM,            
+       XpeDccCfgPcsshortnamesEO.COV_BILL_LOC_NUM,    
+       A.SETID, A.CUST_ID, A.NAME1 AS CUSTOMER_NAME  
+FROM  XPE_DCC_CFG_PCSSHORTNAMES XpeDccCfgPcsshortnamesEO,PS_CUSTOMER A       
+where A.SETID='SHARE'                               
 AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
   <EntityUsage
     Name="XpeDccCfgPcsshortnamesEO"
@@ -260,7 +278,14 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
     PrecisionRule="true"
     EntityAttrName="AccountClass"
     EntityUsage="XpeDccCfgPcsshortnamesEO"
-    AliasName="ACCOUNT_CLASS"/>
+    AliasName="ACCOUNT_CLASS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO.AccountClass_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedBy"
     PrecisionRule="true"
@@ -279,11 +304,14 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
     EntityAttrName="Inactive"
     EntityUsage="XpeDccCfgPcsshortnamesEO"
     AliasName="INACTIVE"
-    LOVName="LOV_Inactive">
+    LOVName="LOV_Inactive"
+    DefaultValue="N">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO.Inactive_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -292,7 +320,14 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
     PrecisionRule="true"
     EntityAttrName="InactiveDate"
     EntityUsage="XpeDccCfgPcsshortnamesEO"
-    AliasName="INACTIVE_DATE"/>
+    AliasName="INACTIVE_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO.InactiveDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
@@ -310,7 +345,14 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
     PrecisionRule="true"
     EntityAttrName="PcsshortName"
     EntityUsage="XpeDccCfgPcsshortnamesEO"
-    AliasName="PCSSHORT_NAME"/>
+    AliasName="PCSSHORT_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO.PcsshortName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="PcsshortnameId"
     IsUpdateable="while_insert"
@@ -318,7 +360,14 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
     PrecisionRule="true"
     EntityAttrName="PcsshortnameId"
     EntityUsage="XpeDccCfgPcsshortnamesEO"
-    AliasName="PCSSHORTNAME_ID"/>
+    AliasName="PCSSHORTNAME_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO.PcsshortnameId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CovId"
     PrecisionRule="true"
@@ -330,6 +379,8 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="input_text_lov"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO.CovId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -372,6 +423,10 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="input_text_lov"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO.CovSoldLocNum_LABEL"/>
+        <AUTOSUBMIT
+          Value="true"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -386,6 +441,10 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="input_text_lov"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO.CovBillLocNum_LABEL"/>
+        <AUTOSUBMIT
+          Value="true"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -418,6 +477,12 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO.CustId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="CustomerName"
@@ -432,6 +497,32 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="40"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO.CustomerName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BillCycleId"
+    PrecisionRule="true"
+    EntityAttrName="BillCycleId"
+    EntityUsage="XpeDccCfgPcsshortnamesEO"
+    AliasName="BILL_CYCLE_ID"/>
+  <ViewAttribute
+    Name="InvSupress"
+    PrecisionRule="true"
+    EntityAttrName="InvSupress"
+    EntityUsage="XpeDccCfgPcsshortnamesEO"
+    AliasName="INV_SUPRESS"
+    LOVName="LOV_InvSupress">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="COV_Sold_Address1"
@@ -441,7 +532,14 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
     AliasName="COV_Sold_Address1"
     SQLType="VARCHAR"
     ColumnType="$none$"
-    Passivate="true"/>
+    Passivate="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO.COV_Sold_Address1_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="COV_Sold_Address2"
     IsSelected="false"
@@ -450,7 +548,14 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
     AliasName="COV_Sold_Address2"
     SQLType="VARCHAR"
     ColumnType="$none$"
-    Passivate="true"/>
+    Passivate="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO.COV_Sold_Address2_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="COV_Sold_City"
     IsSelected="false"
@@ -459,7 +564,14 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
     AliasName="COV_Sold_City"
     SQLType="VARCHAR"
     ColumnType="$none$"
-    Passivate="true"/>
+    Passivate="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO.COV_Sold_City_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="COV_Sold_State"
     IsSelected="false"
@@ -468,7 +580,14 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
     AliasName="COV_Sold_State"
     SQLType="VARCHAR"
     ColumnType="$none$"
-    Passivate="true"/>
+    Passivate="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO.COV_Sold_State_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="COV_Sold_Zip"
     IsSelected="false"
@@ -477,7 +596,14 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
     AliasName="COV_Sold_Zip"
     SQLType="VARCHAR"
     ColumnType="$none$"
-    Passivate="true"/>
+    Passivate="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO.COV_Sold_Zip_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
     <ViewAttribute
     Name="COV_Bill_Address1"
     IsSelected="false"
@@ -486,7 +612,14 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
     AliasName="COV_Bill_Address1"
     SQLType="VARCHAR"
       ColumnType="$none$"
-      Passivate="true"/>
+      Passivate="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO.COV_Bill_Address1_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="COV_Bill_Address2"
     IsSelected="false"
@@ -495,7 +628,14 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
     AliasName="COV_Bill_Address2"
     SQLType="VARCHAR"
     ColumnType="$none$"
-    Passivate="true"/>
+    Passivate="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO.COV_Bill_Address2_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="COV_Bill_City"
     IsSelected="false"
@@ -504,7 +644,14 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
     AliasName="COV_Bill_City"
     SQLType="VARCHAR"
     ColumnType="$none$"
-    Passivate="true"/>
+    Passivate="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO.COV_Bill_City_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="COV_Bill_State"
     IsSelected="false"
@@ -513,7 +660,14 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
     AliasName="COV_Bill_State"
     SQLType="VARCHAR"
     Passivate="true"
-    ColumnType="$none$"/>
+    ColumnType="$none$">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO.COV_Bill_State_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="COV_Bill_Zip"
     IsSelected="false"
@@ -522,7 +676,14 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
     AliasName="COV_Bill_Zip"
     SQLType="VARCHAR"
     Passivate="true"
-    ColumnType="$none$"/>
+    ColumnType="$none$">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO.COV_Bill_Zip_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="PCSShortNameCriteria"
     ViewObjectName="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO"
@@ -550,14 +711,6 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
       Name="XpeDccCfgPcsshortnamesEOVOCriteria_row_0"
       UpperColumns="1">
       <ViewCriteriaItem
-        Name="XpeDccCfgPcsshortnamesEOVOCriteria_XpeDccCfgPcsshortnamesEOVOCriteria_row_0_AccountClass"
-        ViewAttribute="AccountClass"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_AccountClass"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
         Name="PcsshortName"
         ViewAttribute="PcsshortName"
         Operator="="
@@ -571,14 +724,6 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
         Operator="="
         Conjunction="AND"
         Value=":bind_PcsShortNameId"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="CovId"
-        ViewAttribute="CovId"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_CovId"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

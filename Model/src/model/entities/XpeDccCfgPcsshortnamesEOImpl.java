@@ -28,7 +28,9 @@ public class XpeDccCfgPcsshortnamesEOImpl extends EntityImpl {
         CovSoldId,
         CovBillId,
         CovSoldLocNum,
-        CovBillLocNum;
+        CovBillLocNum,
+        BillCycleId,
+        InvSupress;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -67,6 +69,8 @@ public class XpeDccCfgPcsshortnamesEOImpl extends EntityImpl {
     public static final int COVBILLID = AttributesEnum.CovBillId.index();
     public static final int COVSOLDLOCNUM = AttributesEnum.CovSoldLocNum.index();
     public static final int COVBILLLOCNUM = AttributesEnum.CovBillLocNum.index();
+    public static final int BILLCYCLEID = AttributesEnum.BillCycleId.index();
+    public static final int INVSUPRESS = AttributesEnum.InvSupress.index();
 
     /**
      * This is the default constructor (do not remove).

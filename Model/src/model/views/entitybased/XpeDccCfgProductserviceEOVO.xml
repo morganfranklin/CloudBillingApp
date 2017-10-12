@@ -12,7 +12,13 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="model.views.entitybased.XpeDccCfgProductserviceEOVORowImpl"
+  ComponentClass="model.views.entitybased.XpeDccCfgProductserviceEOVOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Properties>
     <SchemaBasedProperties>
       <LABEL
@@ -88,19 +94,14 @@
   <ViewAccessor
     Name="XpeDccGeneralItemListROVO_CategoryLOV"
     ViewObjectName="model.views.readonly.XpeDccGeneralItemListROVO"
-    RowLevelBinds="true">
-    <ParameterMap>
-      <PIMap Variable="bind_ItemListType">
-        <TransientExpression
-          trustMode="untrusted"
-          Name="ExpressionScript"><![CDATA['MC']]></TransientExpression>
-      </PIMap>
-    </ParameterMap>
-  </ViewAccessor>
+    RowLevelBinds="true"/>
   <ViewAccessor
     Name="XpeDccGeneralItemListROVO_AccountBoundClassLOV"
     ViewObjectName="model.views.readonly.XpeDccGeneralItemListROVO"
     RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="findByItemListType"
+      FullName="model.views.readonly.XpeDccGeneralItemListROVO.findByItemListType"/>
     <ParameterMap>
       <PIMap Variable="bind_ItemListType">
         <TransientExpression
@@ -182,8 +183,7 @@
     ListVOName="XpeDccGeneralItemListROVO_CategoryLOV"
     ListRangeSize="-1"
     NullValueFlag="none"
-    MRUCount="0"
-    ComboRowCountHint="10">
+    MRUCount="0">
     <AttrArray Name="AttrNames">
       <Item Value="Category"/>
     </AttrArray>
@@ -192,17 +192,14 @@
       <Item Value="ItemId"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="ItemId"/>
       <Item Value="ItemListType"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <ListBinding
     Name="LOV_ClassId"
     ListVOName="XpeDccGeneralItemListROVO_AccountBoundClassLOV"
     ListRangeSize="-1"
-    ComboRowCountHint="10"
     NullValueFlag="none"
     MRUCount="0">
     <AttrArray Name="AttrNames">
@@ -213,11 +210,9 @@
       <Item Value="ItemId"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="ItemId"/>
       <Item Value="ItemListType"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <ListBinding
     Name="LOV_Inactive"
@@ -249,8 +244,10 @@
     LOVName="LOV_Category">
     <Properties>
       <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgProductserviceEOVO.Category_LABEL"/>
         <CONTROLTYPE
-          Value="input_text_lov"/>
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -264,7 +261,9 @@
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
-          Value="input_text_lov"/>
+          Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgProductserviceEOVO.ClassId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
     <Dependencies>
@@ -283,6 +282,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgProductserviceEOVO.ClassType_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -303,18 +304,28 @@
     PrecisionRule="true"
     EntityAttrName="Description"
     EntityUsage="XpeDccCfgProductserviceEO"
-    AliasName="DESCRIPTION"/>
+    AliasName="DESCRIPTION">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgProductserviceEOVO.Description_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Inactive"
     PrecisionRule="true"
     EntityAttrName="Inactive"
     EntityUsage="XpeDccCfgProductserviceEO"
     AliasName="INACTIVE"
-    LOVName="LOV_Inactive">
+    LOVName="LOV_Inactive"
+    DefaultValue="N">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgProductserviceEOVO.Inactive_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -323,7 +334,14 @@
     PrecisionRule="true"
     EntityAttrName="InactiveDate"
     EntityUsage="XpeDccCfgProductserviceEO"
-    AliasName="INACTIVE_DATE"/>
+    AliasName="INACTIVE_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgProductserviceEOVO.InactiveDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Inoutbound"
     PrecisionRule="true"
@@ -335,6 +353,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgProductserviceEOVO.Inoutbound_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -345,7 +365,14 @@
     PrecisionRule="true"
     EntityAttrName="ItemId"
     EntityUsage="XpeDccCfgProductserviceEO"
-    AliasName="ITEM_ID"/>
+    AliasName="ITEM_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgProductserviceEOVO.ItemId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ItemType"
     PrecisionRule="true"
@@ -357,6 +384,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgProductserviceEOVO.ItemType_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

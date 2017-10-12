@@ -63,13 +63,6 @@ public class countiesSetUpTableMBean implements Serializable{
         }
     }
     
-    /**
-     * @param expr
-     * @param returnType
-     * @param argTypes
-     * @param args
-     * @return
-     */
     public Object invokeMethodExpression(String expr, Class returnType, Class[] argTypes, Object[] args) {
         FacesContext fc = FacesContext.getCurrentInstance();
         ELContext elctx = fc.getELContext();
@@ -78,13 +71,6 @@ public class countiesSetUpTableMBean implements Serializable{
         return methodExpr.invoke(elctx, args);
     }
 
-    /**
-     * @param expr
-     * @param returnType
-     * @param argType
-     * @param argument
-     * @return
-     */
     public Object invokeEL(String expr, Class returnType, Class argType, Object argument) {
         return invokeMethodExpression(expr, returnType, new Class[] { argType }, new Object[] { argument });
     }

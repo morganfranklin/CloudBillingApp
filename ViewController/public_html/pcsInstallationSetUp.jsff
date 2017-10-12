@@ -9,6 +9,7 @@
                 queryOperationListener="#{pageFlowScope.PcsInstallationSetUpTableMBean.queryOperationListener}"
                 resultComponentId="::resId1"/>
     </af:panelHeader>
+    <af:spacer width="10" height="10" id="s2"/>
     <af:panelHeader text="PCS Sites" id="ph2" size="5">
       <f:facet name="context"/>
       <f:facet name="toolbar">
@@ -93,7 +94,8 @@
         </af:column>
       </af:table>
     </af:panelHeader>
-    <af:panelHeader text="PCS Sites Associated Terminals" id="ph3">
+    <af:spacer width="10" height="10" id="s1"/>
+    <af:panelHeader text="PCS Sites Associated Terminals" id="ph3" size="5">
       <f:facet name="context"/>
       <f:facet name="toolbar"/>
       <f:facet name="menuBar"/>

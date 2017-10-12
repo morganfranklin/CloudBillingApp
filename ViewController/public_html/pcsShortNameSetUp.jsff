@@ -2,21 +2,21 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
   <af:panelGroupLayout layout="vertical" id="pgl1">
-    <af:panelHeader text="PCS Short Name Set Up" id="ph1">
-      <af:query id="qryId1" headerText="Search" disclosed="true"
+    <af:panelHeader text="PCS Short Name Set Up" id="ph1" size="3">
+      <af:query id="qryId1" headerText="Search PCS Short Names" disclosed="true"
                 value="#{bindings.PCSShortNameCriteriaQuery.queryDescriptor}"
                 model="#{bindings.PCSShortNameCriteriaQuery.queryModel}"
                 queryListener="#{bindings.PCSShortNameCriteriaQuery.processQuery}"
-                queryOperationListener="#{bindings.PCSShortNameCriteriaQuery.processQueryOperation}"
+                queryOperationListener="#{pageFlowScope.PcsShortNameSetUpTableBean.queryOperationListener}"
                 resultComponentId="::resId1"/>
     </af:panelHeader>
-    <af:panelHeader text="PCS Short Names" id="ph2">
+    <af:spacer width="10" height="10" id="s1"/>
+    <af:panelHeader text="PCS Short Names" id="ph2" size="5">
       <f:facet name="context"/>
       <f:facet name="toolbar">
         <af:toolbar id="t1">
-          <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add Item"
-                     disabled="#{!bindings.CreateInsert.enabled}" id="b1" action="setCurrentRow">
-            <af:setActionListener from="#{bindings.PcsshortnameId.inputValue}" to="#{pageFlowScope.PcsShortNameId}"/>
+          <af:button actionListener="#{pageFlowScope.PcsShortNameSetUpTableBean.onPcsShortNameCreation}" text="Add Item"
+                     id="b1" action="setCurrentRow">
             <af:setActionListener from="ADD" to="#{pageFlowScope.NavFlow}"/>
           </af:button>
         </af:toolbar>
@@ -31,7 +31,8 @@
                 selectedRowKeys="#{bindings.XpeDccCfgPcsshortnamesEOVO.collectionModel.selectedRow}"
                 selectionListener="#{bindings.XpeDccCfgPcsshortnamesEOVO.collectionModel.makeCurrent}"
                 rowSelection="single" fetchSize="#{bindings.XpeDccCfgPcsshortnamesEOVO.rangeSize}" id="resId1"
-                contentDelivery="immediate" columnStretching="last">
+                contentDelivery="immediate" columnStretching="last"
+                binding="#{backingBeanScope.PcsShortNameSetUpTableBBean.pcsShortNamesSetUpTblBind}">
         <af:column headerText="#{bindings.XpeDccCfgPcsshortnamesEOVO.hints.PcsshortnameId.label}" id="resId1c1">
           <af:link text="#{row.PcsshortnameId}" id="l1" partialSubmit="true" action="setCurrentRow">
             <af:setActionListener from="#{row.PcsshortnameId}" to="#{pageFlowScope.PcsShortNameId}"/>

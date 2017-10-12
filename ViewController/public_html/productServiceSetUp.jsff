@@ -2,22 +2,25 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
   <af:panelGroupLayout layout="vertical" id="pgl1">
-    <af:panelHeader text="Product Service Set Up" id="ph1">
+    <af:panelHeader text="Product Service Set Up" id="ph1" size="3">
       <af:query id="qryId1" headerText="Search" disclosed="true"
                 value="#{bindings.ProductServiceCriteriaQuery.queryDescriptor}"
                 model="#{bindings.ProductServiceCriteriaQuery.queryModel}"
                 queryListener="#{bindings.ProductServiceCriteriaQuery.processQuery}"
-                queryOperationListener="#{bindings.ProductServiceCriteriaQuery.processQueryOperation}"
+                queryOperationListener="#{pageFlowScope.ProductServiceSetUpTableMBean.queryOperationListener}"
                 resultComponentId="::resId1"/>
     </af:panelHeader>
-    <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add Item"
-               disabled="#{!bindings.CreateInsert.enabled}" id="b1" action="setCurrentRow">
-      <af:setActionListener from="#{bindings.ItemId.inputValue}" to="#{pageFlowScope.ItemId}"/>
-      <af:setActionListener from="ADD" to="#{pageFlowScope.NavFlow}"/>
-    </af:button>
-    <af:panelHeader text="Product Service" id="ph2">
+    <af:spacer width="10" height="10" id="s2"/>
+    <af:panelHeader text="Product Service" id="ph2" size="5">
       <f:facet name="context"/>
-      <f:facet name="toolbar"/>
+      <f:facet name="toolbar">
+        <af:toolbar id="t2">
+          <af:button actionListener="#{pageFlowScope.ProductServiceSetUpTableMBean.onProductServiceCreation}" text="Add Item"
+                     id="b1" action="setCurrentRow">
+            <af:setActionListener from="ADD" to="#{pageFlowScope.NavFlow}"/>
+          </af:button>
+        </af:toolbar>
+      </f:facet>
       <f:facet name="menuBar"/>
       <f:facet name="legend"/>
       <f:facet name="info"/>
@@ -28,10 +31,9 @@
                 selectedRowKeys="#{bindings.XpeDccCfgProductserviceEOVO.collectionModel.selectedRow}"
                 selectionListener="#{bindings.XpeDccCfgProductserviceEOVO.collectionModel.makeCurrent}"
                 rowSelection="single" fetchSize="#{bindings.XpeDccCfgProductserviceEOVO.rangeSize}" id="resId1"
-                contentDelivery="immediate" columnStretching="last">
+                contentDelivery="immediate" columnStretching="last"
+                binding="#{backingBeanScope.ProductServiceSetUpTableBBean.productServiceSetUpTblBind}">
         <af:column headerText="#{bindings.XpeDccCfgProductserviceEOVO.hints.ItemId.label}" id="resId1c1">
-          <af:outputText value="#{row.ItemId}" shortDesc="#{bindings.XpeDccCfgProductserviceEOVO.hints.ItemId.tooltip}"
-                         id="ot1"/>
           <af:link text="#{row.ItemId}" id="l1" partialSubmit="true" action="setCurrentRow">
             <af:setActionListener from="#{row.ItemId}" to="#{pageFlowScope.ItemId}"/>
             <af:setActionListener from="EDIT" to="#{pageFlowScope.NavFlow}"/>
@@ -93,7 +95,8 @@
         </af:column>
       </af:table>
     </af:panelHeader>
-    <af:panelHeader text="Unit of Measure" id="ph3">
+    <af:spacer width="10" height="10" id="s1"/>
+    <af:panelHeader text="Unit of Measure" id="ph3" size="5">
       <f:facet name="context"/>
       <f:facet name="toolbar"/>
       <f:facet name="menuBar"/>

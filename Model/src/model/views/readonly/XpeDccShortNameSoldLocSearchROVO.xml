@@ -21,7 +21,14 @@
   <Variable
     Name="bind_CustId"
     Kind="where"
-    Type="java.lang.String"/>
+    Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
   <SQLQuery><![CDATA[SELECT A.ADDRESS_SEQ_NUM, B.ADDRESS1,  
 B.ADDRESS2, B.CITY, B.STATE, B.POSTAL  
 FROM PS_CUST_ADDR_SEQ A, PS_CUST_ADDRESS B 
@@ -41,7 +48,14 @@ WHERE B.SETID = B_ED.SETID AND B.CUST_ID = B_ED.CUST_ID AND B.ADDRESS_SEQ_NUM = 
     ColumnType="NUMBER"
     AliasName="ADDRESS_SEQ_NUM"
     Expression="ADDRESS_SEQ_NUM"
-    SQLType="NUMERIC"/>
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccShortNameSoldLocSearchROVO.AddressSeqNum_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Address1"
     IsUpdateable="false"
@@ -56,6 +70,12 @@ WHERE B.SETID = B_ED.SETID AND B.CUST_ID = B_ED.CUST_ID AND B.ADDRESS_SEQ_NUM = 
     <DesignTime>
       <Attr Name="_DisplaySize" Value="55"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccShortNameSoldLocSearchROVO.Address1_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="Address2"
@@ -71,6 +91,12 @@ WHERE B.SETID = B_ED.SETID AND B.CUST_ID = B_ED.CUST_ID AND B.ADDRESS_SEQ_NUM = 
     <DesignTime>
       <Attr Name="_DisplaySize" Value="55"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccShortNameSoldLocSearchROVO.Address2_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="City"
@@ -86,6 +112,12 @@ WHERE B.SETID = B_ED.SETID AND B.CUST_ID = B_ED.CUST_ID AND B.ADDRESS_SEQ_NUM = 
     <DesignTime>
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccShortNameSoldLocSearchROVO.City_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="State"
@@ -101,6 +133,12 @@ WHERE B.SETID = B_ED.SETID AND B.CUST_ID = B_ED.CUST_ID AND B.ADDRESS_SEQ_NUM = 
     <DesignTime>
       <Attr Name="_DisplaySize" Value="6"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccShortNameSoldLocSearchROVO.State_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="Postal"
@@ -116,6 +154,12 @@ WHERE B.SETID = B_ED.SETID AND B.CUST_ID = B_ED.CUST_ID AND B.ADDRESS_SEQ_NUM = 
     <DesignTime>
       <Attr Name="_DisplaySize" Value="12"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccShortNameSoldLocSearchROVO.Postal_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <AttrArray Name="KeyAttributes">
     <Item Value="AddressSeqNum"/>
