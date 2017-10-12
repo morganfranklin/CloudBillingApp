@@ -2,15 +2,15 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
     <af:panelGroupLayout layout="vertical" id="pgl1">
-        <af:panelHeader text="Destinations Set Up" id="ph1">
-            <af:query id="qryId1" headerText="Search" disclosed="true"
+        <af:panelHeader text="Destinations Set Up" id="ph1" size="3">
+            <af:query id="qryId1" headerText="Search Destinations" disclosed="true"
                       value="#{bindings.DestinationsCriteriaQuery.queryDescriptor}"
                       model="#{bindings.DestinationsCriteriaQuery.queryModel}"
                       queryListener="#{bindings.DestinationsCriteriaQuery.processQuery}"
-                      queryOperationListener="#{bindings.DestinationsCriteriaQuery.processQueryOperation}"
+                      queryOperationListener="#{pageFlowScope.DestinationSetUpTableMBean.queryOperationListener}"
                       resultComponentId="::resId1"/>
         </af:panelHeader>
-        <af:panelHeader text="Destinations" id="ph2">
+        <af:panelHeader text="Destinations" id="ph2" size="5">
             <af:table value="#{bindings.XpeDccCfgDestinationsEOVO.collectionModel}" var="row"
                       rows="#{bindings.XpeDccCfgDestinationsEOVO.rangeSize}"
                       emptyText="#{bindings.XpeDccCfgDestinationsEOVO.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -18,9 +18,13 @@
                       selectedRowKeys="#{bindings.XpeDccCfgDestinationsEOVO.collectionModel.selectedRow}"
                       selectionListener="#{bindings.XpeDccCfgDestinationsEOVO.collectionModel.makeCurrent}"
                       rowSelection="single" fetchSize="#{bindings.XpeDccCfgDestinationsEOVO.rangeSize}" id="resId1"
-                      contentDelivery="immediate" columnStretching="last">
+                      contentDelivery="immediate" columnStretching="last"
+                      binding="#{backingBeanScope.DestinationSetUpTableBBean.destinationSetUpTblBind}">
                 <af:column headerText="#{bindings.XpeDccCfgDestinationsEOVO.hints.DestinationId.label}" id="resId1c1">
-                    <af:link text="#{row.DestinationId}" id="l1" partialSubmit="true" action="Edit"/>
+                    <af:link text="#{row.DestinationId}" id="l1" partialSubmit="true" action="setCurrentRow">
+                        <af:setActionListener from="#{row.DestinationId}" to="#{pageFlowScope.DestinationId}"/>
+                        <af:setActionListener from="EDIT" to="#{pageFlowScope.NavFlow}"/>
+                    </af:link>
                 </af:column>
                 <af:column headerText="#{bindings.XpeDccCfgDestinationsEOVO.hints.DestinationDesc.label}" id="resId1c2">
                     <af:outputText value="#{row.DestinationDesc}"
@@ -50,10 +54,13 @@
                 </af:column>
             </af:table>
             <f:facet name="toolbar">
-                <af:button text="Add Item" id="b1" action="Add"/>
+                <af:button text="Add Item" id="b2" action="setCurrentRow"
+                           actionListener="#{pageFlowScope.DestinationSetUpTableMBean.onDestinationCreation}">
+                    <af:setActionListener from="ADD" to="#{pageFlowScope.NavFlow}"/>
+                </af:button>
             </f:facet>
         </af:panelHeader>
-        <af:panelHeader text="Associated Terminals" id="ph3">
+        <af:panelHeader text="Associated Terminals" id="ph3" size="5">
             <af:table rows="#{bindings.XpeDccCfgDstAssTerminalsEOVO.rangeSize}"
                       fetchSize="#{bindings.XpeDccCfgDstAssTerminalsEOVO.rangeSize}"
                       emptyText="#{bindings.XpeDccCfgDstAssTerminalsEOVO.viewable ? 'No data to display.' : 'Access Denied.'}"

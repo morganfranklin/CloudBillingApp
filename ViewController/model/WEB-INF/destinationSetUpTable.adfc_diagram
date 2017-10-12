@@ -1,7 +1,10 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <SDM>
    <OverallProperties
-      id="OverallProperties1"/>
+      id="OverallProperties1">
+      <property
+         name="linkStyle">Orthogonal</property>
+   </OverallProperties>
    <View
       id="View2">
       <property
@@ -15,7 +18,7 @@
       <property
          name="description">&lt;html>&lt;p>&lt;b>destinationSetUp&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">238.69531</property>
+         name="y">234.83887</property>
       <property
          name="page">/searchDestination.jsff</property>
       <property
@@ -28,11 +31,11 @@
       <property
          name="pageFragment">true</property>
       <property
-         name="x">651.0283</property>
+         name="x">642.0283</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>addDestination&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">208.79883</property>
+         name="y">116.09766</property>
       <property
          name="page">/addDestination.jsff</property>
       <property
@@ -57,33 +60,13 @@
    </View>
    <ControlFlowCase
       islink="true"
-      id="ControlFlowCase5"
-      from="View2"
-      to="View3">
-      <property
-         name="fromOutcome">Add</property>
-      <property
-         name="sdm:polyPoints">R50,327.69727,238.34473,610.0283,208.44824,L50</property>
-   </ControlFlowCase>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase6"
-      from="View2"
-      to="View4">
-      <property
-         name="fromOutcome">Edit</property>
-      <property
-         name="sdm:polyPoints">R54,327.69727,241.84473,621.6914,407.74707,L50</property>
-   </ControlFlowCase>
-   <ControlFlowCase
-      islink="true"
       id="ControlFlowCase7"
       from="View3"
       to="View2">
       <property
          name="fromOutcome">Back</property>
       <property
-         name="sdm:polyPoints">L54,610.0283,211.94824,327.98065,234.84473,R46</property>
+         name="sdm:polyPoints">L50,286.69727,115.74707,T50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -93,6 +76,72 @@
       <property
          name="fromOutcome">Back</property>
       <property
-         name="sdm:polyPoints">L54,619.88165,411.24707,327.69727,248.84473,R62</property>
+         name="sdm:polyPoints">L50,286.69727,407.74707,B50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall9">
+      <property
+         name="activityId">SetCurrentRowWithKeyValue</property>
+      <property
+         name="x">551.7002</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SetCurrentRowWithKeyValue&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">281.1494</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase10"
+      from="View2"
+      to="MethodCall9">
+      <property
+         name="fromOutcome">setCurrentRow</property>
+      <property
+         name="sdm:polyPoints">R50,419.19873,234.48828,419.19873,280.79883,L50</property>
+   </ControlFlowCase>
+   <Router
+      id="Router11">
+      <property
+         name="activityId">AddOrEdit</property>
+      <property
+         name="x">852.0</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>AddOrEdit&lt;/b>&lt;/p>&lt;p>Activity Type:  Router&lt;/p></property>
+      <property
+         name="y">284.59766</property>
+      <property
+         name="exceptionHandler">false</property>
+   </Router>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase12"
+      from="MethodCall9"
+      to="Router11">
+      <property
+         name="fromOutcome">setCurrentRowWithKeyValue</property>
+      <property
+         name="sdm:polyPoints">R50,701.8501,280.79883,701.8501,280.74707,L46</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase13"
+      from="Router11"
+      to="View3">
+      <property
+         name="fromOutcome">Add</property>
+      <property
+         name="sdm:polyPoints">T50,852.0,115.74707,R50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase14"
+      from="Router11"
+      to="View4">
+      <property
+         name="fromOutcome">Edit</property>
+      <property
+         name="sdm:polyPoints">L54,662.6914,287.74707,T50</property>
    </ControlFlowCase>
 </SDM>

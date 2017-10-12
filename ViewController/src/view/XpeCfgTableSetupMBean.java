@@ -19,6 +19,8 @@ import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.context.AdfFacesContext;
 import oracle.adf.view.rich.event.QueryOperationEvent;
 
+import oracle.binding.OperationBinding;
+
 import view.utils.ADFUtils;
 import view.utils.JSFUtils;
 

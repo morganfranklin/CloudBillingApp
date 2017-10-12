@@ -3,15 +3,29 @@ package model;
 import model.common.AppModule;
 
 import model.views.entitybased.XpeDccCfgDestinationsEOVOImpl;
+import model.views.entitybased.XpeDccCfgDestinationsEOVORowImpl;
 import model.views.entitybased.XpeDccCfgDstAssTerminalsEOVOImpl;
+import model.views.entitybased.XpeDccCfgDstAssTerminalsEOVORowImpl;
+import model.views.entitybased.XpeDccCfgOgnAssTerminalsEOVOImpl;
+import model.views.entitybased.XpeDccCfgOgnAssTerminalsEOVORowImpl;
+import model.views.entitybased.XpeDccCfgOriginsEOVOImpl;
+import model.views.entitybased.XpeDccCfgOriginsEOVORowImpl;
 import model.views.entitybased.XpeDccCfgPcsAssTerminalsEOVOImpl;
+import model.views.entitybased.XpeDccCfgPcsAssTerminalsEOVORowImpl;
 import model.views.entitybased.XpeDccCfgPcsEOVOImpl;
+import model.views.entitybased.XpeDccCfgPcsEOVORowImpl;
 import model.views.entitybased.XpeDccCfgTerminalsEOVOImpl;
 import model.views.entitybased.XpeDccNewContractsEOVOImpl;
 import model.views.entitybased.XpeDccTermsContractEOVOImpl;
 import model.views.entitybased.XpeDccTermsContractEOVORowImpl;
 import model.views.entitybased.XpeDmsCustomerEOVOImpl;
 import model.views.entitybased.XpeDmsCustomerEOVORowImpl;
+import model.views.readonly.XpeDccCfgDstAssTerminalsROVOImpl;
+import model.views.readonly.XpeDccCfgOgnAssTerminalsROVOImpl;
+import model.views.readonly.XpeDccCfgPcsAssTerminalsROVOImpl;
+import model.views.readonly.XpeDccCfgPcsAssTerminalsROVORowImpl;
+import model.views.readonly.XpeDccCfgTerminalsSearchROVOImpl;
+import model.views.readonly.XpeDccCfgTerminalsSearchROVORowImpl;
 import model.views.readonly.XpeDccContractSearchROVOImpl;
 import model.views.readonly.XpeDccContractSearchROVORowImpl;
 import model.views.readonly.XpeDccNewContractCustomerSearchROVOImpl;
@@ -1796,8 +1810,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      * Container's getter for XpeDccCfgOriginsEOVO1.
      * @return XpeDccCfgOriginsEOVO1
      */
-    public ViewObjectImpl getXpeDccCfgOriginsEOVO() {
-        return (ViewObjectImpl) findViewObject("XpeDccCfgOriginsEOVO");
+    public XpeDccCfgOriginsEOVOImpl getXpeDccCfgOriginsEOVO() {
+        return (XpeDccCfgOriginsEOVOImpl) findViewObject("XpeDccCfgOriginsEOVO");
     }
 
 
@@ -1805,8 +1819,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      * Container's getter for XpeDccCfgOgnAssTerminalsEOVO1.
      * @return XpeDccCfgOgnAssTerminalsEOVO1
      */
-    public ViewObjectImpl getXpeDccCfgOgnAssTerminalsEOVO() {
-        return (ViewObjectImpl) findViewObject("XpeDccCfgOgnAssTerminalsEOVO");
+    public XpeDccCfgOgnAssTerminalsEOVOImpl getXpeDccCfgOgnAssTerminalsEOVO() {
+        return (XpeDccCfgOgnAssTerminalsEOVOImpl) findViewObject("XpeDccCfgOgnAssTerminalsEOVO");
     }
 
     /**
@@ -1958,16 +1972,16 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      * Container's getter for XpeDccCfgOriginsEOVO1.
      * @return XpeDccCfgOriginsEOVO1
      */
-    public ViewObjectImpl getXpeDccCfgNewOriginsEOVO() {
-        return (ViewObjectImpl) findViewObject("XpeDccCfgNewOriginsEOVO");
+    public XpeDccCfgOriginsEOVOImpl getXpeDccCfgNewOriginsEOVO() {
+        return (XpeDccCfgOriginsEOVOImpl) findViewObject("XpeDccCfgNewOriginsEOVO");
     }
 
     /**
      * Container's getter for XpeDccCfgOgnAssTerminalsEOVO1.
      * @return XpeDccCfgOgnAssTerminalsEOVO1
      */
-    public ViewObjectImpl getXpeDccCfgNewOgnAssTerminalsEOVO() {
-        return (ViewObjectImpl) findViewObject("XpeDccCfgNewOgnAssTerminalsEOVO");
+    public XpeDccCfgOgnAssTerminalsEOVOImpl getXpeDccCfgNewOgnAssTerminalsEOVO() {
+        return (XpeDccCfgOgnAssTerminalsEOVOImpl) findViewObject("XpeDccCfgNewOgnAssTerminalsEOVO");
     }
 
     /**
@@ -2055,6 +2069,147 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         ViewCriteria vc = paramVo.getViewCriteria(criteriaName);
         paramVo.removeViewCriteria(criteriaName);
         paramVo.applyViewCriteria(vc);
+    }
+
+    /**
+     * Container's getter for XpeDccCfgTerminalsSearchROVO1.
+     * @return XpeDccCfgTerminalsSearchROVO1
+     */
+    public XpeDccCfgTerminalsSearchROVOImpl getXpeDccCfgTerminalsSearchROVO1() {
+        return (XpeDccCfgTerminalsSearchROVOImpl) findViewObject("XpeDccCfgTerminalsSearchROVO1");
+    }
+    
+    public String addAssTerminalToDestination(){
+        String rtnMsg = "SUCCESS";
+        XpeDccCfgTerminalsSearchROVOImpl terminalSearchVO = this.getXpeDccCfgTerminalsSearchROVO1();
+        XpeDccCfgTerminalsSearchROVORowImpl terminalSearchVORow =
+            (XpeDccCfgTerminalsSearchROVORowImpl) terminalSearchVO.getCurrentRow();
+        XpeDccCfgDestinationsEOVOImpl destinationVO = this.getXpeDccCfgNewDestinationsCreationEOVO();
+        XpeDccCfgDestinationsEOVORowImpl destinationVORow =
+            (XpeDccCfgDestinationsEOVORowImpl) destinationVO.getCurrentRow();
+        boolean rtn = this.checkDuplicateDestTerminal(destinationVORow.getDestinationId(), terminalSearchVORow.getTerminalId());
+        if(!rtn){
+            XpeDccCfgDstAssTerminalsEOVOImpl dstAssTermVO = this.getXpeDccCfgNewDstAssTerminalsCreationEOVO();
+            XpeDccCfgDstAssTerminalsEOVORowImpl dstAssTermVORow =
+                (XpeDccCfgDstAssTerminalsEOVORowImpl) dstAssTermVO.createRow();
+            dstAssTermVORow.setTerminalId(terminalSearchVORow.getTerminalId());
+            dstAssTermVORow.setTerminalDesc(terminalSearchVORow.getTerminalDesc());
+            dstAssTermVORow.setInactive("N");
+            dstAssTermVO.insertRow(dstAssTermVORow);
+        }else{
+            rtnMsg = "DUPLICATE_EXIST";
+        }
+        return rtnMsg;
+    }
+    
+    public boolean checkDuplicateDestTerminal(String destinationId, String terminalId){
+        boolean rtn = false;
+        XpeDccCfgDstAssTerminalsROVOImpl dstTerminal = this.getXpeDccCfgDstAssTerminalsROVO1();
+        dstTerminal.setApplyViewCriteriaName("findByTerminalIdandDestinationId", false);
+        dstTerminal.setNamedWhereClauseParam("bind_DestinationId", destinationId);
+        dstTerminal.setNamedWhereClauseParam("bind_TerminalId", terminalId);
+        dstTerminal.executeQuery();
+        XpeDccCfgDstAssTerminalsEOVORowImpl dstTerminalRow = (XpeDccCfgDstAssTerminalsEOVORowImpl) dstTerminal.first();
+        if(null != dstTerminalRow){
+            rtn = true;
+        }
+        return rtn;
+    }
+    
+    public String addAssTerminalToOrigin(){
+        String rtnMsg = "SUCCESS";
+        XpeDccCfgTerminalsSearchROVOImpl terminalSearchVO = this.getXpeDccCfgTerminalsSearchROVO1();
+        XpeDccCfgTerminalsSearchROVORowImpl terminalSearchVORow =
+            (XpeDccCfgTerminalsSearchROVORowImpl) terminalSearchVO.getCurrentRow();
+        XpeDccCfgOriginsEOVOImpl originsVO = this.getXpeDccCfgNewOriginsEOVO();
+        XpeDccCfgOriginsEOVORowImpl originsVORow = (XpeDccCfgOriginsEOVORowImpl) originsVO.getCurrentRow();
+        boolean rtn = this.checkDuplicateOriginTerminal(originsVORow.getOriginId(), terminalSearchVORow.getTerminalId());
+        if(!rtn){
+            XpeDccCfgOgnAssTerminalsEOVOImpl ognAssTerminalVO = this.getXpeDccCfgNewOgnAssTerminalsEOVO();
+            XpeDccCfgOgnAssTerminalsEOVORowImpl ognAssTerminalVORow =
+                (XpeDccCfgOgnAssTerminalsEOVORowImpl) ognAssTerminalVO.createRow();
+            ognAssTerminalVORow.setTerminalId(terminalSearchVORow.getTerminalId());
+            ognAssTerminalVORow.setTerminalDesc(terminalSearchVORow.getTerminalDesc());
+            ognAssTerminalVORow.setInactive("N");
+            ognAssTerminalVO.insertRow(ognAssTerminalVORow);
+        }else{
+            rtnMsg = "DUPLICATE_EXIST";
+        }
+        return rtnMsg;
+    }
+    
+    public boolean checkDuplicateOriginTerminal(String originId, String terminalId){
+        boolean rtn = false;
+        XpeDccCfgOgnAssTerminalsROVOImpl ognTerminal = this.getXpeDccCfgOgnAssTerminalsROVO1();
+        ognTerminal.setApplyViewCriteriaName("findByTerminalIdandOriginId", false);
+        ognTerminal.setNamedWhereClauseParam("bind_OriginId", originId);
+        ognTerminal.setNamedWhereClauseParam("bind_TerminalId", terminalId);
+        ognTerminal.executeQuery();
+        XpeDccCfgOgnAssTerminalsEOVORowImpl ognTerminalRow = (XpeDccCfgOgnAssTerminalsEOVORowImpl) ognTerminal.first();
+        if(null != ognTerminalRow){
+            rtn = true;
+        }
+        return rtn;
+    }
+    
+    public String addAssTerminalToPCSInstallation(){
+        String rtnMsg = "SUCCESS";
+        XpeDccCfgTerminalsSearchROVOImpl terminalSearchVO = this.getXpeDccCfgTerminalsSearchROVO1();
+        XpeDccCfgTerminalsSearchROVORowImpl terminalSearchVORow =
+            (XpeDccCfgTerminalsSearchROVORowImpl) terminalSearchVO.getCurrentRow();
+        XpeDccCfgPcsEOVOImpl pcsVO = this.getXpeDccCfgPcsEOVO();
+        XpeDccCfgPcsEOVORowImpl pcsVORow = (XpeDccCfgPcsEOVORowImpl) pcsVO.getCurrentRow();
+        boolean rtn = this.checkDuplicatePcsSiteTerminal(pcsVORow.getSiteId(), terminalSearchVORow.getTerminalId());
+        if(!rtn){
+            XpeDccCfgPcsAssTerminalsEOVOImpl pcsAssTerminalVO = this.getXpeDccCfgNewPcsAssTerminalsEOVO();
+            XpeDccCfgPcsAssTerminalsEOVORowImpl pcsAssTerminalVORow =
+                (XpeDccCfgPcsAssTerminalsEOVORowImpl) pcsAssTerminalVO.createRow();
+            pcsAssTerminalVORow.setTerminalId(terminalSearchVORow.getTerminalId());
+            pcsAssTerminalVORow.setTerminalDesc(terminalSearchVORow.getTerminalDesc());
+            pcsAssTerminalVORow.setInactive("N");
+            pcsAssTerminalVO.insertRow(pcsAssTerminalVORow);
+        }else{
+            rtnMsg = "DUPLICATE_EXIST";
+        }
+        return rtnMsg;
+    }
+    
+    public boolean checkDuplicatePcsSiteTerminal(String siteId, String terminalId){
+        boolean rtn = false;
+        XpeDccCfgPcsAssTerminalsROVOImpl pcsTerminal = this.getXpeDccCfgPcsAssTerminalsROVO1();
+        pcsTerminal.setApplyViewCriteriaName("findByTerminalIdandSiteId", false);
+        pcsTerminal.setNamedWhereClauseParam("bind_SiteId", siteId);
+        pcsTerminal.setNamedWhereClauseParam("bind_TerminalId", terminalId);
+        pcsTerminal.executeQuery();
+        XpeDccCfgPcsAssTerminalsROVORowImpl pcsTerminalRow = (XpeDccCfgPcsAssTerminalsROVORowImpl) pcsTerminal.first();
+        if(null != pcsTerminalRow){
+            rtn = true;
+        }
+        return rtn;  
+    }
+
+    /**
+     * Container's getter for XpeDccCfgDstAssTerminalsROVO1.
+     * @return XpeDccCfgDstAssTerminalsROVO1
+     */
+    public XpeDccCfgDstAssTerminalsROVOImpl getXpeDccCfgDstAssTerminalsROVO1() {
+        return (XpeDccCfgDstAssTerminalsROVOImpl) findViewObject("XpeDccCfgDstAssTerminalsROVO1");
+    }
+
+    /**
+     * Container's getter for XpeDccCfgOgnAssTerminalsROVO1.
+     * @return XpeDccCfgOgnAssTerminalsROVO1
+     */
+    public XpeDccCfgOgnAssTerminalsROVOImpl getXpeDccCfgOgnAssTerminalsROVO1() {
+        return (XpeDccCfgOgnAssTerminalsROVOImpl) findViewObject("XpeDccCfgOgnAssTerminalsROVO1");
+    }
+
+    /**
+     * Container's getter for XpeDccCfgPcsAssTerminalsROVO1.
+     * @return XpeDccCfgPcsAssTerminalsROVO1
+     */
+    public XpeDccCfgPcsAssTerminalsROVOImpl getXpeDccCfgPcsAssTerminalsROVO1() {
+        return (XpeDccCfgPcsAssTerminalsROVOImpl) findViewObject("XpeDccCfgPcsAssTerminalsROVO1");
     }
 }
 

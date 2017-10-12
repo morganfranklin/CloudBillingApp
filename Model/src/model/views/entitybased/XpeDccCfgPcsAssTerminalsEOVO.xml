@@ -83,6 +83,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsAssTerminalsEOVO.Inactive_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -91,7 +93,14 @@
     PrecisionRule="true"
     EntityAttrName="InactiveDate"
     EntityUsage="XpeDccCfgPcsAssTerminalsEO"
-    AliasName="INACTIVE_DATE"/>
+    AliasName="INACTIVE_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsAssTerminalsEOVO.InactiveDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
@@ -111,13 +120,27 @@
     PrecisionRule="true"
     EntityAttrName="SiteId"
     EntityUsage="XpeDccCfgPcsAssTerminalsEO"
-    AliasName="SITE_ID"/>
+    AliasName="SITE_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsAssTerminalsEOVO.SiteId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="TerminalDesc"
     PrecisionRule="true"
     EntityAttrName="TerminalDesc"
     EntityUsage="XpeDccCfgPcsAssTerminalsEO"
-    AliasName="TERMINAL_DESC"/>
+    AliasName="TERMINAL_DESC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsAssTerminalsEOVO.TerminalDesc_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="TerminalId"
     IsUpdateable="while_insert"
@@ -125,7 +148,14 @@
     PrecisionRule="true"
     EntityAttrName="TerminalId"
     EntityUsage="XpeDccCfgPcsAssTerminalsEO"
-    AliasName="TERMINAL_ID"/>
+    AliasName="TERMINAL_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsAssTerminalsEOVO.TerminalId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

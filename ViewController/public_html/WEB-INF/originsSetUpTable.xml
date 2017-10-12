@@ -24,12 +24,6 @@
     <view id="EditOriginSetUp">
       <page>/EditOriginSetUp.jsff</page>
     </view>
-    <method-call id="SetCurrentRowWithKeyValue">
-      <method>#{bindings.setCurrentRowWithKeyValue.execute}</method>
-      <outcome>
-        <fixed-outcome>setCurrentRowWithKeyValue</fixed-outcome>
-      </outcome>
-    </method-call>
     <router id="AddorEdit">
       <case id="__20">
         <expression>#{pageFlowScope.NavFlow eq 'EDIT'}</expression>
@@ -37,6 +31,12 @@
       </case>
       <default-outcome>Add</default-outcome>
     </router>
+    <method-call id="SetCurrentRowWithKeyValue">
+      <method>#{bindings.setCurrentRowWithKeyValue.execute}</method>
+      <outcome>
+        <fixed-outcome>setCurrentRowWithKeyValue</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__6">
       <from-activity-id>EditOriginSetUp</from-activity-id>
       <control-flow-case id="__7">
@@ -51,20 +51,6 @@
         <to-activity-id>originsSetUp</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
-    <control-flow-rule id="__10">
-      <from-activity-id>originsSetUp</from-activity-id>
-      <control-flow-case id="__11">
-        <from-outcome>setCurrentRow</from-outcome>
-        <to-activity-id>SetCurrentRowWithKeyValue</to-activity-id>
-      </control-flow-case>
-    </control-flow-rule>
-    <control-flow-rule id="__15">
-      <from-activity-id>SetCurrentRowWithKeyValue</from-activity-id>
-      <control-flow-case id="__16">
-        <from-outcome>setCurrentRowWithKeyValue</from-outcome>
-        <to-activity-id>AddorEdit</to-activity-id>
-      </control-flow-case>
-    </control-flow-rule>
     <control-flow-rule id="__17">
       <from-activity-id>AddorEdit</from-activity-id>
       <control-flow-case id="__18">
@@ -74,6 +60,20 @@
       <control-flow-case id="__19">
         <from-outcome>Edit</from-outcome>
         <to-activity-id>EditOriginSetUp</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>originsSetUp</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>setCurrentRow</from-outcome>
+        <to-activity-id>SetCurrentRowWithKeyValue</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>SetCurrentRowWithKeyValue</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome>setCurrentRowWithKeyValue</from-outcome>
+        <to-activity-id>AddorEdit</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

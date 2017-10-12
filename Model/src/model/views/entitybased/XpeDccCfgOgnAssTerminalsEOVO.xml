@@ -12,7 +12,13 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="model.views.entitybased.XpeDccCfgOgnAssTerminalsEOVORowImpl"
+  ComponentClass="model.views.entitybased.XpeDccCfgOgnAssTerminalsEOVOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Properties>
     <SchemaBasedProperties>
       <LABEL
@@ -77,6 +83,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgOgnAssTerminalsEOVO.Inactive_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -85,7 +93,14 @@
     PrecisionRule="true"
     EntityAttrName="InactiveDate"
     EntityUsage="XpeDccCfgOgnAssTerminalsEO"
-    AliasName="INACTIVE_DATE"/>
+    AliasName="INACTIVE_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgOgnAssTerminalsEOVO.InactiveDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
@@ -105,13 +120,27 @@
     EntityAttrName="OriginId"
     EntityUsage="XpeDccCfgOgnAssTerminalsEO"
     AliasName="ORIGIN_ID"
-    IsUpdateable="while_insert"/>
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgOgnAssTerminalsEOVO.OriginId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="TerminalDesc"
     PrecisionRule="true"
     EntityAttrName="TerminalDesc"
     EntityUsage="XpeDccCfgOgnAssTerminalsEO"
-    AliasName="TERMINAL_DESC"/>
+    AliasName="TERMINAL_DESC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgOgnAssTerminalsEOVO.TerminalDesc_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="TerminalId"
     IsUpdateable="while_insert"
@@ -119,7 +148,14 @@
     PrecisionRule="true"
     EntityAttrName="TerminalId"
     EntityUsage="XpeDccCfgOgnAssTerminalsEO"
-    AliasName="TERMINAL_ID"/>
+    AliasName="TERMINAL_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgOgnAssTerminalsEOVO.TerminalId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

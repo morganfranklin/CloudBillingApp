@@ -2,20 +2,19 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
     <af:panelGroupLayout layout="vertical" id="pgl1">
-        <af:panelHeader text="Origins Set Up" id="ph1">
-            <af:query id="qryId1" headerText="Search" disclosed="true"
+        <af:panelHeader text="Origins Set Up" id="ph1" size="3">
+            <af:query id="qryId1" headerText="Search Origins" disclosed="true"
                       value="#{bindings.OriginsCriteriaQuery.queryDescriptor}"
                       model="#{bindings.OriginsCriteriaQuery.queryModel}"
                       queryListener="#{bindings.OriginsCriteriaQuery.processQuery}"
-                      queryOperationListener="#{bindings.OriginsCriteriaQuery.processQueryOperation}"
+                      queryOperationListener="#{pageFlowScope.OriginsSetUpTableMBean.queryOperationListener}"
                       resultComponentId="::resId1"/>
         </af:panelHeader>
-        <af:panelHeader text="Origins" id="ph2">
+        <af:panelHeader text="Origins" id="ph2" size="5">
             <f:facet name="context"/>
             <f:facet name="toolbar">
-                <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add Item"
-                           disabled="#{!bindings.CreateInsert.enabled}" id="b1" action="setCurrentRow">
-                    <af:setActionListener from="#{bindings.OriginId.inputValue}" to="#{pageFlowScope.OriginId}"/>
+                <af:button actionListener="#{pageFlowScope.OriginsSetUpTableMBean.onOriginCreation}" text="Add Item"
+                           id="b1" action="setCurrentRow">
                     <af:setActionListener from="ADD" to="#{pageFlowScope.NavFlow}"/>
                 </af:button>
             </f:facet>
@@ -29,10 +28,11 @@
                       selectedRowKeys="#{bindings.XpeDccCfgOriginsEOVO.collectionModel.selectedRow}"
                       selectionListener="#{bindings.XpeDccCfgOriginsEOVO.collectionModel.makeCurrent}"
                       rowSelection="single" fetchSize="#{bindings.XpeDccCfgOriginsEOVO.rangeSize}" id="resId1"
-                      contentDelivery="immediate" columnStretching="last" partialTriggers="::b1">
+                      contentDelivery="immediate" columnStretching="last" partialTriggers="::b1"
+                      binding="#{backingBeanScope.OriginSetUpTableBBean.originsSetUpTblBind}">
                 <af:column headerText="#{bindings.XpeDccCfgOriginsEOVO.hints.OriginId.label}" id="resId1c1">
                     <af:link text="#{row.OriginId}" id="l1" partialSubmit="true" action="setCurrentRow">
-                        <af:setActionListener from="#{bindings.OriginId.inputValue}" to="#{pageFlowScope.OriginId}"/>
+                        <af:setActionListener from="#{row.OriginId}" to="#{pageFlowScope.OriginId}"/>
                         <af:setActionListener from="EDIT" to="#{pageFlowScope.NavFlow}"/>
                     </af:link>
                 </af:column>
@@ -71,7 +71,7 @@
                 </af:column>
             </af:table>
         </af:panelHeader>
-        <af:panelHeader text="Associated Terminals" id="ph3">
+        <af:panelHeader text="Associated Terminals" id="ph3" size="5">
             <f:facet name="context"/>
             <f:facet name="toolbar"/>
             <f:facet name="menuBar"/>

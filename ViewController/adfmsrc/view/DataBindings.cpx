@@ -68,8 +68,6 @@
         <page path="/originsSetUp.jsff" usageId="view_originsSetUpPageDef"/>
         <page path="/AddOriginSetUp.jsff" usageId="view_AddOriginSetUpPageDef"/>
         <page path="/EditOriginSetUp.jsff" usageId="view_EditOriginSetUpPageDef"/>
-        <page path="/WEB-INF/originsSetUpTable.xml#originsSetUpTable@SetCurrentRowWithKeyValue"
-              usageId="view_originsSetUpTable_originsSetUpTable_SetCurrentRowWithKeyValuePageDef"/>
         <page path="/pcsInstallationSetUp.jsff" usageId="view_pcsInstallationSetUpPageDef"/>
         <page path="/WEB-INF/pcsInstallationSetUpTable.xml#pcsInstallationSetUpTable@SetCurrentRowWithKeyValue"
               usageId="view_pcsInstallationSetUpTable_pcsInstallationSetUpTable_SetCurrentRowWithKeyValuePageDef"/>
@@ -87,6 +85,11 @@
               usageId="view_pcsShortNameSetUpTable_pcsShortNameSetUpTable_SetCurrentRowWithKeyValuePageDef"/>
         <page path="/addPcsShortNames.jsff" usageId="view_addPcsShortNamesPageDef"/>
         <page path="/editPcsShortNames.jsff" usageId="view_editPcsShortNamesPageDef"/>
+        <page path="/activeTerminalSearch.jsff" usageId="view_activeTerminalSearchPageDef"/>
+        <page path="/WEB-INF/destinationSetUpTable.xml#destinationSetUpTable@SetCurrentRowWithKeyValue"
+              usageId="view_destinationSetUpTable_destinationSetUpTable_SetCurrentRowWithKeyValuePageDef"/>
+        <page path="/WEB-INF/originsSetUpTable.xml#originsSetUpTable@SetCurrentRowWithKeyValue"
+              usageId="view_originsSetUpTable_originsSetUpTable_SetCurrentRowWithKeyValuePageDef"/>
     </pageMap>
     <pageDefinitionUsages>
         <page id="view_IntegrationDashPageDef" path="view.pageDefs.IntegrationDashPageDef"/>
@@ -149,8 +152,6 @@
         <page id="view_originsSetUpPageDef" path="view.pageDefs.originsSetUpPageDef"/>
         <page id="view_AddOriginSetUpPageDef" path="view.pageDefs.AddOriginSetUpPageDef"/>
         <page id="view_EditOriginSetUpPageDef" path="view.pageDefs.EditOriginSetUpPageDef"/>
-        <page id="view_originsSetUpTable_originsSetUpTable_SetCurrentRowWithKeyValuePageDef"
-              path="view.pageDefs.originsSetUpTable_originsSetUpTable_SetCurrentRowWithKeyValuePageDef"/>
         <page id="view_pcsInstallationSetUpPageDef" path="view.pageDefs.pcsInstallationSetUpPageDef"/>
         <page id="view_pcsInstallationSetUpTable_pcsInstallationSetUpTable_SetCurrentRowWithKeyValuePageDef"
               path="view.pageDefs.pcsInstallationSetUpTable_pcsInstallationSetUpTable_SetCurrentRowWithKeyValuePageDef"/>
@@ -168,6 +169,11 @@
               path="view.pageDefs.pcsShortNameSetUpTable_pcsShortNameSetUpTable_SetCurrentRowWithKeyValuePageDef"/>
         <page id="view_addPcsShortNamesPageDef" path="view.pageDefs.addPcsShortNamesPageDef"/>
         <page id="view_editPcsShortNamesPageDef" path="view.pageDefs.editPcsShortNamesPageDef"/>
+        <page id="view_activeTerminalSearchPageDef" path="view.pageDefs.activeTerminalSearchPageDef"/>
+        <page id="view_destinationSetUpTable_destinationSetUpTable_SetCurrentRowWithKeyValuePageDef"
+              path="view.pageDefs.destinationSetUpTable_destinationSetUpTable_SetCurrentRowWithKeyValuePageDef"/>
+        <page id="view_originsSetUpTable_originsSetUpTable_SetCurrentRowWithKeyValuePageDef"
+              path="view.pageDefs.originsSetUpTable_originsSetUpTable_SetCurrentRowWithKeyValuePageDef"/>
     </pageDefinitionUsages>
     <dataControlUsages>
         <BC4JDataControl id="AppModuleDataControl" Package="model"

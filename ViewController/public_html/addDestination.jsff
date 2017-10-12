@@ -2,7 +2,7 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
     <af:panelGroupLayout layout="vertical" id="pgl2">
-        <af:panelHeader text="Destination Details" id="ph4">
+        <af:panelHeader text="Destination Details" id="ph4" size="5">
             <af:panelFormLayout id="pfl1">
                 <af:inputText value="#{bindings.DestinationId.inputValue}" label="#{bindings.DestinationId.hints.label}"
                               required="#{bindings.DestinationId.hints.mandatory}"
@@ -28,7 +28,8 @@
                 </af:inputText>
             </af:panelFormLayout>
         </af:panelHeader>
-        <af:panelHeader text="Associated Terminals" id="ph5">
+        <af:spacer width="10" height="10" id="s5"/>
+        <af:panelHeader text="Associated Terminals" id="ph5" size="5">
             <af:table rows="#{bindings.XpeDccCfgNewDstAssTerminalsCreationEOVO.rangeSize}"
                       fetchSize="#{bindings.XpeDccCfgNewDstAssTerminalsCreationEOVO.rangeSize}"
                       emptyText="#{bindings.XpeDccCfgNewDstAssTerminalsCreationEOVO.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -39,9 +40,8 @@
                       rowSelection="single" id="t2" columnStretching="last" contentDelivery="immediate">
                 <af:column headerText="#{bindings.XpeDccCfgNewDstAssTerminalsCreationEOVO.hints.TerminalId.label}"
                            id="c9">
-                    <af:outputText value="#{row.TerminalId}"
-                                   shortDesc="#{bindings.XpeDccCfgNewDstAssTerminalsCreationEOVO.hints.TerminalId.tooltip}"
-                                   id="ot23"/>
+                    <af:link text="#{row.TerminalId}" id="l1" partialSubmit="true"
+                             actionListener="#{pageFlowScope.DestinationSetUpTableMBean.onTerminalEdit}"/>
                 </af:column>
                 <af:column headerText="#{bindings.XpeDccCfgNewDstAssTerminalsCreationEOVO.hints.TerminalDesc.label}"
                            id="c8">
@@ -70,26 +70,76 @@
                 </af:column>
             </af:table>
             <f:facet name="toolbar">
-                <af:button text="Add" id="b6" actionListener="#{pageFlowScope.XpeCfgTableSetupMBean.onTerminalSearch}"/>
+                <af:button text="Add" id="b6"
+                           actionListener="#{pageFlowScope.DestinationSetUpTableMBean.onTerminalSearch}"/>
             </f:facet>
         </af:panelHeader>
+        <af:spacer width="10" height="10" id="s4"/>
         <af:group id="g1">
             <af:button actionListener="#{bindings.Commit.execute}" text="Save"
                        id="b1"/>
+            <af:spacer width="10" height="10" id="s2"/>
             <af:button actionListener="#{bindings.Rollback.execute}" text="Back" immediate="true" id="b2" action="Back">
                 <af:resetActionListener/>
             </af:button>
         </af:group>
         <af:popup autoCancel="disabled" id="p1" contentDelivery="lazyUncached"
-                  binding="#{backingBeanScope.XpeCfgTableSetupBBean.terminalSearch_popup}">
+                  binding="#{backingBeanScope.DestinationSetUpTableBBean.terminalSearch_popup}">
             <af:dialog id="d1" type="none" closeIconVisible="false">
                 <af:region value="#{bindings.terminalSearch1.regionModel}" id="r1"/>
                 <f:facet name="buttonBar">
                     <af:button text="Ok" id="b3"
-                               actionListener="#{pageFlowScope.XpeCfgTableSetupMBean.onTerminalSearchSaveOrCancel}"/>
+                               actionListener="#{pageFlowScope.DestinationSetUpTableMBean.onTerminalSearchSave}"/>
+                    <af:spacer width="10" height="10" id="s1"/>
                     <af:button text="Cancel" id="b4"
-                               actionListener="#{pageFlowScope.XpeCfgTableSetupMBean.onTerminalSearchSaveOrCancel}"/>
+                               actionListener="#{pageFlowScope.DestinationSetUpTableMBean.onTerminalSearchCancel}"/>
                 </f:facet>
+            </af:dialog>
+        </af:popup>
+        <af:popup childCreation="deferred" autoCancel="disabled" id="p2" contentDelivery="lazyUncached"
+                  binding="#{backingBeanScope.DestinationSetUpTableBBean.terminalEdit_popup}">
+            <af:dialog id="d2" type="none" closeIconVisible="false" title="Edit Destination Terminal">
+                <f:facet name="buttonBar">
+                    <af:button text="Ok" id="b5"
+                               actionListener="#{pageFlowScope.DestinationSetUpTableMBean.onTerminalEditSaveOrCancel}"/>
+                    <af:spacer width="10" height="10" id="s3"/>
+                    <af:button text="Cancel" id="b7"
+                               actionListener="#{pageFlowScope.DestinationSetUpTableMBean.onTerminalEditSaveOrCancel}"/>
+                </f:facet>
+                <af:panelFormLayout id="pfl2">
+                    <af:panelLabelAndMessage label="#{bindings.TerminalId.hints.label}" id="plam1">
+                        <af:outputText value="#{bindings.TerminalId.inputValue}"
+                                       shortDesc="#{bindings.TerminalId.hints.tooltip}" id="ot1"/>
+                    </af:panelLabelAndMessage>
+                    <af:panelLabelAndMessage label="#{bindings.TerminalDesc.hints.label}" id="plam2">
+                        <af:outputText value="#{bindings.TerminalDesc.inputValue}"
+                                       shortDesc="#{bindings.TerminalDesc.hints.tooltip}" id="ot2"/>
+                    </af:panelLabelAndMessage>
+                    <af:inputText value="#{bindings.DestinationId1.inputValue}"
+                                  label="#{bindings.DestinationId1.hints.label}"
+                                  required="#{bindings.DestinationId1.hints.mandatory}"
+                                  columns="#{bindings.DestinationId1.hints.displayWidth}"
+                                  maximumLength="#{bindings.DestinationId1.hints.precision}"
+                                  shortDesc="#{bindings.DestinationId1.hints.tooltip}" id="it4">
+                        <f:validator binding="#{bindings.DestinationId1.validator}"/>
+                    </af:inputText>
+                    <af:selectOneChoice value="#{bindings.Inactive1.inputValue}" label="#{bindings.Inactive1.label}"
+                                        required="#{bindings.Inactive1.hints.mandatory}"
+                                        shortDesc="#{bindings.Inactive1.hints.tooltip}" id="soc1" autoSubmit="true"
+                                        valueChangeListener="#{pageFlowScope.DestinationSetUpTableMBean.onAddDesInactiveValChgLstnr}">
+                        <f:selectItems value="#{bindings.Inactive1.items}" id="si1"/>
+                        <f:validator binding="#{bindings.Inactive1.validator}"/>
+                    </af:selectOneChoice>
+                    <af:inputDate value="#{bindings.InactiveDate.inputValue}"
+                                  label="#{bindings.InactiveDate.hints.label}"
+                                  required="#{bindings.InactiveDate.hints.mandatory}"
+                                  columns="#{bindings.InactiveDate.hints.displayWidth}"
+                                  shortDesc="#{bindings.InactiveDate.hints.tooltip}" id="id1" autoSubmit="true"
+                                  partialTriggers="soc1">
+                        <f:validator binding="#{bindings.InactiveDate.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.InactiveDate.format}"/>
+                    </af:inputDate>
+                </af:panelFormLayout>
             </af:dialog>
         </af:popup>
     </af:panelGroupLayout>

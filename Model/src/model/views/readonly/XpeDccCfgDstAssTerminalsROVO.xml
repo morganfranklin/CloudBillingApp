@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XpeDccCfgDstAssTerminalsROVO"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  RowClass="model.views.readonly.XpeDccCfgDstAssTerminalsROVORowImpl"
+  ComponentClass="model.views.readonly.XpeDccCfgDstAssTerminalsROVOImpl"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.views.readonly.XpeDccCfgDstAssTerminalsROVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="bind_DestinationId"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bind_TerminalId"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <SQLQuery><![CDATA[Select DESTINATION_ID, TERMINAL_ID, TERMINAL_DESC from XPE_DCC_CFG_DST_ASS_TERMINALS]]></SQLQuery>
+  <ViewAttribute
+    Name="DestinationId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="DESTINATION_ID"
+    Expression="DESTINATION_ID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TerminalId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="TERMINAL_ID"
+    Expression="TERMINAL_ID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TerminalDesc"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="45"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="TERMINAL_DESC"
+    Expression="TERMINAL_DESC"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="45"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="findByTerminalIdandDestinationId"
+    ViewObjectName="model.views.readonly.XpeDccCfgDstAssTerminalsROVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="XpeDccCfgDstAssTerminalsROVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="XpeDccCfgDstAssTerminalsROVOCriteria_XpeDccCfgDstAssTerminalsROVOCriteria_row_0_DestinationId"
+        ViewAttribute="DestinationId"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_DestinationId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="TerminalId"
+        ViewAttribute="TerminalId"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_TerminalId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="DestinationId"/>
+    <Item Value="TerminalId"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

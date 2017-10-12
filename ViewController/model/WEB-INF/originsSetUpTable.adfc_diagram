@@ -66,7 +66,7 @@
       <property
          name="fromOutcome">Back</property>
       <property
-         name="sdm:polyPoints">T50,631.0,215.52002,85.5,215.52002,B56</property>
+         name="sdm:polyPoints">B50,631.0,365.24707,78.5,365.24707,B44</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -77,29 +77,6 @@
          name="fromOutcome">Back</property>
       <property
          name="sdm:polyPoints">L46,352.5,134.74707,352.5,119.79297,R50</property>
-   </ControlFlowCase>
-   <MethodCall
-      id="MethodCall9">
-      <property
-         name="activityId">SetCurrentRowWithKeyValue</property>
-      <property
-         name="x">260.7002</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>SetCurrentRowWithKeyValue&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
-      <property
-         name="y">224.54004</property>
-      <property
-         name="exceptionHandler">false</property>
-   </MethodCall>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase10"
-      from="View2"
-      to="MethodCall9">
-      <property
-         name="fromOutcome">setCurrentRow</property>
-      <property
-         name="sdm:polyPoints">B56,85.5,224.18945,L50</property>
    </ControlFlowCase>
    <Router
       id="Router14">
@@ -114,16 +91,6 @@
       <property
          name="exceptionHandler">false</property>
    </Router>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase15"
-      from="MethodCall9"
-      to="Router14">
-      <property
-         name="fromOutcome">setCurrentRowWithKeyValue</property>
-      <property
-         name="sdm:polyPoints">R50,368.3501,224.18945,368.3501,270.94824,L50</property>
-   </ControlFlowCase>
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase16"
@@ -143,5 +110,38 @@
          name="fromOutcome">Edit</property>
       <property
          name="sdm:polyPoints">R50,553.5,270.94824,553.5,311.24707,L50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall14">
+      <property
+         name="activityId">SetCurrentRowWithKeyValue</property>
+      <property
+         name="x">254.7002</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SetCurrentRowWithKeyValue&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">249.44824</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase15"
+      from="View2"
+      to="MethodCall14">
+      <property
+         name="fromOutcome">setCurrentRow</property>
+      <property
+         name="sdm:polyPoints">B56,85.5,249.09766,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase18"
+      from="MethodCall14"
+      to="Router14">
+      <property
+         name="fromOutcome">setCurrentRowWithKeyValue</property>
+      <property
+         name="sdm:polyPoints">R50,365.3501,249.09766,365.3501,270.94824,L50</property>
    </ControlFlowCase>
 </SDM>

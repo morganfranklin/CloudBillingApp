@@ -5,11 +5,13 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="XpeDccCfgDestinationsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgDestinationsEOVOIterator" ChangeEventPolicy="none"/>
+              id="XpeDccCfgDestinationsEOVOIterator" ChangeEventPolicy="ppr"/>
     <searchRegion Criteria="DestinationsCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="XpeDccCfgDestinationsEOVOIterator" id="DestinationsCriteriaQuery"/>
     <iterator Binds="XpeDccCfgDstAssTerminalsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgDstAssTerminalsEOVOIterator" ChangeEventPolicy="none"/>
+              id="XpeDccCfgDstAssTerminalsEOVOIterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="XpeDccCfgNewDestinationsCreationEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewDestinationsCreationEOVOIterator" ChangeEventPolicy="ppr"/>
   </executables>
   <bindings>
     <tree IterBinding="XpeDccCfgDestinationsEOVOIterator" id="XpeDccCfgDestinationsEOVO">
@@ -34,5 +36,12 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action IterBinding="XpeDccCfgNewDestinationsCreationEOVOIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <attributeValues IterBinding="XpeDccCfgNewDestinationsCreationEOVOIterator" id="DestinationId">
+      <AttrNames>
+        <Item Value="DestinationId"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

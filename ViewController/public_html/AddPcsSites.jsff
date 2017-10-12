@@ -2,7 +2,7 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
   <af:panelGroupLayout id="pgl1">
-    <af:panelHeader text="PCS Installations Details" id="ph1">
+    <af:panelHeader text="PCS Installations Details" id="ph1" size="5">
       <f:facet name="context"/>
       <f:facet name="toolbar"/>
       <f:facet name="menuBar"/>
@@ -39,7 +39,7 @@
         </af:selectOneChoice>
       </af:panelFormLayout>
     </af:panelHeader>
-    <af:panelHeader text="Credit Module" id="ph3">
+    <af:panelHeader text="Credit Module" id="ph3" size="5">
       <f:facet name="context"/>
       <f:facet name="toolbar"/>
       <f:facet name="menuBar"/>
@@ -68,7 +68,7 @@
         </af:inputText>
       </af:panelFormLayout>
     </af:panelHeader>
-    <af:panelHeader text="PCS Associated Terminals" id="ph2">
+    <af:panelHeader text="PCS Associated Terminals" id="ph2" size="5">
       <f:facet name="context"/>
       <f:facet name="toolbar">
         <af:toolbar id="t2">
@@ -110,15 +110,28 @@
       </af:button>
     </af:group>
     <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
-              binding="#{backingBeanScope.PcsInstallationSetUpTableBBean.pcsTerminalAddItem_popup}">
+              binding="#{backingBeanScope.PcsInstallationSetUpTableBBean.pcsTerminalAddItem_popup}"
+              contentDelivery="lazyUncached">
       <af:dialog id="d1" type="none" title="Add PCS Associated Terminal" closeIconVisible="false">
         <f:facet name="buttonBar">
           <af:button text="Ok" id="b4"
-                     actionListener="#{pageFlowScope.PcsInstallationSetUpTableMBean.pcsTerminalSearchSaveorCancel}"/>
+                     actionListener="#{pageFlowScope.PcsInstallationSetUpTableMBean.pcsTerminalSearchSave}"/>
           <af:button text="Cancel" id="b5"
-                     actionListener="#{pageFlowScope.PcsInstallationSetUpTableMBean.pcsTerminalSearchSaveorCancel}"/>
+                     actionListener="#{pageFlowScope.PcsInstallationSetUpTableMBean.pcsTerminalSearchCancel}"/>
         </f:facet>
         <af:region value="#{bindings.terminalSearch1.regionModel}" id="r1"/>
+      </af:dialog>
+    </af:popup>
+    <af:popup childCreation="deferred" autoCancel="disabled" id="p2" contentDelivery="lazyUncached"
+              binding="#{backingBeanScope.PcsInstallationSetUpTableBBean.pcsTerminalEditItem_popup}">
+      <af:dialog id="d2" type="none" title="Edit PCS Associated Terminal" closeIconVisible="false">
+        <f:facet name="buttonBar">
+          <af:button text="Ok" id="b6"
+                     actionListener="#{pageFlowScope.PcsInstallationSetUpTableMBean.pcsTerminalEditSaveorCancel}"/>
+          <af:spacer width="10" height="10" id="s1"/>
+          <af:button text="Cancel" id="b7"
+                     actionListener="#{pageFlowScope.PcsInstallationSetUpTableMBean.pcsTerminalEditSaveorCancel}"/>
+        </f:facet>
       </af:dialog>
     </af:popup>
   </af:panelGroupLayout>

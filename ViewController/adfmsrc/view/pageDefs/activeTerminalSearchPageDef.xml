@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="activeTerminalSearchPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XpeDccCfgTerminalsSearchROVO1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgTerminalsSearchROVO1Iterator"/>
+    <searchRegion Criteria="TerminalsCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="XpeDccCfgTerminalsSearchROVO1Iterator" id="TerminalsCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="XpeDccCfgTerminalsSearchROVO1Iterator" id="XpeDccCfgTerminalsSearchROVO1">
+      <nodeDefinition DefName="model.views.readonly.XpeDccCfgTerminalsSearchROVO" Name="XpeDccCfgTerminalsSearchROVO10">
+        <AttrNames>
+          <Item Value="TerminalId"/>
+          <Item Value="TerminalDesc"/>
+          <Item Value="TerminalType"/>
+          <Item Value="County"/>
+          <Item Value="State"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

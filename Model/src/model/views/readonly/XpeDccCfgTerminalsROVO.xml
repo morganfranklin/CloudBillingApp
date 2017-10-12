@@ -18,7 +18,28 @@
         ResId="model.views.readonly.XpeDccCfgTerminalsROVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <SQLQuery><![CDATA[SELECT TERMINAL_ID,TERMINAL_DESC FROM XPE_DCC_CFG_TERMINALS]]></SQLQuery>
+  <Variable
+    Name="bind_TerminalId"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bind_TerminalDesc"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bind_TerminalType"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bind_County"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bind_State"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <SQLQuery><![CDATA[SELECT TERMINAL_ID,TERMINAL_DESC, TERMINAL_TYPE, STATE, COUNTY FROM XPE_DCC_CFG_TERMINALS    
+WHERE INACTIVE <> 'N']]></SQLQuery>
   <ViewAttribute
     Name="TerminalId"
     IsUpdateable="false"
@@ -49,6 +70,119 @@
       <Attr Name="_DisplaySize" Value="45"/>
     </DesignTime>
   </ViewAttribute>
+  <ViewAttribute
+    Name="TerminalType"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="3"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="TERMINAL_TYPE"
+    Expression="TERMINAL_TYPE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="State"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="5"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="STATE"
+    Expression="STATE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="County"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="5"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="COUNTY"
+    Expression="COUNTY"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="TerminalsCriteria"
+    ViewObjectName="model.views.readonly.XpeDccCfgTerminalsROVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="XpeDccCfgTerminalsROVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="TerminalId"
+        ViewAttribute="TerminalId"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_TerminalId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="TerminalDesc"
+        ViewAttribute="TerminalDesc"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bind_TerminalDesc"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="TerminalType"
+        ViewAttribute="TerminalType"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bind_TerminalType"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="State"
+        ViewAttribute="State"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_State"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="XpeDccCfgTerminalsROVOCriteria_XpeDccCfgTerminalsROVOCriteria_row_0_County"
+        ViewAttribute="County"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_County"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <AttrArray Name="KeyAttributes">
     <Item Value="TerminalId"/>
   </AttrArray>

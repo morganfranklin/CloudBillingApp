@@ -25,32 +25,12 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <attributeValues IterBinding="XpeDccCfgNewTerminalCreationEOVOIterator" id="TerminalId">
-      <AttrNames>
-        <Item Value="TerminalId"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="XpeDccCfgNewTerminalCreationEOVOIterator" id="TerminalDesc">
-      <AttrNames>
-        <Item Value="TerminalDesc"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="XpeDccCfgNewTerminalCreationEOVOIterator" id="State">
-      <AttrNames>
-        <Item Value="State"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="XpeDccCfgNewTerminalCreationEOVOIterator" id="County">
-      <AttrNames>
-        <Item Value="County"/>
-      </AttrNames>
-    </attributeValues>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
     <list IterBinding="XpeDccCfgNewTerminalCreationEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <list IterBinding="XpeDccCfgNewTerminalCreationEOVOIterator" StaticList="false" Uses="LOV_TerminalType"
-          id="TerminalType" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+          id="TerminalType" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <action IterBinding="XpeDccCfgNewTerminalCreationEOVOIterator" id="CreateInsert" RequiresUpdateModel="true"
             Action="createInsertRow"/>
     <attributeValues IterBinding="XpeDccCfgTerminalsEOVOIterator" id="TerminalId1">
@@ -75,5 +55,19 @@
         <Item Value="InactiveDate"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewTerminalCreationEOVOIterator" id="TerminalId">
+      <AttrNames>
+        <Item Value="TerminalId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewTerminalCreationEOVOIterator" id="TerminalDesc">
+      <AttrNames>
+        <Item Value="TerminalDesc"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="XpeDccCfgNewTerminalCreationEOVOIterator" StaticList="false" Uses="LOV_County"
+                  id="County"/>
+    <list IterBinding="XpeDccCfgNewTerminalCreationEOVOIterator" StaticList="false" Uses="LOV_State" id="State"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

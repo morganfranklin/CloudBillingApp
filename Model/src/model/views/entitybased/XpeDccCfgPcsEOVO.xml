@@ -145,6 +145,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsEOVO.Activate_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -165,7 +167,14 @@
     PrecisionRule="true"
     EntityAttrName="DbLink"
     EntityUsage="XpeDccCfgPcsEO"
-    AliasName="DB_LINK"/>
+    AliasName="DB_LINK">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsEOVO.DbLink_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="DirectToCustomer"
     PrecisionRule="true"
@@ -177,6 +186,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsEOVO.DirectToCustomer_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -185,7 +196,14 @@
     PrecisionRule="true"
     EntityAttrName="EmailNotificationGroup"
     EntityUsage="XpeDccCfgPcsEO"
-    AliasName="EMAIL_NOTIFICATION_GROUP"/>
+    AliasName="EMAIL_NOTIFICATION_GROUP">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsEOVO.EmailNotificationGroup_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Inactive"
     PrecisionRule="true"
@@ -197,6 +215,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsEOVO.Inactive_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -205,7 +225,14 @@
     PrecisionRule="true"
     EntityAttrName="InactiveDate"
     EntityUsage="XpeDccCfgPcsEO"
-    AliasName="INACTIVE_DATE"/>
+    AliasName="INACTIVE_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsEOVO.InactiveDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
@@ -229,6 +256,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsEOVO.PrintStage_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -237,7 +266,14 @@
     PrecisionRule="true"
     EntityAttrName="SiteDesc"
     EntityUsage="XpeDccCfgPcsEO"
-    AliasName="SITE_DESC"/>
+    AliasName="SITE_DESC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsEOVO.SiteDesc_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="SiteId"
     IsUpdateable="while_insert"
@@ -245,13 +281,27 @@
     PrecisionRule="true"
     EntityAttrName="SiteId"
     EntityUsage="XpeDccCfgPcsEO"
-    AliasName="SITE_ID"/>
+    AliasName="SITE_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsEOVO.SiteId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="FacilityId"
     PrecisionRule="true"
     EntityAttrName="FacilityId"
     EntityUsage="XpeDccCfgPcsEO"
-    AliasName="FACILITY_ID"/>
+    AliasName="FACILITY_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsEOVO.FacilityId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="PCSCriteria"
     ViewObjectName="model.views.entitybased.XpeDccCfgPcsEOVO"

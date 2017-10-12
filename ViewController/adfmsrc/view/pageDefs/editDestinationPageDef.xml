@@ -4,53 +4,75 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="XpeDccCfgDestinationsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgDestinationsEOVOIterator" ChangeEventPolicy="ppr"/>
-    <iterator Binds="XpeDccCfgDstAssTerminalsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgDstAssTerminalsEOVOIterator" ChangeEventPolicy="ppr"/>
     <taskFlow id="terminalSearch1" taskFlowId="/WEB-INF/terminalSearch.xml#terminalSearch" activation="deferred"
               xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <iterator Binds="XpeDccCfgNewDestinationsCreationEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewDestinationsCreationEOVOIterator"/>
+    <iterator Binds="XpeDccCfgNewDstAssTerminalsCreationEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewDstAssTerminalsCreationEOVOIterator"/>
   </executables>
   <bindings>
-    <attributeValues IterBinding="XpeDccCfgDestinationsEOVOIterator" id="DestinationDesc">
-      <AttrNames>
-        <Item Value="DestinationDesc"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="XpeDccCfgDestinationsEOVOIterator" id="DestinationId">
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <attributeValues IterBinding="XpeDccCfgNewDestinationsCreationEOVOIterator" id="DestinationId">
       <AttrNames>
         <Item Value="DestinationId"/>
       </AttrNames>
     </attributeValues>
-    <list IterBinding="XpeDccCfgDestinationsEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
-    <attributeValues IterBinding="XpeDccCfgDestinationsEOVOIterator" id="InactiveDate">
+    <attributeValues IterBinding="XpeDccCfgNewDestinationsCreationEOVOIterator" id="DestinationDesc">
       <AttrNames>
-        <Item Value="InactiveDate"/>
+        <Item Value="DestinationDesc"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="XpeDccCfgDestinationsEOVOIterator" id="State">
+    <attributeValues IterBinding="XpeDccCfgNewDestinationsCreationEOVOIterator" id="State">
       <AttrNames>
         <Item Value="State"/>
       </AttrNames>
     </attributeValues>
-    <tree IterBinding="XpeDccCfgDstAssTerminalsEOVOIterator" id="XpeDccCfgDstAssTerminalsEOVO">
+    <list IterBinding="XpeDccCfgNewDestinationsCreationEOVOIterator" StaticList="false" Uses="LOV_Inactive"
+          id="Inactive" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgNewDestinationsCreationEOVOIterator" id="InactiveDate">
+      <AttrNames>
+        <Item Value="InactiveDate"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="XpeDccCfgNewDstAssTerminalsCreationEOVOIterator" id="XpeDccCfgNewDstAssTerminalsCreationEOVO">
       <nodeDefinition DefName="model.views.entitybased.XpeDccCfgDstAssTerminalsEOVO"
-                      Name="XpeDccCfgDstAssTerminalsEOVO0">
+                      Name="XpeDccCfgNewDstAssTerminalsCreationEOVO0">
         <AttrNames>
-          <Item Value="CreatedBy"/>
-          <Item Value="CreatedDate"/>
           <Item Value="DestinationId"/>
+          <Item Value="TerminalId"/>
+          <Item Value="TerminalDesc"/>
           <Item Value="Inactive"/>
           <Item Value="InactiveDate"/>
-          <Item Value="LastUpdatedBy"/>
-          <Item Value="LastUpdatedDate"/>
-          <Item Value="TerminalDesc"/>
-          <Item Value="TerminalId"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
-    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <attributeValues IterBinding="XpeDccCfgNewDstAssTerminalsCreationEOVOIterator" id="TerminalId">
+      <AttrNames>
+        <Item Value="TerminalId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewDstAssTerminalsCreationEOVOIterator" id="TerminalDesc">
+      <AttrNames>
+        <Item Value="TerminalDesc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewDstAssTerminalsCreationEOVOIterator" id="DestinationId1">
+      <AttrNames>
+        <Item Value="DestinationId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgNewDstAssTerminalsCreationEOVOIterator" StaticList="false" Uses="LOV_Inactive"
+          id="Inactive1" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgNewDstAssTerminalsCreationEOVOIterator" id="InactiveDate1">
+      <AttrNames>
+        <Item Value="InactiveDate"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="addAssTerminalToDestination" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="addAssTerminalToDestination" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="data.AppModuleDataControl.dataProvider"
+                  ReturnName="data.AppModuleDataControl.methodResults.addAssTerminalToDestination_AppModuleDataControl_dataProvider_addAssTerminalToDestination_result"/>
   </bindings>
 </pageDefinition>

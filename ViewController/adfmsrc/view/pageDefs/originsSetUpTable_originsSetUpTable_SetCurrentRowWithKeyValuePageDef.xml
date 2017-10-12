@@ -4,11 +4,11 @@
                 SkipValidation="true">
   <parameters/>
   <executables>
-    <iterator Binds="XpeDccCfgOriginsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgOriginsEOVOIterator"/>
+    <iterator Binds="XpeDccCfgNewOriginsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewOriginsEOVOIterator"/>
   </executables>
   <bindings>
-    <action IterBinding="XpeDccCfgOriginsEOVOIterator" id="setCurrentRowWithKeyValue" RequiresUpdateModel="false"
+    <action IterBinding="XpeDccCfgNewOriginsEOVOIterator" id="setCurrentRowWithKeyValue" RequiresUpdateModel="false"
             Action="setCurrentRowWithKeyValue">
       <NamedData NDName="rowKey" NDValue="#{pageFlowScope.OriginId}" NDType="java.lang.String"/>
     </action>

@@ -1,10 +1,12 @@
 package view;
 
 import oracle.adf.view.rich.component.rich.RichPopup;
+import oracle.adf.view.rich.component.rich.data.RichTable;
 
 public class PcsInstallationSetUpTableBBean {
     private RichPopup pcsTerminalAddItem_popup;
     private RichPopup pcsTerminalEditItem_popup;
+    private RichTable pcsInstallationSetUpTblBind;
 
     public PcsInstallationSetUpTableBBean() {
     }
@@ -23,5 +25,13 @@ public class PcsInstallationSetUpTableBBean {
 
     public RichPopup getPcsTerminalEditItem_popup() {
         return pcsTerminalEditItem_popup;
+    }
+
+    public void setPcsInstallationSetUpTblBind(RichTable pcsInstallationSetUpTblBind) {
+        this.pcsInstallationSetUpTblBind = pcsInstallationSetUpTblBind;
+    }
+
+    public RichTable getPcsInstallationSetUpTblBind() {
+        return pcsInstallationSetUpTblBind;
     }
 }

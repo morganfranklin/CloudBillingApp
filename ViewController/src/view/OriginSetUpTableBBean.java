@@ -1,12 +1,14 @@
 package view;
 
 import oracle.adf.view.rich.component.rich.RichPopup;
+import oracle.adf.view.rich.component.rich.data.RichTable;
 
 public class OriginSetUpTableBBean {
     private RichPopup originCreationAddItem_popup;
     private RichPopup originSetUpEdit_popup;
     private RichPopup orgAssTerminalCreation_popup;
     private RichPopup orgAssTerminalEdit_popup;
+    private RichTable originsSetUpTblBind;
 
     public OriginSetUpTableBBean() {
     }
@@ -41,5 +43,13 @@ public class OriginSetUpTableBBean {
 
     public RichPopup getOrgAssTerminalEdit_popup() {
         return orgAssTerminalEdit_popup;
+    }
+
+    public void setOriginsSetUpTblBind(RichTable originsSetUpTblBind) {
+        this.originsSetUpTblBind = originsSetUpTblBind;
+    }
+
+    public RichTable getOriginsSetUpTblBind() {
+        return originsSetUpTblBind;
     }
 }

@@ -79,14 +79,22 @@
     PrecisionRule="true"
     EntityAttrName="DestinationId"
     EntityUsage="XpeDccCfgDstAssTerminalsEO"
-    AliasName="DESTINATION_ID"/>
+    AliasName="DESTINATION_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgDstAssTerminalsEOVO.DestinationId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Inactive"
     PrecisionRule="true"
     EntityAttrName="Inactive"
     EntityUsage="XpeDccCfgDstAssTerminalsEO"
     AliasName="INACTIVE"
-    LOVName="LOV_Inactive">
+    LOVName="LOV_Inactive"
+    DefaultValue="N">
     <Properties>
       <SchemaBasedProperties>
         <LABEL

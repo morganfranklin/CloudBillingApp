@@ -4,41 +4,39 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="XpeDccCfgOriginsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgOriginsEOVOIterator"/>
-    <iterator Binds="XpeDccCfgOgnAssTerminalsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgOgnAssTerminalsEOVOIterator"/>
     <iterator Binds="XpeDccCfgNewOgnAssTerminalsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccCfgNewOgnAssTerminalsEOVOIterator"/>
     <taskFlow id="terminalSearch1" taskFlowId="/WEB-INF/terminalSearch.xml#terminalSearch" activation="deferred"
               xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <iterator Binds="XpeDccCfgNewOriginsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewOriginsEOVOIterator"/>
   </executables>
   <bindings>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
-    <attributeValues IterBinding="XpeDccCfgOriginsEOVOIterator" id="OriginId">
+    <attributeValues IterBinding="XpeDccCfgNewOriginsEOVOIterator" id="OriginId">
       <AttrNames>
         <Item Value="OriginId"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="XpeDccCfgOriginsEOVOIterator" id="OriginDesc">
+    <attributeValues IterBinding="XpeDccCfgNewOriginsEOVOIterator" id="OriginDesc">
       <AttrNames>
         <Item Value="OriginDesc"/>
       </AttrNames>
     </attributeValues>
-    <listOfValues IterBinding="XpeDccCfgOriginsEOVOIterator" StaticList="false" Uses="LOV_County" id="County"/>
-    <list IterBinding="XpeDccCfgOriginsEOVOIterator" StaticList="false" Uses="LOV_State" id="State"
+    <listOfValues IterBinding="XpeDccCfgNewOriginsEOVOIterator" StaticList="false" Uses="LOV_County" id="County"/>
+    <list IterBinding="XpeDccCfgNewOriginsEOVOIterator" StaticList="false" Uses="LOV_State" id="State"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
-    <list IterBinding="XpeDccCfgOriginsEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive"
+    <list IterBinding="XpeDccCfgNewOriginsEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
-    <attributeValues IterBinding="XpeDccCfgOriginsEOVOIterator" id="InactiveDate">
+    <attributeValues IterBinding="XpeDccCfgNewOriginsEOVOIterator" id="InactiveDate">
       <AttrNames>
         <Item Value="InactiveDate"/>
       </AttrNames>
     </attributeValues>
-    <tree IterBinding="XpeDccCfgOgnAssTerminalsEOVOIterator" id="XpeDccCfgOgnAssTerminalsEOVO">
+    <tree IterBinding="XpeDccCfgNewOgnAssTerminalsEOVOIterator" id="XpeDccCfgNewOgnAssTerminalsEOVO">
       <nodeDefinition DefName="model.views.entitybased.XpeDccCfgOgnAssTerminalsEOVO"
-                      Name="XpeDccCfgOgnAssTerminalsEOVO0">
+                      Name="XpeDccCfgNewOgnAssTerminalsEOVO0">
         <AttrNames>
           <Item Value="TerminalId"/>
           <Item Value="TerminalDesc"/>
@@ -48,11 +46,10 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <attributeValues IterBinding="XpeDccCfgNewOgnAssTerminalsEOVOIterator" id="OriginId1">
-      <AttrNames>
-        <Item Value="OriginId"/>
-      </AttrNames>
-    </attributeValues>
+    <methodAction id="addAssTerminalToOrigin" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="addAssTerminalToOrigin" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="data.AppModuleDataControl.dataProvider"
+                  ReturnName="data.AppModuleDataControl.methodResults.addAssTerminalToOrigin_AppModuleDataControl_dataProvider_addAssTerminalToOrigin_result"/>
     <attributeValues IterBinding="XpeDccCfgNewOgnAssTerminalsEOVOIterator" id="TerminalId">
       <AttrNames>
         <Item Value="TerminalId"/>
@@ -61,6 +58,11 @@
     <attributeValues IterBinding="XpeDccCfgNewOgnAssTerminalsEOVOIterator" id="TerminalDesc">
       <AttrNames>
         <Item Value="TerminalDesc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewOgnAssTerminalsEOVOIterator" id="OriginId1">
+      <AttrNames>
+        <Item Value="OriginId"/>
       </AttrNames>
     </attributeValues>
     <list IterBinding="XpeDccCfgNewOgnAssTerminalsEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive1"

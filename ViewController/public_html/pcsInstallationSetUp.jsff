@@ -2,20 +2,19 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
   <af:panelGroupLayout layout="vertical" id="pgl1">
-    <af:panelHeader text="PCS Installation Set Up" id="ph1">
-      <af:query id="qryId1" headerText="Search" disclosed="true" value="#{bindings.PCSCriteriaQuery.queryDescriptor}"
+    <af:panelHeader text="PCS Installation Set Up" id="ph1" size="3">
+      <af:query id="qryId1" headerText="Search PCS Installations" disclosed="true" value="#{bindings.PCSCriteriaQuery.queryDescriptor}"
                 model="#{bindings.PCSCriteriaQuery.queryModel}"
                 queryListener="#{bindings.PCSCriteriaQuery.processQuery}"
-                queryOperationListener="#{bindings.PCSCriteriaQuery.processQueryOperation}"
+                queryOperationListener="#{pageFlowScope.PcsInstallationSetUpTableMBean.queryOperationListener}"
                 resultComponentId="::resId1"/>
     </af:panelHeader>
-    <af:panelHeader text="PCS Sites" id="ph2">
+    <af:panelHeader text="PCS Sites" id="ph2" size="5">
       <f:facet name="context"/>
       <f:facet name="toolbar">
         <af:toolbar id="t2">
-          <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add Item"
-                     disabled="#{!bindings.CreateInsert.enabled}" id="b1" action="setCurrentRow">
-            <af:setActionListener from="#{bindings.SiteId.inputValue}" to="#{pageFlowScope.SiteId}"/>
+          <af:button actionListener="#{pageFlowScope.PcsInstallationSetUpTableMBean.onPcsInstallationCreation}" text="Add Item"
+                     id="b1" action="setCurrentRow">
             <af:setActionListener from="ADD" to="#{pageFlowScope.NavFlow}"/>
           </af:button>
         </af:toolbar>
@@ -28,7 +27,8 @@
                 emptyText="#{bindings.XpeDccCfgPcsEOVO.viewable ? 'No data to display.' : 'Access Denied.'}"
                 rowBandingInterval="0" selectedRowKeys="#{bindings.XpeDccCfgPcsEOVO.collectionModel.selectedRow}"
                 selectionListener="#{bindings.XpeDccCfgPcsEOVO.collectionModel.makeCurrent}" rowSelection="single"
-                fetchSize="#{bindings.XpeDccCfgPcsEOVO.rangeSize}" id="resId1" contentDelivery="immediate" columnStretching="last">
+                fetchSize="#{bindings.XpeDccCfgPcsEOVO.rangeSize}" id="resId1" contentDelivery="immediate" columnStretching="last"
+                binding="#{backingBeanScope.PcsInstallationSetUpTableBBean.pcsInstallationSetUpTblBind}">
         <af:column headerText="#{bindings.XpeDccCfgPcsEOVO.hints.SiteId.label}" id="resId1c1">
           <af:link text="#{row.SiteId}" id="l1" action="setCurrentRow">
             <af:setActionListener from="#{row.SiteId}" to="#{pageFlowScope.SiteId}"/>

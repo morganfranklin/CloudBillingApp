@@ -42,5 +42,31 @@
     </tree>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <methodAction id="addAssTerminalToDestination" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="addAssTerminalToDestination" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="data.AppModuleDataControl.dataProvider"
+                  ReturnName="data.AppModuleDataControl.methodResults.addAssTerminalToDestination_AppModuleDataControl_dataProvider_addAssTerminalToDestination_result"/>
+    <attributeValues IterBinding="XpeDccCfgNewDstAssTerminalsCreationEOVOIterator" id="TerminalId">
+      <AttrNames>
+        <Item Value="TerminalId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewDstAssTerminalsCreationEOVOIterator" id="TerminalDesc">
+      <AttrNames>
+        <Item Value="TerminalDesc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewDstAssTerminalsCreationEOVOIterator" id="DestinationId1">
+      <AttrNames>
+        <Item Value="DestinationId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgNewDstAssTerminalsCreationEOVOIterator" StaticList="false" Uses="LOV_Inactive"
+          id="Inactive1" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgNewDstAssTerminalsCreationEOVOIterator" id="InactiveDate">
+      <AttrNames>
+        <Item Value="InactiveDate"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

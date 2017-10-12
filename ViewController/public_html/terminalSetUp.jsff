@@ -74,40 +74,6 @@
       <af:popup autoCancel="disabled" id="p1" contentDelivery="lazyUncached"
                 binding="#{backingBeanScope.XpeCfgTableSetupBBean.terminalAddItem_popup}">
         <af:dialog id="d1" type="none" closeIconVisible="false" title="Terminal Details">
-          <af:panelFormLayout id="pfl1">
-            <af:inputText value="#{bindings.TerminalId.inputValue}" label="#{bindings.TerminalId.hints.label}"
-                          required="#{bindings.TerminalId.hints.mandatory}"
-                          columns="#{bindings.TerminalId.hints.displayWidth}"
-                          maximumLength="#{bindings.TerminalId.hints.precision}"
-                          shortDesc="#{bindings.TerminalId.hints.tooltip}" id="it1" disabled="true">
-              <f:validator binding="#{bindings.TerminalId.validator}"/>
-            </af:inputText>
-            <af:inputText value="#{bindings.TerminalDesc.inputValue}" label="#{bindings.TerminalDesc.hints.label}"
-                          required="#{bindings.TerminalDesc.hints.mandatory}"
-                          columns="#{bindings.TerminalDesc.hints.displayWidth}"
-                          maximumLength="#{bindings.TerminalDesc.hints.precision}"
-                          shortDesc="#{bindings.TerminalDesc.hints.tooltip}" id="it2">
-              <f:validator binding="#{bindings.TerminalDesc.validator}"/>
-            </af:inputText>
-            <af:selectOneChoice value="#{bindings.TerminalType.inputValue}" label="#{bindings.TerminalType.label}"
-                                required="#{bindings.TerminalType.hints.mandatory}"
-                                shortDesc="#{bindings.TerminalType.hints.tooltip}" id="soc3">
-              <f:selectItems value="#{bindings.TerminalType.items}" id="si3"/>
-              <f:validator binding="#{bindings.TerminalType.validator}"/>
-            </af:selectOneChoice>
-            <af:inputText value="#{bindings.State.inputValue}" label="#{bindings.State.hints.label}"
-                          required="#{bindings.State.hints.mandatory}" columns="#{bindings.State.hints.displayWidth}"
-                          maximumLength="#{bindings.State.hints.precision}" shortDesc="#{bindings.State.hints.tooltip}"
-                          id="it3">
-              <f:validator binding="#{bindings.State.validator}"/>
-            </af:inputText>
-            <af:inputText value="#{bindings.County.inputValue}" label="#{bindings.County.hints.label}"
-                          required="#{bindings.County.hints.mandatory}" columns="#{bindings.County.hints.displayWidth}"
-                          maximumLength="#{bindings.County.hints.precision}"
-                          shortDesc="#{bindings.County.hints.tooltip}" id="it4">
-              <f:validator binding="#{bindings.County.validator}"/>
-            </af:inputText>
-          </af:panelFormLayout>
           <f:facet name="buttonBar">
             <af:button text="Save" id="b3" action="#{bindings.Commit.execute}"
                        actionListener="#{pageFlowScope.XpeCfgTableSetupMBean.onTerminalCreationSaveOrCancel}"/>
@@ -116,6 +82,39 @@
               <af:resetActionListener/>
             </af:button>
           </f:facet>
+          <af:panelFormLayout id="pfl1">
+            <af:panelLabelAndMessage label="#{bindings.TerminalId.hints.label}" id="plam2">
+              <af:outputText value="#{bindings.TerminalId.inputValue}" shortDesc="#{bindings.TerminalId.hints.tooltip}"
+                             id="ot3"/>
+            </af:panelLabelAndMessage>
+            <af:selectOneChoice value="#{bindings.TerminalType.inputValue}" label="#{bindings.TerminalType.label}"
+                                required="#{bindings.TerminalType.hints.mandatory}"
+                                shortDesc="#{bindings.TerminalType.hints.tooltip}" id="soc3">
+              <f:selectItems value="#{bindings.TerminalType.items}" id="si3"/>
+              <f:validator binding="#{bindings.TerminalType.validator}"/>
+            </af:selectOneChoice>
+            <af:inputText value="#{bindings.TerminalDesc.inputValue}" label="#{bindings.TerminalDesc.hints.label}"
+                          required="#{bindings.TerminalDesc.hints.mandatory}"
+                          columns="#{bindings.TerminalDesc.hints.displayWidth}"
+                          maximumLength="#{bindings.TerminalDesc.hints.precision}"
+                          shortDesc="#{bindings.TerminalDesc.hints.tooltip}" id="it1">
+              <f:validator binding="#{bindings.TerminalDesc.validator}"/>
+            </af:inputText>
+            <af:inputListOfValues id="countyId" popupTitle="Search and Select: #{bindings.County.hints.label}"
+                                  value="#{bindings.County.inputValue}" label="#{bindings.County.hints.label}"
+                                  model="#{bindings.County.listOfValuesModel}"
+                                  required="#{bindings.County.hints.mandatory}"
+                                  columns="#{bindings.County.hints.displayWidth}"
+                                  shortDesc="#{bindings.County.hints.tooltip}" autoSubmit="true">
+              <f:validator binding="#{bindings.County.validator}"/>
+            </af:inputListOfValues>
+            <af:selectOneChoice value="#{bindings.State.inputValue}" label="#{bindings.State.label}"
+                                required="#{bindings.State.hints.mandatory}" shortDesc="#{bindings.State.hints.tooltip}"
+                                id="soc7" autoSubmit="true" partialTriggers="countyId">
+              <f:selectItems value="#{bindings.State.items}" id="si7"/>
+              <f:validator binding="#{bindings.State.validator}"/>
+            </af:selectOneChoice>
+          </af:panelFormLayout>
         </af:dialog>
       </af:popup>
       <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
@@ -153,12 +152,13 @@
                                   model="#{bindings.County1.listOfValuesModel}"
                                   required="#{bindings.County1.hints.mandatory}"
                                   columns="#{bindings.County1.hints.displayWidth}"
-                                  shortDesc="#{bindings.County1.hints.tooltip}">
+                                  shortDesc="#{bindings.County1.hints.tooltip}" autoSubmit="true">
               <f:validator binding="#{bindings.County1.validator}"/>
             </af:inputListOfValues>
             <af:selectOneChoice value="#{bindings.State1.inputValue}" label="#{bindings.State1.label}"
                                 required="#{bindings.State1.hints.mandatory}"
-                                shortDesc="#{bindings.State1.hints.tooltip}" id="soc2">
+                                shortDesc="#{bindings.State1.hints.tooltip}" id="soc2" autoSubmit="true"
+                                partialTriggers="county1Id">
               <f:selectItems value="#{bindings.State1.items}" id="si2"/>
               <f:validator binding="#{bindings.State1.validator}"/>
             </af:selectOneChoice>

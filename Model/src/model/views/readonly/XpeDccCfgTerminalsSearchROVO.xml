@@ -3,46 +3,48 @@
 <!---->
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="XpeDccCfgOriginsEOVO"
+  Name="XpeDccCfgTerminalsSearchROVO"
   Version="12.2.1.11.57"
   InheritPersonalization="merge"
+  OrderBy='"TERMINAL_ID"'
   BindingStyle="OracleName"
-  CustomQuery="false"
+  CustomQuery="true"
   PageIterMode="Full"
-  SelectListFlags="1"
-  FromListFlags="1"
-  WhereFlags="1"
-  SelectAllAttributes="false"
-  RowClass="model.views.entitybased.XpeDccCfgOriginsEOVORowImpl"
-  ComponentClass="model.views.entitybased.XpeDccCfgOriginsEOVOImpl">
+  RowClass="model.views.readonly.XpeDccCfgTerminalsSearchROVORowImpl"
+  ComponentClass="model.views.readonly.XpeDccCfgTerminalsSearchROVOImpl">
   <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
     <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <Properties>
     <SchemaBasedProperties>
       <LABEL
-        ResId="model.views.entitybased.XpeDccCfgOriginsEOVO_LABEL"/>
+        ResId="model.views.readonly.XpeDccCfgTerminalsSearchROVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
   <Variable
-    Name="bind_OriginId"
+    Name="bind_TerminalId"
     Kind="viewcriteria"
     Type="java.lang.String"/>
   <Variable
-    Name="bind_OriginDesc"
+    Name="bind_TerminalType"
     Kind="viewcriteria"
     Type="java.lang.String"/>
   <Variable
-    Name="bind_OriginCounty"
+    Name="bind_TerminalDesc"
     Kind="viewcriteria"
     Type="java.lang.String"/>
   <Variable
-    Name="bind_OriginState"
+    Name="bind_County"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bind_State"
     Kind="viewcriteria"
     Type="java.lang.String"/>
   <ViewAccessor
-    Name="LookupSharedAppModule_YONLOV"
+    Name="LookupSharedAppModule_XpeDccDicNewContractSetupROVO1"
     ViewObjectName="model.views.readonly.XpeDccDicNewContractSetupROVO"
     AMUsageName="LookupSharedAppModule"
     ViewInstanceName="XpeDccDicNewContractSetupROVO"
@@ -51,16 +53,16 @@
       <PIMap Variable="bind_Lookup_Type">
         <TransientExpression
           trustMode="untrusted"
-          Name="ExpressionScript"><![CDATA['YON']]></TransientExpression>
+          Name="ExpressionScript"><![CDATA['TMNLT']]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
   <ViewAccessor
-    Name="XpeDccCfgCountiesLOV"
+    Name="XpeDccCfgCountiesROVO1"
     ViewObjectName="model.views.readonly.XpeDccCfgCountiesROVO"
     RowLevelBinds="true"/>
   <ViewAccessor
-    Name="XpeDccCfgStatesLOV"
+    Name="XpeDccCfgStatesROVO1"
     ViewObjectName="model.views.readonly.XpeDccCfgStatesROVO"
     RowLevelBinds="true">
     <ParameterMap>
@@ -72,13 +74,13 @@
     </ParameterMap>
   </ViewAccessor>
   <ListBinding
-    Name="LOV_Inactive"
-    ListVOName="LookupSharedAppModule_YONLOV"
+    Name="LOV_TerminalType"
+    ListVOName="LookupSharedAppModule_XpeDccDicNewContractSetupROVO1"
     ListRangeSize="-1"
     NullValueFlag="none"
     MRUCount="0">
     <AttrArray Name="AttrNames">
-      <Item Value="Inactive"/>
+      <Item Value="TerminalType"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
@@ -91,11 +93,11 @@
   </ListBinding>
   <ListBinding
     Name="LOV_County"
-    ListVOName="XpeDccCfgCountiesLOV"
+    ListVOName="XpeDccCfgCountiesROVO1"
     ListRangeSize="-1"
-    ComboRowCountHint="10"
     NullValueFlag="none"
-    MRUCount="0">
+    MRUCount="0"
+    ComboRowCountHint="10">
     <AttrArray Name="AttrNames">
       <Item Value="County"/>
     </AttrArray>
@@ -104,15 +106,15 @@
       <Item Value="CountyId"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="CountyId"/>
       <Item Value="CountyName"/>
+      <Item Value="CountyId"/>
     </AttrArray>
     <DisplayCriteria
       Hint="showAndExecute"/>
   </ListBinding>
   <ListBinding
     Name="LOV_State"
-    ListVOName="XpeDccCfgStatesLOV"
+    ListVOName="XpeDccCfgStatesROVO1"
     ListRangeSize="-1"
     NullValueFlag="none"
     MRUCount="0">
@@ -128,129 +130,127 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
-  <EntityUsage
-    Name="XpeDccCfgOriginsEO"
-    Entity="model.entities.XpeDccCfgOriginsEO"/>
+  <SQLQuery><![CDATA[SELECT TERMINAL_ID,TERMINAL_DESC, TERMINAL_TYPE, STATE, COUNTY FROM XPE_DCC_CFG_TERMINALS     
+WHERE INACTIVE <> 'N']]></SQLQuery>
   <ViewAttribute
-    Name="CreatedBy"
+    Name="TerminalId"
+    IsUpdateable="false"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="CreatedBy"
-    EntityUsage="XpeDccCfgOriginsEO"
-    AliasName="CREATED_BY"/>
-  <ViewAttribute
-    Name="CreatedDate"
-    PrecisionRule="true"
-    EntityAttrName="CreatedDate"
-    EntityUsage="XpeDccCfgOriginsEO"
-    AliasName="CREATED_DATE"/>
-  <ViewAttribute
-    Name="Inactive"
-    PrecisionRule="true"
-    EntityAttrName="Inactive"
-    EntityUsage="XpeDccCfgOriginsEO"
-    AliasName="INACTIVE"
-    LOVName="LOV_Inactive">
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="TERMINAL_ID"
+    Expression="TERMINAL_ID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
     <Properties>
       <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccCfgTerminalsSearchROVO.TerminalId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="45"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TerminalDesc"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="45"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="TERMINAL_DESC"
+    Expression="TERMINAL_DESC"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="45"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccCfgTerminalsSearchROVO.TerminalDesc_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TerminalType"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="3"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="TERMINAL_TYPE"
+    Expression="TERMINAL_TYPE"
+    SQLType="VARCHAR"
+    LOVName="LOV_TerminalType">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccCfgTerminalsSearchROVO.TerminalType_LABEL"/>
         <CONTROLTYPE
           Value="choice"/>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgOriginsEOVO.Inactive_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="InactiveDate"
-    PrecisionRule="true"
-    EntityAttrName="InactiveDate"
-    EntityUsage="XpeDccCfgOriginsEO"
-    AliasName="INACTIVE_DATE">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgOriginsEOVO.InactiveDate_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="LastUpdatedBy"
-    PrecisionRule="true"
-    EntityAttrName="LastUpdatedBy"
-    EntityUsage="XpeDccCfgOriginsEO"
-    AliasName="LAST_UPDATED_BY"/>
-  <ViewAttribute
-    Name="LastUpdatedDate"
-    PrecisionRule="true"
-    EntityAttrName="LastUpdatedDate"
-    EntityUsage="XpeDccCfgOriginsEO"
-    AliasName="LAST_UPDATED_DATE"/>
-  <ViewAttribute
-    Name="OriginDesc"
-    PrecisionRule="true"
-    EntityAttrName="OriginDesc"
-    EntityUsage="XpeDccCfgOriginsEO"
-    AliasName="ORIGIN_DESC">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgOriginsEOVO.OriginDesc_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="OriginId"
-    IsUpdateable="while_insert"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="OriginId"
-    EntityUsage="XpeDccCfgOriginsEO"
-    AliasName="ORIGIN_ID">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgOriginsEOVO.OriginId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="State"
+    IsUpdateable="false"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="State"
-    EntityUsage="XpeDccCfgOriginsEO"
+    Precision="5"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
     AliasName="STATE"
+    Expression="STATE"
+    SQLType="VARCHAR"
     LOVName="LOV_State">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
     <Properties>
       <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccCfgTerminalsSearchROVO.State_LABEL"/>
         <CONTROLTYPE
           Value="choice"/>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgOriginsEOVO.State_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
-    <Dependencies>
-      <Item
-        Value="County"/>
-    </Dependencies>
   </ViewAttribute>
   <ViewAttribute
     Name="County"
+    IsUpdateable="false"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="County"
-    EntityUsage="XpeDccCfgOriginsEO"
+    Precision="5"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
     AliasName="COUNTY"
+    Expression="COUNTY"
+    SQLType="VARCHAR"
     LOVName="LOV_County">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
     <Properties>
       <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccCfgTerminalsSearchROVO.County_LABEL"/>
         <CONTROLTYPE
           Value="input_text_lov"/>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgOriginsEOVO.County_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
   <ViewCriteria
-    Name="OriginsCriteria"
-    ViewObjectName="model.views.entitybased.XpeDccCfgOriginsEOVO"
+    Name="TerminalsCriteria"
+    ViewObjectName="model.views.readonly.XpeDccCfgTerminalsSearchROVO"
     Conjunction="AND">
     <Properties Name="_Props">
       <CustomProperties>
@@ -272,47 +272,53 @@
       </CustomProperties>
     </Properties>
     <ViewCriteriaRow
-      Name="XpeDccCfgOriginsEOVOCriteria_row_0"
+      Name="XpeDccCfgTerminalsSearchROVOCriteria_row_0"
       UpperColumns="1">
       <ViewCriteriaItem
-        Name="OriginDesc"
-        ViewAttribute="OriginDesc"
+        Name="TerminalId"
+        ViewAttribute="TerminalId"
         Operator="="
         Conjunction="AND"
-        Value=":bind_OriginDesc"
+        Value=":bind_TerminalId"
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
-        Name="OriginId"
-        ViewAttribute="OriginId"
+        Name="TerminalDesc"
+        ViewAttribute="TerminalDesc"
         Operator="="
         Conjunction="AND"
-        Value=":bind_OriginId"
+        Value=":bind_TerminalDesc"
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
-        Name="State"
+        Name="TerminalType"
+        ViewAttribute="TerminalType"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_TerminalType"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="XpeDccCfgTerminalsSearchROVOCriteria_XpeDccCfgTerminalsSearchROVOCriteria_row_0_State"
         ViewAttribute="State"
         Operator="="
         Conjunction="AND"
-        Value=":bind_OriginState"
+        Value=":bind_State"
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
-        Name="XpeDccCfgOriginsEOVOCriteria_XpeDccCfgOriginsEOVOCriteria_row_0_County"
+        Name="XpeDccCfgTerminalsSearchROVOCriteria_XpeDccCfgTerminalsSearchROVOCriteria_row_0_County"
         ViewAttribute="County"
         Operator="="
         Conjunction="AND"
-        Value=":bind_OriginCounty"
+        Value=":bind_County"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
-  <ViewLinkAccessor
-    Name="XpeDccCfgOgnAssTerminalsEOVO"
-    ViewLink="model.views.entitybased.XpeDccCfgOriginsFKVL"
-    Type="oracle.jbo.RowIterator"
-    IsUpdateable="false"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="TerminalId"/>
+  </AttrArray>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

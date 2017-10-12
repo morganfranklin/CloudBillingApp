@@ -1,2 +1,51 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"></ui:composition>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout layout="vertical" id="pgl1">
+    <af:query id="qryId1" headerText="Search" disclosed="true"
+              value="#{bindings.TerminalsCriteriaQuery.queryDescriptor}"
+              model="#{bindings.TerminalsCriteriaQuery.queryModel}"
+              queryListener="#{bindings.TerminalsCriteriaQuery.processQuery}"
+              queryOperationListener="#{TerminalSearchBean.queryOperationListener}"
+              resultComponentId="::resId1"/>
+    <af:table value="#{bindings.XpeDccCfgTerminalsSearchROVO1.collectionModel}" var="row"
+              rows="#{bindings.XpeDccCfgTerminalsSearchROVO1.rangeSize}"
+              emptyText="#{bindings.XpeDccCfgTerminalsSearchROVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+              rowBandingInterval="0"
+              selectedRowKeys="#{bindings.XpeDccCfgTerminalsSearchROVO1.collectionModel.selectedRow}"
+              selectionListener="#{bindings.XpeDccCfgTerminalsSearchROVO1.collectionModel.makeCurrent}"
+              rowSelection="single" fetchSize="#{bindings.XpeDccCfgTerminalsSearchROVO1.rangeSize}" id="resId1"
+              contentDelivery="immediate" columnStretching="last" binding="#{TerminalSearchBean.terminalSearchTblBind}">
+      <af:column headerText="#{bindings.XpeDccCfgTerminalsSearchROVO1.hints.TerminalId.label}" id="resId1c1">
+        <af:outputText value="#{row.TerminalId}"
+                       shortDesc="#{bindings.XpeDccCfgTerminalsSearchROVO1.hints.TerminalId.tooltip}" id="ot1"/>
+      </af:column>
+      <af:column headerText="#{bindings.XpeDccCfgTerminalsSearchROVO1.hints.TerminalDesc.label}" id="resId1c2">
+        <af:outputText value="#{row.TerminalDesc}"
+                       shortDesc="#{bindings.XpeDccCfgTerminalsSearchROVO1.hints.TerminalDesc.tooltip}" id="ot2"/>
+      </af:column>
+      <af:column headerText="#{bindings.XpeDccCfgTerminalsSearchROVO1.hints.TerminalType.label}" id="resId1c3">
+        <af:selectOneChoice value="#{row.bindings.TerminalType.inputValue}" label="#{row.bindings.TerminalType.label}"
+                            required="#{bindings.XpeDccCfgTerminalsSearchROVO1.hints.TerminalType.mandatory}"
+                            shortDesc="#{bindings.XpeDccCfgTerminalsSearchROVO1.hints.TerminalType.tooltip}"
+                            readOnly="true" id="soc1">
+          <f:selectItems value="#{row.bindings.TerminalType.items}" id="si1"/>
+          <f:validator binding="#{row.bindings.TerminalType.validator}"/>
+        </af:selectOneChoice>
+      </af:column>
+      <af:column headerText="#{bindings.XpeDccCfgTerminalsSearchROVO1.hints.County.label}" id="resId1c4">
+        <af:outputText value="#{row.County}" shortDesc="#{bindings.XpeDccCfgTerminalsSearchROVO1.hints.County.tooltip}"
+                       id="ot3"/>
+      </af:column>
+      <af:column headerText="#{bindings.XpeDccCfgTerminalsSearchROVO1.hints.State.label}" id="resId1c5">
+        <af:selectOneChoice value="#{row.bindings.State.inputValue}" label="#{row.bindings.State.label}"
+                            required="#{bindings.XpeDccCfgTerminalsSearchROVO1.hints.State.mandatory}"
+                            shortDesc="#{bindings.XpeDccCfgTerminalsSearchROVO1.hints.State.tooltip}" readOnly="true"
+                            id="soc2">
+          <f:selectItems value="#{row.bindings.State.items}" id="si2"/>
+          <f:validator binding="#{row.bindings.State.validator}"/>
+        </af:selectOneChoice>
+      </af:column>
+    </af:table>
+  </af:panelGroupLayout>
+</ui:composition>
