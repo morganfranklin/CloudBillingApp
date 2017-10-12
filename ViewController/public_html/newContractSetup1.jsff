@@ -307,67 +307,67 @@
                                                           fetchSize="#{bindings.XpeDccContractSearchROVO.rangeSize}"
                                                           id="resId2" contentDelivery="immediate">
                                                     <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.XpeContractId.label}"
-                                                               id="resId2c1">
+                                                               id="resId2c1" width="98">
                                                         <af:outputText value="#{row.XpeContractId}"
                                                                        shortDesc="#{bindings.XpeDccContractSearchROVO.hints.XpeContractId.tooltip}"
                                                                        id="ot1"/>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.XpeContractVersion.label}"
-                                                               id="resId2c2" headerNoWrap="true" width="120">
+                                                               id="resId2c2" headerNoWrap="true" width="122">
                                                         <af:outputText value="#{row.XpeContractVersion}"
                                                                        shortDesc="#{bindings.XpeDccContractSearchROVO.hints.XpeContractVersion.tooltip}"
                                                                        id="ot8"/>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.XpeContractDesc.label}"
-                                                               id="resId2c3">
+                                                               id="resId2c3" width="100">
                                                         <af:outputText value="#{row.XpeContractDesc}"
                                                                        shortDesc="#{bindings.XpeDccContractSearchROVO.hints.XpeContractDesc.tooltip}"
                                                                        id="ot9"/>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.Setid.label}"
-                                                               id="resId2c4">
+                                                               id="resId2c4" width="100">
                                                         <af:outputText value="#{row.Setid}"
                                                                        shortDesc="#{bindings.XpeDccContractSearchROVO.hints.Setid.tooltip}"
                                                                        id="ot10"/>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.CustId.label}"
-                                                               id="resId2c5">
+                                                               id="resId2c5" width="100">
                                                         <af:outputText value="#{row.CustId}"
                                                                        shortDesc="#{bindings.XpeDccContractSearchROVO.hints.CustId.tooltip}"
                                                                        id="ot11"/>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.Name1.label}"
-                                                               id="resId2c6">
+                                                               id="resId2c6" width="100">
                                                         <af:outputText value="#{row.Name1}"
                                                                        shortDesc="#{bindings.XpeDccContractSearchROVO.hints.Name1.tooltip}"
                                                                        id="ot12"/>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.Descr.label}"
-                                                               id="resId2c7">
+                                                               id="resId2c7" width="100">
                                                         <af:outputText value="#{row.Descr}"
                                                                        shortDesc="#{bindings.XpeDccContractSearchROVO.hints.Descr.tooltip}"
                                                                        id="ot13"/>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.Country.label}"
-                                                               id="resId2c8">
+                                                               id="resId2c8" width="100">
                                                         <af:outputText value="#{row.Country}"
                                                                        shortDesc="#{bindings.XpeDccContractSearchROVO.hints.Country.tooltip}"
                                                                        id="ot14"/>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.Address1.label}"
-                                                               id="resId2c9">
+                                                               id="resId2c9" width="100">
                                                         <af:outputText value="#{row.Address1}"
                                                                        shortDesc="#{bindings.XpeDccContractSearchROVO.hints.Address1.tooltip}"
                                                                        id="ot15"/>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.Address2.label}"
-                                                               id="resId2c10">
+                                                               id="resId2c10" width="100">
                                                         <af:outputText value="#{row.Address2}"
                                                                        shortDesc="#{bindings.XpeDccContractSearchROVO.hints.Address2.tooltip}"
                                                                        id="ot16"/>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.City.label}"
-                                                               id="resId2c11">
+                                                               id="resId2c11" width="100">
                                                         <af:outputText value="#{row.City}"
                                                                        shortDesc="#{bindings.XpeDccContractSearchROVO.hints.City.tooltip}"
                                                                        id="ot17"/>

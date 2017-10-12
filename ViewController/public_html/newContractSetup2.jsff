@@ -309,77 +309,81 @@
                                 </af:gridCell>
                             </af:gridRow>
                             <af:gridRow id="gr5" marginTop="5px">
-                                <af:gridCell id="gc5" marginStart="5px" marginEnd="5px" width="100%" halign="stretch">
-                                    <af:panelFormLayout id="pfl4" partialTriggers="b_cre b_del soc13"
-                                                        visible="#{bindings.XpeDccTermsContractEOVOIterator.estimatedRowCount>0}">
-                                        <af:inputText value="#{bindings.XpeDccClause.inputValue}"
-                                                      label="#{bindings.XpeDccClause.hints.label}"
-                                                      required="#{bindings.XpeDccClause.hints.mandatory}"
-                                                      columns="#{bindings.XpeDccClause.hints.displayWidth}"
-                                                      maximumLength="#{bindings.XpeDccClause.hints.precision}"
-                                                      shortDesc="#{bindings.XpeDccClause.hints.tooltip}" id="it5">
-                                            <f:validator binding="#{bindings.XpeDccClause.validator}"/>
-                                        </af:inputText>
-                                        <af:inputText value="#{bindings.XpeDccSeq.inputValue}"
-                                                      label="#{bindings.XpeDccSeq.hints.label}"
-                                                      required="#{bindings.XpeDccSeq.hints.mandatory}"
-                                                      columns="#{bindings.XpeDccSeq.hints.displayWidth}"
-                                                      maximumLength="#{bindings.XpeDccSeq.hints.precision}"
-                                                      shortDesc="#{bindings.XpeDccSeq.hints.tooltip}" id="it6">
-                                            <f:validator binding="#{bindings.XpeDccSeq.validator}"/>
-                                            <af:convertNumber groupingUsed="false"
-                                                              pattern="#{bindings.XpeDccSeq.format}"/>
-                                        </af:inputText>
-                                        <af:richTextEditor value="#{bindings.XpeDccTermTemplate.inputValue}"
-                                                           columns="100" id="rte1" simple="true"
-                                                           label="#{bindings.XpeDccTermTemplate.hints.label}"
-                                                           autoSubmit="true" rows="8" converter="oracle.genericDomain"
-                                                           partialTriggers="soc14">
+                             <af:gridCell id="gc31" halign="stretch" width="100%">
+                                    <af:panelGroupLayout id="pgl8" layout="horizontal"
+                                                         partialTriggers="soc13 b_cre b_del" valign="top">
+                                        <af:panelGroupLayout id="pgl7" layout="vertical" partialTriggers="it5">
+                                            <af:iterator id="i1"
+                                                         value="#{bindings.XpeDccTermsContractEOVO.collectionModel}"
+                                                         varStatus="vs" var="row">
+                                                <af:link actionListener="#{bindings.setCurrentRowWithKey.execute}"
+                                                         text="Term #{vs.index+1}"
+                                                         disabled="#{!bindings.setCurrentRowWithKey.enabled}"
+                                                         id="l_term"/>
+                                            </af:iterator>
+                                        </af:panelGroupLayout>
+                                        <af:spacer width="40" id="s2"/>
+                                        <af:panelFormLayout id="pfl4" partialTriggers="i1:l_term"
+                                                            visible="#{bindings.XpeDccTermsContractEOVOIterator.estimatedRowCount>0}">
+                                            <af:inputText value="#{bindings.XpeDccClause.inputValue}"
+                                                          label="#{bindings.XpeDccClause.hints.label}"
+                                                          required="#{bindings.XpeDccClause.hints.mandatory}"
+                                                          columns="#{bindings.XpeDccClause.hints.displayWidth}"
+                                                          maximumLength="#{bindings.XpeDccClause.hints.precision}"
+                                                          shortDesc="#{bindings.XpeDccClause.hints.tooltip}" id="it5"
+                                                          autoSubmit="true">
+                                                <f:validator binding="#{bindings.XpeDccClause.validator}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.XpeDccSeq.inputValue}"
+                                                          label="#{bindings.XpeDccSeq.hints.label}"
+                                                          required="#{bindings.XpeDccSeq.hints.mandatory}"
+                                                          columns="#{bindings.XpeDccSeq.hints.displayWidth}"
+                                                          maximumLength="#{bindings.XpeDccSeq.hints.precision}"
+                                                          shortDesc="#{bindings.XpeDccSeq.hints.tooltip}" id="it6"
+                                                          autoSubmit="true">
+                                                <f:validator binding="#{bindings.XpeDccSeq.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.XpeDccSeq.format}"/>
+                                            </af:inputText>
+                                            <af:richTextEditor value="#{bindings.XpeDccTermTemplate.inputValue}"
+                                                               columns="100" id="rte1" simple="true"
+                                                               label="#{bindings.XpeDccTermTemplate.hints.label}"
+                                                               rows="8" converter="oracle.genericDomain"
+                                                               autoSubmit="true"
+                                                               binding="#{backingBeanScope.XpeDccNewContractBBean.termTemplateRTE}">
+                                                <f:facet name="footer">
+                                                    <af:panelGroupLayout id="pgl5" layout="horizontal">
+                                                        <af:selectOneChoice value="#{bindings.RFF_TAG.inputValue}"
+                                                                            label="#{bindings.RFF_TAG.label}"
+                                                                            required="#{bindings.RFF_TAG.hints.mandatory}"
+                                                                            shortDesc="#{bindings.RFF_TAG.hints.tooltip}"
+                                                                            id="soc14" autoSubmit="true"
+                                                                            valueChangeListener="#{pageFlowScope.XpeDccNewContractMBean.onDescSelValueChange}">
+                                                            <f:selectItems value="#{bindings.RFF_TAG.items}" id="si14"/>
+                                                            <f:validator binding="#{bindings.RFF_TAG.validator}"/>
+                                                        </af:selectOneChoice>
+                                                        <af:link text="Preview HTML" id="l1" partialSubmit="true"
+                                                                 actionListener="#{pageFlowScope.XpeDccNewContractMBean.onReviewHTML}"
+                                                                 immediate="true"/>
+                                                    </af:panelGroupLayout>
+                                                </f:facet>
+                                            </af:richTextEditor>
                                             <f:facet name="footer">
-                                                <af:panelGroupLayout id="pgl5" layout="horizontal">
-                                                    <af:selectOneChoice value="#{bindings.RFF_TAG.inputValue}"
-                                                                        label="#{bindings.RFF_TAG.label}"
-                                                                        required="#{bindings.RFF_TAG.hints.mandatory}"
-                                                                        shortDesc="#{bindings.RFF_TAG.hints.tooltip}"
-                                                                        id="soc14" autoSubmit="true"
-                                                                        valueChangeListener="#{pageFlowScope.XpeDccNewContractMBean.onDescSelValueChange}">
-                                                        <f:selectItems value="#{bindings.RFF_TAG.items}" id="si14"/>
-                                                        <f:validator binding="#{bindings.RFF_TAG.validator}"/>
-                                                    </af:selectOneChoice>
-                                                    <af:link text="Preview HTML" id="l1" partialSubmit="true"
-                                                             actionListener="#{pageFlowScope.XpeDccNewContractMBean.onReviewHTML}"
-                                                             immediate="true"/>
+                                                <af:panelGroupLayout layout="horizontal" id="pgl4">
+                                                    <af:button text="Create Clause" id="b_cre"
+                                                               actionListener="#{bindings.createTermContractRow.execute}"/>
+                                                    <af:button actionListener="#{bindings.Delete.execute}"
+                                                               text="Delete Clause" id="b_del" immediate="true"/>
                                                 </af:panelGroupLayout>
                                             </f:facet>
-                                        </af:richTextEditor>
-                                        <f:facet name="footer">
-                                            <af:panelGroupLayout layout="horizontal" id="pgl4">
-                                                <af:button actionListener="#{bindings.First.execute}" text="First"
-                                                           disabled="#{!bindings.First.enabled}" partialSubmit="true"
-                                                           id="b6"/>
-                                                <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
-                                                           disabled="#{!bindings.Previous.enabled}" partialSubmit="true"
-                                                           id="b7"/>
-                                                <af:button actionListener="#{bindings.Next.execute}" text="Next"
-                                                           disabled="#{!bindings.Next.enabled}" partialSubmit="true"
-                                                           id="b8"/>
-                                                <af:button actionListener="#{bindings.Last.execute}" text="Last"
-                                                           disabled="#{!bindings.Last.enabled}" partialSubmit="true"
-                                                           id="b9"/>
-                                                <af:button text="Create Clause" id="b_cre"
-                                                           actionListener="#{bindings.createTermContractRow.execute}"/>
-                                                <af:button actionListener="#{bindings.Delete.execute}"
-                                                           text="Delete Clause" id="b_del" immediate="true"/>
-                                            </af:panelGroupLayout>
-                                        </f:facet>
-                                        <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
-                                                  binding="#{backingBeanScope.XpeDccNewContractBBean.html_popup}">
-                                            <af:dialog id="d1" type="ok" resize="on">
-                                                <f:facet name="buttonBar"/>
-                                                <af:outputText value="#{pageFlowScope.html}" id="ot4" escape="false"/>
-                                            </af:dialog>
-                                        </af:popup>
-                                    </af:panelFormLayout>
+                                            <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
+                                                      binding="#{backingBeanScope.XpeDccNewContractBBean.html_popup}">
+                                                <af:dialog id="d1" type="ok" resize="on" stretchChildren="first">
+                                                    <af:inlineFrame id="if2" source="/rtf"/>
+                                                </af:dialog>
+                                            </af:popup>
+                                        </af:panelFormLayout>
+                                    </af:panelGroupLayout>
                                 </af:gridCell>
                             </af:gridRow>
                             <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr14">
