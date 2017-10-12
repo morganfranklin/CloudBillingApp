@@ -234,41 +234,27 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
-  <ListBinding
-    Name="LOV_InvSupress"
-    ListVOName="LookupSharedAppModule_XpeDccDicNewContractSetupROVO1"
-    ListRangeSize="-1"
-    NullValueFlag="none"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="InvSupress"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="XpeLookupId"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="XpeLookupDesc"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
-  <SQLQuery><![CDATA[SELECT XpeDccCfgPcsshortnamesEO.ACCOUNT_CLASS,            
-       XpeDccCfgPcsshortnamesEO.CREATED_BY,            
-       XpeDccCfgPcsshortnamesEO.CREATED_DATE,            
-       XpeDccCfgPcsshortnamesEO.INACTIVE,            
-       XpeDccCfgPcsshortnamesEO.INACTIVE_DATE,            
-       XpeDccCfgPcsshortnamesEO.LAST_UPDATED_BY,            
-       XpeDccCfgPcsshortnamesEO.LAST_UPDATED_DATE,            
-       XpeDccCfgPcsshortnamesEO.PCSSHORT_NAME,            
-       XpeDccCfgPcsshortnamesEO.PCSSHORTNAME_ID,            
-       XpeDccCfgPcsshortnamesEO.COV_ID,            
-       XpeDccCfgPcsshortnamesEO.COV_SOLD_ID,            
-       XpeDccCfgPcsshortnamesEO.COV_BILL_ID,   
-       XpeDccCfgPcsshortnamesEO.COV_SOLD_LOC_NUM,            
+  <SQLQuery><![CDATA[SELECT XpeDccCfgPcsshortnamesEO.ACCOUNT_CLASS,                  
+       XpeDccCfgPcsshortnamesEO.CREATED_BY,                  
+       XpeDccCfgPcsshortnamesEO.CREATED_DATE,                  
+       XpeDccCfgPcsshortnamesEO.INACTIVE,                  
+       XpeDccCfgPcsshortnamesEO.INACTIVE_DATE,                  
+       XpeDccCfgPcsshortnamesEO.LAST_UPDATED_BY,                  
+       XpeDccCfgPcsshortnamesEO.LAST_UPDATED_DATE,                  
+       XpeDccCfgPcsshortnamesEO.PCSSHORT_NAME,                  
+       XpeDccCfgPcsshortnamesEO.PCSSHORTNAME_ID,                  
+       XpeDccCfgPcsshortnamesEO.COV_ID,                  
+       XpeDccCfgPcsshortnamesEO.COV_SOLD_ID,                  
+       XpeDccCfgPcsshortnamesEO.COV_BILL_ID,         
+       XpeDccCfgPcsshortnamesEO.COV_SOLD_LOC_NUM,                  
        XpeDccCfgPcsshortnamesEO.COV_BILL_LOC_NUM,    
-       A.SETID, A.CUST_ID, A.NAME1 AS CUSTOMER_NAME  
-FROM  XPE_DCC_CFG_PCSSHORTNAMES XpeDccCfgPcsshortnamesEO,PS_CUSTOMER A       
-where A.SETID='SHARE'                               
+       XpeDccCfgPcsshortnamesEO.BILL_CYCLE_ID,                  
+       XpeDccCfgPcsshortnamesEO.INV_SUPRESS,    
+       A.SETID,      
+       A.CUST_ID,       
+       A.NAME1 CUSTOMER_NAME        
+FROM  XPE_DCC_CFG_PCSSHORTNAMES XpeDccCfgPcsshortnamesEO,PS_CUSTOMER A             
+where A.SETID='SHARE'                                     
 AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
   <EntityUsage
     Name="XpeDccCfgPcsshortnamesEO"
@@ -449,6 +435,18 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
+    Name="BillCycleId"
+    PrecisionRule="true"
+    EntityAttrName="BillCycleId"
+    EntityUsage="XpeDccCfgPcsshortnamesEO"
+    AliasName="BILL_CYCLE_ID"/>
+  <ViewAttribute
+    Name="InvSupress"
+    PrecisionRule="true"
+    EntityAttrName="InvSupress"
+    EntityUsage="XpeDccCfgPcsshortnamesEO"
+    AliasName="INV_SUPRESS"/>
+  <ViewAttribute
     Name="Setid"
     IsUpdateable="false"
     IsPersistent="false"
@@ -486,6 +484,7 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
   </ViewAttribute>
   <ViewAttribute
     Name="CustomerName"
+    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Precision="40"
@@ -501,26 +500,6 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO.CustomerName_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="BillCycleId"
-    PrecisionRule="true"
-    EntityAttrName="BillCycleId"
-    EntityUsage="XpeDccCfgPcsshortnamesEO"
-    AliasName="BILL_CYCLE_ID"/>
-  <ViewAttribute
-    Name="InvSupress"
-    PrecisionRule="true"
-    EntityAttrName="InvSupress"
-    EntityUsage="XpeDccCfgPcsshortnamesEO"
-    AliasName="INV_SUPRESS"
-    LOVName="LOV_InvSupress">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

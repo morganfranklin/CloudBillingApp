@@ -37,11 +37,11 @@ public class XpeDccCfgPcsshortnamesEOVORowImpl extends ViewRowImpl {
         CovBillId,
         CovSoldLocNum,
         CovBillLocNum,
+        BillCycleId,
+        InvSupress,
         Setid,
         CustId,
         CustomerName,
-        BillCycleId,
-        InvSupress,
         COV_Sold_Address1,
         COV_Sold_Address2,
         COV_Sold_City,
@@ -95,11 +95,11 @@ public class XpeDccCfgPcsshortnamesEOVORowImpl extends ViewRowImpl {
     public static final int COVBILLID = AttributesEnum.CovBillId.index();
     public static final int COVSOLDLOCNUM = AttributesEnum.CovSoldLocNum.index();
     public static final int COVBILLLOCNUM = AttributesEnum.CovBillLocNum.index();
+    public static final int BILLCYCLEID = AttributesEnum.BillCycleId.index();
+    public static final int INVSUPRESS = AttributesEnum.InvSupress.index();
     public static final int SETID = AttributesEnum.Setid.index();
     public static final int CUSTID = AttributesEnum.CustId.index();
     public static final int CUSTOMERNAME = AttributesEnum.CustomerName.index();
-    public static final int BILLCYCLEID = AttributesEnum.BillCycleId.index();
-    public static final int INVSUPRESS = AttributesEnum.InvSupress.index();
     public static final int COV_SOLD_ADDRESS1 = AttributesEnum.COV_Sold_Address1.index();
     public static final int COV_SOLD_ADDRESS2 = AttributesEnum.COV_Sold_Address2.index();
     public static final int COV_SOLD_CITY = AttributesEnum.COV_Sold_City.index();
@@ -357,6 +357,7 @@ public class XpeDccCfgPcsshortnamesEOVORowImpl extends ViewRowImpl {
         setAttributeInternal(COVBILLLOCNUM, value);
     }
 
+
     /**
      * Gets the attribute value for the calculated attribute Setid.
      * @return the Setid
@@ -373,53 +374,13 @@ public class XpeDccCfgPcsshortnamesEOVORowImpl extends ViewRowImpl {
         return (String) getAttributeInternal(CUSTID);
     }
 
+
     /**
      * Gets the attribute value for the calculated attribute CustomerName.
      * @return the CustomerName
      */
     public String getCustomerName() {
         return (String) getAttributeInternal(CUSTOMERNAME);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for the calculated attribute CustomerName.
-     * @param value value to set the  CustomerName
-     */
-    public void setCustomerName(String value) {
-        setAttributeInternal(CUSTOMERNAME, value);
-    }
-
-
-    /**
-     * Gets the attribute value for BILL_CYCLE_ID using the alias name BillCycleId.
-     * @return the BILL_CYCLE_ID
-     */
-    public String getBillCycleId() {
-        return (String) getAttributeInternal(BILLCYCLEID);
-    }
-
-    /**
-     * Sets <code>value</code> as attribute value for BILL_CYCLE_ID using the alias name BillCycleId.
-     * @param value value to set the BILL_CYCLE_ID
-     */
-    public void setBillCycleId(String value) {
-        setAttributeInternal(BILLCYCLEID, value);
-    }
-
-    /**
-     * Gets the attribute value for INV_SUPRESS using the alias name InvSupress.
-     * @return the INV_SUPRESS
-     */
-    public String getInvSupress() {
-        return (String) getAttributeInternal(INVSUPRESS);
-    }
-
-    /**
-     * Sets <code>value</code> as attribute value for INV_SUPRESS using the alias name InvSupress.
-     * @param value value to set the INV_SUPRESS
-     */
-    public void setInvSupress(String value) {
-        setAttributeInternal(INVSUPRESS, value);
     }
 
     /**
@@ -582,6 +543,38 @@ public class XpeDccCfgPcsshortnamesEOVORowImpl extends ViewRowImpl {
         setAttributeInternal(COV_BILL_ZIP, value);
     }
 
+
+    /**
+     * Gets the attribute value for BILL_CYCLE_ID using the alias name BillCycleId1.
+     * @return the BILL_CYCLE_ID
+     */
+    public String getBillCycleId() {
+        return (String) getAttributeInternal(BILLCYCLEID);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for BILL_CYCLE_ID using the alias name BillCycleId1.
+     * @param value value to set the BILL_CYCLE_ID
+     */
+    public void setBillCycleId(String value) {
+        setAttributeInternal(BILLCYCLEID, value);
+    }
+
+    /**
+     * Gets the attribute value for INV_SUPRESS using the alias name InvSupress1.
+     * @return the INV_SUPRESS
+     */
+    public String getInvSupress() {
+        return (String) getAttributeInternal(INVSUPRESS);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for INV_SUPRESS using the alias name InvSupress1.
+     * @param value value to set the INV_SUPRESS
+     */
+    public void setInvSupress(String value) {
+        setAttributeInternal(INVSUPRESS, value);
+    }
 
     /**
      * Gets the view accessor <code>RowSet</code> XpeDccShortNameCustomerSearchROVO_LOV.
