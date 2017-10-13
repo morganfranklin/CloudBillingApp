@@ -35,12 +35,8 @@
                         shortDesc="#{bindings.BillCycleId.hints.tooltip}" id="it13">
             <f:validator binding="#{bindings.BillCycleId.validator}"/>
           </af:inputText>
-          <af:selectOneChoice value="#{bindings.InvSupress.inputValue}" label="#{bindings.InvSupress.label}"
-                              required="#{bindings.InvSupress.hints.mandatory}"
-                              shortDesc="#{bindings.InvSupress.hints.tooltip}" id="soc1">
-            <f:selectItems value="#{bindings.InvSupress.items}" id="si1"/>
-            <f:validator binding="#{bindings.InvSupress.validator}"/>
-          </af:selectOneChoice>
+          <af:selectBooleanCheckbox value="#{bindings.InvSupress.inputValue}" label="#{bindings.InvSupress.label}"
+                                    shortDesc="#{bindings.InvSupress.hints.tooltip}" id="sbc1"/>
         </af:panelFormLayout>
     </af:panelHeader>
     <af:spacer width="10" height="10" id="s3"/>
@@ -74,12 +70,13 @@
         <f:facet name="legend"/>
         <f:facet name="info"/>
         <af:panelFormLayout id="pfl3">
-          <af:inputListOfValues id="ilov1" popupTitle="Search and Select: #{bindings.CovId.hints.label}"
-                                value="#{bindings.CovId.inputValue}" label="#{bindings.CovId.hints.label}"
-                                model="#{bindings.CovId.listOfValuesModel}" required="#{bindings.CovId.hints.mandatory}"
-                                columns="#{bindings.CovId.hints.displayWidth}"
-                                shortDesc="#{bindings.CovId.hints.tooltip}" autoSubmit="true">
-            <f:validator binding="#{bindings.CovId.validator}"/>
+          <af:inputListOfValues id="covSoldIdId" popupTitle="Search and Select: #{bindings.CovSoldId.hints.label}"
+                                value="#{bindings.CovSoldId.inputValue}" label="#{bindings.CovSoldId.hints.label}"
+                                model="#{bindings.CovSoldId.listOfValuesModel}"
+                                required="#{bindings.CovSoldId.hints.mandatory}"
+                                columns="#{bindings.CovSoldId.hints.displayWidth}"
+                                shortDesc="#{bindings.CovSoldId.hints.tooltip}" autoSubmit="true">
+            <f:validator binding="#{bindings.CovSoldId.validator}"/>
           </af:inputListOfValues>
           <af:inputListOfValues id="covSoldLocNumId"
                                 popupTitle="Search and Select: #{bindings.CovSoldLocNum.hints.label}"
@@ -88,8 +85,7 @@
                                 model="#{bindings.CovSoldLocNum.listOfValuesModel}"
                                 required="#{bindings.CovSoldLocNum.hints.mandatory}"
                                 columns="#{bindings.CovSoldLocNum.hints.displayWidth}"
-                                shortDesc="#{bindings.CovSoldLocNum.hints.tooltip}" autoSubmit="true"
-                                partialTriggers="covIdId ilov1">
+                                shortDesc="#{bindings.CovSoldLocNum.hints.tooltip}" autoSubmit="true">
             <f:validator binding="#{bindings.CovSoldLocNum.validator}"/>
           </af:inputListOfValues>
           <af:inputText value="#{bindings.COV_Sold_Address1.inputValue}"
@@ -98,7 +94,7 @@
                         columns="#{bindings.COV_Sold_Address1.hints.displayWidth}"
                         maximumLength="#{bindings.COV_Sold_Address1.hints.precision}"
                         shortDesc="#{bindings.COV_Sold_Address1.hints.tooltip}" partialTriggers="covSoldLocNumId"
-                        id="it3">
+                        id="it3" readOnly="true">
             <f:validator binding="#{bindings.COV_Sold_Address1.validator}"/>
           </af:inputText>
           <af:inputText value="#{bindings.COV_Sold_Address2.inputValue}"
@@ -107,32 +103,36 @@
                         columns="#{bindings.COV_Sold_Address2.hints.displayWidth}"
                         maximumLength="#{bindings.COV_Sold_Address2.hints.precision}"
                         shortDesc="#{bindings.COV_Sold_Address2.hints.tooltip}" partialTriggers="covSoldLocNumId"
-                        id="it4">
+                        id="it4" readOnly="true">
             <f:validator binding="#{bindings.COV_Sold_Address2.validator}"/>
           </af:inputText>
           <af:inputText value="#{bindings.COV_Sold_City.inputValue}" label="#{bindings.COV_Sold_City.hints.label}"
                         required="#{bindings.COV_Sold_City.hints.mandatory}"
                         columns="#{bindings.COV_Sold_City.hints.displayWidth}"
                         maximumLength="#{bindings.COV_Sold_City.hints.precision}"
-                        shortDesc="#{bindings.COV_Sold_City.hints.tooltip}" partialTriggers="covSoldLocNumId" id="it5">
+                        shortDesc="#{bindings.COV_Sold_City.hints.tooltip}" partialTriggers="covSoldLocNumId" id="it5"
+                        readOnly="true">
             <f:validator binding="#{bindings.COV_Sold_City.validator}"/>
           </af:inputText>
           <af:inputText value="#{bindings.COV_Sold_State.inputValue}" label="#{bindings.COV_Sold_State.hints.label}"
                         required="#{bindings.COV_Sold_State.hints.mandatory}"
                         columns="#{bindings.COV_Sold_State.hints.displayWidth}"
                         maximumLength="#{bindings.COV_Sold_State.hints.precision}"
-                        shortDesc="#{bindings.COV_Sold_State.hints.tooltip}" partialTriggers="covSoldLocNumId" id="it6">
+                        shortDesc="#{bindings.COV_Sold_State.hints.tooltip}" partialTriggers="covSoldLocNumId" id="it6"
+                        readOnly="true">
             <f:validator binding="#{bindings.COV_Sold_State.validator}"/>
           </af:inputText>
           <af:inputText value="#{bindings.COV_Sold_Zip.inputValue}" label="#{bindings.COV_Sold_Zip.hints.label}"
                         required="#{bindings.COV_Sold_Zip.hints.mandatory}"
                         columns="#{bindings.COV_Sold_Zip.hints.displayWidth}"
                         maximumLength="#{bindings.COV_Sold_Zip.hints.precision}"
-                        shortDesc="#{bindings.COV_Sold_Zip.hints.tooltip}" partialTriggers="covSoldLocNumId" id="it7">
+                        shortDesc="#{bindings.COV_Sold_Zip.hints.tooltip}" partialTriggers="covSoldLocNumId" id="it7"
+                        readOnly="true">
             <f:validator binding="#{bindings.COV_Sold_Zip.validator}"/>
           </af:inputText>
         </af:panelFormLayout>
       </af:panelHeader>
+      <af:spacer width="10" height="10" id="s5"/>
       <af:panelHeader text="Bill To : Address Seen on Invoice" id="ph4" size="5">
         <f:facet name="context"/>
         <f:facet name="toolbar"/>
@@ -140,12 +140,13 @@
         <f:facet name="legend"/>
         <f:facet name="info"/>
         <af:panelFormLayout id="pfl4">
-          <af:inputListOfValues id="ilov2" popupTitle="Search and Select: #{bindings.CovId.hints.label}"
-                                value="#{bindings.CovId.inputValue}" label="#{bindings.CovId.hints.label}"
-                                model="#{bindings.CovId.listOfValuesModel}" required="#{bindings.CovId.hints.mandatory}"
-                                columns="#{bindings.CovId.hints.displayWidth}"
-                                shortDesc="#{bindings.CovId.hints.tooltip}" autoSubmit="true">
-            <f:validator binding="#{bindings.CovId.validator}"/>
+          <af:inputListOfValues id="covBillIdId" popupTitle="Search and Select: #{bindings.CovBillId.hints.label}"
+                                value="#{bindings.CovBillId.inputValue}" label="#{bindings.CovBillId.hints.label}"
+                                model="#{bindings.CovBillId.listOfValuesModel}"
+                                required="#{bindings.CovBillId.hints.mandatory}"
+                                columns="#{bindings.CovBillId.hints.displayWidth}"
+                                shortDesc="#{bindings.CovBillId.hints.tooltip}" autoSubmit="true">
+            <f:validator binding="#{bindings.CovBillId.validator}"/>
           </af:inputListOfValues>
           <af:inputListOfValues id="covBillLocNumId"
                                 popupTitle="Search and Select: #{bindings.CovBillLocNum.hints.label}"
@@ -154,8 +155,7 @@
                                 model="#{bindings.CovBillLocNum.listOfValuesModel}"
                                 required="#{bindings.CovBillLocNum.hints.mandatory}"
                                 columns="#{bindings.CovBillLocNum.hints.displayWidth}"
-                                shortDesc="#{bindings.CovBillLocNum.hints.tooltip}" autoSubmit="true"
-                                partialTriggers="covIdId ilov2">
+                                shortDesc="#{bindings.CovBillLocNum.hints.tooltip}" autoSubmit="true">
             <f:validator binding="#{bindings.CovBillLocNum.validator}"/>
           </af:inputListOfValues>
           <af:inputText value="#{bindings.COV_Bill_Address1.inputValue}"
@@ -164,7 +164,7 @@
                         columns="#{bindings.COV_Bill_Address1.hints.displayWidth}"
                         maximumLength="#{bindings.COV_Bill_Address1.hints.precision}"
                         shortDesc="#{bindings.COV_Bill_Address1.hints.tooltip}" partialTriggers="covBillLocNumId"
-                        id="it8">
+                        id="it8" readOnly="true">
             <f:validator binding="#{bindings.COV_Bill_Address1.validator}"/>
           </af:inputText>
           <af:inputText value="#{bindings.COV_Bill_Address2.inputValue}"
@@ -173,14 +173,15 @@
                         columns="#{bindings.COV_Bill_Address2.hints.displayWidth}"
                         maximumLength="#{bindings.COV_Bill_Address2.hints.precision}"
                         shortDesc="#{bindings.COV_Bill_Address2.hints.tooltip}" partialTriggers="covBillLocNumId"
-                        id="it9">
+                        id="it9" readOnly="true">
             <f:validator binding="#{bindings.COV_Bill_Address2.validator}"/>
           </af:inputText>
           <af:inputText value="#{bindings.COV_Bill_City.inputValue}" label="#{bindings.COV_Bill_City.hints.label}"
                         required="#{bindings.COV_Bill_City.hints.mandatory}"
                         columns="#{bindings.COV_Bill_City.hints.displayWidth}"
                         maximumLength="#{bindings.COV_Bill_City.hints.precision}"
-                        shortDesc="#{bindings.COV_Bill_City.hints.tooltip}" partialTriggers="covBillLocNumId" id="it10">
+                        shortDesc="#{bindings.COV_Bill_City.hints.tooltip}" partialTriggers="covBillLocNumId" id="it10"
+                        readOnly="true">
             <f:validator binding="#{bindings.COV_Bill_City.validator}"/>
           </af:inputText>
           <af:inputText value="#{bindings.COV_Bill_State.inputValue}" label="#{bindings.COV_Bill_State.hints.label}"
@@ -188,14 +189,15 @@
                         columns="#{bindings.COV_Bill_State.hints.displayWidth}"
                         maximumLength="#{bindings.COV_Bill_State.hints.precision}"
                         shortDesc="#{bindings.COV_Bill_State.hints.tooltip}" partialTriggers="covBillLocNumId"
-                        id="it11">
+                        id="it11" readOnly="true">
             <f:validator binding="#{bindings.COV_Bill_State.validator}"/>
           </af:inputText>
           <af:inputText value="#{bindings.COV_Bill_Zip.inputValue}" label="#{bindings.COV_Bill_Zip.hints.label}"
                         required="#{bindings.COV_Bill_Zip.hints.mandatory}"
                         columns="#{bindings.COV_Bill_Zip.hints.displayWidth}"
                         maximumLength="#{bindings.COV_Bill_Zip.hints.precision}"
-                        shortDesc="#{bindings.COV_Bill_Zip.hints.tooltip}" partialTriggers="covBillLocNumId" id="it12">
+                        shortDesc="#{bindings.COV_Bill_Zip.hints.tooltip}" partialTriggers="covBillLocNumId" id="it12"
+                        readOnly="true">
             <f:validator binding="#{bindings.COV_Bill_Zip.validator}"/>
           </af:inputText>
         </af:panelFormLayout>

@@ -34,6 +34,10 @@
     Name="bind_BillCycleId"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="bind_CovId"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="XpeDccShortNameCustomerSearchROVO_LOV"
     ViewObjectName="model.views.readonly.XpeDccShortNameCustomerSearchROVO"
@@ -106,6 +110,111 @@
       Hint="showAndExecute"/>
   </ListBinding>
   <ListBinding
+    Name="LOV_CovSoldLocNum"
+    ListVOName="XpeDccShortNameSoldLocSearchROVO_LOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0"
+    ComboRowCountHint="10">
+    <AttrArray Name="AttrNames">
+      <Item Value="CovSoldLocNum"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="COV_Sold_Address1"/>
+      <Item Value="COV_Sold_Address2"/>
+      <Item Value="COV_Sold_City"/>
+      <Item Value="COV_Sold_State"/>
+      <Item Value="COV_Sold_Zip"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="AddressSeqNum"/>
+      <Item Value="Address1"/>
+      <Item Value="Address2"/>
+      <Item Value="City"/>
+      <Item Value="State"/>
+      <Item Value="Postal"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="AddressSeqNum"/>
+      <Item Value="City"/>
+      <Item Value="State"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CovBillLocNum"
+    ListVOName="XpeDccShortNameBillLocSearchROVO_LOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0"
+    ComboRowCountHint="10">
+    <AttrArray Name="AttrNames">
+      <Item Value="CovBillLocNum"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="COV_Bill_Address1"/>
+      <Item Value="COV_Bill_Address2"/>
+      <Item Value="COV_Bill_City"/>
+      <Item Value="COV_Bill_State"/>
+      <Item Value="COV_Bill_Zip"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="AddressSeqNum"/>
+      <Item Value="Address1"/>
+      <Item Value="Address2"/>
+      <Item Value="City"/>
+      <Item Value="State"/>
+      <Item Value="Postal"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="AddressSeqNum"/>
+      <Item Value="City"/>
+      <Item Value="State"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Inactive"
+    ListVOName="LookupSharedAppModule_XpeDccDicNewContractSetupROVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Inactive"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_InvSupress"
+    ListVOName="LookupSharedAppModule_XpeDccDicNewContractSetupROVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="InvSupress"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
     Name="LOV_CovSoldId"
     ListVOName="XpeDccShortNameCustomerSearchROVO_LOV"
     ListRangeSize="-1"
@@ -146,93 +255,6 @@
     </AttrArray>
     <DisplayCriteria
       Hint="showAndExecute"/>
-  </ListBinding>
-  <ListBinding
-    Name="LOV_CovSoldLocNum"
-    ListVOName="XpeDccShortNameSoldLocSearchROVO_LOV"
-    ListRangeSize="-1"
-    ComboRowCountHint="10"
-    NullValueFlag="none"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="CovSoldLocNum"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="DerivedAttrNames">
-      <Item Value="COV_Sold_Address1"/>
-      <Item Value="COV_Sold_Address2"/>
-      <Item Value="COV_Sold_City"/>
-      <Item Value="COV_Sold_State"/>
-      <Item Value="COV_Sold_Zip"/>
-    </AttrArray>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="AddressSeqNum"/>
-      <Item Value="Address1"/>
-      <Item Value="Address2"/>
-      <Item Value="City"/>
-      <Item Value="State"/>
-      <Item Value="Postal"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="AddressSeqNum"/>
-      <Item Value="State"/>
-      <Item Value="City"/>
-    </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
-  </ListBinding>
-  <ListBinding
-    Name="LOV_CovBillLocNum"
-    ListVOName="XpeDccShortNameBillLocSearchROVO_LOV"
-    ListRangeSize="-1"
-    ComboRowCountHint="10"
-    NullValueFlag="none"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="CovBillLocNum"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="DerivedAttrNames">
-      <Item Value="COV_Bill_Address1"/>
-      <Item Value="COV_Bill_Address2"/>
-      <Item Value="COV_Bill_City"/>
-      <Item Value="COV_Bill_State"/>
-      <Item Value="COV_Bill_Zip"/>
-    </AttrArray>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="AddressSeqNum"/>
-      <Item Value="Address1"/>
-      <Item Value="Address2"/>
-      <Item Value="City"/>
-      <Item Value="State"/>
-      <Item Value="Postal"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="AddressSeqNum"/>
-      <Item Value="State"/>
-      <Item Value="City"/>
-    </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
-  </ListBinding>
-  <ListBinding
-    Name="LOV_Inactive"
-    ListVOName="LookupSharedAppModule_XpeDccDicNewContractSetupROVO1"
-    ListRangeSize="-1"
-    NullValueFlag="start"
-    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="Inactive"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="XpeLookupId"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="XpeLookupDesc"/>
-    </AttrArray>
-    <DisplayCriteria/>
   </ListBinding>
   <SQLQuery><![CDATA[SELECT XpeDccCfgPcsshortnamesEO.ACCOUNT_CLASS,                  
        XpeDccCfgPcsshortnamesEO.CREATED_BY,                  
@@ -363,10 +385,12 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
     LOVName="LOV_CovId">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO.CovId_LABEL"/>
+        <AUTOSUBMIT
+          Value="true"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -381,6 +405,10 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="input_text_lov"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO.CovSoldId_LABEL"/>
+        <AUTOSUBMIT
+          Value="true"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -393,6 +421,10 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
     LOVName="LOV_CovBillId">
     <Properties>
       <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO.CovBillId_LABEL"/>
+        <AUTOSUBMIT
+          Value="true"/>
         <CONTROLTYPE
           Value="input_text_lov"/>
       </SchemaBasedProperties>
@@ -407,12 +439,12 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
     LOVName="LOV_CovSoldLocNum">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO.CovSoldLocNum_LABEL"/>
         <AUTOSUBMIT
           Value="true"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -425,12 +457,12 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
     LOVName="LOV_CovBillLocNum">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO.CovBillLocNum_LABEL"/>
         <AUTOSUBMIT
           Value="true"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -439,13 +471,30 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
     PrecisionRule="true"
     EntityAttrName="BillCycleId"
     EntityUsage="XpeDccCfgPcsshortnamesEO"
-    AliasName="BILL_CYCLE_ID"/>
+    AliasName="BILL_CYCLE_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO.BillCycleId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="InvSupress"
     PrecisionRule="true"
     EntityAttrName="InvSupress"
     EntityUsage="XpeDccCfgPcsshortnamesEO"
-    AliasName="INV_SUPRESS"/>
+    AliasName="INV_SUPRESS"
+    LOVName="LOV_InvSupress">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO.InvSupress_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Setid"
     IsUpdateable="false"
@@ -484,7 +533,6 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
   </ViewAttribute>
   <ViewAttribute
     Name="CustomerName"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Precision="40"
@@ -703,6 +751,22 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
         Operator="="
         Conjunction="AND"
         Value=":bind_PcsShortNameId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="CovId"
+        ViewAttribute="CovId"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_CovId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="BillCycleId"
+        ViewAttribute="BillCycleId"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_BillCycleId"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

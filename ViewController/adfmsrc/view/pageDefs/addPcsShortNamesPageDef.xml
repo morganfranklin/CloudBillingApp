@@ -29,8 +29,6 @@
         <Item Value="CustomerName"/>
       </AttrNames>
     </attributeValues>
-    <listOfValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" StaticList="false" Uses="LOV_CovSoldLocNum"
-                  id="CovSoldLocNum"/>
     <attributeValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" id="COV_Sold_Address1">
       <AttrNames>
         <Item Value="COV_Sold_Address1"/>
@@ -56,8 +54,6 @@
         <Item Value="COV_Sold_Zip"/>
       </AttrNames>
     </attributeValues>
-    <listOfValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" StaticList="false" Uses="LOV_CovBillLocNum"
-                  id="CovBillLocNum"/>
     <attributeValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" id="COV_Bill_Address1">
       <AttrNames>
         <Item Value="COV_Bill_Address1"/>
@@ -90,7 +86,19 @@
         <Item Value="BillCycleId"/>
       </AttrNames>
     </attributeValues>
-    <list IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" StaticList="false" Uses="LOV_InvSupress" id="InvSupress"
-          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <button IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" StaticList="false" Uses="LOV_InvSupress"
+            id="InvSupress" DTSupportsMRU="false">
+      <AttrNames>
+        <Item Value="InvSupress"/>
+      </AttrNames>
+    </button>
+    <listOfValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" StaticList="false" Uses="LOV_CovBillId"
+                  id="CovBillId"/>
+    <listOfValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" StaticList="false" Uses="LOV_CovSoldId"
+                  id="CovSoldId"/>
+    <listOfValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" StaticList="false" Uses="LOV_CovSoldLocNum"
+                  id="CovSoldLocNum"/>
+    <listOfValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" StaticList="false" Uses="LOV_CovBillLocNum"
+                  id="CovBillLocNum"/>
   </bindings>
 </pageDefinition>

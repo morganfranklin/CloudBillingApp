@@ -61,5 +61,21 @@ public class XpeDccCfgPcsshortnamesEOVOImpl extends ViewObjectImpl {
     public void setbind_BillCycleId(String value) {
         ensureVariableManager().setVariableValue("bind_BillCycleId", value);
     }
+
+    /**
+     * Returns the variable value for bind_CovId.
+     * @return variable value for bind_CovId
+     */
+    public String getbind_CovId() {
+        return (String) ensureVariableManager().getVariableValue("bind_CovId");
+    }
+
+    /**
+     * Sets <code>value</code> for variable bind_CovId.
+     * @param value value to bind as bind_CovId
+     */
+    public void setbind_CovId(String value) {
+        ensureVariableManager().setVariableValue("bind_CovId", value);
+    }
 }
 

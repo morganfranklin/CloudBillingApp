@@ -384,12 +384,21 @@ public class XpeDccCfgPcsshortnamesEOVORowImpl extends ViewRowImpl {
     }
 
     /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute CustomerName.
+     * @param value value to set the  CustomerName
+     */
+    public void setCustomerName(String value) {
+        setAttributeInternal(CUSTOMERNAME, value);
+    }
+
+    /**
      * Gets the attribute value for the calculated attribute COV_Sold_Address1.
      * @return the COV_Sold_Address1
      */
     public String getCOV_Sold_Address1() {
         return (String) getAttributeInternal(COV_SOLD_ADDRESS1);
     }
+
 
     /**
      * Sets <code>value</code> as the attribute value for the calculated attribute COV_Sold_Address1.
@@ -406,6 +415,7 @@ public class XpeDccCfgPcsshortnamesEOVORowImpl extends ViewRowImpl {
     public String getCOV_Sold_Address2() {
         return (String) getAttributeInternal(COV_SOLD_ADDRESS2);
     }
+
 
     /**
      * Sets <code>value</code> as the attribute value for the calculated attribute COV_Sold_Address2.
