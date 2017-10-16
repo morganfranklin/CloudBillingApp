@@ -1,5 +1,9 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import model.common.AppModule;
 
 import model.views.entitybased.XpeDccCfgDestinationsEOVOImpl;
@@ -18,6 +22,7 @@ import model.views.entitybased.XpeDccCfgPcsshortnamesEOVOImpl;
 import model.views.entitybased.XpeDccCfgProductserviceEOVOImpl;
 import model.views.entitybased.XpeDccCfgTerminalsEOVOImpl;
 import model.views.entitybased.XpeDccNewContractsEOVOImpl;
+import model.views.entitybased.XpeDccNewContractsEOVORowImpl;
 import model.views.entitybased.XpeDccTermsContractEOVOImpl;
 import model.views.entitybased.XpeDccTermsContractEOVORowImpl;
 import model.views.entitybased.XpeDmsCustomerEOVOImpl;
@@ -37,6 +42,7 @@ import model.views.readonly.XpeDccNewContractSetupROVORowImpl;
 import model.views.readonly.XpeDccTermsForMasterTermROVOImpl;
 import model.views.readonly.XpeDccTermsForMasterTermROVORowImpl;
 
+import oracle.jbo.Key;
 import oracle.jbo.Row;
 import oracle.jbo.RowIterator;
 import oracle.jbo.RowSetIterator;
@@ -1669,13 +1675,52 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         XpeDccContractSearchROVORowImpl contractSearchROVORow =(XpeDccContractSearchROVORowImpl)this.getXpeDccContractSearchROVO().getCurrentRow();
         if(null!=contractSearchROVORow){
             System.err.println("Contract Id: "+contractSearchROVORow.getXpeContractId());
+            System.err.println("Version: "+contractSearchROVORow.getXpeContractVersion());
             this.getXpeDccNewContractsEOVO().executeEmptyRowSet();
             this.getXpeDccNewContractsEOVO().setApplyViewCriteriaName("FetchExtContractCriteria");
             this.getXpeDccNewContractsEOVO().setbind_ContractId(contractSearchROVORow.getXpeContractId());
             this.getXpeDccNewContractsEOVO().executeQuery();
             System.err.println("ERC: "+this.getXpeDccNewContractsEOVO().getEstimatedRowCount());
-            //this.getXpeDccNewContractsEOVO().setCurrentRow(this.getXpeDccNewContractsEOVO().first());
+            XpeDccNewContractsEOVORowImpl xpeDccNewContractsEOVORow = (XpeDccNewContractsEOVORowImpl)this.getXpeDccNewContractsEOVO().first();
+            if(null!=xpeDccNewContractsEOVORow){
+                Key key = new Key(new Object[]{contractSearchROVORow.getXpeContractId(), contractSearchROVORow.getXpeContractVersion()});
+                Row[] rows = this.getXpeDccContractVersionView1().findByKey(key, 1);
+                if(null!=rows && rows.length>0){
+                    Integer version = getVersionNumber();
+                    Row row = rows[0];
+                    Row contractVersionRow = xpeDccNewContractsEOVORow.getXpeDccContractVersionView().createRow();
+                    contractVersionRow.setAttribute("XpeContractVersion", String.valueOf(version));
+                    contractVersionRow.setAttribute("XpeWasteType", row.getAttribute("XpeWasteType"));
+                    contractVersionRow.setAttribute("XpeContractSubType", row.getAttribute("XpeContractSubType"));
+                    contractVersionRow.setAttribute("XpeAgreementType", row.getAttribute("XpeAgreementType"));
+                    contractVersionRow.setAttribute("XpeAsOfDate", row.getAttribute("XpeAsOfDate"));
+                    contractVersionRow.setAttribute("XpeStartDate", row.getAttribute("XpeStartDate"));
+                    contractVersionRow.setAttribute("XpeEndDate", row.getAttribute("XpeEndDate"));
+                    contractVersionRow.setAttribute("SalesPerson", row.getAttribute("SalesPerson"));
+                    xpeDccNewContractsEOVORow.getXpeDccContractVersionView().insertRow(contractVersionRow);
+                }
+            }
         }
+    }
+    
+    private Integer getVersionNumber(){
+        List<Integer> versionList = new ArrayList<Integer>();
+        try {
+            RowSetIterator rowSetIterator = this.getXpeDccContractVersionView1().createRowSetIterator(null);
+            while (rowSetIterator.hasNext()) {
+                Row row = rowSetIterator.next();
+                String versionNumber = (String) row.getAttribute("XpeContractVersion");
+                versionNumber = versionNumber.trim().substring(1);
+                versionList.add(new Integer(versionNumber));
+            }
+            rowSetIterator.closeRowSetIterator();
+        } catch (NumberFormatException nfe) {
+            // TODO: Add catch code
+            nfe.printStackTrace();
+        }
+        Integer maxVersionNumber =  new Integer(Collections.max(versionList));
+        System.err.println("Max Version Number: "+maxVersionNumber);
+        return maxVersionNumber+1;
     }
     
     public void clearNewContract(){
