@@ -1011,13 +1011,6 @@
                 Type="java.lang.String"/>
         </Method>
         <Method
-            Name="updateContract"
-            MethodName="updateContract">
-            <Return
-                Name="_return_type_"
-                Type="void"/>
-        </Method>
-        <Method
             Name="uploadFiletoDB"
             MethodName="uploadFiletoDB">
             <Return
@@ -1076,13 +1069,6 @@
                 Type="java.lang.String"/>
         </Method>
         <Method
-            Name="updateContract"
-            MethodName="updateContract">
-            <Return
-                Name="_return_type_"
-                Type="void"/>
-        </Method>
-        <Method
             Name="addAssTerminalToDestination"
             MethodName="addAssTerminalToDestination">
             <Return
@@ -1099,6 +1085,13 @@
         <Method
             Name="addAssTerminalToPCSInstallation"
             MethodName="addAssTerminalToPCSInstallation">
+            <Return
+                Name="_return_type_"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="createNewContractVersion"
+            MethodName="createNewContractVersion">
             <Return
                 Name="_return_type_"
                 Type="java.lang.String"/>

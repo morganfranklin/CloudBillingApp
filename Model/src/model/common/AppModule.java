@@ -21,12 +21,13 @@ public interface AppModule extends ApplicationModule {
 
     void createTermContractRow(String termId);
 
-    void updateContract();
 
     String addAssTerminalToDestination();
 
     String addAssTerminalToOrigin();
 
     String addAssTerminalToPCSInstallation();
+
+    String createNewContractVersion();
 }
 

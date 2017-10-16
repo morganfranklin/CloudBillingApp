@@ -113,7 +113,7 @@ public class XpeDccNewContractMBean implements Serializable {
             } else if ("UPDATE".equals(contractType)) {
                 BindingContext bc = BindingContext.getCurrent();
                 BindingContainer bindings = bc.getCurrentBindingsEntry();
-                OperationBinding operationBinding = bindings.getOperationBinding("updateContract");
+                OperationBinding operationBinding = bindings.getOperationBinding("createNewContractVersion");
                 if (null != operationBinding)
                     operationBinding.execute();
             }
@@ -121,28 +121,42 @@ public class XpeDccNewContractMBean implements Serializable {
             e.printStackTrace();
         }
     }
-    
+
     public void initializeNewLPCRow() {
-//        Long lpcRowCount =
-//            (Long) ADFUtils.evaluateEL("#{bindings.XpeDccNewContractLPCROVOIterator.estimatedRowCount}");
-//        if (lpcRowCount.intValue() == 0)
-//            ADFUtils.invokeEL("#{bindings.LPCCreateInsert.execute}");
-        
-        Long lineRowCount =
-            (Long) ADFUtils.evaluateEL("#{bindings.XpeDccNewContractLineViewIterator.estimatedRowCount}");
-        if (lineRowCount.intValue() == 0) {
-            ADFUtils.invokeEL("#{bindings.LineCreateInsert.execute}");
-//            ADFUtils.invokeEL("#{bindings.PricingCreateInsert.execute}");
-//            ADFUtils.invokeEL("#{bindings.CarrierCreateInsert.execute}");
-        }
-        
+        /*String contractType = (String) ADFUtils.evaluateEL("#{pageFlowScope.ContractType}");
+        System.err.println("Contract Type: " + contractType);
+        try {
+            if ("NEW".equals(contractType)) {
+                Long lineRowCount =
+                    (Long) ADFUtils.evaluateEL("#{bindings.XpeDccNewContractLineViewIterator.estimatedRowCount}");
+                if (lineRowCount.intValue() == 0)
+                    ADFUtils.invokeEL("#{bindings.LineCreateInsert.execute}");
+            }
+        } catch (Exception e) {
+            // TODO: Add catch code
+            e.printStackTrace();
+        }*/
     }
 
     public void initializeNewContractNotesRow() {
-        Long notesRowCount =
-            (Long) ADFUtils.evaluateEL("#{bindings.XpeDccNewContractNotesViewIterator.estimatedRowCount}");
-        if (notesRowCount.intValue() == 0)
-            ADFUtils.invokeEL("#{bindings.NotesCreateInsert.execute}");
+        String contractType = (String) ADFUtils.evaluateEL("#{pageFlowScope.ContractType}");
+        System.err.println("Contract Type: " + contractType);
+        try {
+            if ("NEW".equals(contractType)) {
+                Long notesRowCount =
+                    (Long) ADFUtils.evaluateEL("#{bindings.XpeDccNewContractNotesViewIterator.estimatedRowCount}");
+                if (notesRowCount.intValue() == 0)
+                    ADFUtils.invokeEL("#{bindings.NotesCreateInsert.execute}");
+            }else if("UPDATE".equals(contractType)){
+                Long notesRowCount =
+                    (Long) ADFUtils.evaluateEL("#{bindings.XpeDccNewContractNotesViewIterator.estimatedRowCount}");
+                if (notesRowCount.intValue() == 0)
+                    ADFUtils.invokeEL("#{bindings.NotesCreateInsert.execute}");
+            }
+        } catch (Exception e) {
+            // TODO: Add catch code
+            e.printStackTrace();
+        }
     }
 
     public void onSubmit(ActionEvent actionEvent) {

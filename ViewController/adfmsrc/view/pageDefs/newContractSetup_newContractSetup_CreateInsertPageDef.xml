@@ -16,8 +16,9 @@
   <bindings>
     <list Uses="LOV_Customer_Type" StaticList="false" IterBinding="XpeDccNewContractSetupROVOIterator"
           id="Customer_Type"/>
-    <methodAction id="updateContract" RequiresUpdateModel="true" Action="invokeMethod" MethodName="updateContract"
-                  IsViewObjectMethod="false" DataControl="AppModuleDataControl"
-                  InstanceName="data.AppModuleDataControl.dataProvider"/>
+    <methodAction id="createNewContractVersion" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="createNewContractVersion" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="data.AppModuleDataControl.dataProvider"
+                  ReturnName="data.AppModuleDataControl.methodResults.createNewContractVersion_AppModuleDataControl_dataProvider_createNewContractVersion_result"/>
   </bindings>
 </pageDefinition>
