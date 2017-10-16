@@ -32,7 +32,7 @@
       <train-stop>
         <display-name>Contract Header</display-name>
         <outcome>CreateHeaderVersion</outcome>
-        <sequential>false</sequential>
+        <sequential>true</sequential>
       </train-stop>
       <input-page-parameter id="__1">
         <from-value>#{'one'}</from-value>
@@ -55,7 +55,7 @@
       <train-stop>
         <display-name>Contract LPC</display-name>
         <outcome>CreateLPC</outcome>
-        <sequential>false</sequential>
+        <sequential>true</sequential>
       </train-stop>
       <input-page-parameter id="__4">
         <from-value>#{'three'}</from-value>
@@ -67,7 +67,7 @@
       <train-stop>
         <display-name>Contract Notes</display-name>
         <outcome>CreateNotes</outcome>
-        <sequential>false</sequential>
+        <sequential>true</sequential>
       </train-stop>
       <input-page-parameter id="__6">
         <from-value>#{'four'}</from-value>
@@ -137,7 +137,7 @@
       <train-stop>
         <display-name>Preview</display-name>
         <outcome>PreviewPDF</outcome>
-        <sequential>false</sequential>
+        <sequential>true</sequential>
       </train-stop>
       <input-page-parameter id="__26">
         <from-value>#{'seven'}</from-value>
