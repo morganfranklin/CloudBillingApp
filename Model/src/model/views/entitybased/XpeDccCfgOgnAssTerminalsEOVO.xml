@@ -39,6 +39,10 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="XpeDccCfgPCSShortNamesROVO1"
+    ViewObjectName="model.views.readonly.XpeDccCfgPCSShortNamesROVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_Inactive"
     ListVOName="LookupSharedAppModule_YONLOV"
@@ -56,6 +60,27 @@
       <Item Value="XpeLookupDesc"/>
     </AttrArray>
     <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_PcsshortnameId"
+    ListVOName="XpeDccCfgPCSShortNamesROVO1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PcsshortnameId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="PcsshortnameId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="PcsshortnameId"/>
+      <Item Value="PcsshortName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
   </ListBinding>
   <EntityUsage
     Name="XpeDccCfgOgnAssTerminalsEO"
@@ -153,6 +178,22 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgOgnAssTerminalsEOVO.TerminalId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PcsshortnameId"
+    PrecisionRule="true"
+    EntityAttrName="PcsshortnameId"
+    EntityUsage="XpeDccCfgOgnAssTerminalsEO"
+    AliasName="PCSSHORTNAME_ID"
+    LOVName="LOV_PcsshortnameId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgOgnAssTerminalsEOVO.PcsshortnameId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

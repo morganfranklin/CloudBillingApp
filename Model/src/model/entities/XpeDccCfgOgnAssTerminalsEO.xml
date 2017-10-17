@@ -111,6 +111,18 @@
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
     TableName="XPE_DCC_CFG_OGN_ASS_TERMINALS"/>
+  <Attribute
+    Name="PcsshortnameId"
+    Precision="20"
+    ColumnName="PCSSHORTNAME_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_OGN_ASS_TERMINALS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="XpeDccCfgTerminalsEO"
     Association="model.entities.associations.XpeDccCfgTerminalsFk2Assoc"

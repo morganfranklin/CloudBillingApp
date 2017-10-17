@@ -183,7 +183,8 @@
     ListVOName="XpeDccGeneralItemListROVO_CategoryLOV"
     ListRangeSize="-1"
     NullValueFlag="none"
-    MRUCount="0">
+    MRUCount="0"
+    ComboRowCountHint="10">
     <AttrArray Name="AttrNames">
       <Item Value="Category"/>
     </AttrArray>
@@ -192,9 +193,11 @@
       <Item Value="ItemId"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ItemId"/>
       <Item Value="ItemListType"/>
     </AttrArray>
-    <DisplayCriteria/>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
   </ListBinding>
   <ListBinding
     Name="LOV_ClassId"
@@ -247,7 +250,7 @@
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgProductserviceEOVO.Category_LABEL"/>
         <CONTROLTYPE
-          Value="choice"/>
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

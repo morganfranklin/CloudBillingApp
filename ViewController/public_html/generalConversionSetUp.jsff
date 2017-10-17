@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout layout="vertical" id="pgl1">
+    <af:panelHeader text="General Conversion Set Up" id="ph1" size="1">
+      <af:query id="qryId1" headerText="Search General Conversion" disclosed="true"
+                value="#{bindings.GeneralConversionCriteriaQuery.queryDescriptor}"
+                model="#{bindings.GeneralConversionCriteriaQuery.queryModel}"
+                queryListener="#{bindings.GeneralConversionCriteriaQuery.processQuery}"
+                queryOperationListener="#{pageFlowScope.GeneralConversionSetUpTableMBean.queryOperationListener}"
+                resultComponentId="::resId1"/>
+    </af:panelHeader>
+    <af:panelHeader text="General Conversion" id="ph2" size="5">
+      <f:facet name="context"/>
+      <f:facet name="toolbar">
+        <af:toolbar id="t1">
+          <af:button action="#{bindings.CreateInsert.execute}" text="Add Item"
+                     disabled="#{!bindings.CreateInsert.enabled}" id="b1"
+                     actionListener="#{pageFlowScope.GeneralConversionSetUpTableMBean.onGeneralConversionCreation}"/>
+        </af:toolbar>
+      </f:facet>
+      <f:facet name="menuBar"/>
+      <f:facet name="legend"/>
+      <f:facet name="info"/>
+      <af:table value="#{bindings.XpeDccCfgGeneralCnvEOVO.collectionModel}" var="row"
+                rows="#{bindings.XpeDccCfgGeneralCnvEOVO.rangeSize}"
+                emptyText="#{bindings.XpeDccCfgGeneralCnvEOVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                rowBandingInterval="0" selectedRowKeys="#{bindings.XpeDccCfgGeneralCnvEOVO.collectionModel.selectedRow}"
+                selectionListener="#{bindings.XpeDccCfgGeneralCnvEOVO.collectionModel.makeCurrent}"
+                rowSelection="single" fetchSize="#{bindings.XpeDccCfgGeneralCnvEOVO.rangeSize}" id="resId1"
+                contentDelivery="immediate" columnStretching="last"
+                binding="#{backingBeanScope.GeneralConversionSetUpTableBBean.generalConversionSetUpTblBind}">
+        <af:column headerText="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.GeneralCnvId.label}" id="resId1c1">
+          <af:link text="#{row.GeneralCnvId}" id="l1" partialSubmit="true"
+                   actionListener="#{pageFlowScope.GeneralConversionSetUpTableMBean.onGeneralConversionEdit}"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.CarrierId.label}" id="c1">
+          <af:outputText value="#{row.CarrierId}"
+                         shortDesc="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.CarrierId.tooltip}" id="ot2"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.OriginId.label}" id="c2">
+          <af:outputText value="#{row.OriginId}" shortDesc="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.OriginId.tooltip}"
+                         id="ot3"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.DestinationId.label}" id="c3">
+          <af:outputText value="#{row.DestinationId}"
+                         shortDesc="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.DestinationId.tooltip}" id="ot4"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.MaterialId.label}" id="c4">
+          <af:outputText value="#{row.MaterialId}"
+                         shortDesc="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.MaterialId.tooltip}" id="ot5"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.PcsShortNameId.label}" id="c5">
+          <af:outputText value="#{row.PcsShortNameId}"
+                         shortDesc="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.PcsShortNameId.tooltip}" id="ot6"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.TranslationConsumer.label}" id="resId1c7">
+          <af:selectOneChoice value="#{row.bindings.TranslationConsumer.inputValue}"
+                              label="#{row.bindings.TranslationConsumer.label}"
+                              required="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.TranslationConsumer.mandatory}"
+                              shortDesc="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.TranslationConsumer.tooltip}"
+                              readOnly="true" id="soc1">
+            <f:selectItems value="#{row.bindings.TranslationConsumer.items}" id="si1"/>
+            <f:validator binding="#{row.bindings.TranslationConsumer.validator}"/>
+          </af:selectOneChoice>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.ConversionValue.label}" id="resId1c8">
+          <af:outputText value="#{row.ConversionValue}"
+                         shortDesc="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.ConversionValue.tooltip}" id="ot7"/>
+        </af:column>
+      </af:table>
+      <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
+                binding="#{backingBeanScope.GeneralConversionSetUpTableBBean.generalConversionAddItem_popup}"
+                contentDelivery="lazyUncached">
+        <af:dialog id="d1" type="none" title="General Conversion Details" closeIconVisible="false">
+          <f:facet name="buttonBar">
+            <af:button action="#{bindings.Commit.execute}" text="Save" disabled="#{!bindings.Commit.enabled}"
+                       id="b2"
+                       actionListener="#{pageFlowScope.GeneralConversionSetUpTableMBean.onGeneralConversionCreationSaveOrCancel}"/>
+            <af:spacer width="10" height="10" id="s1"/>
+            <af:button action="#{bindings.Rollback.execute}" text="Cancel"
+                       disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b3"
+                       actionListener="#{pageFlowScope.GeneralConversionSetUpTableMBean.onGeneralConversionCreationSaveOrCancel}">
+              <af:resetActionListener/>
+            </af:button>
+          </f:facet>
+          <af:panelFormLayout id="pfl1">
+            <af:panelLabelAndMessage label="#{bindings.GeneralCnvId.hints.label}" id="plam1">
+              <af:outputText value="#{bindings.GeneralCnvId.inputValue}"
+                             shortDesc="#{bindings.GeneralCnvId.hints.tooltip}" id="ot1"/>
+            </af:panelLabelAndMessage>
+            <af:inputListOfValues id="carrierIdId" popupTitle="Search and Select: #{bindings.CarrierId.hints.label}"
+                                  value="#{bindings.CarrierId.inputValue}" label="#{bindings.CarrierId.hints.label}"
+                                  model="#{bindings.CarrierId.listOfValuesModel}"
+                                  required="#{bindings.CarrierId.hints.mandatory}"
+                                  columns="#{bindings.CarrierId.hints.displayWidth}"
+                                  shortDesc="#{bindings.CarrierId.hints.tooltip}">
+              <f:validator binding="#{bindings.CarrierId.validator}"/>
+            </af:inputListOfValues>
+            <af:inputListOfValues id="originIdId" popupTitle="Search and Select: #{bindings.OriginId.hints.label}"
+                                  value="#{bindings.OriginId.inputValue}" label="#{bindings.OriginId.hints.label}"
+                                  model="#{bindings.OriginId.listOfValuesModel}"
+                                  required="#{bindings.OriginId.hints.mandatory}"
+                                  columns="#{bindings.OriginId.hints.displayWidth}"
+                                  shortDesc="#{bindings.OriginId.hints.tooltip}">
+              <f:validator binding="#{bindings.OriginId.validator}"/>
+            </af:inputListOfValues>
+            <af:inputListOfValues id="destinationIdId"
+                                  popupTitle="Search and Select: #{bindings.DestinationId.hints.label}"
+                                  value="#{bindings.DestinationId.inputValue}"
+                                  label="#{bindings.DestinationId.hints.label}"
+                                  model="#{bindings.DestinationId.listOfValuesModel}"
+                                  required="#{bindings.DestinationId.hints.mandatory}"
+                                  columns="#{bindings.DestinationId.hints.displayWidth}"
+                                  shortDesc="#{bindings.DestinationId.hints.tooltip}">
+              <f:validator binding="#{bindings.DestinationId.validator}"/>
+            </af:inputListOfValues>
+            <af:inputListOfValues id="materialIdId" popupTitle="Search and Select: #{bindings.MaterialId.hints.label}"
+                                  value="#{bindings.MaterialId.inputValue}" label="#{bindings.MaterialId.hints.label}"
+                                  model="#{bindings.MaterialId.listOfValuesModel}"
+                                  required="#{bindings.MaterialId.hints.mandatory}"
+                                  columns="#{bindings.MaterialId.hints.displayWidth}"
+                                  shortDesc="#{bindings.MaterialId.hints.tooltip}">
+              <f:validator binding="#{bindings.MaterialId.validator}"/>
+            </af:inputListOfValues>
+            <af:inputListOfValues id="pcsShortNameIdId"
+                                  popupTitle="Search and Select: #{bindings.PcsShortNameId.hints.label}"
+                                  value="#{bindings.PcsShortNameId.inputValue}"
+                                  label="#{bindings.PcsShortNameId.hints.label}"
+                                  model="#{bindings.PcsShortNameId.listOfValuesModel}"
+                                  required="#{bindings.PcsShortNameId.hints.mandatory}"
+                                  columns="#{bindings.PcsShortNameId.hints.displayWidth}"
+                                  shortDesc="#{bindings.PcsShortNameId.hints.tooltip}">
+              <f:validator binding="#{bindings.PcsShortNameId.validator}"/>
+            </af:inputListOfValues>
+            <af:selectOneChoice value="#{bindings.TranslationConsumer.inputValue}"
+                                label="#{bindings.TranslationConsumer.label}"
+                                required="#{bindings.TranslationConsumer.hints.mandatory}"
+                                shortDesc="#{bindings.TranslationConsumer.hints.tooltip}" id="soc2">
+              <f:selectItems value="#{bindings.TranslationConsumer.items}" id="si2"/>
+              <f:validator binding="#{bindings.TranslationConsumer.validator}"/>
+            </af:selectOneChoice>
+            <af:inputText value="#{bindings.ConversionValue.inputValue}" label="#{bindings.ConversionValue.hints.label}"
+                          required="#{bindings.ConversionValue.hints.mandatory}"
+                          columns="#{bindings.ConversionValue.hints.displayWidth}"
+                          maximumLength="#{bindings.ConversionValue.hints.precision}"
+                          shortDesc="#{bindings.ConversionValue.hints.tooltip}" id="it1">
+              <f:validator binding="#{bindings.ConversionValue.validator}"/>
+            </af:inputText>
+          </af:panelFormLayout>
+        </af:dialog>
+      </af:popup>
+      <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
+                binding="#{backingBeanScope.GeneralConversionSetUpTableBBean.generalConversionEditItem_popup}"
+                contentDelivery="lazyUncached">
+        <af:dialog id="d2" type="none" title="General Conversion Details" closeIconVisible="false">
+          <f:facet name="buttonBar">
+            <af:button action="#{bindings.Commit.execute}" text="Save"
+                       id="b4"
+                       actionListener="#{pageFlowScope.GeneralConversionSetUpTableMBean.onGeneralConversionEditSaveOrCancel}"/>
+            <af:spacer width="10" height="10" id="s2"/>
+            <af:button action="#{bindings.Rollback.execute}" text="Cancel"
+                       immediate="true" id="b5"
+                       actionListener="#{pageFlowScope.GeneralConversionSetUpTableMBean.onGeneralConversionEditSaveOrCancel}">
+              <af:resetActionListener/>
+            </af:button>
+          </f:facet>
+          <af:panelFormLayout id="pfl2">
+            <af:panelLabelAndMessage label="#{bindings.GeneralCnvId1.hints.label}" id="plam2">
+              <af:outputText value="#{bindings.GeneralCnvId1.inputValue}"
+                             shortDesc="#{bindings.GeneralCnvId1.hints.tooltip}" id="ot8"/>
+            </af:panelLabelAndMessage>
+            <af:inputListOfValues id="carrierId1Id" popupTitle="Search and Select: #{bindings.CarrierId1.hints.label}"
+                                  value="#{bindings.CarrierId1.inputValue}" label="#{bindings.CarrierId1.hints.label}"
+                                  model="#{bindings.CarrierId1.listOfValuesModel}"
+                                  required="#{bindings.CarrierId1.hints.mandatory}"
+                                  columns="#{bindings.CarrierId1.hints.displayWidth}"
+                                  shortDesc="#{bindings.CarrierId1.hints.tooltip}">
+              <f:validator binding="#{bindings.CarrierId1.validator}"/>
+            </af:inputListOfValues>
+            <af:inputListOfValues id="originId1Id" popupTitle="Search and Select: #{bindings.OriginId1.hints.label}"
+                                  value="#{bindings.OriginId1.inputValue}" label="#{bindings.OriginId1.hints.label}"
+                                  model="#{bindings.OriginId1.listOfValuesModel}"
+                                  required="#{bindings.OriginId1.hints.mandatory}"
+                                  columns="#{bindings.OriginId1.hints.displayWidth}"
+                                  shortDesc="#{bindings.OriginId1.hints.tooltip}">
+              <f:validator binding="#{bindings.OriginId1.validator}"/>
+            </af:inputListOfValues>
+            <af:inputListOfValues id="destinationId1Id"
+                                  popupTitle="Search and Select: #{bindings.DestinationId1.hints.label}"
+                                  value="#{bindings.DestinationId1.inputValue}"
+                                  label="#{bindings.DestinationId1.hints.label}"
+                                  model="#{bindings.DestinationId1.listOfValuesModel}"
+                                  required="#{bindings.DestinationId1.hints.mandatory}"
+                                  columns="#{bindings.DestinationId1.hints.displayWidth}"
+                                  shortDesc="#{bindings.DestinationId1.hints.tooltip}">
+              <f:validator binding="#{bindings.DestinationId1.validator}"/>
+            </af:inputListOfValues>
+            <af:inputListOfValues id="materialId1Id" popupTitle="Search and Select: #{bindings.MaterialId1.hints.label}"
+                                  value="#{bindings.MaterialId1.inputValue}" label="#{bindings.MaterialId1.hints.label}"
+                                  model="#{bindings.MaterialId1.listOfValuesModel}"
+                                  required="#{bindings.MaterialId1.hints.mandatory}"
+                                  columns="#{bindings.MaterialId1.hints.displayWidth}"
+                                  shortDesc="#{bindings.MaterialId1.hints.tooltip}">
+              <f:validator binding="#{bindings.MaterialId1.validator}"/>
+            </af:inputListOfValues>
+            <af:inputListOfValues id="pcsShortNameId1Id"
+                                  popupTitle="Search and Select: #{bindings.PcsShortNameId1.hints.label}"
+                                  value="#{bindings.PcsShortNameId1.inputValue}"
+                                  label="#{bindings.PcsShortNameId1.hints.label}"
+                                  model="#{bindings.PcsShortNameId1.listOfValuesModel}"
+                                  required="#{bindings.PcsShortNameId1.hints.mandatory}"
+                                  columns="#{bindings.PcsShortNameId1.hints.displayWidth}"
+                                  shortDesc="#{bindings.PcsShortNameId1.hints.tooltip}">
+              <f:validator binding="#{bindings.PcsShortNameId1.validator}"/>
+            </af:inputListOfValues>
+            <af:selectOneChoice value="#{bindings.TranslationConsumer1.inputValue}"
+                                label="#{bindings.TranslationConsumer1.label}"
+                                required="#{bindings.TranslationConsumer1.hints.mandatory}"
+                                shortDesc="#{bindings.TranslationConsumer1.hints.tooltip}" id="soc3">
+              <f:selectItems value="#{bindings.TranslationConsumer1.items}" id="si3"/>
+              <f:validator binding="#{bindings.TranslationConsumer1.validator}"/>
+            </af:selectOneChoice>
+            <af:inputText value="#{bindings.ConversionValue1.inputValue}"
+                          label="#{bindings.ConversionValue1.hints.label}"
+                          required="#{bindings.ConversionValue1.hints.mandatory}"
+                          columns="#{bindings.ConversionValue1.hints.displayWidth}"
+                          maximumLength="#{bindings.ConversionValue1.hints.precision}"
+                          shortDesc="#{bindings.ConversionValue1.hints.tooltip}" id="it2">
+              <f:validator binding="#{bindings.ConversionValue1.validator}"/>
+            </af:inputText>
+          </af:panelFormLayout>
+        </af:dialog>
+      </af:popup>
+    </af:panelHeader>
+  </af:panelGroupLayout>
+</ui:composition>

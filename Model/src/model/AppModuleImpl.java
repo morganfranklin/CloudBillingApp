@@ -2370,5 +2370,13 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     public XpeDccCfgPcsAssTerminalsROVOImpl getXpeDccCfgPcsAssTerminalsROVO1() {
         return (XpeDccCfgPcsAssTerminalsROVOImpl) findViewObject("XpeDccCfgPcsAssTerminalsROVO1");
     }
+
+    /**
+     * Container's getter for XpeDccCfgGeneralCnvEOVO1.
+     * @return XpeDccCfgGeneralCnvEOVO1
+     */
+    public ViewObjectImpl getXpeDccCfgNewGeneralCnvEOVO() {
+        return (ViewObjectImpl) findViewObject("XpeDccCfgNewGeneralCnvEOVO");
+    }
 }
 

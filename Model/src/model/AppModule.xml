@@ -558,6 +558,9 @@
     <ViewUsage
         Name="XpeDccCfgPcsAssTerminalsROVO1"
         ViewObjectName="model.views.readonly.XpeDccCfgPcsAssTerminalsROVO"/>
+    <ViewUsage
+        Name="XpeDccCfgNewGeneralCnvEOVO"
+        ViewObjectName="model.views.entitybased.XpeDccCfgGeneralCnvEOVO"/>
     <ViewLinkUsage
         Name="NeuRuleTblFk1Link1"
         ViewLinkObjectName="model.NeuRuleTblFk1Link"

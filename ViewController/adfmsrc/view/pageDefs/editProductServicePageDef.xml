@@ -25,7 +25,7 @@
     <list IterBinding="XpeDccCfgNewProductserviceEOVOIterator" StaticList="false" Uses="LOV_Inoutbound"
           id="Inoutbound" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <list IterBinding="XpeDccCfgNewProductserviceEOVOIterator" StaticList="false" Uses="LOV_ClassType" id="ClassType"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="XpeDccCfgNewProductserviceEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <attributeValues IterBinding="XpeDccCfgNewProductserviceEOVOIterator" id="InactiveDate">
@@ -70,9 +70,9 @@
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="XpeDccCfgNewProductserviceEOVOIterator" StaticList="false" Uses="LOV_ClassId" id="ClassId"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
-    <list IterBinding="XpeDccCfgNewProductserviceEOVOIterator" StaticList="false" Uses="LOV_Category" id="Category"
-          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="XpeDccCfgNewUomEOVOIterator" StaticList="false" Uses="LOV_Uom" id="Uom" DTSupportsMRU="true"
           SelectItemValueMode="ListObject"/>
+    <listOfValues IterBinding="XpeDccCfgNewProductserviceEOVOIterator" StaticList="false" Uses="LOV_Category"
+                  id="Category"/>
   </bindings>
 </pageDefinition>

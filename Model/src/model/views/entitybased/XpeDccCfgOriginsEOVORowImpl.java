@@ -14,6 +14,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class XpeDccCfgOriginsEOVORowImpl extends ViewRowImpl {
+
     public static final int ENTITY_XPEDCCCFGORIGINSEO = 0;
 
     /**
@@ -30,11 +31,13 @@ public class XpeDccCfgOriginsEOVORowImpl extends ViewRowImpl {
         OriginId,
         State,
         County,
+        XpeDccNycDosDistrict,
         XpeDccCfgOgnAssTerminalsEOVO,
         LookupSharedAppModule_YONLOV,
         XpeDccCfgCountiesLOV,
         XpeDccCfgStatesLOV;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -56,6 +59,7 @@ public class XpeDccCfgOriginsEOVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
     public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
     public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
     public static final int INACTIVE = AttributesEnum.Inactive.index();
@@ -66,6 +70,7 @@ public class XpeDccCfgOriginsEOVORowImpl extends ViewRowImpl {
     public static final int ORIGINID = AttributesEnum.OriginId.index();
     public static final int STATE = AttributesEnum.State.index();
     public static final int COUNTY = AttributesEnum.County.index();
+    public static final int XPEDCCNYCDOSDISTRICT = AttributesEnum.XpeDccNycDosDistrict.index();
     public static final int XPEDCCCFGOGNASSTERMINALSEOVO = AttributesEnum.XpeDccCfgOgnAssTerminalsEOVO.index();
     public static final int LOOKUPSHAREDAPPMODULE_YONLOV = AttributesEnum.LookupSharedAppModule_YONLOV.index();
     public static final int XPEDCCCFGCOUNTIESLOV = AttributesEnum.XpeDccCfgCountiesLOV.index();
@@ -243,6 +248,22 @@ public class XpeDccCfgOriginsEOVORowImpl extends ViewRowImpl {
      */
     public void setCounty(String value) {
         setAttributeInternal(COUNTY, value);
+    }
+
+    /**
+     * Gets the attribute value for XPE_DCC_NYC_DOS_DISTRICT using the alias name XpeDccNycDosDistrict.
+     * @return the XPE_DCC_NYC_DOS_DISTRICT
+     */
+    public String getXpeDccNycDosDistrict() {
+        return (String) getAttributeInternal(XPEDCCNYCDOSDISTRICT);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for XPE_DCC_NYC_DOS_DISTRICT using the alias name XpeDccNycDosDistrict.
+     * @param value value to set the XPE_DCC_NYC_DOS_DISTRICT
+     */
+    public void setXpeDccNycDosDistrict(String value) {
+        setAttributeInternal(XPEDCCNYCDOSDISTRICT, value);
     }
 
     /**

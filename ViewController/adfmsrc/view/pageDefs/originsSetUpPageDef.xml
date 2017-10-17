@@ -35,6 +35,7 @@
           <Item Value="OriginId"/>
           <Item Value="Inactive"/>
           <Item Value="InactiveDate"/>
+          <Item Value="PcsshortnameId"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

@@ -37,6 +37,14 @@ FROM
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccCfgCarriersROVO.CarrierId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="45"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="CarrierName"
@@ -52,6 +60,14 @@ FROM
     <DesignTime>
       <Attr Name="_DisplaySize" Value="45"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccCfgCarriersROVO.CarrierName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="45"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <AttrArray Name="KeyAttributes">
     <Item Value="CarrierId"/>

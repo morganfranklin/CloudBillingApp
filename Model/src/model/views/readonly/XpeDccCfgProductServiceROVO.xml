@@ -37,6 +37,14 @@ FROM
     <DesignTime>
       <Attr Name="_DisplaySize" Value="3"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccCfgProductServiceROVO.ItemId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="45"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="Description"
@@ -52,6 +60,12 @@ FROM
     <DesignTime>
       <Attr Name="_DisplaySize" Value="45"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccCfgProductServiceROVO.Description_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <AttrArray Name="KeyAttributes">
     <Item Value="ItemId"/>

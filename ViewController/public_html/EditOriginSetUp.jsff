@@ -33,6 +33,14 @@
           <f:selectItems value="#{bindings.State.items}" id="si1"/>
           <f:validator binding="#{bindings.State.validator}"/>
         </af:selectOneChoice>
+        <af:inputText value="#{bindings.XpeDccNycDosDistrict.inputValue}"
+                      label="#{bindings.XpeDccNycDosDistrict.hints.label}"
+                      required="#{bindings.XpeDccNycDosDistrict.hints.mandatory}"
+                      columns="#{bindings.XpeDccNycDosDistrict.hints.displayWidth}"
+                      maximumLength="#{bindings.XpeDccNycDosDistrict.hints.precision}"
+                      shortDesc="#{bindings.XpeDccNycDosDistrict.hints.tooltip}" id="it3">
+          <f:validator binding="#{bindings.XpeDccNycDosDistrict.validator}"/>
+        </af:inputText>
         <af:selectOneChoice value="#{bindings.Inactive.inputValue}" label="#{bindings.Inactive.label}"
                             required="#{bindings.Inactive.hints.mandatory}"
                             shortDesc="#{bindings.Inactive.hints.tooltip}" id="soc2"
@@ -79,6 +87,10 @@
         <af:column headerText="#{bindings.XpeDccCfgNewOgnAssTerminalsEOVO.hints.OriginId.label}" id="c3">
           <af:outputText value="#{row.OriginId}"
                          shortDesc="#{bindings.XpeDccCfgNewOgnAssTerminalsEOVO.hints.OriginId.tooltip}" id="ot4"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgNewOgnAssTerminalsEOVO.hints.PcsshortnameId.label}" id="c6">
+          <af:outputText value="#{row.PcsshortnameId}"
+                         shortDesc="#{bindings.XpeDccCfgNewOgnAssTerminalsEOVO.hints.PcsshortnameId.tooltip}" id="ot7"/>
         </af:column>
         <af:column headerText="#{bindings.XpeDccCfgNewOgnAssTerminalsEOVO.hints.Inactive.label}" id="c4">
           <af:selectOneChoice value="#{row.bindings.Inactive.inputValue}" label="#{row.bindings.Inactive.label}"
@@ -147,6 +159,16 @@
                         shortDesc="#{bindings.OriginId1.hints.tooltip}" id="it2">
             <f:validator binding="#{bindings.OriginId1.validator}"/>
           </af:inputText>
+          <af:inputListOfValues id="pcsshortnameIdId"
+                                popupTitle="Search and Select: #{bindings.PcsshortnameId.hints.label}"
+                                value="#{bindings.PcsshortnameId.inputValue}"
+                                label="#{bindings.PcsshortnameId.hints.label}"
+                                model="#{bindings.PcsshortnameId.listOfValuesModel}"
+                                required="#{bindings.PcsshortnameId.hints.mandatory}"
+                                columns="#{bindings.PcsshortnameId.hints.displayWidth}"
+                                shortDesc="#{bindings.PcsshortnameId.hints.tooltip}">
+            <f:validator binding="#{bindings.PcsshortnameId.validator}"/>
+          </af:inputListOfValues>
           <af:selectOneChoice value="#{bindings.Inactive1.inputValue}" label="#{bindings.Inactive1.label}"
                               required="#{bindings.Inactive1.hints.mandatory}"
                               shortDesc="#{bindings.Inactive1.hints.tooltip}" id="soc4" autoSubmit="true"

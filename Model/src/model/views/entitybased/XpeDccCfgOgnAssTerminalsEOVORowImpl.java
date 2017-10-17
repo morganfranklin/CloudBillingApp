@@ -12,6 +12,8 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class XpeDccCfgOgnAssTerminalsEOVORowImpl extends ViewRowImpl {
+
+
     public static final int ENTITY_XPEDCCCFGOGNASSTERMINALSEO = 0;
 
     /**
@@ -27,8 +29,11 @@ public class XpeDccCfgOgnAssTerminalsEOVORowImpl extends ViewRowImpl {
         OriginId,
         TerminalDesc,
         TerminalId,
-        LookupSharedAppModule_YONLOV;
-        private static AttributesEnum[] vals = null;
+        PcsshortnameId,
+        LookupSharedAppModule_YONLOV,
+        XpeDccCfgPCSShortNamesROVO1;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -50,6 +55,8 @@ public class XpeDccCfgOgnAssTerminalsEOVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
+
     public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
     public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
     public static final int INACTIVE = AttributesEnum.Inactive.index();
@@ -59,7 +66,9 @@ public class XpeDccCfgOgnAssTerminalsEOVORowImpl extends ViewRowImpl {
     public static final int ORIGINID = AttributesEnum.OriginId.index();
     public static final int TERMINALDESC = AttributesEnum.TerminalDesc.index();
     public static final int TERMINALID = AttributesEnum.TerminalId.index();
+    public static final int PCSSHORTNAMEID = AttributesEnum.PcsshortnameId.index();
     public static final int LOOKUPSHAREDAPPMODULE_YONLOV = AttributesEnum.LookupSharedAppModule_YONLOV.index();
+    public static final int XPEDCCCFGPCSSHORTNAMESROVO1 = AttributesEnum.XpeDccCfgPCSShortNamesROVO1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -220,10 +229,33 @@ public class XpeDccCfgOgnAssTerminalsEOVORowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for PCSSHORTNAME_ID using the alias name PcsshortnameId.
+     * @return the PCSSHORTNAME_ID
+     */
+    public String getPcsshortnameId() {
+        return (String) getAttributeInternal(PCSSHORTNAMEID);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for PCSSHORTNAME_ID using the alias name PcsshortnameId.
+     * @param value value to set the PCSSHORTNAME_ID
+     */
+    public void setPcsshortnameId(String value) {
+        setAttributeInternal(PCSSHORTNAMEID, value);
+    }
+
+    /**
      * Gets the view accessor <code>RowSet</code> LookupSharedAppModule_YONLOV.
      */
     public RowSet getLookupSharedAppModule_YONLOV() {
         return (RowSet) getAttributeInternal(LOOKUPSHAREDAPPMODULE_YONLOV);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> XpeDccCfgPCSShortNamesROVO1.
+     */
+    public RowSet getXpeDccCfgPCSShortNamesROVO1() {
+        return (RowSet) getAttributeInternal(XPEDCCCFGPCSSHORTNAMESROVO1);
     }
 }
 

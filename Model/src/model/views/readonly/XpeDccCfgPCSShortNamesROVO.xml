@@ -37,6 +37,14 @@ FROM
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccCfgPCSShortNamesROVO.PcsshortnameId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="45"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="PcsshortName"
@@ -52,6 +60,12 @@ FROM
     <DesignTime>
       <Attr Name="_DisplaySize" Value="45"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccCfgPCSShortNamesROVO.PcsshortName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <AttrArray Name="KeyAttributes">
     <Item Value="PcsshortnameId"/>

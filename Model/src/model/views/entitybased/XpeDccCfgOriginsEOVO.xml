@@ -248,6 +248,19 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="XpeDccNycDosDistrict"
+    PrecisionRule="true"
+    EntityAttrName="XpeDccNycDosDistrict"
+    EntityUsage="XpeDccCfgOriginsEO"
+    AliasName="XPE_DCC_NYC_DOS_DISTRICT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgOriginsEOVO.XpeDccNycDosDistrict_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="OriginsCriteria"
     ViewObjectName="model.views.entitybased.XpeDccCfgOriginsEOVO"

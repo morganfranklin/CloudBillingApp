@@ -83,7 +83,8 @@
                       rowBandingInterval="0"
                       selectedRowKeys="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.collectionModel.selectedRow}"
                       selectionListener="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.collectionModel.makeCurrent}"
-                      rowSelection="single" fetchSize="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.rangeSize}" id="t1">
+                      rowSelection="single" fetchSize="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.rangeSize}" id="t1"
+                      contentDelivery="immediate" columnStretching="last">
                 <af:column headerText="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.hints.TerminalId.label}" id="c1">
                     <af:outputText value="#{row.TerminalId}"
                                    shortDesc="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.hints.TerminalId.tooltip}"
@@ -98,6 +99,11 @@
                     <af:outputText value="#{row.OriginId}"
                                    shortDesc="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.hints.OriginId.tooltip}"
                                    id="ot7"/>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.hints.PcsshortnameId.label}" id="c6">
+                    <af:outputText value="#{row.PcsshortnameId}"
+                                   shortDesc="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.hints.PcsshortnameId.tooltip}"
+                                   id="ot1"/>
                 </af:column>
                 <af:column headerText="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.hints.Inactive.label}" id="c4">
                     <af:selectOneChoice value="#{row.bindings.Inactive.inputValue}"

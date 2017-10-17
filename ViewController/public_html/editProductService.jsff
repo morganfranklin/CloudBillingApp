@@ -31,21 +31,23 @@
           <f:selectItems value="#{bindings.Inoutbound.items}" id="si2"/>
           <f:validator binding="#{bindings.Inoutbound.validator}"/>
         </af:selectOneChoice>
-        <af:selectOneChoice value="#{bindings.Category.inputValue}" label="#{bindings.Category.label}"
-                            required="#{bindings.Category.hints.mandatory}"
-                            shortDesc="#{bindings.Category.hints.tooltip}" id="soc10">
-          <f:selectItems value="#{bindings.Category.items}" id="si10"/>
+        <af:inputListOfValues id="categoryId" popupTitle="Search and Select: #{bindings.Category.hints.label}"
+                              value="#{bindings.Category.inputValue}" label="#{bindings.Category.hints.label}"
+                              model="#{bindings.Category.listOfValuesModel}"
+                              required="#{bindings.Category.hints.mandatory}"
+                              columns="#{bindings.Category.hints.displayWidth}"
+                              shortDesc="#{bindings.Category.hints.tooltip}">
           <f:validator binding="#{bindings.Category.validator}"/>
-        </af:selectOneChoice>
+        </af:inputListOfValues>
         <af:selectOneChoice value="#{bindings.ClassType.inputValue}" label="#{bindings.ClassType.label}"
                             required="#{bindings.ClassType.hints.mandatory}"
-                            shortDesc="#{bindings.ClassType.hints.tooltip}" id="soc3">
+                            shortDesc="#{bindings.ClassType.hints.tooltip}" id="soc3" autoSubmit="true">
           <f:selectItems value="#{bindings.ClassType.items}" id="si3"/>
           <f:validator binding="#{bindings.ClassType.validator}"/>
         </af:selectOneChoice>
         <af:selectOneChoice value="#{bindings.ClassId.inputValue}" label="#{bindings.ClassId.label}"
                             required="#{bindings.ClassId.hints.mandatory}" shortDesc="#{bindings.ClassId.hints.tooltip}"
-                            id="soc9">
+                            id="soc9" disabled="#{bindings.ClassType.inputValue eq 'DC'}" partialTriggers="soc3">
           <f:selectItems value="#{bindings.ClassId.items}" id="si9"/>
           <f:validator binding="#{bindings.ClassId.validator}"/>
         </af:selectOneChoice>

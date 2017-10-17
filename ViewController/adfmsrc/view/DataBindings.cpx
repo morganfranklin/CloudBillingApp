@@ -90,6 +90,7 @@
               usageId="view_destinationSetUpTable_destinationSetUpTable_SetCurrentRowWithKeyValuePageDef"/>
         <page path="/WEB-INF/originsSetUpTable.xml#originsSetUpTable@SetCurrentRowWithKeyValue"
               usageId="view_originsSetUpTable_originsSetUpTable_SetCurrentRowWithKeyValuePageDef"/>
+        <page path="/generalConversionSetUp.jsff" usageId="view_generalConversionSetUpPageDef"/>
     </pageMap>
     <pageDefinitionUsages>
         <page id="view_IntegrationDashPageDef" path="view.pageDefs.IntegrationDashPageDef"/>
@@ -174,6 +175,7 @@
               path="view.pageDefs.destinationSetUpTable_destinationSetUpTable_SetCurrentRowWithKeyValuePageDef"/>
         <page id="view_originsSetUpTable_originsSetUpTable_SetCurrentRowWithKeyValuePageDef"
               path="view.pageDefs.originsSetUpTable_originsSetUpTable_SetCurrentRowWithKeyValuePageDef"/>
+        <page id="view_generalConversionSetUpPageDef" path="view.pageDefs.generalConversionSetUpPageDef"/>
     </pageDefinitionUsages>
     <dataControlUsages>
         <BC4JDataControl id="AppModuleDataControl" Package="model"

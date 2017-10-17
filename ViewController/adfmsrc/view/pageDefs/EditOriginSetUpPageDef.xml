@@ -43,6 +43,7 @@
           <Item Value="OriginId"/>
           <Item Value="Inactive"/>
           <Item Value="InactiveDate"/>
+          <Item Value="PcsshortnameId"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -72,5 +73,12 @@
         <Item Value="InactiveDate"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewOriginsEOVOIterator" id="XpeDccNycDosDistrict">
+      <AttrNames>
+        <Item Value="XpeDccNycDosDistrict"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="XpeDccCfgNewOgnAssTerminalsEOVOIterator" StaticList="false" Uses="LOV_PcsshortnameId"
+                  id="PcsshortnameId"/>
   </bindings>
 </pageDefinition>

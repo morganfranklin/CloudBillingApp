@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="generalConversionSetUpPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XpeDccCfgGeneralCnvEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgGeneralCnvEOVOIterator"/>
+    <searchRegion Criteria="GeneralConversionCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="XpeDccCfgGeneralCnvEOVOIterator" id="GeneralConversionCriteriaQuery"/>
+    <iterator Binds="XpeDccCfgNewGeneralCnvEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewGeneralCnvEOVOIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="XpeDccCfgGeneralCnvEOVOIterator" id="XpeDccCfgGeneralCnvEOVO">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccCfgGeneralCnvEOVO" Name="XpeDccCfgGeneralCnvEOVO0">
+        <AttrNames>
+          <Item Value="GeneralCnvId"/>
+          <Item Value="CarrierId" Binds="CarrierId2"/>
+          <Item Value="OriginId" Binds="OriginId2"/>
+          <Item Value="DestinationId" Binds="DestinationId2"/>
+          <Item Value="MaterialId" Binds="MaterialId2"/>
+          <Item Value="PcsShortNameId" Binds="PcsShortNameId2"/>
+          <Item Value="TranslationConsumer"/>
+          <Item Value="ConversionValue"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="XpeDccCfgNewGeneralCnvEOVOIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <attributeValues IterBinding="XpeDccCfgNewGeneralCnvEOVOIterator" id="GeneralCnvId">
+      <AttrNames>
+        <Item Value="GeneralCnvId"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="XpeDccCfgNewGeneralCnvEOVOIterator" StaticList="false" Uses="LOV_CarrierId"
+                  id="CarrierId"/>
+    <listOfValues IterBinding="XpeDccCfgNewGeneralCnvEOVOIterator" StaticList="false" Uses="LOV_OriginId"
+                  id="OriginId"/>
+    <listOfValues IterBinding="XpeDccCfgNewGeneralCnvEOVOIterator" StaticList="false" Uses="LOV_DestinationId"
+                  id="DestinationId"/>
+    <listOfValues IterBinding="XpeDccCfgNewGeneralCnvEOVOIterator" StaticList="false" Uses="LOV_MaterialId"
+                  id="MaterialId"/>
+    <listOfValues IterBinding="XpeDccCfgNewGeneralCnvEOVOIterator" StaticList="false" Uses="LOV_PcsShortNameId"
+                  id="PcsShortNameId"/>
+    <list IterBinding="XpeDccCfgNewGeneralCnvEOVOIterator" StaticList="false" Uses="LOV_TranslationConsumer"
+          id="TranslationConsumer" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgNewGeneralCnvEOVOIterator" id="ConversionValue">
+      <AttrNames>
+        <Item Value="ConversionValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgGeneralCnvEOVOIterator" id="GeneralCnvId1">
+      <AttrNames>
+        <Item Value="GeneralCnvId"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="XpeDccCfgGeneralCnvEOVOIterator" StaticList="false" Uses="LOV_CarrierId"
+                  id="CarrierId1"/>
+    <listOfValues IterBinding="XpeDccCfgGeneralCnvEOVOIterator" StaticList="false" Uses="LOV_OriginId" id="OriginId1"/>
+    <listOfValues IterBinding="XpeDccCfgGeneralCnvEOVOIterator" StaticList="false" Uses="LOV_DestinationId"
+                  id="DestinationId1"/>
+    <listOfValues IterBinding="XpeDccCfgGeneralCnvEOVOIterator" StaticList="false" Uses="LOV_MaterialId"
+                  id="MaterialId1"/>
+    <listOfValues IterBinding="XpeDccCfgGeneralCnvEOVOIterator" StaticList="false" Uses="LOV_PcsShortNameId"
+                  id="PcsShortNameId1"/>
+    <list IterBinding="XpeDccCfgGeneralCnvEOVOIterator" StaticList="false" Uses="LOV_TranslationConsumer"
+          id="TranslationConsumer1" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgGeneralCnvEOVOIterator" id="ConversionValue1">
+      <AttrNames>
+        <Item Value="ConversionValue"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgGeneralCnvEOVOIterator" StaticList="false" Uses="LOV_CarrierId" id="CarrierId2"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgGeneralCnvEOVOIterator" StaticList="false" Uses="LOV_OriginId" id="OriginId2"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgGeneralCnvEOVOIterator" StaticList="false" Uses="LOV_DestinationId"
+          id="DestinationId2" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgGeneralCnvEOVOIterator" StaticList="false" Uses="LOV_MaterialId" id="MaterialId2"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgGeneralCnvEOVOIterator" StaticList="false" Uses="LOV_PcsShortNameId"
+          id="PcsShortNameId2" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+  </bindings>
+</pageDefinition>

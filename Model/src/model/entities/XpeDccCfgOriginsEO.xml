@@ -126,6 +126,18 @@
       <Attr Name="_DisplaySize" Value="5"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="XpeDccNycDosDistrict"
+    Precision="50"
+    ColumnName="XPE_DCC_NYC_DOS_DISTRICT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_ORIGINS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="XpeDccCfgOgnAssTerminalsEO"
     Association="model.entities.associations.XpeDccCfgOriginsFkAssoc"
