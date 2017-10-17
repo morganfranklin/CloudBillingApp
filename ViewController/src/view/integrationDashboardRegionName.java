@@ -128,5 +128,9 @@ public class integrationDashboardRegionName implements Serializable {
         setDynamicTaskFlowId("/WEB-INF/setupTables.xml#setupTables");
         return null;
     }
-    
+
+    public String blueLightSpecials() {
+        setDynamicTaskFlowId("/WEB-INF/blsContractRootSetUp.xml#blsContractRootSetUp");
+        return null;
+    }
 }

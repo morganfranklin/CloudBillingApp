@@ -9,6 +9,10 @@ import java.text.SimpleDateFormat;
 
 import java.util.Date;
 
+import javax.el.ELContext;
+import javax.el.ExpressionFactory;
+import javax.el.MethodExpression;
+
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
@@ -25,9 +29,13 @@ import model.views.readonly.XpeDccNewContractCustomerSearchROVOImpl;
 import model.views.readonly.XpeDccNewContractCustomerSearchROVORowImpl;
 
 import oracle.adf.model.BindingContext;
+import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.view.rich.component.rich.RichPopup;
 
+import oracle.adf.view.rich.component.rich.RichQuery;
 import oracle.adf.view.rich.context.AdfFacesContext;
+
+import oracle.adf.view.rich.event.QueryOperationEvent;
 
 import oracle.binding.BindingContainer;
 import oracle.binding.OperationBinding;
@@ -432,5 +440,37 @@ public class XpeDccNewContractMBean implements Serializable {
           return "";
         else
          return val;
+    }
+
+    public void contractQueryOperationListener(QueryOperationEvent queryOperationEvent) {
+        invokeEL("#{bindings.ImplicitViewCriteriaQuery.processQueryOperation}",Object.class,
+                 QueryOperationEvent.class, queryOperationEvent);
+        if (queryOperationEvent.getOperation().name().toUpperCase().equals("RESET")) {
+            DCIteratorBinding carrierIter = ADFUtils.findIterator("XpeDccContractSearchROVOIterator");
+            carrierIter.getViewObject().executeEmptyRowSet();
+            AdfFacesContext.getCurrentInstance().addPartialTarget(this.getXpeDccNewContractBBean().getContractSearchROVOTblBind());
+        }
+    }
+    
+    public Object invokeMethodExpression(String expr, Class returnType, Class[] argTypes, Object[] args) {
+        FacesContext fc = FacesContext.getCurrentInstance();
+        ELContext elctx = fc.getELContext();
+        ExpressionFactory elFactory = fc.getApplication().getExpressionFactory();
+        MethodExpression methodExpr = elFactory.createMethodExpression(elctx, expr, returnType, argTypes);
+        return methodExpr.invoke(elctx, args);
+    }
+
+    public Object invokeEL(String expr, Class returnType, Class argType, Object argument) {
+        return invokeMethodExpression(expr, returnType, new Class[] { argType }, new Object[] { argument });
+    }
+
+    public void contractCustQueryOperationListener(QueryOperationEvent queryOperationEvent) {
+        invokeEL("#{bindings.NewContractCustomerSearchQuery.processQueryOperation}",Object.class,
+                 QueryOperationEvent.class, queryOperationEvent);
+        if (queryOperationEvent.getOperation().name().toUpperCase().equals("RESET")) {
+            DCIteratorBinding carrierIter = ADFUtils.findIterator("XpeDccNewContractCustomerSearchROVOIterator");
+            carrierIter.getViewObject().executeEmptyRowSet();
+            AdfFacesContext.getCurrentInstance().addPartialTarget(this.getXpeDccNewContractBBean().getContractCustSearchROVOTblBind());
+        }
     }
 }
