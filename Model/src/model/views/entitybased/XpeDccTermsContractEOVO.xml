@@ -62,6 +62,13 @@
     EntityAttrName="XpeDccTermTemplate"
     EntityUsage="XpeDccTermsContractEO"
     AliasName="XPE_DCC_TERM_TEMPLATE"/>
+  <ViewAttribute
+    Name="XpeDccContractVersion"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="XpeDccContractVersion"
+    EntityUsage="XpeDccTermsContractEO"
+    AliasName="XPE_DCC_CONTRACT_VERSION"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

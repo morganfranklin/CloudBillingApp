@@ -600,6 +600,11 @@
         ViewLink="model.XpeDccContractsAttachmFk2Link"
         Type="oracle.jbo.RowIterator"
         IsUpdateable="false"/>
+    <ViewLinkAccessor
+        Name="XpeDccTermsContractEOVO"
+        ViewLink="model.views.entitybased.XpeDccTermsContractFKVL"
+        Type="oracle.jbo.RowIterator"
+        IsUpdateable="false"/>
     <ResourceBundle>
         <PropertiesBundle
             PropertiesFile="model.ModelBundle"/>

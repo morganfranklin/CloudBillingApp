@@ -10,6 +10,8 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class XpeDccTermsContractEOVORowImpl extends ViewRowImpl {
+
+
     public static final int ENTITY_XPEDCCTERMSCONTRACTEO = 0;
 
     /**
@@ -20,8 +22,10 @@ public class XpeDccTermsContractEOVORowImpl extends ViewRowImpl {
         XpeDccContractId,
         XpeDccSeq,
         XpeDccTerm,
-        XpeDccTermTemplate;
-        private static AttributesEnum[] vals = null;
+        XpeDccTermTemplate,
+        XpeDccContractVersion;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -43,11 +47,14 @@ public class XpeDccTermsContractEOVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
+
     public static final int XPEDCCCLAUSE = AttributesEnum.XpeDccClause.index();
     public static final int XPEDCCCONTRACTID = AttributesEnum.XpeDccContractId.index();
     public static final int XPEDCCSEQ = AttributesEnum.XpeDccSeq.index();
     public static final int XPEDCCTERM = AttributesEnum.XpeDccTerm.index();
     public static final int XPEDCCTERMTEMPLATE = AttributesEnum.XpeDccTermTemplate.index();
+    public static final int XPEDCCCONTRACTVERSION = AttributesEnum.XpeDccContractVersion.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -141,6 +148,22 @@ public class XpeDccTermsContractEOVORowImpl extends ViewRowImpl {
      */
     public void setXpeDccTermTemplate(ClobDomain value) {
         setAttributeInternal(XPEDCCTERMTEMPLATE, value);
+    }
+
+    /**
+     * Gets the attribute value for XPE_DCC_CONTRACT_VERSION using the alias name XpeDccContractVersion.
+     * @return the XPE_DCC_CONTRACT_VERSION
+     */
+    public String getXpeDccContractVersion() {
+        return (String) getAttributeInternal(XPEDCCCONTRACTVERSION);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for XPE_DCC_CONTRACT_VERSION using the alias name XpeDccContractVersion.
+     * @param value value to set the XPE_DCC_CONTRACT_VERSION
+     */
+    public void setXpeDccContractVersion(String value) {
+        setAttributeInternal(XPEDCCCONTRACTVERSION, value);
     }
 }
 

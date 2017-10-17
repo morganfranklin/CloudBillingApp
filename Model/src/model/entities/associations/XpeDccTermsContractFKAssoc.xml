@@ -10,10 +10,10 @@
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <AssociationEnd
-    Name="XpeDccContracts"
+    Name="XpeDccContractVersion1"
     Cardinality="1"
     Source="true"
-    Owner="model.XpeDccContracts"
+    Owner="model.XpeDccContractVersion"
     CascadeUpdate="true"
     CascadeDelete="true"
     LockLevel="NONE">
@@ -21,11 +21,11 @@
       <Attr Name="_isUpdateable" Value="true"/>
       <Attr Name="_minCardinality" Value="1"/>
       <Attr Name="_aggregation" Value="0"/>
-      <Attr Name="_finderName" Value="XpeDccContracts"/>
-      <Attr Name="_foreignKey" Value="model.XpeDccContracts.XpeDccContractsPk"/>
+      <Attr Name="_finderName" Value="XpeDccContractVersion1"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="model.XpeDccContracts.XpeContractId"/>
+      <Item Value="model.XpeDccContractVersion.XpeContractId"/>
+      <Item Value="model.XpeDccContractVersion.XpeContractVersion"/>
     </AttrArray>
   </AssociationEnd>
   <AssociationEnd
@@ -37,10 +37,10 @@
       <Attr Name="_isUpdateable" Value="true"/>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="XpeDccTermsContractEO"/>
-      <Attr Name="_foreignKey" Value="model.entities.XpeDccTermsContractEO.fk_XpeDccTermsContractEO"/>
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.entities.XpeDccTermsContractEO.XpeDccContractId"/>
+      <Item Value="model.entities.XpeDccTermsContractEO.XpeDccContractVersion"/>
     </AttrArray>
   </AssociationEnd>
 </Association>

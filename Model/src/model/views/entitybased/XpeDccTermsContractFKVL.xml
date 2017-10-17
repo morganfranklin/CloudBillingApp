@@ -14,16 +14,18 @@
     </SchemaBasedProperties>
   </Properties>
   <ViewLinkDefEnd
-    Name="XpeDccNewContractsEOVO"
+    Name="XpeDccContractVersionView"
     Cardinality="1"
     Source="true"
-    Owner="model.views.entitybased.XpeDccNewContractsEOVO">
+    Owner="model.XpeDccContractVersionView">
     <DesignTime>
       <Attr Name="_isUpdateable" Value="true"/>
-      <Attr Name="_finderName" Value="XpeDccNewContractsEOVO"/>
+      <Attr Name="_finderName" Value="XpeDccContractVersionView"/>
+      <Attr Name="_minCardinality" Value="1"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="model.views.entitybased.XpeDccNewContractsEOVO.XpeContractId"/>
+      <Item Value="model.XpeDccContractVersionView.XpeContractId"/>
+      <Item Value="model.XpeDccContractVersionView.XpeContractVersion"/>
     </AttrArray>
   </ViewLinkDefEnd>
   <ViewLinkDefEnd
@@ -36,6 +38,7 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.views.entitybased.XpeDccTermsContractEOVO.XpeDccContractId"/>
+      <Item Value="model.views.entitybased.XpeDccTermsContractEOVO.XpeDccContractVersion"/>
     </AttrArray>
   </ViewLinkDefEnd>
   <ResourceBundle>

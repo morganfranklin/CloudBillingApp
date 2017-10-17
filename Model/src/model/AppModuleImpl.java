@@ -1689,7 +1689,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                     Key key =
                         new Key(new Object[] { contractSearchROVORow.getXpeContractId(),
                                                contractSearchROVORow.getXpeContractVersion() });
-                    Row[] rows = this.getXpeDccContractVersionView1().findByKey(key, 1);
+                    Row[] rows = this.getXpeDccNewContractVersionView().findByKey(key, 1);
                     if (null != rows && rows.length > 0) {
                         Integer version = getVersionNumber();
                         XpeDccContractVersionViewRowImpl sourceContractVersionViewRow =
@@ -2079,21 +2079,6 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         return (ViewObjectImpl) findViewObject("XpeDccCfgGeneralCnvEOVO");
     }
 
-    /**
-     * Container's getter for XpeDccTermsContractEOVO1.
-     * @return XpeDccTermsContractEOVO1
-     */
-    public XpeDccTermsContractEOVOImpl getXpeDccTermsContractEOVO() {
-        return (XpeDccTermsContractEOVOImpl) findViewObject("XpeDccTermsContractEOVO");
-    }
-
-    /**
-     * Container's getter for XpeDccTermsContractFKVL1.
-     * @return XpeDccTermsContractFKVL1
-     */
-    public ViewLinkImpl getXpeDccTermsContractFKVL1() {
-        return (ViewLinkImpl) findViewLink("XpeDccTermsContractFKVL1");
-    }
 
     /**
      * Container's getter for XpeDccTermsForMasterTermROVO1.
@@ -2377,6 +2362,22 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public ViewObjectImpl getXpeDccCfgNewGeneralCnvEOVO() {
         return (ViewObjectImpl) findViewObject("XpeDccCfgNewGeneralCnvEOVO");
+    }
+
+    /**
+     * Container's getter for XpeDccTermsContractEOVO1.
+     * @return XpeDccTermsContractEOVO1
+     */
+    public XpeDccTermsContractEOVOImpl getXpeDccTermsContractEOVO() {
+        return (XpeDccTermsContractEOVOImpl) findViewObject("XpeDccTermsContractEOVO");
+    }
+
+    /**
+     * Container's getter for XpeDccTermsContractFKVL1.
+     * @return XpeDccTermsContractFKVL1
+     */
+    public ViewLinkImpl getXpeDccTermsContractFKVL1() {
+        return (ViewLinkImpl) findViewLink("XpeDccTermsContractFKVL1");
     }
 }
 

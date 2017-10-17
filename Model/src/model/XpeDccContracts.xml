@@ -126,13 +126,6 @@
       AssociationOtherEnd="model.XpeDccPlatformEventFk1Assoc.XpeDccContracts"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false"/>
-    <AccessorAttribute
-        Name="XpeDccTermsContractEO"
-        Association="model.entities.associations.XpeDccTermsContractFKAssoc"
-        AssociationEnd="model.entities.associations.XpeDccTermsContractFKAssoc.XpeDccTermsContractEO"
-        AssociationOtherEnd="model.entities.associations.XpeDccTermsContractFKAssoc.XpeDccContracts"
-        Type="oracle.jbo.RowIterator"
-        IsUpdateable="false"/>
     <Key
       Name="XpeDccContractsPk"
       PrimaryKey="true">

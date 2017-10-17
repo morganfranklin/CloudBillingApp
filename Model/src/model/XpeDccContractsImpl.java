@@ -24,9 +24,9 @@ public class XpeDccContractsImpl extends EntityImpl {
         XpeDccPcsname,
         XpeDccContractParty,
         XpeDccContractVersion,
-        XpeDccPlatformEvent,
-        XpeDccTermsContractEO;
-        private static AttributesEnum[] vals = null;
+        XpeDccPlatformEvent;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -60,7 +60,6 @@ public class XpeDccContractsImpl extends EntityImpl {
     public static final int XPEDCCCONTRACTPARTY = AttributesEnum.XpeDccContractParty.index();
     public static final int XPEDCCCONTRACTVERSION = AttributesEnum.XpeDccContractVersion.index();
     public static final int XPEDCCPLATFORMEVENT = AttributesEnum.XpeDccPlatformEvent.index();
-    public static final int XPEDCCTERMSCONTRACTEO = AttributesEnum.XpeDccTermsContractEO.index();
 
     /**
      * This is the default constructor (do not remove).

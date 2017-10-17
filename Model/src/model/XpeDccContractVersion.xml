@@ -255,6 +255,13 @@
         AssociationOtherEnd="model.XpeDccContractsAttachmFk2Assoc.XpeDccContractVersion"
         Type="oracle.jbo.RowIterator"
         IsUpdateable="false"/>
+    <AccessorAttribute
+        Name="XpeDccTermsContractEO"
+        Association="model.entities.associations.XpeDccTermsContractFKAssoc"
+        AssociationEnd="model.entities.associations.XpeDccTermsContractFKAssoc.XpeDccTermsContractEO"
+        AssociationOtherEnd="model.entities.associations.XpeDccTermsContractFKAssoc.XpeDccContractVersion1"
+        Type="oracle.jbo.RowIterator"
+        IsUpdateable="false"/>
     <Key
         Name="XpeDccContractVersionPk"
         PrimaryKey="true">

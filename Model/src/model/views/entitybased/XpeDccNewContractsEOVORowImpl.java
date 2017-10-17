@@ -26,8 +26,7 @@ public class XpeDccNewContractsEOVORowImpl extends ViewRowImpl {
         XpeContractDesc,
         XpeContractId,
         XpeDccPcsname,
-        XpeDccContractVersionView,
-        XpeDccTermsContractEOVO;
+        XpeDccContractVersionView;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -61,7 +60,6 @@ public class XpeDccNewContractsEOVORowImpl extends ViewRowImpl {
     public static final int XPECONTRACTID = AttributesEnum.XpeContractId.index();
     public static final int XPEDCCPCSNAME = AttributesEnum.XpeDccPcsname.index();
     public static final int XPEDCCCONTRACTVERSIONVIEW = AttributesEnum.XpeDccContractVersionView.index();
-    public static final int XPEDCCTERMSCONTRACTEOVO = AttributesEnum.XpeDccTermsContractEOVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -196,12 +194,6 @@ public class XpeDccNewContractsEOVORowImpl extends ViewRowImpl {
         return (RowIterator) getAttributeInternal(XPEDCCCONTRACTVERSIONVIEW);
     }
 
-    /**
-     * Gets the associated <code>RowIterator</code> using master-detail link XpeDccTermsContractEOVO.
-     */
-    public RowIterator getXpeDccTermsContractEOVO() {
-        return (RowIterator) getAttributeInternal(XPEDCCTERMSCONTRACTEOVO);
-    }
 
 }
 
