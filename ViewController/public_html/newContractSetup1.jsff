@@ -230,7 +230,7 @@
                                                           value="#{bindings.NewContractCustomerSearchQuery.queryDescriptor}"
                                                           model="#{bindings.NewContractCustomerSearchQuery.queryModel}"
                                                           queryListener="#{bindings.NewContractCustomerSearchQuery.processQuery}"
-                                                          queryOperationListener="#{bindings.NewContractCustomerSearchQuery.processQueryOperation}"
+                                                          queryOperationListener="#{pageFlowScope.XpeDccNewContractMBean.contractCustQueryOperationListener}"
                                                           resultComponentId="::resId1"/>
                                                 <af:table value="#{bindings.XpeDccNewContractCustomerSearchROVO.collectionModel}"
                                                           var="row"
@@ -242,7 +242,8 @@
                                                           rowSelection="single"
                                                           fetchSize="#{bindings.XpeDccNewContractCustomerSearchROVO.rangeSize}"
                                                           id="resId1" columnStretching="last"
-                                                          contentDelivery="immediate">
+                                                          contentDelivery="immediate"
+                                                          binding="#{backingBeanScope.XpeDccNewContractBBean.contractCustSearchROVOTblBind}">
                                                     <af:column headerText="#{bindings.XpeDccNewContractCustomerSearchROVO.hints.CustId.label}"
                                                                id="resId1c1">
                                                         <af:link text="#{row.CustId}" id="l1"
@@ -294,7 +295,7 @@
                                                           value="#{bindings.ImplicitViewCriteriaQuery.queryDescriptor}"
                                                           model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
                                                           queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}"
-                                                          queryOperationListener="#{bindings.ImplicitViewCriteriaQuery.processQueryOperation}"
+                                                          queryOperationListener="#{pageFlowScope.XpeDccNewContractMBean.contractQueryOperationListener}"
                                                           resultComponentId="::resId2"/>
                                                 <af:table value="#{bindings.XpeDccContractSearchROVO.collectionModel}"
                                                           var="row"
@@ -305,13 +306,14 @@
                                                           selectionListener="#{bindings.XpeDccContractSearchROVO.collectionModel.makeCurrent}"
                                                           rowSelection="single"
                                                           fetchSize="#{bindings.XpeDccContractSearchROVO.rangeSize}"
-                                                          id="resId2" contentDelivery="immediate">
+                                                          id="resId2" contentDelivery="immediate"
+                                                          binding="#{backingBeanScope.XpeDccNewContractBBean.contractSearchROVOTblBind}">
                                                     <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.XpeContractId.label}"
                                                                id="resId2c1" width="98">
-                                                        <af:outputText value="#{row.XpeContractId}"
-                                                                       shortDesc="#{bindings.XpeDccContractSearchROVO.hints.XpeContractId.tooltip}"
-                                                                       id="ot1"/>
-                                                    </af:column>
+                                                        <af:link text="#{row.XpeContractId}" id="l2"
+                                                                 partialSubmit="true"
+                                                                 action="#{controllerContext.currentViewPort.taskFlowContext.trainModel.getNext}"/>
+                                                     </af:column>
                                                     <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.XpeContractVersion.label}"
                                                                id="resId2c2" headerNoWrap="true" width="122">
                                                         <af:outputText value="#{row.XpeContractVersion}"

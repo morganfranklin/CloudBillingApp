@@ -1,10 +1,15 @@
 package view;
 
 import oracle.adf.view.rich.component.rich.RichPopup;
+import oracle.adf.view.rich.component.rich.RichQuery;
+import oracle.adf.view.rich.component.rich.data.RichTable;
 import oracle.adf.view.rich.component.rich.input.RichTextEditor;
 
 
 public class XpeDccNewContractBBean {
+    private RichTable contractSearchROVOTblBind;
+    private RichTable contractCustSearchROVOTblBind;
+
     public XpeDccNewContractBBean() {
         super();
     }
@@ -26,5 +31,21 @@ public class XpeDccNewContractBBean {
 
     public RichPopup getHtml_popup() {
         return html_popup;
+    }
+
+    public void setContractSearchROVOTblBind(RichTable contractSearchROVOTblBind) {
+        this.contractSearchROVOTblBind = contractSearchROVOTblBind;
+    }
+
+    public RichTable getContractSearchROVOTblBind() {
+        return contractSearchROVOTblBind;
+    }
+
+    public void setContractCustSearchROVOTblBind(RichTable contractCustSearchROVOTblBind) {
+        this.contractCustSearchROVOTblBind = contractCustSearchROVOTblBind;
+    }
+
+    public RichTable getContractCustSearchROVOTblBind() {
+        return contractCustSearchROVOTblBind;
     }
 }

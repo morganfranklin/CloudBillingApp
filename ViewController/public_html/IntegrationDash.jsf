@@ -178,6 +178,13 @@
                                                 <af:link text="Set Up Tables" id="l22" action="#{viewScope.integrationDashboardRegionName.setUpTables}"/>
                                             </af:gridCell>
                                         </af:gridRow>
+                                        <af:gridRow id="gr29" marginTop="5px" marginBottom="5px">
+                                            <af:gridCell id="gc29" width="100%" marginStart="5px" marginEnd="5px">
+                                                <af:link text="Blue Light Specials" id="l24"
+                                                         action="#{viewScope.integrationDashboardRegionName.blueLightSpecials}"
+                                                         partialSubmit="true"/>
+                                            </af:gridCell>
+                                        </af:gridRow>
                                     </af:panelGridLayout>
                                 </af:panelBox>
                             </af:gridCell>
