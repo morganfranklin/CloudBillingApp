@@ -9,7 +9,11 @@
   DBObjectType="table"
   DBObjectName="XPE_DCC_WF_EVENT"
   AliasName="XpeDccWfEventEO"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="model.entities.XpeDccWfEventEOImpl">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="XpeContractId"
     IsNotNull="true"
