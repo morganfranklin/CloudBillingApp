@@ -118,7 +118,7 @@ public class XpeDccNewContractMBean implements Serializable {
                         contractRow.setCustId(existCustomerRow.getCustId());
                     }
                 }
-            } else if ("UPDATE".equals(contractType)) {
+            } else if ("UPDATE".equals(contractType) || "BLS".equals(contractType)) {
                 BindingContext bc = BindingContext.getCurrent();
                 BindingContainer bindings = bc.getCurrentBindingsEntry();
                 OperationBinding operationBinding = bindings.getOperationBinding("createNewContractVersion");
