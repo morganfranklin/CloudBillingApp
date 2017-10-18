@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XpeDccWfActionFKVL"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  EntityAssociation="model.entities.associations.XpeDccWfActionFk1Assoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.views.entitybased.XpeDccWfActionFKVL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="XpeDccWfEventEOVO"
+    Cardinality="1"
+    Source="true"
+    Owner="model.views.entitybased.XpeDccWfEventEOVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="XpeDccWfEventEOVO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.views.entitybased.XpeDccWfEventEOVO.XpeEventNumber"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="XpeDccWfActionEOVO"
+    Cardinality="-1"
+    Owner="model.views.entitybased.XpeDccWfActionEOVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="XpeDccWfActionEOVO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.views.entitybased.XpeDccWfActionEOVO.XpeEventNumber"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

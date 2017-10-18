@@ -561,6 +561,12 @@
     <ViewUsage
         Name="XpeDccTermsContractEOVO"
         ViewObjectName="model.views.entitybased.XpeDccTermsContractEOVO"/>
+    <ViewUsage
+        Name="XpeDccWfEventEOVO"
+        ViewObjectName="model.views.entitybased.XpeDccWfEventEOVO"/>
+    <ViewUsage
+        Name="XpeDccWfActionEOVO"
+        ViewObjectName="model.views.entitybased.XpeDccWfActionEOVO"/>
     <ViewLinkUsage
         Name="NeuRuleTblFk1Link1"
         ViewLinkObjectName="model.NeuRuleTblFk1Link"
@@ -812,6 +818,12 @@
         ViewLinkObjectName="model.views.entitybased.XpeDccTermsContractFKVL"
         SrcViewUsageName="model.AppModule.XpeDccNewContractVersionView"
         DstViewUsageName="model.AppModule.XpeDccTermsContractEOVO"
+        Reversed="false"/>
+    <ViewLinkUsage
+        Name="XpeDccWfActionFKVL1"
+        ViewLinkObjectName="model.views.entitybased.XpeDccWfActionFKVL"
+        SrcViewUsageName="model.AppModule.XpeDccWfEventEOVO"
+        DstViewUsageName="model.AppModule.XpeDccWfActionEOVO"
         Reversed="false"/>
     <ClientInterface
         Name="__clientInterface">

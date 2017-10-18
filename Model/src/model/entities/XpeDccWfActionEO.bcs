@@ -1,0 +1,12 @@
+//Groovy Scripts for model.entities.XpeDccWfActionEO
+
+package model.entities
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="XpeApproverSequence")
+def XpeApproverSequence_ExpressionScript_Expression()
+{
+(new oracle.jbo.server.SequenceImpl("XPE_DCC_WF_ACTION_SEQ",adf.object.getDBTransaction())).getSequenceNumber()
+}
+

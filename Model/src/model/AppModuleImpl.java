@@ -1,8 +1,11 @@
 package model;
 
+import java.math.BigDecimal;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.UUID;
 
 import model.common.AppModule;
 
@@ -25,6 +28,10 @@ import model.views.entitybased.XpeDccNewContractsEOVOImpl;
 import model.views.entitybased.XpeDccNewContractsEOVORowImpl;
 import model.views.entitybased.XpeDccTermsContractEOVOImpl;
 import model.views.entitybased.XpeDccTermsContractEOVORowImpl;
+import model.views.entitybased.XpeDccWfActionEOVOImpl;
+import model.views.entitybased.XpeDccWfActionEOVORowImpl;
+import model.views.entitybased.XpeDccWfEventEOVOImpl;
+import model.views.entitybased.XpeDccWfEventEOVORowImpl;
 import model.views.entitybased.XpeDmsCustomerEOVOImpl;
 import model.views.entitybased.XpeDmsCustomerEOVORowImpl;
 import model.views.readonly.XpeDccCfgDstAssTerminalsROVOImpl;
@@ -1663,12 +1670,37 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             }
             //commiting transaction
             this.getDBTransaction().commit();
+            //creating approval work flow
+            createApprovalWFEventAction();
             return true;
         } catch (Exception e) {
             // TODO: Add catch code
             e.printStackTrace();
             return false;
         }
+    }
+    
+    private void createApprovalWFEventAction(){
+        XpeDccNewContractsEOVORowImpl newContractRow =
+            (XpeDccNewContractsEOVORowImpl) this.getXpeDccNewContractsEOVO().getCurrentRow();
+        XpeDccContractVersionViewRowImpl xpeDccContractVersionViewRow=(XpeDccContractVersionViewRowImpl)newContractRow.getXpeDccContractVersionView().getCurrentRow();
+        //creating Approval Work Flow Event
+        XpeDccWfEventEOVORowImpl approvalWFEventRow =
+        (XpeDccWfEventEOVORowImpl) this.getXpeDccWfEventEOVO().createRow();
+        approvalWFEventRow.setXpeContractId(xpeDccContractVersionViewRow.getXpeContractId());
+        approvalWFEventRow.setXpeContractVersion(xpeDccContractVersionViewRow.getXpeContractVersion());
+        approvalWFEventRow.setXpeEventStatus("P");
+        approvalWFEventRow.setXpeEventType("I");
+        this.getXpeDccWfEventEOVO().insertRow(approvalWFEventRow);
+
+        //creating Approval Work Flow Action
+        XpeDccWfActionEOVORowImpl xpeDccWfActionEOVORow =(XpeDccWfActionEOVORowImpl)approvalWFEventRow.getXpeDccWfActionEOVO().createRow();
+        xpeDccWfActionEOVORow.setXpeContractId(xpeDccContractVersionViewRow.getXpeContractId());
+        xpeDccWfActionEOVORow.setXpeContractVersion(xpeDccContractVersionViewRow.getXpeContractVersion());
+        xpeDccWfActionEOVORow.setXpeUuid(UUID.randomUUID().toString());
+        xpeDccWfActionEOVORow.setXpeApproverEmail("nkoneru@morganfranklin.com");
+        xpeDccWfActionEOVORow.setXpeActionStatus("P");
+        approvalWFEventRow.getXpeDccWfActionEOVO().insertRow(xpeDccWfActionEOVORow);
     }
     
     public String createNewContractVersion(){
@@ -2378,6 +2410,30 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public ViewLinkImpl getXpeDccTermsContractFKVL1() {
         return (ViewLinkImpl) findViewLink("XpeDccTermsContractFKVL1");
+    }
+
+    /**
+     * Container's getter for XpeDccWfEventEOVO1.
+     * @return XpeDccWfEventEOVO1
+     */
+    public XpeDccWfEventEOVOImpl getXpeDccWfEventEOVO() {
+        return (XpeDccWfEventEOVOImpl) findViewObject("XpeDccWfEventEOVO");
+    }
+
+    /**
+     * Container's getter for XpeDccWfActionEOVO1.
+     * @return XpeDccWfActionEOVO1
+     */
+    public XpeDccWfActionEOVOImpl getXpeDccWfActionEOVO() {
+        return (XpeDccWfActionEOVOImpl) findViewObject("XpeDccWfActionEOVO");
+    }
+
+    /**
+     * Container's getter for XpeDccWfActionFKVL1.
+     * @return XpeDccWfActionFKVL1
+     */
+    public ViewLinkImpl getXpeDccWfActionFKVL1() {
+        return (ViewLinkImpl) findViewLink("XpeDccWfActionFKVL1");
     }
 }
 

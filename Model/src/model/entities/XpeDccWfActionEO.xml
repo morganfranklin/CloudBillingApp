@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XpeDccWfActionEO"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="XPE_DCC_WF_ACTION"
+  AliasName="XpeDccWfActionEO"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="XpeContractId"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="XPE_CONTRACT_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_WF_ACTION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="XpeContractVersion"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="XPE_CONTRACT_VERSION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_WF_ACTION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="XpeEventNumber"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="XPE_EVENT_NUMBER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_WF_ACTION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="XpeApproverSequence"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="XPE_APPROVER_SEQUENCE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_WF_ACTION"
+    PrimaryKey="true"
+    IsUpdateable="while_insert">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+    <TransientExpression
+      Name="ExpressionScript"
+      trustMode="untrusted"
+      CodeSourceName="XpeDccWfActionEORow"/>
+  </Attribute>
+  <Attribute
+    Name="XpeUuid"
+    IsNotNull="true"
+    Precision="40"
+    ColumnName="XPE_UUID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_WF_ACTION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="XpeApproverEmail"
+    Precision="20"
+    ColumnName="XPE_APPROVER_EMAIL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_WF_ACTION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="XpeActionStatus"
+    Precision="1"
+    ColumnName="XPE_ACTION_STATUS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_WF_ACTION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_WF_ACTION"
+    IsUpdateable="while_insert"
+    HistoryColumn="UserHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedDate"
+    IsNotNull="true"
+    ColumnName="CREATED_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XPE_DCC_WF_ACTION"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory"/>
+  <Attribute
+    Name="LastUpdatedBy"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_WF_ACTION"
+    HistoryColumn="UserHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedDate"
+    IsNotNull="true"
+    ColumnName="LAST_UPDATED_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XPE_DCC_WF_ACTION"
+    HistoryColumn="DateHistory"/>
+  <AccessorAttribute
+    Name="XpeDccWfEventEO"
+    Association="model.entities.associations.XpeDccWfActionFk1Assoc"
+    AssociationEnd="model.entities.associations.XpeDccWfActionFk1Assoc.XpeDccWfEventEO"
+    AssociationOtherEnd="model.entities.associations.XpeDccWfActionFk1Assoc.XpeDccWfActionEO"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="XpeDccWfActionPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_WF_ACTION_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccWfActionEO.XpeApproverSequence"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccWfActionFk1">
+    <DesignTime>
+      <Attr Name="_isCascadeDelete" Value="true"/>
+      <Attr Name="_referencedKey" Value="XPE_DCC_WF_EVENT_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_WF_ACTION_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccWfActionEO.XpeEventNumber"/>
+    </AttrArray>
+  </Key>
+</Entity>

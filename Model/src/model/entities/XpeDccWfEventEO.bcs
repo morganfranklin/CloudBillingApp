@@ -1,0 +1,12 @@
+//Groovy Scripts for model.entities.XpeDccWfEventEO
+
+package model.entities
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="XpeEventNumber")
+def XpeEventNumber_ExpressionScript_Expression()
+{
+(new oracle.jbo.server.SequenceImpl("XPE_DCC_WF_EVENT_SEQ",adf.object.getDBTransaction())).getSequenceNumber()
+}
+

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XpeDccWfEventEO"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="XPE_DCC_WF_EVENT"
+  AliasName="XpeDccWfEventEO"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="XpeContractId"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="XPE_CONTRACT_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_WF_EVENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="XpeContractVersion"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="XPE_CONTRACT_VERSION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_WF_EVENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="XpeEventNumber"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="XPE_EVENT_NUMBER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_WF_EVENT"
+    PrimaryKey="true"
+    IsUpdateable="while_insert">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+    <TransientExpression
+      Name="ExpressionScript"
+      CodeSourceName="XpeDccWfEventEORow"/>
+  </Attribute>
+  <Attribute
+    Name="XpeEventStatus"
+    Precision="1"
+    ColumnName="XPE_EVENT_STATUS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_WF_EVENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="XpeEventType"
+    Precision="1"
+    ColumnName="XPE_EVENT_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_WF_EVENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_WF_EVENT"
+    IsUpdateable="while_insert"
+    HistoryColumn="UserHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedDate"
+    IsNotNull="true"
+    ColumnName="CREATED_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XPE_DCC_WF_EVENT"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory"/>
+  <Attribute
+    Name="LastUpdatedBy"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_WF_EVENT"
+    HistoryColumn="UserHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedDate"
+    IsNotNull="true"
+    ColumnName="LAST_UPDATED_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XPE_DCC_WF_EVENT"
+    HistoryColumn="DateHistory"/>
+  <AccessorAttribute
+    Name="XpeDccWfActionEO"
+    Association="model.entities.associations.XpeDccWfActionFk1Assoc"
+    AssociationEnd="model.entities.associations.XpeDccWfActionFk1Assoc.XpeDccWfActionEO"
+    AssociationOtherEnd="model.entities.associations.XpeDccWfActionFk1Assoc.XpeDccWfEventEO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="XpeDccWfEventPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_WF_EVENT_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccWfEventEO.XpeEventNumber"/>
+    </AttrArray>
+  </Key>
+</Entity>
