@@ -35,6 +35,7 @@ public class XpeDccContractLineViewRowImpl extends ViewRowImpl {
         BusinessUnitGl,
         XpeDccContractDocTermView,
         XpeDccContractPricingTermView,
+        XpeDccContractPricingOverView,
         XpeDccDicFacilities1,
         XpeDccDicProducts1,
         XpeDccDicProducts2,
@@ -81,6 +82,7 @@ public class XpeDccContractLineViewRowImpl extends ViewRowImpl {
     public static final int BUSINESSUNITGL = AttributesEnum.BusinessUnitGl.index();
     public static final int XPEDCCCONTRACTDOCTERMVIEW = AttributesEnum.XpeDccContractDocTermView.index();
     public static final int XPEDCCCONTRACTPRICINGTERMVIEW = AttributesEnum.XpeDccContractPricingTermView.index();
+    public static final int XPEDCCCONTRACTPRICINGOVERVIEW = AttributesEnum.XpeDccContractPricingOverView.index();
     public static final int XPEDCCDICFACILITIES1 = AttributesEnum.XpeDccDicFacilities1.index();
     public static final int XPEDCCDICPRODUCTS1 = AttributesEnum.XpeDccDicProducts1.index();
     public static final int XPEDCCDICPRODUCTS2 = AttributesEnum.XpeDccDicProducts2.index();
@@ -309,6 +311,13 @@ public class XpeDccContractLineViewRowImpl extends ViewRowImpl {
      */
     public RowIterator getXpeDccContractPricingTermView() {
         return (RowIterator) getAttributeInternal(XPEDCCCONTRACTPRICINGTERMVIEW);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link XpeDccContractPricingOverView.
+     */
+    public RowIterator getXpeDccContractPricingOverView() {
+        return (RowIterator) getAttributeInternal(XPEDCCCONTRACTPRICINGOVERVIEW);
     }
 
     /**

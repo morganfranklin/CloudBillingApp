@@ -1,5 +1,7 @@
 package model;
 
+import java.awt.Container;
+
 import java.math.BigDecimal;
 
 import java.util.ArrayList;
@@ -976,13 +978,6 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         return (XpeDccContractCarrierViewImpl) findViewObject("XpeDccContractCarrierView1");
     }
 
-    /**
-     * Container's getter for XpeDccContractPricingOverView1.
-     * @return XpeDccContractPricingOverView1
-     */
-    public ViewObjectImpl getXpeDccContractPricingOverView1() {
-        return (ViewObjectImpl) findViewObject("XpeDccContractPricingOverView1");
-    }
 
     /**
      * Container's getter for XpeDccContractNotesView1.
@@ -1169,13 +1164,6 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         return (ViewLinkImpl) findViewLink("XpeDccContractCarrierFk1Link1");
     }
 
-    /**
-     * Container's getter for XpeDccContractPricingFk2Link1.
-     * @return XpeDccContractPricingFk2Link1
-     */
-    public ViewLinkImpl getXpeDccContractPricingFk2Link1() {
-        return (ViewLinkImpl) findViewLink("XpeDccContractPricingFk2Link1");
-    }
 
     /**
      * Container's getter for XpeDccContractNotesFk1Link1.
@@ -2434,6 +2422,38 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public ViewLinkImpl getXpeDccWfActionFKVL1() {
         return (ViewLinkImpl) findViewLink("XpeDccWfActionFKVL1");
+    }
+    
+    /**
+     * Container's getter for XpeDccContractPricingOverView1.
+     * @return XpeDccContractPricingOverView1
+     */
+    public ViewObjectImpl getXpeDccContractPricingOverView1() {
+        return (ViewObjectImpl) findViewObject("XpeDccContractPricingOverView1");
+    }
+
+    /**
+     * Container's getter for XpeDccContractPricingFk2Link1.
+     * @return XpeDccContractPricingFk2Link1
+     */
+    public ViewLinkImpl getXpeDccContractPricingFk2Link1() {
+        return (ViewLinkImpl) findViewLink("XpeDccContractPricingFk2Link1");
+    }
+
+    /**
+     * Container's getter for XpeDccContractPricingOverView2.
+     * @return XpeDccContractPricingOverView2
+     */
+    public ViewObjectImpl getXpeDccNewContractPricingOverView() {
+        return (ViewObjectImpl) findViewObject("XpeDccNewContractPricingOverView");
+    }
+
+    /**
+     * Container's getter for XpeDccContractPricingFk2Link2.
+     * @return XpeDccContractPricingFk2Link2
+     */
+    public ViewLinkImpl getXpeDccContractPricingFk2Link2() {
+        return (ViewLinkImpl) findViewLink("XpeDccContractPricingFk2Link2");
     }
 }
 

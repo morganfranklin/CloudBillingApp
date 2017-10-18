@@ -354,9 +354,6 @@
         Name="XpeDccContractCarrierView1"
         ViewObjectName="model.XpeDccContractCarrierView"/>
     <ViewUsage
-        Name="XpeDccContractPricingOverView1"
-        ViewObjectName="model.XpeDccContractPricingOverView"/>
-    <ViewUsage
         Name="XpeDccContractNotesView1"
         ViewObjectName="model.XpeDccContractNotesView"/>
     <ViewUsage
@@ -567,6 +564,12 @@
     <ViewUsage
         Name="XpeDccWfActionEOVO"
         ViewObjectName="model.views.entitybased.XpeDccWfActionEOVO"/>
+    <ViewUsage
+        Name="XpeDccContractPricingOverView1"
+        ViewObjectName="model.XpeDccContractPricingOverView"/>
+    <ViewUsage
+        Name="XpeDccNewContractPricingOverView"
+        ViewObjectName="model.XpeDccContractPricingOverView"/>
     <ViewLinkUsage
         Name="NeuRuleTblFk1Link1"
         ViewLinkObjectName="model.NeuRuleTblFk1Link"
@@ -680,12 +683,6 @@
         ViewLinkObjectName="model.XpeDccContractCarrierFk1Link"
         SrcViewUsageName="model.AppModule.XpeDccContractPricingTermView1"
         DstViewUsageName="model.AppModule.XpeDccContractCarrierView1"
-        Reversed="false"/>
-    <ViewLinkUsage
-        Name="XpeDccContractPricingFk2Link1"
-        ViewLinkObjectName="model.XpeDccContractPricingFk2Link"
-        SrcViewUsageName="model.AppModule.XpeDccContractPricingTermView1"
-        DstViewUsageName="model.AppModule.XpeDccContractPricingOverView1"
         Reversed="false"/>
     <ViewLinkUsage
         Name="XpeDccContractNotesFk1Link1"
@@ -824,6 +821,18 @@
         ViewLinkObjectName="model.views.entitybased.XpeDccWfActionFKVL"
         SrcViewUsageName="model.AppModule.XpeDccWfEventEOVO"
         DstViewUsageName="model.AppModule.XpeDccWfActionEOVO"
+        Reversed="false"/>
+    <ViewLinkUsage
+        Name="XpeDccContractPricingFk2Link1"
+        ViewLinkObjectName="model.XpeDccContractPricingFk2Link"
+        SrcViewUsageName="model.AppModule.XpeDccContractLineView2"
+        DstViewUsageName="model.AppModule.XpeDccContractPricingOverView1"
+        Reversed="false"/>
+    <ViewLinkUsage
+        Name="XpeDccContractPricingFk2Link2"
+        ViewLinkObjectName="model.XpeDccContractPricingFk2Link"
+        SrcViewUsageName="model.AppModule.XpeDccNewContractLineView"
+        DstViewUsageName="model.AppModule.XpeDccNewContractPricingOverView"
         Reversed="false"/>
     <ClientInterface
         Name="__clientInterface">

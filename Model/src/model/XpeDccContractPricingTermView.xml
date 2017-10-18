@@ -4,7 +4,7 @@
 <ViewObject
     xmlns="http://xmlns.oracle.com/bc4j"
     Name="XpeDccContractPricingTermView"
-    Version="12.2.1.0.31"
+    Version="12.2.1.11.57"
     InheritPersonalization="merge"
     SelectListFlags="1"
     FromListFlags="1"
@@ -373,11 +373,6 @@
     <ViewLinkAccessor
         Name="XpeDccContractCarrierView"
         ViewLink="model.XpeDccContractCarrierFk1Link"
-        Type="oracle.jbo.RowIterator"
-        IsUpdateable="false"/>
-    <ViewLinkAccessor
-        Name="XpeDccContractPricingOverView"
-        ViewLink="model.XpeDccContractPricingFk2Link"
         Type="oracle.jbo.RowIterator"
         IsUpdateable="false"/>
     <ResourceBundle>

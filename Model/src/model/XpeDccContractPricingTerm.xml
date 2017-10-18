@@ -4,7 +4,7 @@
 <Entity
     xmlns="http://xmlns.oracle.com/bc4j"
     Name="XpeDccContractPricingTerm"
-    Version="12.2.1.0.31"
+    Version="12.2.1.11.57"
     InheritPersonalization="merge"
     DBObjectType="table"
     DBObjectName="XPE_DCC_CONTRACT_PRICING_TERM"
@@ -252,13 +252,6 @@
         Association="model.XpeDccContractCarrierFk1Assoc"
         AssociationEnd="model.XpeDccContractCarrierFk1Assoc.XpeDccContractCarrier"
         AssociationOtherEnd="model.XpeDccContractCarrierFk1Assoc.XpeDccContractPricingTerm"
-        Type="oracle.jbo.RowIterator"
-        IsUpdateable="false"/>
-    <AccessorAttribute
-        Name="XpeDccContractPricingOver"
-        Association="model.XpeDccContractPricingFk2Assoc"
-        AssociationEnd="model.XpeDccContractPricingFk2Assoc.XpeDccContractPricingOver"
-        AssociationOtherEnd="model.XpeDccContractPricingFk2Assoc.XpeDccContractPricingTerm"
         Type="oracle.jbo.RowIterator"
         IsUpdateable="false"/>
     <AccessorAttribute

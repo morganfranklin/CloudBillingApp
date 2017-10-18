@@ -44,7 +44,6 @@ public class XpeDccContractPricingTermViewRowImpl extends ViewRowImpl {
         XpeMetalsUomDen,
         XpeMetalsUomMlt,
         XpeDccContractCarrierView,
-        XpeDccContractPricingOverView,
         XpeDccDicRateTypes1,
         XpeDccDicRolloverTypes1,
         XpeDccDicResetTypes1,
@@ -99,7 +98,6 @@ public class XpeDccContractPricingTermViewRowImpl extends ViewRowImpl {
     public static final int XPEMETALSUOMDEN = AttributesEnum.XpeMetalsUomDen.index();
     public static final int XPEMETALSUOMMLT = AttributesEnum.XpeMetalsUomMlt.index();
     public static final int XPEDCCCONTRACTCARRIERVIEW = AttributesEnum.XpeDccContractCarrierView.index();
-    public static final int XPEDCCCONTRACTPRICINGOVERVIEW = AttributesEnum.XpeDccContractPricingOverView.index();
     public static final int XPEDCCDICRATETYPES1 = AttributesEnum.XpeDccDicRateTypes1.index();
     public static final int XPEDCCDICROLLOVERTYPES1 = AttributesEnum.XpeDccDicRolloverTypes1.index();
     public static final int XPEDCCDICRESETTYPES1 = AttributesEnum.XpeDccDicResetTypes1.index();
@@ -480,12 +478,6 @@ public class XpeDccContractPricingTermViewRowImpl extends ViewRowImpl {
         return (RowIterator) getAttributeInternal(XPEDCCCONTRACTCARRIERVIEW);
     }
 
-    /**
-     * Gets the associated <code>RowIterator</code> using master-detail link XpeDccContractPricingOverView.
-     */
-    public RowIterator getXpeDccContractPricingOverView() {
-        return (RowIterator) getAttributeInternal(XPEDCCCONTRACTPRICINGOVERVIEW);
-    }
 
     /**
      * Gets the view accessor <code>RowSet</code> XpeDccDicRateTypes1.

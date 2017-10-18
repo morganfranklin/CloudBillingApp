@@ -4,7 +4,7 @@
 <ViewObject
     xmlns="http://xmlns.oracle.com/bc4j"
     Name="XpeDccContractPricingOverView"
-    Version="12.2.1.0.31"
+    Version="12.2.1.11.57"
     InheritPersonalization="merge"
     SelectListFlags="1"
     FromListFlags="1"
@@ -112,13 +112,6 @@
         EntityUsage="XpeDccContractPricingOver"
         AliasName="XPE_CONTRACT_ID"/>
     <ViewAttribute
-        Name="XpePricingTermLine"
-        IsNotNull="true"
-        PrecisionRule="true"
-        EntityAttrName="XpePricingTermLine"
-        EntityUsage="XpeDccContractPricingOver"
-        AliasName="XPE_PRICING_TERM_LINE"/>
-    <ViewAttribute
         Name="XpeContractLine"
         IsNotNull="true"
         PrecisionRule="true"
@@ -138,7 +131,14 @@
         PrecisionRule="true"
         EntityAttrName="XpeContractOverNbr"
         EntityUsage="XpeDccContractPricingOver"
-        AliasName="XPE_CONTRACT_OVER_NBR"/>
+        AliasName="XPE_CONTRACT_OVER_NBR">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContractPricingOverView.XpeContractOverNbr_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
     <ViewAttribute
         Name="XpeOverType"
         PrecisionRule="true"
@@ -152,6 +152,8 @@
                     Value="choice"/>
                 <DISPLAYWIDTH
                     Value="20"/>
+                <LABEL
+                    ResId="model.XpeDccContractPricingOverView.XpeOverType_LABEL"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>
@@ -160,13 +162,27 @@
         PrecisionRule="true"
         EntityAttrName="XpeOverStart"
         EntityUsage="XpeDccContractPricingOver"
-        AliasName="XPE_OVER_START"/>
+        AliasName="XPE_OVER_START">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContractPricingOverView.XpeOverStart_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
     <ViewAttribute
         Name="XpeOverEnd"
         PrecisionRule="true"
         EntityAttrName="XpeOverEnd"
         EntityUsage="XpeDccContractPricingOver"
-        AliasName="XPE_OVER_END"/>
+        AliasName="XPE_OVER_END">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContractPricingOverView.XpeOverEnd_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
     <ViewAttribute
         Name="XpeSourceFld"
         PrecisionRule="true"
@@ -180,6 +196,8 @@
                     Value="choice"/>
                 <DISPLAYWIDTH
                     Value="20"/>
+                <LABEL
+                    ResId="model.XpeDccContractPricingOverView.XpeSourceFld_LABEL"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>
@@ -196,6 +214,8 @@
                     Value="choice"/>
                 <DISPLAYWIDTH
                     Value="20"/>
+                <LABEL
+                    ResId="model.XpeDccContractPricingOverView.XpeCondition_LABEL"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>
@@ -204,7 +224,14 @@
         PrecisionRule="true"
         EntityAttrName="XpeCheck"
         EntityUsage="XpeDccContractPricingOver"
-        AliasName="XPE_CHECK"/>
+        AliasName="XPE_CHECK">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContractPricingOverView.XpeCheck_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
     <ViewAttribute
         Name="XpeTargetFld"
         PrecisionRule="true"
@@ -218,6 +245,8 @@
                     Value="choice"/>
                 <DISPLAYWIDTH
                     Value="20"/>
+                <LABEL
+                    ResId="model.XpeDccContractPricingOverView.XpeTargetFld_LABEL"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>
@@ -226,11 +255,22 @@
         PrecisionRule="true"
         EntityAttrName="XpeOverMsg"
         EntityUsage="XpeDccContractPricingOver"
-        AliasName="XPE_OVER_MSG"/>
+        AliasName="XPE_OVER_MSG">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContractPricingOverView.XpeOverMsg_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
     <ViewAttribute
         Name="XpeOverDesc"
         PrecisionRule="true"
         EntityAttrName="XpeOverDesc"
         EntityUsage="XpeDccContractPricingOver"
         AliasName="XPE_OVER_DESC"/>
+    <ResourceBundle>
+        <PropertiesBundle
+            PropertiesFile="model.ModelBundle"/>
+    </ResourceBundle>
 </ViewObject>

@@ -4,28 +4,25 @@
 <Association
     xmlns="http://xmlns.oracle.com/bc4j"
     Name="XpeDccContractPricingFk2Assoc"
-    Version="12.2.1.0.31"
+    Version="12.2.1.11.57"
     InheritPersonalization="merge">
     <DesignTime>
         <Attr Name="_isCodegen" Value="true"/>
     </DesignTime>
     <AssociationEnd
-        Name="XpeDccContractPricingTerm"
+        Name="XpeDccContractLine"
         Cardinality="1"
         Source="true"
-        Owner="model.XpeDccContractPricingTerm">
+        Owner="model.XpeDccContractLine">
         <DesignTime>
             <Attr Name="_isUpdateable" Value="true"/>
             <Attr Name="_minCardinality" Value="1"/>
             <Attr Name="_aggregation" Value="0"/>
-            <Attr Name="_finderName" Value="XpeDccContractPricingTerm"/>
-            <Attr Name="_foreignKey" Value="model.XpeDccContractPricingTerm.XpeDccContractPricingTPk"/>
         </DesignTime>
         <AttrArray Name="Attributes">
-            <Item Value="model.XpeDccContractPricingTerm.XpeContractId"/>
-            <Item Value="model.XpeDccContractPricingTerm.XpePricingTermLine"/>
-            <Item Value="model.XpeDccContractPricingTerm.XpeContractLine"/>
-            <Item Value="model.XpeDccContractPricingTerm.XpeContractVersion"/>
+            <Item Value="model.XpeDccContractLine.XpeContractId"/>
+            <Item Value="model.XpeDccContractLine.XpeContractLine"/>
+            <Item Value="model.XpeDccContractLine.XpeContractVersion"/>
         </AttrArray>
     </AssociationEnd>
     <AssociationEnd
@@ -36,11 +33,9 @@
             <Attr Name="_isUpdateable" Value="true"/>
             <Attr Name="_aggregation" Value="0"/>
             <Attr Name="_finderName" Value="XpeDccContractPricingOver"/>
-            <Attr Name="_foreignKey" Value="model.XpeDccContractPricingOver.XpeDccContractPricingFk2"/>
         </DesignTime>
         <AttrArray Name="Attributes">
             <Item Value="model.XpeDccContractPricingOver.XpeContractId"/>
-            <Item Value="model.XpeDccContractPricingOver.XpePricingTermLine"/>
             <Item Value="model.XpeDccContractPricingOver.XpeContractLine"/>
             <Item Value="model.XpeDccContractPricingOver.XpeContractVersion"/>
         </AttrArray>
