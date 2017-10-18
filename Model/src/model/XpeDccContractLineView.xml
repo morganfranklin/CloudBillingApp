@@ -363,6 +363,11 @@
         ViewLink="model.XpeDccContractPricingFk1Link"
         Type="oracle.jbo.RowIterator"
         IsUpdateable="false"/>
+    <ViewLinkAccessor
+        Name="XpeDccContractPricingOverView"
+        ViewLink="model.XpeDccContractPricingFk2Link"
+        Type="oracle.jbo.RowIterator"
+        IsUpdateable="false"/>
     <ResourceBundle>
         <PropertiesBundle
             PropertiesFile="model.ModelBundle"/>

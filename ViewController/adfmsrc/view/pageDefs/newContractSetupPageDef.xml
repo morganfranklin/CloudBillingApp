@@ -16,6 +16,8 @@
               id="XpeDccNewContractPricingTermViewIterator"/>
     <iterator Binds="XpeDccNewContractCarrierView" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccNewContractCarrierViewIterator"/>
+    <iterator Binds="XpeDccNewContractPricingOverView" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccNewContractPricingOverViewIterator"/>
   </executables>
   <bindings>
     <tree IterBinding="XpeDccNewContractLPCROVOIterator" id="XpeDccNewContractLPCROVO">
@@ -144,5 +146,25 @@
         <Item Value="SalesPerson"/>
       </AttrNames>
     </attributeValues>
+    <tree IterBinding="XpeDccNewContractPricingOverViewIterator" id="XpeDccNewContractPricingOverView">
+      <nodeDefinition DefName="model.XpeDccContractPricingOverView" Name="XpeDccNewContractPricingOverView0">
+        <AttrNames>
+          <Item Value="XpeContractOverNbr"/>
+          <Item Value="XpeOverType"/>
+          <Item Value="XpeOverStart"/>
+          <Item Value="XpeOverEnd"/>
+          <Item Value="XpeSourceFld"/>
+          <Item Value="XpeCondition"/>
+          <Item Value="XpeCheck"/>
+          <Item Value="XpeTargetFld"/>
+          <Item Value="XpeOverMsg"/>
+          <Item Value="XpeOverDesc"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="XpeDccNewContractPricingOverViewIterator" id="CreateInsert4" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="XpeDccNewContractPricingOverViewIterator" id="Delete4" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

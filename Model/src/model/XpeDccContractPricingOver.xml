@@ -4,7 +4,7 @@
 <Entity
     xmlns="http://xmlns.oracle.com/bc4j"
     Name="XpeDccContractPricingOver"
-    Version="12.2.1.0.31"
+    Version="12.2.1.11.57"
     InheritPersonalization="merge"
     DBObjectType="table"
     DBObjectName="XPE_DCC_CONTRACT_PRICING_OVER"
@@ -24,15 +24,6 @@
             <Attr Name="_DisplaySize" Value="20"/>
         </DesignTime>
     </Attribute>
-    <Attribute
-        Name="XpePricingTermLine"
-        IsNotNull="true"
-        ColumnName="XPE_PRICING_TERM_LINE"
-        SQLType="NUMERIC"
-        Type="java.math.BigDecimal"
-        ColumnType="NUMBER"
-        TableName="XPE_DCC_CONTRACT_PRICING_OVER"
-        PrimaryKey="true"/>
     <Attribute
         Name="XpeContractLine"
         IsNotNull="true"
@@ -169,39 +160,23 @@
         </DesignTime>
     </Attribute>
     <AccessorAttribute
-        Name="XpeDccContractPricingTerm"
+        Name="XpeDccContractLine"
         Association="model.XpeDccContractPricingFk2Assoc"
-        AssociationEnd="model.XpeDccContractPricingFk2Assoc.XpeDccContractPricingTerm"
+        AssociationEnd="model.XpeDccContractPricingFk2Assoc.XpeDccContractLine"
         AssociationOtherEnd="model.XpeDccContractPricingFk2Assoc.XpeDccContractPricingOver"
         Type="oracle.jbo.server.EntityImpl"
         IsUpdateable="true"/>
     <Key
-        Name="XpeDccContractPricingOPk"
+        Name="XpeDccCntrctPrngOverPk"
         PrimaryKey="true">
         <DesignTime>
-            <Attr Name="_DBObjectName" Value="XPE_DCC_CONTRACT_PRICING_O_PK"/>
+            <Attr Name="_DBObjectName" Value="XPE_DCC_CNTRCT_PRNG_OVER_PK"/>
         </DesignTime>
         <AttrArray Name="Attributes">
             <Item Value="model.XpeDccContractPricingOver.XpeContractId"/>
-            <Item Value="model.XpeDccContractPricingOver.XpePricingTermLine"/>
-            <Item Value="model.XpeDccContractPricingOver.XpeContractLine"/>
             <Item Value="model.XpeDccContractPricingOver.XpeContractVersion"/>
+            <Item Value="model.XpeDccContractPricingOver.XpeContractLine"/>
             <Item Value="model.XpeDccContractPricingOver.XpeContractOverNbr"/>
-        </AttrArray>
-    </Key>
-    <Key
-        Name="XpeDccContractPricingFk2">
-        <DesignTime>
-            <Attr Name="_isCascadeDelete" Value="true"/>
-            <Attr Name="_referencedKey" Value="XPE_DCC_CONTRACT_PRICING_T_PK"/>
-            <Attr Name="_isForeign" Value="true"/>
-            <Attr Name="_DBObjectName" Value="XPE_DCC_CONTRACT_PRICING__FK2"/>
-        </DesignTime>
-        <AttrArray Name="Attributes">
-            <Item Value="model.XpeDccContractPricingOver.XpeContractId"/>
-            <Item Value="model.XpeDccContractPricingOver.XpePricingTermLine"/>
-            <Item Value="model.XpeDccContractPricingOver.XpeContractLine"/>
-            <Item Value="model.XpeDccContractPricingOver.XpeContractVersion"/>
         </AttrArray>
     </Key>
 </Entity>

@@ -4,24 +4,23 @@
 <ViewLink
     xmlns="http://xmlns.oracle.com/bc4j"
     Name="XpeDccContractPricingFk2Link"
-    Version="12.2.1.0.31"
+    Version="12.2.1.11.57"
     InheritPersonalization="merge"
     EntityAssociation="model.XpeDccContractPricingFk2Assoc">
     <ViewLinkDefEnd
-        Name="XpeDccContractPricingTermView"
+        Name="XpeDccContractLineView"
         Cardinality="1"
         Source="true"
-        Owner="model.XpeDccContractPricingTermView">
+        Owner="model.XpeDccContractLineView">
         <DesignTime>
             <Attr Name="_isUpdateable" Value="true"/>
             <Attr Name="_minCardinality" Value="1"/>
-            <Attr Name="_finderName" Value="XpeDccContractPricingTermView"/>
+            <Attr Name="_finderName" Value="XpeDccContractLineView"/>
         </DesignTime>
         <AttrArray Name="Attributes">
-            <Item Value="model.XpeDccContractPricingTermView.XpeContractId"/>
-            <Item Value="model.XpeDccContractPricingTermView.XpePricingTermLine"/>
-            <Item Value="model.XpeDccContractPricingTermView.XpeContractLine"/>
-            <Item Value="model.XpeDccContractPricingTermView.XpeContractVersion"/>
+            <Item Value="model.XpeDccContractLineView.XpeContractId"/>
+            <Item Value="model.XpeDccContractLineView.XpeContractLine"/>
+            <Item Value="model.XpeDccContractLineView.XpeContractVersion"/>
         </AttrArray>
     </ViewLinkDefEnd>
     <ViewLinkDefEnd
@@ -34,7 +33,6 @@
         </DesignTime>
         <AttrArray Name="Attributes">
             <Item Value="model.XpeDccContractPricingOverView.XpeContractId"/>
-            <Item Value="model.XpeDccContractPricingOverView.XpePricingTermLine"/>
             <Item Value="model.XpeDccContractPricingOverView.XpeContractLine"/>
             <Item Value="model.XpeDccContractPricingOverView.XpeContractVersion"/>
         </AttrArray>
