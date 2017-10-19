@@ -86,7 +86,7 @@
   </Attribute>
   <Attribute
     Name="XpeApproverEmail"
-    Precision="20"
+    Precision="40"
     ColumnName="XPE_APPROVER_EMAIL"
     SQLType="VARCHAR"
     Type="java.lang.String"

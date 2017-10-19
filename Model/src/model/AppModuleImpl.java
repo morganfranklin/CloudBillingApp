@@ -11,6 +11,8 @@ import java.util.UUID;
 
 import model.common.AppModule;
 
+import model.utils.EmailUtils;
+
 import model.views.entitybased.XpeDccCfgDestinationsEOVOImpl;
 import model.views.entitybased.XpeDccCfgDestinationsEOVORowImpl;
 import model.views.entitybased.XpeDccCfgDstAssTerminalsEOVOImpl;
@@ -1656,10 +1658,12 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                 if (null != dmsCustomerRow)
                     dmsCustomerRow.remove();
             }
-            //commiting transaction
-            this.getDBTransaction().commit();
             //creating approval work flow
             createApprovalWFEventAction();
+            //commiting transaction
+            this.getDBTransaction().commit();
+            //pushing email notifications
+            EmailUtils.sendEmail("smtp.office365.com","587","nkoneru@morganfranklin.com","nkoneru@morganfranklin.com","Approve/Reject Contract","<h1>Nirup Koneru</h1>");
             return true;
         } catch (Exception e) {
             // TODO: Add catch code
@@ -1669,9 +1673,10 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     }
     
     private void createApprovalWFEventAction(){
-        XpeDccNewContractsEOVORowImpl newContractRow =
-            (XpeDccNewContractsEOVORowImpl) this.getXpeDccNewContractsEOVO().getCurrentRow();
-        XpeDccContractVersionViewRowImpl xpeDccContractVersionViewRow=(XpeDccContractVersionViewRowImpl)newContractRow.getXpeDccContractVersionView().getCurrentRow();
+        //XpeDccNewContractsEOVORowImpl newContractRow =
+         //   (XpeDccNewContractsEOVORowImpl) this.getXpeDccNewContractsEOVO().getCurrentRow();
+        //RowIterator rowIterator = newContractRow.getXpeDccContractVersionView();
+        XpeDccContractVersionViewRowImpl xpeDccContractVersionViewRow = (XpeDccContractVersionViewRowImpl)getXpeDccNewContractVersionView().getCurrentRow();
         //creating Approval Work Flow Event
         XpeDccWfEventEOVORowImpl approvalWFEventRow =
         (XpeDccWfEventEOVORowImpl) this.getXpeDccWfEventEOVO().createRow();
@@ -1689,6 +1694,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         xpeDccWfActionEOVORow.setXpeApproverEmail("nkoneru@morganfranklin.com");
         xpeDccWfActionEOVORow.setXpeActionStatus("P");
         approvalWFEventRow.getXpeDccWfActionEOVO().insertRow(xpeDccWfActionEOVORow);
+    
     }
     
     public String createNewContractVersion(){
