@@ -334,9 +334,10 @@
                                         </af:table>
                                         <f:facet name="toolbar">
                                             <af:group id="g1">
-                                                <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add" id="b_Add"/>
+                                                <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add" id="b_Add"
+                                                           disabled="#{pageFlowScope.ContractType eq 'BLS'}"/>
                                                 <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
-                                                           disabled="#{bindings.XpeDccNewContractLPCROVOIterator.estimatedRowCount&lt;=1}" id="b_Del"
+                                                           disabled="#{bindings.XpeDccNewContractLPCROVOIterator.estimatedRowCount&lt;=1 or pageFlowScope.ContractType eq 'BLS'}" id="b_Del"
                                                            partialTriggers="b_Add" immediate="true"/>
                                             </af:group>
                                         </f:facet>
@@ -351,7 +352,8 @@
                                                   selectedRowKeys="#{bindings.XpeDccNewContractLineView.collectionModel.selectedRow}"
                                                   selectionListener="#{bindings.XpeDccNewContractLineView.collectionModel.makeCurrent}"
                                                   rowSelection="single" styleClass="AFStretchWidth"
-                                                  contentDelivery="immediate" columnStretching="last">
+                                                  contentDelivery="immediate" columnStretching="last"
+                                                  partialTriggers="::b1 ::b2">
                                             <af:column headerText="#{bindings.XpeDccNewContractLineView.hints.XpeContractLine.label}"
                                                        id="c17">
                                                 <af:inputText value="#{row.bindings.XpeContractLine.inputValue}"
@@ -471,10 +473,11 @@
                                         <f:facet name="toolbar">
                                             <af:group id="g2">
                                                 <af:button actionListener="#{bindings.CreateInsert1.execute}"
-                                                           text="Add" id="b1"/>
+                                                           text="Add" id="b1"
+                                                           disabled="#{pageFlowScope.ContractType eq 'BLS'}"/>
                                                 <af:button actionListener="#{bindings.Delete1.execute}" text="Delete" id="b2"
                                                            immediate="true"
-                                                           disabled="#{bindings.XpeDccNewContractLineViewIterator.estimatedRowCount&lt;=1}"/>
+                                                           disabled="#{bindings.XpeDccNewContractLineViewIterator.estimatedRowCount&lt;=1 or pageFlowScope.ContractType eq 'BLS'}"/>
                                             </af:group>
                                         </f:facet>
                                     </af:panelBox>
@@ -489,7 +492,7 @@
                                                   selectionListener="#{bindings.XpeDccNewContractPricingTermView.collectionModel.makeCurrent}"
                                                   rowSelection="single" id="t6" columnStretching="last"
                                                   styleClass="AFStretchWidth" contentDelivery="immediate"
-                                                  partialTriggers="::b4">
+                                                  partialTriggers="::b4 ::b3">
                                             <af:column headerText="#{bindings.XpeDccNewContractPricingTermView.hints.XpePricingTermLine.label}"
                                                        id="c21" headerNoWrap="true" width="120">
                                                 <af:inputText value="#{row.bindings.XpePricingTermLine.inputValue}"
@@ -548,9 +551,11 @@
                                         <f:facet name="toolbar">
                                             <af:group id="g3">
                                                 <af:button actionListener="#{bindings.CreateInsert2.execute}"
-                                                           text="Add" id="b3"/>
+                                                           text="Add" id="b3"
+                                                           disabled="#{pageFlowScope.ContractType eq 'BLS'}"/>
                                                 <af:button actionListener="#{bindings.Delete2.execute}" text="Delete" id="b4"
-                                                           immediate="true"/>
+                                                           immediate="true"
+                                                           disabled="#{pageFlowScope.ContractType eq 'BLS'}"/>
                                             </af:group>
                                         </f:facet>
                                     </af:panelBox>
@@ -702,9 +707,11 @@
                                         <f:facet name="toolbar">
                                             <af:group id="g4">
                                                 <af:button actionListener="#{bindings.CreateInsert3.execute}"
-                                                           text="Add" id="b5"/>
+                                                           text="Add" id="b5"
+                                                           disabled="#{pageFlowScope.ContractType eq 'BLS'}"/>
                                                 <af:button actionListener="#{bindings.Delete3.execute}" text="Delete" id="b6"
-                                                           immediate="true"/>
+                                                           immediate="true"
+                                                           disabled="#{pageFlowScope.ContractType eq 'BLS'}"/>
                                             </af:group>
                                         </f:facet>
                                         <af:table value="#{bindings.XpeDccNewContractCarrierView.collectionModel}"
@@ -716,7 +723,7 @@
                                                   rowSelection="single"
                                                   fetchSize="#{bindings.XpeDccNewContractCarrierView.rangeSize}" id="t7"
                                                   columnStretching="last" contentDelivery="immediate"
-                                                  styleClass="AFStretchWidth" partialTriggers="::b6">
+                                                  styleClass="AFStretchWidth" partialTriggers="::b6 ::b5">
                                             <af:column headerText="#{bindings.XpeDccNewContractCarrierView.hints.XpeCarrierId.label}"
                                                        id="c53">
                                                 <af:selectOneChoice value="#{row.bindings.XpeCarrierId.inputValue}"

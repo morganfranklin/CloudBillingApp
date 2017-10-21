@@ -19,6 +19,8 @@
     <methodAction id="createNewContractVersion" RequiresUpdateModel="true" Action="invokeMethod"
                   MethodName="createNewContractVersion" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
                   InstanceName="data.AppModuleDataControl.dataProvider"
-                  ReturnName="data.AppModuleDataControl.methodResults.createNewContractVersion_AppModuleDataControl_dataProvider_createNewContractVersion_result"/>
+                  ReturnName="data.AppModuleDataControl.methodResults.createNewContractVersion_AppModuleDataControl_dataProvider_createNewContractVersion_result">
+      <NamedData NDName="contractType" NDValue="#{pageFlowScope.ContractType}" NDType="java.lang.String"/>
+    </methodAction>
   </bindings>
 </pageDefinition>
