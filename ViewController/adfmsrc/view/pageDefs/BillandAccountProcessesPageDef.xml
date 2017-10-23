@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="BillandAccountProcessesPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XpeDccCfgBillingandAccountingROVO1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgBillingandAccountingROVO1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="XpeDccCfgBillingandAccountingROVO1Iterator" id="XpeDccCfgBillingandAccountingROVO1">
+      <nodeDefinition DefName="model.views.readonly.XpeDccCfgBillingandAccountingROVO"
+                      Name="XpeDccCfgBillingandAccountingROVO10">
+        <AttrNames>
+          <Item Value="XpeFacilityId"/>
+          <Item Value="XpeBillCycleId"/>
+          <Item Value="XpeBillDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="billAndAccountingProcess" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="billAndAccountingProcess" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="data.AppModuleDataControl.dataProvider"/>
+    <action IterBinding="XpeDccCfgBillingandAccountingROVO1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

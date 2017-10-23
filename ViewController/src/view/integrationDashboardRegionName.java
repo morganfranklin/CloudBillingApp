@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import oracle.adf.controller.TaskFlowId;
+import oracle.adf.view.rich.event.RegionNavigationEvent;
 
 public class integrationDashboardRegionName implements Serializable {
     @SuppressWarnings("compatibility:7495095175841506203")
@@ -137,5 +138,11 @@ public class integrationDashboardRegionName implements Serializable {
     public String billingAccountingProcesses() {
         setDynamicTaskFlowId("/WEB-INF/billingAccountingProcesses.xml#billingAccountingProcesses");
         return null;
+    }
+
+    public void regionNavigationListener(RegionNavigationEvent regionNavigationEvent) {
+        if(regionNavigationEvent.getNewViewId() == null){
+            setDynamicTaskFlowId("/WEB-INF/adminStats.xml#adminStats");
+        }
     }
 }

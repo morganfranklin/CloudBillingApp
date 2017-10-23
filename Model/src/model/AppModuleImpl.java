@@ -40,6 +40,8 @@ import model.views.entitybased.XpeDccWfEventEOVOImpl;
 import model.views.entitybased.XpeDccWfEventEOVORowImpl;
 import model.views.entitybased.XpeDmsCustomerEOVOImpl;
 import model.views.entitybased.XpeDmsCustomerEOVORowImpl;
+import model.views.readonly.XpeDccCfgBillingandAccountingROVOImpl;
+import model.views.readonly.XpeDccCfgBillingandAccountingROVORowImpl;
 import model.views.readonly.XpeDccCfgDstAssTerminalsROVOImpl;
 import model.views.readonly.XpeDccCfgOgnAssTerminalsROVOImpl;
 import model.views.readonly.XpeDccCfgPcsAssTerminalsROVOImpl;
@@ -2577,6 +2579,33 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public ViewObjectImpl getXpeDccCfgNewAccountingEOVO() {
         return (ViewObjectImpl) findViewObject("XpeDccCfgNewAccountingEOVO");
+    }
+
+    /**
+     * Container's getter for XpeDccCfgBillingandAccountingROVO1.
+     * @return XpeDccCfgBillingandAccountingROVO1
+     */
+    public XpeDccCfgBillingandAccountingROVOImpl getXpeDccCfgBillingandAccountingROVO1() {
+        return (XpeDccCfgBillingandAccountingROVOImpl) findViewObject("XpeDccCfgBillingandAccountingROVO1");
+    }
+    
+    public void initBillAccountProcess(){
+        XpeDccCfgBillingandAccountingROVOImpl billAccountVO = this.getXpeDccCfgBillingandAccountingROVO1();
+        billAccountVO.executeEmptyRowSet();
+        XpeDccCfgBillingandAccountingROVORowImpl billAccountVORow =
+            (XpeDccCfgBillingandAccountingROVORowImpl) billAccountVO.createRow();
+        billAccountVO.insertRow(billAccountVORow);
+    }
+    
+    public void billAndAccountingProcess(){
+        XpeDccCfgBillingandAccountingROVOImpl billAccountVO = this.getXpeDccCfgBillingandAccountingROVO1();
+        RowSetIterator billAccountRSet = billAccountVO.createRowSetIterator(null);
+        billAccountRSet.reset();
+        while(billAccountRSet.hasNext()){
+            XpeDccCfgBillingandAccountingROVORowImpl billAccountVORow =
+                (XpeDccCfgBillingandAccountingROVORowImpl) billAccountRSet.next();
+        }
+        initBillAccountProcess();
     }
 }
 

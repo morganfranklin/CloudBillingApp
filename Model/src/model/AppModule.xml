@@ -582,6 +582,9 @@
     <ViewUsage
         Name="XpeDccCfgNewAccountingEOVO"
         ViewObjectName="model.views.entitybased.XpeDccCfgAccountingEOVO"/>
+    <ViewUsage
+        Name="XpeDccCfgBillingandAccountingROVO1"
+        ViewObjectName="model.views.readonly.XpeDccCfgBillingandAccountingROVO"/>
     <ViewLinkUsage
         Name="NeuRuleTblFk1Link1"
         ViewLinkObjectName="model.NeuRuleTblFk1Link"
@@ -1236,6 +1239,20 @@
             <Parameter
                 Name="action"
                 Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="billAndAccountingProcess"
+            MethodName="billAndAccountingProcess">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+        </Method>
+        <Method
+            Name="initBillAccountProcess"
+            MethodName="initBillAccountProcess">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
         </Method>
     </ClientInterface>
 </AppModule>

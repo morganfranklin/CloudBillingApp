@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl1">
+    <af:panelHeader text="Billing and Accounting Processes" id="ph1" size="1">
+      <f:facet name="context"/>
+      <f:facet name="toolbar">
+        <af:toolbar id="t2">
+          <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add"
+                     id="b1"/>
+        </af:toolbar>
+      </f:facet>
+      <f:facet name="menuBar"/>
+      <f:facet name="legend"/>
+      <f:facet name="info"/>
+      <af:spacer width="10" height="10" id="s4"/>
+      <af:table value="#{bindings.XpeDccCfgBillingandAccountingROVO1.collectionModel}" var="row"
+                rows="#{bindings.XpeDccCfgBillingandAccountingROVO1.rangeSize}"
+                emptyText="#{bindings.XpeDccCfgBillingandAccountingROVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                rowBandingInterval="0"
+                selectedRowKeys="#{bindings.XpeDccCfgBillingandAccountingROVO1.collectionModel.selectedRow}"
+                selectionListener="#{bindings.XpeDccCfgBillingandAccountingROVO1.collectionModel.makeCurrent}"
+                rowSelection="single" fetchSize="#{bindings.XpeDccCfgBillingandAccountingROVO1.rangeSize}" id="t1"
+                contentDelivery="immediate" columnStretching="last" partialTriggers="::b1" autoHeightRows="25"
+                styleClass="AFStretchWidth">
+        <af:column headerText="#{bindings.XpeDccCfgBillingandAccountingROVO1.hints.XpeFacilityId.label}" id="c1">
+          <af:inputText value="#{row.bindings.XpeFacilityId.inputValue}"
+                        label="#{bindings.XpeDccCfgBillingandAccountingROVO1.hints.XpeFacilityId.label}"
+                        required="#{bindings.XpeDccCfgBillingandAccountingROVO1.hints.XpeFacilityId.mandatory}"
+                        columns="#{bindings.XpeDccCfgBillingandAccountingROVO1.hints.XpeFacilityId.displayWidth}"
+                        maximumLength="#{bindings.XpeDccCfgBillingandAccountingROVO1.hints.XpeFacilityId.precision}"
+                        shortDesc="#{bindings.XpeDccCfgBillingandAccountingROVO1.hints.XpeFacilityId.tooltip}" id="it1">
+            <f:validator binding="#{row.bindings.XpeFacilityId.validator}"/>
+          </af:inputText>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgBillingandAccountingROVO1.hints.XpeBillCycleId.label}" id="c2">
+          <af:inputText value="#{row.bindings.XpeBillCycleId.inputValue}"
+                        label="#{bindings.XpeDccCfgBillingandAccountingROVO1.hints.XpeBillCycleId.label}"
+                        required="#{bindings.XpeDccCfgBillingandAccountingROVO1.hints.XpeBillCycleId.mandatory}"
+                        columns="#{bindings.XpeDccCfgBillingandAccountingROVO1.hints.XpeBillCycleId.displayWidth}"
+                        maximumLength="#{bindings.XpeDccCfgBillingandAccountingROVO1.hints.XpeBillCycleId.precision}"
+                        shortDesc="#{bindings.XpeDccCfgBillingandAccountingROVO1.hints.XpeBillCycleId.tooltip}"
+                        id="it2">
+            <f:validator binding="#{row.bindings.XpeBillCycleId.validator}"/>
+          </af:inputText>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgBillingandAccountingROVO1.hints.XpeBillDate.label}" id="c3">
+          <af:inputDate value="#{row.bindings.XpeBillDate.inputValue}"
+                        label="#{bindings.XpeDccCfgBillingandAccountingROVO1.hints.XpeBillDate.label}"
+                        required="#{bindings.XpeDccCfgBillingandAccountingROVO1.hints.XpeBillDate.mandatory}"
+                        columns="#{bindings.XpeDccCfgBillingandAccountingROVO1.hints.XpeBillDate.displayWidth}"
+                        shortDesc="#{bindings.XpeDccCfgBillingandAccountingROVO1.hints.XpeBillDate.tooltip}" id="id1">
+            <f:validator binding="#{row.bindings.XpeBillDate.validator}"/>
+            <af:convertDateTime pattern="#{bindings.XpeDccCfgBillingandAccountingROVO1.hints.XpeBillDate.format}"/>
+          </af:inputDate>
+        </af:column>
+      </af:table>
+    </af:panelHeader>
+    <af:spacer width="10" height="10" id="s2"/>
+    <af:panelHeader text="" id="ph2">
+      <f:facet name="context"/>
+      <f:facet name="toolbar">
+        <af:toolbar id="t3">
+          <af:button text="Process" id="b3" actionListener="#{BillandAccountProcessesBean.processBillandAccounting}"/>
+          <af:spacer width="10" height="10" id="s3"/>
+          <af:button text="Cancel" id="b4" action="back"/>
+        </af:toolbar>
+      </f:facet>
+      <f:facet name="menuBar"/>
+      <f:facet name="legend"/>
+      <f:facet name="info"/>
+    </af:panelHeader>
+  </af:panelGroupLayout>
+</ui:composition>

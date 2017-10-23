@@ -31,5 +31,10 @@ public interface AppModule extends ApplicationModule {
     void updateContractApprovalStatus(String uuId, String action);
     
     String createNewContractVersion(String contractType);
+
+    void billAndAccountingProcess();
+
+    void initBillAccountProcess();
+
 }
 

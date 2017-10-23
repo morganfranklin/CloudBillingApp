@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <task-flow-definition id="billingAccountingProcesses">
-    <default-activity>BillingandAccountingProcesses</default-activity>
+    <default-activity>initBillAccountProcess</default-activity>
     <data-control-scope>
       <shared/>
     </data-control-scope>
@@ -15,9 +15,39 @@
       <managed-bean-class>view.BillandAccountProcessesBBean</managed-bean-class>
       <managed-bean-scope>backingBean</managed-bean-scope>
     </managed-bean>
-    <view id="BillingandAccountingProcesses">
-      <page>/BillingandAccountingProcesses.jsff</page>
+    <managed-bean id="__5">
+      <managed-bean-name>BillandAccountProcessesBean</managed-bean-name>
+      <managed-bean-class>view.BillandAccountProcessesBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <view id="BillandAccountProcesses">
+      <page>/BillandAccountProcesses.jsff</page>
     </view>
+    <task-flow-return id="Back">
+      <outcome>
+        <name>Back</name>
+      </outcome>
+    </task-flow-return>
+    <method-call id="initBillAccountProcess">
+      <method>#{bindings.initBillAccountProcess.execute}</method>
+      <outcome>
+        <fixed-outcome>initBillAccountProcess</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__3">
+      <from-activity-id>BillandAccountProcesses</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>back</from-outcome>
+        <to-activity-id>Back</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>initBillAccountProcess</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>initBillAccountProcess</from-outcome>
+        <to-activity-id>BillandAccountProcesses</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
     <use-page-fragments/>
   </task-flow-definition>
 </adfc-config>
