@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57"
+                id="BillingandAccountingProcessesPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XpeBillAccountProcessesEOVO1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeBillAccountProcessesEOVO1Iterator"/>
+    <searchRegion Criteria="BillingAccountingProcessesCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="XpeBillAccountProcessesEOVO1Iterator" id="BillingAccountingProcessesCriteriaQuery"/>
+    <iterator Binds="XpeNewBillAccountProcessesEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeNewBillAccountProcessesEOVOIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="XpeBillAccountProcessesEOVO1Iterator" id="XpeBillAccountProcessesEOVO1">
+      <nodeDefinition DefName="model.views.entitybased.XpeBillAccountProcessesEOVO"
+                      Name="XpeBillAccountProcessesEOVO10">
+        <AttrNames>
+          <Item Value="XpeFacilityId"/>
+          <Item Value="XpeBillCycleId"/>
+          <Item Value="XpeBillDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="XpeNewBillAccountProcessesEOVOIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <tree IterBinding="XpeNewBillAccountProcessesEOVOIterator" id="XpeNewBillAccountProcessesEOVO">
+      <nodeDefinition DefName="model.views.entitybased.XpeBillAccountProcessesEOVO"
+                      Name="XpeNewBillAccountProcessesEOVO0">
+        <AttrNames>
+          <Item Value="XpeFacilityId"/>
+          <Item Value="XpeBillCycleId"/>
+          <Item Value="XpeBillDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="XpeNewBillAccountProcessesEOVOIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

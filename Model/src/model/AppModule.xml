@@ -570,6 +570,15 @@
     <ViewUsage
         Name="XpeDccNewContractPricingOverView"
         ViewObjectName="model.XpeDccContractPricingOverView"/>
+    <ViewUsage
+        Name="XpeBillAccountProcessesEOVO1"
+        ViewObjectName="model.views.entitybased.XpeBillAccountProcessesEOVO"/>
+    <ViewUsage
+        Name="XpeNewBillAccountProcessesEOVO"
+        ViewObjectName="model.views.entitybased.XpeBillAccountProcessesEOVO"/>
+    <ViewUsage
+        Name="XpeDccCfgNewAccountingEOVO"
+        ViewObjectName="model.views.entitybased.XpeDccCfgAccountingEOVO"/>
     <ViewLinkUsage
         Name="NeuRuleTblFk1Link1"
         ViewLinkObjectName="model.NeuRuleTblFk1Link"
@@ -1032,6 +1041,95 @@
                 Type="void"/>
             <Parameter
                 Name="termId"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="uploadFiletoDB"
+            MethodName="uploadFiletoDB">
+            <Return
+                Name="_return_type_"
+                Type="java.lang.Boolean"/>
+            <Parameter
+                Name="filename"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="blob"
+                Type="oracle.jbo.domain.BlobDomain"/>
+        </Method>
+        <Method
+            Name="copyContractRow"
+            MethodName="copyContractRow">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+        </Method>
+        <Method
+            Name="newContractCreation"
+            MethodName="newContractCreation">
+            <Return
+                Name="_return_type_"
+                Type="boolean"/>
+        </Method>
+        <Method
+            Name="clearNewContract"
+            MethodName="clearNewContract">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+        </Method>
+        <Method
+            Name="clearTermMaster"
+            MethodName="clearTermMaster">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+        </Method>
+        <Method
+            Name="fetchClauseForMasterTerm"
+            MethodName="fetchClauseForMasterTerm">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+        </Method>
+        <Method
+            Name="createTermContractRow"
+            MethodName="createTermContractRow">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+            <Parameter
+                Name="termId"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="addAssTerminalToDestination"
+            MethodName="addAssTerminalToDestination">
+            <Return
+                Name="_return_type_"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="addAssTerminalToOrigin"
+            MethodName="addAssTerminalToOrigin">
+            <Return
+                Name="_return_type_"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="addAssTerminalToPCSInstallation"
+            MethodName="addAssTerminalToPCSInstallation">
+            <Return
+                Name="_return_type_"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="createNewContractVersion"
+            MethodName="createNewContractVersion">
+            <Return
+                Name="_return_type_"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="contractType"
                 Type="java.lang.String"/>
         </Method>
         <Method

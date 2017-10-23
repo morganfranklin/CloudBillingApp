@@ -2,7 +2,7 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
     <af:panelGroupLayout layout="vertical" id="pgl1">
-        <af:panelHeader text="Origins Set Up" id="ph1" size="3">
+        <af:panelHeader text="Origins Set Up" id="ph1" size="1">
             <af:query id="qryId1" headerText="Search Origins" disclosed="true"
                       value="#{bindings.OriginsCriteriaQuery.queryDescriptor}"
                       model="#{bindings.OriginsCriteriaQuery.queryModel}"

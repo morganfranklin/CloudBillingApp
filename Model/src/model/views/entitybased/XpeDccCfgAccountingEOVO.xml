@@ -19,6 +19,34 @@
         ResId="model.views.entitybased.XpeDccCfgAccountingEOVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <Variable
+    Name="bind_AccountingClass"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bind_DealClass"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bind_EntryType"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bind_MaterialCategory"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bind_OperatingUnit"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bind_ProductService"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bind_SiteId"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="XpeDccCfgPCSShortNames_LOV"
     ViewObjectName="model.views.readonly.XpeDccCfgPCSShortNamesROVO"
@@ -187,7 +215,14 @@
     PrecisionRule="true"
     EntityAttrName="AccountId"
     EntityUsage="XpeDccCfgAccountingEO"
-    AliasName="ACCOUNT_ID"/>
+    AliasName="ACCOUNT_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgAccountingEOVO.AccountId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="AccountingClass"
     PrecisionRule="true"
@@ -199,6 +234,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="input_text_lov"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgAccountingEOVO.AccountingClass_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -207,7 +244,14 @@
     PrecisionRule="true"
     EntityAttrName="ChargeId"
     EntityUsage="XpeDccCfgAccountingEO"
-    AliasName="CHARGE_ID"/>
+    AliasName="CHARGE_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgAccountingEOVO.ChargeId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="DealClass"
     PrecisionRule="true"
@@ -219,6 +263,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="input_text_lov"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgAccountingEOVO.DealClass_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -227,7 +273,14 @@
     PrecisionRule="true"
     EntityAttrName="EntryType"
     EntityUsage="XpeDccCfgAccountingEO"
-    AliasName="ENTRY_TYPE"/>
+    AliasName="ENTRY_TYPE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgAccountingEOVO.EntryType_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="MaterialCategory"
     PrecisionRule="true"
@@ -239,6 +292,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="input_text_lov"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgAccountingEOVO.MaterialCategory_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -247,7 +302,14 @@
     PrecisionRule="true"
     EntityAttrName="OperatingUnit"
     EntityUsage="XpeDccCfgAccountingEO"
-    AliasName="OPERATING_UNIT"/>
+    AliasName="OPERATING_UNIT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgAccountingEOVO.OperatingUnit_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ProductServiceId"
     PrecisionRule="true"
@@ -259,6 +321,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="input_text_lov"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgAccountingEOVO.ProductServiceId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -273,6 +337,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="input_text_lov"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgAccountingEOVO.SiteId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -281,7 +347,14 @@
     PrecisionRule="true"
     EntityAttrName="StatAccount"
     EntityUsage="XpeDccCfgAccountingEO"
-    AliasName="STAT_ACCOUNT"/>
+    AliasName="STAT_ACCOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgAccountingEOVO.StatAccount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
@@ -306,6 +379,90 @@
     EntityAttrName="CreatedDate"
     EntityUsage="XpeDccCfgAccountingEO"
     AliasName="CREATED_DATE"/>
+  <ViewCriteria
+    Name="AccountingCriteria"
+    ViewObjectName="model.views.entitybased.XpeDccCfgAccountingEOVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="XpeDccCfgAccountingEOVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="AccountingClass"
+        ViewAttribute="AccountingClass"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_AccountingClass"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="DealClass"
+        ViewAttribute="DealClass"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_DealClass"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="EntryType"
+        ViewAttribute="EntryType"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_EntryType"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="MaterialCategory"
+        ViewAttribute="MaterialCategory"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_MaterialCategory"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="OperatingUnit"
+        ViewAttribute="OperatingUnit"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_OperatingUnit"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ProductServiceId"
+        ViewAttribute="ProductServiceId"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_ProductService"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="SiteId"
+        ViewAttribute="SiteId"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_SiteId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

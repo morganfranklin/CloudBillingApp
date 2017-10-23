@@ -2492,5 +2492,29 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     public ViewLinkImpl getXpeDccContractPricingFk2Link2() {
         return (ViewLinkImpl) findViewLink("XpeDccContractPricingFk2Link2");
     }
+
+    /**
+     * Container's getter for XpeBillAccountProcessesEOVO1.
+     * @return XpeBillAccountProcessesEOVO1
+     */
+    public ViewObjectImpl getXpeBillAccountProcessesEOVO1() {
+        return (ViewObjectImpl) findViewObject("XpeBillAccountProcessesEOVO1");
+    }
+
+    /**
+     * Container's getter for XpeBillAccountProcessesEOVO2.
+     * @return XpeBillAccountProcessesEOVO2
+     */
+    public ViewObjectImpl getXpeNewBillAccountProcessesEOVO() {
+        return (ViewObjectImpl) findViewObject("XpeNewBillAccountProcessesEOVO");
+    }
+
+    /**
+     * Container's getter for XpeDccCfgAccountingEOVO1.
+     * @return XpeDccCfgAccountingEOVO1
+     */
+    public ViewObjectImpl getXpeDccCfgNewAccountingEOVO() {
+        return (ViewObjectImpl) findViewObject("XpeDccCfgNewAccountingEOVO");
+    }
 }
 

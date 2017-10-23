@@ -10,6 +10,7 @@
                 queryOperationListener="#{pageFlowScope.GeneralConversionSetUpTableMBean.queryOperationListener}"
                 resultComponentId="::resId1"/>
     </af:panelHeader>
+    <af:spacer width="10" height="10" id="s3"/>
     <af:panelHeader text="General Conversion" id="ph2" size="5">
       <f:facet name="context"/>
       <f:facet name="toolbar">
