@@ -2,7 +2,7 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
   <af:panelGroupLayout layout="vertical" id="pgl1">
-    <af:panelHeader text="General Set Up" id="ph1" size="3">
+    <af:panelHeader text="General Set Up" id="ph1" size="1">
       <af:query id="qryId1" headerText="Search General Items" disclosed="true"
                 value="#{bindings.GeneralCriteriaQuery.queryDescriptor}"
                 model="#{bindings.GeneralCriteriaQuery.queryModel}"
@@ -10,6 +10,7 @@
                 queryOperationListener="#{pageFlowScope.generalSetUpTableMBean.queryOperationListener}"
                 resultComponentId="::resId1"/>
     </af:panelHeader>
+    <af:spacer width="10" height="10" id="s1"/>
     <af:panelHeader text="General Items" id="ph2" size="5">
       <f:facet name="context"/>
       <f:facet name="toolbar">

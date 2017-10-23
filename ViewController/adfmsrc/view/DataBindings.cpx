@@ -93,6 +93,8 @@
         <page path="/generalConversionSetUp.jsff" usageId="view_generalConversionSetUpPageDef"/>
         <page path="/WEB-INF/approvalWorkFlow.xml#approvalWorkFlow@updateContractApprovalStatus"
               usageId="view_approvalWorkFlow_approvalWorkFlow_updateContractApprovalStatusPageDef"/>
+        <page path="/BillingandAccountingProcesses.jsff" usageId="view_BillingandAccountingProcessesPageDef"/>
+        <page path="/accountingSetUp.jsff" usageId="view_accountingSetUpPageDef"/>
     </pageMap>
     <pageDefinitionUsages>
         <page id="view_IntegrationDashPageDef" path="view.pageDefs.IntegrationDashPageDef"/>
@@ -180,6 +182,8 @@
         <page id="view_generalConversionSetUpPageDef" path="view.pageDefs.generalConversionSetUpPageDef"/>
         <page id="view_approvalWorkFlow_approvalWorkFlow_updateContractApprovalStatusPageDef"
               path="view.pageDefs.approvalWorkFlow_approvalWorkFlow_updateContractApprovalStatusPageDef"/>
+        <page id="view_BillingandAccountingProcessesPageDef" path="view.pageDefs.BillingandAccountingProcessesPageDef"/>
+        <page id="view_accountingSetUpPageDef" path="view.pageDefs.accountingSetUpPageDef"/>
     </pageDefinitionUsages>
     <dataControlUsages>
         <BC4JDataControl id="AppModuleDataControl" Package="model"

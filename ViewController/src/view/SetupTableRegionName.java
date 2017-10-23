@@ -76,4 +76,9 @@ public class SetupTableRegionName implements Serializable {
         setDynamicTaskFlowId("/WEB-INF/generalConversionSetUpTable.xml#generalConversionSetUpTable");
         return null;
     }
+
+    public String accountingSetUpTable() {
+        setDynamicTaskFlowId("/WEB-INF/accountingSetUpTable.xml#accountingSetUpTable");
+        return null;
+    }
 }

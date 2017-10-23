@@ -4,6 +4,8 @@ import java.awt.Container;
 
 import java.math.BigDecimal;
 
+import java.sql.Timestamp;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -1751,7 +1753,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         this.getDBTransaction().commit();
     }
     
-    public String createNewContractVersion(){
+    public String createNewContractVersion(String contractType){
         try {
             XpeDccContractSearchROVORowImpl contractSearchROVORow =
                 (XpeDccContractSearchROVORowImpl) this.getXpeDccContractSearchROVO().getCurrentRow();
@@ -1771,12 +1773,12 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                                                contractSearchROVORow.getXpeContractVersion() });
                     Row[] rows = this.getXpeDccNewContractVersionView().findByKey(key, 1);
                     if (null != rows && rows.length > 0) {
-                        Integer version = getVersionNumber();
+                        String version = getVersionNumber();
                         XpeDccContractVersionViewRowImpl sourceContractVersionViewRow =
                             (XpeDccContractVersionViewRowImpl) rows[0];
                         XpeDccContractVersionViewRowImpl targetContractVersionViewRow =
                             (XpeDccContractVersionViewRowImpl) xpeDccNewContractsEOVORow.getXpeDccContractVersionView().createRow();
-                        targetContractVersionViewRow.setXpeContractVersion(String.valueOf(version));
+                        targetContractVersionViewRow.setXpeContractVersion(version);
                         targetContractVersionViewRow.setXpeWasteType(sourceContractVersionViewRow.getXpeWasteType());
                         targetContractVersionViewRow.setXpeContractSubType(sourceContractVersionViewRow.getXpeContractSubType());
                         targetContractVersionViewRow.setXpeAgreementType(sourceContractVersionViewRow.getXpeAgreementType());
@@ -1785,7 +1787,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                         targetContractVersionViewRow.setXpeEndDate(sourceContractVersionViewRow.getXpeEndDate());
                         targetContractVersionViewRow.setSalesPerson(sourceContractVersionViewRow.getSalesPerson());
                         xpeDccNewContractsEOVORow.getXpeDccContractVersionView().insertRow(targetContractVersionViewRow);
-                        copyNewVersionContractLine(sourceContractVersionViewRow, targetContractVersionViewRow);
+                        copyNewVersionContractLine(sourceContractVersionViewRow, targetContractVersionViewRow,contractType);
                         copyNewVersionContractNotes(sourceContractVersionViewRow, targetContractVersionViewRow);
                     }
                 }
@@ -1797,10 +1799,10 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         return null;
     }
     
-    private Integer getVersionNumber(){
+    private String getVersionNumber(){
         List<Integer> versionList = new ArrayList<Integer>();
         try {
-            RowSetIterator rowSetIterator = this.getXpeDccContractVersionView1().createRowSetIterator(null);
+            RowSetIterator rowSetIterator = this.getXpeDccNewContractVersionView().createRowSetIterator(null);
             while (rowSetIterator.hasNext()) {
                 Row row = rowSetIterator.next();
                 String versionNumber = (String) row.getAttribute("XpeContractVersion");
@@ -1814,10 +1816,11 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         }
         Integer maxVersionNumber =  new Integer(Collections.max(versionList));
         System.err.println("Max Version Number: "+maxVersionNumber);
-        return maxVersionNumber+1;
+        maxVersionNumber = maxVersionNumber+1;
+        return "V"+maxVersionNumber;
     }
     
-    private void copyNewVersionContractLine(XpeDccContractVersionViewRowImpl source, XpeDccContractVersionViewRowImpl target) {
+    private void copyNewVersionContractLine(XpeDccContractVersionViewRowImpl source, XpeDccContractVersionViewRowImpl target, String contractType) {
         RowIterator lineSourceRowSet = source.getXpeDccContractLineView();
         RowIterator lineTargetRowSet = target.getXpeDccContractLineView();
         while (lineSourceRowSet.hasNext()) {
@@ -1837,6 +1840,9 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             lineTargetRow.setCurrencyCd(lineTargetRow.getCurrencyCd());
             lineTargetRowSet.insertRow(lineTargetRow);
             copyNewVersionPricingTerm(lineSourceRow, lineTargetRow);
+            if(null != contractType && "BLS".equals(contractType)){
+            copyNewVersionBlueLightsSpecial(lineSourceRow, lineTargetRow);
+            }
         }
 
     }
@@ -1870,6 +1876,31 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             copyNewVersionCarrierDetails(sourcePricingTermRow, targetPricingTermRow);
         }
 
+    }
+    
+    private void copyNewVersionBlueLightsSpecial(XpeDccContractLineViewRowImpl source, XpeDccContractLineViewRowImpl target){
+        Timestamp currentDate = new Timestamp(System.currentTimeMillis());
+        RowIterator priceOverSourceRowSet = source.getXpeDccContractPricingOverView();
+        RowIterator priceOverTargetRowSet = target.getXpeDccContractPricingOverView();
+        while(priceOverSourceRowSet.hasNext()){
+           XpeDccContractPricingOverViewRowImpl sourcePricingOverRow =
+                (XpeDccContractPricingOverViewRowImpl) priceOverSourceRowSet.next();
+            if(currentDate.compareTo(sourcePricingOverRow.getXpeOverStart()) > 0 && currentDate.compareTo(sourcePricingOverRow.getXpeOverEnd()) < 0){
+                XpeDccContractPricingOverViewRowImpl targetPricingOverRow =
+                    (XpeDccContractPricingOverViewRowImpl) priceOverTargetRowSet.createAndInitRow(null);
+                targetPricingOverRow.setXpeContractVersion(target.getXpeContractVersion());
+                targetPricingOverRow.setXpeOverType(sourcePricingOverRow.getXpeOverType());
+                targetPricingOverRow.setXpeOverStart(sourcePricingOverRow.getXpeOverStart());
+                targetPricingOverRow.setXpeOverEnd(sourcePricingOverRow.getXpeOverEnd());
+                targetPricingOverRow.setXpeSourceFld(sourcePricingOverRow.getXpeSourceFld());
+                targetPricingOverRow.setXpeCondition(sourcePricingOverRow.getXpeTargetFld());
+                targetPricingOverRow.setXpeCheck(sourcePricingOverRow.getXpeCheck());
+                targetPricingOverRow.setXpeTargetFld(sourcePricingOverRow.getXpeTargetFld());
+                targetPricingOverRow.setXpeOverMsg(sourcePricingOverRow.getXpeOverMsg());
+                targetPricingOverRow.setXpeOverDesc(sourcePricingOverRow.getXpeOverDesc());
+                priceOverTargetRowSet.insertRow(targetPricingOverRow);
+            }
+        }
     }
 
     private void copyNewVersionCarrierDetails(XpeDccContractPricingTermViewRowImpl source,
@@ -2488,8 +2519,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      * Container's getter for XpeDccContractPricingOverView1.
      * @return XpeDccContractPricingOverView1
      */
-    public ViewObjectImpl getXpeDccContractPricingOverView1() {
-        return (ViewObjectImpl) findViewObject("XpeDccContractPricingOverView1");
+    public XpeDccContractPricingOverViewImpl getXpeDccContractPricingOverView1() {
+        return (XpeDccContractPricingOverViewImpl) findViewObject("XpeDccContractPricingOverView1");
     }
 
     /**
@@ -2504,8 +2535,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      * Container's getter for XpeDccContractPricingOverView2.
      * @return XpeDccContractPricingOverView2
      */
-    public ViewObjectImpl getXpeDccNewContractPricingOverView() {
-        return (ViewObjectImpl) findViewObject("XpeDccNewContractPricingOverView");
+    public XpeDccContractPricingOverViewImpl getXpeDccNewContractPricingOverView() {
+        return (XpeDccContractPricingOverViewImpl) findViewObject("XpeDccNewContractPricingOverView");
     }
 
     /**
@@ -2522,6 +2553,30 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public XpeDccWfActionROVOImpl getXpeDccWfActionROVO() {
         return (XpeDccWfActionROVOImpl) findViewObject("XpeDccWfActionROVO");
+    }
+    
+    /**
+     * Container's getter for XpeBillAccountProcessesEOVO1.
+     * @return XpeBillAccountProcessesEOVO1
+     */
+    public ViewObjectImpl getXpeBillAccountProcessesEOVO1() {
+        return (ViewObjectImpl) findViewObject("XpeBillAccountProcessesEOVO1");
+    }
+
+    /**
+     * Container's getter for XpeBillAccountProcessesEOVO2.
+     * @return XpeBillAccountProcessesEOVO2
+     */
+    public ViewObjectImpl getXpeNewBillAccountProcessesEOVO() {
+        return (ViewObjectImpl) findViewObject("XpeNewBillAccountProcessesEOVO");
+    }
+
+    /**
+     * Container's getter for XpeDccCfgAccountingEOVO1.
+     * @return XpeDccCfgAccountingEOVO1
+     */
+    public ViewObjectImpl getXpeDccCfgNewAccountingEOVO() {
+        return (ViewObjectImpl) findViewObject("XpeDccCfgNewAccountingEOVO");
     }
 }
 

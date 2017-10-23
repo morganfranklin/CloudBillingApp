@@ -28,8 +28,8 @@ public interface AppModule extends ApplicationModule {
 
     String addAssTerminalToPCSInstallation();
 
-    String createNewContractVersion();
-
     void updateContractApprovalStatus(String uuId, String action);
+    
+    String createNewContractVersion(String contractType);
 }
 

@@ -133,4 +133,9 @@ public class integrationDashboardRegionName implements Serializable {
         setDynamicTaskFlowId("/WEB-INF/blsContractRootSetUp.xml#blsContractRootSetUp");
         return null;
     }
+
+    public String billingAccountingProcesses() {
+        setDynamicTaskFlowId("/WEB-INF/billingAccountingProcesses.xml#billingAccountingProcesses");
+        return null;
+    }
 }

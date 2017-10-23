@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="accountingSetUpPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XpeDccCfgAccountingEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgAccountingEOVOIterator"/>
+    <searchRegion Criteria="AccountingCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="XpeDccCfgAccountingEOVOIterator" id="AccountingCriteriaQuery"/>
+    <iterator Binds="XpeDccCfgNewAccountingEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewAccountingEOVOIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="XpeDccCfgAccountingEOVOIterator" id="XpeDccCfgAccountingEOVO">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccCfgAccountingEOVO" Name="XpeDccCfgAccountingEOVO0">
+        <AttrNames>
+          <Item Value="AccountId"/>
+          <Item Value="AccountingClass"/>
+          <Item Value="ChargeId"/>
+          <Item Value="DealClass"/>
+          <Item Value="EntryType"/>
+          <Item Value="MaterialCategory"/>
+          <Item Value="OperatingUnit"/>
+          <Item Value="ProductServiceId"/>
+          <Item Value="SiteId"/>
+          <Item Value="StatAccount"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="XpeDccCfgNewAccountingEOVOIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <attributeValues IterBinding="XpeDccCfgNewAccountingEOVOIterator" id="AccountId">
+      <AttrNames>
+        <Item Value="AccountId"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="XpeDccCfgNewAccountingEOVOIterator" StaticList="false" Uses="LOV_AccountingClass"
+                  id="AccountingClass"/>
+    <attributeValues IterBinding="XpeDccCfgNewAccountingEOVOIterator" id="ChargeId">
+      <AttrNames>
+        <Item Value="ChargeId"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="XpeDccCfgNewAccountingEOVOIterator" StaticList="false" Uses="LOV_DealClass"
+                  id="DealClass"/>
+    <attributeValues IterBinding="XpeDccCfgNewAccountingEOVOIterator" id="EntryType">
+      <AttrNames>
+        <Item Value="EntryType"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="XpeDccCfgNewAccountingEOVOIterator" StaticList="false" Uses="LOV_MaterialCategory"
+                  id="MaterialCategory"/>
+    <attributeValues IterBinding="XpeDccCfgNewAccountingEOVOIterator" id="OperatingUnit">
+      <AttrNames>
+        <Item Value="OperatingUnit"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="XpeDccCfgNewAccountingEOVOIterator" StaticList="false" Uses="LOV_ProductServiceId"
+                  id="ProductServiceId"/>
+    <listOfValues IterBinding="XpeDccCfgNewAccountingEOVOIterator" StaticList="false" Uses="LOV_SiteId" id="SiteId"/>
+    <attributeValues IterBinding="XpeDccCfgNewAccountingEOVOIterator" id="StatAccount">
+      <AttrNames>
+        <Item Value="StatAccount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgAccountingEOVOIterator" id="AccountId1">
+      <AttrNames>
+        <Item Value="AccountId"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="XpeDccCfgAccountingEOVOIterator" StaticList="false" Uses="LOV_AccountingClass"
+                  id="AccountingClass1"/>
+    <attributeValues IterBinding="XpeDccCfgAccountingEOVOIterator" id="ChargeId1">
+      <AttrNames>
+        <Item Value="ChargeId"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="XpeDccCfgAccountingEOVOIterator" StaticList="false" Uses="LOV_DealClass"
+                  id="DealClass1"/>
+    <attributeValues IterBinding="XpeDccCfgAccountingEOVOIterator" id="EntryType1">
+      <AttrNames>
+        <Item Value="EntryType"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="XpeDccCfgAccountingEOVOIterator" StaticList="false" Uses="LOV_MaterialCategory"
+                  id="MaterialCategory1"/>
+    <attributeValues IterBinding="XpeDccCfgAccountingEOVOIterator" id="OperatingUnit1">
+      <AttrNames>
+        <Item Value="OperatingUnit"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="XpeDccCfgAccountingEOVOIterator" StaticList="false" Uses="LOV_ProductServiceId"
+                  id="ProductServiceId1"/>
+    <listOfValues IterBinding="XpeDccCfgAccountingEOVOIterator" StaticList="false" Uses="LOV_SiteId" id="SiteId1"/>
+    <attributeValues IterBinding="XpeDccCfgAccountingEOVOIterator" id="StatAccount1">
+      <AttrNames>
+        <Item Value="StatAccount"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

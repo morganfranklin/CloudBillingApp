@@ -2,7 +2,7 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
     <af:panelGroupLayout layout="vertical" id="pgl2" partialTriggers="b3 b5">
-        <af:panelHeader text="Counties Set Up" id="ph2" size="3">
+        <af:panelHeader text="Counties Set Up" id="ph2" size="1">
             <af:query id="qryId1" headerText="Search Counties" disclosed="true"
                       value="#{bindings.CountiesCriteriaQuery.queryDescriptor}"
                       model="#{bindings.CountiesCriteriaQuery.queryModel}"
@@ -10,6 +10,7 @@
                       queryOperationListener="#{pageFlowScope.countiesSetUpTableMBean.queryOperationListener}"
                       resultComponentId="::resId1"/>
         </af:panelHeader>
+        <af:spacer width="10" height="10" id="s1"/>
         <af:panelHeader text="Counties" id="ph1" size="5">
             <f:facet name="context"/>
             <f:facet name="toolbar">
