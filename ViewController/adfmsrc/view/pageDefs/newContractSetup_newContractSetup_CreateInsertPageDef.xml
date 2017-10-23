@@ -12,6 +12,8 @@
               RangeSize="25"/>
     <iterator id="XpeDccNewContractCustomerSearchROVOIterator" Binds="XpeDccNewContractCustomerSearchROVO"
               DataControl="AppModuleDataControl" RangeSize="25"/>
+    <iterator Binds="XpeDccContractSearchROVO" RangeSize="10" DataControl="AppModuleDataControl"
+              id="XpeDccContractSearchROVOIterator"/>
   </executables>
   <bindings>
     <list Uses="LOV_Customer_Type" StaticList="false" IterBinding="XpeDccNewContractSetupROVOIterator"
@@ -22,5 +24,15 @@
                   ReturnName="data.AppModuleDataControl.methodResults.createNewContractVersion_AppModuleDataControl_dataProvider_createNewContractVersion_result">
       <NamedData NDName="contractType" NDValue="#{pageFlowScope.ContractType}" NDType="java.lang.String"/>
     </methodAction>
+    <attributeValues IterBinding="XpeDccContractSearchROVOIterator" id="XpeContractId">
+      <AttrNames>
+        <Item Value="XpeContractId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccContractSearchROVOIterator" id="XpeContractVersion">
+      <AttrNames>
+        <Item Value="XpeContractVersion"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

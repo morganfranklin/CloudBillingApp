@@ -50,6 +50,24 @@ import view.utils.ADFUtils;
 public class XpeDccNewContractMBean implements Serializable {
     @SuppressWarnings("compatibility:-1676697804706803154")
     private static final long serialVersionUID = -7288355791642493247L;
+    private String contractId;
+    private String contractVersion;
+
+    public void setContractId(String contractId) {
+        this.contractId = contractId;
+    }
+
+    public String getContractId() {
+        return contractId;
+    }
+
+    public void setContractVersion(String contractVersion) {
+        this.contractVersion = contractVersion;
+    }
+
+    public String getContractVersion() {
+        return contractVersion;
+    }
 
     public XpeDccNewContractMBean() {
         super();
@@ -119,11 +137,18 @@ public class XpeDccNewContractMBean implements Serializable {
                     }
                 }
             } else if ("UPDATE".equals(contractType) || "BLS".equals(contractType)) {
-                BindingContext bc = BindingContext.getCurrent();
-                BindingContainer bindings = bc.getCurrentBindingsEntry();
-                OperationBinding operationBinding = bindings.getOperationBinding("createNewContractVersion");
-                if (null != operationBinding)
-                    operationBinding.execute();
+                String contractId = ADFUtils.getValueFrmExpression("#{bindings.XpeContractId.inputValue}");
+                String contractVersion = ADFUtils.getValueFrmExpression("#{bindings.XpeContractVersion.inputValue}");
+                if((null==this.getContractId() && null==this.getContractVersion()) || !(contractId.equalsIgnoreCase(this.getContractId()) && contractVersion.equalsIgnoreCase(this.getContractVersion()))){
+                    BindingContext bc = BindingContext.getCurrent();
+                    BindingContainer bindings = bc.getCurrentBindingsEntry();
+                    OperationBinding operationBinding = bindings.getOperationBinding("createNewContractVersion");
+                    if (null != operationBinding){
+                        operationBinding.execute();
+                        this.setContractId(contractId);
+                        this.setContractVersion(contractVersion);
+                    }
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
