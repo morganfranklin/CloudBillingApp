@@ -13,6 +13,7 @@ import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Multipart;
 import javax.mail.NoSuchProviderException;
+import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.AddressException;
@@ -21,6 +22,8 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.mail.util.ByteArrayDataSource;
+
+import javax.swing.text.html.HTML;
 
 public class EmailUtils {
     public EmailUtils() {
@@ -57,7 +60,7 @@ public class EmailUtils {
             // TODO: Add catch code
             nspe.printStackTrace();
         } catch (MessagingException me) {
-            // TODO: Add catch code
+            // TODO: Add catch code 
             me.printStackTrace();
         }
     }
@@ -65,15 +68,38 @@ public class EmailUtils {
     private static Session getMailSession(String host, String port, String sender) {
 
         Properties props = new Properties();
-        props.setProperty("mail.transport.protocol", "smtp");
+        props.setProperty("mail.smtp.starttls.enable", "true");
+        props.setProperty("mail.smtp.auth", "true");
+        //props.setProperty("mail.transport.protocol", "smtp");
         props.setProperty("mail.smtp.host", host);
         props.setProperty("mail.smtp.port", port);
-        props.setProperty("mail.smtp.user", sender);
-        props.setProperty("mail.debug", "true");
-        props.setProperty("mail.disable", "false");
-        props.setProperty("mail.verbose", "true");
-        Session session = Session.getDefaultInstance(props);
+//        props.setProperty("mail.smtp.user", sender);
+//        props.setProperty("mail.debug", "true");
+//        props.setProperty("mail.disable", "false");
+//        props.setProperty("mail.verbose", "true"); 
+        Session session = Session.getInstance(props,  
+    new javax.mail.Authenticator() {  
+     protected PasswordAuthentication getPasswordAuthentication() {  
+      return new PasswordAuthentication(sender,"morganfranklin@TS");  
+     }  
+      });
         session.setDebug(true);
         return session;
+    }
+    
+    public static void main(String[] args) {
+        StringBuilder html = new StringBuilder();
+        html.append("<p>");
+        html.append("<a href=\"");
+        html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("&").append("uuid=").append("sdfesfsdf214s5d5fsd").append("&").append("action=").append("ACCEPT");
+        html.append("\">Accept</a>");
+        html.append("<a href=\"");
+        html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("&").append("uuid=").append("sdfsf245sd5fdsf").append("&").append("action=").append("REJECT");
+        html.append("\">Reject</a>");
+        html.append("</p>");
+        //"<p><a href="https://www.w3schools.com/html/default.asp">HTML tutorial</a></p>";
+        EmailUtils.sendEmail("smtp.gmail.com","587","morgan.franklin.test@gmail.com","nkoneru@morganfranklin.com","Approve/Reject Contract",html.toString());
     }
 }

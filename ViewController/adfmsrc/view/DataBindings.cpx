@@ -91,6 +91,8 @@
         <page path="/WEB-INF/originsSetUpTable.xml#originsSetUpTable@SetCurrentRowWithKeyValue"
               usageId="view_originsSetUpTable_originsSetUpTable_SetCurrentRowWithKeyValuePageDef"/>
         <page path="/generalConversionSetUp.jsff" usageId="view_generalConversionSetUpPageDef"/>
+        <page path="/WEB-INF/approvalWorkFlow.xml#approvalWorkFlow@updateContractApprovalStatus"
+              usageId="view_approvalWorkFlow_approvalWorkFlow_updateContractApprovalStatusPageDef"/>
     </pageMap>
     <pageDefinitionUsages>
         <page id="view_IntegrationDashPageDef" path="view.pageDefs.IntegrationDashPageDef"/>
@@ -176,6 +178,8 @@
         <page id="view_originsSetUpTable_originsSetUpTable_SetCurrentRowWithKeyValuePageDef"
               path="view.pageDefs.originsSetUpTable_originsSetUpTable_SetCurrentRowWithKeyValuePageDef"/>
         <page id="view_generalConversionSetUpPageDef" path="view.pageDefs.generalConversionSetUpPageDef"/>
+        <page id="view_approvalWorkFlow_approvalWorkFlow_updateContractApprovalStatusPageDef"
+              path="view.pageDefs.approvalWorkFlow_approvalWorkFlow_updateContractApprovalStatusPageDef"/>
     </pageDefinitionUsages>
     <dataControlUsages>
         <BC4JDataControl id="AppModuleDataControl" Package="model"

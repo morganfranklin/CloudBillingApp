@@ -25,6 +25,10 @@
         ResId="model.views.entitybased.XpeDccWfEventEOVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <Variable
+    Name="bind_eventNumber"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="XpeDccWfEventEO"
     Entity="model.entities.XpeDccWfEventEO"/>
@@ -94,6 +98,43 @@
     EntityAttrName="XpeEventType"
     EntityUsage="XpeDccWfEventEO"
     AliasName="XPE_EVENT_TYPE"/>
+  <ViewCriteria
+    Name="XpeDccWfEventEOVOCriteria"
+    ViewObjectName="model.views.entitybased.XpeDccWfEventEOVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="XpeDccWfEventEOVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="XpeEventNumber"
+        ViewAttribute="XpeEventNumber"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_eventNumber"
+        UpperColumns="0"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="XpeDccWfActionEOVO"
     ViewLink="model.views.entitybased.XpeDccWfActionFKVL"

@@ -3,20 +3,45 @@
    <OverallProperties
       id="OverallProperties1"/>
    <View
-      id="View2">
+      id="View3">
       <property
          name="activityId">dccapprovalConfirm</property>
       <property
-         name="x">360.35547</property>
+         name="x">514.35547</property>
       <property
-         name="start">true</property>
+         name="start">false</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>dccapprovalConfirm&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>dccapprovalConfirm&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">214.99414</property>
+         name="y">284.64355</property>
       <property
          name="page">/dccapprovalConfirm.jspx</property>
       <property
          name="exceptionHandler">false</property>
    </View>
+   <MethodCall
+      id="MethodCall3">
+      <property
+         name="activityId">updateContractApprovalStatus</property>
+      <property
+         name="x">197.71777</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>updateContractApprovalStatus&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">281.1494</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="MethodCall3"
+      to="View3">
+      <property
+         name="fromOutcome">updateContractApprovalStatus</property>
+      <property
+         name="sdm:polyPoints">R50,238.71777,280.79883,473.35547,284.29297,L50</property>
+   </ControlFlowCase>
 </SDM>

@@ -53,6 +53,10 @@ import model.views.readonly.XpeDccNewContractSetupROVORowImpl;
 import model.views.readonly.XpeDccTermsForMasterTermROVOImpl;
 import model.views.readonly.XpeDccTermsForMasterTermROVORowImpl;
 
+import model.views.readonly.XpeDccWfActionROVOImpl;
+
+import model.views.readonly.XpeDccWfActionROVORowImpl;
+
 import oracle.jbo.Key;
 import oracle.jbo.Row;
 import oracle.jbo.RowIterator;
@@ -1662,8 +1666,6 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             createApprovalWFEventAction();
             //commiting transaction
             this.getDBTransaction().commit();
-            //pushing email notifications
-            EmailUtils.sendEmail("smtp.office365.com","587","nkoneru@morganfranklin.com","nkoneru@morganfranklin.com","Approve/Reject Contract","<h1>Nirup Koneru</h1>");
             return true;
         } catch (Exception e) {
             // TODO: Add catch code
@@ -1690,11 +1692,63 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         XpeDccWfActionEOVORowImpl xpeDccWfActionEOVORow =(XpeDccWfActionEOVORowImpl)approvalWFEventRow.getXpeDccWfActionEOVO().createRow();
         xpeDccWfActionEOVORow.setXpeContractId(xpeDccContractVersionViewRow.getXpeContractId());
         xpeDccWfActionEOVORow.setXpeContractVersion(xpeDccContractVersionViewRow.getXpeContractVersion());
-        xpeDccWfActionEOVORow.setXpeUuid(UUID.randomUUID().toString());
+        String uuId = UUID.randomUUID().toString();
+        xpeDccWfActionEOVORow.setXpeUuid(uuId);
         xpeDccWfActionEOVORow.setXpeApproverEmail("nkoneru@morganfranklin.com");
         xpeDccWfActionEOVORow.setXpeActionStatus("P");
         approvalWFEventRow.getXpeDccWfActionEOVO().insertRow(xpeDccWfActionEOVORow);
+        
+        //pushing email notifications for approvals
+        pushEmailForApproval(uuId);
     
+    }
+    
+    private void pushEmailForApproval(String uuId){
+        StringBuilder html = new StringBuilder();
+        html.append("<p>");
+        html.append("<a href=\"");
+        html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("&").append("uuid=").append(uuId).append("&").append("action=").append("ACCEPT");
+        html.append("\">Accept</a>");
+        html.append("<a href=\"");
+        html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("&").append("uuid=").append(uuId).append("&").append("action=").append("REJECT");
+        html.append("\">Reject</a>");
+        html.append("</p>");
+        //"<p><a href="https://www.w3schools.com/html/default.asp">HTML tutorial</a></p>";
+        EmailUtils.sendEmail("smtp.gmail.com","587","morgan.franklin.test@gmail.com","nkoneru@morganfranklin.com","Approve/Reject Contract",html.toString());
+    }
+    
+    public void updateContractApprovalStatus(String uuId, String action){
+        this.getXpeDccWfActionROVO().executeEmptyRowSet();
+        this.getXpeDccWfActionROVO().setApplyViewCriteriaName("XpeDccWfActionROVOCriteria");
+        this.getXpeDccWfActionROVO().setbind_uuId(uuId);
+        this.getXpeDccWfActionROVO().executeQuery();
+        XpeDccWfActionROVORowImpl xpeDccWfActionROVORow = (XpeDccWfActionROVORowImpl)this.getXpeDccWfActionROVO().first();
+        if(null!=xpeDccWfActionROVORow){    
+            this.getXpeDccWfEventEOVO().executeEmptyRowSet();
+            this.getXpeDccWfEventEOVO().setApplyViewCriteriaName("XpeDccWfEventEOVOCriteria");
+            this.getXpeDccWfEventEOVO().setbind_eventNumber(xpeDccWfActionROVORow.getXpeEventNumber());
+            this.getXpeDccWfEventEOVO().executeQuery();
+            XpeDccWfEventEOVORowImpl approvalWFEventRow = (XpeDccWfEventEOVORowImpl) this.getXpeDccWfEventEOVO().first();
+            if(null!=approvalWFEventRow){
+                RowIterator rowIterator = approvalWFEventRow.getXpeDccWfActionEOVO();
+                Key key =
+                    new Key(new Object[] { xpeDccWfActionROVORow.getXpeApproverSequence()});
+                Row[] rows = rowIterator.findByKey(key, 1);
+                if (null != rows && rows.length > 0) {
+                    XpeDccWfActionEOVORowImpl xpeDccWfActionEOVORow = (XpeDccWfActionEOVORowImpl)rows[0];
+                    if(null!=action){
+                        if("ACCEPT".equals(action))
+                            xpeDccWfActionEOVORow.setXpeActionStatus("A");
+                        if("REJECT".equals(action))
+                            xpeDccWfActionEOVORow.setXpeActionStatus("R");
+                    }
+                }
+            }
+        }
+        //commiting transaction
+        this.getDBTransaction().commit();
     }
     
     public String createNewContractVersion(){
@@ -2460,6 +2514,14 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public ViewLinkImpl getXpeDccContractPricingFk2Link2() {
         return (ViewLinkImpl) findViewLink("XpeDccContractPricingFk2Link2");
+    }
+
+    /**
+     * Container's getter for XpeDccWfActionROVO1.
+     * @return XpeDccWfActionROVO1
+     */
+    public XpeDccWfActionROVOImpl getXpeDccWfActionROVO() {
+        return (XpeDccWfActionROVOImpl) findViewObject("XpeDccWfActionROVO");
     }
 }
 

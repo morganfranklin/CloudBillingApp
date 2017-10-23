@@ -5,7 +5,8 @@
     <f:view>
         <af:document title="dccapprovalConfirm" id="d1">
             <af:form id="f1">
-                <af:outputText value="Confirmation Page" id="ot1"/>
+                <af:outputText value="#{pageFlowScope.action eq 'ACCEPT' ?'Contract Approval is accepted':'Contract Approval is rejected'}" id="ot1"
+                               inlineStyle="font-size:xx-large; text-align:center;"/>
             </af:form>
         </af:document>
     </f:view>

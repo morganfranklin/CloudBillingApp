@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57"
+                id="approvalWorkFlow_approvalWorkFlow_updateContractApprovalStatusPageDef" Package="view.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="updateContractApprovalStatus" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="updateContractApprovalStatus" IsViewObjectMethod="false"
+                  DataControl="AppModuleDataControl" InstanceName="data.AppModuleDataControl.dataProvider">
+      <NamedData NDName="uuId" NDValue="#{pageFlowScope.uuid}" NDType="java.lang.String"/>
+      <NamedData NDName="action" NDValue="#{pageFlowScope.action}" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

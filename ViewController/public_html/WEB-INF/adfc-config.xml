@@ -6,6 +6,12 @@
             <id>secureXPEflow</id>
         </task-flow-reference>
     </task-flow-call>
+    <task-flow-call id="approvalWorkFlow">
+        <task-flow-reference>
+            <document>/WEB-INF/approvalWorkFlow.xml</document>
+            <id>approvalWorkFlow</id>
+        </task-flow-reference>
+    </task-flow-call>
     <managed-bean id="__1">
         <managed-bean-name>integrationDashboardRegionName</managed-bean-name>
         <managed-bean-class>view.integrationDashboardRegionName</managed-bean-class>

@@ -13,5 +13,21 @@ public class XpeDccWfEventEOVOImpl extends ViewObjectImpl {
      */
     public XpeDccWfEventEOVOImpl() {
     }
+
+    /**
+     * Returns the variable value for bind_eventNumber.
+     * @return variable value for bind_eventNumber
+     */
+    public String getbind_eventNumber() {
+        return (String) ensureVariableManager().getVariableValue("bind_eventNumber");
+    }
+
+    /**
+     * Sets <code>value</code> for variable bind_eventNumber.
+     * @param value value to bind as bind_eventNumber
+     */
+    public void setbind_eventNumber(String value) {
+        ensureVariableManager().setVariableValue("bind_eventNumber", value);
+    }
 }
 

@@ -1,13 +1,36 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <task-flow-definition id="approvalWorkFlow">
-    <default-activity>dccapprovalConfirm</default-activity>
+    <default-activity>updateContractApprovalStatus</default-activity>
     <data-control-scope>
       <shared/>
     </data-control-scope>
+    <input-parameter-definition id="__1">
+      <name>uuid</name>
+      <value>#{pageFlowScope.uuid}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__2">
+      <name>action</name>
+      <value>#{pageFlowScope.action}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
     <view id="dccapprovalConfirm">
       <page>/dccapprovalConfirm.jspx</page>
     </view>
+    <method-call id="updateContractApprovalStatus">
+      <method>#{bindings.updateContractApprovalStatus.execute}</method>
+      <outcome>
+        <fixed-outcome>updateContractApprovalStatus</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__3">
+      <from-activity-id>updateContractApprovalStatus</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>updateContractApprovalStatus</from-outcome>
+        <to-activity-id>dccapprovalConfirm</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
     <visibility>
       <url-invoke-allowed/>
     </visibility>

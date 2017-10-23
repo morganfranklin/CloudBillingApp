@@ -570,6 +570,9 @@
     <ViewUsage
         Name="XpeDccNewContractPricingOverView"
         ViewObjectName="model.XpeDccContractPricingOverView"/>
+    <ViewUsage
+        Name="XpeDccWfActionROVO"
+        ViewObjectName="model.views.readonly.XpeDccWfActionROVO"/>
     <ViewLinkUsage
         Name="NeuRuleTblFk1Link1"
         ViewLinkObjectName="model.NeuRuleTblFk1Link"
@@ -1118,6 +1121,19 @@
             MethodName="createNewContractVersion">
             <Return
                 Name="_return_type_"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="updateContractApprovalStatus"
+            MethodName="updateContractApprovalStatus">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+            <Parameter
+                Name="uuId"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="action"
                 Type="java.lang.String"/>
         </Method>
     </ClientInterface>
