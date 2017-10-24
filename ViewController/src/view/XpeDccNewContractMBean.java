@@ -29,6 +29,7 @@ import model.views.readonly.XpeDccNewContractCustomerSearchROVOImpl;
 import model.views.readonly.XpeDccNewContractCustomerSearchROVORowImpl;
 
 import oracle.adf.model.BindingContext;
+import oracle.adf.model.binding.DCBindingContainer;
 import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.view.rich.component.rich.RichPopup;
 
@@ -40,6 +41,8 @@ import oracle.adf.view.rich.event.QueryOperationEvent;
 import oracle.binding.BindingContainer;
 import oracle.binding.OperationBinding;
 
+import oracle.jbo.Key;
+import oracle.jbo.Row;
 import oracle.jbo.RowSetIterator;
 import oracle.jbo.domain.ClobDomain;
 
@@ -140,13 +143,22 @@ public class XpeDccNewContractMBean implements Serializable {
                 String contractId = ADFUtils.getValueFrmExpression("#{bindings.XpeContractId.inputValue}");
                 String contractVersion = ADFUtils.getValueFrmExpression("#{bindings.XpeContractVersion.inputValue}");
                 if((null==this.getContractId() && null==this.getContractVersion()) || !(contractId.equalsIgnoreCase(this.getContractId()) && contractVersion.equalsIgnoreCase(this.getContractVersion()))){
-                    BindingContext bc = BindingContext.getCurrent();
-                    BindingContainer bindings = bc.getCurrentBindingsEntry();
+                    DCBindingContainer bindings = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
                     OperationBinding operationBinding = bindings.getOperationBinding("createNewContractVersion");
-                    if (null != operationBinding){
-                        operationBinding.execute();
-                        this.setContractId(contractId);
-                        this.setContractVersion(contractVersion);
+                    if (null != operationBinding) {
+                        String newContractVersion = (String) operationBinding.execute();
+                        if (null != newContractVersion) {
+                            DCIteratorBinding contractVersionIterator =
+                                bindings.findIteratorBinding("XpeDccNewContractVersionViewIterator");
+                            Key key = new Key(new Object[] { contractId, newContractVersion });
+                            Row[] rows = contractVersionIterator.getRowSetIterator().findByKey(key, 1);
+
+                            if (rows.length > 0) {
+                                contractVersionIterator.setCurrentRowWithKey(rows[0].getKey().toStringFormat(true));
+                                this.setContractId(contractId);
+                                this.setContractVersion(contractVersion);
+                            }
+                        }
                     }
                 }
             }

@@ -1757,6 +1757,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     }
     
     public String createNewContractVersion(String contractType){
+        String version = null;
         try {
             XpeDccContractSearchROVORowImpl contractSearchROVORow =
                 (XpeDccContractSearchROVORowImpl) this.getXpeDccContractSearchROVO().getCurrentRow();
@@ -1774,14 +1775,14 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                     Key key =
                         new Key(new Object[] { contractSearchROVORow.getXpeContractId(),
                                                contractSearchROVORow.getXpeContractVersion() });
-                    Row[] rows = this.getXpeDccNewContractVersionView().findByKey(key, 1);
+                    Row[] rows = xpeDccNewContractsEOVORow.getXpeDccContractVersionView().findByKey(key, 1);
                     if (null != rows && rows.length > 0) {
                         removeNewContractVersionRow();
-                        String version = getVersionNumber();
+                        version = getVersionNumber();
                         XpeDccContractVersionViewRowImpl sourceContractVersionViewRow =
                             (XpeDccContractVersionViewRowImpl) rows[0];
                         XpeDccContractVersionViewRowImpl targetContractVersionViewRow =
-                            (XpeDccContractVersionViewRowImpl) xpeDccNewContractsEOVORow.getXpeDccContractVersionView().createRow();
+                            (XpeDccContractVersionViewRowImpl) xpeDccNewContractsEOVORow.getXpeDccContractVersionView().createAndInitRow(null);
                         targetContractVersionViewRow.setXpeContractVersion(version);
                         targetContractVersionViewRow.setXpeWasteType(sourceContractVersionViewRow.getXpeWasteType());
                         targetContractVersionViewRow.setXpeContractSubType(sourceContractVersionViewRow.getXpeContractSubType());
@@ -1791,7 +1792,6 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                         targetContractVersionViewRow.setXpeEndDate(sourceContractVersionViewRow.getXpeEndDate());
                         targetContractVersionViewRow.setSalesPerson(sourceContractVersionViewRow.getSalesPerson());
                         xpeDccNewContractsEOVORow.getXpeDccContractVersionView().insertRow(targetContractVersionViewRow);
-                        //this.getXpeDccNewContractVersionView().setCurrentRow(targetContractVersionViewRow);
                         copyNewVersionContractLine(sourceContractVersionViewRow, targetContractVersionViewRow,
                                                    contractType);
                         copyNewVersionContractNotes(sourceContractVersionViewRow, targetContractVersionViewRow);
@@ -1802,7 +1802,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             // TODO: Add catch code
             e.printStackTrace();
         }
-        return null;
+        return version;
     }
 
     private void removeNewContractVersionRow() {
@@ -1950,9 +1950,9 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     }
 
     private void copyNewVersionContractNotes(XpeDccContractVersionViewRowImpl source, XpeDccContractVersionViewRowImpl target) {
-        XpeDccContractNotesViewRowImpl sourceNotesRow =
-            (XpeDccContractNotesViewRowImpl) source.getXpeDccContractNotesView().getCurrentRow();
-        if (null != sourceNotesRow) {
+        RowIterator sourceNotesRowIterator = source.getXpeDccContractNotesView();
+        while(sourceNotesRowIterator.hasNext()) {
+            XpeDccContractNotesViewRowImpl sourceNotesRow = (XpeDccContractNotesViewRowImpl) sourceNotesRowIterator.next();
             XpeDccContractNotesViewRowImpl targetNotesRow = (XpeDccContractNotesViewRowImpl) target.getXpeDccContractNotesView().createAndInitRow(null);
             targetNotesRow.setXpeNoteDttm(sourceNotesRow.getXpeNoteDttm());
             targetNotesRow.setXpeNoteType(sourceNotesRow.getXpeNoteType());

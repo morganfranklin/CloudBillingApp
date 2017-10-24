@@ -7,9 +7,9 @@
     <iterator Binds="XpeDccNewContractLPCROVO" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccNewContractLPCROVOIterator" ChangeEventPolicy="none"/>
     <iterator Binds="XpeDccNewContractVersionView" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccNewContractVersionViewIterator" ChangeEventPolicy="none"/>
+              id="XpeDccNewContractVersionViewIterator"/>
     <iterator Binds="XpeDccNewContractNotesView" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccNewContractNotesViewIterator" ChangeEventPolicy="none"/>
+              id="XpeDccNewContractNotesViewIterator"/>
     <iterator Binds="XpeDccNewContractLineView" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccNewContractLineViewIterator"/>
     <iterator Binds="XpeDccNewContractPricingTermView" RangeSize="25" DataControl="AppModuleDataControl"
