@@ -22,6 +22,7 @@
       <Attr Name="_minCardinality" Value="1"/>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="XpeDccContractVersion1"/>
+      <Attr Name="_foreignKey" Value="model.XpeDccContractVersion.XpeDccContractVersionPk"/>
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.XpeDccContractVersion.XpeContractId"/>
@@ -37,6 +38,7 @@
       <Attr Name="_isUpdateable" Value="true"/>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="XpeDccTermsContractEO"/>
+      <Attr Name="_foreignKey" Value="model.entities.XpeDccTermsContractEO.fk_XpeDccTermsContractEO1"/>
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.entities.XpeDccTermsContractEO.XpeDccContractId"/>

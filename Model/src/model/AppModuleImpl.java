@@ -1776,35 +1776,25 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                                                contractSearchROVORow.getXpeContractVersion() });
                     Row[] rows = this.getXpeDccNewContractVersionView().findByKey(key, 1);
                     if (null != rows && rows.length > 0) {
+                        removeNewContractVersionRow();
                         String version = getVersionNumber();
-                        XpeDccContractVersionViewRowImpl sourceContractVersionViewRow = (XpeDccContractVersionViewRowImpl) rows[0];
+                        XpeDccContractVersionViewRowImpl sourceContractVersionViewRow =
+                            (XpeDccContractVersionViewRowImpl) rows[0];
                         XpeDccContractVersionViewRowImpl targetContractVersionViewRow =
-                            (XpeDccContractVersionViewRowImpl) xpeDccNewContractsEOVORow.getXpeDccContractVersionView().getCurrentRow();
-                        if (null != targetContractVersionViewRow) {
-                            byte newRowStatus = targetContractVersionViewRow.getEntity(0).getEntityState();
-                            if (newRowStatus == Entity.STATUS_NEW) {
-                                xpeDccNewContractsEOVORow.getXpeDccContractVersionView().removeCurrentRow();
-                                targetContractVersionViewRow =
-                                    (XpeDccContractVersionViewRowImpl) xpeDccNewContractsEOVORow.getXpeDccContractVersionView().createRow();
-                            } else
-                                targetContractVersionViewRow =
-                                    (XpeDccContractVersionViewRowImpl) xpeDccNewContractsEOVORow.getXpeDccContractVersionView().createRow();
-                        } else {
-                            targetContractVersionViewRow =
-                                (XpeDccContractVersionViewRowImpl) xpeDccNewContractsEOVORow.getXpeDccContractVersionView().createRow();
-                        }
-                            targetContractVersionViewRow.setXpeContractVersion(version);
-                            targetContractVersionViewRow.setXpeWasteType(sourceContractVersionViewRow.getXpeWasteType());
-                            targetContractVersionViewRow.setXpeContractSubType(sourceContractVersionViewRow.getXpeContractSubType());
-                            targetContractVersionViewRow.setXpeAgreementType(sourceContractVersionViewRow.getXpeAgreementType());
-                            targetContractVersionViewRow.setXpeAsOfDate(sourceContractVersionViewRow.getXpeAsOfDate());
-                            targetContractVersionViewRow.setXpeStartDate(sourceContractVersionViewRow.getXpeStartDate());
-                            targetContractVersionViewRow.setXpeEndDate(sourceContractVersionViewRow.getXpeEndDate());
-                            targetContractVersionViewRow.setSalesPerson(sourceContractVersionViewRow.getSalesPerson());
-                            xpeDccNewContractsEOVORow.getXpeDccContractVersionView().insertRow(targetContractVersionViewRow);
-                            copyNewVersionContractLine(sourceContractVersionViewRow, targetContractVersionViewRow,
-                                                       contractType);
-                            copyNewVersionContractNotes(sourceContractVersionViewRow, targetContractVersionViewRow);
+                            (XpeDccContractVersionViewRowImpl) xpeDccNewContractsEOVORow.getXpeDccContractVersionView().createRow();
+                        targetContractVersionViewRow.setXpeContractVersion(version);
+                        targetContractVersionViewRow.setXpeWasteType(sourceContractVersionViewRow.getXpeWasteType());
+                        targetContractVersionViewRow.setXpeContractSubType(sourceContractVersionViewRow.getXpeContractSubType());
+                        targetContractVersionViewRow.setXpeAgreementType(sourceContractVersionViewRow.getXpeAgreementType());
+                        targetContractVersionViewRow.setXpeAsOfDate(sourceContractVersionViewRow.getXpeAsOfDate());
+                        targetContractVersionViewRow.setXpeStartDate(sourceContractVersionViewRow.getXpeStartDate());
+                        targetContractVersionViewRow.setXpeEndDate(sourceContractVersionViewRow.getXpeEndDate());
+                        targetContractVersionViewRow.setSalesPerson(sourceContractVersionViewRow.getSalesPerson());
+                        xpeDccNewContractsEOVORow.getXpeDccContractVersionView().insertRow(targetContractVersionViewRow);
+                        //this.getXpeDccNewContractVersionView().setCurrentRow(targetContractVersionViewRow);
+                        copyNewVersionContractLine(sourceContractVersionViewRow, targetContractVersionViewRow,
+                                                   contractType);
+                        copyNewVersionContractNotes(sourceContractVersionViewRow, targetContractVersionViewRow);
                     }
                 }
             }
@@ -1813,6 +1803,17 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             e.printStackTrace();
         }
         return null;
+    }
+
+    private void removeNewContractVersionRow() {
+        RowSetIterator rowSetIterator = this.getXpeDccNewContractVersionView().createRowSetIterator(null);
+        while (rowSetIterator.hasNext()) {
+            XpeDccContractVersionViewRowImpl versionViewRow = (XpeDccContractVersionViewRowImpl) rowSetIterator.next();
+            byte newRowStatus = versionViewRow.getEntity(0).getEntityState();
+            if (newRowStatus == Entity.STATUS_NEW)
+                versionViewRow.remove();
+        }
+        rowSetIterator.closeRowSetIterator();
     }
     
     private String getVersionNumber(){

@@ -179,4 +179,18 @@
             <Item Value="model.XpeDccContractPricingOver.XpeContractOverNbr"/>
         </AttrArray>
     </Key>
+    <Key
+        Name="fk_XpeDccContractPricingOver">
+        <DesignTime>
+            <Attr Name="_referencedKey" Value="XPE_DCC_CONTRACT_LINE_PK"/>
+            <Attr Name="_isForeign" Value="true"/>
+            <Attr Name="_DBObjectName" Value="FK_XPE_DCC_CONTRACT_PRICING_OV"/>
+            <Attr Name="_isCascadeDelete" Value="true"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.XpeDccContractPricingOver.XpeContractId"/>
+            <Item Value="model.XpeDccContractPricingOver.XpeContractLine"/>
+            <Item Value="model.XpeDccContractPricingOver.XpeContractVersion"/>
+        </AttrArray>
+    </Key>
 </Entity>

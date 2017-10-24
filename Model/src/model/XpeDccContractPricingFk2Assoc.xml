@@ -13,26 +13,33 @@
         Name="XpeDccContractLine"
         Cardinality="1"
         Source="true"
-        Owner="model.XpeDccContractLine">
+        Owner="model.XpeDccContractLine"
+        LockLevel="NONE"
+        CascadeDelete="true"
+        CascadeUpdate="true">
         <DesignTime>
             <Attr Name="_isUpdateable" Value="true"/>
             <Attr Name="_minCardinality" Value="1"/>
             <Attr Name="_aggregation" Value="0"/>
+            <Attr Name="_finderName" Value="XpeDccContractLine"/>
+            <Attr Name="_foreignKey" Value="model.XpeDccContractLine.XpeDccContractLinePk"/>
         </DesignTime>
         <AttrArray Name="Attributes">
             <Item Value="model.XpeDccContractLine.XpeContractId"/>
-            <Item Value="model.XpeDccContractLine.XpeContractLine"/>
             <Item Value="model.XpeDccContractLine.XpeContractVersion"/>
+            <Item Value="model.XpeDccContractLine.XpeContractLine"/>
         </AttrArray>
     </AssociationEnd>
     <AssociationEnd
         Name="XpeDccContractPricingOver"
         Cardinality="-1"
-        Owner="model.XpeDccContractPricingOver">
+        Owner="model.XpeDccContractPricingOver"
+        HasOwner="true">
         <DesignTime>
             <Attr Name="_isUpdateable" Value="true"/>
             <Attr Name="_aggregation" Value="0"/>
             <Attr Name="_finderName" Value="XpeDccContractPricingOver"/>
+            <Attr Name="_foreignKey" Value="model.XpeDccContractPricingOver.fk_XpeDccContractPricingOver"/>
         </DesignTime>
         <AttrArray Name="Attributes">
             <Item Value="model.XpeDccContractPricingOver.XpeContractId"/>

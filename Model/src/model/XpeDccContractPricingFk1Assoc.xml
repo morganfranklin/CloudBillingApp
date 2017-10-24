@@ -4,7 +4,7 @@
 <Association
     xmlns="http://xmlns.oracle.com/bc4j"
     Name="XpeDccContractPricingFk1Assoc"
-    Version="12.2.1.0.31"
+    Version="12.2.1.11.57"
     InheritPersonalization="merge">
     <DesignTime>
         <Attr Name="_isCodegen" Value="true"/>
@@ -13,12 +13,16 @@
         Name="XpeDccContractLine"
         Cardinality="1"
         Source="true"
-        Owner="model.XpeDccContractLine">
+        Owner="model.XpeDccContractLine"
+        LockLevel="NONE"
+        CascadeDelete="true"
+        CascadeUpdate="true">
         <DesignTime>
             <Attr Name="_isUpdateable" Value="true"/>
             <Attr Name="_minCardinality" Value="1"/>
             <Attr Name="_aggregation" Value="0"/>
             <Attr Name="_finderName" Value="XpeDccContractLine"/>
+            <Attr Name="_foreignKey" Value="model.XpeDccContractLine.XpeDccContractLinePk"/>
         </DesignTime>
         <AttrArray Name="Attributes">
             <Item Value="model.XpeDccContractLine.XpeContractId"/>
@@ -29,11 +33,13 @@
     <AssociationEnd
         Name="XpeDccContractPricingTerm"
         Cardinality="-1"
-        Owner="model.XpeDccContractPricingTerm">
+        Owner="model.XpeDccContractPricingTerm"
+        HasOwner="true">
         <DesignTime>
             <Attr Name="_isUpdateable" Value="true"/>
             <Attr Name="_aggregation" Value="0"/>
             <Attr Name="_finderName" Value="XpeDccContractPricingTerm"/>
+            <Attr Name="_foreignKey" Value="model.XpeDccContractPricingTerm.fk_XpeDccContractPricingTerm"/>
         </DesignTime>
         <AttrArray Name="Attributes">
             <Item Value="model.XpeDccContractPricingTerm.XpeContractId"/>

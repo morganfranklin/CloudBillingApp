@@ -4,7 +4,7 @@
 <Association
     xmlns="http://xmlns.oracle.com/bc4j"
     Name="XpeDccContractCarrierFk1Assoc"
-    Version="12.2.1.0.31"
+    Version="12.2.1.11.57"
     InheritPersonalization="merge">
     <DesignTime>
         <Attr Name="_isCodegen" Value="true"/>
@@ -13,7 +13,10 @@
         Name="XpeDccContractPricingTerm"
         Cardinality="1"
         Source="true"
-        Owner="model.XpeDccContractPricingTerm">
+        Owner="model.XpeDccContractPricingTerm"
+        CascadeDelete="true"
+        LockLevel="NONE"
+        CascadeUpdate="true">
         <DesignTime>
             <Attr Name="_isUpdateable" Value="true"/>
             <Attr Name="_minCardinality" Value="1"/>
@@ -31,7 +34,8 @@
     <AssociationEnd
         Name="XpeDccContractCarrier"
         Cardinality="-1"
-        Owner="model.XpeDccContractCarrier">
+        Owner="model.XpeDccContractCarrier"
+        HasOwner="true">
         <DesignTime>
             <Attr Name="_isUpdateable" Value="true"/>
             <Attr Name="_aggregation" Value="0"/>
