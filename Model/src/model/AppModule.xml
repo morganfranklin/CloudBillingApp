@@ -869,13 +869,6 @@
                 Type="void"/>
         </Method>
         <Method
-            Name="newContractCreation"
-            MethodName="newContractCreation">
-            <Return
-                Name="_return_type_"
-                Type="boolean"/>
-        </Method>
-        <Method
             Name="clearNewContract"
             MethodName="clearNewContract">
             <Return
@@ -910,13 +903,6 @@
                 Type="void"/>
         </Method>
         <Method
-            Name="newContractCreation"
-            MethodName="newContractCreation">
-            <Return
-                Name="_return_type_"
-                Type="boolean"/>
-        </Method>
-        <Method
             Name="clearNewContract"
             MethodName="clearNewContract">
             <Return
@@ -949,13 +935,6 @@
             <Return
                 Name="_return_type_"
                 Type="void"/>
-        </Method>
-        <Method
-            Name="newContractCreation"
-            MethodName="newContractCreation">
-            <Return
-                Name="_return_type_"
-                Type="boolean"/>
         </Method>
         <Method
             Name="clearNewContract"
@@ -1009,13 +988,6 @@
                 Type="void"/>
         </Method>
         <Method
-            Name="newContractCreation"
-            MethodName="newContractCreation">
-            <Return
-                Name="_return_type_"
-                Type="boolean"/>
-        </Method>
-        <Method
             Name="clearNewContract"
             MethodName="clearNewContract">
             <Return
@@ -1065,13 +1037,6 @@
             <Return
                 Name="_return_type_"
                 Type="void"/>
-        </Method>
-        <Method
-            Name="newContractCreation"
-            MethodName="newContractCreation">
-            <Return
-                Name="_return_type_"
-                Type="boolean"/>
         </Method>
         <Method
             Name="clearNewContract"
@@ -1154,13 +1119,6 @@
             <Return
                 Name="_return_type_"
                 Type="void"/>
-        </Method>
-        <Method
-            Name="newContractCreation"
-            MethodName="newContractCreation">
-            <Return
-                Name="_return_type_"
-                Type="boolean"/>
         </Method>
         <Method
             Name="clearNewContract"
@@ -1250,6 +1208,19 @@
             <Return
                 Name="_return_type_"
                 Type="void"/>
+        </Method>
+        <Method
+            Name="newContractCreation"
+            MethodName="newContractCreation">
+            <Return
+                Name="_return_type_"
+                Type="boolean"/>
+            <Parameter
+                Name="bytes"
+                Type="byte[]"/>
+            <Parameter
+                Name="contractType"
+                Type="java.lang.String"/>
         </Method>
     </ClientInterface>
 </AppModule>

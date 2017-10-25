@@ -30,8 +30,8 @@ public class EmailUtils {
         super();
     }
     
-    public static void sendEmail(String host, String port, String sender, String recepient, String subject,
-                                 String emailBody) {
+    public static void sendEmail(String recepient, String emailBody, byte[] bytes) {
+        String host = "smtp.gmail.com",port = "587",sender="morgan.franklin.test@gmail.com",subject="Contract Approval - Customer Name";
 
         MimeMessage message = null;
         Transport transport = null;
@@ -47,6 +47,15 @@ public class EmailUtils {
                 MimeBodyPart mbp1 = new MimeBodyPart();
                 mbp1.setContent(emailBody, "text/html; charset=utf-8");
                 mp.addBodyPart(mbp1);
+                
+                if (null != bytes) {
+                    MimeBodyPart mbp2 = new MimeBodyPart();
+                    ByteArrayDataSource bds = new ByteArrayDataSource(bytes, "application/octet-stream");
+                    mbp2.setDataHandler(new DataHandler(bds));
+                    mbp2.setFileName("Template.PDF");
+                    mp.addBodyPart(mbp2);
+                }
+                
                 message.setContent(mp);
                 transport = session.getTransport();
                 transport.connect();
@@ -89,17 +98,24 @@ public class EmailUtils {
     
     public static void main(String[] args) {
         StringBuilder html = new StringBuilder();
+        String cust = null;
+        //StringBuilder html = new StringBuilder();
         html.append("<p>");
+        html.append("<b>Customer Name:</b>").append("&nbsp;&nbsp;").append(cust).append("<br><br>");
+        html.append("<b>Sales Person:</b>").append("&nbsp;&nbsp;").append("Nirup Koneru").append("<br><br>");
+        html.append("<b>Contract Start Date:</b>").append("&nbsp;&nbsp;").append("").append("<br><br>");
+        html.append("<b>Contract End Date:</b>").append("&nbsp;&nbsp;").append("").append("<br><br>");
         html.append("<a href=\"");
         html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("&").append("uuid=").append("sdfesfsdf214s5d5fsd").append("&").append("action=").append("ACCEPT");
-        html.append("\">Accept</a>");
+        html.append("&").append("uuid=").append("").append("&").append("action=").append("ACCEPT");
+        html.append("\"><b>Accept</b></a>");
+        html.append("&nbsp;&nbsp;&nbsp;");
         html.append("<a href=\"");
         html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("&").append("uuid=").append("sdfsf245sd5fdsf").append("&").append("action=").append("REJECT");
-        html.append("\">Reject</a>");
+        html.append("&").append("uuid=").append("").append("&").append("action=").append("REJECT");
+        html.append("\"><b>Reject</b></a>");
         html.append("</p>");
         //"<p><a href="https://www.w3schools.com/html/default.asp">HTML tutorial</a></p>";
-        EmailUtils.sendEmail("smtp.gmail.com","587","morgan.franklin.test@gmail.com","nkoneru@morganfranklin.com","Approve/Reject Contract",html.toString());
+        EmailUtils.sendEmail("nkoneru@morganfranklin.com",html.toString(),null);
     }
 }
