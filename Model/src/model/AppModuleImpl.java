@@ -2571,14 +2571,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     public XpeDccWfActionROVOImpl getXpeDccWfActionROVO() {
         return (XpeDccWfActionROVOImpl) findViewObject("XpeDccWfActionROVO");
     }
-    
-    /**
-     * Container's getter for XpeBillAccountProcessesEOVO1.
-     * @return XpeBillAccountProcessesEOVO1
-     */
-    public ViewObjectImpl getXpeBillAccountProcessesEOVO1() {
-        return (ViewObjectImpl) findViewObject("XpeBillAccountProcessesEOVO1");
-    }
+
 
     /**
      * Container's getter for XpeBillAccountProcessesEOVO2.

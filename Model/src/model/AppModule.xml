@@ -574,9 +574,6 @@
         Name="XpeDccWfActionROVO"
         ViewObjectName="model.views.readonly.XpeDccWfActionROVO"/>
     <ViewUsage
-        Name="XpeBillAccountProcessesEOVO1"
-        ViewObjectName="model.views.entitybased.XpeBillAccountProcessesEOVO"/>
-    <ViewUsage
         Name="XpeNewBillAccountProcessesEOVO"
         ViewObjectName="model.views.entitybased.XpeBillAccountProcessesEOVO"/>
     <ViewUsage
