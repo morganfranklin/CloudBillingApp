@@ -2677,5 +2677,29 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         }
         initBillAccountProcess();
     }
+
+    /**
+     * Container's getter for XpeDccCfgMswFacilityEOVO1.
+     * @return XpeDccCfgMswFacilityEOVO1
+     */
+    public ViewObjectImpl getXpeDccCfgMswFacilityEOVO1() {
+        return (ViewObjectImpl) findViewObject("XpeDccCfgMswFacilityEOVO1");
+    }
+
+    /**
+     * Container's getter for XpeDccCfgCmtmntFacilityEOVO1.
+     * @return XpeDccCfgCmtmntFacilityEOVO1
+     */
+    public ViewObjectImpl getXpeDccCfgCmtmntFacilityEOVO1() {
+        return (ViewObjectImpl) findViewObject("XpeDccCfgCmtmntFacilityEOVO1");
+    }
+
+    /**
+     * Container's getter for XpeDccCfgMetalsFacilityEOVO1.
+     * @return XpeDccCfgMetalsFacilityEOVO1
+     */
+    public ViewObjectImpl getXpeDccCfgMetalsFacilityEOVO1() {
+        return (ViewObjectImpl) findViewObject("XpeDccCfgMetalsFacilityEOVO1");
+    }
 }
 

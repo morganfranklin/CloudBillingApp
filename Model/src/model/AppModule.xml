@@ -582,6 +582,15 @@
     <ViewUsage
         Name="XpeDccCfgBillingandAccountingROVO1"
         ViewObjectName="model.views.readonly.XpeDccCfgBillingandAccountingROVO"/>
+    <ViewUsage
+        Name="XpeDccCfgMswFacilityEOVO1"
+        ViewObjectName="model.views.entitybased.XpeDccCfgMswFacilityEOVO"/>
+    <ViewUsage
+        Name="XpeDccCfgCmtmntFacilityEOVO1"
+        ViewObjectName="model.views.entitybased.XpeDccCfgCmtmntFacilityEOVO"/>
+    <ViewUsage
+        Name="XpeDccCfgMetalsFacilityEOVO1"
+        ViewObjectName="model.views.entitybased.XpeDccCfgMetalsFacilityEOVO"/>
     <ViewLinkUsage
         Name="NeuRuleTblFk1Link1"
         ViewLinkObjectName="model.NeuRuleTblFk1Link"
@@ -1193,6 +1202,128 @@
                 Type="java.lang.String"/>
             <Parameter
                 Name="action"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="billAndAccountingProcess"
+            MethodName="billAndAccountingProcess">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+        </Method>
+        <Method
+            Name="initBillAccountProcess"
+            MethodName="initBillAccountProcess">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+        </Method>
+        <Method
+            Name="newContractCreation"
+            MethodName="newContractCreation">
+            <Return
+                Name="_return_type_"
+                Type="boolean"/>
+            <Parameter
+                Name="bytes"
+                Type="byte[]"/>
+            <Parameter
+                Name="contractType"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="uploadFiletoDB"
+            MethodName="uploadFiletoDB">
+            <Return
+                Name="_return_type_"
+                Type="java.lang.Boolean"/>
+            <Parameter
+                Name="filename"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="blob"
+                Type="oracle.jbo.domain.BlobDomain"/>
+        </Method>
+        <Method
+            Name="copyContractRow"
+            MethodName="copyContractRow">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+        </Method>
+        <Method
+            Name="clearNewContract"
+            MethodName="clearNewContract">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+        </Method>
+        <Method
+            Name="clearTermMaster"
+            MethodName="clearTermMaster">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+        </Method>
+        <Method
+            Name="fetchClauseForMasterTerm"
+            MethodName="fetchClauseForMasterTerm">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+        </Method>
+        <Method
+            Name="createTermContractRow"
+            MethodName="createTermContractRow">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+            <Parameter
+                Name="termId"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="addAssTerminalToDestination"
+            MethodName="addAssTerminalToDestination">
+            <Return
+                Name="_return_type_"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="addAssTerminalToOrigin"
+            MethodName="addAssTerminalToOrigin">
+            <Return
+                Name="_return_type_"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="addAssTerminalToPCSInstallation"
+            MethodName="addAssTerminalToPCSInstallation">
+            <Return
+                Name="_return_type_"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="updateContractApprovalStatus"
+            MethodName="updateContractApprovalStatus">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+            <Parameter
+                Name="uuId"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="action"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="createNewContractVersion"
+            MethodName="createNewContractVersion">
+            <Return
+                Name="_return_type_"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="contractType"
                 Type="java.lang.String"/>
         </Method>
         <Method
