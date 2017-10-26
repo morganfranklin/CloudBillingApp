@@ -166,5 +166,10 @@
             Action="createInsertRow"/>
     <action IterBinding="XpeDccNewContractPricingOverViewIterator" id="Delete4" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
+    <attributeValues IterBinding="XpeDccNewContractPricingOverViewIterator" id="CarryForwardedPricingOver">
+      <AttrNames>
+        <Item Value="CarryForwardedPricingOver"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

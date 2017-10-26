@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 import oracle.jbo.RowSet;
+import oracle.jbo.domain.Char;
 import oracle.jbo.server.EntityImpl;
 import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
@@ -14,6 +15,8 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class XpeDccContractPricingOverViewRowImpl extends ViewRowImpl {
+
+
     public static final int ENTITY_XPEDCCCONTRACTPRICINGOVER = 0;
 
     /**
@@ -33,10 +36,12 @@ public class XpeDccContractPricingOverViewRowImpl extends ViewRowImpl {
         XpeTargetFld,
         XpeOverMsg,
         XpeOverDesc,
+        CarryForwardedPricingOver,
         XpeDccDicOverrideType1,
         XpeDccDicFields1,
         XpeDccDicConditions1;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -58,6 +63,8 @@ public class XpeDccContractPricingOverViewRowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
+
     public static final int XPECONTRACTID = AttributesEnum.XpeContractId.index();
     public static final int XPECONTRACTLINE = AttributesEnum.XpeContractLine.index();
     public static final int XPECONTRACTVERSION = AttributesEnum.XpeContractVersion.index();
@@ -71,6 +78,7 @@ public class XpeDccContractPricingOverViewRowImpl extends ViewRowImpl {
     public static final int XPETARGETFLD = AttributesEnum.XpeTargetFld.index();
     public static final int XPEOVERMSG = AttributesEnum.XpeOverMsg.index();
     public static final int XPEOVERDESC = AttributesEnum.XpeOverDesc.index();
+    public static final int CARRYFORWARDEDPRICINGOVER = AttributesEnum.CarryForwardedPricingOver.index();
     public static final int XPEDCCDICOVERRIDETYPE1 = AttributesEnum.XpeDccDicOverrideType1.index();
     public static final int XPEDCCDICFIELDS1 = AttributesEnum.XpeDccDicFields1.index();
     public static final int XPEDCCDICCONDITIONS1 = AttributesEnum.XpeDccDicConditions1.index();
@@ -295,6 +303,23 @@ public class XpeDccContractPricingOverViewRowImpl extends ViewRowImpl {
      */
     public void setXpeOverDesc(String value) {
         setAttributeInternal(XPEOVERDESC, value);
+    }
+
+
+    /**
+     * Gets the attribute value for the calculated attribute CarryForwardedPricingOver.
+     * @return the CarryForwardedPricingOver
+     */
+    public String getCarryForwardedPricingOver() {
+        return (String) getAttributeInternal(CARRYFORWARDEDPRICINGOVER);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute CarryForwardedPricingOver.
+     * @param value value to set the  CarryForwardedPricingOver
+     */
+    public void setCarryForwardedPricingOver(String value) {
+        setAttributeInternal(CARRYFORWARDEDPRICINGOVER, value);
     }
 
     /**

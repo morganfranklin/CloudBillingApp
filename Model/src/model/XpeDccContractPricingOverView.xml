@@ -275,6 +275,18 @@
         EntityAttrName="XpeOverDesc"
         EntityUsage="XpeDccContractPricingOver"
         AliasName="XPE_OVER_DESC"/>
+    <ViewAttribute
+        Name="CarryForwardedPricingOver"
+        IsSelected="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="255"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        AliasName="VIEW_ATTR"
+        SQLType="VARCHAR"
+        Passivate="true"
+        DefaultValue="N"/>
     <ResourceBundle>
         <PropertiesBundle
             PropertiesFile="model.ModelBundle"/>

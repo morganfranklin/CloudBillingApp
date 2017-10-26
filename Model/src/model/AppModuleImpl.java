@@ -1905,7 +1905,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             if(currentDate.compareTo(sourcePricingOverRow.getXpeOverStart()) > 0 && currentDate.compareTo(sourcePricingOverRow.getXpeOverEnd()) < 0){
                 XpeDccContractPricingOverViewRowImpl targetPricingOverRow =
                     (XpeDccContractPricingOverViewRowImpl) priceOverTargetRowSet.createAndInitRow(null);
-                targetPricingOverRow.setXpeContractVersion(target.getXpeContractVersion());
+                targetPricingOverRow.setXpeContractOverNbr(sourcePricingOverRow.getXpeContractOverNbr());
                 targetPricingOverRow.setXpeOverType(sourcePricingOverRow.getXpeOverType());
                 targetPricingOverRow.setXpeOverStart(sourcePricingOverRow.getXpeOverStart());
                 targetPricingOverRow.setXpeOverEnd(sourcePricingOverRow.getXpeOverEnd());
@@ -1915,6 +1915,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                 targetPricingOverRow.setXpeTargetFld(sourcePricingOverRow.getXpeTargetFld());
                 targetPricingOverRow.setXpeOverMsg(sourcePricingOverRow.getXpeOverMsg());
                 targetPricingOverRow.setXpeOverDesc(sourcePricingOverRow.getXpeOverDesc());
+                targetPricingOverRow.setCarryForwardedPricingOver("Y");
                 priceOverTargetRowSet.insertRow(targetPricingOverRow);
             }
         }

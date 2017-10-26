@@ -68,15 +68,15 @@
       <property
          name="start">false</property>
       <property
-         name="x">-81.5</property>
+         name="x">-185.5</property>
       <property
-         name="y">147.48828</property>
+         name="y">89.08594</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>customer&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
          name="page">/newContractSetup1.jsff</property>
       <property
-         name="trainStop">true</property>
+         name="trainStop">false</property>
       <property
          name="exceptionHandler">false</property>
    </View>
@@ -217,15 +217,7 @@
       from="View37"
       to="View39">
       <property
-         name="sdm:polyPoints">R50,629.50964,151.64355,699.5627,151.9424,L50</property>
-   </TrainFlow>
-   <TrainFlow
-      islink="true"
-      id="TrainFlow49"
-      from="View42"
-      to="View48">
-      <property
-         name="sdm:polyPoints">R50,-40.5,147.1377,49.01465,145.89062,L50</property>
+         name="sdm:polyPoints">R50,628.03613,151.64355,701.03613,151.94238,L50</property>
    </TrainFlow>
    <TrainFlow
       islink="true"
@@ -233,7 +225,7 @@
       from="View48"
       to="View47">
       <property
-         name="sdm:polyPoints">R50,132.48813,145.8906,208.62807,148.34471,L50</property>
+         name="sdm:polyPoints">R50,131.01465,145.89062,210.10156,148.34473,L50</property>
    </TrainFlow>
    <WildcardControlFlowRule
       id="WildcardControlFlowRule51">
@@ -244,16 +236,6 @@
       <property
          name="y">-117.103516</property>
    </WildcardControlFlowRule>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase52"
-      from="WildcardControlFlowRule51"
-      to="MethodCall33">
-      <property
-         name="fromOutcome">CreateHeaderVersion</property>
-      <property
-         name="sdm:polyPoints">L50,185.0,-116.9541,111.01465,-65.51172,T50</property>
-   </ControlFlowCase>
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase34"
@@ -294,13 +276,13 @@
       <property
          name="activityId">clearNewContract</property>
       <property
-         name="x">-53.316406</property>
+         name="x">-185.3164</property>
       <property
          name="start">true</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>clearNewContract&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
-         name="y">12.149414</property>
+         name="y">-74.25293</property>
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
@@ -312,7 +294,7 @@
       <property
          name="fromOutcome">clearNewContract</property>
       <property
-         name="sdm:polyPoints">B50,-53.316406,65.79883,-81.5,93.137695,T50</property>
+         name="sdm:polyPoints">B50,-185.3164,-20.603516,-185.5,34.73535,T50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall29">
@@ -372,7 +354,7 @@
       from="View39"
       to="View32">
       <property
-         name="sdm:polyPoints">R50,784.3464,151.94238,885.38904,152.74709,L50</property>
+         name="sdm:polyPoints">R50,783.03613,151.94238,886.6992,152.74707,L50</property>
    </TrainFlow>
    <View
       id="View40">
@@ -422,7 +404,7 @@
       <property
          name="fromOutcome">PreviewPDF</property>
       <property
-         name="sdm:polyPoints">R50,260.3033,-116.95409,984.52655,-2.4540977,L50</property>
+         name="sdm:polyPoints">R50,258.3362,-116.9541,986.0,-2.4541016,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -433,5 +415,25 @@
          name="fromOutcome">BuildPDF</property>
       <property
          name="sdm:polyPoints">B50,1027.0,51.5459,1060.6992,207.44824,T50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase49"
+      from="View48"
+      to="View42">
+      <property
+         name="fromOutcome">back</property>
+      <property
+         name="sdm:polyPoints">L50,49.01465,145.89062,-144.5,92.23535,R54</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase58"
+      from="View42"
+      to="MethodCall33">
+      <property
+         name="fromOutcome">next</property>
+      <property
+         name="sdm:polyPoints">R46,-144.5,85.23535,70.01465,-11.511719,L50</property>
    </ControlFlowCase>
 </SDM>

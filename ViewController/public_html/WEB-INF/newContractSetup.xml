@@ -22,16 +22,11 @@
     </managed-bean>
     <view id="customer">
       <page>/newContractSetup1.jsff</page>
-      <train-stop>
-        <display-name>Customer</display-name>
-        <sequential>true</sequential>
-      </train-stop>
     </view>
     <view id="contractHeaderVersion">
       <page>/newContractSetup.jsff</page>
       <train-stop>
         <display-name>Contract Header</display-name>
-        <outcome>CreateHeaderVersion</outcome>
         <sequential>true</sequential>
       </train-stop>
       <input-page-parameter id="__1">
@@ -167,10 +162,6 @@
     </control-flow-rule>
     <control-flow-rule id="__17">
       <from-activity-id>*</from-activity-id>
-      <control-flow-case id="__18">
-        <from-outcome>CreateHeaderVersion</from-outcome>
-        <to-activity-id>NewContractHeaderCreateInsert</to-activity-id>
-      </control-flow-case>
       <control-flow-case id="__14">
         <from-outcome>CreateNotes</from-outcome>
         <to-activity-id>NewContractNotesCreateInsert</to-activity-id>
@@ -217,6 +208,20 @@
       <control-flow-case id="__29">
         <from-outcome>BuildPDF</from-outcome>
         <to-activity-id>previewPDF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__41">
+      <from-activity-id>contractHeaderVersion</from-activity-id>
+      <control-flow-case id="__42">
+        <from-outcome>back</from-outcome>
+        <to-activity-id>customer</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__53">
+      <from-activity-id>customer</from-activity-id>
+      <control-flow-case id="__54">
+        <from-outcome>next</from-outcome>
+        <to-activity-id>NewContractHeaderCreateInsert</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>
