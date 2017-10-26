@@ -11,7 +11,6 @@ public interface AppModule extends ApplicationModule {
 
     void copyContractRow();
 
-    boolean newContractCreation();
 
     void clearNewContract();
 
@@ -36,5 +35,6 @@ public interface AppModule extends ApplicationModule {
 
     void initBillAccountProcess();
 
+    boolean newContractCreation(byte[] bytes, String contractType);
 }
 

@@ -210,6 +210,10 @@ public class XpeDccNewContractMBean implements Serializable {
             BindingContainer bindings = bc.getCurrentBindingsEntry();
             OperationBinding operationBinding = bindings.getOperationBinding("newContractCreation");
             if (null != operationBinding) {
+                byte[] bytes = null;
+                if(null!=FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("PDF"))
+                    bytes = (byte[])FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("PDF");
+                operationBinding.getParamsMap().put("bytes", bytes);
                 operationBinding.execute();
                 if (null != operationBinding.getResult() &&
                     Boolean.parseBoolean(String.valueOf(operationBinding.getResult())) == true)

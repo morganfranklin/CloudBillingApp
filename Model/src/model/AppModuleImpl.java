@@ -6,8 +6,12 @@ import java.math.BigDecimal;
 
 import java.sql.Timestamp;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -51,6 +55,7 @@ import model.views.readonly.XpeDccCfgTerminalsSearchROVORowImpl;
 import model.views.readonly.XpeDccContractSearchROVOImpl;
 import model.views.readonly.XpeDccContractSearchROVORowImpl;
 import model.views.readonly.XpeDccNewContractCustomerSearchROVOImpl;
+import model.views.readonly.XpeDccNewContractCustomerSearchROVORowImpl;
 import model.views.readonly.XpeDccNewContractLPCROVOImpl;
 import model.views.readonly.XpeDccNewContractSetupROVOImpl;
 import model.views.readonly.XpeDccNewContractSetupROVORowImpl;
@@ -1610,7 +1615,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         }
     }
 
-    public boolean newContractCreation() {
+    public boolean newContractCreation(byte[] bytes, String contractType) {
         try {
             /*int lineOrPriceNumber = 1;
             XpeDccContractVersionViewRowImpl xpeDccContractVersionViewRow =
@@ -1668,7 +1673,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                     dmsCustomerRow.remove();
             }
             //creating approval work flow
-            createApprovalWFEventAction();
+            createApprovalWFEventAction(bytes,contractType);
             //commiting transaction
             this.getDBTransaction().commit();
             return true;
@@ -1679,7 +1684,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         }
     }
     
-    private void createApprovalWFEventAction(){
+    private void createApprovalWFEventAction(byte[] bytes, String contractType){
         //XpeDccNewContractsEOVORowImpl newContractRow =
          //   (XpeDccNewContractsEOVORowImpl) this.getXpeDccNewContractsEOVO().getCurrentRow();
         //RowIterator rowIterator = newContractRow.getXpeDccContractVersionView();
@@ -1704,25 +1709,81 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         approvalWFEventRow.getXpeDccWfActionEOVO().insertRow(xpeDccWfActionEOVORow);
         
         //pushing email notifications for approvals
-        pushEmailForApproval(uuId);
+        pushEmailForApproval(uuId,bytes,contractType);
     
     }
     
-    private void pushEmailForApproval(String uuId){
+    private void pushEmailForApproval(String uuId,byte[] bytes,String contractType){
+        String customerType=null,contractStartDate=null,contractEndDate=null,salesPerson=null;
+        if ("NEW".equals(contractType)) {
+            XpeDccNewContractSetupROVORowImpl newContractSetupRow =
+                (XpeDccNewContractSetupROVORowImpl) this.getXpeDccNewContractSetupROVO().getCurrentRow();
+            if (null != newContractSetupRow) {
+                if ("EXT".equals(newContractSetupRow.getCustomer_Type())) {
+                    XpeDccNewContractCustomerSearchROVORowImpl customerSearchRow =
+                        (XpeDccNewContractCustomerSearchROVORowImpl) this.getXpeDccNewContractCustomerSearchROVO().getCurrentRow();
+                    if(null!=customerSearchRow)
+                        customerType = customerSearchRow.getName1();
+                } else if ("NEW".equals(newContractSetupRow.getCustomer_Type())) {
+                    XpeDmsCustomerEOVORowImpl dmsCustomerRow =
+                        (XpeDmsCustomerEOVORowImpl) this.getXpeDmsCustomerEOVO().getCurrentRow();
+                    if(null!=dmsCustomerRow) 
+                        customerType = dmsCustomerRow.getCompanyName();
+                }
+            }
+        } else if ("UPDATE".equals(contractType) || "BLS".equals(contractType)) {
+            XpeDccContractSearchROVORowImpl contractSearchRow =
+                (XpeDccContractSearchROVORowImpl) this.getXpeDccContractSearchROVO().getCurrentRow();
+            if(null!=contractSearchRow)
+                customerType = contractSearchRow.getName1();
+        }
+        
+        XpeDccNewContractsEOVORowImpl xpeDccNewContractsEOVORow =
+            (XpeDccNewContractsEOVORowImpl) this.getXpeDccNewContractsEOVO().getCurrentRow();
+        if(null!=xpeDccNewContractsEOVORow){
+            XpeDccContractVersionViewRowImpl contractVersionViewRow =
+                (XpeDccContractVersionViewRowImpl)xpeDccNewContractsEOVORow.getXpeDccContractVersionView().getCurrentRow();
+            if(null!=contractVersionViewRow){
+                contractStartDate = formatDate(String.valueOf(contractVersionViewRow.getXpeStartDate()));
+                contractEndDate = formatDate(String.valueOf(contractVersionViewRow.getXpeEndDate()));
+                salesPerson = contractVersionViewRow.getSalesPerson();
+            }
+        }
+
         StringBuilder html = new StringBuilder();
         html.append("<p>");
+        html.append("<b>Customer Name:</b>").append("&nbsp;&nbsp;").append(null!=customerType?customerType:"").append("<br><br>");
+        html.append("<b>Contract Start Date:</b>").append("&nbsp;&nbsp;").append(null!=contractStartDate?contractStartDate:"").append("<br><br>");
+        html.append("<b>Contract End Date:</b>").append("&nbsp;&nbsp;").append(null!=contractEndDate?contractEndDate:"").append("<br><br>");
+        html.append("<b>Sales Person:</b>").append("&nbsp;&nbsp;").append(null!=salesPerson?salesPerson:"").append("<br><br>");
         html.append("<a href=\"");
         html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(uuId).append("&").append("action=").append("ACCEPT");
-        html.append("\">Accept</a>");
+        html.append("\"><b>Accept</b></a>");
+        html.append("&nbsp;&nbsp;&nbsp;");
         html.append("<a href=\"");
         html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(uuId).append("&").append("action=").append("REJECT");
-        html.append("\">Reject</a>");
+        html.append("\"><b>Reject</b></a>");
         html.append("</p>");
-        //"<p><a href="https://www.w3schools.com/html/default.asp">HTML tutorial</a></p>";
-        EmailUtils.sendEmail("smtp.gmail.com","587","morgan.franklin.test@gmail.com","nkoneru@morganfranklin.com","Approve/Reject Contract",html.toString());
+        EmailUtils.sendEmail("nkoneru@morganfranklin.com",html.toString(),bytes);
     }
+    
+    private String formatDate(String dateInString) {
+           SimpleDateFormat dateFormat = new SimpleDateFormat(
+                   "yyyy-MM-dd hh:mm:ss");
+           SimpleDateFormat  formatter = new SimpleDateFormat("MM/dd/yyyy");
+        try {
+            if (null != dateInString && dateInString.trim().length()>0) {
+                Date date = dateFormat.parse(dateInString);
+                System.out.println(date);
+                return formatter.format(date);
+            }
+        } catch (ParseException e) {
+               e.printStackTrace();
+           }
+          return "";
+       }
     
     public void updateContractApprovalStatus(String uuId, String action){
         this.getXpeDccWfActionROVO().executeEmptyRowSet();

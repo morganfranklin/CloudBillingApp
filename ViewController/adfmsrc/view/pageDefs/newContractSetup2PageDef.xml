@@ -89,10 +89,6 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <methodAction id="newContractCreation" RequiresUpdateModel="true" Action="invokeMethod"
-                  MethodName="newContractCreation" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
-                  InstanceName="data.AppModuleDataControl.dataProvider"
-                  ReturnName="data.AppModuleDataControl.methodResults.newContractCreation_AppModuleDataControl_dataProvider_newContractCreation_result"/>
     <list IterBinding="XpeDccNewContractVersionViewIterator" StaticList="false" Uses="LOV_XpeTermId" id="XpeTermId"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <attributeValues IterBinding="XpeDccTermsContractEOVOIterator" id="XpeDccClause">
@@ -160,5 +156,12 @@
             RequiresUpdateModel="false" Action="setCurrentRowWithKey">
       <NamedData NDName="rowKey" NDValue="#{row.rowKeyStr}" NDType="java.lang.String"/>
     </action>
+    <methodAction id="newContractCreation" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="newContractCreation" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="data.AppModuleDataControl.dataProvider"
+                  ReturnName="data.AppModuleDataControl.methodResults.newContractCreation_AppModuleDataControl_dataProvider_newContractCreation_result">
+      <NamedData NDName="bytes" NDType="[B"/>
+      <NamedData NDName="contractType" NDValue="#{pageFlowScope.ContractType}" NDType="java.lang.String"/>
+    </methodAction>
   </bindings>
 </pageDefinition>
