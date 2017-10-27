@@ -209,6 +209,38 @@
     Name="XpeDccCfgAccountingEO"
     Entity="model.entities.XpeDccCfgAccountingEO"/>
   <ViewAttribute
+    Name="ProductServiceId"
+    PrecisionRule="true"
+    EntityAttrName="ProductServiceId"
+    EntityUsage="XpeDccCfgAccountingEO"
+    AliasName="PRODUCT_SERVICE_ID"
+    LOVName="LOV_ProductServiceId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgAccountingEOVO.ProductServiceId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SiteId"
+    PrecisionRule="true"
+    EntityAttrName="SiteId"
+    EntityUsage="XpeDccCfgAccountingEO"
+    AliasName="SITE_ID"
+    LOVName="LOV_SiteId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgAccountingEOVO.SiteId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
     Name="AccountId"
     IsUpdateable="while_insert"
     IsNotNull="true"
@@ -307,38 +339,6 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgAccountingEOVO.OperatingUnit_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="ProductServiceId"
-    PrecisionRule="true"
-    EntityAttrName="ProductServiceId"
-    EntityUsage="XpeDccCfgAccountingEO"
-    AliasName="PRODUCT_SERVICE_ID"
-    LOVName="LOV_ProductServiceId">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgAccountingEOVO.ProductServiceId_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="SiteId"
-    PrecisionRule="true"
-    EntityAttrName="SiteId"
-    EntityUsage="XpeDccCfgAccountingEO"
-    AliasName="SITE_ID"
-    LOVName="LOV_SiteId">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgAccountingEOVO.SiteId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

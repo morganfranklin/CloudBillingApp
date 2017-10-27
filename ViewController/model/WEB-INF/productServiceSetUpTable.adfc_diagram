@@ -95,7 +95,7 @@
       <property
          name="fromOutcome">Add</property>
       <property
-         name="sdm:polyPoints">T50,802.0,76.74707,793.0,76.74707,B50</property>
+         name="sdm:polyPoints">T50,802.0,76.747055,793.0,76.747055,B50</property>
    </ControlFlowCase>
    <View
       id="View11">

@@ -95,17 +95,19 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="CreatedBy"
+    Name="State"
+    IsNotNull="true"
     PrecisionRule="true"
-    EntityAttrName="CreatedBy"
+    EntityAttrName="State"
     EntityUsage="XpeDccCfgCountiesEO"
-    AliasName="CREATED_BY"/>
-  <ViewAttribute
-    Name="CreatedDate"
-    PrecisionRule="true"
-    EntityAttrName="CreatedDate"
-    EntityUsage="XpeDccCfgCountiesEO"
-    AliasName="CREATED_DATE"/>
+    AliasName="STATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgCountiesEOVO.State_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Inactive"
     PrecisionRule="true"
@@ -136,6 +138,18 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="XpeDccCfgCountiesEO"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="CreatedDate"
+    PrecisionRule="true"
+    EntityAttrName="CreatedDate"
+    EntityUsage="XpeDccCfgCountiesEO"
+    AliasName="CREATED_DATE"/>
+  <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedBy"
@@ -147,20 +161,6 @@
     EntityAttrName="LastUpdatedDate"
     EntityUsage="XpeDccCfgCountiesEO"
     AliasName="LAST_UPDATED_DATE"/>
-  <ViewAttribute
-    Name="State"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="State"
-    EntityUsage="XpeDccCfgCountiesEO"
-    AliasName="STATE">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgCountiesEOVO.State_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
   <ViewCriteria
     Name="CountiesCriteria"
     ViewObjectName="model.views.entitybased.XpeDccCfgCountiesEOVO"

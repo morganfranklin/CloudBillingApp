@@ -239,6 +239,66 @@
     Name="XpeDccCfgProductserviceEO"
     Entity="model.entities.XpeDccCfgProductserviceEO"/>
   <ViewAttribute
+    Name="ItemId"
+    IsUpdateable="while_insert"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ItemId"
+    EntityUsage="XpeDccCfgProductserviceEO"
+    AliasName="ITEM_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgProductserviceEOVO.ItemId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ItemType"
+    PrecisionRule="true"
+    EntityAttrName="ItemType"
+    EntityUsage="XpeDccCfgProductserviceEO"
+    AliasName="ITEM_TYPE"
+    LOVName="LOV_ItemType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgProductserviceEOVO.ItemType_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Description"
+    PrecisionRule="true"
+    EntityAttrName="Description"
+    EntityUsage="XpeDccCfgProductserviceEO"
+    AliasName="DESCRIPTION">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgProductserviceEOVO.Description_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Inoutbound"
+    PrecisionRule="true"
+    EntityAttrName="Inoutbound"
+    EntityUsage="XpeDccCfgProductserviceEO"
+    AliasName="INOUTBOUND"
+    LOVName="LOV_Inoutbound">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgProductserviceEOVO.Inoutbound_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
     Name="Category"
     PrecisionRule="true"
     EntityAttrName="Category"
@@ -251,6 +311,22 @@
           ResId="model.views.entitybased.XpeDccCfgProductserviceEOVO.Category_LABEL"/>
         <CONTROLTYPE
           Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ClassType"
+    PrecisionRule="true"
+    EntityAttrName="ClassType"
+    EntityUsage="XpeDccCfgProductserviceEO"
+    AliasName="CLASS_TYPE"
+    LOVName="LOV_ClassType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgProductserviceEOVO.ClassType_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -273,47 +349,6 @@
       <Item
         Value="ClassType"/>
     </Dependencies>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="ClassType"
-    PrecisionRule="true"
-    EntityAttrName="ClassType"
-    EntityUsage="XpeDccCfgProductserviceEO"
-    AliasName="CLASS_TYPE"
-    LOVName="LOV_ClassType">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgProductserviceEOVO.ClassType_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="CreatedBy"
-    PrecisionRule="true"
-    EntityAttrName="CreatedBy"
-    EntityUsage="XpeDccCfgProductserviceEO"
-    AliasName="CREATED_BY"/>
-  <ViewAttribute
-    Name="CreatedDate"
-    PrecisionRule="true"
-    EntityAttrName="CreatedDate"
-    EntityUsage="XpeDccCfgProductserviceEO"
-    AliasName="CREATED_DATE"/>
-  <ViewAttribute
-    Name="Description"
-    PrecisionRule="true"
-    EntityAttrName="Description"
-    EntityUsage="XpeDccCfgProductserviceEO"
-    AliasName="DESCRIPTION">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgProductserviceEOVO.Description_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="Inactive"
@@ -346,52 +381,17 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="Inoutbound"
+    Name="CreatedBy"
     PrecisionRule="true"
-    EntityAttrName="Inoutbound"
+    EntityAttrName="CreatedBy"
     EntityUsage="XpeDccCfgProductserviceEO"
-    AliasName="INOUTBOUND"
-    LOVName="LOV_Inoutbound">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgProductserviceEOVO.Inoutbound_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
+    AliasName="CREATED_BY"/>
   <ViewAttribute
-    Name="ItemId"
-    IsUpdateable="while_insert"
-    IsNotNull="true"
+    Name="CreatedDate"
     PrecisionRule="true"
-    EntityAttrName="ItemId"
+    EntityAttrName="CreatedDate"
     EntityUsage="XpeDccCfgProductserviceEO"
-    AliasName="ITEM_ID">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgProductserviceEOVO.ItemId_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="ItemType"
-    PrecisionRule="true"
-    EntityAttrName="ItemType"
-    EntityUsage="XpeDccCfgProductserviceEO"
-    AliasName="ITEM_TYPE"
-    LOVName="LOV_ItemType">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgProductserviceEOVO.ItemType_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
+    AliasName="CREATED_DATE"/>
   <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
@@ -431,38 +431,6 @@
       Name="XpeDccCfgProductserviceEOVOCriteria_row_0"
       UpperColumns="1">
       <ViewCriteriaItem
-        Name="XpeDccCfgProductserviceEOVOCriteria_XpeDccCfgProductserviceEOVOCriteria_row_0_Category"
-        ViewAttribute="Category"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_Category"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="XpeDccCfgProductserviceEOVOCriteria_XpeDccCfgProductserviceEOVOCriteria_row_0_ClassId"
-        ViewAttribute="ClassId"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_ClassId"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="XpeDccCfgProductserviceEOVOCriteria_XpeDccCfgProductserviceEOVOCriteria_row_0_ClassType"
-        ViewAttribute="ClassType"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_ClassType"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="Inoutbound"
-        ViewAttribute="Inoutbound"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_InOutBound"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
         Name="ItemId"
         ViewAttribute="ItemId"
         Operator="="
@@ -476,6 +444,38 @@
         Operator="="
         Conjunction="AND"
         Value=":bind_ItemType"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Inoutbound"
+        ViewAttribute="Inoutbound"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_InOutBound"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="XpeDccCfgProductserviceEOVOCriteria_XpeDccCfgProductserviceEOVOCriteria_row_0_Category"
+        ViewAttribute="Category"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_Category"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="XpeDccCfgProductserviceEOVOCriteria_XpeDccCfgProductserviceEOVOCriteria_row_0_ClassType"
+        ViewAttribute="ClassType"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_ClassType"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="XpeDccCfgProductserviceEOVOCriteria_XpeDccCfgProductserviceEOVOCriteria_row_0_ClassId"
+        ViewAttribute="ClassId"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_ClassId"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

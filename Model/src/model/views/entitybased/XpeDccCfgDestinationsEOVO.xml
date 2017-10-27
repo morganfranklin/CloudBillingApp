@@ -81,17 +81,20 @@
     Name="XpeDccCfgDestinationsEO"
     Entity="model.entities.XpeDccCfgDestinationsEO"/>
   <ViewAttribute
-    Name="CreatedBy"
+    Name="DestinationId"
+    IsUpdateable="while_insert"
+    IsNotNull="true"
     PrecisionRule="true"
-    EntityAttrName="CreatedBy"
+    EntityAttrName="DestinationId"
     EntityUsage="XpeDccCfgDestinationsEO"
-    AliasName="CREATED_BY"/>
-  <ViewAttribute
-    Name="CreatedDate"
-    PrecisionRule="true"
-    EntityAttrName="CreatedDate"
-    EntityUsage="XpeDccCfgDestinationsEO"
-    AliasName="CREATED_DATE"/>
+    AliasName="DESTINATION_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgDestinationsEOVO.DestinationId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="DestinationDesc"
     PrecisionRule="true"
@@ -106,17 +109,15 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="DestinationId"
-    IsUpdateable="while_insert"
-    IsNotNull="true"
+    Name="State"
     PrecisionRule="true"
-    EntityAttrName="DestinationId"
+    EntityAttrName="State"
     EntityUsage="XpeDccCfgDestinationsEO"
-    AliasName="DESTINATION_ID">
+    AliasName="STATE">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
-          ResId="model.views.entitybased.XpeDccCfgDestinationsEOVO.DestinationId_LABEL"/>
+          ResId="model.views.entitybased.XpeDccCfgDestinationsEOVO.State_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -151,6 +152,18 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="XpeDccCfgDestinationsEO"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="CreatedDate"
+    PrecisionRule="true"
+    EntityAttrName="CreatedDate"
+    EntityUsage="XpeDccCfgDestinationsEO"
+    AliasName="CREATED_DATE"/>
+  <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedBy"
@@ -162,19 +175,6 @@
     EntityAttrName="LastUpdatedDate"
     EntityUsage="XpeDccCfgDestinationsEO"
     AliasName="LAST_UPDATED_DATE"/>
-  <ViewAttribute
-    Name="State"
-    PrecisionRule="true"
-    EntityAttrName="State"
-    EntityUsage="XpeDccCfgDestinationsEO"
-    AliasName="STATE">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgDestinationsEOVO.State_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
   <ViewCriteria
     Name="DestinationsCriteria"
     ViewObjectName="model.views.entitybased.XpeDccCfgDestinationsEOVO"
@@ -202,6 +202,15 @@
       Name="XpeDccCfgDestinationsEOVOCriteria_row_0"
       UpperColumns="1">
       <ViewCriteriaItem
+        Name="DestinationId"
+        ViewAttribute="DestinationId"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_DestinationId"
+        UpperColumns="0"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
         Name="DestinationDesc"
         ViewAttribute="DestinationDesc"
         Operator="="
@@ -211,11 +220,11 @@
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
-        Name="DestinationId"
-        ViewAttribute="DestinationId"
+        Name="State"
+        ViewAttribute="State"
         Operator="="
         Conjunction="AND"
-        Value=":bind_DestinationId"
+        Value=":bind_State"
         UpperColumns="0"
         IsBindVarValue="true"
         Required="Optional"/>
@@ -234,15 +243,6 @@
         Operator="="
         Conjunction="AND"
         Value=":bind_InactiveDate"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="State"
-        ViewAttribute="State"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_State"
-        UpperColumns="0"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

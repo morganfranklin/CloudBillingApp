@@ -176,6 +176,50 @@
     Name="XpeDccCfgTerminalsEO"
     Entity="model.entities.XpeDccCfgTerminalsEO"/>
   <ViewAttribute
+    Name="TerminalId"
+    IsUpdateable="while_insert"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TerminalId"
+    EntityUsage="XpeDccCfgTerminalsEO"
+    AliasName="TERMINAL_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgTerminalsEOVO.TerminalId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TerminalType"
+    PrecisionRule="true"
+    EntityAttrName="TerminalType"
+    EntityUsage="XpeDccCfgTerminalsEO"
+    AliasName="TERMINAL_TYPE"
+    LOVName="LOV_TerminalType">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgTerminalsEOVO.TerminalType_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TerminalDesc"
+    PrecisionRule="true"
+    EntityAttrName="TerminalDesc"
+    EntityUsage="XpeDccCfgTerminalsEO"
+    AliasName="TERMINAL_DESC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgTerminalsEOVO.TerminalDesc_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
     Name="County"
     PrecisionRule="true"
     EntityAttrName="County"
@@ -190,6 +234,26 @@
           Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="State"
+    PrecisionRule="true"
+    EntityAttrName="State"
+    EntityUsage="XpeDccCfgTerminalsEO"
+    AliasName="STATE"
+    LOVName="LOV_State">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgTerminalsEOVO.State_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="County"/>
+    </Dependencies>
   </ViewAttribute>
   <ViewAttribute
     Name="CreatedBy"
@@ -245,70 +309,6 @@
     EntityAttrName="LastUpdatedDate"
     EntityUsage="XpeDccCfgTerminalsEO"
     AliasName="LAST_UPDATED_DATE"/>
-  <ViewAttribute
-    Name="State"
-    PrecisionRule="true"
-    EntityAttrName="State"
-    EntityUsage="XpeDccCfgTerminalsEO"
-    AliasName="STATE"
-    LOVName="LOV_State">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgTerminalsEOVO.State_LABEL"/>
-        <CONTROLTYPE
-          Value="choice"/>
-      </SchemaBasedProperties>
-    </Properties>
-    <Dependencies>
-      <Item
-        Value="County"/>
-    </Dependencies>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="TerminalDesc"
-    PrecisionRule="true"
-    EntityAttrName="TerminalDesc"
-    EntityUsage="XpeDccCfgTerminalsEO"
-    AliasName="TERMINAL_DESC">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgTerminalsEOVO.TerminalDesc_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="TerminalId"
-    IsUpdateable="while_insert"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="TerminalId"
-    EntityUsage="XpeDccCfgTerminalsEO"
-    AliasName="TERMINAL_ID">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgTerminalsEOVO.TerminalId_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="TerminalType"
-    PrecisionRule="true"
-    EntityAttrName="TerminalType"
-    EntityUsage="XpeDccCfgTerminalsEO"
-    AliasName="TERMINAL_TYPE"
-    LOVName="LOV_TerminalType">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgTerminalsEOVO.TerminalType_LABEL"/>
-        <CONTROLTYPE
-          Value="choice"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
   <ViewCriteria
     Name="TerminalsCriteria"
     ViewObjectName="model.views.entitybased.XpeDccCfgTerminalsEOVO"

@@ -132,6 +132,83 @@
     Name="XpeDccCfgOriginsEO"
     Entity="model.entities.XpeDccCfgOriginsEO"/>
   <ViewAttribute
+    Name="OriginId"
+    IsUpdateable="while_insert"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="OriginId"
+    EntityUsage="XpeDccCfgOriginsEO"
+    AliasName="ORIGIN_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgOriginsEOVO.OriginId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OriginDesc"
+    PrecisionRule="true"
+    EntityAttrName="OriginDesc"
+    EntityUsage="XpeDccCfgOriginsEO"
+    AliasName="ORIGIN_DESC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgOriginsEOVO.OriginDesc_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="County"
+    PrecisionRule="true"
+    EntityAttrName="County"
+    EntityUsage="XpeDccCfgOriginsEO"
+    AliasName="COUNTY"
+    LOVName="LOV_County">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgOriginsEOVO.County_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="State"
+    PrecisionRule="true"
+    EntityAttrName="State"
+    EntityUsage="XpeDccCfgOriginsEO"
+    AliasName="STATE"
+    LOVName="LOV_State">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgOriginsEOVO.State_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="County"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="XpeDccNycDosDistrict"
+    PrecisionRule="true"
+    EntityAttrName="XpeDccNycDosDistrict"
+    EntityUsage="XpeDccCfgOriginsEO"
+    AliasName="XPE_DCC_NYC_DOS_DISTRICT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgOriginsEOVO.XpeDccNycDosDistrict_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
     Name="CreatedBy"
     PrecisionRule="true"
     EntityAttrName="CreatedBy"
@@ -184,83 +261,6 @@
     EntityAttrName="LastUpdatedDate"
     EntityUsage="XpeDccCfgOriginsEO"
     AliasName="LAST_UPDATED_DATE"/>
-  <ViewAttribute
-    Name="OriginDesc"
-    PrecisionRule="true"
-    EntityAttrName="OriginDesc"
-    EntityUsage="XpeDccCfgOriginsEO"
-    AliasName="ORIGIN_DESC">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgOriginsEOVO.OriginDesc_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="OriginId"
-    IsUpdateable="while_insert"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="OriginId"
-    EntityUsage="XpeDccCfgOriginsEO"
-    AliasName="ORIGIN_ID">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgOriginsEOVO.OriginId_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="State"
-    PrecisionRule="true"
-    EntityAttrName="State"
-    EntityUsage="XpeDccCfgOriginsEO"
-    AliasName="STATE"
-    LOVName="LOV_State">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgOriginsEOVO.State_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-    <Dependencies>
-      <Item
-        Value="County"/>
-    </Dependencies>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="County"
-    PrecisionRule="true"
-    EntityAttrName="County"
-    EntityUsage="XpeDccCfgOriginsEO"
-    AliasName="COUNTY"
-    LOVName="LOV_County">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgOriginsEOVO.County_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="XpeDccNycDosDistrict"
-    PrecisionRule="true"
-    EntityAttrName="XpeDccNycDosDistrict"
-    EntityUsage="XpeDccCfgOriginsEO"
-    AliasName="XPE_DCC_NYC_DOS_DISTRICT">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgOriginsEOVO.XpeDccNycDosDistrict_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
   <ViewCriteria
     Name="OriginsCriteria"
     ViewObjectName="model.views.entitybased.XpeDccCfgOriginsEOVO"
@@ -288,14 +288,6 @@
       Name="XpeDccCfgOriginsEOVOCriteria_row_0"
       UpperColumns="1">
       <ViewCriteriaItem
-        Name="OriginDesc"
-        ViewAttribute="OriginDesc"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_OriginDesc"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
         Name="OriginId"
         ViewAttribute="OriginId"
         Operator="="
@@ -304,11 +296,11 @@
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
-        Name="State"
-        ViewAttribute="State"
+        Name="OriginDesc"
+        ViewAttribute="OriginDesc"
         Operator="="
         Conjunction="AND"
-        Value=":bind_OriginState"
+        Value=":bind_OriginDesc"
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
@@ -317,6 +309,14 @@
         Operator="="
         Conjunction="AND"
         Value=":bind_OriginCounty"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="State"
+        ViewAttribute="State"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_OriginState"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

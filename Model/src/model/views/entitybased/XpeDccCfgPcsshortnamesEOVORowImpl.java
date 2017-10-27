@@ -23,25 +23,25 @@ public class XpeDccCfgPcsshortnamesEOVORowImpl extends ViewRowImpl {
      * AttributesEnum: generated enum for identifying attributes and accessors. DO NOT MODIFY.
      */
     public enum AttributesEnum {
+        CovId,
+        PcsshortnameId,
+        PcsshortName,
         AccountClass,
+        CustId,
+        CustomerName,
+        Setid,
+        BillCycleId,
+        InvSupress,
+        CovSoldId,
+        CovSoldLocNum,
+        CovBillId,
+        CovBillLocNum,
         CreatedBy,
         CreatedDate,
         Inactive,
         InactiveDate,
         LastUpdatedBy,
         LastUpdatedDate,
-        PcsshortName,
-        PcsshortnameId,
-        CovId,
-        CovSoldId,
-        CovBillId,
-        CovSoldLocNum,
-        CovBillLocNum,
-        BillCycleId,
-        InvSupress,
-        Setid,
-        CustId,
-        CustomerName,
         COV_Sold_Address1,
         COV_Sold_Address2,
         COV_Sold_City,
@@ -81,25 +81,25 @@ public class XpeDccCfgPcsshortnamesEOVORowImpl extends ViewRowImpl {
     }
 
 
+    public static final int COVID = AttributesEnum.CovId.index();
+    public static final int PCSSHORTNAMEID = AttributesEnum.PcsshortnameId.index();
+    public static final int PCSSHORTNAME = AttributesEnum.PcsshortName.index();
     public static final int ACCOUNTCLASS = AttributesEnum.AccountClass.index();
+    public static final int CUSTID = AttributesEnum.CustId.index();
+    public static final int CUSTOMERNAME = AttributesEnum.CustomerName.index();
+    public static final int SETID = AttributesEnum.Setid.index();
+    public static final int BILLCYCLEID = AttributesEnum.BillCycleId.index();
+    public static final int INVSUPRESS = AttributesEnum.InvSupress.index();
+    public static final int COVSOLDID = AttributesEnum.CovSoldId.index();
+    public static final int COVSOLDLOCNUM = AttributesEnum.CovSoldLocNum.index();
+    public static final int COVBILLID = AttributesEnum.CovBillId.index();
+    public static final int COVBILLLOCNUM = AttributesEnum.CovBillLocNum.index();
     public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
     public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
     public static final int INACTIVE = AttributesEnum.Inactive.index();
     public static final int INACTIVEDATE = AttributesEnum.InactiveDate.index();
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
-    public static final int PCSSHORTNAME = AttributesEnum.PcsshortName.index();
-    public static final int PCSSHORTNAMEID = AttributesEnum.PcsshortnameId.index();
-    public static final int COVID = AttributesEnum.CovId.index();
-    public static final int COVSOLDID = AttributesEnum.CovSoldId.index();
-    public static final int COVBILLID = AttributesEnum.CovBillId.index();
-    public static final int COVSOLDLOCNUM = AttributesEnum.CovSoldLocNum.index();
-    public static final int COVBILLLOCNUM = AttributesEnum.CovBillLocNum.index();
-    public static final int BILLCYCLEID = AttributesEnum.BillCycleId.index();
-    public static final int INVSUPRESS = AttributesEnum.InvSupress.index();
-    public static final int SETID = AttributesEnum.Setid.index();
-    public static final int CUSTID = AttributesEnum.CustId.index();
-    public static final int CUSTOMERNAME = AttributesEnum.CustomerName.index();
     public static final int COV_SOLD_ADDRESS1 = AttributesEnum.COV_Sold_Address1.index();
     public static final int COV_SOLD_ADDRESS2 = AttributesEnum.COV_Sold_Address2.index();
     public static final int COV_SOLD_CITY = AttributesEnum.COV_Sold_City.index();

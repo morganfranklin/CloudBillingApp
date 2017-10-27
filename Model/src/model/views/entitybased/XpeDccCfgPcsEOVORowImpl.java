@@ -22,20 +22,20 @@ public class XpeDccCfgPcsEOVORowImpl extends ViewRowImpl {
      * AttributesEnum: generated enum for identifying attributes and accessors. DO NOT MODIFY.
      */
     public enum AttributesEnum {
-        Activate,
-        CreatedBy,
-        CreatedDate,
+        SiteId,
+        SiteDesc,
+        FacilityId,
         DbLink,
         DirectToCustomer,
         EmailNotificationGroup,
+        PrintStage,
+        Activate,
+        CreatedBy,
+        CreatedDate,
         Inactive,
         InactiveDate,
         LastUpdatedBy,
         LastUpdatedDate,
-        PrintStage,
-        SiteDesc,
-        SiteId,
-        FacilityId,
         XpeDccCfgPcsAssTerminalsEOVO,
         LookupSharedAppModule_YONLOV;
         static AttributesEnum[] vals = null;
@@ -63,20 +63,20 @@ public class XpeDccCfgPcsEOVORowImpl extends ViewRowImpl {
     }
 
 
-    public static final int ACTIVATE = AttributesEnum.Activate.index();
-    public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
-    public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
+    public static final int SITEID = AttributesEnum.SiteId.index();
+    public static final int SITEDESC = AttributesEnum.SiteDesc.index();
+    public static final int FACILITYID = AttributesEnum.FacilityId.index();
     public static final int DBLINK = AttributesEnum.DbLink.index();
     public static final int DIRECTTOCUSTOMER = AttributesEnum.DirectToCustomer.index();
     public static final int EMAILNOTIFICATIONGROUP = AttributesEnum.EmailNotificationGroup.index();
+    public static final int PRINTSTAGE = AttributesEnum.PrintStage.index();
+    public static final int ACTIVATE = AttributesEnum.Activate.index();
+    public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
+    public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
     public static final int INACTIVE = AttributesEnum.Inactive.index();
     public static final int INACTIVEDATE = AttributesEnum.InactiveDate.index();
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
-    public static final int PRINTSTAGE = AttributesEnum.PrintStage.index();
-    public static final int SITEDESC = AttributesEnum.SiteDesc.index();
-    public static final int SITEID = AttributesEnum.SiteId.index();
-    public static final int FACILITYID = AttributesEnum.FacilityId.index();
     public static final int XPEDCCCFGPCSASSTERMINALSEOVO = AttributesEnum.XpeDccCfgPcsAssTerminalsEOVO.index();
     public static final int LOOKUPSHAREDAPPMODULE_YONLOV = AttributesEnum.LookupSharedAppModule_YONLOV.index();
 

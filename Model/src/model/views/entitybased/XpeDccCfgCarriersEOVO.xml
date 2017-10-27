@@ -95,17 +95,18 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="CreatedBy"
+    Name="State"
     PrecisionRule="true"
-    EntityAttrName="CreatedBy"
+    EntityAttrName="State"
     EntityUsage="XpeDccCfgCarriersEO"
-    AliasName="CREATED_BY"/>
-  <ViewAttribute
-    Name="CreatedDate"
-    PrecisionRule="true"
-    EntityAttrName="CreatedDate"
-    EntityUsage="XpeDccCfgCarriersEO"
-    AliasName="CREATED_DATE"/>
+    AliasName="STATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgCarriersEOVO.State_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Inactive"
     PrecisionRule="true"
@@ -136,6 +137,18 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="XpeDccCfgCarriersEO"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="CreatedDate"
+    PrecisionRule="true"
+    EntityAttrName="CreatedDate"
+    EntityUsage="XpeDccCfgCarriersEO"
+    AliasName="CREATED_DATE"/>
+  <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedBy"
@@ -147,19 +160,6 @@
     EntityAttrName="LastUpdatedDate"
     EntityUsage="XpeDccCfgCarriersEO"
     AliasName="LAST_UPDATED_DATE"/>
-  <ViewAttribute
-    Name="State"
-    PrecisionRule="true"
-    EntityAttrName="State"
-    EntityUsage="XpeDccCfgCarriersEO"
-    AliasName="STATE">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgCarriersEOVO.State_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
   <ViewCriteria
     Name="CarriersCriteria"
     ViewObjectName="model.views.entitybased.XpeDccCfgCarriersEOVO"

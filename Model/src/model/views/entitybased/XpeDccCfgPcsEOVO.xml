@@ -135,33 +135,46 @@
     Name="XpeDccCfgPcsEO"
     Entity="model.entities.XpeDccCfgPcsEO"/>
   <ViewAttribute
-    Name="Activate"
+    Name="SiteId"
+    IsUpdateable="while_insert"
+    IsNotNull="true"
     PrecisionRule="true"
-    EntityAttrName="Activate"
+    EntityAttrName="SiteId"
     EntityUsage="XpeDccCfgPcsEO"
-    AliasName="ACTIVATE"
-    LOVName="LOV_Activate">
+    AliasName="SITE_ID">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
         <LABEL
-          ResId="model.views.entitybased.XpeDccCfgPcsEOVO.Activate_LABEL"/>
+          ResId="model.views.entitybased.XpeDccCfgPcsEOVO.SiteId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="CreatedBy"
+    Name="SiteDesc"
     PrecisionRule="true"
-    EntityAttrName="CreatedBy"
+    EntityAttrName="SiteDesc"
     EntityUsage="XpeDccCfgPcsEO"
-    AliasName="CREATED_BY"/>
+    AliasName="SITE_DESC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsEOVO.SiteDesc_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
-    Name="CreatedDate"
+    Name="FacilityId"
     PrecisionRule="true"
-    EntityAttrName="CreatedDate"
+    EntityAttrName="FacilityId"
     EntityUsage="XpeDccCfgPcsEO"
-    AliasName="CREATED_DATE"/>
+    AliasName="FACILITY_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsEOVO.FacilityId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="DbLink"
     PrecisionRule="true"
@@ -205,6 +218,50 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
+    Name="PrintStage"
+    PrecisionRule="true"
+    EntityAttrName="PrintStage"
+    EntityUsage="XpeDccCfgPcsEO"
+    AliasName="PRINT_STAGE"
+    LOVName="LOV_PrintStage">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsEOVO.PrintStage_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Activate"
+    PrecisionRule="true"
+    EntityAttrName="Activate"
+    EntityUsage="XpeDccCfgPcsEO"
+    AliasName="ACTIVATE"
+    LOVName="LOV_Activate">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsEOVO.Activate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="XpeDccCfgPcsEO"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="CreatedDate"
+    PrecisionRule="true"
+    EntityAttrName="CreatedDate"
+    EntityUsage="XpeDccCfgPcsEO"
+    AliasName="CREATED_DATE"/>
+  <ViewAttribute
     Name="Inactive"
     PrecisionRule="true"
     EntityAttrName="Inactive"
@@ -245,63 +302,6 @@
     EntityAttrName="LastUpdatedDate"
     EntityUsage="XpeDccCfgPcsEO"
     AliasName="LAST_UPDATED_DATE"/>
-  <ViewAttribute
-    Name="PrintStage"
-    PrecisionRule="true"
-    EntityAttrName="PrintStage"
-    EntityUsage="XpeDccCfgPcsEO"
-    AliasName="PRINT_STAGE"
-    LOVName="LOV_PrintStage">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgPcsEOVO.PrintStage_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="SiteDesc"
-    PrecisionRule="true"
-    EntityAttrName="SiteDesc"
-    EntityUsage="XpeDccCfgPcsEO"
-    AliasName="SITE_DESC">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgPcsEOVO.SiteDesc_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="SiteId"
-    IsUpdateable="while_insert"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="SiteId"
-    EntityUsage="XpeDccCfgPcsEO"
-    AliasName="SITE_ID">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgPcsEOVO.SiteId_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="FacilityId"
-    PrecisionRule="true"
-    EntityAttrName="FacilityId"
-    EntityUsage="XpeDccCfgPcsEO"
-    AliasName="FACILITY_ID">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgPcsEOVO.FacilityId_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
   <ViewCriteria
     Name="PCSCriteria"
     ViewObjectName="model.views.entitybased.XpeDccCfgPcsEOVO"
@@ -329,6 +329,30 @@
       Name="XpeDccCfgPcsEOVOCriteria_row_0"
       UpperColumns="1">
       <ViewCriteriaItem
+        Name="SiteId"
+        ViewAttribute="SiteId"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_SiteId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="SiteDesc"
+        ViewAttribute="SiteDesc"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_SiteDesc"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="FacilityId"
+        ViewAttribute="FacilityId"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_FacilityId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
         Name="DirectToCustomer"
         ViewAttribute="DirectToCustomer"
         Operator="="
@@ -342,30 +366,6 @@
         Operator="="
         Conjunction="AND"
         Value=":bind_PrintStage"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="SiteDesc"
-        ViewAttribute="SiteDesc"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_SiteDesc"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="SiteId"
-        ViewAttribute="SiteId"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_SiteId"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="FacilityId"
-        ViewAttribute="FacilityId"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_FacilityId"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

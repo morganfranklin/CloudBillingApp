@@ -89,17 +89,62 @@
     Name="XpeDccCfgVehiclesEO"
     Entity="model.entities.XpeDccCfgVehiclesEO"/>
   <ViewAttribute
-    Name="CreatedBy"
+    Name="VehicleId"
+    IsUpdateable="while_insert"
+    IsNotNull="true"
     PrecisionRule="true"
-    EntityAttrName="CreatedBy"
+    EntityAttrName="VehicleId"
     EntityUsage="XpeDccCfgVehiclesEO"
-    AliasName="CREATED_BY"/>
+    AliasName="VEHICLE_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgVehiclesEOVO.VehicleId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
-    Name="CreatedDate"
+    Name="VehicleType"
     PrecisionRule="true"
-    EntityAttrName="CreatedDate"
+    EntityAttrName="VehicleType"
     EntityUsage="XpeDccCfgVehiclesEO"
-    AliasName="CREATED_DATE"/>
+    AliasName="VEHICLE_TYPE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgVehiclesEOVO.VehicleType_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="VehicleDesc"
+    PrecisionRule="true"
+    EntityAttrName="VehicleDesc"
+    EntityUsage="XpeDccCfgVehiclesEO"
+    AliasName="VEHICLE_DESC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgVehiclesEOVO.VehicleDesc_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RequireTrailer"
+    PrecisionRule="true"
+    EntityAttrName="RequireTrailer"
+    EntityUsage="XpeDccCfgVehiclesEO"
+    AliasName="REQUIRE_TRAILER"
+    LOVName="LOV_RequireTrailer">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgVehiclesEOVO.RequireTrailer_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Inactive"
     PrecisionRule="true"
@@ -130,6 +175,18 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="XpeDccCfgVehiclesEO"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="CreatedDate"
+    PrecisionRule="true"
+    EntityAttrName="CreatedDate"
+    EntityUsage="XpeDccCfgVehiclesEO"
+    AliasName="CREATED_DATE"/>
+  <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedBy"
@@ -141,63 +198,6 @@
     EntityAttrName="LastUpdatedDate"
     EntityUsage="XpeDccCfgVehiclesEO"
     AliasName="LAST_UPDATED_DATE"/>
-  <ViewAttribute
-    Name="RequireTrailer"
-    PrecisionRule="true"
-    EntityAttrName="RequireTrailer"
-    EntityUsage="XpeDccCfgVehiclesEO"
-    AliasName="REQUIRE_TRAILER"
-    LOVName="LOV_RequireTrailer">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgVehiclesEOVO.RequireTrailer_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="VehicleDesc"
-    PrecisionRule="true"
-    EntityAttrName="VehicleDesc"
-    EntityUsage="XpeDccCfgVehiclesEO"
-    AliasName="VEHICLE_DESC">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgVehiclesEOVO.VehicleDesc_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="VehicleId"
-    IsUpdateable="while_insert"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="VehicleId"
-    EntityUsage="XpeDccCfgVehiclesEO"
-    AliasName="VEHICLE_ID">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgVehiclesEOVO.VehicleId_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="VehicleType"
-    PrecisionRule="true"
-    EntityAttrName="VehicleType"
-    EntityUsage="XpeDccCfgVehiclesEO"
-    AliasName="VEHICLE_TYPE">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgVehiclesEOVO.VehicleType_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
   <ViewCriteria
     Name="VehicleTypesCriteria"
     ViewObjectName="model.views.entitybased.XpeDccCfgVehiclesEOVO"
@@ -225,22 +225,6 @@
       Name="XpeDccCfgVehiclesEOVOCriteria_row_0"
       UpperColumns="1">
       <ViewCriteriaItem
-        Name="RequireTrailer"
-        ViewAttribute="RequireTrailer"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_RequireTrailer"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="VehicleDesc"
-        ViewAttribute="VehicleDesc"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_VehicleDesc"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
         Name="VehicleId"
         ViewAttribute="VehicleId"
         Operator="="
@@ -254,6 +238,22 @@
         Operator="="
         Conjunction="AND"
         Value=":bind_VehicleType"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="VehicleDesc"
+        ViewAttribute="VehicleDesc"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_VehicleDesc"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="RequireTrailer"
+        ViewAttribute="RequireTrailer"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_RequireTrailer"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

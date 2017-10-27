@@ -13,23 +13,24 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class XpeDccCfgProductserviceEOVORowImpl extends ViewRowImpl {
+
     public static final int ENTITY_XPEDCCCFGPRODUCTSERVICEEO = 0;
 
     /**
      * AttributesEnum: generated enum for identifying attributes and accessors. DO NOT MODIFY.
      */
     public enum AttributesEnum {
-        Category,
-        ClassId,
-        ClassType,
-        CreatedBy,
-        CreatedDate,
-        Description,
-        Inactive,
-        InactiveDate,
-        Inoutbound,
         ItemId,
         ItemType,
+        Description,
+        Inoutbound,
+        Category,
+        ClassType,
+        ClassId,
+        Inactive,
+        InactiveDate,
+        CreatedBy,
+        CreatedDate,
         LastUpdatedBy,
         LastUpdatedDate,
         XpeDccCfgUomEOVO,
@@ -39,7 +40,8 @@ public class XpeDccCfgProductserviceEOVORowImpl extends ViewRowImpl {
         XpeDccGeneralItemListROVO_CategoryLOV,
         XpeDccGeneralItemListROVO_AccountBoundClassLOV,
         LookupSharedAppModule_YONLOV;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -61,17 +63,18 @@ public class XpeDccCfgProductserviceEOVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
-    public static final int CATEGORY = AttributesEnum.Category.index();
-    public static final int CLASSID = AttributesEnum.ClassId.index();
-    public static final int CLASSTYPE = AttributesEnum.ClassType.index();
-    public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
-    public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
-    public static final int DESCRIPTION = AttributesEnum.Description.index();
-    public static final int INACTIVE = AttributesEnum.Inactive.index();
-    public static final int INACTIVEDATE = AttributesEnum.InactiveDate.index();
-    public static final int INOUTBOUND = AttributesEnum.Inoutbound.index();
+
     public static final int ITEMID = AttributesEnum.ItemId.index();
     public static final int ITEMTYPE = AttributesEnum.ItemType.index();
+    public static final int DESCRIPTION = AttributesEnum.Description.index();
+    public static final int INOUTBOUND = AttributesEnum.Inoutbound.index();
+    public static final int CATEGORY = AttributesEnum.Category.index();
+    public static final int CLASSTYPE = AttributesEnum.ClassType.index();
+    public static final int CLASSID = AttributesEnum.ClassId.index();
+    public static final int INACTIVE = AttributesEnum.Inactive.index();
+    public static final int INACTIVEDATE = AttributesEnum.InactiveDate.index();
+    public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
+    public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int XPEDCCCFGUOMEOVO = AttributesEnum.XpeDccCfgUomEOVO.index();

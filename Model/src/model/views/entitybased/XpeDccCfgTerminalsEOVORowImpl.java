@@ -22,17 +22,17 @@ public class XpeDccCfgTerminalsEOVORowImpl extends ViewRowImpl {
      * AttributesEnum: generated enum for identifying attributes and accessors. DO NOT MODIFY.
      */
     public enum AttributesEnum {
+        TerminalId,
+        TerminalType,
+        TerminalDesc,
         County,
+        State,
         CreatedBy,
         CreatedDate,
         Inactive,
         InactiveDate,
         LastUpdatedBy,
         LastUpdatedDate,
-        State,
-        TerminalDesc,
-        TerminalId,
-        TerminalType,
         XpeDccCfgDstAssTerminalsEOVO,
         XpeDccCfgPcsAssTerminalsEOVO,
         XpeDccCfgOgnAssTerminalsEOVO,
@@ -65,17 +65,17 @@ public class XpeDccCfgTerminalsEOVORowImpl extends ViewRowImpl {
     }
 
 
+    public static final int TERMINALID = AttributesEnum.TerminalId.index();
+    public static final int TERMINALTYPE = AttributesEnum.TerminalType.index();
+    public static final int TERMINALDESC = AttributesEnum.TerminalDesc.index();
     public static final int COUNTY = AttributesEnum.County.index();
+    public static final int STATE = AttributesEnum.State.index();
     public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
     public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
     public static final int INACTIVE = AttributesEnum.Inactive.index();
     public static final int INACTIVEDATE = AttributesEnum.InactiveDate.index();
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
-    public static final int STATE = AttributesEnum.State.index();
-    public static final int TERMINALDESC = AttributesEnum.TerminalDesc.index();
-    public static final int TERMINALID = AttributesEnum.TerminalId.index();
-    public static final int TERMINALTYPE = AttributesEnum.TerminalType.index();
     public static final int XPEDCCCFGDSTASSTERMINALSEOVO = AttributesEnum.XpeDccCfgDstAssTerminalsEOVO.index();
     public static final int XPEDCCCFGPCSASSTERMINALSEOVO = AttributesEnum.XpeDccCfgPcsAssTerminalsEOVO.index();
     public static final int XPEDCCCFGOGNASSTERMINALSEOVO = AttributesEnum.XpeDccCfgOgnAssTerminalsEOVO.index();

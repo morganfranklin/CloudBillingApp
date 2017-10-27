@@ -200,6 +200,21 @@
     Name="XpeDccCfgGeneralCnvEO"
     Entity="model.entities.XpeDccCfgGeneralCnvEO"/>
   <ViewAttribute
+    Name="GeneralCnvId"
+    IsUpdateable="while_insert"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="GeneralCnvId"
+    EntityUsage="XpeDccCfgGeneralCnvEO"
+    AliasName="GENERAL_CNV_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgGeneralCnvEOVO.GeneralCnvId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
     Name="CarrierId"
     PrecisionRule="true"
     EntityAttrName="CarrierId"
@@ -216,19 +231,6 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="ConversionValue"
-    PrecisionRule="true"
-    EntityAttrName="ConversionValue"
-    EntityUsage="XpeDccCfgGeneralCnvEO"
-    AliasName="CONVERSION_VALUE">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgGeneralCnvEOVO.ConversionValue_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
     Name="DestinationId"
     PrecisionRule="true"
     EntityAttrName="DestinationId"
@@ -241,21 +243,6 @@
           Value="input_text_lov"/>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgGeneralCnvEOVO.DestinationId_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="GeneralCnvId"
-    IsUpdateable="while_insert"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="GeneralCnvId"
-    EntityUsage="XpeDccCfgGeneralCnvEO"
-    AliasName="GENERAL_CNV_ID">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgGeneralCnvEOVO.GeneralCnvId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -304,6 +291,19 @@
           ResId="model.views.entitybased.XpeDccCfgGeneralCnvEOVO.PcsShortNameId_LABEL"/>
         <CONTROLTYPE
           Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ConversionValue"
+    PrecisionRule="true"
+    EntityAttrName="ConversionValue"
+    EntityUsage="XpeDccCfgGeneralCnvEO"
+    AliasName="CONVERSION_VALUE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgGeneralCnvEOVO.ConversionValue_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

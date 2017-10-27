@@ -67,18 +67,6 @@
     Name="XpeDccCfgGeneralEO"
     Entity="model.entities.XpeDccCfgGeneralEO"/>
   <ViewAttribute
-    Name="CreatedBy"
-    PrecisionRule="true"
-    EntityAttrName="CreatedBy"
-    EntityUsage="XpeDccCfgGeneralEO"
-    AliasName="CREATED_BY"/>
-  <ViewAttribute
-    Name="CreatedDate"
-    PrecisionRule="true"
-    EntityAttrName="CreatedDate"
-    EntityUsage="XpeDccCfgGeneralEO"
-    AliasName="CREATED_DATE"/>
-  <ViewAttribute
     Name="ItemId"
     IsUpdateable="while_insert"
     IsNotNull="true"
@@ -112,18 +100,6 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="LastUpdatedBy"
-    PrecisionRule="true"
-    EntityAttrName="LastUpdatedBy"
-    EntityUsage="XpeDccCfgGeneralEO"
-    AliasName="LAST_UPDATED_BY"/>
-  <ViewAttribute
-    Name="LastUpdatedDate"
-    PrecisionRule="true"
-    EntityAttrName="LastUpdatedDate"
-    EntityUsage="XpeDccCfgGeneralEO"
-    AliasName="LAST_UPDATED_DATE"/>
-  <ViewAttribute
     Name="ValidValue"
     PrecisionRule="true"
     EntityAttrName="ValidValue"
@@ -136,6 +112,30 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="XpeDccCfgGeneralEO"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="CreatedDate"
+    PrecisionRule="true"
+    EntityAttrName="CreatedDate"
+    EntityUsage="XpeDccCfgGeneralEO"
+    AliasName="CREATED_DATE"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="XpeDccCfgGeneralEO"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="LastUpdatedDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedDate"
+    EntityUsage="XpeDccCfgGeneralEO"
+    AliasName="LAST_UPDATED_DATE"/>
   <ViewCriteria
     Name="GeneralCriteria"
     ViewObjectName="model.views.entitybased.XpeDccCfgGeneralEOVO"
