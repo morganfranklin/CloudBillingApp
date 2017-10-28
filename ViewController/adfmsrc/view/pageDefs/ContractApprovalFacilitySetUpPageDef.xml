@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57"
+                id="ContractApprovalFacilitySetUpPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XpeDccCfgCntrcttAprFcltyROVO1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgCntrcttAprFcltyROVO1Iterator"/>
+    <iterator Binds="XpeDccCfgMswFacilityEOVO1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgMswFacilityEOVO1Iterator"/>
+    <iterator Binds="XpeDccCfgNewMswFacilityEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewMswFacilityEOVOIterator"/>
+    <iterator Binds="XpeDccCfgCmtmntFacilityEOVO1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgCmtmntFacilityEOVO1Iterator"/>
+    <iterator Binds="XpeDccCfgMetalsFacilityEOVO1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgMetalsFacilityEOVO1Iterator"/>
+    <iterator Binds="XpeDccCfgNewCmtmntFacilityEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewCmtmntFacilityEOVOIterator"/>
+    <iterator Binds="XpeDccCfgNewMetalsFacilityEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewMetalsFacilityEOVOIterator"/>
+  </executables>
+  <bindings>
+    <list IterBinding="XpeDccCfgCntrcttAprFcltyROVO1Iterator" StaticList="false" Uses="LOV_XpeWasteType"
+          id="XpeWasteType" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgCntrcttAprFcltyROVO1Iterator" StaticList="false" Uses="LOV_XpeContractSubType"
+          id="XpeContractSubType" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgCntrcttAprFcltyROVO1Iterator" StaticList="false" Uses="LOV_XpeAgreementType"
+          id="XpeAgreementType" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgCntrcttAprFcltyROVO1Iterator" StaticList="false" Uses="LOV_XpeFacilityId"
+          id="XpeFacilityId" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <tree IterBinding="XpeDccCfgMswFacilityEOVO1Iterator" id="XpeDccCfgMswFacilityEOVO1">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccCfgMswFacilityEOVO" Name="XpeDccCfgMswFacilityEOVO10">
+        <AttrNames>
+          <Item Value="XpeFacilityId"/>
+          <Item Value="CustomerCareReview"/>
+          <Item Value="LegalReview"/>
+          <Item Value="GeneralManagerReview"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="XpeDccCfgNewMswFacilityEOVOIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <tree IterBinding="XpeDccCfgCmtmntFacilityEOVO1Iterator" id="XpeDccCfgCmtmntFacilityEOVO1">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccCfgCmtmntFacilityEOVO"
+                      Name="XpeDccCfgCmtmntFacilityEOVO10">
+        <AttrNames>
+          <Item Value="XpeFacilityId"/>
+          <Item Value="CustomerCareReview"/>
+          <Item Value="LegalReview"/>
+          <Item Value="FinancialReview"/>
+          <Item Value="GeneralManagerReview"/>
+          <Item Value="SustSolReview"/>
+          <Item Value="CfoReview"/>
+          <Item Value="CeoReview"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="XpeDccCfgMetalsFacilityEOVO1Iterator" id="XpeDccCfgMetalsFacilityEOVO1">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccCfgMetalsFacilityEOVO"
+                      Name="XpeDccCfgMetalsFacilityEOVO10">
+        <AttrNames>
+          <Item Value="XpeFacilityId"/>
+          <Item Value="CustomerCareReview"/>
+          <Item Value="LegalReview"/>
+          <Item Value="FinancialReview"/>
+          <Item Value="SvpReview"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="XpeDccCfgNewCmtmntFacilityEOVOIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="XpeDccCfgNewMetalsFacilityEOVOIterator" id="CreateInsert2" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <methodAction id="searchCntrctAprFcltySetUp" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="searchCntrctAprFcltySetUp" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="data.AppModuleDataControl.dataProvider"/>
+    <methodAction id="resetCntrctAprFcltySetUp" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="resetCntrctAprFcltySetUp" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="data.AppModuleDataControl.dataProvider"/>
+  </bindings>
+</pageDefinition>

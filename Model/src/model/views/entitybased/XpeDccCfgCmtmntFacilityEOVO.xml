@@ -12,7 +12,17 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="model.views.entitybased.XpeDccCfgCmtmntFacilityEOVORowImpl"
+  ComponentClass="model.views.entitybased.XpeDccCfgCmtmntFacilityEOVOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Variable
+    Name="bind_FacilityId"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="XpeDccDicFacilities1"
     ViewObjectName="model.XpeDccDicFacilities"
@@ -50,6 +60,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgCmtmntFacilityEOVO.XpeFacilityId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -58,43 +70,92 @@
     PrecisionRule="true"
     EntityAttrName="CustomerCareReview"
     EntityUsage="XpeDccCfgCmtmntFacilityEO"
-    AliasName="CUSTOMER_CARE_REVIEW"/>
+    AliasName="CUSTOMER_CARE_REVIEW">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgCmtmntFacilityEOVO.CustomerCareReview_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="LegalReview"
     PrecisionRule="true"
     EntityAttrName="LegalReview"
     EntityUsage="XpeDccCfgCmtmntFacilityEO"
-    AliasName="LEGAL_REVIEW"/>
+    AliasName="LEGAL_REVIEW">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgCmtmntFacilityEOVO.LegalReview_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="FinancialReview"
     PrecisionRule="true"
     EntityAttrName="FinancialReview"
     EntityUsage="XpeDccCfgCmtmntFacilityEO"
-    AliasName="FINANCIAL_REVIEW"/>
+    AliasName="FINANCIAL_REVIEW">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgCmtmntFacilityEOVO.FinancialReview_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="GeneralManagerReview"
     PrecisionRule="true"
     EntityAttrName="GeneralManagerReview"
     EntityUsage="XpeDccCfgCmtmntFacilityEO"
-    AliasName="GENERAL_MANAGER_REVIEW"/>
+    AliasName="GENERAL_MANAGER_REVIEW">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgCmtmntFacilityEOVO.GeneralManagerReview_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="SustSolReview"
     PrecisionRule="true"
     EntityAttrName="SustSolReview"
     EntityUsage="XpeDccCfgCmtmntFacilityEO"
-    AliasName="SUST_SOL_REVIEW"/>
+    AliasName="SUST_SOL_REVIEW">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgCmtmntFacilityEOVO.SustSolReview_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CfoReview"
     PrecisionRule="true"
     EntityAttrName="CfoReview"
     EntityUsage="XpeDccCfgCmtmntFacilityEO"
-    AliasName="CFO_REVIEW"/>
+    AliasName="CFO_REVIEW">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgCmtmntFacilityEOVO.CfoReview_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CeoReview"
     PrecisionRule="true"
     EntityAttrName="CeoReview"
     EntityUsage="XpeDccCfgCmtmntFacilityEO"
-    AliasName="CEO_REVIEW"/>
+    AliasName="CEO_REVIEW">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgCmtmntFacilityEOVO.CeoReview_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedBy"
     PrecisionRule="true"
@@ -119,4 +180,44 @@
     EntityAttrName="LastUpdateDate"
     EntityUsage="XpeDccCfgCmtmntFacilityEO"
     AliasName="LAST_UPDATE_DATE"/>
+  <ViewCriteria
+    Name="findByFacilityId"
+    ViewObjectName="model.views.entitybased.XpeDccCfgCmtmntFacilityEOVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="XpeDccCfgCmtmntFacilityEOVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="XpeFacilityId"
+        ViewAttribute="XpeFacilityId"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_FacilityId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

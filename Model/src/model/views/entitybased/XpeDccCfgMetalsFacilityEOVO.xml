@@ -12,7 +12,17 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="model.views.entitybased.XpeDccCfgMetalsFacilityEOVORowImpl"
+  ComponentClass="model.views.entitybased.XpeDccCfgMetalsFacilityEOVOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Variable
+    Name="bind_FacilityId"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="XpeDccDicFacilities1"
     ViewObjectName="model.XpeDccDicFacilities"
@@ -50,6 +60,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgMetalsFacilityEOVO.XpeFacilityId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -58,25 +70,53 @@
     PrecisionRule="true"
     EntityAttrName="CustomerCareReview"
     EntityUsage="XpeDccCfgMetalsFacilityEO"
-    AliasName="CUSTOMER_CARE_REVIEW"/>
+    AliasName="CUSTOMER_CARE_REVIEW">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgMetalsFacilityEOVO.CustomerCareReview_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="LegalReview"
     PrecisionRule="true"
     EntityAttrName="LegalReview"
     EntityUsage="XpeDccCfgMetalsFacilityEO"
-    AliasName="LEGAL_REVIEW"/>
+    AliasName="LEGAL_REVIEW">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgMetalsFacilityEOVO.LegalReview_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="FinancialReview"
     PrecisionRule="true"
     EntityAttrName="FinancialReview"
     EntityUsage="XpeDccCfgMetalsFacilityEO"
-    AliasName="FINANCIAL_REVIEW"/>
+    AliasName="FINANCIAL_REVIEW">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgMetalsFacilityEOVO.FinancialReview_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="SvpReview"
     PrecisionRule="true"
     EntityAttrName="SvpReview"
     EntityUsage="XpeDccCfgMetalsFacilityEO"
-    AliasName="SVP_REVIEW"/>
+    AliasName="SVP_REVIEW">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgMetalsFacilityEOVO.SvpReview_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedBy"
     PrecisionRule="true"
@@ -101,4 +141,44 @@
     EntityAttrName="LastUpdateDate"
     EntityUsage="XpeDccCfgMetalsFacilityEO"
     AliasName="LAST_UPDATE_DATE"/>
+  <ViewCriteria
+    Name="findByFacilityId"
+    ViewObjectName="model.views.entitybased.XpeDccCfgMetalsFacilityEOVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="XpeDccCfgMetalsFacilityEOVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="XpeFacilityId"
+        ViewAttribute="XpeFacilityId"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_FacilityId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

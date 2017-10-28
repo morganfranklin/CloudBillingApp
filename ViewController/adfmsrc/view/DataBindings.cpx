@@ -98,6 +98,9 @@
         <page path="/BillandAccountProcesses.jsff" usageId="view_BillandAccountProcessesPageDef"/>
         <page path="/WEB-INF/billingAccountingProcesses.xml#billingAccountingProcesses@initBillAccountProcess"
               usageId="view_billingAccountingProcesses_billingAccountingProcesses_initBillAccountProcessPageDef"/>
+        <page path="/WEB-INF/contractApprovalSetUpTable.xml#contractApprovalSetUpTable@initCntrctAprFcltySetUp"
+              usageId="view_contractApprovalSetUpTable_contractApprovalSetUpTable_initCntrctAprFcltySetUpPageDef"/>
+        <page path="/ContractApprovalFacilitySetUp.jsff" usageId="view_ContractApprovalFacilitySetUpPageDef"/>
     </pageMap>
     <pageDefinitionUsages>
         <page id="view_IntegrationDashPageDef" path="view.pageDefs.IntegrationDashPageDef"/>
@@ -190,6 +193,9 @@
         <page id="view_BillandAccountProcessesPageDef" path="view.pageDefs.BillandAccountProcessesPageDef"/>
         <page id="view_billingAccountingProcesses_billingAccountingProcesses_initBillAccountProcessPageDef"
               path="view.pageDefs.billingAccountingProcesses_billingAccountingProcesses_initBillAccountProcessPageDef"/>
+        <page id="view_contractApprovalSetUpTable_contractApprovalSetUpTable_initCntrctAprFcltySetUpPageDef"
+              path="view.pageDefs.contractApprovalSetUpTable_contractApprovalSetUpTable_initCntrctAprFcltySetUpPageDef"/>
+        <page id="view_ContractApprovalFacilitySetUpPageDef" path="view.pageDefs.ContractApprovalFacilitySetUpPageDef"/>
     </pageDefinitionUsages>
     <dataControlUsages>
         <BC4JDataControl id="AppModuleDataControl" Package="model"

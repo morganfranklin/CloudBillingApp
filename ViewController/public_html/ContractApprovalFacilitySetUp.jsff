@@ -1,0 +1,226 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl1">
+    <af:panelHeader text="Contract Approval Facility Lookup" id="ph1" size="1">
+      <f:facet name="context"/>
+      <f:facet name="toolbar"/>
+      <f:facet name="menuBar"/>
+      <f:facet name="legend"/>
+      <f:facet name="info"/>
+      <af:panelFormLayout id="pfl1">
+        <af:panelLabelAndMessage label="#{bindings.XpeWasteType.label}" id="plam1">
+          <af:selectOneChoice value="#{bindings.XpeWasteType.inputValue}"
+                              required="#{bindings.XpeWasteType.hints.mandatory}"
+                              shortDesc="#{bindings.XpeWasteType.hints.tooltip}" id="soc1" autoSubmit="true">
+            <f:selectItems value="#{bindings.XpeWasteType.items}" id="si1"/>
+            <f:validator binding="#{bindings.XpeWasteType.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.XpeContractSubType.label}" id="plam2">
+          <af:selectOneChoice value="#{bindings.XpeContractSubType.inputValue}"
+                              required="#{bindings.XpeContractSubType.hints.mandatory}"
+                              shortDesc="#{bindings.XpeContractSubType.hints.tooltip}" id="soc2" autoSubmit="true"
+                              partialTriggers="soc1">
+            <f:selectItems value="#{bindings.XpeContractSubType.items}" id="si2"/>
+            <f:validator binding="#{bindings.XpeContractSubType.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.XpeAgreementType.label}" id="plam3">
+          <af:selectOneChoice value="#{bindings.XpeAgreementType.inputValue}"
+                              required="#{bindings.XpeAgreementType.hints.mandatory}"
+                              shortDesc="#{bindings.XpeAgreementType.hints.tooltip}" id="soc3" autoSubmit="true"
+                              partialTriggers="soc2">
+            <f:selectItems value="#{bindings.XpeAgreementType.items}" id="si3"/>
+            <f:validator binding="#{bindings.XpeAgreementType.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.XpeFacilityId.label}" id="plam4">
+          <af:selectOneChoice value="#{bindings.XpeFacilityId.inputValue}"
+                              required="#{bindings.XpeFacilityId.hints.mandatory}"
+                              shortDesc="#{bindings.XpeFacilityId.hints.tooltip}" id="soc4" autoSubmit="true">
+            <f:selectItems value="#{bindings.XpeFacilityId.items}" id="si4"/>
+            <f:validator binding="#{bindings.XpeFacilityId.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
+      </af:panelFormLayout>
+    </af:panelHeader>
+    <af:panelHeader text="" id="ph2">
+      <f:facet name="context"/>
+      <f:facet name="toolbar">
+        <af:toolbar id="t1">
+          <af:button actionListener="#{bindings.searchCntrctAprFcltySetUp.execute}" text="Search"
+                     disabled="#{!bindings.searchCntrctAprFcltySetUp.enabled}" id="b1">
+            <af:setActionListener from="#{bindings.XpeWasteType.inputValue}" to="#{requestScope.type}"/>
+          </af:button>
+          <af:spacer width="10" height="10" id="s1"/>
+          <af:button actionListener="#{bindings.resetCntrctAprFcltySetUp.execute}" text="Reset"
+                     disabled="#{!bindings.resetCntrctAprFcltySetUp.enabled}" id="b2">
+            <af:setActionListener to="#{requestScope.type}" from="type"/>
+          </af:button>
+        </af:toolbar>
+      </f:facet>
+      <f:facet name="menuBar"/>
+      <f:facet name="legend"/>
+      <f:facet name="info"/>
+    </af:panelHeader>
+    <af:spacer width="10" height="10" id="s2"/>
+    <af:panelGroupLayout id="pgl2" partialTriggers="b1 b2">
+    <af:panelHeader text="Facility Lookup" id="ph3" size="5" rendered="#{requestScope.type eq 'MSW'}">
+      <f:facet name="context"/>
+      <f:facet name="toolbar">
+        <af:toolbar id="t3">
+          <af:button action="#{bindings.CreateInsert.execute}" text="Add"
+                     disabled="#{!bindings.CreateInsert.enabled}" id="b3"
+                     actionListener="#{ContractApprovalFacilitySetUpBean.onMswFacilityCreation}"/>
+        </af:toolbar>
+      </f:facet>
+      <f:facet name="menuBar"/>
+      <f:facet name="legend"/>
+      <f:facet name="info"/>
+      <af:table value="#{bindings.XpeDccCfgMswFacilityEOVO1.collectionModel}" var="row"
+                rows="#{bindings.XpeDccCfgMswFacilityEOVO1.rangeSize}"
+                emptyText="#{bindings.XpeDccCfgMswFacilityEOVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                rowBandingInterval="0"
+                selectedRowKeys="#{bindings.XpeDccCfgMswFacilityEOVO1.collectionModel.selectedRow}"
+                selectionListener="#{bindings.XpeDccCfgMswFacilityEOVO1.collectionModel.makeCurrent}"
+                rowSelection="single" fetchSize="#{bindings.XpeDccCfgMswFacilityEOVO1.rangeSize}" id="t2"
+                columnStretching="last" contentDelivery="immediate" styleClass="AFStretchWidth">
+        <af:column headerText="#{bindings.XpeDccCfgMswFacilityEOVO1.hints.XpeFacilityId.label}" id="c1">
+          <af:selectOneChoice value="#{row.bindings.XpeFacilityId.inputValue}"
+                              label="#{row.bindings.XpeFacilityId.label}"
+                              required="#{bindings.XpeDccCfgMswFacilityEOVO1.hints.XpeFacilityId.mandatory}"
+                              shortDesc="#{bindings.XpeDccCfgMswFacilityEOVO1.hints.XpeFacilityId.tooltip}"
+                              readOnly="true" id="soc5">
+            <f:selectItems value="#{row.bindings.XpeFacilityId.items}" id="si5"/>
+            <f:validator binding="#{row.bindings.XpeFacilityId.validator}"/>
+          </af:selectOneChoice>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgMswFacilityEOVO1.hints.CustomerCareReview.label}" id="c2">
+          <af:outputText value="#{row.CustomerCareReview}"
+                         shortDesc="#{bindings.XpeDccCfgMswFacilityEOVO1.hints.CustomerCareReview.tooltip}" id="ot1"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgMswFacilityEOVO1.hints.LegalReview.label}" id="c3">
+          <af:outputText value="#{row.LegalReview}"
+                         shortDesc="#{bindings.XpeDccCfgMswFacilityEOVO1.hints.LegalReview.tooltip}" id="ot2"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgMswFacilityEOVO1.hints.GeneralManagerReview.label}" id="c4">
+          <af:outputText value="#{row.GeneralManagerReview}"
+                         shortDesc="#{bindings.XpeDccCfgMswFacilityEOVO1.hints.GeneralManagerReview.tooltip}" id="ot3"/>
+        </af:column>
+      </af:table>
+    </af:panelHeader>
+    <af:panelHeader text="Facility Lookup" id="ph4" size="5" rendered="#{requestScope.type eq 'CMTMNT'}">
+      <f:facet name="context"/>
+      <f:facet name="toolbar">
+        <af:toolbar id="t7">
+          <af:button action="#{bindings.CreateInsert1.execute}" text="Add"
+                     disabled="#{!bindings.CreateInsert1.enabled}" id="b4"
+                     actionListener="#{ContractApprovalFacilitySetUpBean.onCommitmentFacilityCreation}"/>
+        </af:toolbar>
+      </f:facet>
+      <f:facet name="menuBar"/>
+      <f:facet name="legend"/>
+      <f:facet name="info"/>
+      <af:table value="#{bindings.XpeDccCfgCmtmntFacilityEOVO1.collectionModel}" var="row"
+                rows="#{bindings.XpeDccCfgCmtmntFacilityEOVO1.rangeSize}"
+                emptyText="#{bindings.XpeDccCfgCmtmntFacilityEOVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                rowBandingInterval="0"
+                selectedRowKeys="#{bindings.XpeDccCfgCmtmntFacilityEOVO1.collectionModel.selectedRow}"
+                selectionListener="#{bindings.XpeDccCfgCmtmntFacilityEOVO1.collectionModel.makeCurrent}"
+                rowSelection="single" fetchSize="#{bindings.XpeDccCfgCmtmntFacilityEOVO1.rangeSize}" id="t4"
+                columnStretching="last" contentDelivery="immediate" styleClass="AFStretchWidth">
+        <af:column headerText="#{bindings.XpeDccCfgCmtmntFacilityEOVO1.hints.XpeFacilityId.label}" id="c5">
+          <af:selectOneChoice value="#{row.bindings.XpeFacilityId.inputValue}"
+                              label="#{row.bindings.XpeFacilityId.label}"
+                              required="#{bindings.XpeDccCfgCmtmntFacilityEOVO1.hints.XpeFacilityId.mandatory}"
+                              shortDesc="#{bindings.XpeDccCfgCmtmntFacilityEOVO1.hints.XpeFacilityId.tooltip}"
+                              readOnly="true" id="soc6">
+            <f:selectItems value="#{row.bindings.XpeFacilityId.items}" id="si6"/>
+            <f:validator binding="#{row.bindings.XpeFacilityId.validator}"/>
+          </af:selectOneChoice>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgCmtmntFacilityEOVO1.hints.CustomerCareReview.label}" id="c6">
+          <af:outputText value="#{row.CustomerCareReview}"
+                         shortDesc="#{bindings.XpeDccCfgCmtmntFacilityEOVO1.hints.CustomerCareReview.tooltip}"
+                         id="ot4"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgCmtmntFacilityEOVO1.hints.LegalReview.label}" id="c7">
+          <af:outputText value="#{row.LegalReview}"
+                         shortDesc="#{bindings.XpeDccCfgCmtmntFacilityEOVO1.hints.LegalReview.tooltip}" id="ot5"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgCmtmntFacilityEOVO1.hints.FinancialReview.label}" id="c8">
+          <af:outputText value="#{row.FinancialReview}"
+                         shortDesc="#{bindings.XpeDccCfgCmtmntFacilityEOVO1.hints.FinancialReview.tooltip}" id="ot6"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgCmtmntFacilityEOVO1.hints.GeneralManagerReview.label}" id="c9">
+          <af:outputText value="#{row.GeneralManagerReview}"
+                         shortDesc="#{bindings.XpeDccCfgCmtmntFacilityEOVO1.hints.GeneralManagerReview.tooltip}"
+                         id="ot7"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgCmtmntFacilityEOVO1.hints.SustSolReview.label}" id="c10">
+          <af:outputText value="#{row.SustSolReview}"
+                         shortDesc="#{bindings.XpeDccCfgCmtmntFacilityEOVO1.hints.SustSolReview.tooltip}" id="ot8"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgCmtmntFacilityEOVO1.hints.CfoReview.label}" id="c11">
+          <af:outputText value="#{row.CfoReview}"
+                         shortDesc="#{bindings.XpeDccCfgCmtmntFacilityEOVO1.hints.CfoReview.tooltip}" id="ot9"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgCmtmntFacilityEOVO1.hints.CeoReview.label}" id="c12">
+          <af:outputText value="#{row.CeoReview}"
+                         shortDesc="#{bindings.XpeDccCfgCmtmntFacilityEOVO1.hints.CeoReview.tooltip}" id="ot10"/>
+        </af:column>
+      </af:table>
+    </af:panelHeader>
+    <af:panelHeader text="Facility Lookup" id="ph5" size="5" rendered="#{requestScope.type eq 'MTL'}">
+      <f:facet name="context"/>
+      <f:facet name="toolbar">
+        <af:toolbar id="t6">
+          <af:button action="#{bindings.CreateInsert2.execute}" text="Add"
+                     disabled="#{!bindings.CreateInsert2.enabled}" id="b5"
+                     actionListener="#{ContractApprovalFacilitySetUpBean.onMetalsFacilityCreation}"/>
+        </af:toolbar>
+      </f:facet>
+      <f:facet name="menuBar"/>
+      <f:facet name="legend"/>
+      <f:facet name="info"/>
+      <af:table value="#{bindings.XpeDccCfgMetalsFacilityEOVO1.collectionModel}" var="row"
+                rows="#{bindings.XpeDccCfgMetalsFacilityEOVO1.rangeSize}"
+                emptyText="#{bindings.XpeDccCfgMetalsFacilityEOVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                rowBandingInterval="0"
+                selectedRowKeys="#{bindings.XpeDccCfgMetalsFacilityEOVO1.collectionModel.selectedRow}"
+                selectionListener="#{bindings.XpeDccCfgMetalsFacilityEOVO1.collectionModel.makeCurrent}"
+                rowSelection="single" fetchSize="#{bindings.XpeDccCfgMetalsFacilityEOVO1.rangeSize}" id="t5"
+                columnStretching="last" contentDelivery="immediate" styleClass="AFStretchWidth">
+        <af:column headerText="#{bindings.XpeDccCfgMetalsFacilityEOVO1.hints.XpeFacilityId.label}" id="c13">
+          <af:selectOneChoice value="#{row.bindings.XpeFacilityId.inputValue}"
+                              label="#{row.bindings.XpeFacilityId.label}"
+                              required="#{bindings.XpeDccCfgMetalsFacilityEOVO1.hints.XpeFacilityId.mandatory}"
+                              shortDesc="#{bindings.XpeDccCfgMetalsFacilityEOVO1.hints.XpeFacilityId.tooltip}"
+                              readOnly="true" id="soc7">
+            <f:selectItems value="#{row.bindings.XpeFacilityId.items}" id="si7"/>
+            <f:validator binding="#{row.bindings.XpeFacilityId.validator}"/>
+          </af:selectOneChoice>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgMetalsFacilityEOVO1.hints.CustomerCareReview.label}" id="c14">
+          <af:outputText value="#{row.CustomerCareReview}"
+                         shortDesc="#{bindings.XpeDccCfgMetalsFacilityEOVO1.hints.CustomerCareReview.tooltip}"
+                         id="ot11"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgMetalsFacilityEOVO1.hints.LegalReview.label}" id="c15">
+          <af:outputText value="#{row.LegalReview}"
+                         shortDesc="#{bindings.XpeDccCfgMetalsFacilityEOVO1.hints.LegalReview.tooltip}" id="ot12"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgMetalsFacilityEOVO1.hints.FinancialReview.label}" id="c16">
+          <af:outputText value="#{row.FinancialReview}"
+                         shortDesc="#{bindings.XpeDccCfgMetalsFacilityEOVO1.hints.FinancialReview.tooltip}" id="ot13"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgMetalsFacilityEOVO1.hints.SvpReview.label}" id="c17">
+          <af:outputText value="#{row.SvpReview}"
+                         shortDesc="#{bindings.XpeDccCfgMetalsFacilityEOVO1.hints.SvpReview.tooltip}" id="ot14"/>
+        </af:column>
+      </af:table>
+    </af:panelHeader>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+</ui:composition>

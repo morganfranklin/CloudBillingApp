@@ -591,6 +591,18 @@
     <ViewUsage
         Name="XpeDccCfgMetalsFacilityEOVO1"
         ViewObjectName="model.views.entitybased.XpeDccCfgMetalsFacilityEOVO"/>
+    <ViewUsage
+        Name="XpeDccCfgCntrcttAprFcltyROVO1"
+        ViewObjectName="model.views.readonly.XpeDccCfgCntrcttAprFcltyROVO"/>
+    <ViewUsage
+        Name="XpeDccCfgNewMswFacilityEOVO"
+        ViewObjectName="model.views.entitybased.XpeDccCfgMswFacilityEOVO"/>
+    <ViewUsage
+        Name="XpeDccCfgNewCmtmntFacilityEOVO"
+        ViewObjectName="model.views.entitybased.XpeDccCfgCmtmntFacilityEOVO"/>
+    <ViewUsage
+        Name="XpeDccCfgNewMetalsFacilityEOVO"
+        ViewObjectName="model.views.entitybased.XpeDccCfgMetalsFacilityEOVO"/>
     <ViewLinkUsage
         Name="NeuRuleTblFk1Link1"
         ViewLinkObjectName="model.NeuRuleTblFk1Link"
@@ -1352,6 +1364,27 @@
             <Parameter
                 Name="contractType"
                 Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="initCntrctAprFcltySetUp"
+            MethodName="initCntrctAprFcltySetUp">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+        </Method>
+        <Method
+            Name="resetCntrctAprFcltySetUp"
+            MethodName="resetCntrctAprFcltySetUp">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+        </Method>
+        <Method
+            Name="searchCntrctAprFcltySetUp"
+            MethodName="searchCntrctAprFcltySetUp">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
         </Method>
     </ClientInterface>
 </AppModule>

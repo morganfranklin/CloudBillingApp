@@ -36,5 +36,11 @@ public interface AppModule extends ApplicationModule {
     void initBillAccountProcess();
 
     boolean newContractCreation(byte[] bytes, String contractType);
+
+    void initCntrctAprFcltySetUp();
+
+    void resetCntrctAprFcltySetUp();
+
+    void searchCntrctAprFcltySetUp();
 }
 

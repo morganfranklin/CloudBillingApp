@@ -19,10 +19,13 @@ import model.common.AppModule;
 
 import model.utils.EmailUtils;
 
+import model.views.entitybased.XpeDccCfgCmtmntFacilityEOVOImpl;
 import model.views.entitybased.XpeDccCfgDestinationsEOVOImpl;
 import model.views.entitybased.XpeDccCfgDestinationsEOVORowImpl;
 import model.views.entitybased.XpeDccCfgDstAssTerminalsEOVOImpl;
 import model.views.entitybased.XpeDccCfgDstAssTerminalsEOVORowImpl;
+import model.views.entitybased.XpeDccCfgMetalsFacilityEOVOImpl;
+import model.views.entitybased.XpeDccCfgMswFacilityEOVOImpl;
 import model.views.entitybased.XpeDccCfgOgnAssTerminalsEOVOImpl;
 import model.views.entitybased.XpeDccCfgOgnAssTerminalsEOVORowImpl;
 import model.views.entitybased.XpeDccCfgOriginsEOVOImpl;
@@ -46,6 +49,8 @@ import model.views.entitybased.XpeDmsCustomerEOVOImpl;
 import model.views.entitybased.XpeDmsCustomerEOVORowImpl;
 import model.views.readonly.XpeDccCfgBillingandAccountingROVOImpl;
 import model.views.readonly.XpeDccCfgBillingandAccountingROVORowImpl;
+import model.views.readonly.XpeDccCfgCntrcttAprFcltyROVOImpl;
+import model.views.readonly.XpeDccCfgCntrcttAprFcltyROVORowImpl;
 import model.views.readonly.XpeDccCfgDstAssTerminalsROVOImpl;
 import model.views.readonly.XpeDccCfgOgnAssTerminalsROVOImpl;
 import model.views.readonly.XpeDccCfgPcsAssTerminalsROVOImpl;
@@ -2682,24 +2687,117 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      * Container's getter for XpeDccCfgMswFacilityEOVO1.
      * @return XpeDccCfgMswFacilityEOVO1
      */
-    public ViewObjectImpl getXpeDccCfgMswFacilityEOVO1() {
-        return (ViewObjectImpl) findViewObject("XpeDccCfgMswFacilityEOVO1");
+    public XpeDccCfgMswFacilityEOVOImpl getXpeDccCfgMswFacilityEOVO1() {
+        return (XpeDccCfgMswFacilityEOVOImpl) findViewObject("XpeDccCfgMswFacilityEOVO1");
     }
 
     /**
      * Container's getter for XpeDccCfgCmtmntFacilityEOVO1.
      * @return XpeDccCfgCmtmntFacilityEOVO1
      */
-    public ViewObjectImpl getXpeDccCfgCmtmntFacilityEOVO1() {
-        return (ViewObjectImpl) findViewObject("XpeDccCfgCmtmntFacilityEOVO1");
+    public XpeDccCfgCmtmntFacilityEOVOImpl getXpeDccCfgCmtmntFacilityEOVO1() {
+        return (XpeDccCfgCmtmntFacilityEOVOImpl) findViewObject("XpeDccCfgCmtmntFacilityEOVO1");
     }
 
     /**
      * Container's getter for XpeDccCfgMetalsFacilityEOVO1.
      * @return XpeDccCfgMetalsFacilityEOVO1
      */
-    public ViewObjectImpl getXpeDccCfgMetalsFacilityEOVO1() {
-        return (ViewObjectImpl) findViewObject("XpeDccCfgMetalsFacilityEOVO1");
+    public XpeDccCfgMetalsFacilityEOVOImpl getXpeDccCfgMetalsFacilityEOVO1() {
+        return (XpeDccCfgMetalsFacilityEOVOImpl) findViewObject("XpeDccCfgMetalsFacilityEOVO1");
+    }
+
+    /**
+     * Container's getter for XpeDccCfgCntrcttAprFcltyROVO1.
+     * @return XpeDccCfgCntrcttAprFcltyROVO1
+     */
+    public XpeDccCfgCntrcttAprFcltyROVOImpl getXpeDccCfgCntrcttAprFcltyROVO1() {
+        return (XpeDccCfgCntrcttAprFcltyROVOImpl) findViewObject("XpeDccCfgCntrcttAprFcltyROVO1");
+    }
+    
+    public void initCntrctAprFcltySetUp(){
+        XpeDccCfgCntrcttAprFcltyROVOImpl cntrctAprFcltyVO = this.getXpeDccCfgCntrcttAprFcltyROVO1();
+        cntrctAprFcltyVO.executeEmptyRowSet();
+        XpeDccCfgCntrcttAprFcltyROVORowImpl cntrctAprFcltyVORow =
+            (XpeDccCfgCntrcttAprFcltyROVORowImpl) cntrctAprFcltyVO.createRow();
+        cntrctAprFcltyVO.insertRow(cntrctAprFcltyVORow);
+    }
+    
+    public void resetCntrctAprFcltySetUp() {
+        this.initCntrctAprFcltySetUp();
+        XpeDccCfgMswFacilityEOVOImpl mswFacilityVo = this.getXpeDccCfgMswFacilityEOVO1();
+        mswFacilityVo.setApplyViewCriteriaName("findByFacilityId", false);
+        mswFacilityVo.setNamedWhereClauseParam("bind_FacilityId", null);
+        mswFacilityVo.executeQuery();
+        XpeDccCfgCmtmntFacilityEOVOImpl cmtmntFacilityVo = this.getXpeDccCfgCmtmntFacilityEOVO1();
+        cmtmntFacilityVo.setApplyViewCriteriaName("findByFacilityId", false);
+        cmtmntFacilityVo.setNamedWhereClauseParam("bind_FacilityId", null);
+        cmtmntFacilityVo.executeQuery();
+        XpeDccCfgMetalsFacilityEOVOImpl metalsFacilityVo = this.getXpeDccCfgMetalsFacilityEOVO1();
+        metalsFacilityVo.setApplyViewCriteriaName("findByFacilityId", false);
+        metalsFacilityVo.setNamedWhereClauseParam("bind_FacilityId", null);
+        metalsFacilityVo.executeQuery();
+    }
+    
+    public void searchCntrctAprFcltySetUp() {
+        XpeDccCfgCntrcttAprFcltyROVOImpl cntrctAprFcltyVO = this.getXpeDccCfgCntrcttAprFcltyROVO1();
+        XpeDccCfgCntrcttAprFcltyROVORowImpl cntrctAprFcltyVORow =
+            (XpeDccCfgCntrcttAprFcltyROVORowImpl) cntrctAprFcltyVO.getCurrentRow();
+        String type = null;
+        if (null != cntrctAprFcltyVORow) {
+            type = cntrctAprFcltyVORow.getXpeWasteType();
+            XpeDccCfgMswFacilityEOVOImpl mswFacilityVo = this.getXpeDccCfgMswFacilityEOVO1();
+            XpeDccCfgCmtmntFacilityEOVOImpl cmtmntFacilityVo = this.getXpeDccCfgCmtmntFacilityEOVO1();
+            XpeDccCfgMetalsFacilityEOVOImpl metalsFacilityVo = this.getXpeDccCfgMetalsFacilityEOVO1();
+            if (null != type && "MSW".equals(type) && null != cntrctAprFcltyVORow.getXpeFacilityId()) {
+                mswFacilityVo.setApplyViewCriteriaName("findByFacilityId", false);
+                mswFacilityVo.setNamedWhereClauseParam("bind_FacilityId", cntrctAprFcltyVORow.getXpeFacilityId());
+                mswFacilityVo.executeQuery();
+            } else if (null != type && "MSW".equals(type)) {
+                mswFacilityVo.setApplyViewCriteriaName(null);
+                mswFacilityVo.executeQuery();
+            }
+            if (null != type && "CMTMNT".equals(type) && null != cntrctAprFcltyVORow.getXpeFacilityId()) {
+                cmtmntFacilityVo.setApplyViewCriteriaName("findByFacilityId", false);
+                cmtmntFacilityVo.setNamedWhereClauseParam("bind_FacilityId", cntrctAprFcltyVORow.getXpeFacilityId());
+                cmtmntFacilityVo.executeQuery();
+            } else if (null != type && "CMTMNT".equals(type)) {
+                cmtmntFacilityVo.setApplyViewCriteriaName(null);
+                cmtmntFacilityVo.executeQuery();
+            }
+            if (null != type && "MTL".equals(type) && null != cntrctAprFcltyVORow.getXpeFacilityId()) {
+                metalsFacilityVo.setApplyViewCriteriaName("findByFacilityId", false);
+                metalsFacilityVo.setNamedWhereClauseParam("bind_FacilityId", cntrctAprFcltyVORow.getXpeFacilityId());
+                metalsFacilityVo.executeQuery();
+            } else if (null != type && "MTL".equals(type)) {
+                metalsFacilityVo.setApplyViewCriteriaName(null);
+                metalsFacilityVo.executeQuery();
+            }
+        }
+    }
+
+    /**
+     * Container's getter for XpeDccCfgMswFacilityEOVO2.
+     * @return XpeDccCfgMswFacilityEOVO2
+     */
+    public XpeDccCfgMswFacilityEOVOImpl getXpeDccCfgNewMswFacilityEOVO() {
+        return (XpeDccCfgMswFacilityEOVOImpl) findViewObject("XpeDccCfgNewMswFacilityEOVO");
+    }
+
+    /**
+     * Container's getter for XpeDccCfgCmtmntFacilityEOVO2.
+     * @return XpeDccCfgCmtmntFacilityEOVO2
+     */
+    public XpeDccCfgCmtmntFacilityEOVOImpl getXpeDccCfgNewCmtmntFacilityEOVO() {
+        return (XpeDccCfgCmtmntFacilityEOVOImpl) findViewObject("XpeDccCfgNewCmtmntFacilityEOVO");
+    }
+
+    /**
+     * Container's getter for XpeDccCfgMetalsFacilityEOVO2.
+     * @return XpeDccCfgMetalsFacilityEOVO2
+     */
+    public XpeDccCfgMetalsFacilityEOVOImpl getXpeDccCfgNewMetalsFacilityEOVO() {
+        return (XpeDccCfgMetalsFacilityEOVOImpl) findViewObject("XpeDccCfgNewMetalsFacilityEOVO");
     }
 }
 
