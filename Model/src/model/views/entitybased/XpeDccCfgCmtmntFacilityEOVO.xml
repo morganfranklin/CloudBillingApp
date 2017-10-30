@@ -27,6 +27,20 @@
     Name="XpeDccDicFacilities1"
     ViewObjectName="model.XpeDccDicFacilities"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="LookupSharedAppModule_XpeDccDicNewContractSetupROVO1"
+    ViewObjectName="model.views.readonly.XpeDccDicNewContractSetupROVO"
+    AMUsageName="LookupSharedAppModule"
+    ViewInstanceName="XpeDccDicNewContractSetupROVO"
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="bind_Lookup_Type">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA['YON']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LOV_XpeFacilityId"
     ListVOName="XpeDccDicFacilities1"
@@ -35,6 +49,24 @@
     MRUCount="0">
     <AttrArray Name="AttrNames">
       <Item Value="XpeFacilityId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Inactive"
+    ListVOName="LookupSharedAppModule_XpeDccDicNewContractSetupROVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Inactive"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
@@ -180,6 +212,26 @@
     EntityAttrName="LastUpdateDate"
     EntityUsage="XpeDccCfgCmtmntFacilityEO"
     AliasName="LAST_UPDATE_DATE"/>
+  <ViewAttribute
+    Name="Inactive"
+    PrecisionRule="true"
+    EntityAttrName="Inactive"
+    EntityUsage="XpeDccCfgCmtmntFacilityEO"
+    AliasName="INACTIVE"
+    LOVName="LOV_Inactive">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="InactiveDate"
+    PrecisionRule="true"
+    EntityAttrName="InactiveDate"
+    EntityUsage="XpeDccCfgCmtmntFacilityEO"
+    AliasName="INACTIVE_DATE"/>
   <ViewCriteria
     Name="findByFacilityId"
     ViewObjectName="model.views.entitybased.XpeDccCfgCmtmntFacilityEOVO"

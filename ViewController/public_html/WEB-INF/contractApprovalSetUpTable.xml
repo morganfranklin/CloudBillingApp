@@ -10,6 +10,16 @@
       <managed-bean-class>view.ContractApprovalFacilitySetUpBean</managed-bean-class>
       <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
+    <managed-bean id="__4">
+      <managed-bean-name>ContractApprovalFacilitySetUpMBean</managed-bean-name>
+      <managed-bean-class>view.ContractApprovalFacilitySetUpMBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__5">
+      <managed-bean-name>ContractApprovalFacilitySetUpBBean</managed-bean-name>
+      <managed-bean-class>view.ContractApprovalFacilitySetUpBBean</managed-bean-class>
+      <managed-bean-scope>backingBean</managed-bean-scope>
+    </managed-bean>
     <method-call id="initCntrctAprFcltySetUp">
       <method>#{bindings.initCntrctAprFcltySetUp.execute}</method>
       <outcome>

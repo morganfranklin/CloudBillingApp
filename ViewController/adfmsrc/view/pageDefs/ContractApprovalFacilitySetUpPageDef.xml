@@ -77,5 +77,194 @@
     <methodAction id="resetCntrctAprFcltySetUp" RequiresUpdateModel="true" Action="invokeMethod"
                   MethodName="resetCntrctAprFcltySetUp" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
                   InstanceName="data.AppModuleDataControl.dataProvider"/>
+    <list IterBinding="XpeDccCfgMswFacilityEOVO1Iterator" StaticList="false" Uses="LOV_XpeFacilityId"
+          id="XpeFacilityId1" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgMswFacilityEOVO1Iterator" id="CustomerCareReview">
+      <AttrNames>
+        <Item Value="CustomerCareReview"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgMswFacilityEOVO1Iterator" id="LegalReview">
+      <AttrNames>
+        <Item Value="LegalReview"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgMswFacilityEOVO1Iterator" id="GeneralManagerReview">
+      <AttrNames>
+        <Item Value="GeneralManagerReview"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgNewMswFacilityEOVOIterator" StaticList="false" Uses="LOV_XpeFacilityId"
+          id="XpeFacilityId2" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgNewMswFacilityEOVOIterator" id="CustomerCareReview1">
+      <AttrNames>
+        <Item Value="CustomerCareReview"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewMswFacilityEOVOIterator" id="LegalReview1">
+      <AttrNames>
+        <Item Value="LegalReview"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewMswFacilityEOVOIterator" id="GeneralManagerReview1">
+      <AttrNames>
+        <Item Value="GeneralManagerReview"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <list IterBinding="XpeDccCfgMswFacilityEOVO1Iterator" StaticList="false" Uses="LOV_Inactive" id="Inactive"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgMswFacilityEOVO1Iterator" id="InactiveDate">
+      <AttrNames>
+        <Item Value="InactiveDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgCmtmntFacilityEOVO1Iterator" StaticList="false" Uses="LOV_XpeFacilityId"
+          id="XpeFacilityId3" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgCmtmntFacilityEOVO1Iterator" id="CustomerCareReview2">
+      <AttrNames>
+        <Item Value="CustomerCareReview"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgCmtmntFacilityEOVO1Iterator" id="LegalReview2">
+      <AttrNames>
+        <Item Value="LegalReview"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgCmtmntFacilityEOVO1Iterator" id="FinancialReview">
+      <AttrNames>
+        <Item Value="FinancialReview"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgCmtmntFacilityEOVO1Iterator" id="GeneralManagerReview2">
+      <AttrNames>
+        <Item Value="GeneralManagerReview"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgCmtmntFacilityEOVO1Iterator" id="SustSolReview">
+      <AttrNames>
+        <Item Value="SustSolReview"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgCmtmntFacilityEOVO1Iterator" id="CfoReview">
+      <AttrNames>
+        <Item Value="CfoReview"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgCmtmntFacilityEOVO1Iterator" id="CeoReview">
+      <AttrNames>
+        <Item Value="CeoReview"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgCmtmntFacilityEOVO1Iterator" StaticList="false" Uses="LOV_Inactive" id="Inactive1"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgCmtmntFacilityEOVO1Iterator" id="InactiveDate1">
+      <AttrNames>
+        <Item Value="InactiveDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgNewCmtmntFacilityEOVOIterator" StaticList="false" Uses="LOV_XpeFacilityId"
+          id="XpeFacilityId4" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgNewCmtmntFacilityEOVOIterator" id="CustomerCareReview3">
+      <AttrNames>
+        <Item Value="CustomerCareReview"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewCmtmntFacilityEOVOIterator" id="LegalReview3">
+      <AttrNames>
+        <Item Value="LegalReview"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewCmtmntFacilityEOVOIterator" id="FinancialReview1">
+      <AttrNames>
+        <Item Value="FinancialReview"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewCmtmntFacilityEOVOIterator" id="GeneralManagerReview3">
+      <AttrNames>
+        <Item Value="GeneralManagerReview"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewCmtmntFacilityEOVOIterator" id="SustSolReview1">
+      <AttrNames>
+        <Item Value="SustSolReview"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewCmtmntFacilityEOVOIterator" id="CfoReview1">
+      <AttrNames>
+        <Item Value="CfoReview"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewCmtmntFacilityEOVOIterator" id="CeoReview1">
+      <AttrNames>
+        <Item Value="CeoReview"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgNewCmtmntFacilityEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive2"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgNewCmtmntFacilityEOVOIterator" id="InactiveDate2">
+      <AttrNames>
+        <Item Value="InactiveDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgMetalsFacilityEOVO1Iterator" StaticList="false" Uses="LOV_XpeFacilityId"
+          id="XpeFacilityId5" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgMetalsFacilityEOVO1Iterator" id="CustomerCareReview4">
+      <AttrNames>
+        <Item Value="CustomerCareReview"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgMetalsFacilityEOVO1Iterator" id="LegalReview4">
+      <AttrNames>
+        <Item Value="LegalReview"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgMetalsFacilityEOVO1Iterator" id="FinancialReview2">
+      <AttrNames>
+        <Item Value="FinancialReview"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgMetalsFacilityEOVO1Iterator" id="SvpReview">
+      <AttrNames>
+        <Item Value="SvpReview"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgMetalsFacilityEOVO1Iterator" StaticList="false" Uses="LOV_Inactive" id="Inactive3"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgMetalsFacilityEOVO1Iterator" id="InactiveDate3">
+      <AttrNames>
+        <Item Value="InactiveDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgNewMetalsFacilityEOVOIterator" StaticList="false" Uses="LOV_XpeFacilityId"
+          id="XpeFacilityId6" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgNewMetalsFacilityEOVOIterator" id="CustomerCareReview5">
+      <AttrNames>
+        <Item Value="CustomerCareReview"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewMetalsFacilityEOVOIterator" id="LegalReview5">
+      <AttrNames>
+        <Item Value="LegalReview"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewMetalsFacilityEOVOIterator" id="FinancialReview3">
+      <AttrNames>
+        <Item Value="FinancialReview"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewMetalsFacilityEOVOIterator" id="SvpReview1">
+      <AttrNames>
+        <Item Value="SvpReview"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgNewMetalsFacilityEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive4"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgNewMetalsFacilityEOVOIterator" id="InactiveDate4">
+      <AttrNames>
+        <Item Value="InactiveDate"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

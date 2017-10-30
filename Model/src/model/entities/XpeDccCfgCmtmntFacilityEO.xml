@@ -140,6 +140,25 @@
     Type="java.sql.Timestamp"
     ColumnType="DATE"
     TableName="XPE_DCC_CFG_CMTMNT_FACILITY"/>
+  <Attribute
+    Name="Inactive"
+    Precision="1"
+    ColumnName="INACTIVE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_CMTMNT_FACILITY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="InactiveDate"
+    ColumnName="INACTIVE_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XPE_DCC_CFG_CMTMNT_FACILITY"/>
   <Key
     Name="XpeCmtmntFacilityPk"
     PrimaryKey="true">

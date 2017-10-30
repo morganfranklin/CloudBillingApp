@@ -66,14 +66,18 @@
     </af:panelHeader>
     <af:spacer width="10" height="10" id="s2"/>
     <af:panelGroupLayout id="pgl2" partialTriggers="b1 b2">
-    <af:panelHeader text="Facility Lookup" id="ph3" size="5" rendered="#{requestScope.type eq 'MSW'}">
+    <af:panelHeader text="Facility Lookup" id="ph3" size="5" visible="#{requestScope.type eq 'MSW'}">
       <f:facet name="context"/>
       <f:facet name="toolbar">
         <af:toolbar id="t3">
-          <af:button action="#{bindings.CreateInsert.execute}" text="Add"
-                     disabled="#{!bindings.CreateInsert.enabled}" id="b3"
-                     actionListener="#{ContractApprovalFacilitySetUpBean.onMswFacilityCreation}"/>
-        </af:toolbar>
+          <af:button text="Add"
+                     id="b3"
+                     actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.onMswFacilityCreation}"
+                     action="#{bindings.CreateInsert.execute}"/>
+            <af:spacer width="10" height="10" id="s5"/>
+            <af:button text="Edit" id="b10"
+                       actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.onMswFacilityEdit}"/>
+          </af:toolbar>
       </f:facet>
       <f:facet name="menuBar"/>
       <f:facet name="legend"/>
@@ -109,15 +113,125 @@
                          shortDesc="#{bindings.XpeDccCfgMswFacilityEOVO1.hints.GeneralManagerReview.tooltip}" id="ot3"/>
         </af:column>
       </af:table>
-    </af:panelHeader>
-    <af:panelHeader text="Facility Lookup" id="ph4" size="5" rendered="#{requestScope.type eq 'CMTMNT'}">
+        <af:popup childCreation="deferred" autoCancel="disabled" id="p1" contentDelivery="lazyUncached"
+                  binding="#{backingBeanScope.ContractApprovalFacilitySetUpBBean.mswFacilityAdd_popup}">
+          <af:dialog id="d1" type="none" title="Add Facility" closeIconVisible="false">
+            <f:facet name="buttonBar">
+              <af:button action="#{bindings.Commit.execute}" text="Save"
+                         disabled="#{!bindings.Commit.enabled}" id="b6"
+                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.mswFacilityAddSaveorCancel}"/>
+              <af:spacer width="10" height="10" id="s3"/>
+              <af:button action="#{bindings.Rollback.execute}" text="Cancel"
+                         immediate="true" id="b7"
+                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.mswFacilityAddSaveorCancel}">
+                <af:resetActionListener/>
+              </af:button>
+            </f:facet>
+            <af:panelFormLayout id="pfl3">
+              <af:selectOneChoice value="#{bindings.XpeFacilityId2.inputValue}" label="#{bindings.XpeFacilityId2.label}"
+                                  required="#{bindings.XpeFacilityId2.hints.mandatory}"
+                                  shortDesc="#{bindings.XpeFacilityId2.hints.tooltip}" id="soc9">
+                <f:selectItems value="#{bindings.XpeFacilityId2.items}" id="si9"/>
+                <f:validator binding="#{bindings.XpeFacilityId2.validator}"/>
+              </af:selectOneChoice>
+              <af:inputText value="#{bindings.CustomerCareReview1.inputValue}"
+                            label="#{bindings.CustomerCareReview1.hints.label}"
+                            required="#{bindings.CustomerCareReview1.hints.mandatory}"
+                            columns="#{bindings.CustomerCareReview1.hints.displayWidth}"
+                            maximumLength="#{bindings.CustomerCareReview1.hints.precision}"
+                            shortDesc="#{bindings.CustomerCareReview1.hints.tooltip}" id="it4">
+                <f:validator binding="#{bindings.CustomerCareReview1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.LegalReview1.inputValue}" label="#{bindings.LegalReview1.hints.label}"
+                            required="#{bindings.LegalReview1.hints.mandatory}"
+                            columns="#{bindings.LegalReview1.hints.displayWidth}"
+                            maximumLength="#{bindings.LegalReview1.hints.precision}"
+                            shortDesc="#{bindings.LegalReview1.hints.tooltip}" id="it5">
+                <f:validator binding="#{bindings.LegalReview1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.GeneralManagerReview1.inputValue}"
+                            label="#{bindings.GeneralManagerReview1.hints.label}"
+                            required="#{bindings.GeneralManagerReview1.hints.mandatory}"
+                            columns="#{bindings.GeneralManagerReview1.hints.displayWidth}"
+                            maximumLength="#{bindings.GeneralManagerReview1.hints.precision}"
+                            shortDesc="#{bindings.GeneralManagerReview1.hints.tooltip}" id="it6">
+                <f:validator binding="#{bindings.GeneralManagerReview1.validator}"/>
+              </af:inputText>
+            </af:panelFormLayout>
+          </af:dialog>
+        </af:popup>
+        <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
+                  binding="#{backingBeanScope.ContractApprovalFacilitySetUpBBean.mswFacilityEdit_popup}">
+          <af:dialog id="d2" type="none" title="Edit Facility" closeIconVisible="false">
+            <f:facet name="buttonBar">
+              <af:button action="#{bindings.Commit.execute}" text="Save"
+                         disabled="#{!bindings.Commit.enabled}" id="b8"
+                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.mswFacilityEditSaveorCancel}"/>
+              <af:spacer width="10" height="10" id="s4"/>
+              <af:button action="#{bindings.Rollback.execute}" text="Cancel"
+                         immediate="true" id="b9"
+                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.mswFacilityEditSaveorCancel}">
+                <af:resetActionListener/>
+              </af:button>
+            </f:facet>
+            <af:panelFormLayout id="pfl2">
+              <af:selectOneChoice value="#{bindings.XpeFacilityId1.inputValue}" label="#{bindings.XpeFacilityId1.label}"
+                                  required="#{bindings.XpeFacilityId1.hints.mandatory}"
+                                  shortDesc="#{bindings.XpeFacilityId1.hints.tooltip}" readOnly="true" id="soc8">
+                <f:selectItems value="#{bindings.XpeFacilityId1.items}" id="si8"/>
+                <f:validator binding="#{bindings.XpeFacilityId1.validator}"/>
+              </af:selectOneChoice>
+              <af:inputText value="#{bindings.CustomerCareReview.inputValue}"
+                            label="#{bindings.CustomerCareReview.hints.label}"
+                            required="#{bindings.CustomerCareReview.hints.mandatory}"
+                            columns="#{bindings.CustomerCareReview.hints.displayWidth}"
+                            maximumLength="#{bindings.CustomerCareReview.hints.precision}"
+                            shortDesc="#{bindings.CustomerCareReview.hints.tooltip}" id="it1">
+                <f:validator binding="#{bindings.CustomerCareReview.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.LegalReview.inputValue}" label="#{bindings.LegalReview.hints.label}"
+                            required="#{bindings.LegalReview.hints.mandatory}"
+                            columns="#{bindings.LegalReview.hints.displayWidth}"
+                            maximumLength="#{bindings.LegalReview.hints.precision}"
+                            shortDesc="#{bindings.LegalReview.hints.tooltip}" id="it2">
+                <f:validator binding="#{bindings.LegalReview.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.GeneralManagerReview.inputValue}"
+                            label="#{bindings.GeneralManagerReview.hints.label}"
+                            required="#{bindings.GeneralManagerReview.hints.mandatory}"
+                            columns="#{bindings.GeneralManagerReview.hints.displayWidth}"
+                            maximumLength="#{bindings.GeneralManagerReview.hints.precision}"
+                            shortDesc="#{bindings.GeneralManagerReview.hints.tooltip}" id="it3">
+                <f:validator binding="#{bindings.GeneralManagerReview.validator}"/>
+              </af:inputText>
+              <af:selectOneChoice value="#{bindings.Inactive.inputValue}" label="#{bindings.Inactive.label}"
+                                  required="#{bindings.Inactive.hints.mandatory}"
+                                  shortDesc="#{bindings.Inactive.hints.tooltip}" id="soc10" autoSubmit="true">
+                <f:selectItems value="#{bindings.Inactive.items}" id="si10"/>
+                <f:validator binding="#{bindings.Inactive.validator}"/>
+              </af:selectOneChoice>
+              <af:inputDate value="#{bindings.InactiveDate.inputValue}" label="#{bindings.InactiveDate.hints.label}"
+                            required="#{bindings.InactiveDate.hints.mandatory}"
+                            columns="#{bindings.InactiveDate.hints.displayWidth}"
+                            shortDesc="#{bindings.InactiveDate.hints.tooltip}" id="id1">
+                <f:validator binding="#{bindings.InactiveDate.validator}"/>
+                <af:convertDateTime pattern="#{bindings.InactiveDate.format}"/>
+              </af:inputDate>
+            </af:panelFormLayout>
+          </af:dialog>
+        </af:popup>
+      </af:panelHeader>
+    <af:panelHeader text="Facility Lookup" id="ph4" size="5" visible="#{requestScope.type eq 'CMTMNT'}">
       <f:facet name="context"/>
       <f:facet name="toolbar">
         <af:toolbar id="t7">
           <af:button action="#{bindings.CreateInsert1.execute}" text="Add"
                      disabled="#{!bindings.CreateInsert1.enabled}" id="b4"
-                     actionListener="#{ContractApprovalFacilitySetUpBean.onCommitmentFacilityCreation}"/>
-        </af:toolbar>
+                     actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.onCommitmentFacilityCreation}"/>
+            <af:spacer width="10" height="10" id="s6"/>
+            <af:button text="Edit" id="b15"
+                       actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.onCommitmentFacilityEdit}"/>
+          </af:toolbar>
       </f:facet>
       <f:facet name="menuBar"/>
       <f:facet name="legend"/>
@@ -171,15 +285,196 @@
                          shortDesc="#{bindings.XpeDccCfgCmtmntFacilityEOVO1.hints.CeoReview.tooltip}" id="ot10"/>
         </af:column>
       </af:table>
-    </af:panelHeader>
-    <af:panelHeader text="Facility Lookup" id="ph5" size="5" rendered="#{requestScope.type eq 'MTL'}">
+        <af:popup childCreation="deferred" autoCancel="disabled" id="p3" contentDelivery="lazyUncached"
+                  binding="#{backingBeanScope.ContractApprovalFacilitySetUpBBean.cmtmntFacilityAdd_popup}">
+          <af:dialog id="d3" type="none" title="Add Facility" closeIconVisible="false">
+            <f:facet name="buttonBar">
+              <af:button action="#{bindings.Commit.execute}" text="Save"
+                         disabled="#{!bindings.Commit.enabled}" id="b11"
+                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.cmtmntFacilityAddSaveorCancel}"/>
+              <af:spacer width="10" height="10" id="s7"/>
+              <af:button action="#{bindings.Rollback.execute}" text="Cancel"
+                         immediate="true" id="b12"
+                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.cmtmntFacilityAddSaveorCancel}">
+                <af:resetActionListener/>
+              </af:button>
+            </f:facet>
+            <af:panelFormLayout id="pfl5">
+              <af:selectOneChoice value="#{bindings.XpeFacilityId4.inputValue}" label="#{bindings.XpeFacilityId4.label}"
+                                  required="#{bindings.XpeFacilityId4.hints.mandatory}"
+                                  shortDesc="#{bindings.XpeFacilityId4.hints.tooltip}" id="soc13">
+                <f:selectItems value="#{bindings.XpeFacilityId4.items}" id="si13"/>
+                <f:validator binding="#{bindings.XpeFacilityId4.validator}"/>
+              </af:selectOneChoice>
+              <af:inputText value="#{bindings.CustomerCareReview3.inputValue}"
+                            label="#{bindings.CustomerCareReview3.hints.label}"
+                            required="#{bindings.CustomerCareReview3.hints.mandatory}"
+                            columns="#{bindings.CustomerCareReview3.hints.displayWidth}"
+                            maximumLength="#{bindings.CustomerCareReview3.hints.precision}"
+                            shortDesc="#{bindings.CustomerCareReview3.hints.tooltip}" id="it14">
+                <f:validator binding="#{bindings.CustomerCareReview3.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.LegalReview3.inputValue}" label="#{bindings.LegalReview3.hints.label}"
+                            required="#{bindings.LegalReview3.hints.mandatory}"
+                            columns="#{bindings.LegalReview3.hints.displayWidth}"
+                            maximumLength="#{bindings.LegalReview3.hints.precision}"
+                            shortDesc="#{bindings.LegalReview3.hints.tooltip}" id="it15">
+                <f:validator binding="#{bindings.LegalReview3.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.FinancialReview1.inputValue}"
+                            label="#{bindings.FinancialReview1.hints.label}"
+                            required="#{bindings.FinancialReview1.hints.mandatory}"
+                            columns="#{bindings.FinancialReview1.hints.displayWidth}"
+                            maximumLength="#{bindings.FinancialReview1.hints.precision}"
+                            shortDesc="#{bindings.FinancialReview1.hints.tooltip}" id="it16">
+                <f:validator binding="#{bindings.FinancialReview1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.GeneralManagerReview3.inputValue}"
+                            label="#{bindings.GeneralManagerReview3.hints.label}"
+                            required="#{bindings.GeneralManagerReview3.hints.mandatory}"
+                            columns="#{bindings.GeneralManagerReview3.hints.displayWidth}"
+                            maximumLength="#{bindings.GeneralManagerReview3.hints.precision}"
+                            shortDesc="#{bindings.GeneralManagerReview3.hints.tooltip}" id="it17">
+                <f:validator binding="#{bindings.GeneralManagerReview3.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.SustSolReview1.inputValue}" label="#{bindings.SustSolReview1.hints.label}"
+                            required="#{bindings.SustSolReview1.hints.mandatory}"
+                            columns="#{bindings.SustSolReview1.hints.displayWidth}"
+                            maximumLength="#{bindings.SustSolReview1.hints.precision}"
+                            shortDesc="#{bindings.SustSolReview1.hints.tooltip}" id="it18">
+                <f:validator binding="#{bindings.SustSolReview1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.CfoReview1.inputValue}" label="#{bindings.CfoReview1.hints.label}"
+                            required="#{bindings.CfoReview1.hints.mandatory}"
+                            columns="#{bindings.CfoReview1.hints.displayWidth}"
+                            maximumLength="#{bindings.CfoReview1.hints.precision}"
+                            shortDesc="#{bindings.CfoReview1.hints.tooltip}" id="it19">
+                <f:validator binding="#{bindings.CfoReview1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.CeoReview1.inputValue}" label="#{bindings.CeoReview1.hints.label}"
+                            required="#{bindings.CeoReview1.hints.mandatory}"
+                            columns="#{bindings.CeoReview1.hints.displayWidth}"
+                            maximumLength="#{bindings.CeoReview1.hints.precision}"
+                            shortDesc="#{bindings.CeoReview1.hints.tooltip}" id="it20">
+                <f:validator binding="#{bindings.CeoReview1.validator}"/>
+              </af:inputText>
+              <af:selectOneChoice value="#{bindings.Inactive2.inputValue}" label="#{bindings.Inactive2.label}"
+                                  required="#{bindings.Inactive2.hints.mandatory}"
+                                  shortDesc="#{bindings.Inactive2.hints.tooltip}" id="soc14">
+                <f:selectItems value="#{bindings.Inactive2.items}" id="si14"/>
+                <f:validator binding="#{bindings.Inactive2.validator}"/>
+              </af:selectOneChoice>
+              <af:inputDate value="#{bindings.InactiveDate2.inputValue}" label="#{bindings.InactiveDate2.hints.label}"
+                            required="#{bindings.InactiveDate2.hints.mandatory}"
+                            columns="#{bindings.InactiveDate2.hints.displayWidth}"
+                            shortDesc="#{bindings.InactiveDate2.hints.tooltip}" id="id3">
+                <f:validator binding="#{bindings.InactiveDate2.validator}"/>
+                <af:convertDateTime pattern="#{bindings.InactiveDate2.format}"/>
+              </af:inputDate>
+            </af:panelFormLayout>
+          </af:dialog>
+        </af:popup>
+        <af:popup childCreation="deferred" autoCancel="disabled" id="p4" contentDelivery="lazyUncached"
+                  binding="#{backingBeanScope.ContractApprovalFacilitySetUpBBean.cmtmntFacilityEdit_popup}">
+          <af:dialog id="d4" type="none" title="Edit Facility" closeIconVisible="false">
+            <f:facet name="buttonBar">
+              <af:button action="#{bindings.Commit.execute}" text="Save"
+                         disabled="#{!bindings.Commit.enabled}" id="b13"
+                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.cmtmntFacilityEditSaveorCancel}"/>
+              <af:spacer width="10" height="10" id="s8"/>
+              <af:button action="#{bindings.Rollback.execute}" text="Cancel"
+                         immediate="true" id="b14"
+                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.cmtmntFacilityEditSaveorCancel}">
+                <af:resetActionListener/>
+              </af:button>
+            </f:facet>
+            <af:panelFormLayout id="pfl4">
+              <af:selectOneChoice value="#{bindings.XpeFacilityId3.inputValue}" label="#{bindings.XpeFacilityId3.label}"
+                                  required="#{bindings.XpeFacilityId3.hints.mandatory}"
+                                  shortDesc="#{bindings.XpeFacilityId3.hints.tooltip}" readOnly="true" id="soc11">
+                <f:selectItems value="#{bindings.XpeFacilityId3.items}" id="si11"/>
+                <f:validator binding="#{bindings.XpeFacilityId3.validator}"/>
+              </af:selectOneChoice>
+              <af:inputText value="#{bindings.CustomerCareReview2.inputValue}"
+                            label="#{bindings.CustomerCareReview2.hints.label}"
+                            required="#{bindings.CustomerCareReview2.hints.mandatory}"
+                            columns="#{bindings.CustomerCareReview2.hints.displayWidth}"
+                            maximumLength="#{bindings.CustomerCareReview2.hints.precision}"
+                            shortDesc="#{bindings.CustomerCareReview2.hints.tooltip}" id="it7">
+                <f:validator binding="#{bindings.CustomerCareReview2.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.LegalReview2.inputValue}" label="#{bindings.LegalReview2.hints.label}"
+                            required="#{bindings.LegalReview2.hints.mandatory}"
+                            columns="#{bindings.LegalReview2.hints.displayWidth}"
+                            maximumLength="#{bindings.LegalReview2.hints.precision}"
+                            shortDesc="#{bindings.LegalReview2.hints.tooltip}" id="it8">
+                <f:validator binding="#{bindings.LegalReview2.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.FinancialReview.inputValue}"
+                            label="#{bindings.FinancialReview.hints.label}"
+                            required="#{bindings.FinancialReview.hints.mandatory}"
+                            columns="#{bindings.FinancialReview.hints.displayWidth}"
+                            maximumLength="#{bindings.FinancialReview.hints.precision}"
+                            shortDesc="#{bindings.FinancialReview.hints.tooltip}" id="it9">
+                <f:validator binding="#{bindings.FinancialReview.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.GeneralManagerReview2.inputValue}"
+                            label="#{bindings.GeneralManagerReview2.hints.label}"
+                            required="#{bindings.GeneralManagerReview2.hints.mandatory}"
+                            columns="#{bindings.GeneralManagerReview2.hints.displayWidth}"
+                            maximumLength="#{bindings.GeneralManagerReview2.hints.precision}"
+                            shortDesc="#{bindings.GeneralManagerReview2.hints.tooltip}" id="it10">
+                <f:validator binding="#{bindings.GeneralManagerReview2.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.SustSolReview.inputValue}" label="#{bindings.SustSolReview.hints.label}"
+                            required="#{bindings.SustSolReview.hints.mandatory}"
+                            columns="#{bindings.SustSolReview.hints.displayWidth}"
+                            maximumLength="#{bindings.SustSolReview.hints.precision}"
+                            shortDesc="#{bindings.SustSolReview.hints.tooltip}" id="it11">
+                <f:validator binding="#{bindings.SustSolReview.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.CfoReview.inputValue}" label="#{bindings.CfoReview.hints.label}"
+                            required="#{bindings.CfoReview.hints.mandatory}"
+                            columns="#{bindings.CfoReview.hints.displayWidth}"
+                            maximumLength="#{bindings.CfoReview.hints.precision}"
+                            shortDesc="#{bindings.CfoReview.hints.tooltip}" id="it12">
+                <f:validator binding="#{bindings.CfoReview.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.CeoReview.inputValue}" label="#{bindings.CeoReview.hints.label}"
+                            required="#{bindings.CeoReview.hints.mandatory}"
+                            columns="#{bindings.CeoReview.hints.displayWidth}"
+                            maximumLength="#{bindings.CeoReview.hints.precision}"
+                            shortDesc="#{bindings.CeoReview.hints.tooltip}" id="it13">
+                <f:validator binding="#{bindings.CeoReview.validator}"/>
+              </af:inputText>
+              <af:selectOneChoice value="#{bindings.Inactive1.inputValue}" label="#{bindings.Inactive1.label}"
+                                  required="#{bindings.Inactive1.hints.mandatory}"
+                                  shortDesc="#{bindings.Inactive1.hints.tooltip}" id="soc12" autoSubmit="true">
+                <f:selectItems value="#{bindings.Inactive1.items}" id="si12"/>
+                <f:validator binding="#{bindings.Inactive1.validator}"/>
+              </af:selectOneChoice>
+              <af:inputDate value="#{bindings.InactiveDate1.inputValue}" label="#{bindings.InactiveDate1.hints.label}"
+                            required="#{bindings.InactiveDate1.hints.mandatory}"
+                            columns="#{bindings.InactiveDate1.hints.displayWidth}"
+                            shortDesc="#{bindings.InactiveDate1.hints.tooltip}" id="id2">
+                <f:validator binding="#{bindings.InactiveDate1.validator}"/>
+                <af:convertDateTime pattern="#{bindings.InactiveDate1.format}"/>
+              </af:inputDate>
+            </af:panelFormLayout>
+          </af:dialog>
+        </af:popup>
+      </af:panelHeader>
+    <af:panelHeader text="Facility Lookup" id="ph5" size="5" visible="#{requestScope.type eq 'MTL'}">
       <f:facet name="context"/>
       <f:facet name="toolbar">
         <af:toolbar id="t6">
           <af:button action="#{bindings.CreateInsert2.execute}" text="Add"
                      disabled="#{!bindings.CreateInsert2.enabled}" id="b5"
-                     actionListener="#{ContractApprovalFacilitySetUpBean.onMetalsFacilityCreation}"/>
-        </af:toolbar>
+                     actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.onMetalsFacilityCreation}"/>
+            <af:spacer width="10" height="10" id="s9"/>
+            <af:button text="Edit" id="b16"
+                       actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.onMetalsFacilityEdit}"/>
+          </af:toolbar>
       </f:facet>
       <f:facet name="menuBar"/>
       <f:facet name="legend"/>
@@ -220,7 +515,141 @@
                          shortDesc="#{bindings.XpeDccCfgMetalsFacilityEOVO1.hints.SvpReview.tooltip}" id="ot14"/>
         </af:column>
       </af:table>
-    </af:panelHeader>
+        <af:popup childCreation="deferred" autoCancel="disabled" id="p5" contentDelivery="lazyUncached"
+                  binding="#{backingBeanScope.ContractApprovalFacilitySetUpBBean.metalsFacilityAdd_popup}">
+          <af:dialog id="d5" type="none" title="Add Facility" closeIconVisible="false">
+            <f:facet name="buttonBar">
+              <af:button action="#{bindings.Commit.execute}" text="Save"
+                         id="b17"
+                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.metalsFacilityAddSaveorCancel}"/>
+              <af:spacer width="10" height="10" id="s10"/>
+              <af:button action="#{bindings.Rollback.execute}" text="Cancel"
+                         immediate="true" id="b18"
+                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.metalsFacilityAddSaveorCancel}">
+                <af:resetActionListener/>
+              </af:button>
+            </f:facet>
+            <af:panelFormLayout id="pfl7">
+              <af:selectOneChoice value="#{bindings.XpeFacilityId6.inputValue}" label="#{bindings.XpeFacilityId6.label}"
+                                  required="#{bindings.XpeFacilityId6.hints.mandatory}"
+                                  shortDesc="#{bindings.XpeFacilityId6.hints.tooltip}" id="soc17">
+                <f:selectItems value="#{bindings.XpeFacilityId6.items}" id="si17"/>
+                <f:validator binding="#{bindings.XpeFacilityId6.validator}"/>
+              </af:selectOneChoice>
+              <af:inputText value="#{bindings.CustomerCareReview5.inputValue}"
+                            label="#{bindings.CustomerCareReview5.hints.label}"
+                            required="#{bindings.CustomerCareReview5.hints.mandatory}"
+                            columns="#{bindings.CustomerCareReview5.hints.displayWidth}"
+                            maximumLength="#{bindings.CustomerCareReview5.hints.precision}"
+                            shortDesc="#{bindings.CustomerCareReview5.hints.tooltip}" id="it25">
+                <f:validator binding="#{bindings.CustomerCareReview5.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.LegalReview5.inputValue}" label="#{bindings.LegalReview5.hints.label}"
+                            required="#{bindings.LegalReview5.hints.mandatory}"
+                            columns="#{bindings.LegalReview5.hints.displayWidth}"
+                            maximumLength="#{bindings.LegalReview5.hints.precision}"
+                            shortDesc="#{bindings.LegalReview5.hints.tooltip}" id="it26">
+                <f:validator binding="#{bindings.LegalReview5.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.FinancialReview3.inputValue}"
+                            label="#{bindings.FinancialReview3.hints.label}"
+                            required="#{bindings.FinancialReview3.hints.mandatory}"
+                            columns="#{bindings.FinancialReview3.hints.displayWidth}"
+                            maximumLength="#{bindings.FinancialReview3.hints.precision}"
+                            shortDesc="#{bindings.FinancialReview3.hints.tooltip}" id="it27">
+                <f:validator binding="#{bindings.FinancialReview3.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.SvpReview1.inputValue}" label="#{bindings.SvpReview1.hints.label}"
+                            required="#{bindings.SvpReview1.hints.mandatory}"
+                            columns="#{bindings.SvpReview1.hints.displayWidth}"
+                            maximumLength="#{bindings.SvpReview1.hints.precision}"
+                            shortDesc="#{bindings.SvpReview1.hints.tooltip}" id="it28">
+                <f:validator binding="#{bindings.SvpReview1.validator}"/>
+              </af:inputText>
+              <af:selectOneChoice value="#{bindings.Inactive4.inputValue}" label="#{bindings.Inactive4.label}"
+                                  required="#{bindings.Inactive4.hints.mandatory}"
+                                  shortDesc="#{bindings.Inactive4.hints.tooltip}" id="soc18">
+                <f:selectItems value="#{bindings.Inactive4.items}" id="si18"/>
+                <f:validator binding="#{bindings.Inactive4.validator}"/>
+              </af:selectOneChoice>
+              <af:inputDate value="#{bindings.InactiveDate4.inputValue}" label="#{bindings.InactiveDate4.hints.label}"
+                            required="#{bindings.InactiveDate4.hints.mandatory}"
+                            columns="#{bindings.InactiveDate4.hints.displayWidth}"
+                            shortDesc="#{bindings.InactiveDate4.hints.tooltip}" id="id5">
+                <f:validator binding="#{bindings.InactiveDate4.validator}"/>
+                <af:convertDateTime pattern="#{bindings.InactiveDate4.format}"/>
+              </af:inputDate>
+            </af:panelFormLayout>
+          </af:dialog>
+        </af:popup>
+        <af:popup childCreation="deferred" autoCancel="disabled" id="p6" contentDelivery="lazyUncached"
+                  binding="#{backingBeanScope.ContractApprovalFacilitySetUpBBean.metalsFacilityEdit_popup}">
+          <af:dialog id="d6" type="none" title="Edit Facility" closeIconVisible="false">
+            <f:facet name="buttonBar">
+              <af:button action="#{bindings.Commit.execute}" text="Save"
+                         id="b19"
+                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.metalsFacilityEditSaveorCancel}"/>
+              <af:spacer width="10" height="10" id="s11"/>
+              <af:button action="#{bindings.Rollback.execute}" text="Cancel"
+                         immediate="true" id="b20"
+                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.metalsFacilityEditSaveorCancel}">
+                <af:resetActionListener/>
+              </af:button>
+            </f:facet>
+            <af:panelFormLayout id="pfl6">
+              <af:selectOneChoice value="#{bindings.XpeFacilityId5.inputValue}" label="#{bindings.XpeFacilityId5.label}"
+                                  required="#{bindings.XpeFacilityId5.hints.mandatory}"
+                                  shortDesc="#{bindings.XpeFacilityId5.hints.tooltip}" readOnly="true" id="soc15">
+                <f:selectItems value="#{bindings.XpeFacilityId5.items}" id="si15"/>
+                <f:validator binding="#{bindings.XpeFacilityId5.validator}"/>
+              </af:selectOneChoice>
+              <af:inputText value="#{bindings.CustomerCareReview4.inputValue}"
+                            label="#{bindings.CustomerCareReview4.hints.label}"
+                            required="#{bindings.CustomerCareReview4.hints.mandatory}"
+                            columns="#{bindings.CustomerCareReview4.hints.displayWidth}"
+                            maximumLength="#{bindings.CustomerCareReview4.hints.precision}"
+                            shortDesc="#{bindings.CustomerCareReview4.hints.tooltip}" id="it21">
+                <f:validator binding="#{bindings.CustomerCareReview4.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.LegalReview4.inputValue}" label="#{bindings.LegalReview4.hints.label}"
+                            required="#{bindings.LegalReview4.hints.mandatory}"
+                            columns="#{bindings.LegalReview4.hints.displayWidth}"
+                            maximumLength="#{bindings.LegalReview4.hints.precision}"
+                            shortDesc="#{bindings.LegalReview4.hints.tooltip}" id="it22">
+                <f:validator binding="#{bindings.LegalReview4.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.FinancialReview2.inputValue}"
+                            label="#{bindings.FinancialReview2.hints.label}"
+                            required="#{bindings.FinancialReview2.hints.mandatory}"
+                            columns="#{bindings.FinancialReview2.hints.displayWidth}"
+                            maximumLength="#{bindings.FinancialReview2.hints.precision}"
+                            shortDesc="#{bindings.FinancialReview2.hints.tooltip}" id="it23">
+                <f:validator binding="#{bindings.FinancialReview2.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.SvpReview.inputValue}" label="#{bindings.SvpReview.hints.label}"
+                            required="#{bindings.SvpReview.hints.mandatory}"
+                            columns="#{bindings.SvpReview.hints.displayWidth}"
+                            maximumLength="#{bindings.SvpReview.hints.precision}"
+                            shortDesc="#{bindings.SvpReview.hints.tooltip}" id="it24">
+                <f:validator binding="#{bindings.SvpReview.validator}"/>
+              </af:inputText>
+              <af:selectOneChoice value="#{bindings.Inactive3.inputValue}" label="#{bindings.Inactive3.label}"
+                                  required="#{bindings.Inactive3.hints.mandatory}"
+                                  shortDesc="#{bindings.Inactive3.hints.tooltip}" id="soc16" autoSubmit="true">
+                <f:selectItems value="#{bindings.Inactive3.items}" id="si16"/>
+                <f:validator binding="#{bindings.Inactive3.validator}"/>
+              </af:selectOneChoice>
+              <af:inputDate value="#{bindings.InactiveDate3.inputValue}" label="#{bindings.InactiveDate3.hints.label}"
+                            required="#{bindings.InactiveDate3.hints.mandatory}"
+                            columns="#{bindings.InactiveDate3.hints.displayWidth}"
+                            shortDesc="#{bindings.InactiveDate3.hints.tooltip}" id="id4">
+                <f:validator binding="#{bindings.InactiveDate3.validator}"/>
+                <af:convertDateTime pattern="#{bindings.InactiveDate3.format}"/>
+              </af:inputDate>
+            </af:panelFormLayout>
+          </af:dialog>
+        </af:popup>
+      </af:panelHeader>
     </af:panelGroupLayout>
   </af:panelGroupLayout>
 </ui:composition>

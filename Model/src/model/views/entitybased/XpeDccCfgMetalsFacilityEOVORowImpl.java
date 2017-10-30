@@ -12,6 +12,8 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class XpeDccCfgMetalsFacilityEOVORowImpl extends ViewRowImpl {
+
+
     public static final int ENTITY_XPEDCCCFGMETALSFACILITYEO = 0;
 
     /**
@@ -27,8 +29,12 @@ public class XpeDccCfgMetalsFacilityEOVORowImpl extends ViewRowImpl {
         CreationDate,
         LastUpdatedBy,
         LastUpdateDate,
-        XpeDccDicFacilities1;
-        private static AttributesEnum[] vals = null;
+        Inactive,
+        InactiveDate,
+        XpeDccDicFacilities1,
+        LookupSharedAppModule_XpeDccDicNewContractSetupROVO1;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -50,6 +56,8 @@ public class XpeDccCfgMetalsFacilityEOVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
+
     public static final int XPEFACILITYID = AttributesEnum.XpeFacilityId.index();
     public static final int CUSTOMERCAREREVIEW = AttributesEnum.CustomerCareReview.index();
     public static final int LEGALREVIEW = AttributesEnum.LegalReview.index();
@@ -59,7 +67,11 @@ public class XpeDccCfgMetalsFacilityEOVORowImpl extends ViewRowImpl {
     public static final int CREATIONDATE = AttributesEnum.CreationDate.index();
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDATE = AttributesEnum.LastUpdateDate.index();
+    public static final int INACTIVE = AttributesEnum.Inactive.index();
+    public static final int INACTIVEDATE = AttributesEnum.InactiveDate.index();
     public static final int XPEDCCDICFACILITIES1 = AttributesEnum.XpeDccDicFacilities1.index();
+    public static final int LOOKUPSHAREDAPPMODULE_XPEDCCDICNEWCONTRACTSETUPROVO1 =
+        AttributesEnum.LookupSharedAppModule_XpeDccDicNewContractSetupROVO1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -220,10 +232,49 @@ public class XpeDccCfgMetalsFacilityEOVORowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for INACTIVE using the alias name Inactive.
+     * @return the INACTIVE
+     */
+    public String getInactive() {
+        return (String) getAttributeInternal(INACTIVE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for INACTIVE using the alias name Inactive.
+     * @param value value to set the INACTIVE
+     */
+    public void setInactive(String value) {
+        setAttributeInternal(INACTIVE, value);
+    }
+
+    /**
+     * Gets the attribute value for INACTIVE_DATE using the alias name InactiveDate.
+     * @return the INACTIVE_DATE
+     */
+    public Timestamp getInactiveDate() {
+        return (Timestamp) getAttributeInternal(INACTIVEDATE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for INACTIVE_DATE using the alias name InactiveDate.
+     * @param value value to set the INACTIVE_DATE
+     */
+    public void setInactiveDate(Timestamp value) {
+        setAttributeInternal(INACTIVEDATE, value);
+    }
+
+    /**
      * Gets the view accessor <code>RowSet</code> XpeDccDicFacilities1.
      */
     public RowSet getXpeDccDicFacilities1() {
         return (RowSet) getAttributeInternal(XPEDCCDICFACILITIES1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> LookupSharedAppModule_XpeDccDicNewContractSetupROVO1.
+     */
+    public RowSet getLookupSharedAppModule_XpeDccDicNewContractSetupROVO1() {
+        return (RowSet) getAttributeInternal(LOOKUPSHAREDAPPMODULE_XPEDCCDICNEWCONTRACTSETUPROVO1);
     }
 }
 
