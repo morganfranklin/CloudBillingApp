@@ -80,6 +80,20 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="LookupSharedAppModule_ApprovalLevelLOV"
+    ViewObjectName="model.views.readonly.XpeDccDicNewContractSetupROVO"
+    AMUsageName="LookupSharedAppModule"
+    ViewInstanceName="XpeDccDicNewContractSetupROVO"
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="bind_Lookup_Type">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA['APLVL']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LOV_Customer_Type"
     ListVOName="LookupSharedAppModule_XpeDccDicCustomerTypeLOV"
@@ -142,6 +156,24 @@
     MRUCount="0">
     <AttrArray Name="AttrNames">
       <Item Value="RFF_TAG"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Approval_Level"
+    ListVOName="LookupSharedAppModule_ApprovalLevelLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Approval_Level"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
@@ -236,6 +268,24 @@
           Value="choice"/>
         <LABEL
           ResId="model.views.readonly.XpeDccNewContractSetupROVO.RFF_TAG_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Approval_Level"
+    IsSelected="false"
+    IsPersistent="false"
+    Type="java.lang.String"
+    ColumnType="$none$"
+    AliasName="Approval_Level"
+    SQLType="VARCHAR"
+    LOVName="LOV_Approval_Level">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="radio"/>
+        <LABEL
+          ResId="model.views.readonly.XpeDccNewContractSetupROVO.Approval_Level_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

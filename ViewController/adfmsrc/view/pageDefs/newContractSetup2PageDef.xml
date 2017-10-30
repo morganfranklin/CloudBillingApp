@@ -163,5 +163,7 @@
       <NamedData NDName="bytes" NDType="[B"/>
       <NamedData NDName="contractType" NDValue="#{pageFlowScope.ContractType}" NDType="java.lang.String"/>
     </methodAction>
+    <list IterBinding="XpeDccNewContractSetupROVOIterator" StaticList="false" Uses="LOV_Approval_Level"
+          id="Approval_Level" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

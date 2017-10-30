@@ -412,6 +412,35 @@
                             <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr16">
                                 <af:gridCell marginStart="5px" marginEnd="5px" id="gc15" width="100%" halign="stretch"
                                              valign="stretch">
+                                    <af:trainButtonBar value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
+                                                       id="tbb2"/>
+                                </af:gridCell>
+                            </af:gridRow>
+                        </af:panelGridLayout>
+                    </f:facet>
+                    <f:facet name="eight">
+                        <af:panelGridLayout id="pgl9">
+                            <af:gridRow marginTop="5px" height="auto" id="gr6">
+                                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5" halign="stretch">
+                                    <af:train value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
+                                              id="t5"/>
+                                </af:gridCell>
+                            </af:gridRow>
+                             <af:gridRow marginTop="5px" height="auto" id="gr7">
+                                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6" halign="stretch">
+                                    <af:selectOneRadio value="#{bindings.Approval_Level.inputValue}"
+                                                       label="#{bindings.Approval_Level.label}"
+                                                       required="#{bindings.Approval_Level.hints.mandatory}"
+                                                       shortDesc="#{bindings.Approval_Level.hints.tooltip}" id="sor1"
+                                                       autoSubmit="true">
+                                        <f:selectItems value="#{bindings.Approval_Level.items}" id="si15"/>
+                                        <f:validator binding="#{bindings.Approval_Level.validator}"/>
+                                    </af:selectOneRadio>
+                                </af:gridCell>
+                            </af:gridRow>
+                            <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr8">
+                                <af:gridCell marginStart="5px" marginEnd="5px" id="gc7" width="100%" halign="stretch"
+                                             valign="stretch">
                                     <af:button text="Back" id="b4"
                                                action="#{controllerContext.currentViewPort.taskFlowContext.trainModel.getPrevious}"/>
                                     <af:button text="Submit" id="b5"
@@ -421,7 +450,7 @@
                             </af:gridRow>
                         </af:panelGridLayout>
                     </f:facet>
-                    <f:facet name="eight">
+                    <f:facet name="nine">
                         <af:panelHeader text="New Contract has been submitted successfully" id="ph2"
                                         messageType="confirmation">
                             <f:facet name="legend">

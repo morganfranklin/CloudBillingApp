@@ -239,12 +239,12 @@
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase34"
-      from="View40"
+      from="View41"
       to="View38">
       <property
          name="fromOutcome">success</property>
       <property
-         name="sdm:polyPoints">L54,1019.6992,264.94824,970.03613,308.54004,R50</property>
+         name="sdm:polyPoints">L50,996.6992,423.74707,929.03613,362.54004,B50</property>
    </ControlFlowCase>
    <TaskFlowReturn
       id="TaskFlowReturn23">
@@ -436,4 +436,31 @@
       <property
          name="sdm:polyPoints">R46,-144.5,85.23535,70.01465,-11.511719,L50</property>
    </ControlFlowCase>
+   <View
+      id="View41">
+      <property
+         name="activityId">approvalHierarchy</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">1037.6992</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>approvalHierarchy&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">424.09766</property>
+      <property
+         name="page">/newContractSetup2.jsff</property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="trainStop">true</property>
+   </View>
+   <TrainFlow
+      islink="true"
+      id="TrainFlow44"
+      from="View40"
+      to="View41">
+      <property
+         name="sdm:polyPoints">B50,1060.6992,315.44824,1037.6992,369.74707,T50</property>
+   </TrainFlow>
 </SDM>

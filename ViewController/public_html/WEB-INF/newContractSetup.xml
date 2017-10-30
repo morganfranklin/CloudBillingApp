@@ -83,7 +83,7 @@
     <view id="success">
       <page>/newContractSetup2.jsff</page>
       <input-page-parameter id="__10">
-        <from-value>#{'eight'}</from-value>
+        <from-value>#{'nine'}</from-value>
         <to-value>#{pageFlowScope.contractDataEntryFacet}</to-value>
       </input-page-parameter>
     </view>
@@ -145,6 +145,17 @@
         <fixed-outcome>BuildPDF</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="approvalHierarchy">
+      <page>/newContractSetup2.jsff</page>
+      <train-stop>
+        <display-name>Approval Hierarchy</display-name>
+        <sequential>true</sequential>
+      </train-stop>
+      <input-page-parameter id="__19">
+        <from-value>#{'eight'}</from-value>
+        <to-value>#{pageFlowScope.contractDataEntryFacet}</to-value>
+      </input-page-parameter>
+    </view>
     <train/>
     <control-flow-rule id="__5">
       <from-activity-id>NewContractHeaderCreateInsert</from-activity-id>
@@ -196,13 +207,6 @@
         <to-activity-id>contractLinePriceCarrier</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
-    <control-flow-rule id="__13">
-      <from-activity-id>previewPDF</from-activity-id>
-      <control-flow-case id="__19">
-        <from-outcome>success</from-outcome>
-        <to-activity-id>success</to-activity-id>
-      </control-flow-case>
-    </control-flow-rule>
     <control-flow-rule id="__28">
       <from-activity-id>BuildPDF</from-activity-id>
       <control-flow-case id="__29">
@@ -222,6 +226,13 @@
       <control-flow-case id="__54">
         <from-outcome>next</from-outcome>
         <to-activity-id>NewContractHeaderCreateInsert</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__13">
+      <from-activity-id>approvalHierarchy</from-activity-id>
+      <control-flow-case id="__18">
+        <from-outcome>success</from-outcome>
+        <to-activity-id>success</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

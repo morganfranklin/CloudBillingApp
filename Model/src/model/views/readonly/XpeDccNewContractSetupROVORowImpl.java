@@ -20,10 +20,12 @@ public class XpeDccNewContractSetupROVORowImpl extends ViewRowImpl {
         Business_Type,
         MailBillAddress,
         RFF_TAG,
+        Approval_Level,
         LookupSharedAppModule_XpeDccDicCustomerTypeLOV,
         LookupSharedAppModule_XpeDccDicBusinessTypeLOV,
         LookupSharedAppModule_XpeDccDicYORNLOV,
-        LookupSharedAppModule_RFFTagLOV;
+        LookupSharedAppModule_RFFTagLOV,
+        LookupSharedAppModule_ApprovalLevelLOV;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -53,6 +55,7 @@ public class XpeDccNewContractSetupROVORowImpl extends ViewRowImpl {
     public static final int BUSINESS_TYPE = AttributesEnum.Business_Type.index();
     public static final int MAILBILLADDRESS = AttributesEnum.MailBillAddress.index();
     public static final int RFF_TAG = AttributesEnum.RFF_TAG.index();
+    public static final int APPROVAL_LEVEL = AttributesEnum.Approval_Level.index();
     public static final int LOOKUPSHAREDAPPMODULE_XPEDCCDICCUSTOMERTYPELOV =
         AttributesEnum.LookupSharedAppModule_XpeDccDicCustomerTypeLOV.index();
     public static final int LOOKUPSHAREDAPPMODULE_XPEDCCDICBUSINESSTYPELOV =
@@ -60,6 +63,8 @@ public class XpeDccNewContractSetupROVORowImpl extends ViewRowImpl {
     public static final int LOOKUPSHAREDAPPMODULE_XPEDCCDICYORNLOV =
         AttributesEnum.LookupSharedAppModule_XpeDccDicYORNLOV.index();
     public static final int LOOKUPSHAREDAPPMODULE_RFFTAGLOV = AttributesEnum.LookupSharedAppModule_RFFTagLOV.index();
+    public static final int LOOKUPSHAREDAPPMODULE_APPROVALLEVELLOV =
+        AttributesEnum.LookupSharedAppModule_ApprovalLevelLOV.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -140,6 +145,22 @@ public class XpeDccNewContractSetupROVORowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for the calculated attribute Approval_Level.
+     * @return the Approval_Level
+     */
+    public String getApproval_Level() {
+        return (String) getAttributeInternal(APPROVAL_LEVEL);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute Approval_Level.
+     * @param value value to set the  Approval_Level
+     */
+    public void setApproval_Level(String value) {
+        setAttributeInternal(APPROVAL_LEVEL, value);
+    }
+
+    /**
      * Gets the view accessor <code>RowSet</code> LookupSharedAppModule_XpeDccDicCustomerTypeLOV.
      */
     public RowSet getLookupSharedAppModule_XpeDccDicCustomerTypeLOV() {
@@ -165,6 +186,13 @@ public class XpeDccNewContractSetupROVORowImpl extends ViewRowImpl {
      */
     public RowSet getLookupSharedAppModule_RFFTagLOV() {
         return (RowSet) getAttributeInternal(LOOKUPSHAREDAPPMODULE_RFFTAGLOV);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> LookupSharedAppModule_ApprovalLevelLOV.
+     */
+    public RowSet getLookupSharedAppModule_ApprovalLevelLOV() {
+        return (RowSet) getAttributeInternal(LOOKUPSHAREDAPPMODULE_APPROVALLEVELLOV);
     }
 }
 

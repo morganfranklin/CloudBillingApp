@@ -39,7 +39,7 @@
         IsUpdateable="false"
         IsPersistent="false"
         PrecisionRule="true"
-        Precision="20"
+        Precision="250"
         Type="java.lang.String"
         ColumnType="VARCHAR2"
         AliasName="XPE_LOOKUP_DESC"
