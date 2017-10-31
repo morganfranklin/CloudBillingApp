@@ -68,7 +68,11 @@ public class XpeCfgTableSetupMBean implements Serializable {
     }
 
     public void onInActiveValChgLstnr(ValueChangeEvent valueChangeEvent) {
+        if(null != valueChangeEvent.getNewValue() && valueChangeEvent.getNewValue().equals("Y")){
         JSFUtils.setExpressionValue("#{bindings.InactiveDate.inputValue}", new Timestamp(System.currentTimeMillis()));
+        }else{
+            JSFUtils.setExpressionValue("#{bindings.InactiveDate.inputValue}",null);
+        }
     }
     
     public void queryOperationListener(QueryOperationEvent queryOperationEvent) {
