@@ -19,7 +19,9 @@ import model.common.AppModule;
 
 import model.utils.EmailUtils;
 
+import model.views.entitybased.XpeDccCfgCarriersEOVOImpl;
 import model.views.entitybased.XpeDccCfgCmtmntFacilityEOVOImpl;
+import model.views.entitybased.XpeDccCfgCountiesEOVOImpl;
 import model.views.entitybased.XpeDccCfgDestinationsEOVOImpl;
 import model.views.entitybased.XpeDccCfgDestinationsEOVORowImpl;
 import model.views.entitybased.XpeDccCfgDstAssTerminalsEOVOImpl;
@@ -37,6 +39,7 @@ import model.views.entitybased.XpeDccCfgPcsEOVORowImpl;
 import model.views.entitybased.XpeDccCfgPcsshortnamesEOVOImpl;
 import model.views.entitybased.XpeDccCfgProductserviceEOVOImpl;
 import model.views.entitybased.XpeDccCfgTerminalsEOVOImpl;
+import model.views.entitybased.XpeDccCfgVehiclesEOVOImpl;
 import model.views.entitybased.XpeDccNewContractsEOVOImpl;
 import model.views.entitybased.XpeDccNewContractsEOVORowImpl;
 import model.views.entitybased.XpeDccTermsContractEOVOImpl;
@@ -2189,24 +2192,24 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      * Container's getter for XpeDccCfgCountiesEOVO1.
      * @return XpeDccCfgCountiesEOVO1
      */
-    public ViewObjectImpl getXpeDccCfgCountiesEOVO() {
-        return (ViewObjectImpl) findViewObject("XpeDccCfgCountiesEOVO");
+    public XpeDccCfgCountiesEOVOImpl getXpeDccCfgCountiesEOVO() {
+        return (XpeDccCfgCountiesEOVOImpl) findViewObject("XpeDccCfgCountiesEOVO");
     }
 
     /**
      * Container's getter for XpeDccCfgCarriersEOVO1.
      * @return XpeDccCfgCarriersEOVO1
      */
-    public ViewObjectImpl getXpeDccCfgCarriersEOVO() {
-        return (ViewObjectImpl) findViewObject("XpeDccCfgCarriersEOVO");
+    public XpeDccCfgCarriersEOVOImpl getXpeDccCfgCarriersEOVO() {
+        return (XpeDccCfgCarriersEOVOImpl) findViewObject("XpeDccCfgCarriersEOVO");
     }
 
     /**
      * Container's getter for XpeDccCfgVehiclesEOVO1.
      * @return XpeDccCfgVehiclesEOVO1
      */
-    public ViewObjectImpl getXpeDccCfgVehiclesEOVO() {
-        return (ViewObjectImpl) findViewObject("XpeDccCfgVehiclesEOVO");
+    public XpeDccCfgVehiclesEOVOImpl getXpeDccCfgVehiclesEOVO() {
+        return (XpeDccCfgVehiclesEOVOImpl) findViewObject("XpeDccCfgVehiclesEOVO");
     }
 
     /**
@@ -2287,24 +2290,24 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      * Container's getter for XpeDccCfgCountiesEOVO1.
      * @return XpeDccCfgCountiesEOVO1
      */
-    public ViewObjectImpl getXpeDccCfgNewCountiesCreationEOVO() {
-        return (ViewObjectImpl) findViewObject("XpeDccCfgNewCountiesCreationEOVO");
+    public XpeDccCfgCountiesEOVOImpl getXpeDccCfgNewCountiesCreationEOVO() {
+        return (XpeDccCfgCountiesEOVOImpl) findViewObject("XpeDccCfgNewCountiesCreationEOVO");
     }
 
     /**
      * Container's getter for XpeDccCfgCarriersEOVO1.
      * @return XpeDccCfgCarriersEOVO1
      */
-    public ViewObjectImpl getXpeDccCfgNewCarriersCreationEOVO() {
-        return (ViewObjectImpl) findViewObject("XpeDccCfgNewCarriersCreationEOVO");
+    public XpeDccCfgCarriersEOVOImpl getXpeDccCfgNewCarriersCreationEOVO() {
+        return (XpeDccCfgCarriersEOVOImpl) findViewObject("XpeDccCfgNewCarriersCreationEOVO");
     }
 
     /**
      * Container's getter for XpeDccCfgVehiclesEOVO1.
      * @return XpeDccCfgVehiclesEOVO1
      */
-    public ViewObjectImpl getXpeDccCfgNewVehiclesCreationEOVO() {
-        return (ViewObjectImpl) findViewObject("XpeDccCfgNewVehiclesCreationEOVO");
+    public XpeDccCfgVehiclesEOVOImpl getXpeDccCfgNewVehiclesCreationEOVO() {
+        return (XpeDccCfgVehiclesEOVOImpl) findViewObject("XpeDccCfgNewVehiclesCreationEOVO");
     }
 
     /**
@@ -2739,13 +2742,11 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         metalsFacilityVo.executeQuery();
     }
     
-    public void searchCntrctAprFcltySetUp() {
+    public void searchCntrctAprFcltySetUp(String type) {
         XpeDccCfgCntrcttAprFcltyROVOImpl cntrctAprFcltyVO = this.getXpeDccCfgCntrcttAprFcltyROVO1();
         XpeDccCfgCntrcttAprFcltyROVORowImpl cntrctAprFcltyVORow =
             (XpeDccCfgCntrcttAprFcltyROVORowImpl) cntrctAprFcltyVO.getCurrentRow();
-        String type = null;
         if (null != cntrctAprFcltyVORow) {
-            type = cntrctAprFcltyVORow.getXpeWasteType();
             XpeDccCfgMswFacilityEOVOImpl mswFacilityVo = this.getXpeDccCfgMswFacilityEOVO1();
             XpeDccCfgCmtmntFacilityEOVOImpl cmtmntFacilityVo = this.getXpeDccCfgCmtmntFacilityEOVO1();
             XpeDccCfgMetalsFacilityEOVOImpl metalsFacilityVo = this.getXpeDccCfgMetalsFacilityEOVO1();

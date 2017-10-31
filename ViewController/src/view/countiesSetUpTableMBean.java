@@ -13,6 +13,8 @@ import javax.faces.event.ActionEvent;
 
 import javax.faces.event.ValueChangeEvent;
 
+import model.views.entitybased.XpeDccCfgCountiesEOVORowImpl;
+
 import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.view.rich.component.rich.RichPopup;
 
@@ -76,6 +78,12 @@ public class countiesSetUpTableMBean implements Serializable{
     }
 
     public void onInactiveValChgLstnr(ValueChangeEvent valueChangeEvent) {
-        JSFUtils.setExpressionValue("#{bindings.InactiveDate.inputValue}", new Timestamp(System.currentTimeMillis()));
+        DCIteratorBinding countiesIter = ADFUtils.findIterator("XpeDccCfgCountiesEOVOIterator");
+        XpeDccCfgCountiesEOVORowImpl countiesRow = (XpeDccCfgCountiesEOVORowImpl) countiesIter.getCurrentRow();
+        if (null != valueChangeEvent.getNewValue() && valueChangeEvent.getNewValue().equals("Y")) {
+            countiesRow.setInactiveDate(new Timestamp(System.currentTimeMillis()));
+        } else {
+            countiesRow.setInactiveDate(null);
+        }
     }
 }

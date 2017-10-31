@@ -13,6 +13,8 @@ import javax.faces.event.ActionEvent;
 
 import javax.faces.event.ValueChangeEvent;
 
+import model.views.entitybased.XpeDccCfgCarriersEOVORowImpl;
+
 import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.view.rich.component.rich.RichPopup;
 
@@ -90,6 +92,12 @@ public class CarriersSetUpTableMBean implements Serializable{
     }
 
     public void onInActiveValChgLstnr(ValueChangeEvent valueChangeEvent) {
-        JSFUtils.setExpressionValue("#{bindings.InactiveDate.inputValue}", new Timestamp(System.currentTimeMillis()));
+        DCIteratorBinding carriersIter = ADFUtils.findIterator("XpeDccCfgCarriersEOVOIterator");
+        XpeDccCfgCarriersEOVORowImpl carriersRow = (XpeDccCfgCarriersEOVORowImpl) carriersIter.getCurrentRow();
+        if (null != valueChangeEvent.getNewValue() && valueChangeEvent.getNewValue().equals("Y")) {
+            carriersRow.setInactiveDate(new Timestamp(System.currentTimeMillis()));
+        } else {
+            carriersRow.setInactiveDate(null);
+        }
     }
 }
