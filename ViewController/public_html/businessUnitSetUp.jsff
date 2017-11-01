@@ -118,7 +118,7 @@
             <f:facet name="menuBar"/>
             <f:facet name="legend"/>
             <f:facet name="info"/>
-            <af:panelFormLayout id="pfl3" labelAlignment="top">
+            <af:panelFormLayout id="pfl3" labelAlignment="top" rows="1" maxColumns="6">
               <f:facet name="footer"/>
               <af:inputText value="#{bindings.BusinessUnit.inputValue}" label="#{bindings.BusinessUnit.hints.label}"
                             required="#{bindings.BusinessUnit.hints.mandatory}"
@@ -171,7 +171,7 @@
             <f:facet name="menuBar"/>
             <f:facet name="legend"/>
             <f:facet name="info"/>
-            <af:panelFormLayout id="pfl4" labelAlignment="top">
+            <af:panelFormLayout id="pfl4" labelAlignment="top" rows="1">
               <f:facet name="footer"/>
               <af:inputText value="#{bindings.BillingBusinessUnit.inputValue}"
                             label="#{bindings.BillingBusinessUnit.hints.label}"
@@ -198,7 +198,7 @@
             <f:facet name="menuBar"/>
             <f:facet name="legend"/>
             <f:facet name="info"/>
-            <af:panelFormLayout id="pfl1" labelAlignment="top">
+            <af:panelFormLayout id="pfl1" labelAlignment="top" rows="1">
               <af:inputText value="#{bindings.GlBusinessUnit.inputValue}" label="#{bindings.GlBusinessUnit.hints.label}"
                             required="#{bindings.GlBusinessUnit.hints.mandatory}"
                             columns="#{bindings.GlBusinessUnit.hints.displayWidth}"
@@ -244,7 +244,7 @@
             <f:facet name="menuBar"/>
             <f:facet name="legend"/>
             <f:facet name="info"/>
-            <af:panelFormLayout id="pfl5" labelAlignment="top">
+            <af:panelFormLayout id="pfl5" labelAlignment="top" rows="1" maxColumns="8">
               <f:facet name="footer"/>
               <af:inputText value="#{bindings.BusinessUnit1.inputValue}" label="#{bindings.BusinessUnit1.hints.label}"
                             required="#{bindings.BusinessUnit1.hints.mandatory}"
@@ -313,7 +313,7 @@
             <f:facet name="menuBar"/>
             <f:facet name="legend"/>
             <f:facet name="info"/>
-            <af:panelFormLayout id="pfl6" labelAlignment="top">
+            <af:panelFormLayout id="pfl6" labelAlignment="top" rows="1">
               <f:facet name="footer"/>
               <af:inputText value="#{bindings.BillingBusinessUnit1.inputValue}"
                             label="#{bindings.BillingBusinessUnit1.hints.label}"
@@ -340,7 +340,7 @@
             <f:facet name="menuBar"/>
             <f:facet name="legend"/>
             <f:facet name="info"/>
-            <af:panelFormLayout id="pfl2">
+            <af:panelFormLayout id="pfl2" labelAlignment="top" rows="1">
               <af:inputText value="#{bindings.GlBusinessUnit1.inputValue}"
                             label="#{bindings.GlBusinessUnit1.hints.label}"
                             required="#{bindings.GlBusinessUnit1.hints.mandatory}"

@@ -38,6 +38,29 @@
     Name="bind_State"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <ViewAccessor
+    Name="XpeDccCfgCountiesROVO1"
+    ViewObjectName="model.views.readonly.XpeDccCfgCountiesROVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_County"
+    ListVOName="XpeDccCfgCountiesROVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="County"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CountyId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CountyName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <SQLQuery><![CDATA[SELECT TERMINAL_ID,TERMINAL_DESC, TERMINAL_TYPE, STATE, COUNTY FROM XPE_DCC_CFG_TERMINALS    
 WHERE INACTIVE <> 'N']]></SQLQuery>
   <ViewAttribute
@@ -54,6 +77,14 @@ WHERE INACTIVE <> 'N']]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="45"/>
+        <LABEL
+          ResId="model.views.readonly.XpeDccCfgTerminalsROVO.TerminalId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="TerminalDesc"
@@ -69,6 +100,12 @@ WHERE INACTIVE <> 'N']]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="45"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccCfgTerminalsROVO.TerminalDesc_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="TerminalType"
@@ -84,6 +121,12 @@ WHERE INACTIVE <> 'N']]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="3"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccCfgTerminalsROVO.TerminalType_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="State"
@@ -99,6 +142,12 @@ WHERE INACTIVE <> 'N']]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="5"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccCfgTerminalsROVO.State_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="County"
@@ -110,10 +159,19 @@ WHERE INACTIVE <> 'N']]></SQLQuery>
     ColumnType="VARCHAR2"
     AliasName="COUNTY"
     Expression="COUNTY"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    LOVName="LOV_County">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="5"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccCfgTerminalsROVO.County_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewCriteria
     Name="TerminalsCriteria"

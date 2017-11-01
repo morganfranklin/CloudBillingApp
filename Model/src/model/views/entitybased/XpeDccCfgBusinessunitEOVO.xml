@@ -145,6 +145,7 @@
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ItemId"/>
       <Item Value="ItemListType"/>
+      <Item Value="ValidValue"/>
     </AttrArray>
     <DisplayCriteria
       Hint="showAndExecute"/>
@@ -252,12 +253,12 @@
     LOVName="LOV_AccountingClass">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.AccountingClass_LABEL"/>
         <DISPLAYWIDTH
           Value="10"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
