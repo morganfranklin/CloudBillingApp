@@ -227,7 +227,8 @@
         Conjunction="AND"
         Value=":bind_FacilityId"
         IsBindVarValue="true"
-        Required="Optional"/>
+        Required="Optional"
+        UpperColumns="0"/>
     </ViewCriteriaRow>
   </ViewCriteria>
   <ResourceBundle>

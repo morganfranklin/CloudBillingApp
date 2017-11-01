@@ -28,6 +28,14 @@
     Name="bind_uuId"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="bind_ActionStatus"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bind_EventNumber"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <SQLQuery><![CDATA[SELECT  
     XPE_CONTRACT_ID, 
     XPE_CONTRACT_VERSION, 
@@ -174,6 +182,52 @@ FROM XPE_DCC_WF_ACTION]]></SQLQuery>
         Operator="="
         Conjunction="AND"
         Value=":bind_uuId"
+        UpperColumns="0"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="XpeDccWfActionApprovalCheckCriteria"
+    ViewObjectName="model.views.readonly.XpeDccWfActionROVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="XpeDccWfActionROVOCriteria1_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="XpeEventNumber"
+        ViewAttribute="XpeEventNumber"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_EventNumber"
+        IsBindVarValue="true"
+        Required="Optional"
+        UpperColumns="0"/>
+      <ViewCriteriaItem
+        Name="XpeDccWfActionROVOCriteria1_XpeDccWfActionROVOCriteria1_row_0_XpeActionStatus"
+        ViewAttribute="XpeActionStatus"
+        Operator="&lt;>"
+        Conjunction="AND"
+        Value=":bind_ActionStatus"
         UpperColumns="0"
         IsBindVarValue="true"
         Required="Optional"/>

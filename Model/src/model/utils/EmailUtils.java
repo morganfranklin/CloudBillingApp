@@ -30,9 +30,9 @@ public class EmailUtils {
         super();
     }
     
-    public static void sendEmail(String recepient, String emailBody, byte[] bytes) {
+    public static boolean sendEmail(String recepient, String emailBody, byte[] bytes) {
         String host = "smtp.gmail.com",port = "587",sender="morgan.franklin.test@gmail.com",subject="Contract Approval - Customer Name";
-
+        
         MimeMessage message = null;
         Transport transport = null;
         try {
@@ -61,6 +61,7 @@ public class EmailUtils {
                 transport.connect();
                 transport.send(message, message.getAllRecipients());
                 transport.close();
+                return true;
             }
         } catch (AddressException ae) {
             // TODO: Add catch code
@@ -72,6 +73,7 @@ public class EmailUtils {
             // TODO: Add catch code 
             me.printStackTrace();
         }
+    return false;
     }
     
     private static Session getMailSession(String host, String port, String sender) {
