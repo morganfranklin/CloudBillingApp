@@ -421,6 +421,45 @@
     EntityAttrName="LastUpdatedDate"
     EntityUsage="XpeDccCfgBusinessunitEO"
     AliasName="LAST_UPDATED_DATE"/>
+  <ViewAttribute
+    Name="BillingGlBusinessUnit"
+    PrecisionRule="true"
+    EntityAttrName="BillingGlBusinessUnit"
+    EntityUsage="XpeDccCfgBusinessunitEO"
+    AliasName="BILLING_GL_BUSINESS_UNIT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.BillingGlBusinessUnit_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BillingOperatingUnit"
+    PrecisionRule="true"
+    EntityAttrName="BillingOperatingUnit"
+    EntityUsage="XpeDccCfgBusinessunitEO"
+    AliasName="BILLING_OPERATING_UNIT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.BillingOperatingUnit_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BillingAffiliate"
+    PrecisionRule="true"
+    EntityAttrName="BillingAffiliate"
+    EntityUsage="XpeDccCfgBusinessunitEO"
+    AliasName="BILLING_AFFILIATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.BillingAffiliate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="BusinessUnitCriteria"
     ViewObjectName="model.views.entitybased.XpeDccCfgBusinessunitEOVO"

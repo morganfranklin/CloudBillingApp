@@ -12,6 +12,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class XpeDccCfgBusinessunitEOVORowImpl extends ViewRowImpl {
+
     public static final int ENTITY_XPEDCCCFGBUSINESSUNITEO = 0;
 
     /**
@@ -35,11 +36,15 @@ public class XpeDccCfgBusinessunitEOVORowImpl extends ViewRowImpl {
         CreatedDate,
         LastUpdatedBy,
         LastUpdatedDate,
+        BillingGlBusinessUnit,
+        BillingOperatingUnit,
+        BillingAffiliate,
         XpeDccCfgTerminals_LOV,
         XpeDccCfgPCSShortNames_LOV,
         XpeDccGeneralItemList_ACLOV,
         LookupSharedAppModule_YONLOV;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -61,6 +66,7 @@ public class XpeDccCfgBusinessunitEOVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
     public static final int SITEID = AttributesEnum.SiteId.index();
     public static final int TERMINALID = AttributesEnum.TerminalId.index();
     public static final int BUSINESSUNIT = AttributesEnum.BusinessUnit.index();
@@ -78,6 +84,9 @@ public class XpeDccCfgBusinessunitEOVORowImpl extends ViewRowImpl {
     public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
+    public static final int BILLINGGLBUSINESSUNIT = AttributesEnum.BillingGlBusinessUnit.index();
+    public static final int BILLINGOPERATINGUNIT = AttributesEnum.BillingOperatingUnit.index();
+    public static final int BILLINGAFFILIATE = AttributesEnum.BillingAffiliate.index();
     public static final int XPEDCCCFGTERMINALS_LOV = AttributesEnum.XpeDccCfgTerminals_LOV.index();
     public static final int XPEDCCCFGPCSSHORTNAMES_LOV = AttributesEnum.XpeDccCfgPCSShortNames_LOV.index();
     public static final int XPEDCCGENERALITEMLIST_ACLOV = AttributesEnum.XpeDccGeneralItemList_ACLOV.index();
@@ -367,6 +376,54 @@ public class XpeDccCfgBusinessunitEOVORowImpl extends ViewRowImpl {
      */
     public void setLastUpdatedDate(Timestamp value) {
         setAttributeInternal(LASTUPDATEDDATE, value);
+    }
+
+    /**
+     * Gets the attribute value for BILLING_GL_BUSINESS_UNIT using the alias name BillingGlBusinessUnit.
+     * @return the BILLING_GL_BUSINESS_UNIT
+     */
+    public String getBillingGlBusinessUnit() {
+        return (String) getAttributeInternal(BILLINGGLBUSINESSUNIT);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for BILLING_GL_BUSINESS_UNIT using the alias name BillingGlBusinessUnit.
+     * @param value value to set the BILLING_GL_BUSINESS_UNIT
+     */
+    public void setBillingGlBusinessUnit(String value) {
+        setAttributeInternal(BILLINGGLBUSINESSUNIT, value);
+    }
+
+    /**
+     * Gets the attribute value for BILLING_OPERATING_UNIT using the alias name BillingOperatingUnit.
+     * @return the BILLING_OPERATING_UNIT
+     */
+    public String getBillingOperatingUnit() {
+        return (String) getAttributeInternal(BILLINGOPERATINGUNIT);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for BILLING_OPERATING_UNIT using the alias name BillingOperatingUnit.
+     * @param value value to set the BILLING_OPERATING_UNIT
+     */
+    public void setBillingOperatingUnit(String value) {
+        setAttributeInternal(BILLINGOPERATINGUNIT, value);
+    }
+
+    /**
+     * Gets the attribute value for BILLING_AFFILIATE using the alias name BillingAffiliate.
+     * @return the BILLING_AFFILIATE
+     */
+    public String getBillingAffiliate() {
+        return (String) getAttributeInternal(BILLINGAFFILIATE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for BILLING_AFFILIATE using the alias name BillingAffiliate.
+     * @param value value to set the BILLING_AFFILIATE
+     */
+    public void setBillingAffiliate(String value) {
+        setAttributeInternal(BILLINGAFFILIATE, value);
     }
 
     /**

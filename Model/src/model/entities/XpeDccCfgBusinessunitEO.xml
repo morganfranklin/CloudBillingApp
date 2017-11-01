@@ -207,6 +207,42 @@
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
     TableName="XPE_DCC_CFG_BUSINESSUNIT"/>
+  <Attribute
+    Name="BillingGlBusinessUnit"
+    Precision="20"
+    ColumnName="BILLING_GL_BUSINESS_UNIT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_BUSINESSUNIT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BillingAffiliate"
+    Precision="20"
+    ColumnName="BILLING_AFFILIATE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_BUSINESSUNIT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BillingOperatingUnit"
+    Precision="20"
+    ColumnName="BILLING_OPERATING_UNIT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_BUSINESSUNIT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
   <Key
     Name="XpeDccCfgBusinessunitPk"
     PrimaryKey="true">

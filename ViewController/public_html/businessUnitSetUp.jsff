@@ -171,7 +171,7 @@
             <f:facet name="menuBar"/>
             <f:facet name="legend"/>
             <f:facet name="info"/>
-            <af:panelFormLayout id="pfl4" labelAlignment="top" rows="1">
+            <af:panelFormLayout id="pfl4" labelAlignment="top" rows="1" maxColumns="5">
               <f:facet name="footer"/>
               <af:inputText value="#{bindings.BillingBusinessUnit.inputValue}"
                             label="#{bindings.BillingBusinessUnit.hints.label}"
@@ -188,6 +188,30 @@
                             maximumLength="#{bindings.BusinessUnitRef.hints.precision}"
                             shortDesc="#{bindings.BusinessUnitRef.hints.tooltip}" id="it5">
                 <f:validator binding="#{bindings.BusinessUnitRef.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.BillingGlBusinessUnit.inputValue}"
+                            label="#{bindings.BillingGlBusinessUnit.hints.label}"
+                            required="#{bindings.BillingGlBusinessUnit.hints.mandatory}"
+                            columns="#{bindings.BillingGlBusinessUnit.hints.displayWidth}"
+                            maximumLength="#{bindings.BillingGlBusinessUnit.hints.precision}"
+                            shortDesc="#{bindings.BillingGlBusinessUnit.hints.tooltip}" id="it15">
+                <f:validator binding="#{bindings.BillingGlBusinessUnit.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.BillingAffiliate.inputValue}"
+                            label="#{bindings.BillingAffiliate.hints.label}"
+                            required="#{bindings.BillingAffiliate.hints.mandatory}"
+                            columns="#{bindings.BillingAffiliate.hints.displayWidth}"
+                            maximumLength="#{bindings.BillingAffiliate.hints.precision}"
+                            shortDesc="#{bindings.BillingAffiliate.hints.tooltip}" id="it16">
+                <f:validator binding="#{bindings.BillingAffiliate.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.BillingOperatingUnit.inputValue}"
+                            label="#{bindings.BillingOperatingUnit.hints.label}"
+                            required="#{bindings.BillingOperatingUnit.hints.mandatory}"
+                            columns="#{bindings.BillingOperatingUnit.hints.displayWidth}"
+                            maximumLength="#{bindings.BillingOperatingUnit.hints.precision}"
+                            shortDesc="#{bindings.BillingOperatingUnit.hints.tooltip}" id="it17">
+                <f:validator binding="#{bindings.BillingOperatingUnit.validator}"/>
               </af:inputText>
             </af:panelFormLayout>
           </af:panelHeader>
@@ -313,7 +337,7 @@
             <f:facet name="menuBar"/>
             <f:facet name="legend"/>
             <f:facet name="info"/>
-            <af:panelFormLayout id="pfl6" labelAlignment="top" rows="1">
+            <af:panelFormLayout id="pfl6" labelAlignment="top" rows="1" maxColumns="5">
               <f:facet name="footer"/>
               <af:inputText value="#{bindings.BillingBusinessUnit1.inputValue}"
                             label="#{bindings.BillingBusinessUnit1.hints.label}"
@@ -330,6 +354,30 @@
                             maximumLength="#{bindings.BusinessUnitRef1.hints.precision}"
                             shortDesc="#{bindings.BusinessUnitRef1.hints.tooltip}" id="it12">
                 <f:validator binding="#{bindings.BusinessUnitRef1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.BillingGlBusinessUnit1.inputValue}"
+                            label="#{bindings.BillingGlBusinessUnit1.hints.label}"
+                            required="#{bindings.BillingGlBusinessUnit1.hints.mandatory}"
+                            columns="#{bindings.BillingGlBusinessUnit1.hints.displayWidth}"
+                            maximumLength="#{bindings.BillingGlBusinessUnit1.hints.precision}"
+                            shortDesc="#{bindings.BillingGlBusinessUnit1.hints.tooltip}" id="it18">
+                <f:validator binding="#{bindings.BillingGlBusinessUnit1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.BillingAffiliate1.inputValue}"
+                            label="#{bindings.BillingAffiliate1.hints.label}"
+                            required="#{bindings.BillingAffiliate1.hints.mandatory}"
+                            columns="#{bindings.BillingAffiliate1.hints.displayWidth}"
+                            maximumLength="#{bindings.BillingAffiliate1.hints.precision}"
+                            shortDesc="#{bindings.BillingAffiliate1.hints.tooltip}" id="it19">
+                <f:validator binding="#{bindings.BillingAffiliate1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.BillingOperatingUnit1.inputValue}"
+                            label="#{bindings.BillingOperatingUnit1.hints.label}"
+                            required="#{bindings.BillingOperatingUnit1.hints.mandatory}"
+                            columns="#{bindings.BillingOperatingUnit1.hints.displayWidth}"
+                            maximumLength="#{bindings.BillingOperatingUnit1.hints.precision}"
+                            shortDesc="#{bindings.BillingOperatingUnit1.hints.tooltip}" id="it20">
+                <f:validator binding="#{bindings.BillingOperatingUnit1.validator}"/>
               </af:inputText>
             </af:panelFormLayout>
           </af:panelHeader>

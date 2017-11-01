@@ -134,5 +134,35 @@
         <Item Value="StatsOnly"/>
       </AttrNames>
     </button>
+    <attributeValues IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" id="BillingGlBusinessUnit">
+      <AttrNames>
+        <Item Value="BillingGlBusinessUnit"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" id="BillingAffiliate">
+      <AttrNames>
+        <Item Value="BillingAffiliate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" id="BillingOperatingUnit">
+      <AttrNames>
+        <Item Value="BillingOperatingUnit"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgBusinessunitEOVOIterator" id="BillingGlBusinessUnit1">
+      <AttrNames>
+        <Item Value="BillingGlBusinessUnit"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgBusinessunitEOVOIterator" id="BillingAffiliate1">
+      <AttrNames>
+        <Item Value="BillingAffiliate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgBusinessunitEOVOIterator" id="BillingOperatingUnit1">
+      <AttrNames>
+        <Item Value="BillingOperatingUnit"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
