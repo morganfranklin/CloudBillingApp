@@ -1818,8 +1818,9 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
 
             if (null != xpeDccWfActionEOVORow) {
                 if (EmailUtils.sendEmail(xpeDccWfActionEOVORow.getXpeApproverEmail(),
-                                         buildEmailBody(contractType, xpeDccWfActionEOVORow.getXpeUuid()), bytes))
+                                         buildEmailBody(contractType, xpeDccWfActionEOVORow.getXpeUuid()), bytes)) {
                     xpeDccWfActionEOVORow.setXpeActionStatus("P");
+                }
             } else {
                 XpeDccWfEventEOVOImpl approvalWFEvent = this.getXpeDccWfEventEOVO();
                 approvalWFEvent.executeEmptyRowSet();
@@ -1893,12 +1894,14 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         html.append("<b>Sales Person:</b>").append("&nbsp;&nbsp;").append(null != salesPerson ? salesPerson :
                                                                           "").append("<br><br>");
         html.append("<a href=\"");
-        html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(uuId).append("&").append("action=").append("ACCEPT");
         html.append("\"><b>Accept</b></a>");
         html.append("&nbsp;&nbsp;&nbsp;");
         html.append("<a href=\"");
-        html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(uuId).append("&").append("action=").append("REJECT");
         html.append("\"><b>Reject</b></a>");
         html.append("</p>");
