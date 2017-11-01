@@ -17,6 +17,7 @@ import model.common.AppModule;
 
 import model.utils.EmailUtils;
 
+import model.views.entitybased.XpeDccCfgBusinessunitEOVOImpl;
 import model.views.entitybased.XpeDccCfgCarriersEOVOImpl;
 import model.views.entitybased.XpeDccCfgCmtmntFacilityEOVOImpl;
 import model.views.entitybased.XpeDccCfgCmtmntFacilityEOVORowImpl;
@@ -2431,8 +2432,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      * Container's getter for XpeDccCfgBusinessunitEOVO1.
      * @return XpeDccCfgBusinessunitEOVO1
      */
-    public ViewObjectImpl getXpeDccCfgBusinessunitEOVO() {
-        return (ViewObjectImpl) findViewObject("XpeDccCfgBusinessunitEOVO");
+    public XpeDccCfgBusinessunitEOVOImpl getXpeDccCfgBusinessunitEOVO() {
+        return (XpeDccCfgBusinessunitEOVOImpl) findViewObject("XpeDccCfgBusinessunitEOVO");
     }
 
     /**
@@ -2971,8 +2972,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      * Container's getter for XpeDccCfgBusinessunitEOVO1.
      * @return XpeDccCfgBusinessunitEOVO1
      */
-    public ViewObjectImpl getXpeDccCfgNewBusinessunitEOVO() {
-        return (ViewObjectImpl) findViewObject("XpeDccCfgNewBusinessunitEOVO");
+    public XpeDccCfgBusinessunitEOVOImpl getXpeDccCfgNewBusinessunitEOVO() {
+        return (XpeDccCfgBusinessunitEOVOImpl) findViewObject("XpeDccCfgNewBusinessunitEOVO");
     }
 }
 

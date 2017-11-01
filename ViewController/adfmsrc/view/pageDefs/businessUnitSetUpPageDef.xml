@@ -33,5 +33,106 @@
     </tree>
     <action IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" id="CreateInsert" RequiresUpdateModel="true"
             Action="createInsertRow"/>
+    <listOfValues IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" StaticList="false" Uses="LOV_SiteId" id="SiteId"/>
+    <attributeValues IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" id="BusinessUnit">
+      <AttrNames>
+        <Item Value="BusinessUnit"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" StaticList="false" Uses="LOV_TerminalId"
+                  id="TerminalId"/>
+    <attributeValues IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" id="SiteDesc">
+      <AttrNames>
+        <Item Value="SiteDesc"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" StaticList="false" Uses="LOV_AccountingClass"
+                  id="AccountingClass"/>
+    <attributeValues IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" id="Affliate">
+      <AttrNames>
+        <Item Value="Affliate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" id="BillingBusinessUnit">
+      <AttrNames>
+        <Item Value="BillingBusinessUnit"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" id="BusinessUnitRef">
+      <AttrNames>
+        <Item Value="BusinessUnitRef"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" id="GlBusinessUnit">
+      <AttrNames>
+        <Item Value="GlBusinessUnit"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" id="OperatingUnit">
+      <AttrNames>
+        <Item Value="OperatingUnit"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <listOfValues IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_SiteId" id="SiteId1"/>
+    <attributeValues IterBinding="XpeDccCfgBusinessunitEOVOIterator" id="BusinessUnit1">
+      <AttrNames>
+        <Item Value="BusinessUnit"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_TerminalId"
+                  id="TerminalId1"/>
+    <attributeValues IterBinding="XpeDccCfgBusinessunitEOVOIterator" id="SiteDesc1">
+      <AttrNames>
+        <Item Value="SiteDesc"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_AccountingClass"
+                  id="AccountingClass1"/>
+    <attributeValues IterBinding="XpeDccCfgBusinessunitEOVOIterator" id="Affliate1">
+      <AttrNames>
+        <Item Value="Affliate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgBusinessunitEOVOIterator" id="BillingBusinessUnit1">
+      <AttrNames>
+        <Item Value="BillingBusinessUnit"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgBusinessunitEOVOIterator" id="BusinessUnitRef1">
+      <AttrNames>
+        <Item Value="BusinessUnitRef"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgBusinessunitEOVOIterator" id="GlBusinessUnit1">
+      <AttrNames>
+        <Item Value="GlBusinessUnit"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgBusinessunitEOVOIterator" id="InactiveDate">
+      <AttrNames>
+        <Item Value="InactiveDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgBusinessunitEOVOIterator" id="OperatingUnit1">
+      <AttrNames>
+        <Item Value="OperatingUnit"/>
+      </AttrNames>
+    </attributeValues>
+    <button IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_StatsOnly" id="StatsOnly1"
+            DTSupportsMRU="false">
+      <AttrNames>
+        <Item Value="StatsOnly"/>
+      </AttrNames>
+    </button>
+    <button IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" StaticList="false" Uses="LOV_StatsOnly" id="StatsOnly"
+            DTSupportsMRU="false">
+      <AttrNames>
+        <Item Value="StatsOnly"/>
+      </AttrNames>
+    </button>
   </bindings>
 </pageDefinition>

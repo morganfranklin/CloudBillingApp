@@ -1,5 +1,7 @@
 package view;
 
+import java.sql.Timestamp;
+
 import javax.el.ELContext;
 import javax.el.ExpressionFactory;
 import javax.el.MethodExpression;
@@ -7,7 +9,13 @@ import javax.el.MethodExpression;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
+import javax.faces.event.ValueChangeEvent;
+
+import model.views.entitybased.XpeDccCfgBusinessunitEOVORowImpl;
+import model.views.entitybased.XpeDccCfgCountiesEOVORowImpl;
+
 import oracle.adf.model.binding.DCIteratorBinding;
+import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.context.AdfFacesContext;
 import oracle.adf.view.rich.event.QueryOperationEvent;
 
@@ -24,7 +32,8 @@ public class BusinessUnitSetUpTableMBean {
     }
 
     public void onBusinessUnitCreation(ActionEvent actionEvent) {
-        // Add event code here...
+        RichPopup.PopupHints hints = new RichPopup.PopupHints();
+        this.getBusinessUnitSetUpTableBBean().getBusinessUnitAddItem_popup().show(hints);
     }
 
     public void queryOperationListener(QueryOperationEvent queryOperationEvent) {
@@ -47,5 +56,28 @@ public class BusinessUnitSetUpTableMBean {
 
     public Object invokeEL(String expr, Class returnType, Class argType, Object argument) {
         return invokeMethodExpression(expr, returnType, new Class[] { argType }, new Object[] { argument });
+    }
+
+    public void onBusinessUnitEdit(ActionEvent actionEvent) {
+        RichPopup.PopupHints hints = new RichPopup.PopupHints();
+        this.getBusinessUnitSetUpTableBBean().getBusinessUnitEditItem_popup().show(hints);
+    }
+
+    public void businessUnitCreationSaveorCancel(ActionEvent actionEvent) {
+        this.getBusinessUnitSetUpTableBBean().getBusinessUnitAddItem_popup().hide();
+    }
+
+    public void businessUnitEditSaveorCancel(ActionEvent actionEvent) {
+        this.getBusinessUnitSetUpTableBBean().getBusinessUnitEditItem_popup().hide();
+    }
+
+    public void businessUnitInactiveValChgLstnr(ValueChangeEvent valueChangeEvent) {
+        DCIteratorBinding businessUnitIter = ADFUtils.findIterator("XpeDccCfgBusinessunitEOVOIterator");
+        XpeDccCfgBusinessunitEOVORowImpl businessUnitRow = (XpeDccCfgBusinessunitEOVORowImpl) businessUnitIter.getCurrentRow();
+        if (null != valueChangeEvent.getNewValue() && valueChangeEvent.getNewValue().equals("Y")) {
+            businessUnitRow.setInactiveDate(new Timestamp(System.currentTimeMillis()));
+        } else {
+            businessUnitRow.setInactiveDate(null);
+        }
     }
 }

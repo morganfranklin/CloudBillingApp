@@ -12,7 +12,13 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="model.views.entitybased.XpeDccCfgBusinessunitEOVORowImpl"
+  ComponentClass="model.views.entitybased.XpeDccCfgBusinessunitEOVOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Properties>
     <SchemaBasedProperties>
       <LABEL
@@ -195,6 +201,8 @@
           Value="input_text_lov"/>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.SiteId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -213,6 +221,8 @@
           Value="input_text_lov"/>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.TerminalId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -228,6 +238,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.BusinessUnit_LABEL"/>
+        <DISPLAYWIDTH
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -244,6 +256,8 @@
           Value="input_text_lov"/>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.AccountingClass_LABEL"/>
+        <DISPLAYWIDTH
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -257,6 +271,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.Affliate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -270,6 +286,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.BillingBusinessUnit_LABEL"/>
+        <DISPLAYWIDTH
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -283,6 +301,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.BusinessUnitRef_LABEL"/>
+        <DISPLAYWIDTH
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -296,6 +316,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.GlBusinessUnit_LABEL"/>
+        <DISPLAYWIDTH
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -338,6 +360,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.OperatingUnit_LABEL"/>
+        <DISPLAYWIDTH
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -351,6 +375,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.SiteDesc_LABEL"/>
+        <DISPLAYWIDTH
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -421,30 +447,6 @@
       Name="XpeDccCfgBusinessunitEOVOCriteria_row_0"
       UpperColumns="1">
       <ViewCriteriaItem
-        Name="XpeDccCfgBusinessunitEOVOCriteria_XpeDccCfgBusinessunitEOVOCriteria_row_0_AccountingClass"
-        ViewAttribute="AccountingClass"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_AccountingClass"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="XpeDccCfgBusinessunitEOVOCriteria_XpeDccCfgBusinessunitEOVOCriteria_row_0_Affliate"
-        ViewAttribute="Affliate"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_Affiliate"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="BusinessUnit"
-        ViewAttribute="BusinessUnit"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_BusinessUnit"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
         Name="SiteId"
         ViewAttribute="SiteId"
         Operator="="
@@ -458,6 +460,30 @@
         Operator="="
         Conjunction="AND"
         Value=":bind_TerminalId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="BusinessUnit"
+        ViewAttribute="BusinessUnit"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_BusinessUnit"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="XpeDccCfgBusinessunitEOVOCriteria_XpeDccCfgBusinessunitEOVOCriteria_row_0_AccountingClass"
+        ViewAttribute="AccountingClass"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_AccountingClass"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="XpeDccCfgBusinessunitEOVOCriteria_XpeDccCfgBusinessunitEOVOCriteria_row_0_Affliate"
+        ViewAttribute="Affliate"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_Affiliate"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>
