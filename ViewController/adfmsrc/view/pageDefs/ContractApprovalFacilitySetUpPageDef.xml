@@ -71,9 +71,6 @@
             Action="createInsertRow"/>
     <action IterBinding="XpeDccCfgNewMetalsFacilityEOVOIterator" id="CreateInsert2" RequiresUpdateModel="true"
             Action="createInsertRow"/>
-    <methodAction id="searchCntrctAprFcltySetUp" RequiresUpdateModel="true" Action="invokeMethod"
-                  MethodName="searchCntrctAprFcltySetUp" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
-                  InstanceName="data.AppModuleDataControl.dataProvider"/>
     <methodAction id="resetCntrctAprFcltySetUp" RequiresUpdateModel="true" Action="invokeMethod"
                   MethodName="resetCntrctAprFcltySetUp" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
                   InstanceName="data.AppModuleDataControl.dataProvider"/>
@@ -201,13 +198,6 @@
         <Item Value="CeoReview"/>
       </AttrNames>
     </attributeValues>
-    <list IterBinding="XpeDccCfgNewCmtmntFacilityEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive2"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
-    <attributeValues IterBinding="XpeDccCfgNewCmtmntFacilityEOVOIterator" id="InactiveDate2">
-      <AttrNames>
-        <Item Value="InactiveDate"/>
-      </AttrNames>
-    </attributeValues>
     <list IterBinding="XpeDccCfgMetalsFacilityEOVO1Iterator" StaticList="false" Uses="LOV_XpeFacilityId"
           id="XpeFacilityId5" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <attributeValues IterBinding="XpeDccCfgMetalsFacilityEOVO1Iterator" id="CustomerCareReview4">
@@ -266,5 +256,10 @@
         <Item Value="InactiveDate"/>
       </AttrNames>
     </attributeValues>
+    <methodAction id="searchCntrctAprFcltySetUp" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="searchCntrctAprFcltySetUp" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="data.AppModuleDataControl.dataProvider">
+      <NamedData NDName="type" NDValue="#{requestScope.type}" NDType="java.lang.String"/>
+    </methodAction>
   </bindings>
 </pageDefinition>

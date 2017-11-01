@@ -574,9 +574,6 @@
         Name="XpeDccWfActionROVO"
         ViewObjectName="model.views.readonly.XpeDccWfActionROVO"/>
     <ViewUsage
-        Name="XpeNewBillAccountProcessesEOVO"
-        ViewObjectName="model.views.entitybased.XpeBillAccountProcessesEOVO"/>
-    <ViewUsage
         Name="XpeDccCfgNewAccountingEOVO"
         ViewObjectName="model.views.entitybased.XpeDccCfgAccountingEOVO"/>
     <ViewUsage
@@ -1385,6 +1382,9 @@
             <Return
                 Name="_return_type_"
                 Type="void"/>
+            <Parameter
+                Name="type"
+                Type="java.lang.String"/>
         </Method>
     </ClientInterface>
 </AppModule>

@@ -74,36 +74,40 @@
   </Attribute>
   <Attribute
     Name="CreatedBy"
-    Precision="15"
-    Scale="0"
+    Precision="20"
     ColumnName="CREATED_BY"
-    SQLType="NUMERIC"
-    Type="java.lang.Long"
-    ColumnType="NUMBER"
-    TableName="XPE_DCC_CFG_METALS_FACILITY"/>
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_METALS_FACILITY"
+    IsUpdateable="while_insert"
+    HistoryColumn="UserHistory"/>
   <Attribute
     Name="CreationDate"
     ColumnName="CREATION_DATE"
-    SQLType="DATE"
+    SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
-    ColumnType="DATE"
-    TableName="XPE_DCC_CFG_METALS_FACILITY"/>
+    ColumnType="TIMESTAMP"
+    TableName="XPE_DCC_CFG_METALS_FACILITY"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="LastUpdatedBy"
-    Precision="15"
-    Scale="0"
+    Precision="20"
     ColumnName="LAST_UPDATED_BY"
-    SQLType="NUMERIC"
-    Type="java.lang.Long"
-    ColumnType="NUMBER"
-    TableName="XPE_DCC_CFG_METALS_FACILITY"/>
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_METALS_FACILITY"
+    HistoryColumn="UserHistory"/>
   <Attribute
     Name="LastUpdateDate"
     ColumnName="LAST_UPDATE_DATE"
-    SQLType="DATE"
+    SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
-    ColumnType="DATE"
-    TableName="XPE_DCC_CFG_METALS_FACILITY"/>
+    ColumnType="TIMESTAMP"
+    TableName="XPE_DCC_CFG_METALS_FACILITY"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="Inactive"
     Precision="1"

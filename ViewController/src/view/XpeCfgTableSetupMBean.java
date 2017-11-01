@@ -13,6 +13,8 @@ import javax.faces.event.ActionEvent;
 
 import javax.faces.event.ValueChangeEvent;
 
+import model.views.entitybased.XpeDccCfgTerminalsEOVORowImpl;
+
 import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.view.rich.component.rich.RichPopup;
 
@@ -68,7 +70,13 @@ public class XpeCfgTableSetupMBean implements Serializable {
     }
 
     public void onInActiveValChgLstnr(ValueChangeEvent valueChangeEvent) {
-        JSFUtils.setExpressionValue("#{bindings.InactiveDate.inputValue}", new Timestamp(System.currentTimeMillis()));
+        DCIteratorBinding terminalsIter = ADFUtils.findIterator("XpeDccCfgTerminalsEOVOIterator");
+        XpeDccCfgTerminalsEOVORowImpl terminalsRow = (XpeDccCfgTerminalsEOVORowImpl) terminalsIter.getCurrentRow();
+        if (null != valueChangeEvent.getNewValue() && valueChangeEvent.getNewValue().equals("Y")) {
+            terminalsRow.setInactiveDate(new Timestamp(System.currentTimeMillis()));
+        } else {
+            terminalsRow.setInactiveDate(null);
+        }
     }
     
     public void queryOperationListener(QueryOperationEvent queryOperationEvent) {

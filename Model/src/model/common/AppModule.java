@@ -41,6 +41,6 @@ public interface AppModule extends ApplicationModule {
 
     void resetCntrctAprFcltySetUp();
 
-    void searchCntrctAprFcltySetUp();
+    void searchCntrctAprFcltySetUp(String type);
 }
 

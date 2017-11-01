@@ -13,6 +13,8 @@ import javax.faces.event.ActionEvent;
 
 import javax.faces.event.ValueChangeEvent;
 
+import model.views.entitybased.XpeDccCfgVehiclesEOVORowImpl;
+
 import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.view.rich.component.rich.RichPopup;
 
@@ -54,7 +56,13 @@ public class VehicleTypeSetUpTableMBean implements Serializable {
     }
 
     public void onInactiveValChgLstnr(ValueChangeEvent valueChangeEvent) {
-        JSFUtils.setExpressionValue("#{bindings.InactiveDate.inputValue}", new Timestamp(System.currentTimeMillis()));
+        DCIteratorBinding vehicleTypesIter = ADFUtils.findIterator("XpeDccCfgVehiclesEOVOIterator");
+        XpeDccCfgVehiclesEOVORowImpl vehicleTypesRow = (XpeDccCfgVehiclesEOVORowImpl) vehicleTypesIter.getCurrentRow();
+        if (null != valueChangeEvent.getNewValue() && valueChangeEvent.getNewValue().equals("Y")){
+            vehicleTypesRow.setInactiveDate(new Timestamp(System.currentTimeMillis()));
+        }else{
+            vehicleTypesRow.setInactiveDate(null);
+        }
     }
 
     public void queryOperationListener(QueryOperationEvent queryOperationEvent) {

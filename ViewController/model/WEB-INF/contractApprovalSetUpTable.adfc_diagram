@@ -42,6 +42,6 @@
       <property
          name="fromOutcome">initCntrctAprFcltySetUp</property>
       <property
-         name="sdm:polyPoints">R50,265.3496,216.39648,452.0,201.24707,L50</property>
+         name="sdm:polyPoints">R50,265.9899,216.39648,451.35974,201.24707,L50</property>
    </ControlFlowCase>
 </SDM>
