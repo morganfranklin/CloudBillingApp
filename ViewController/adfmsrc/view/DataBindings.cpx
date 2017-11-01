@@ -101,6 +101,7 @@
         <page path="/WEB-INF/contractApprovalSetUpTable.xml#contractApprovalSetUpTable@initCntrctAprFcltySetUp"
               usageId="view_contractApprovalSetUpTable_contractApprovalSetUpTable_initCntrctAprFcltySetUpPageDef"/>
         <page path="/ContractApprovalFacilitySetUp.jsff" usageId="view_ContractApprovalFacilitySetUpPageDef"/>
+        <page path="/businessUnitSetUp.jsff" usageId="view_businessUnitSetUpPageDef"/>
     </pageMap>
     <pageDefinitionUsages>
         <page id="view_IntegrationDashPageDef" path="view.pageDefs.IntegrationDashPageDef"/>
@@ -196,6 +197,7 @@
         <page id="view_contractApprovalSetUpTable_contractApprovalSetUpTable_initCntrctAprFcltySetUpPageDef"
               path="view.pageDefs.contractApprovalSetUpTable_contractApprovalSetUpTable_initCntrctAprFcltySetUpPageDef"/>
         <page id="view_ContractApprovalFacilitySetUpPageDef" path="view.pageDefs.ContractApprovalFacilitySetUpPageDef"/>
+        <page id="view_businessUnitSetUpPageDef" path="view.pageDefs.businessUnitSetUpPageDef"/>
     </pageDefinitionUsages>
     <dataControlUsages>
         <BC4JDataControl id="AppModuleDataControl" Package="model"

@@ -74,6 +74,13 @@ public class PcsShortNameSetUpTableBean implements Serializable{
     }
 
     public void onEditPcsShortNameInactiveValChgLstnr(ValueChangeEvent valueChangeEvent) {
-        JSFUtils.setExpressionValue("#{bindings.InactiveDate.inputValue}", new Timestamp(System.currentTimeMillis()));
+        DCIteratorBinding pcsShortNameIter = ADFUtils.findIterator("XpeDccCfgPcsshortnamesEOVOIterator");
+        XpeDccCfgPcsshortnamesEOVORowImpl pcsShortNameRow =
+            (XpeDccCfgPcsshortnamesEOVORowImpl) pcsShortNameIter.getCurrentRow();
+        if (null != valueChangeEvent.getNewValue() && valueChangeEvent.getNewValue().equals("Y")){
+            pcsShortNameRow.setInactiveDate(new Timestamp(System.currentTimeMillis()));
+        }else{
+            pcsShortNameRow.setInactiveDate(null);
+        }
     }
 }

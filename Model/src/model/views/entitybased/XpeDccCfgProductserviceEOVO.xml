@@ -94,7 +94,18 @@
   <ViewAccessor
     Name="XpeDccGeneralItemListROVO_CategoryLOV"
     ViewObjectName="model.views.readonly.XpeDccGeneralItemListROVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="findByItemListType"
+      FullName="model.views.readonly.XpeDccGeneralItemListROVO.findByItemListType"/>
+    <ParameterMap>
+      <PIMap Variable="bind_ItemListType">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA['MC']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="XpeDccGeneralItemListROVO_AccountBoundClassLOV"
     ViewObjectName="model.views.readonly.XpeDccGeneralItemListROVO"
@@ -195,6 +206,7 @@
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ItemId"/>
       <Item Value="ItemListType"/>
+      <Item Value="ValidValue"/>
     </AttrArray>
     <DisplayCriteria
       Hint="showAndExecute"/>
@@ -204,7 +216,8 @@
     ListVOName="XpeDccGeneralItemListROVO_AccountBoundClassLOV"
     ListRangeSize="-1"
     NullValueFlag="none"
-    MRUCount="0">
+    MRUCount="0"
+    ComboRowCountHint="10">
     <AttrArray Name="AttrNames">
       <Item Value="ClassId"/>
     </AttrArray>
@@ -213,9 +226,12 @@
       <Item Value="ItemId"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ItemId"/>
       <Item Value="ItemListType"/>
+      <Item Value="ValidValue"/>
     </AttrArray>
-    <DisplayCriteria/>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
   </ListBinding>
   <ListBinding
     Name="LOV_Inactive"
@@ -339,10 +355,10 @@
     LOVName="LOV_ClassId">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgProductserviceEOVO.ClassId_LABEL"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
     <Dependencies>

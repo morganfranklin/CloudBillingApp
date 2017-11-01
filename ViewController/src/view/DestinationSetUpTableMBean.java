@@ -18,6 +18,8 @@ import model.views.entitybased.XpeDccCfgDestinationsEOVOImpl;
 
 import model.views.entitybased.XpeDccCfgDestinationsEOVORowImpl;
 
+import model.views.entitybased.XpeDccCfgDstAssTerminalsEOVORowImpl;
+
 import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.context.AdfFacesContext;
@@ -110,11 +112,25 @@ public class DestinationSetUpTableMBean implements Serializable{
     }
 
     public void onInactiveValChgLstnr(ValueChangeEvent valueChangeEvent) {
-        JSFUtils.setExpressionValue("#{bindings.InactiveDate1.inputValue}", new Timestamp(System.currentTimeMillis()));
+        DCIteratorBinding destAssocIter = ADFUtils.findIterator("XpeDccCfgNewDstAssTerminalsCreationEOVOIterator");
+        XpeDccCfgDstAssTerminalsEOVORowImpl destAssocTermRow =
+            (XpeDccCfgDstAssTerminalsEOVORowImpl) destAssocIter.getCurrentRow();
+        if (null != valueChangeEvent.getNewValue() && valueChangeEvent.getNewValue().equals("Y")){
+            destAssocTermRow.setInactiveDate(new Timestamp(System.currentTimeMillis()));
+        }else{
+            destAssocTermRow.setInactiveDate(null);
+        }
     }
 
     public void onAddDesInactiveValChgLstnr(ValueChangeEvent valueChangeEvent) {
-        JSFUtils.setExpressionValue("#{bindings.InactiveDate.inputValue}", new Timestamp(System.currentTimeMillis()));
+        DCIteratorBinding destAssocIter = ADFUtils.findIterator("XpeDccCfgNewDstAssTerminalsCreationEOVOIterator");
+        XpeDccCfgDstAssTerminalsEOVORowImpl destAssocTermRow =
+            (XpeDccCfgDstAssTerminalsEOVORowImpl) destAssocIter.getCurrentRow();
+        if (null != valueChangeEvent.getNewValue() && valueChangeEvent.getNewValue().equals("Y")){
+            destAssocTermRow.setInactiveDate(new Timestamp(System.currentTimeMillis()));
+        }else{
+            destAssocTermRow.setInactiveDate(null);
+        }
     }
 
     public void onDestinationCreation(ActionEvent actionEvent) {
@@ -129,6 +145,12 @@ public class DestinationSetUpTableMBean implements Serializable{
     }
 
     public void onDestinationInactiveValChgLstnr(ValueChangeEvent valueChangeEvent) {
-        JSFUtils.setExpressionValue("#{bindings.InactiveDate.inputValue}", new Timestamp(System.currentTimeMillis()));
+        DCIteratorBinding dcIterBind = ADFUtils.findIterator("XpeDccCfgNewDestinationsCreationEOVOIterator");
+        XpeDccCfgDestinationsEOVORowImpl destinationRow = (XpeDccCfgDestinationsEOVORowImpl) dcIterBind.getCurrentRow();
+        if (null != valueChangeEvent.getNewValue() && valueChangeEvent.getNewValue().equals("Y")){
+            destinationRow.setInactiveDate(new Timestamp(System.currentTimeMillis()));
+        }else{
+            destinationRow.setInactiveDate(null);
+        }
     }
 }

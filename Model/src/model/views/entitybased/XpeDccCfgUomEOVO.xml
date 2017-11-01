@@ -12,7 +12,13 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="model.views.entitybased.XpeDccCfgUomEOVORowImpl"
+  ComponentClass="model.views.entitybased.XpeDccCfgUomEOVOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <ViewAccessor
     Name="XpeDccGeneralItemListROVO_UOMLOV"
     ViewObjectName="model.views.readonly.XpeDccGeneralItemListROVO"
@@ -61,18 +67,26 @@
     ListVOName="XpeDccGeneralItemListROVO_UOMLOV"
     ListRangeSize="-1"
     NullValueFlag="none"
-    MRUCount="0">
+    MRUCount="0"
+    ComboRowCountHint="10">
     <AttrArray Name="AttrNames">
       <Item Value="Uom"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="UomDesc"/>
+    </AttrArray>
     <AttrArray Name="ListAttrNames">
       <Item Value="ItemId"/>
+      <Item Value="ValidValue"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ItemId"/>
       <Item Value="ItemListType"/>
+      <Item Value="ValidValue"/>
     </AttrArray>
-    <DisplayCriteria/>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
   </ListBinding>
   <ListBinding
     Name="LOV_FeedMethod"
@@ -212,7 +226,7 @@
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgUomEOVO.Uom_LABEL"/>
         <CONTROLTYPE
-          Value="choice"/>
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

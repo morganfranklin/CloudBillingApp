@@ -56,12 +56,15 @@
           <f:selectItems value="#{bindings.ClassType.items}" id="si3"/>
           <f:validator binding="#{bindings.ClassType.validator}"/>
         </af:selectOneChoice>
-        <af:selectOneChoice value="#{bindings.ClassId.inputValue}" label="#{bindings.ClassId.label}"
-                            required="#{bindings.ClassId.hints.mandatory}" shortDesc="#{bindings.ClassId.hints.tooltip}"
-                            id="soc9" disabled="#{bindings.ClassType.inputValue eq 'DC'}" partialTriggers="soc3">
-          <f:selectItems value="#{bindings.ClassId.items}" id="si9"/>
+        <af:inputListOfValues id="classIdId" popupTitle="Search and Select: #{bindings.ClassId.hints.label}"
+                              value="#{bindings.ClassId.inputValue}" label="#{bindings.ClassId.hints.label}"
+                              model="#{bindings.ClassId.listOfValuesModel}"
+                              required="#{bindings.ClassId.hints.mandatory}"
+                              columns="#{bindings.ClassId.hints.displayWidth}"
+                              shortDesc="#{bindings.ClassId.hints.tooltip}"
+                              disabled="#{bindings.ClassType.inputValue eq 'DC'}" partialTriggers="soc3">
           <f:validator binding="#{bindings.ClassId.validator}"/>
-        </af:selectOneChoice>
+        </af:inputListOfValues>
         <af:selectOneChoice value="#{bindings.Inactive.inputValue}" label="#{bindings.Inactive.label}"
                             required="#{bindings.Inactive.hints.mandatory}"
                             shortDesc="#{bindings.Inactive.hints.tooltip}" id="soc4"
@@ -157,16 +160,17 @@
           </af:button>
         </f:facet>
         <af:panelFormLayout id="pfl2">
-          <af:selectOneChoice value="#{bindings.Uom.inputValue}" label="#{bindings.Uom.label}"
-                              required="#{bindings.Uom.hints.mandatory}" shortDesc="#{bindings.Uom.hints.tooltip}"
-                              id="soc11">
-            <f:selectItems value="#{bindings.Uom.items}" id="si11"/>
-            <f:validator binding="#{bindings.Uom.validator}"/>
-          </af:selectOneChoice>
+          <af:inputListOfValues id="ilov1" popupTitle="Search and Select: #{bindings.Uom1.hints.label}"
+                                value="#{bindings.Uom1.inputValue}" label="#{bindings.Uom1.hints.label}"
+                                model="#{bindings.Uom1.listOfValuesModel}" required="#{bindings.Uom1.hints.mandatory}"
+                                columns="#{bindings.Uom1.hints.displayWidth}"
+                                shortDesc="#{bindings.Uom1.hints.tooltip}" autoSubmit="true">
+            <f:validator binding="#{bindings.Uom1.validator}"/>
+          </af:inputListOfValues>
           <af:inputText value="#{bindings.UomDesc.inputValue}" label="#{bindings.UomDesc.hints.label}"
                         required="#{bindings.UomDesc.hints.mandatory}" columns="#{bindings.UomDesc.hints.displayWidth}"
                         maximumLength="#{bindings.UomDesc.hints.precision}"
-                        shortDesc="#{bindings.UomDesc.hints.tooltip}" id="it2">
+                        shortDesc="#{bindings.UomDesc.hints.tooltip}" id="it2" partialTriggers="ilov1">
             <f:validator binding="#{bindings.UomDesc.validator}"/>
           </af:inputText>
           <af:selectOneChoice value="#{bindings.FeedMethod.inputValue}" label="#{bindings.FeedMethod.label}"
@@ -175,10 +179,6 @@
             <f:selectItems value="#{bindings.FeedMethod.items}" id="si6"/>
             <f:validator binding="#{bindings.FeedMethod.validator}"/>
           </af:selectOneChoice>
-          <af:panelLabelAndMessage label="#{bindings.ItemId1.hints.label}" id="plam2">
-            <af:outputText value="#{bindings.ItemId1.inputValue}" shortDesc="#{bindings.ItemId1.hints.tooltip}"
-                           id="ot2"/>
-          </af:panelLabelAndMessage>
         </af:panelFormLayout>
       </af:dialog>
     </af:popup>
@@ -196,16 +196,17 @@
           </af:button>
         </f:facet>
         <af:panelFormLayout id="pfl3">
-          <af:selectOneChoice value="#{bindings.Uom.inputValue}" label="#{bindings.Uom.label}"
-                              required="#{bindings.Uom.hints.mandatory}" shortDesc="#{bindings.Uom.hints.tooltip}"
-                              id="soc12" readOnly="true">
-            <f:selectItems value="#{bindings.Uom.items}" id="si12"/>
-            <f:validator binding="#{bindings.Uom.validator}"/>
-          </af:selectOneChoice>
+          <af:inputListOfValues id="uom1Id" popupTitle="Search and Select: #{bindings.Uom1.hints.label}"
+                                value="#{bindings.Uom1.inputValue}" label="#{bindings.Uom1.hints.label}"
+                                model="#{bindings.Uom1.listOfValuesModel}" required="#{bindings.Uom1.hints.mandatory}"
+                                columns="#{bindings.Uom1.hints.displayWidth}"
+                                shortDesc="#{bindings.Uom1.hints.tooltip}" autoSubmit="true">
+            <f:validator binding="#{bindings.Uom1.validator}"/>
+          </af:inputListOfValues>
           <af:inputText value="#{bindings.UomDesc.inputValue}" label="#{bindings.UomDesc.hints.label}"
                         required="#{bindings.UomDesc.hints.mandatory}" columns="#{bindings.UomDesc.hints.displayWidth}"
                         maximumLength="#{bindings.UomDesc.hints.precision}"
-                        shortDesc="#{bindings.UomDesc.hints.tooltip}" id="it3">
+                        shortDesc="#{bindings.UomDesc.hints.tooltip}" id="it3" partialTriggers="uom1Id">
             <f:validator binding="#{bindings.UomDesc.validator}"/>
           </af:inputText>
           <af:selectOneChoice value="#{bindings.FeedMethod.inputValue}" label="#{bindings.FeedMethod.label}"

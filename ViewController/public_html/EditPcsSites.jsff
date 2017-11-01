@@ -23,7 +23,7 @@
                       required="#{bindings.FacilityId.hints.mandatory}"
                       columns="#{bindings.FacilityId.hints.displayWidth}"
                       maximumLength="#{bindings.FacilityId.hints.precision}"
-                      shortDesc="#{bindings.FacilityId.hints.tooltip}" id="it2">
+                      shortDesc="#{bindings.FacilityId.hints.tooltip}" id="it2" rendered="false">
           <f:validator binding="#{bindings.FacilityId.validator}"/>
         </af:inputText>
         <af:inputText value="#{bindings.DbLink.inputValue}" label="#{bindings.DbLink.hints.label}"

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="businessUnitSetUpPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XpeDccCfgBusinessunitEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgBusinessunitEOVOIterator"/>
+    <searchRegion Criteria="BusinessUnitCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="XpeDccCfgBusinessunitEOVOIterator" id="BusinessUnitCriteriaQuery"/>
+    <iterator Binds="XpeDccCfgNewBusinessunitEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewBusinessunitEOVOIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="XpeDccCfgBusinessunitEOVOIterator" id="XpeDccCfgBusinessunitEOVO">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccCfgBusinessunitEOVO" Name="XpeDccCfgBusinessunitEOVO0">
+        <AttrNames>
+          <Item Value="SiteId"/>
+          <Item Value="TerminalId"/>
+          <Item Value="BusinessUnit"/>
+          <Item Value="AccountingClass"/>
+          <Item Value="Affliate"/>
+          <Item Value="BillingBusinessUnit"/>
+          <Item Value="BusinessUnitRef"/>
+          <Item Value="GlBusinessUnit"/>
+          <Item Value="OperatingUnit"/>
+          <Item Value="SiteDesc"/>
+          <Item Value="StatsOnly"/>
+          <Item Value="Inactive"/>
+          <Item Value="InactiveDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

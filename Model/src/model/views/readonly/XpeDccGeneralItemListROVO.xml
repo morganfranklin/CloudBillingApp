@@ -22,8 +22,9 @@
     Name="bind_ItemListType"
     Kind="viewcriteria"
     Type="java.lang.String"/>
-  <SQLQuery><![CDATA[SELECT ITEM_ID,  
-ITEM_LIST_TYPE   
+  <SQLQuery><![CDATA[SELECT ITEM_ID,                  
+ITEM_LIST_TYPE,  
+VALID_VALUE  
 FROM XPE_DCC_CFG_GENERAL]]></SQLQuery>
   <ViewAttribute
     Name="ItemId"
@@ -66,6 +67,27 @@ FROM XPE_DCC_CFG_GENERAL]]></SQLQuery>
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.readonly.XpeDccGeneralItemListROVO.ItemListType_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ValidValue"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="45"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VALID_VALUE"
+    Expression="VALID_VALUE"
+    SQLType="VARCHAR2">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="45"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccGeneralItemListROVO.ValidValue_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

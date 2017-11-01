@@ -88,86 +88,81 @@
               </af:button>
             </af:toolbar>
           </f:facet>
-          <af:panelFormLayout id="pfl1" maxColumns="2" rows="5">
-            <af:panelLabelAndMessage label="#{bindings.AccountId.hints.label}" id="plam1">
-              <af:outputText value="#{bindings.AccountId.inputValue}" shortDesc="#{bindings.AccountId.hints.tooltip}"
-                             id="ot1"/>
-            </af:panelLabelAndMessage>
-            <af:inputListOfValues id="accountingClassId"
-                                  popupTitle="Search and Select: #{bindings.AccountingClass.hints.label}"
-                                  value="#{bindings.AccountingClass.inputValue}"
-                                  label="#{bindings.AccountingClass.hints.label}"
-                                  model="#{bindings.AccountingClass.listOfValuesModel}"
-                                  required="#{bindings.AccountingClass.hints.mandatory}"
-                                  columns="#{bindings.AccountingClass.hints.displayWidth}"
-                                  shortDesc="#{bindings.AccountingClass.hints.tooltip}">
-              <f:validator binding="#{bindings.AccountingClass.validator}"/>
-            </af:inputListOfValues>
-            <af:inputText value="#{bindings.ChargeId.inputValue}" label="#{bindings.ChargeId.hints.label}"
-                          required="#{bindings.ChargeId.hints.mandatory}"
-                          columns="#{bindings.ChargeId.hints.displayWidth}"
-                          maximumLength="#{bindings.ChargeId.hints.precision}"
-                          shortDesc="#{bindings.ChargeId.hints.tooltip}" id="it1">
-              <f:validator binding="#{bindings.ChargeId.validator}"/>
-            </af:inputText>
-            <af:inputListOfValues id="dealClassId" popupTitle="Search and Select: #{bindings.DealClass.hints.label}"
-                                  value="#{bindings.DealClass.inputValue}" label="#{bindings.DealClass.hints.label}"
-                                  model="#{bindings.DealClass.listOfValuesModel}"
-                                  required="#{bindings.DealClass.hints.mandatory}"
-                                  columns="#{bindings.DealClass.hints.displayWidth}"
-                                  shortDesc="#{bindings.DealClass.hints.tooltip}">
-              <f:validator binding="#{bindings.DealClass.validator}"/>
-            </af:inputListOfValues>
-            <af:inputText value="#{bindings.EntryType.inputValue}" label="#{bindings.EntryType.hints.label}"
-                          required="#{bindings.EntryType.hints.mandatory}"
-                          columns="#{bindings.EntryType.hints.displayWidth}"
-                          maximumLength="#{bindings.EntryType.hints.precision}"
-                          shortDesc="#{bindings.EntryType.hints.tooltip}" id="it2">
-              <f:validator binding="#{bindings.EntryType.validator}"/>
-            </af:inputText>
-            <af:inputListOfValues id="materialCategoryId"
-                                  popupTitle="Search and Select: #{bindings.MaterialCategory.hints.label}"
-                                  value="#{bindings.MaterialCategory.inputValue}"
-                                  label="#{bindings.MaterialCategory.hints.label}"
-                                  model="#{bindings.MaterialCategory.listOfValuesModel}"
-                                  required="#{bindings.MaterialCategory.hints.mandatory}"
-                                  columns="#{bindings.MaterialCategory.hints.displayWidth}"
-                                  shortDesc="#{bindings.MaterialCategory.hints.tooltip}">
-              <f:validator binding="#{bindings.MaterialCategory.validator}"/>
-            </af:inputListOfValues>
-            <af:inputText value="#{bindings.OperatingUnit.inputValue}" label="#{bindings.OperatingUnit.hints.label}"
-                          required="#{bindings.OperatingUnit.hints.mandatory}"
-                          columns="#{bindings.OperatingUnit.hints.displayWidth}"
-                          maximumLength="#{bindings.OperatingUnit.hints.precision}"
-                          shortDesc="#{bindings.OperatingUnit.hints.tooltip}" id="it3">
-              <f:validator binding="#{bindings.OperatingUnit.validator}"/>
-            </af:inputText>
-            <af:inputListOfValues id="productServiceIdId"
-                                  popupTitle="Search and Select: #{bindings.ProductServiceId.hints.label}"
-                                  value="#{bindings.ProductServiceId.inputValue}"
-                                  label="#{bindings.ProductServiceId.hints.label}"
-                                  model="#{bindings.ProductServiceId.listOfValuesModel}"
-                                  required="#{bindings.ProductServiceId.hints.mandatory}"
-                                  columns="#{bindings.ProductServiceId.hints.displayWidth}"
-                                  shortDesc="#{bindings.ProductServiceId.hints.tooltip}">
-              <f:validator binding="#{bindings.ProductServiceId.validator}"/>
-            </af:inputListOfValues>
-            <af:inputListOfValues id="siteIdId" popupTitle="Search and Select: #{bindings.SiteId.hints.label}"
-                                  value="#{bindings.SiteId.inputValue}" label="#{bindings.SiteId.hints.label}"
-                                  model="#{bindings.SiteId.listOfValuesModel}"
-                                  required="#{bindings.SiteId.hints.mandatory}"
-                                  columns="#{bindings.SiteId.hints.displayWidth}"
-                                  shortDesc="#{bindings.SiteId.hints.tooltip}">
-              <f:validator binding="#{bindings.SiteId.validator}"/>
-            </af:inputListOfValues>
-            <af:inputText value="#{bindings.StatAccount.inputValue}" label="#{bindings.StatAccount.hints.label}"
-                          required="#{bindings.StatAccount.hints.mandatory}"
-                          columns="#{bindings.StatAccount.hints.displayWidth}"
-                          maximumLength="#{bindings.StatAccount.hints.precision}"
-                          shortDesc="#{bindings.StatAccount.hints.tooltip}" id="it4">
-              <f:validator binding="#{bindings.StatAccount.validator}"/>
-            </af:inputText>
-          </af:panelFormLayout>
+          <af:panelGroupLayout id="pgl2">
+            <af:panelFormLayout id="pfl1" maxColumns="5" rows="1" labelAlignment="top">
+              <af:inputListOfValues id="siteIdId" popupTitle="Search and Select: #{bindings.SiteId.hints.label}"
+                                    value="#{bindings.SiteId.inputValue}" label="#{bindings.SiteId.hints.label}"
+                                    model="#{bindings.SiteId.listOfValuesModel}"
+                                    required="#{bindings.SiteId.hints.mandatory}"
+                                    columns="#{bindings.SiteId.hints.displayWidth}"
+                                    shortDesc="#{bindings.SiteId.hints.tooltip}">
+                <f:validator binding="#{bindings.SiteId.validator}"/>
+              </af:inputListOfValues>
+              <af:inputListOfValues id="accountingClassId"
+                                    popupTitle="Search and Select: #{bindings.AccountingClass.hints.label}"
+                                    value="#{bindings.AccountingClass.inputValue}"
+                                    label="#{bindings.AccountingClass.hints.label}"
+                                    model="#{bindings.AccountingClass.listOfValuesModel}"
+                                    required="#{bindings.AccountingClass.hints.mandatory}"
+                                    columns="#{bindings.AccountingClass.hints.displayWidth}"
+                                    shortDesc="#{bindings.AccountingClass.hints.tooltip}">
+                <f:validator binding="#{bindings.AccountingClass.validator}"/>
+              </af:inputListOfValues>
+              <af:inputListOfValues id="dealClassId" popupTitle="Search and Select: #{bindings.DealClass.hints.label}"
+                                    value="#{bindings.DealClass.inputValue}" label="#{bindings.DealClass.hints.label}"
+                                    model="#{bindings.DealClass.listOfValuesModel}"
+                                    required="#{bindings.DealClass.hints.mandatory}"
+                                    columns="#{bindings.DealClass.hints.displayWidth}"
+                                    shortDesc="#{bindings.DealClass.hints.tooltip}">
+                <f:validator binding="#{bindings.DealClass.validator}"/>
+              </af:inputListOfValues>
+              <af:inputListOfValues id="materialCategoryId"
+                                    popupTitle="Search and Select: #{bindings.MaterialCategory.hints.label}"
+                                    value="#{bindings.MaterialCategory.inputValue}"
+                                    label="#{bindings.MaterialCategory.hints.label}"
+                                    model="#{bindings.MaterialCategory.listOfValuesModel}"
+                                    required="#{bindings.MaterialCategory.hints.mandatory}"
+                                    columns="#{bindings.MaterialCategory.hints.displayWidth}"
+                                    shortDesc="#{bindings.MaterialCategory.hints.tooltip}">
+                <f:validator binding="#{bindings.MaterialCategory.validator}"/>
+              </af:inputListOfValues>
+              <af:inputListOfValues id="productServiceIdId"
+                                    popupTitle="Search and Select: #{bindings.ProductServiceId.hints.label}"
+                                    value="#{bindings.ProductServiceId.inputValue}"
+                                    label="#{bindings.ProductServiceId.hints.label}"
+                                    model="#{bindings.ProductServiceId.listOfValuesModel}"
+                                    required="#{bindings.ProductServiceId.hints.mandatory}"
+                                    columns="#{bindings.ProductServiceId.hints.displayWidth}"
+                                    shortDesc="#{bindings.ProductServiceId.hints.tooltip}">
+                <f:validator binding="#{bindings.ProductServiceId.validator}"/>
+              </af:inputListOfValues>
+            </af:panelFormLayout>
+            <af:spacer width="10" height="10" id="s5"/>
+            <af:panelFormLayout id="pfl3" maxColumns="3" rows="1" labelAlignment="top">
+              <f:facet name="footer"/>
+              <af:inputText value="#{bindings.ChargeId.inputValue}" label="#{bindings.ChargeId.hints.label}"
+                            required="#{bindings.ChargeId.hints.mandatory}"
+                            columns="#{bindings.ChargeId.hints.displayWidth}"
+                            maximumLength="#{bindings.ChargeId.hints.precision}"
+                            shortDesc="#{bindings.ChargeId.hints.tooltip}" id="it1">
+                <f:validator binding="#{bindings.ChargeId.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.StatAccount.inputValue}" label="#{bindings.StatAccount.hints.label}"
+                            required="#{bindings.StatAccount.hints.mandatory}"
+                            columns="#{bindings.StatAccount.hints.displayWidth}"
+                            maximumLength="#{bindings.StatAccount.hints.precision}"
+                            shortDesc="#{bindings.StatAccount.hints.tooltip}" id="it4">
+                <f:validator binding="#{bindings.StatAccount.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.EntryType.inputValue}" label="#{bindings.EntryType.hints.label}"
+                            required="#{bindings.EntryType.hints.mandatory}"
+                            columns="#{bindings.EntryType.hints.displayWidth}"
+                            maximumLength="#{bindings.EntryType.hints.precision}"
+                            shortDesc="#{bindings.EntryType.hints.tooltip}" id="it2">
+                <f:validator binding="#{bindings.EntryType.validator}"/>
+              </af:inputText>
+            </af:panelFormLayout>
+          </af:panelGroupLayout>
         </af:dialog>
       </af:popup>
       <af:popup childCreation="deferred" autoCancel="disabled" id="p2" contentDelivery="lazyUncached"
@@ -186,86 +181,81 @@
               </af:button>
             </af:toolbar>
           </f:facet>
-          <af:panelFormLayout id="pfl2" maxColumns="2" rows="5">
-            <af:panelLabelAndMessage label="#{bindings.AccountId1.hints.label}" id="plam2">
-              <af:outputText value="#{bindings.AccountId1.inputValue}" shortDesc="#{bindings.AccountId1.hints.tooltip}"
-                             id="ot11"/>
-            </af:panelLabelAndMessage>
-            <af:inputListOfValues id="accountingClass1Id"
-                                  popupTitle="Search and Select: #{bindings.AccountingClass1.hints.label}"
-                                  value="#{bindings.AccountingClass1.inputValue}"
-                                  label="#{bindings.AccountingClass1.hints.label}"
-                                  model="#{bindings.AccountingClass1.listOfValuesModel}"
-                                  required="#{bindings.AccountingClass1.hints.mandatory}"
-                                  columns="#{bindings.AccountingClass1.hints.displayWidth}"
-                                  shortDesc="#{bindings.AccountingClass1.hints.tooltip}">
-              <f:validator binding="#{bindings.AccountingClass1.validator}"/>
-            </af:inputListOfValues>
-            <af:inputText value="#{bindings.ChargeId1.inputValue}" label="#{bindings.ChargeId1.hints.label}"
-                          required="#{bindings.ChargeId1.hints.mandatory}"
-                          columns="#{bindings.ChargeId1.hints.displayWidth}"
-                          maximumLength="#{bindings.ChargeId1.hints.precision}"
-                          shortDesc="#{bindings.ChargeId1.hints.tooltip}" id="it5">
-              <f:validator binding="#{bindings.ChargeId1.validator}"/>
-            </af:inputText>
-            <af:inputListOfValues id="dealClass1Id" popupTitle="Search and Select: #{bindings.DealClass1.hints.label}"
-                                  value="#{bindings.DealClass1.inputValue}" label="#{bindings.DealClass1.hints.label}"
-                                  model="#{bindings.DealClass1.listOfValuesModel}"
-                                  required="#{bindings.DealClass1.hints.mandatory}"
-                                  columns="#{bindings.DealClass1.hints.displayWidth}"
-                                  shortDesc="#{bindings.DealClass1.hints.tooltip}">
-              <f:validator binding="#{bindings.DealClass1.validator}"/>
-            </af:inputListOfValues>
-            <af:inputText value="#{bindings.EntryType1.inputValue}" label="#{bindings.EntryType1.hints.label}"
-                          required="#{bindings.EntryType1.hints.mandatory}"
-                          columns="#{bindings.EntryType1.hints.displayWidth}"
-                          maximumLength="#{bindings.EntryType1.hints.precision}"
-                          shortDesc="#{bindings.EntryType1.hints.tooltip}" id="it6">
-              <f:validator binding="#{bindings.EntryType1.validator}"/>
-            </af:inputText>
-            <af:inputListOfValues id="materialCategory1Id"
-                                  popupTitle="Search and Select: #{bindings.MaterialCategory1.hints.label}"
-                                  value="#{bindings.MaterialCategory1.inputValue}"
-                                  label="#{bindings.MaterialCategory1.hints.label}"
-                                  model="#{bindings.MaterialCategory1.listOfValuesModel}"
-                                  required="#{bindings.MaterialCategory1.hints.mandatory}"
-                                  columns="#{bindings.MaterialCategory1.hints.displayWidth}"
-                                  shortDesc="#{bindings.MaterialCategory1.hints.tooltip}">
-              <f:validator binding="#{bindings.MaterialCategory1.validator}"/>
-            </af:inputListOfValues>
-            <af:inputText value="#{bindings.OperatingUnit1.inputValue}" label="#{bindings.OperatingUnit1.hints.label}"
-                          required="#{bindings.OperatingUnit1.hints.mandatory}"
-                          columns="#{bindings.OperatingUnit1.hints.displayWidth}"
-                          maximumLength="#{bindings.OperatingUnit1.hints.precision}"
-                          shortDesc="#{bindings.OperatingUnit1.hints.tooltip}" id="it7">
-              <f:validator binding="#{bindings.OperatingUnit1.validator}"/>
-            </af:inputText>
-            <af:inputListOfValues id="productServiceId1Id"
-                                  popupTitle="Search and Select: #{bindings.ProductServiceId1.hints.label}"
-                                  value="#{bindings.ProductServiceId1.inputValue}"
-                                  label="#{bindings.ProductServiceId1.hints.label}"
-                                  model="#{bindings.ProductServiceId1.listOfValuesModel}"
-                                  required="#{bindings.ProductServiceId1.hints.mandatory}"
-                                  columns="#{bindings.ProductServiceId1.hints.displayWidth}"
-                                  shortDesc="#{bindings.ProductServiceId1.hints.tooltip}">
-              <f:validator binding="#{bindings.ProductServiceId1.validator}"/>
-            </af:inputListOfValues>
-            <af:inputListOfValues id="siteId1Id" popupTitle="Search and Select: #{bindings.SiteId1.hints.label}"
-                                  value="#{bindings.SiteId1.inputValue}" label="#{bindings.SiteId1.hints.label}"
-                                  model="#{bindings.SiteId1.listOfValuesModel}"
-                                  required="#{bindings.SiteId1.hints.mandatory}"
-                                  columns="#{bindings.SiteId1.hints.displayWidth}"
-                                  shortDesc="#{bindings.SiteId1.hints.tooltip}">
-              <f:validator binding="#{bindings.SiteId1.validator}"/>
-            </af:inputListOfValues>
-            <af:inputText value="#{bindings.StatAccount1.inputValue}" label="#{bindings.StatAccount1.hints.label}"
-                          required="#{bindings.StatAccount1.hints.mandatory}"
-                          columns="#{bindings.StatAccount1.hints.displayWidth}"
-                          maximumLength="#{bindings.StatAccount1.hints.precision}"
-                          shortDesc="#{bindings.StatAccount1.hints.tooltip}" id="it8">
-              <f:validator binding="#{bindings.StatAccount1.validator}"/>
-            </af:inputText>
-          </af:panelFormLayout>
+          <af:panelGroupLayout id="pgl3">
+            <af:panelFormLayout id="pfl2" maxColumns="5" rows="1" labelAlignment="top">
+              <af:inputListOfValues id="siteId1Id" popupTitle="Search and Select: #{bindings.SiteId1.hints.label}"
+                                    value="#{bindings.SiteId1.inputValue}" label="#{bindings.SiteId1.hints.label}"
+                                    model="#{bindings.SiteId1.listOfValuesModel}"
+                                    required="#{bindings.SiteId1.hints.mandatory}"
+                                    columns="#{bindings.SiteId1.hints.displayWidth}"
+                                    shortDesc="#{bindings.SiteId1.hints.tooltip}">
+                <f:validator binding="#{bindings.SiteId1.validator}"/>
+              </af:inputListOfValues>
+              <af:inputListOfValues id="accountingClass1Id"
+                                    popupTitle="Search and Select: #{bindings.AccountingClass1.hints.label}"
+                                    value="#{bindings.AccountingClass1.inputValue}"
+                                    label="#{bindings.AccountingClass1.hints.label}"
+                                    model="#{bindings.AccountingClass1.listOfValuesModel}"
+                                    required="#{bindings.AccountingClass1.hints.mandatory}"
+                                    columns="#{bindings.AccountingClass1.hints.displayWidth}"
+                                    shortDesc="#{bindings.AccountingClass1.hints.tooltip}">
+                <f:validator binding="#{bindings.AccountingClass1.validator}"/>
+              </af:inputListOfValues>
+              <af:inputListOfValues id="dealClass1Id" popupTitle="Search and Select: #{bindings.DealClass1.hints.label}"
+                                    value="#{bindings.DealClass1.inputValue}" label="#{bindings.DealClass1.hints.label}"
+                                    model="#{bindings.DealClass1.listOfValuesModel}"
+                                    required="#{bindings.DealClass1.hints.mandatory}"
+                                    columns="#{bindings.DealClass1.hints.displayWidth}"
+                                    shortDesc="#{bindings.DealClass1.hints.tooltip}">
+                <f:validator binding="#{bindings.DealClass1.validator}"/>
+              </af:inputListOfValues>
+              <af:inputListOfValues id="materialCategory1Id"
+                                    popupTitle="Search and Select: #{bindings.MaterialCategory1.hints.label}"
+                                    value="#{bindings.MaterialCategory1.inputValue}"
+                                    label="#{bindings.MaterialCategory1.hints.label}"
+                                    model="#{bindings.MaterialCategory1.listOfValuesModel}"
+                                    required="#{bindings.MaterialCategory1.hints.mandatory}"
+                                    columns="#{bindings.MaterialCategory1.hints.displayWidth}"
+                                    shortDesc="#{bindings.MaterialCategory1.hints.tooltip}">
+                <f:validator binding="#{bindings.MaterialCategory1.validator}"/>
+              </af:inputListOfValues>
+              <af:inputListOfValues id="productServiceId1Id"
+                                    popupTitle="Search and Select: #{bindings.ProductServiceId1.hints.label}"
+                                    value="#{bindings.ProductServiceId1.inputValue}"
+                                    label="#{bindings.ProductServiceId1.hints.label}"
+                                    model="#{bindings.ProductServiceId1.listOfValuesModel}"
+                                    required="#{bindings.ProductServiceId1.hints.mandatory}"
+                                    columns="#{bindings.ProductServiceId1.hints.displayWidth}"
+                                    shortDesc="#{bindings.ProductServiceId1.hints.tooltip}">
+                <f:validator binding="#{bindings.ProductServiceId1.validator}"/>
+              </af:inputListOfValues>
+            </af:panelFormLayout>
+            <af:spacer width="10" height="10" id="s4"/>
+            <af:panelFormLayout id="pfl4" maxColumns="3" rows="1" labelAlignment="top">
+              <f:facet name="footer"/>
+              <af:inputText value="#{bindings.ChargeId1.inputValue}" label="#{bindings.ChargeId1.hints.label}"
+                            required="#{bindings.ChargeId1.hints.mandatory}"
+                            columns="#{bindings.ChargeId1.hints.displayWidth}"
+                            maximumLength="#{bindings.ChargeId1.hints.precision}"
+                            shortDesc="#{bindings.ChargeId1.hints.tooltip}" id="it5">
+                <f:validator binding="#{bindings.ChargeId1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.StatAccount1.inputValue}" label="#{bindings.StatAccount1.hints.label}"
+                            required="#{bindings.StatAccount1.hints.mandatory}"
+                            columns="#{bindings.StatAccount1.hints.displayWidth}"
+                            maximumLength="#{bindings.StatAccount1.hints.precision}"
+                            shortDesc="#{bindings.StatAccount1.hints.tooltip}" id="it8">
+                <f:validator binding="#{bindings.StatAccount1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.EntryType1.inputValue}" label="#{bindings.EntryType1.hints.label}"
+                            required="#{bindings.EntryType1.hints.mandatory}"
+                            columns="#{bindings.EntryType1.hints.displayWidth}"
+                            maximumLength="#{bindings.EntryType1.hints.precision}"
+                            shortDesc="#{bindings.EntryType1.hints.tooltip}" id="it6">
+                <f:validator binding="#{bindings.EntryType1.validator}"/>
+              </af:inputText>
+            </af:panelFormLayout>
+          </af:panelGroupLayout>
         </af:dialog>
       </af:popup>
     </af:panelHeader>

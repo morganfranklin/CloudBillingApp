@@ -56,11 +56,6 @@
     </attributeValues>
     <list IterBinding="XpeDccCfgNewUomEOVOIterator" StaticList="false" Uses="LOV_FeedMethod" id="FeedMethod"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
-    <attributeValues IterBinding="XpeDccCfgNewUomEOVOIterator" id="ItemId1">
-      <AttrNames>
-        <Item Value="ItemId"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="XpeDccCfgNewUomEOVOIterator" id="InactiveDate1">
       <AttrNames>
         <Item Value="InactiveDate"/>
@@ -68,11 +63,10 @@
     </attributeValues>
     <list IterBinding="XpeDccCfgNewUomEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive1"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
-    <list IterBinding="XpeDccCfgNewProductserviceEOVOIterator" StaticList="false" Uses="LOV_ClassId" id="ClassId"
-          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
-    <list IterBinding="XpeDccCfgNewUomEOVOIterator" StaticList="false" Uses="LOV_Uom" id="Uom" DTSupportsMRU="true"
-          SelectItemValueMode="ListObject"/>
     <listOfValues IterBinding="XpeDccCfgNewProductserviceEOVOIterator" StaticList="false" Uses="LOV_Category"
                   id="Category"/>
+    <listOfValues IterBinding="XpeDccCfgNewProductserviceEOVOIterator" StaticList="false" Uses="LOV_ClassId"
+                  id="ClassId"/>
+    <listOfValues IterBinding="XpeDccCfgNewUomEOVOIterator" StaticList="false" Uses="LOV_Uom" id="Uom1"/>
   </bindings>
 </pageDefinition>

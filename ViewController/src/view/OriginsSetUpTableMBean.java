@@ -13,6 +13,7 @@ import javax.faces.event.ActionEvent;
 
 import javax.faces.event.ValueChangeEvent;
 
+import model.views.entitybased.XpeDccCfgOgnAssTerminalsEOVORowImpl;
 import model.views.entitybased.XpeDccCfgOriginsEOVOImpl;
 
 import model.views.entitybased.XpeDccCfgOriginsEOVORowImpl;
@@ -104,14 +105,34 @@ public class OriginsSetUpTableMBean implements Serializable {
     }
 
     public void onOriginInactiveValChgLstnr(ValueChangeEvent valueChangeEvent) {
-        JSFUtils.setExpressionValue("#{bindings.InactiveDate.inputValue}", new Timestamp(System.currentTimeMillis()));
+        DCIteratorBinding originIter = ADFUtils.findIterator("XpeDccCfgNewOriginsEOVOIterator");
+        XpeDccCfgOriginsEOVORowImpl originRow = (XpeDccCfgOriginsEOVORowImpl) originIter.getCurrentRow();
+        if (null != valueChangeEvent.getNewValue() && valueChangeEvent.getNewValue().equals("Y")){
+            originRow.setInactiveDate(new Timestamp(System.currentTimeMillis()));
+        }else{
+            originRow.setInactiveDate(null);
+        }
     }
 
     public void onTerminalInactiveValChgLstnr(ValueChangeEvent valueChangeEvent) {
-        JSFUtils.setExpressionValue("#{bindings.InactiveDate1.inputValue}", new Timestamp(System.currentTimeMillis()));
+        DCIteratorBinding orgAssocTermIter = ADFUtils.findIterator("XpeDccCfgNewOgnAssTerminalsEOVOIterator");
+        XpeDccCfgOgnAssTerminalsEOVORowImpl orgAssocTermRow =
+            (XpeDccCfgOgnAssTerminalsEOVORowImpl) orgAssocTermIter.getCurrentRow();
+        if (null != valueChangeEvent.getNewValue() && valueChangeEvent.getNewValue().equals("Y")){
+            orgAssocTermRow.setInactiveDate(new Timestamp(System.currentTimeMillis()));
+        }else{
+            orgAssocTermRow.setInactiveDate(null);
+        }
     }
 
     public void onAddOgnTerminalInactiveValChgLstnr(ValueChangeEvent valueChangeEvent) {
-        JSFUtils.setExpressionValue("#{bindings.InactiveDate.inputValue}", new Timestamp(System.currentTimeMillis()));
+        DCIteratorBinding orgAssocTermIter = ADFUtils.findIterator("XpeDccCfgNewOgnAssTerminalsEOVOIterator");
+        XpeDccCfgOgnAssTerminalsEOVORowImpl orgAssocTermRow =
+            (XpeDccCfgOgnAssTerminalsEOVORowImpl) orgAssocTermIter.getCurrentRow();
+        if (null != valueChangeEvent.getNewValue() && valueChangeEvent.getNewValue().equals("Y")){
+            orgAssocTermRow.setInactiveDate(new Timestamp(System.currentTimeMillis()));
+        }else{
+            orgAssocTermRow.setInactiveDate(null);
+        }
     }
 }

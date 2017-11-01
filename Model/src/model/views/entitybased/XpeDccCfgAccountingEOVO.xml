@@ -138,6 +138,7 @@
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ItemId"/>
       <Item Value="ItemListType"/>
+      <Item Value="ValidValue"/>
     </AttrArray>
     <DisplayCriteria
       Hint="showAndExecute"/>
@@ -159,6 +160,7 @@
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ItemId"/>
       <Item Value="ItemListType"/>
+      <Item Value="ValidValue"/>
     </AttrArray>
     <DisplayCriteria
       Hint="showAndExecute"/>
@@ -180,6 +182,7 @@
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ItemId"/>
       <Item Value="ItemListType"/>
+      <Item Value="ValidValue"/>
     </AttrArray>
     <DisplayCriteria
       Hint="showAndExecute"/>
@@ -221,6 +224,8 @@
           Value="input_text_lov"/>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgAccountingEOVO.ProductServiceId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="15"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -237,6 +242,8 @@
           Value="input_text_lov"/>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgAccountingEOVO.SiteId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="15"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -264,10 +271,12 @@
     LOVName="LOV_AccountingClass">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgAccountingEOVO.AccountingClass_LABEL"/>
+        <DISPLAYWIDTH
+          Value="15"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -281,6 +290,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgAccountingEOVO.ChargeId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="15"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -293,10 +304,12 @@
     LOVName="LOV_DealClass">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgAccountingEOVO.DealClass_LABEL"/>
+        <DISPLAYWIDTH
+          Value="15"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -310,6 +323,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgAccountingEOVO.EntryType_LABEL"/>
+        <DISPLAYWIDTH
+          Value="15"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -322,10 +337,12 @@
     LOVName="LOV_MaterialCategory">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgAccountingEOVO.MaterialCategory_LABEL"/>
+        <DISPLAYWIDTH
+          Value="15"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -352,6 +369,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgAccountingEOVO.StatAccount_LABEL"/>
+        <DISPLAYWIDTH
+          Value="15"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -406,6 +425,22 @@
       Name="XpeDccCfgAccountingEOVOCriteria_row_0"
       UpperColumns="1">
       <ViewCriteriaItem
+        Name="ProductServiceId"
+        ViewAttribute="ProductServiceId"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_ProductService"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="SiteId"
+        ViewAttribute="SiteId"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_SiteId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
         Name="AccountingClass"
         ViewAttribute="AccountingClass"
         Operator="="
@@ -435,30 +470,6 @@
         Operator="="
         Conjunction="AND"
         Value=":bind_MaterialCategory"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="OperatingUnit"
-        ViewAttribute="OperatingUnit"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_OperatingUnit"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="ProductServiceId"
-        ViewAttribute="ProductServiceId"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_ProductService"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="SiteId"
-        ViewAttribute="SiteId"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_SiteId"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

@@ -14,6 +14,7 @@ import javax.faces.event.ValueChangeEvent;
 import model.views.entitybased.XpeDccCfgOriginsEOVOImpl;
 import model.views.entitybased.XpeDccCfgOriginsEOVORowImpl;
 
+import model.views.entitybased.XpeDccCfgPcsAssTerminalsEOVORowImpl;
 import model.views.entitybased.XpeDccCfgPcsEOVOImpl;
 
 import model.views.entitybased.XpeDccCfgPcsEOVORowImpl;
@@ -112,14 +113,34 @@ public class PcsInstallationSetUpTableMBean {
     }
 
     public void onTerminalEditInactiveValChgLstnr(ValueChangeEvent valueChangeEvent) {
-        JSFUtils.setExpressionValue("#{bindings.InactiveDate1.inputValue}", new Timestamp(System.currentTimeMillis()));
+        DCIteratorBinding pcsAssocTermIter = ADFUtils.findIterator("XpeDccCfgNewPcsAssTerminalsEOVOIterator");
+        XpeDccCfgPcsAssTerminalsEOVORowImpl pcsAssocTermRow =
+            (XpeDccCfgPcsAssTerminalsEOVORowImpl) pcsAssocTermIter.getCurrentRow();
+        if (null != valueChangeEvent.getNewValue() && valueChangeEvent.getNewValue().equals("Y")) {
+            pcsAssocTermRow.setInactiveDate(new Timestamp(System.currentTimeMillis()));
+        } else {
+            pcsAssocTermRow.setInactiveDate(null);
+        }
     }
 
     public void onTerminalAddInactiveValChgLstnr(ValueChangeEvent valueChangeEvent) {
-        JSFUtils.setExpressionValue("#{bindings.InactiveDate.inputValue}", new Timestamp(System.currentTimeMillis()));
+        DCIteratorBinding pcsAssocTermIter = ADFUtils.findIterator("XpeDccCfgNewPcsAssTerminalsEOVOIterator");
+        XpeDccCfgPcsAssTerminalsEOVORowImpl pcsAssocTermRow =
+            (XpeDccCfgPcsAssTerminalsEOVORowImpl) pcsAssocTermIter.getCurrentRow();
+        if (null != valueChangeEvent.getNewValue() && valueChangeEvent.getNewValue().equals("Y")){
+            pcsAssocTermRow.setInactiveDate(new Timestamp(System.currentTimeMillis()));
+        }else{
+            pcsAssocTermRow.setInactiveDate(null);
+        }
     }
 
     public void onPcsSiteEditInactiveValChgLstnr(ValueChangeEvent valueChangeEvent) {
-        JSFUtils.setExpressionValue("#{bindings.InactiveDate.inputValue}", new Timestamp(System.currentTimeMillis()));
+        DCIteratorBinding pcsIter = ADFUtils.findIterator("XpeDccCfgNewPcsEOVOIterator");
+        XpeDccCfgPcsEOVORowImpl pcsRow = (XpeDccCfgPcsEOVORowImpl) pcsIter.getCurrentRow();
+        if (null != valueChangeEvent.getNewValue() && valueChangeEvent.getNewValue().equals("Y")){
+            pcsRow.setInactiveDate(new Timestamp(System.currentTimeMillis()));
+        }else{
+            pcsRow.setInactiveDate(null);
+        }
     }
 }

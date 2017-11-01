@@ -18,6 +18,8 @@ import model.views.entitybased.XpeDccCfgProductserviceEOVOImpl;
 
 import model.views.entitybased.XpeDccCfgProductserviceEOVORowImpl;
 
+import model.views.entitybased.XpeDccCfgUomEOVORowImpl;
+
 import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.view.rich.component.rich.RichPopup;
 
@@ -30,7 +32,7 @@ import view.utils.JSFUtils;
 public class ProductServiceSetUpTableMBean {
     public ProductServiceSetUpTableMBean() {
     }
-    
+
     private ProductServiceSetUpTableBBean getProductServiceSetUpTableBBean() {
         ProductServiceSetUpTableBBean productServiceSetUpTableBBean =
             (ProductServiceSetUpTableBBean) ADFUtils.evaluateEL("#{backingBeanScope.ProductServiceSetUpTableBBean}");
@@ -56,7 +58,7 @@ public class ProductServiceSetUpTableMBean {
     }
 
     public void queryOperationListener(QueryOperationEvent queryOperationEvent) {
-        invokeEL("#{bindings.ProductServiceCriteriaQuery.processQueryOperation}",Object.class,
+        invokeEL("#{bindings.ProductServiceCriteriaQuery.processQueryOperation}", Object.class,
                  QueryOperationEvent.class, queryOperationEvent);
         if (queryOperationEvent.getOperation().name().toUpperCase().equals("RESET")) {
             DCIteratorBinding carrierIter = ADFUtils.findIterator("XpeDccCfgProductserviceEOVOIterator");
@@ -64,7 +66,7 @@ public class ProductServiceSetUpTableMBean {
             AdfFacesContext.getCurrentInstance().addPartialTarget(this.getProductServiceSetUpTableBBean().getProductServiceSetUpTblBind());
         }
     }
-    
+
     public Object invokeMethodExpression(String expr, Class returnType, Class[] argTypes, Object[] args) {
         FacesContext fc = FacesContext.getCurrentInstance();
         ELContext elctx = fc.getELContext();
@@ -76,24 +78,44 @@ public class ProductServiceSetUpTableMBean {
     public Object invokeEL(String expr, Class returnType, Class argType, Object argument) {
         return invokeMethodExpression(expr, returnType, new Class[] { argType }, new Object[] { argument });
     }
-    
+
     public void onEditPrdtInactiveValChgLstnr(ValueChangeEvent valueChangeEvent) {
-        JSFUtils.setExpressionValue("#{bindings.InactiveDate.inputValue}", new Timestamp(System.currentTimeMillis()));
+        DCIteratorBinding prdServiceIter = ADFUtils.findIterator("XpeDccCfgNewProductserviceEOVOIterator");
+        XpeDccCfgProductserviceEOVORowImpl prdServiceRow =
+            (XpeDccCfgProductserviceEOVORowImpl) prdServiceIter.getCurrentRow();
+        if (null != valueChangeEvent.getNewValue() && valueChangeEvent.getNewValue().equals("Y")) {
+            prdServiceRow.setInactiveDate(new Timestamp(System.currentTimeMillis()));
+        } else {
+            prdServiceRow.setInactiveDate(null);
+        }
     }
 
     public void onEditPrdtUomInactiveValChgLstnr(ValueChangeEvent valueChangeEvent) {
-        JSFUtils.setExpressionValue("#{bindings.InactiveDate1.inputValue}", new Timestamp(System.currentTimeMillis()));
+        DCIteratorBinding prdServiceUomIter = ADFUtils.findIterator("XpeDccCfgNewUomEOVOIterator");
+        XpeDccCfgUomEOVORowImpl prdServiceUomRow = (XpeDccCfgUomEOVORowImpl) prdServiceUomIter.getCurrentRow();
+        if (null != valueChangeEvent.getNewValue() && valueChangeEvent.getNewValue().equals("Y")) {
+            prdServiceUomRow.setInactiveDate(new Timestamp(System.currentTimeMillis()));
+        } else {
+            prdServiceUomRow.setInactiveDate(null);
+        }
     }
 
     public void onAddPrdtUomInactiveValChgLstnr(ValueChangeEvent valueChangeEvent) {
-        JSFUtils.setExpressionValue("#{bindings.InactiveDate.inputValue}", new Timestamp(System.currentTimeMillis()));
+        DCIteratorBinding prdServiceUomIter = ADFUtils.findIterator("XpeDccCfgNewUomEOVOIterator");
+        XpeDccCfgUomEOVORowImpl prdServiceUomRow = (XpeDccCfgUomEOVORowImpl) prdServiceUomIter.getCurrentRow();
+        if (null != valueChangeEvent.getNewValue() && valueChangeEvent.getNewValue().equals("Y")) {
+            prdServiceUomRow.setInactiveDate(new Timestamp(System.currentTimeMillis()));
+        } else {
+            prdServiceUomRow.setInactiveDate(null);
+        }
     }
 
     public void onProductServiceCreation(ActionEvent actionEvent) {
         DCIteratorBinding dcIterBind = ADFUtils.findIterator("XpeDccCfgNewProductserviceEOVOIterator");
         XpeDccCfgProductserviceEOVOImpl prdServiceImpl = (XpeDccCfgProductserviceEOVOImpl) dcIterBind.getViewObject();
         prdServiceImpl.executeQuery();
-        XpeDccCfgProductserviceEOVORowImpl prdServiceRowImpl = (XpeDccCfgProductserviceEOVORowImpl) prdServiceImpl.createRow();
+        XpeDccCfgProductserviceEOVORowImpl prdServiceRowImpl =
+            (XpeDccCfgProductserviceEOVORowImpl) prdServiceImpl.createRow();
         prdServiceImpl.insertRow(prdServiceRowImpl);
         prdServiceImpl.setCurrentRow(prdServiceRowImpl);
         AdfFacesContext.getCurrentInstance().getPageFlowScope().put("ItemId", prdServiceRowImpl.getItemId());

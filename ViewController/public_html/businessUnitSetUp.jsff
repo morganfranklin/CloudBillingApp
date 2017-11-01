@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout layout="vertical" id="pgl1">
+    <af:panelHeader text="Business Unit Set Up" id="ph1">
+      <af:query id="qryId1" headerText="Search Business Units" disclosed="true"
+                value="#{bindings.BusinessUnitCriteriaQuery.queryDescriptor}"
+                model="#{bindings.BusinessUnitCriteriaQuery.queryModel}"
+                queryListener="#{bindings.BusinessUnitCriteriaQuery.processQuery}"
+                queryOperationListener="#{pageFlowScope.BusinessUnitSetUpTableMBean.queryOperationListener}"
+                resultComponentId="::resId1"/>
+    </af:panelHeader>
+    <af:spacer width="10" height="10" id="s1"/>
+    <af:panelHeader text="Business Units" id="ph2" size="5">
+      <f:facet name="context"/>
+      <f:facet name="toolbar">
+        <af:toolbar id="t1">
+          <af:button action="#{bindings.CreateInsert.execute}" text="Add"
+                     disabled="#{!bindings.CreateInsert.enabled}" id="b1"
+                     actionListener="#{pageFlowScope.BusinessUnitSetUpTableMBean.onBusinessUnitCreation}"/>
+        </af:toolbar>
+      </f:facet>
+      <f:facet name="menuBar"/>
+      <f:facet name="legend"/>
+      <f:facet name="info"/>
+      <af:table value="#{bindings.XpeDccCfgBusinessunitEOVO.collectionModel}" var="row"
+                rows="#{bindings.XpeDccCfgBusinessunitEOVO.rangeSize}"
+                emptyText="#{bindings.XpeDccCfgBusinessunitEOVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                rowBandingInterval="0"
+                selectedRowKeys="#{bindings.XpeDccCfgBusinessunitEOVO.collectionModel.selectedRow}"
+                selectionListener="#{bindings.XpeDccCfgBusinessunitEOVO.collectionModel.makeCurrent}"
+                rowSelection="single" fetchSize="#{bindings.XpeDccCfgBusinessunitEOVO.rangeSize}" id="resId1"
+                contentDelivery="immediate" columnStretching="last"
+                binding="#{backingBeanScope.BusinessUnitSetUpTableBBean.businessUnitSetUpTblBind}">
+        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.SiteId.label}" id="resId1c1">
+          <af:outputText value="#{row.SiteId}" shortDesc="#{bindings.XpeDccCfgBusinessunitEOVO.hints.SiteId.tooltip}"
+                         id="ot1"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.TerminalId.label}" id="resId1c2">
+          <af:outputText value="#{row.TerminalId}"
+                         shortDesc="#{bindings.XpeDccCfgBusinessunitEOVO.hints.TerminalId.tooltip}" id="ot2"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.BusinessUnit.label}" id="resId1c3">
+          <af:outputText value="#{row.BusinessUnit}"
+                         shortDesc="#{bindings.XpeDccCfgBusinessunitEOVO.hints.BusinessUnit.tooltip}" id="ot3"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.AccountingClass.label}" id="resId1c4">
+          <af:outputText value="#{row.AccountingClass}"
+                         shortDesc="#{bindings.XpeDccCfgBusinessunitEOVO.hints.AccountingClass.tooltip}" id="ot4"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.Affliate.label}" id="resId1c5">
+          <af:outputText value="#{row.Affliate}"
+                         shortDesc="#{bindings.XpeDccCfgBusinessunitEOVO.hints.Affliate.tooltip}" id="ot5"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.BillingBusinessUnit.label}" id="resId1c6">
+          <af:outputText value="#{row.BillingBusinessUnit}"
+                         shortDesc="#{bindings.XpeDccCfgBusinessunitEOVO.hints.BillingBusinessUnit.tooltip}" id="ot6"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.BusinessUnitRef.label}" id="resId1c7">
+          <af:outputText value="#{row.BusinessUnitRef}"
+                         shortDesc="#{bindings.XpeDccCfgBusinessunitEOVO.hints.BusinessUnitRef.tooltip}" id="ot7"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.GlBusinessUnit.label}" id="resId1c8">
+          <af:outputText value="#{row.GlBusinessUnit}"
+                         shortDesc="#{bindings.XpeDccCfgBusinessunitEOVO.hints.GlBusinessUnit.tooltip}" id="ot8"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.OperatingUnit.label}" id="resId1c9">
+          <af:outputText value="#{row.OperatingUnit}"
+                         shortDesc="#{bindings.XpeDccCfgBusinessunitEOVO.hints.OperatingUnit.tooltip}" id="ot9"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.SiteDesc.label}" id="resId1c10">
+          <af:outputText value="#{row.SiteDesc}"
+                         shortDesc="#{bindings.XpeDccCfgBusinessunitEOVO.hints.SiteDesc.tooltip}" id="ot10"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.StatsOnly.label}" id="resId1c11">
+          <af:selectOneChoice value="#{row.bindings.StatsOnly.inputValue}" label="#{row.bindings.StatsOnly.label}"
+                              required="#{bindings.XpeDccCfgBusinessunitEOVO.hints.StatsOnly.mandatory}"
+                              shortDesc="#{bindings.XpeDccCfgBusinessunitEOVO.hints.StatsOnly.tooltip}" readOnly="true"
+                              id="soc1">
+            <f:selectItems value="#{row.bindings.StatsOnly.items}" id="si1"/>
+            <f:validator binding="#{row.bindings.StatsOnly.validator}"/>
+          </af:selectOneChoice>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.Inactive.label}" id="resId1c12">
+          <af:selectOneChoice value="#{row.bindings.Inactive.inputValue}" label="#{row.bindings.Inactive.label}"
+                              required="#{bindings.XpeDccCfgBusinessunitEOVO.hints.Inactive.mandatory}"
+                              shortDesc="#{bindings.XpeDccCfgBusinessunitEOVO.hints.Inactive.tooltip}" readOnly="true"
+                              id="soc2">
+            <f:selectItems value="#{row.bindings.Inactive.items}" id="si2"/>
+            <f:validator binding="#{row.bindings.Inactive.validator}"/>
+          </af:selectOneChoice>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.InactiveDate.label}" id="resId1c13">
+          <af:outputText value="#{row.InactiveDate}"
+                         shortDesc="#{bindings.XpeDccCfgBusinessunitEOVO.hints.InactiveDate.tooltip}" id="ot11">
+            <af:convertDateTime pattern="#{bindings.XpeDccCfgBusinessunitEOVO.hints.InactiveDate.format}"/>
+          </af:outputText>
+        </af:column>
+      </af:table>
+    </af:panelHeader>
+  </af:panelGroupLayout>
+</ui:composition>

@@ -39,6 +39,7 @@ import model.views.entitybased.XpeDccCfgPcsEOVORowImpl;
 import model.views.entitybased.XpeDccCfgPcsshortnamesEOVOImpl;
 import model.views.entitybased.XpeDccCfgProductserviceEOVOImpl;
 import model.views.entitybased.XpeDccCfgTerminalsEOVOImpl;
+import model.views.entitybased.XpeDccCfgUomEOVOImpl;
 import model.views.entitybased.XpeDccCfgVehiclesEOVOImpl;
 import model.views.entitybased.XpeDccNewContractsEOVOImpl;
 import model.views.entitybased.XpeDccNewContractsEOVORowImpl;
@@ -56,6 +57,7 @@ import model.views.readonly.XpeDccCfgCntrcttAprFcltyROVOImpl;
 import model.views.readonly.XpeDccCfgCntrcttAprFcltyROVORowImpl;
 import model.views.readonly.XpeDccCfgDstAssTerminalsROVOImpl;
 import model.views.readonly.XpeDccCfgOgnAssTerminalsROVOImpl;
+import model.views.readonly.XpeDccCfgOgnAssTerminalsROVORowImpl;
 import model.views.readonly.XpeDccCfgPcsAssTerminalsROVOImpl;
 import model.views.readonly.XpeDccCfgPcsAssTerminalsROVORowImpl;
 import model.views.readonly.XpeDccCfgTerminalsSearchROVOImpl;
@@ -2240,8 +2242,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      * Container's getter for XpeDccCfgUomEOVO1.
      * @return XpeDccCfgUomEOVO1
      */
-    public ViewObjectImpl getXpeDccCfgUomEOVO() {
-        return (ViewObjectImpl) findViewObject("XpeDccCfgUomEOVO");
+    public XpeDccCfgUomEOVOImpl getXpeDccCfgUomEOVO() {
+        return (XpeDccCfgUomEOVOImpl) findViewObject("XpeDccCfgUomEOVO");
     }
 
     /**
@@ -2378,8 +2380,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      * Container's getter for XpeDccCfgUomEOVO1.
      * @return XpeDccCfgUomEOVO1
      */
-    public ViewObjectImpl getXpeDccCfgNewUomEOVO() {
-        return (ViewObjectImpl) findViewObject("XpeDccCfgNewUomEOVO");
+    public XpeDccCfgUomEOVOImpl getXpeDccCfgNewUomEOVO() {
+        return (XpeDccCfgUomEOVOImpl) findViewObject("XpeDccCfgNewUomEOVO");
     }
 
     /**
@@ -2487,7 +2489,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         ognTerminal.setNamedWhereClauseParam("bind_OriginId", originId);
         ognTerminal.setNamedWhereClauseParam("bind_TerminalId", terminalId);
         ognTerminal.executeQuery();
-        XpeDccCfgOgnAssTerminalsEOVORowImpl ognTerminalRow = (XpeDccCfgOgnAssTerminalsEOVORowImpl) ognTerminal.first();
+        XpeDccCfgOgnAssTerminalsROVORowImpl ognTerminalRow = (XpeDccCfgOgnAssTerminalsROVORowImpl) ognTerminal.first();
         if(null != ognTerminalRow){
             rtn = true;
         }
@@ -2799,6 +2801,14 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public XpeDccCfgMetalsFacilityEOVOImpl getXpeDccCfgNewMetalsFacilityEOVO() {
         return (XpeDccCfgMetalsFacilityEOVOImpl) findViewObject("XpeDccCfgNewMetalsFacilityEOVO");
+    }
+
+    /**
+     * Container's getter for XpeDccCfgBusinessunitEOVO1.
+     * @return XpeDccCfgBusinessunitEOVO1
+     */
+    public ViewObjectImpl getXpeDccCfgNewBusinessunitEOVO() {
+        return (ViewObjectImpl) findViewObject("XpeDccCfgNewBusinessunitEOVO");
     }
 }
 

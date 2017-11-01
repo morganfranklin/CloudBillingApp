@@ -600,6 +600,9 @@
     <ViewUsage
         Name="XpeDccCfgNewMetalsFacilityEOVO"
         ViewObjectName="model.views.entitybased.XpeDccCfgMetalsFacilityEOVO"/>
+    <ViewUsage
+        Name="XpeDccCfgNewBusinessunitEOVO"
+        ViewObjectName="model.views.entitybased.XpeDccCfgBusinessunitEOVO"/>
     <ViewLinkUsage
         Name="NeuRuleTblFk1Link1"
         ViewLinkObjectName="model.NeuRuleTblFk1Link"

@@ -20,7 +20,8 @@
         ResId="model.views.readonly.XpeDccCfgCountiesROVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <SQLQuery><![CDATA[SELECT COUNTY_ID, COUNTY_NAME FROM XPE_DCC_CFG_COUNTIES]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT COUNTY_ID, COUNTY_NAME FROM XPE_DCC_CFG_COUNTIES 
+WHERE INACTIVE <> 'Y']]></SQLQuery>
   <ViewAttribute
     Name="CountyId"
     IsPersistent="false"
