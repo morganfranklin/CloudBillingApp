@@ -248,6 +248,9 @@
          <string v="NeustarXPE"/>
       </list>
    </hash>
+   <hash n="oracle.jdeveloper.deploy.SecurityDeploymentSettings">
+      <value n="Security-Deployment-Migrate-Users-And-Groups-Key" v="false"/>
+   </hash>
    <hash n="oracle.jdeveloper.model.ApplicationLibraries">
       <hash n="internalDefinitions">
          <list n="libraryDefinitions">
@@ -322,6 +325,6 @@
       <list n="RegisteredResourceBundles"/>
    </hash>
    <hash n="Weblogic JDBC">
-      <value n="Weblogic-JDBC-Auto-Sync-Key" v="true"/>
+      <value n="Weblogic-JDBC-Auto-Sync-Key" v="false"/>
    </hash>
 </jws:workspace>
