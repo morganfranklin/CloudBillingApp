@@ -1818,8 +1818,9 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
 
             if (null != xpeDccWfActionEOVORow) {
                 if (EmailUtils.sendEmail(xpeDccWfActionEOVORow.getXpeApproverEmail(),
-                                         buildEmailBody(contractType, xpeDccWfActionEOVORow.getXpeUuid()), bytes))
+                                         buildEmailBody(contractType, xpeDccWfActionEOVORow.getXpeUuid()), bytes)) {
                     xpeDccWfActionEOVORow.setXpeActionStatus("P");
+                }
             } else {
                 XpeDccWfEventEOVOImpl approvalWFEvent = this.getXpeDccWfEventEOVO();
                 approvalWFEvent.executeEmptyRowSet();
