@@ -530,4 +530,16 @@ public class ADFUtils {
 
         return exp.getValue(elContext);
     }
+    
+    public static Object invokeMethodExpression(String expr, Class returnType, Class[] argTypes, Object[] args) {
+        FacesContext fc = FacesContext.getCurrentInstance();
+        ELContext elctx = fc.getELContext();
+        ExpressionFactory elFactory = fc.getApplication().getExpressionFactory();
+        MethodExpression methodExpr = elFactory.createMethodExpression(elctx, expr, returnType, argTypes);
+        return methodExpr.invoke(elctx, args);
+    }
+
+    public static Object invokeEL(String expr, Class returnType, Class argType, Object argument) {
+        return invokeMethodExpression(expr, returnType, new Class[] { argType }, new Object[] { argument });
+    }
 }
