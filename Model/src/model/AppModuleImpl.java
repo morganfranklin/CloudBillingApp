@@ -33,6 +33,8 @@ import model.views.entitybased.XpeDccCfgMetalsFacilityEOVOImpl;
 import model.views.entitybased.XpeDccCfgMetalsFacilityEOVORowImpl;
 import model.views.entitybased.XpeDccCfgMswFacilityEOVOImpl;
 import model.views.entitybased.XpeDccCfgMswFacilityEOVORowImpl;
+import model.views.entitybased.XpeDccCfgNotifGroupsEOVOImpl;
+import model.views.entitybased.XpeDccCfgNotificationEOVOImpl;
 import model.views.entitybased.XpeDccCfgOgnAssTerminalsEOVOImpl;
 import model.views.entitybased.XpeDccCfgOgnAssTerminalsEOVORowImpl;
 import model.views.entitybased.XpeDccCfgOriginsEOVOImpl;
@@ -3208,6 +3210,53 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public XpeDmsCustomerROVOImpl getXpeDmsCustomerROVO() {
         return (XpeDmsCustomerROVOImpl) findViewObject("XpeDmsCustomerROVO");
+    }
+    /**
+     * Container's getter for XpeDccCfgNotificationEOVO1.
+     * @return XpeDccCfgNotificationEOVO1
+     */
+    public XpeDccCfgNotificationEOVOImpl getXpeDccCfgNotificationEOVO1() {
+        return (XpeDccCfgNotificationEOVOImpl) findViewObject("XpeDccCfgNotificationEOVO1");
+    }
+
+    /**
+     * Container's getter for XpeDccCfgNotifGroupsEOVO1.
+     * @return XpeDccCfgNotifGroupsEOVO1
+     */
+    public XpeDccCfgNotifGroupsEOVOImpl getXpeDccCfgNotifGroupsEOVO1() {
+        return (XpeDccCfgNotifGroupsEOVOImpl) findViewObject("XpeDccCfgNotifGroupsEOVO1");
+    }
+
+    /**
+     * Container's getter for NotificationFkLink1.
+     * @return NotificationFkLink1
+     */
+    public ViewLinkImpl getNotificationFkLink1() {
+        return (ViewLinkImpl) findViewLink("NotificationFkLink1");
+    }
+
+    /**
+     * Container's getter for XpeDccCfgNotificationEOVO2.
+     * @return XpeDccCfgNotificationEOVO2
+     */
+    public XpeDccCfgNotificationEOVOImpl getXpeDccCfgNewNotificationEOVO() {
+        return (XpeDccCfgNotificationEOVOImpl) findViewObject("XpeDccCfgNewNotificationEOVO");
+    }
+
+    /**
+     * Container's getter for XpeDccCfgNotifGroupsEOVO2.
+     * @return XpeDccCfgNotifGroupsEOVO2
+     */
+    public XpeDccCfgNotifGroupsEOVOImpl getXpeDccCfgNewNotifGroupsEOVO() {
+        return (XpeDccCfgNotifGroupsEOVOImpl) findViewObject("XpeDccCfgNewNotifGroupsEOVO");
+    }
+
+    /**
+     * Container's getter for NotificationFkLink2.
+     * @return NotificationFkLink2
+     */
+    public ViewLinkImpl getNotificationFkLink2() {
+        return (ViewLinkImpl) findViewLink("NotificationFkLink2");
     }
 }
 

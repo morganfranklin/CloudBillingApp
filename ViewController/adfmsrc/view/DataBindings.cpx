@@ -104,6 +104,7 @@
         <page path="/businessUnitSetUp.jsff" usageId="view_businessUnitSetUpPageDef"/>
         <page path="/WEB-INF/approvalWorkFlow.xml#approvalWorkFlow@buildPDF"
               usageId="view_approvalWorkFlow_approvalWorkFlow_buildPDFPageDef"/>
+        <page path="/notificationSetUp.jsff" usageId="view_notificationSetUpPageDef"/>
     </pageMap>
     <pageDefinitionUsages>
         <page id="view_IntegrationDashPageDef" path="view.pageDefs.IntegrationDashPageDef"/>
@@ -202,6 +203,7 @@
         <page id="view_businessUnitSetUpPageDef" path="view.pageDefs.businessUnitSetUpPageDef"/>
         <page id="view_approvalWorkFlow_approvalWorkFlow_buildPDFPageDef"
               path="view.pageDefs.approvalWorkFlow_approvalWorkFlow_buildPDFPageDef"/>
+        <page id="view_notificationSetUpPageDef" path="view.pageDefs.notificationSetUpPageDef"/>
     </pageDefinitionUsages>
     <dataControlUsages>
         <BC4JDataControl id="AppModuleDataControl" Package="model"
