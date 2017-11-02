@@ -12,7 +12,11 @@ import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
 
 import model.views.entitybased.XpeDccCfgNotifGroupsEOVORowImpl;
+import model.views.entitybased.XpeDccCfgNotificationEOVOImpl;
 import model.views.entitybased.XpeDccCfgNotificationEOVORowImpl;
+
+import model.views.entitybased.XpeDccCfgPcsshortnamesEOVOImpl;
+import model.views.entitybased.XpeDccCfgPcsshortnamesEOVORowImpl;
 
 import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.view.rich.component.rich.RichPopup;
@@ -42,8 +46,12 @@ public class NotificationSetUpTableMBean {
     }
 
     public void onNotificationCreation(ActionEvent actionEvent) {
-        RichPopup.PopupHints hints = new RichPopup.PopupHints();
-        this.getNotificationSetUpTableBBean().getNotificationAdd_popup().show(hints);
+        DCIteratorBinding dcIterBind = ADFUtils.findIterator("XpeDccCfgNewNotificationEOVOIterator");
+        XpeDccCfgNotificationEOVOImpl notifImpl = (XpeDccCfgNotificationEOVOImpl) dcIterBind.getViewObject();
+        notifImpl.executeQuery();
+        XpeDccCfgNotificationEOVORowImpl notifeRowImpl = (XpeDccCfgNotificationEOVORowImpl) notifImpl.createRow();
+        notifImpl.insertRow(notifeRowImpl);
+        notifImpl.setCurrentRow(notifeRowImpl);
     }
 
     public void onNotificationEdit(ActionEvent actionEvent) {

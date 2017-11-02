@@ -1,7 +1,10 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <SDM>
    <OverallProperties
-      id="OverallProperties1"/>
+      id="OverallProperties1">
+      <property
+         name="linkStyle">Orthogonal</property>
+   </OverallProperties>
    <View
       id="View2">
       <property
@@ -21,4 +24,78 @@
       <property
          name="exceptionHandler">false</property>
    </View>
+   <View
+      id="View3">
+      <property
+         name="activityId">addNotification</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">648.0</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>addNotification&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">13.494141</property>
+      <property
+         name="page">/addNotification.jsff</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <View
+      id="View4">
+      <property
+         name="activityId">editNotification</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">647.0</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>editNotification&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">275.89648</property>
+      <property
+         name="page">/editNotification.jsff</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase5"
+      from="View2"
+      to="View4">
+      <property
+         name="fromOutcome">Edit</property>
+      <property
+         name="sdm:polyPoints">B50,322.0,275.5459,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase6"
+      from="View4"
+      to="View2">
+      <property
+         name="fromOutcome">Back</property>
+      <property
+         name="sdm:polyPoints">T50,647.0,153.19531,R50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase10"
+      from="View3"
+      to="View2">
+      <property
+         name="fromOutcome">Back</property>
+      <property
+         name="sdm:polyPoints">L50,322.0,13.143555,T50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase11"
+      from="View2"
+      to="View3">
+      <property
+         name="fromOutcome">Add</property>
+      <property
+         name="sdm:polyPoints">R46,648.0,149.69531,B50</property>
+   </ControlFlowCase>
 </SDM>

@@ -18,6 +18,37 @@
     <view id="notificationSetUp">
       <page>/notificationSetUp.jsff</page>
     </view>
+    <view id="addNotification">
+      <page>/addNotification.jsff</page>
+    </view>
+    <view id="editNotification">
+      <page>/editNotification.jsff</page>
+    </view>
+    <control-flow-rule id="__3">
+      <from-activity-id>notificationSetUp</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>Edit</from-outcome>
+        <to-activity-id>editNotification</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__12">
+        <from-outcome>Add</from-outcome>
+        <to-activity-id>addNotification</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>editNotification</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>Back</from-outcome>
+        <to-activity-id>notificationSetUp</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__10">
+      <from-activity-id>addNotification</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome>Back</from-outcome>
+        <to-activity-id>notificationSetUp</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
     <use-page-fragments/>
   </task-flow-definition>
 </adfc-config>

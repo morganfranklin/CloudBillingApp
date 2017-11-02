@@ -2666,7 +2666,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         return rtn;
     }
     
-    public String addAssTerminalToPCSInstallation(){
+    public String addAssTerminalToPCS(){
         String rtnMsg = "SUCCESS";
         XpeDccCfgTerminalsSearchROVOImpl terminalSearchVO = this.getXpeDccCfgTerminalsSearchROVO1();
         XpeDccCfgTerminalsSearchROVORowImpl terminalSearchVORow =

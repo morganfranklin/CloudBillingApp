@@ -69,25 +69,13 @@ public class OriginsSetUpTableMBean implements Serializable {
     }
 
     public void queryOperationListener(QueryOperationEvent queryOperationEvent) {
-        invokeEL("#{bindings.OriginsCriteriaQuery.processQueryOperation}", Object.class, QueryOperationEvent.class,
+        ADFUtils.invokeEL("#{bindings.OriginsCriteriaQuery.processQueryOperation}", Object.class, QueryOperationEvent.class,
                  queryOperationEvent);
         if (queryOperationEvent.getOperation().name().toUpperCase().equals("RESET")) {
             DCIteratorBinding carrierIter = ADFUtils.findIterator("XpeDccCfgOriginsEOVOIterator");
             carrierIter.getViewObject().executeEmptyRowSet();
             AdfFacesContext.getCurrentInstance().addPartialTarget(this.getOriginSetUpTableBBean().getOriginsSetUpTblBind());
         }
-    }
-
-    public Object invokeMethodExpression(String expr, Class returnType, Class[] argTypes, Object[] args) {
-        FacesContext fc = FacesContext.getCurrentInstance();
-        ELContext elctx = fc.getELContext();
-        ExpressionFactory elFactory = fc.getApplication().getExpressionFactory();
-        MethodExpression methodExpr = elFactory.createMethodExpression(elctx, expr, returnType, argTypes);
-        return methodExpr.invoke(elctx, args);
-    }
-
-    public Object invokeEL(String expr, Class returnType, Class argType, Object argument) {
-        return invokeMethodExpression(expr, returnType, new Class[] { argType }, new Object[] { argument });
     }
 
     public void onOriginCreation(ActionEvent actionEvent) {

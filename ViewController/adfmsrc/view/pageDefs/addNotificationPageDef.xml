@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="addNotificationPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XpeDccCfgNewNotificationEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewNotificationEOVOIterator"/>
+    <iterator Binds="XpeDccCfgNewNotifGroupsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewNotifGroupsEOVOIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="XpeDccCfgNewNotificationEOVOIterator" id="NotificationName">
+      <AttrNames>
+        <Item Value="NotificationName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewNotificationEOVOIterator" id="NotificationTo">
+      <AttrNames>
+        <Item Value="NotificationTo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewNotificationEOVOIterator" id="NotificationCc">
+      <AttrNames>
+        <Item Value="NotificationCc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewNotificationEOVOIterator" id="NotificationTopic">
+      <AttrNames>
+        <Item Value="NotificationTopic"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewNotificationEOVOIterator" id="NotificationSalutation">
+      <AttrNames>
+        <Item Value="NotificationSalutation"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewNotificationEOVOIterator" id="NotificationEmail">
+      <AttrNames>
+        <Item Value="NotificationEmail"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewNotificationEOVOIterator" id="CreditDetails">
+      <AttrNames>
+        <Item Value="CreditDetails"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="XpeDccCfgNewNotifGroupsEOVOIterator" id="XpeDccCfgNewNotifGroupsEOVO">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccCfgNotifGroupsEOVO" Name="XpeDccCfgNewNotifGroupsEOVO0">
+        <AttrNames>
+          <Item Value="GroupType"/>
+          <Item Value="GroupId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="XpeDccCfgNewNotifGroupsEOVOIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="XpeDccCfgNewNotifGroupsEOVOIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <attributeValues IterBinding="XpeDccCfgNewNotificationEOVOIterator" id="CreditUtilization">
+      <AttrNames>
+        <Item Value="CreditUtilization"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewNotificationEOVOIterator" id="NotificationId">
+      <AttrNames>
+        <Item Value="NotificationId"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

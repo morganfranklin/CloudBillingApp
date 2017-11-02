@@ -1129,13 +1129,6 @@
                 Type="java.lang.String"/>
         </Method>
         <Method
-            Name="addAssTerminalToPCSInstallation"
-            MethodName="addAssTerminalToPCSInstallation">
-            <Return
-                Name="_return_type_"
-                Type="java.lang.String"/>
-        </Method>
-        <Method
             Name="createNewContractVersion"
             MethodName="createNewContractVersion">
             <Return
@@ -1206,13 +1199,6 @@
         <Method
             Name="addAssTerminalToOrigin"
             MethodName="addAssTerminalToOrigin">
-            <Return
-                Name="_return_type_"
-                Type="java.lang.String"/>
-        </Method>
-        <Method
-            Name="addAssTerminalToPCSInstallation"
-            MethodName="addAssTerminalToPCSInstallation">
             <Return
                 Name="_return_type_"
                 Type="java.lang.String"/>
@@ -1328,13 +1314,6 @@
         <Method
             Name="addAssTerminalToOrigin"
             MethodName="addAssTerminalToOrigin">
-            <Return
-                Name="_return_type_"
-                Type="java.lang.String"/>
-        </Method>
-        <Method
-            Name="addAssTerminalToPCSInstallation"
-            MethodName="addAssTerminalToPCSInstallation">
             <Return
                 Name="_return_type_"
                 Type="java.lang.String"/>
@@ -1479,13 +1458,6 @@
                 Type="java.lang.String"/>
         </Method>
         <Method
-            Name="addAssTerminalToPCSInstallation"
-            MethodName="addAssTerminalToPCSInstallation">
-            <Return
-                Name="_return_type_"
-                Type="java.lang.String"/>
-        </Method>
-        <Method
             Name="updateContractApprovalStatus"
             MethodName="updateContractApprovalStatus">
             <Return
@@ -1557,6 +1529,13 @@
                 Type="void"/>
             <Parameter
                 Name="type"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="addAssTerminalToPCS"
+            MethodName="addAssTerminalToPCS">
+            <Return
+                Name="_return_type_"
                 Type="java.lang.String"/>
         </Method>
     </ClientInterface>

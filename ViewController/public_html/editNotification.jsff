@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGroupLayout id="pgl1">
+        <af:panelHeader text="Notification Setup" id="ph1" size="5">
+            <f:facet name="context"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+            <af:panelFormLayout id="pfl1">
+                <af:panelLabelAndMessage label="#{bindings.NotificationId.hints.label}" id="plam1">
+                    <af:outputText value="#{bindings.NotificationId.inputValue}"
+                                   shortDesc="#{bindings.NotificationId.hints.tooltip}" id="ot1"/>
+                </af:panelLabelAndMessage>
+                <af:inputText value="#{bindings.NotificationName.inputValue}"
+                              label="#{bindings.NotificationName.hints.label}"
+                              required="#{bindings.NotificationName.hints.mandatory}"
+                              columns="#{bindings.NotificationName.hints.displayWidth}"
+                              maximumLength="#{bindings.NotificationName.hints.precision}"
+                              shortDesc="#{bindings.NotificationName.hints.tooltip}" id="it2">
+                    <f:validator binding="#{bindings.NotificationName.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.CreditUtilization.inputValue}"
+                              label="#{bindings.CreditUtilization.hints.label}"
+                              required="#{bindings.CreditUtilization.hints.mandatory}"
+                              columns="#{bindings.CreditUtilization.hints.displayWidth}"
+                              maximumLength="#{bindings.CreditUtilization.hints.precision}"
+                              shortDesc="#{bindings.CreditUtilization.hints.tooltip}" id="it3">
+                    <f:validator binding="#{bindings.CreditUtilization.validator}"/>
+                </af:inputText>
+                <af:selectOneChoice value="#{bindings.Inactive.inputValue}" label="#{bindings.Inactive.label}"
+                                    required="#{bindings.Inactive.hints.mandatory}"
+                                    shortDesc="#{bindings.Inactive.hints.tooltip}" id="soc1" autoSubmit="true"
+                                    valueChangeListener="#{pageFlowScope.NotificationSetUpTableMBean.inactiveNotificationValChgLstnr}">
+                    <f:selectItems value="#{bindings.Inactive.items}" id="si1"/>
+                    <f:validator binding="#{bindings.Inactive.validator}"/>
+                </af:selectOneChoice>
+                <af:inputDate value="#{bindings.InactiveDate.inputValue}" label="#{bindings.InactiveDate.hints.label}"
+                              required="#{bindings.InactiveDate.hints.mandatory}"
+                              columns="#{bindings.InactiveDate.hints.displayWidth}"
+                              shortDesc="#{bindings.InactiveDate.hints.tooltip}" id="id1" partialTriggers="soc1">
+                    <f:validator binding="#{bindings.InactiveDate.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.InactiveDate.format}"/>
+                </af:inputDate>
+            </af:panelFormLayout>
+        </af:panelHeader>
+        <af:spacer width="10" height="10" id="s2"/>
+        <af:panelHeader text="Select all Excluded Groups" id="ph2" size="5">
+            <f:facet name="context"/>
+            <f:facet name="toolbar">
+                <af:toolbar id="t1">
+                    <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add"
+                               disabled="#{!bindings.CreateInsert.enabled}" id="b1"/>
+                    <af:spacer width="10" height="10" id="s3"/>
+                    <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                               disabled="#{!bindings.Delete.enabled}" id="b2"/>
+                </af:toolbar>
+            </f:facet>
+            <f:facet name="menuBar"/>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+            <af:table value="#{bindings.XpeDccCfgNotifGroupsEOVO1.collectionModel}" var="row"
+                      rows="#{bindings.XpeDccCfgNotifGroupsEOVO1.rangeSize}"
+                      emptyText="#{bindings.XpeDccCfgNotifGroupsEOVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.XpeDccCfgNotifGroupsEOVO1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.XpeDccCfgNotifGroupsEOVO1.collectionModel.makeCurrent}"
+                      rowSelection="single" fetchSize="#{bindings.XpeDccCfgNotifGroupsEOVO1.rangeSize}" id="t2"
+                      partialTriggers="::b1 ::b2" contentDelivery="immediate" columnStretching="last">
+                <af:column headerText="#{bindings.XpeDccCfgNotifGroupsEOVO1.hints.GroupId.label}" id="c1">
+                    <af:inputText value="#{row.bindings.GroupId.inputValue}"
+                                  label="#{bindings.XpeDccCfgNotifGroupsEOVO1.hints.GroupId.label}"
+                                  required="#{bindings.XpeDccCfgNotifGroupsEOVO1.hints.GroupId.mandatory}"
+                                  columns="#{bindings.XpeDccCfgNotifGroupsEOVO1.hints.GroupId.displayWidth}"
+                                  maximumLength="#{bindings.XpeDccCfgNotifGroupsEOVO1.hints.GroupId.precision}"
+                                  shortDesc="#{bindings.XpeDccCfgNotifGroupsEOVO1.hints.GroupId.tooltip}" id="it10">
+                        <f:validator binding="#{row.bindings.GroupId.validator}"/>
+                    </af:inputText>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgNotifGroupsEOVO1.hints.GroupType.label}" id="c2">
+                    <af:inputText value="#{row.bindings.GroupType.inputValue}"
+                                  label="#{bindings.XpeDccCfgNotifGroupsEOVO1.hints.GroupType.label}"
+                                  required="#{bindings.XpeDccCfgNotifGroupsEOVO1.hints.GroupType.mandatory}"
+                                  columns="#{bindings.XpeDccCfgNotifGroupsEOVO1.hints.GroupType.displayWidth}"
+                                  maximumLength="#{bindings.XpeDccCfgNotifGroupsEOVO1.hints.GroupType.precision}"
+                                  shortDesc="#{bindings.XpeDccCfgNotifGroupsEOVO1.hints.GroupType.tooltip}" id="it11">
+                        <f:validator binding="#{row.bindings.GroupType.validator}"/>
+                    </af:inputText>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgNotifGroupsEOVO1.hints.Inactive.label}" id="c3">
+                    <af:selectOneChoice value="#{row.bindings.Inactive.inputValue}"
+                                        label="#{row.bindings.Inactive.label}"
+                                        required="#{bindings.XpeDccCfgNotifGroupsEOVO1.hints.Inactive.mandatory}"
+                                        shortDesc="#{bindings.XpeDccCfgNotifGroupsEOVO1.hints.Inactive.tooltip}"
+                                        id="soc2" autoSubmit="true"
+                                        valueChangeListener="#{pageFlowScope.NotificationSetUpTableMBean.inactiveNotifGrpValChgLstnr}">
+                        <f:selectItems value="#{row.bindings.Inactive.items}" id="si2"/>
+                        <f:validator binding="#{row.bindings.Inactive.validator}"/>
+                    </af:selectOneChoice>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgNotifGroupsEOVO1.hints.InactiveDate.label}" id="c4">
+                    <af:inputDate value="#{row.bindings.InactiveDate.inputValue}"
+                                  label="#{bindings.XpeDccCfgNotifGroupsEOVO1.hints.InactiveDate.label}"
+                                  required="#{bindings.XpeDccCfgNotifGroupsEOVO1.hints.InactiveDate.mandatory}"
+                                  columns="#{bindings.XpeDccCfgNotifGroupsEOVO1.hints.InactiveDate.displayWidth}"
+                                  shortDesc="#{bindings.XpeDccCfgNotifGroupsEOVO1.hints.InactiveDate.tooltip}" id="id2"
+                                  partialTriggers="soc2">
+                        <f:validator binding="#{row.bindings.InactiveDate.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.XpeDccCfgNotifGroupsEOVO1.hints.InactiveDate.format}"/>
+                    </af:inputDate>
+                </af:column>
+            </af:table>
+        </af:panelHeader>
+        <af:spacer width="10" height="10" id="s1"/>
+        <af:panelHeader text="Notification Template" id="ph3" size="5">
+            <f:facet name="context"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+            <af:panelFormLayout id="pfl2" maxColumns="2" rows="3">
+                <f:facet name="footer"/>
+                <af:inputText value="#{bindings.NotificationTo.inputValue}"
+                              label="#{bindings.NotificationTo.hints.label}"
+                              required="#{bindings.NotificationTo.hints.mandatory}"
+                              columns="#{bindings.NotificationTo.hints.displayWidth}"
+                              maximumLength="#{bindings.NotificationTo.hints.precision}"
+                              shortDesc="#{bindings.NotificationTo.hints.tooltip}" id="it4">
+                    <f:validator binding="#{bindings.NotificationTo.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.NotificationTopic.inputValue}"
+                              label="#{bindings.NotificationTopic.hints.label}"
+                              required="#{bindings.NotificationTopic.hints.mandatory}"
+                              columns="#{bindings.NotificationTopic.hints.displayWidth}"
+                              maximumLength="#{bindings.NotificationTopic.hints.precision}"
+                              shortDesc="#{bindings.NotificationTopic.hints.tooltip}" id="it6">
+                    <f:validator binding="#{bindings.NotificationTopic.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.NotificationSalutation.inputValue}"
+                              label="#{bindings.NotificationSalutation.hints.label}"
+                              required="#{bindings.NotificationSalutation.hints.mandatory}"
+                              columns="#{bindings.NotificationSalutation.hints.displayWidth}"
+                              maximumLength="#{bindings.NotificationSalutation.hints.precision}"
+                              shortDesc="#{bindings.NotificationSalutation.hints.tooltip}" id="it7">
+                    <f:validator binding="#{bindings.NotificationSalutation.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.NotificationCc.inputValue}"
+                              label="#{bindings.NotificationCc.hints.label}"
+                              required="#{bindings.NotificationCc.hints.mandatory}"
+                              columns="#{bindings.NotificationCc.hints.displayWidth}"
+                              maximumLength="#{bindings.NotificationCc.hints.precision}"
+                              shortDesc="#{bindings.NotificationCc.hints.tooltip}" id="it5">
+                    <f:validator binding="#{bindings.NotificationCc.validator}"/>
+                </af:inputText>
+            </af:panelFormLayout>
+            <af:panelFormLayout id="pfl3">
+                <f:facet name="footer"/>
+                <af:richTextEditor value="#{bindings.NotificationEmail.inputValue}"
+                                   label="#{bindings.NotificationEmail.hints.label}"
+                                   required="#{bindings.NotificationEmail.hints.mandatory}"
+                                   columns="#{bindings.NotificationEmail.hints.displayWidth}"
+                                   shortDesc="#{bindings.NotificationEmail.hints.tooltip}" id="rte1" rows="5"
+                                   autoSubmit="true" converter="oracle.genericDomain">
+                    <f:facet name="footer"/>
+                </af:richTextEditor>
+                <af:richTextEditor value="#{bindings.CreditDetails.inputValue}"
+                                   label="#{bindings.CreditDetails.hints.label}"
+                                   required="#{bindings.CreditDetails.hints.mandatory}"
+                                   columns="#{bindings.CreditDetails.hints.displayWidth}"
+                                   shortDesc="#{bindings.CreditDetails.hints.tooltip}" id="rte2" autoSubmit="true"
+                                   converter="oracle.genericDomain">
+                    <f:facet name="footer"/>
+                </af:richTextEditor>
+            </af:panelFormLayout>
+        </af:panelHeader>
+        <af:spacer width="10" height="10" id="s5"/>
+        <af:group id="g1">
+            <af:button actionListener="#{bindings.Commit.execute}" text="Save"
+                       id="b3"/>
+            <af:spacer width="10" height="10" id="s4"/>
+            <af:button actionListener="#{bindings.Rollback.execute}" text="Back"
+                       immediate="true" id="b4" action="Back">
+                <af:resetActionListener/>
+            </af:button>
+        </af:group>
+    </af:panelGroupLayout>
+</ui:composition>

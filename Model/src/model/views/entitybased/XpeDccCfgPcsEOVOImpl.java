@@ -47,22 +47,6 @@ public class XpeDccCfgPcsEOVOImpl extends ViewObjectImpl {
     }
 
     /**
-     * Returns the variable value for bind_FacilityId.
-     * @return variable value for bind_FacilityId
-     */
-    public String getbind_FacilityId() {
-        return (String) ensureVariableManager().getVariableValue("bind_FacilityId");
-    }
-
-    /**
-     * Sets <code>value</code> for variable bind_FacilityId.
-     * @param value value to bind as bind_FacilityId
-     */
-    public void setbind_FacilityId(String value) {
-        ensureVariableManager().setVariableValue("bind_FacilityId", value);
-    }
-
-    /**
      * Returns the variable value for bind_PrintStage.
      * @return variable value for bind_PrintStage
      */

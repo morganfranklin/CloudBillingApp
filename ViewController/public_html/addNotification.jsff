@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGroupLayout id="pgl1">
+        <af:panelHeader text="Notification Setup" id="ph1" size="5">
+            <f:facet name="context"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+            <af:panelFormLayout id="pfl2">
+                <af:panelLabelAndMessage label="#{bindings.NotificationId.hints.label}" id="plam1">
+                    <af:outputText value="#{bindings.NotificationId.inputValue}"
+                                   shortDesc="#{bindings.NotificationId.hints.tooltip}" id="ot1"/>
+                </af:panelLabelAndMessage>
+                <af:inputText value="#{bindings.NotificationName.inputValue}"
+                              label="#{bindings.NotificationName.hints.label}"
+                              required="#{bindings.NotificationName.hints.mandatory}"
+                              columns="#{bindings.NotificationName.hints.displayWidth}"
+                              maximumLength="#{bindings.NotificationName.hints.precision}"
+                              shortDesc="#{bindings.NotificationName.hints.tooltip}" id="it2">
+                    <f:validator binding="#{bindings.NotificationName.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.CreditUtilization.inputValue}"
+                              label="#{bindings.CreditUtilization.hints.label}"
+                              required="#{bindings.CreditUtilization.hints.mandatory}"
+                              columns="#{bindings.CreditUtilization.hints.displayWidth}"
+                              maximumLength="#{bindings.CreditUtilization.hints.precision}"
+                              shortDesc="#{bindings.CreditUtilization.hints.tooltip}" id="it3">
+                    <f:validator binding="#{bindings.CreditUtilization.validator}"/>
+                </af:inputText>
+            </af:panelFormLayout>
+        </af:panelHeader>
+        <af:spacer width="10" height="10" id="s3"/>
+        <af:panelHeader text="Select all Excluded Groups" id="ph2" size="5">
+            <f:facet name="context"/>
+            <f:facet name="toolbar">
+                <af:toolbar id="t2">
+                    <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add"
+                               disabled="#{!bindings.CreateInsert.enabled}" id="b1"/>
+                    <af:spacer width="10" height="10" id="s1"/>
+                    <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                               disabled="#{!bindings.Delete.enabled}" id="b2"/>
+                </af:toolbar>
+            </f:facet>
+            <f:facet name="menuBar"/>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+            <af:table value="#{bindings.XpeDccCfgNewNotifGroupsEOVO.collectionModel}" var="row"
+                      rows="#{bindings.XpeDccCfgNewNotifGroupsEOVO.rangeSize}"
+                      emptyText="#{bindings.XpeDccCfgNewNotifGroupsEOVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.XpeDccCfgNewNotifGroupsEOVO.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.XpeDccCfgNewNotifGroupsEOVO.collectionModel.makeCurrent}"
+                      rowSelection="single" fetchSize="#{bindings.XpeDccCfgNewNotifGroupsEOVO.rangeSize}" id="t1"
+                      partialTriggers="::b1 ::b2" contentDelivery="immediate" columnStretching="last">
+                <af:column headerText="#{bindings.XpeDccCfgNewNotifGroupsEOVO.hints.GroupType.label}" id="c1">
+                    <af:inputText value="#{row.bindings.GroupType.inputValue}"
+                                  label="#{bindings.XpeDccCfgNewNotifGroupsEOVO.hints.GroupType.label}"
+                                  required="#{bindings.XpeDccCfgNewNotifGroupsEOVO.hints.GroupType.mandatory}"
+                                  columns="#{bindings.XpeDccCfgNewNotifGroupsEOVO.hints.GroupType.displayWidth}"
+                                  maximumLength="#{bindings.XpeDccCfgNewNotifGroupsEOVO.hints.GroupType.precision}"
+                                  shortDesc="#{bindings.XpeDccCfgNewNotifGroupsEOVO.hints.GroupType.tooltip}" id="it10">
+                        <f:validator binding="#{row.bindings.GroupType.validator}"/>
+                    </af:inputText>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgNewNotifGroupsEOVO.hints.GroupId.label}" id="c2">
+                    <af:inputText value="#{row.bindings.GroupId.inputValue}"
+                                  label="#{bindings.XpeDccCfgNewNotifGroupsEOVO.hints.GroupId.label}"
+                                  required="#{bindings.XpeDccCfgNewNotifGroupsEOVO.hints.GroupId.mandatory}"
+                                  columns="#{bindings.XpeDccCfgNewNotifGroupsEOVO.hints.GroupId.displayWidth}"
+                                  maximumLength="#{bindings.XpeDccCfgNewNotifGroupsEOVO.hints.GroupId.precision}"
+                                  shortDesc="#{bindings.XpeDccCfgNewNotifGroupsEOVO.hints.GroupId.tooltip}" id="it11">
+                        <f:validator binding="#{row.bindings.GroupId.validator}"/>
+                    </af:inputText>
+                </af:column>
+            </af:table>
+        </af:panelHeader>
+        <af:spacer width="10" height="10" id="s4"/>
+        <af:panelHeader text="Notification Template" id="ph3" size="5">
+            <f:facet name="context"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+            <af:panelFormLayout id="pfl1" maxColumns="2" rows="3">
+                <f:facet name="footer"/>
+                <af:inputText value="#{bindings.NotificationTo.inputValue}"
+                              label="#{bindings.NotificationTo.hints.label}"
+                              required="#{bindings.NotificationTo.hints.mandatory}"
+                              columns="#{bindings.NotificationTo.hints.displayWidth}"
+                              maximumLength="#{bindings.NotificationTo.hints.precision}"
+                              shortDesc="#{bindings.NotificationTo.hints.tooltip}" id="it4">
+                    <f:validator binding="#{bindings.NotificationTo.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.NotificationTopic.inputValue}"
+                              label="#{bindings.NotificationTopic.hints.label}"
+                              required="#{bindings.NotificationTopic.hints.mandatory}"
+                              columns="#{bindings.NotificationTopic.hints.displayWidth}"
+                              maximumLength="#{bindings.NotificationTopic.hints.precision}"
+                              shortDesc="#{bindings.NotificationTopic.hints.tooltip}" id="it6">
+                    <f:validator binding="#{bindings.NotificationTopic.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.NotificationSalutation.inputValue}"
+                              label="#{bindings.NotificationSalutation.hints.label}"
+                              required="#{bindings.NotificationSalutation.hints.mandatory}"
+                              columns="#{bindings.NotificationSalutation.hints.displayWidth}"
+                              maximumLength="#{bindings.NotificationSalutation.hints.precision}"
+                              shortDesc="#{bindings.NotificationSalutation.hints.tooltip}" id="it7">
+                    <f:validator binding="#{bindings.NotificationSalutation.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.NotificationCc.inputValue}"
+                              label="#{bindings.NotificationCc.hints.label}"
+                              required="#{bindings.NotificationCc.hints.mandatory}"
+                              columns="#{bindings.NotificationCc.hints.displayWidth}"
+                              maximumLength="#{bindings.NotificationCc.hints.precision}"
+                              shortDesc="#{bindings.NotificationCc.hints.tooltip}" id="it5">
+                    <f:validator binding="#{bindings.NotificationCc.validator}"/>
+                </af:inputText>
+            </af:panelFormLayout>
+            <af:panelFormLayout id="pfl3">
+                <f:facet name="footer"/>
+                <af:richTextEditor value="#{bindings.NotificationEmail.inputValue}"
+                                   label="#{bindings.NotificationEmail.hints.label}"
+                                   required="#{bindings.NotificationEmail.hints.mandatory}"
+                                   columns="#{bindings.NotificationEmail.hints.displayWidth}"
+                                   shortDesc="#{bindings.NotificationEmail.hints.tooltip}" id="rte1" autoSubmit="true"
+                                   converter="oracle.genericDomain" rows="8">
+                    <f:facet name="footer"/>
+                </af:richTextEditor>
+                <af:richTextEditor value="#{bindings.CreditDetails.inputValue}"
+                                   label="#{bindings.CreditDetails.hints.label}"
+                                   required="#{bindings.CreditDetails.hints.mandatory}"
+                                   columns="#{bindings.CreditDetails.hints.displayWidth}"
+                                   shortDesc="#{bindings.CreditDetails.hints.tooltip}" id="rte2" autoSubmit="true"
+                                   converter="oracle.genericDomain" rows="5">
+                    <f:facet name="footer"/>
+                </af:richTextEditor>
+            </af:panelFormLayout>
+        </af:panelHeader>
+        <af:spacer width="10" height="10" id="s5"/>
+        <af:group id="g1">
+            <af:button actionListener="#{bindings.Commit.execute}" text="Save" id="b3"/>
+            <af:spacer width="10" height="10" id="s2"/>
+            <af:button actionListener="#{bindings.Rollback.execute}" text="Back" immediate="true" id="b4" action="Back">
+                <af:resetActionListener/>
+            </af:button>
+        </af:group>
+    </af:panelGroupLayout>
+</ui:composition>

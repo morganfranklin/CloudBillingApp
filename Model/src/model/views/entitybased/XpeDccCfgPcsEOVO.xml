@@ -345,14 +345,6 @@
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
-        Name="FacilityId"
-        ViewAttribute="FacilityId"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_FacilityId"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
         Name="DirectToCustomer"
         ViewAttribute="DirectToCustomer"
         Operator="="

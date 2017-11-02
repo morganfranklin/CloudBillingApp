@@ -55,10 +55,6 @@
     </tree>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
-    <methodAction id="addAssTerminalToPCSInstallation" RequiresUpdateModel="true" Action="invokeMethod"
-                  MethodName="addAssTerminalToPCSInstallation" IsViewObjectMethod="false"
-                  DataControl="AppModuleDataControl" InstanceName="data.AppModuleDataControl.dataProvider"
-                  ReturnName="data.AppModuleDataControl.methodResults.addAssTerminalToPCSInstallation_AppModuleDataControl_dataProvider_addAssTerminalToPCSInstallation_result"/>
     <attributeValues IterBinding="XpeDccCfgNewPcsAssTerminalsEOVOIterator" id="TerminalId">
       <AttrNames>
         <Item Value="TerminalId"/>
@@ -81,5 +77,9 @@
         <Item Value="InactiveDate"/>
       </AttrNames>
     </attributeValues>
+    <methodAction id="addAssTerminalToPCS" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="addAssTerminalToPCS" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="data.AppModuleDataControl.dataProvider"
+                  ReturnName="data.AppModuleDataControl.methodResults.addAssTerminalToPCS_AppModuleDataControl_dataProvider_addAssTerminalToPCS_result"/>
   </bindings>
 </pageDefinition>

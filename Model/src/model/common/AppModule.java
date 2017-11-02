@@ -25,7 +25,6 @@ public interface AppModule extends ApplicationModule {
 
     String addAssTerminalToOrigin();
 
-    String addAssTerminalToPCSInstallation();
 
     void updateContractApprovalStatus(String uuId, String action);
     
@@ -42,5 +41,7 @@ public interface AppModule extends ApplicationModule {
     void resetCntrctAprFcltySetUp();
 
     void searchCntrctAprFcltySetUp(String type);
+
+    String addAssTerminalToPCS();
 }
 
