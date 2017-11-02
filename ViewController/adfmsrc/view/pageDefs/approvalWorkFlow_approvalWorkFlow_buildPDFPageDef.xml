@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57"
+                id="approvalWorkFlow_approvalWorkFlow_buildPDFPageDef" Package="view.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+  </executables>
+  <bindings>
+    <methodAction id="fetchPDFXML" RequiresUpdateModel="true" Action="invokeMethod" MethodName="fetchPDFXML"
+                  IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="data.AppModuleDataControl.dataProvider"
+                  ReturnName="data.AppModuleDataControl.methodResults.fetchPDFXML_AppModuleDataControl_dataProvider_fetchPDFXML_result">
+      <NamedData NDName="uuId" NDValue="#{pageFlowScope.uuid}" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

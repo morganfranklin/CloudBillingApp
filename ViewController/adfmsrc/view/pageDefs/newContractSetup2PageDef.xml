@@ -156,14 +156,26 @@
             RequiresUpdateModel="false" Action="setCurrentRowWithKey">
       <NamedData NDName="rowKey" NDValue="#{row.rowKeyStr}" NDType="java.lang.String"/>
     </action>
+    <list IterBinding="XpeDccNewContractSetupROVOIterator" StaticList="false" Uses="LOV_Approval_Level"
+          id="Approval_Level" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <methodAction id="newContractCreation" RequiresUpdateModel="true" Action="invokeMethod"
                   MethodName="newContractCreation" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
                   InstanceName="data.AppModuleDataControl.dataProvider"
                   ReturnName="data.AppModuleDataControl.methodResults.newContractCreation_AppModuleDataControl_dataProvider_newContractCreation_result">
       <NamedData NDName="bytes" NDType="[B"/>
-      <NamedData NDName="contractType" NDValue="#{pageFlowScope.ContractType}" NDType="java.lang.String"/>
+      <NamedData NDName="contractId" NDValue="#{bindings.XpeContractId.inputValue}" NDType="java.lang.String"/>
+      <NamedData NDName="contractVersion" NDValue="#{bindings.XpeContractVersion.inputValue}"
+                 NDType="java.lang.String"/>
     </methodAction>
-    <list IterBinding="XpeDccNewContractSetupROVOIterator" StaticList="false" Uses="LOV_Approval_Level"
-          id="Approval_Level" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccNewContractVersionViewIterator" id="XpeContractId">
+      <AttrNames>
+        <Item Value="XpeContractId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractVersionViewIterator" id="XpeContractVersion">
+      <AttrNames>
+        <Item Value="XpeContractVersion"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

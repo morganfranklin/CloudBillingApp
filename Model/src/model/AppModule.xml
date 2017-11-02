@@ -604,6 +604,12 @@
         Name="XpeDccCfgNewBusinessunitEOVO"
         ViewObjectName="model.views.entitybased.XpeDccCfgBusinessunitEOVO"/>
     <ViewUsage
+        Name="XpeDccNewContractCustomerSearchROVO1"
+        ViewObjectName="model.views.readonly.XpeDccNewContractCustomerSearchROVO"/>
+    <ViewUsage
+        Name="XpeDmsCustomerROVO"
+        ViewObjectName="model.views.readonly.XpeDmsCustomerROVO"/>
+    <ViewUsage
         Name="XpeDccCfgNotificationEOVO1"
         ViewObjectName="model.views.entitybased.XpeDccCfgNotificationEOVO"/>
     <ViewUsage
@@ -1214,19 +1220,6 @@
                 Type="java.lang.String"/>
         </Method>
         <Method
-            Name="updateContractApprovalStatus"
-            MethodName="updateContractApprovalStatus">
-            <Return
-                Name="_return_type_"
-                Type="void"/>
-            <Parameter
-                Name="uuId"
-                Type="java.lang.String"/>
-            <Parameter
-                Name="action"
-                Type="java.lang.String"/>
-        </Method>
-        <Method
             Name="billAndAccountingProcess"
             MethodName="billAndAccountingProcess">
             <Return
@@ -1239,19 +1232,6 @@
             <Return
                 Name="_return_type_"
                 Type="void"/>
-        </Method>
-        <Method
-            Name="newContractCreation"
-            MethodName="newContractCreation">
-            <Return
-                Name="_return_type_"
-                Type="boolean"/>
-            <Parameter
-                Name="bytes"
-                Type="byte[]"/>
-            <Parameter
-                Name="contractType"
-                Type="java.lang.String"/>
         </Method>
         <Method
             Name="uploadFiletoDB"
@@ -1319,19 +1299,6 @@
                 Type="java.lang.String"/>
         </Method>
         <Method
-            Name="updateContractApprovalStatus"
-            MethodName="updateContractApprovalStatus">
-            <Return
-                Name="_return_type_"
-                Type="void"/>
-            <Parameter
-                Name="uuId"
-                Type="java.lang.String"/>
-            <Parameter
-                Name="action"
-                Type="java.lang.String"/>
-        </Method>
-        <Method
             Name="createNewContractVersion"
             MethodName="createNewContractVersion">
             <Return
@@ -1356,19 +1323,6 @@
                 Type="void"/>
         </Method>
         <Method
-            Name="newContractCreation"
-            MethodName="newContractCreation">
-            <Return
-                Name="_return_type_"
-                Type="boolean"/>
-            <Parameter
-                Name="bytes"
-                Type="byte[]"/>
-            <Parameter
-                Name="contractType"
-                Type="java.lang.String"/>
-        </Method>
-        <Method
             Name="initCntrctAprFcltySetUp"
             MethodName="initCntrctAprFcltySetUp">
             <Return
@@ -1390,6 +1344,61 @@
                 Type="void"/>
             <Parameter
                 Name="type"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="newContractCreation"
+            MethodName="newContractCreation">
+            <Return
+                Name="_return_type_"
+                Type="boolean"/>
+            <Parameter
+                Name="bytes"
+                Type="byte[]"/>
+            <Parameter
+                Name="contractId"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="contractVersion"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="updateContractApprovalStatus"
+            MethodName="updateContractApprovalStatus">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+            <Parameter
+                Name="uuId"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="action"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="bytes"
+                Type="byte[]"/>
+        </Method>
+        <Method
+            Name="buildXML"
+            MethodName="buildXML">
+            <Return
+                Name="_return_type_"
+                Type="java.util.Map"/>
+            <Parameter
+                Name="contractId"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="contractVersion"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="fetchPDFXML"
+            MethodName="fetchPDFXML">
+            <Return
+                Name="_return_type_"
+                Type="java.util.Map"/>
+            <Parameter
+                Name="uuId"
                 Type="java.lang.String"/>
         </Method>
         <Method

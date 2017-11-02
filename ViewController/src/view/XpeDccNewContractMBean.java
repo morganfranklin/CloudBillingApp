@@ -4,10 +4,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.Serializable;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-
-import java.util.Date;
+import java.util.Map;
 
 import javax.el.ELContext;
 import javax.el.ExpressionFactory;
@@ -21,8 +18,6 @@ import model.XpeDccContractVersionViewRowImpl;
 
 import model.views.entitybased.XpeDccNewContractsEOVOImpl;
 import model.views.entitybased.XpeDccNewContractsEOVORowImpl;
-import model.views.entitybased.XpeDccTermsContractEOVOImpl;
-import model.views.entitybased.XpeDccTermsContractEOVORowImpl;
 import model.views.entitybased.XpeDmsCustomerEOVOImpl;
 import model.views.entitybased.XpeDmsCustomerEOVORowImpl;
 import model.views.readonly.XpeDccNewContractCustomerSearchROVOImpl;
@@ -32,10 +27,7 @@ import oracle.adf.model.BindingContext;
 import oracle.adf.model.binding.DCBindingContainer;
 import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.view.rich.component.rich.RichPopup;
-
-import oracle.adf.view.rich.component.rich.RichQuery;
 import oracle.adf.view.rich.context.AdfFacesContext;
-
 import oracle.adf.view.rich.event.QueryOperationEvent;
 
 import oracle.binding.BindingContainer;
@@ -43,10 +35,7 @@ import oracle.binding.OperationBinding;
 
 import oracle.jbo.Key;
 import oracle.jbo.Row;
-import oracle.jbo.RowSetIterator;
 import oracle.jbo.domain.ClobDomain;
-
-import org.dom4j.CDATA;
 
 import view.utils.ADFUtils;
 
@@ -321,8 +310,50 @@ public class XpeDccNewContractMBean implements Serializable {
     }
     
     public void buildPDF(){
-        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("PDF", FileOperations.genPdfRep(buildXML(), FileOperations.getRTFAsInputStream(getTemplateName())));
+        try {
+            BindingContext bc = BindingContext.getCurrent();
+            BindingContainer bindings = bc.getCurrentBindingsEntry();
+            OperationBinding operationBinding = bindings.getOperationBinding("buildXML");
+            if (null != operationBinding){
+                Map pdf = (Map)operationBinding.execute();
+                if(null!=pdf && pdf.size()>1)
+                    FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("PDF", FileOperations.genPdfRep(String.valueOf(pdf.get("XML")).getBytes(), FileOperations.getRTFAsInputStream(String.valueOf(pdf.get("TEMPLATE_NAME")))));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
+
+    /*private byte[] toByteArray(Object obj) {
+        byte[] bytes = null;
+        ByteArrayOutputStream bos = null;
+        ObjectOutputStream oos = null;
+
+        try {
+            bos = new ByteArrayOutputStream();
+            oos = new ObjectOutputStream(bos);
+            oos.writeObject(obj);
+            oos.flush();
+            bytes = bos.toByteArray();
+        } catch (IOException ioe) {
+            // TODO: Add catch code
+            ioe.printStackTrace();
+        } finally {
+            try {
+                if (oos != null) {
+                    oos.close();
+                }
+                if (bos != null) {
+                    bos.close();
+                }
+            } catch (IOException ioe) {
+                // TODO: Add catch code
+                ioe.printStackTrace();
+            }
+        }
+
+        return bytes;
+    }*/
     
     
     private byte[] buildXML(String html){
@@ -347,7 +378,7 @@ public class XpeDccNewContractMBean implements Serializable {
         return dataBytes;
     }
     
-    private byte[] buildXML(){
+    /*private byte[] buildXML(){
         byte[] dataBytes = null;
         String xmlTag = "<?xml version=\"1.0\" encoding=\"windows-1252\"?>";
         try {
@@ -405,9 +436,9 @@ public class XpeDccNewContractMBean implements Serializable {
             e.printStackTrace();
         }
         return dataBytes;
-    }
+    }*/
     
-    public StringBuilder buildXMLForTerms(StringBuilder xmlBuilder){
+    /*public StringBuilder buildXMLForTerms(StringBuilder xmlBuilder){
         try {
             XpeDccTermsContractEOVOImpl xpeDccTermsContractEOVO = (XpeDccTermsContractEOVOImpl)ADFUtils.findViewObjectFromIteratorName("XpeDccTermsContractEOVOIterator");
             RowSetIterator rowsetIterator = xpeDccTermsContractEOVO.createRowSetIterator(null);
@@ -423,9 +454,9 @@ public class XpeDccNewContractMBean implements Serializable {
             e.printStackTrace();
         }
         return xmlBuilder;
-    }
+    }*/
     
-    private String getTemplateName() {
+    /*private String getTemplateName() {
         String templateName = null;
         String wasteType = ADFUtils.getValueFrmExpression("#{bindings.XpeWasteType.inputValue}");
         String contractSubType = ADFUtils.getValueFrmExpression("#{bindings.XpeContractSubType.inputValue}");
@@ -441,9 +472,9 @@ public class XpeDccNewContractMBean implements Serializable {
                 templateName = "Covanta - Spot-Premium Contract Template v2";
         }
         return templateName;
-    }
+    }*/
     
-    private String formatDate(String dateInString) {
+    /*private String formatDate(String dateInString) {
            SimpleDateFormat dateFormat = new SimpleDateFormat(
                    "yyyy-MM-dd hh:mm:ss");
            SimpleDateFormat  formatter = new SimpleDateFormat("MM/dd/yyyy");
@@ -457,7 +488,7 @@ public class XpeDccNewContractMBean implements Serializable {
                e.printStackTrace();
            }
           return "";
-       }
+       }*/
 
     private String convertClobToString(ClobDomain html) {
         StringBuilder htmlBuilder = new StringBuilder();
@@ -476,12 +507,12 @@ public class XpeDccNewContractMBean implements Serializable {
         return htmlBuilder.toString();
     }
     
-    private String checkIfNull(String val){ 
+    /*private String checkIfNull(String val){ 
         if(null==val || val.trim().length()==0)
           return "";
         else
          return val;
-    }
+    }*/
 
     public void contractQueryOperationListener(QueryOperationEvent queryOperationEvent) {
         invokeEL("#{bindings.ImplicitViewCriteriaQuery.processQueryOperation}",Object.class,

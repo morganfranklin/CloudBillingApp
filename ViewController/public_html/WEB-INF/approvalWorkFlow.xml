@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <task-flow-definition id="approvalWorkFlow">
-    <default-activity>updateContractApprovalStatus</default-activity>
+    <default-activity>buildPDF</default-activity>
     <data-control-scope>
       <shared/>
     </data-control-scope>
@@ -15,6 +15,11 @@
       <value>#{pageFlowScope.action}</value>
       <class>java.lang.String</class>
     </input-parameter-definition>
+    <managed-bean id="__6">
+      <managed-bean-name>approvalWF</managed-bean-name>
+      <managed-bean-class>view.XpeDccApprovalWF</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
     <view id="dccapprovalConfirm">
       <page>/dccapprovalConfirm.jspx</page>
     </view>
@@ -24,11 +29,24 @@
         <fixed-outcome>updateContractApprovalStatus</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="buildPDF">
+      <method>#{pageFlowScope.approvalWF.buildPDF}</method>
+      <outcome>
+        <fixed-outcome>buildPDF</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__3">
       <from-activity-id>updateContractApprovalStatus</from-activity-id>
       <control-flow-case id="__4">
         <from-outcome>updateContractApprovalStatus</from-outcome>
         <to-activity-id>dccapprovalConfirm</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id>buildPDF</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome>buildPDF</from-outcome>
+        <to-activity-id>updateContractApprovalStatus</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

@@ -1,5 +1,7 @@
 package model.common;
 
+import java.util.Map;
+
 import oracle.jbo.ApplicationModule;
 import oracle.jbo.domain.BlobDomain;
 // ---------------------------------------------------------------------
@@ -26,22 +28,28 @@ public interface AppModule extends ApplicationModule {
     String addAssTerminalToOrigin();
 
 
-    void updateContractApprovalStatus(String uuId, String action);
-    
+
     String createNewContractVersion(String contractType);
 
     void billAndAccountingProcess();
 
     void initBillAccountProcess();
 
-    boolean newContractCreation(byte[] bytes, String contractType);
 
     void initCntrctAprFcltySetUp();
 
     void resetCntrctAprFcltySetUp();
 
     void searchCntrctAprFcltySetUp(String type);
-
     String addAssTerminalToPCS();
-}
+
+    boolean newContractCreation(byte[] bytes, String contractId, String contractVersion);
+
+
+    void updateContractApprovalStatus(String uuId, String action, byte[] bytes);
+
+
+    Map buildXML(String contractId, String contractVersion);
+
+    Map fetchPDFXML(String uuId);}
 
