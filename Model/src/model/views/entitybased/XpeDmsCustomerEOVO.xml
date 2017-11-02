@@ -25,6 +25,10 @@
         ResId="model.views.entitybased.XpeDmsCustomerEOVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <Variable
+    Name="bind_CustId"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="XpeDmsCustomerEO"
     Entity="model.entities.XpeDmsCustomerEO"/>
@@ -215,6 +219,43 @@
         Operator="ISBLANK"
         Conjunction="AND"
         UpperColumns="0"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="XpeDmsCustomerCriteria"
+    ViewObjectName="model.views.entitybased.XpeDmsCustomerEOVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="XpeDmsCustomerEOVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="CustId"
+        ViewAttribute="CustId"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_CustId"
+        UpperColumns="0"
+        IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
