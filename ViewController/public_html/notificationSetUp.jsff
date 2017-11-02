@@ -31,7 +31,7 @@
                 selectionListener="#{bindings.XpeDccCfgNotificationEOVO1.collectionModel.makeCurrent}"
                 rowSelection="single" fetchSize="#{bindings.XpeDccCfgNotificationEOVO1.rangeSize}" id="resId1"
                 binding="#{backingBeanScope.NotificationSetUpTableBBean.notificationSetUpTblBind}"
-                contentDelivery="immediate" columnStretching="last">
+                contentDelivery="immediate" columnStretching="last" partialTriggers="::b1 ::b5 ::b9">
         <af:column headerText="#{bindings.XpeDccCfgNotificationEOVO1.hints.NotificationId.label}" id="resId1c1">
           <af:link text="#{row.NotificationId}" id="l1" partialSubmit="true"
                    actionListener="#{pageFlowScope.NotificationSetUpTableMBean.onNotificationEdit}"/>
@@ -61,11 +61,12 @@
         </af:column>
       </af:table>
       <af:popup childCreation="deferred" autoCancel="disabled" id="p2" contentDelivery="lazyUncached"
-                binding="#{backingBeanScope.NotificationSetUpTableBBean.notificationAdd_popup}">
+                binding="#{backingBeanScope.NotificationSetUpTableBBean.notificationAdd_popup}"
+                resetEditableValues="whenCanceled">
         <af:dialog id="d1" type="none" title="Add Notification" closeIconVisible="false">
           <f:facet name="buttonBar">
             <af:button action="#{bindings.Commit.execute}" text="Save"
-                       id="b4"
+                       id="b4" disabled="#{!bindings.Commit.enabled}"
                        actionListener="#{pageFlowScope.NotificationSetUpTableMBean.notificationAddSaveorCancel}"/>
             <af:spacer width="10" height="10" id="s5"/>
             <af:button action="#{bindings.Rollback.execute}" text="Cancel"
@@ -192,11 +193,12 @@
         </af:dialog>
       </af:popup>
       <af:popup childCreation="deferred" autoCancel="disabled" id="p1" contentDelivery="lazyUncached"
-                binding="#{backingBeanScope.NotificationSetUpTableBBean.notificationEdit_popup}">
+                binding="#{backingBeanScope.NotificationSetUpTableBBean.notificationEdit_popup}"
+                resetEditableValues="whenCanceled">
         <af:dialog id="d2" type="none" title="Edit Notification" closeIconVisible="false">
           <f:facet name="buttonBar">
             <af:button action="#{bindings.Commit.execute}" text="Save"
-                       id="b8"
+                       id="b8" 
                        actionListener="#{pageFlowScope.NotificationSetUpTableMBean.notificationEditSaveorCancel}"/>
             <af:spacer width="10" height="10" id="s7"/>
             <af:button action="#{bindings.Rollback.execute}" text="Cancel"
@@ -248,6 +250,7 @@
               </af:inputDate>
             </af:panelFormLayout>
           </af:panelHeader>
+          <af:spacer width="10" height="10" id="s8"/>
           <af:panelHeader text="Select all Excluded Groups" id="ph8" size="5">
             <f:facet name="context"/>
             <f:facet name="toolbar">
@@ -313,6 +316,7 @@
               </af:column>
             </af:table>
           </af:panelHeader>
+          <af:spacer width="10" height="10" id="s9"/>
           <af:panelHeader text="Notification Template" id="ph6" size="5">
             <f:facet name="context"/>
             <f:facet name="toolbar"/>
