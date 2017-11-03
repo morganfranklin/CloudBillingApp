@@ -435,7 +435,18 @@
                                                action="#{controllerContext.currentViewPort.taskFlowContext.trainModel.getPrevious}"/>
                                     <af:button text="Submit" id="b5"
                                                actionListener="#{pageFlowScope.XpeDccNewContractMBean.onSubmit}"
-                                               action="#{pageFlowScope.XpeDccNewContractMBean.onSubmitAction}"/>
+                                               action="#{pageFlowScope.XpeDccNewContractMBean.onSubmitAction}">
+                                        <af:setPropertyListener from="#{'IWF'}"
+                                                                to="#{requestScope.contractVersionApprovalStatus}"
+                                                                type="action"/>
+                                    </af:button>
+                                    <af:button text="Save as Draft" id="b6"
+                                               actionListener="#{pageFlowScope.XpeDccNewContractMBean.onSubmit}"
+                                               action="#{pageFlowScope.XpeDccNewContractMBean.onSubmitAction}">
+                                        <af:setPropertyListener from="#{'DRA'}"
+                                                                to="#{requestScope.contractVersionApprovalStatus}"
+                                                                type="action"/>
+                                    </af:button>
                                 </af:gridCell>
                             </af:gridRow>
                         </af:panelGridLayout>

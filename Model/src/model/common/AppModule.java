@@ -43,13 +43,14 @@ public interface AppModule extends ApplicationModule {
     void searchCntrctAprFcltySetUp(String type);
     String addAssTerminalToPCS();
 
-    boolean newContractCreation(byte[] bytes, String contractId, String contractVersion);
-
 
     void updateContractApprovalStatus(String uuId, String action, byte[] bytes);
 
 
-    Map buildXML(String contractId, String contractVersion);
+    Map fetchPDFXML(String uuId);
 
-    Map fetchPDFXML(String uuId);}
+    Map buildXML(String contractId, String contractVersion, String inContractFlow);
+
+    boolean newContractCreation(byte[] bytes, String contractId, String contractVersion, String submissionType);
+}
 

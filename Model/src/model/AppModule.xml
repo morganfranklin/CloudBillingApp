@@ -621,6 +621,16 @@
     <ViewUsage
         Name="XpeDccCfgNewNotifGroupsEOVO"
         ViewObjectName="model.views.entitybased.XpeDccCfgNotifGroupsEOVO"/>
+    <ViewUsage
+        Name="XpeDccNewContractsEOVO1"
+        ViewObjectName="model.views.entitybased.XpeDccNewContractsEOVO">
+        <ViewCriteriaUsage
+            Name="NewContractsEmptyCriteria"
+            FullName="model.views.entitybased.XpeDccNewContractsEOVO.NewContractsEmptyCriteria"/>
+    </ViewUsage>
+    <ViewUsage
+        Name="XpeDccContractVersionView3"
+        ViewObjectName="model.XpeDccContractVersionView"/>
     <ViewLinkUsage
         Name="NeuRuleTblFk1Link1"
         ViewLinkObjectName="model.NeuRuleTblFk1Link"
@@ -896,6 +906,12 @@
         ViewLinkObjectName="model.views.entitybased.NotificationFkLink"
         SrcViewUsageName="model.AppModule.XpeDccCfgNewNotificationEOVO"
         DstViewUsageName="model.AppModule.XpeDccCfgNewNotifGroupsEOVO"
+        Reversed="false"/>
+    <ViewLinkUsage
+        Name="XpeDccContractVersionFKVL1"
+        ViewLinkObjectName="model.views.entitybased.XpeDccContractVersionFKVL"
+        SrcViewUsageName="model.AppModule.XpeDccNewContractsEOVO1"
+        DstViewUsageName="model.AppModule.XpeDccContractVersionView3"
         Reversed="false"/>
     <ClientInterface
         Name="__clientInterface">
@@ -1347,51 +1363,6 @@
                 Type="java.lang.String"/>
         </Method>
         <Method
-            Name="newContractCreation"
-            MethodName="newContractCreation">
-            <Return
-                Name="_return_type_"
-                Type="boolean"/>
-            <Parameter
-                Name="bytes"
-                Type="byte[]"/>
-            <Parameter
-                Name="contractId"
-                Type="java.lang.String"/>
-            <Parameter
-                Name="contractVersion"
-                Type="java.lang.String"/>
-        </Method>
-        <Method
-            Name="updateContractApprovalStatus"
-            MethodName="updateContractApprovalStatus">
-            <Return
-                Name="_return_type_"
-                Type="void"/>
-            <Parameter
-                Name="uuId"
-                Type="java.lang.String"/>
-            <Parameter
-                Name="action"
-                Type="java.lang.String"/>
-            <Parameter
-                Name="bytes"
-                Type="byte[]"/>
-        </Method>
-        <Method
-            Name="buildXML"
-            MethodName="buildXML">
-            <Return
-                Name="_return_type_"
-                Type="java.util.Map"/>
-            <Parameter
-                Name="contractId"
-                Type="java.lang.String"/>
-            <Parameter
-                Name="contractVersion"
-                Type="java.lang.String"/>
-        </Method>
-        <Method
             Name="fetchPDFXML"
             MethodName="fetchPDFXML">
             <Return
@@ -1467,19 +1438,6 @@
                 Type="java.lang.String"/>
         </Method>
         <Method
-            Name="updateContractApprovalStatus"
-            MethodName="updateContractApprovalStatus">
-            <Return
-                Name="_return_type_"
-                Type="void"/>
-            <Parameter
-                Name="uuId"
-                Type="java.lang.String"/>
-            <Parameter
-                Name="action"
-                Type="java.lang.String"/>
-        </Method>
-        <Method
             Name="createNewContractVersion"
             MethodName="createNewContractVersion">
             <Return
@@ -1502,19 +1460,6 @@
             <Return
                 Name="_return_type_"
                 Type="void"/>
-        </Method>
-        <Method
-            Name="newContractCreation"
-            MethodName="newContractCreation">
-            <Return
-                Name="_return_type_"
-                Type="boolean"/>
-            <Parameter
-                Name="bytes"
-                Type="byte[]"/>
-            <Parameter
-                Name="contractType"
-                Type="java.lang.String"/>
         </Method>
         <Method
             Name="initCntrctAprFcltySetUp"
@@ -1545,6 +1490,57 @@
             MethodName="addAssTerminalToPCS">
             <Return
                 Name="_return_type_"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="updateContractApprovalStatus"
+            MethodName="updateContractApprovalStatus">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+            <Parameter
+                Name="uuId"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="action"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="bytes"
+                Type="byte[]"/>
+        </Method>
+        <Method
+            Name="buildXML"
+            MethodName="buildXML">
+            <Return
+                Name="_return_type_"
+                Type="java.util.Map"/>
+            <Parameter
+                Name="contractId"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="contractVersion"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="inContractFlow"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="newContractCreation"
+            MethodName="newContractCreation">
+            <Return
+                Name="_return_type_"
+                Type="boolean"/>
+            <Parameter
+                Name="bytes"
+                Type="byte[]"/>
+            <Parameter
+                Name="contractId"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="contractVersion"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="submissionType"
                 Type="java.lang.String"/>
         </Method>
     </ClientInterface>

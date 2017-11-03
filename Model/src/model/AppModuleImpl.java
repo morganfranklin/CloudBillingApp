@@ -1631,54 +1631,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         }
     }
 
-    public boolean newContractCreation(byte[] bytes, String contractId,String contractVersion) {
+    public boolean newContractCreation(byte[] bytes, String contractId,String contractVersion, String submissionType) {
         try {
-            /*int lineOrPriceNumber = 1;
-            XpeDccContractVersionViewRowImpl xpeDccContractVersionViewRow =
-                (XpeDccContractVersionViewRowImpl) this.getXpeDccNewContractVersionView().getCurrentRow();
-            RowIterator contractLineRowIterator = xpeDccContractVersionViewRow.getXpeDccContractLineView();
-
-            XpeDccNewContractLPCROVOImpl xpeDccNewContractLPCROVO = this.getXpeDccNewContractLPCROVO();
-            RowSetIterator rowSetIterator = xpeDccNewContractLPCROVO.createRowSetIterator(null);
-            while (rowSetIterator.hasNext()) {
-                XpeDccNewContractLPCROVORowImpl xpeDccNewContractLPCROVORow =
-                    (XpeDccNewContractLPCROVORowImpl) rowSetIterator.next();
-                if (null !=xpeDccContractVersionViewRow) {
-                    //creating contract lines
-                    XpeDccContractLineViewRowImpl contractLineRow =
-                (XpeDccContractLineViewRowImpl) contractLineRowIterator.createRow();
-                    contractLineRow.setXpeContractLine(lineOrPriceNumber+"");
-                    contractLineRow.setXpeFacility(xpeDccNewContractLPCROVORow.getFacility());
-                    contractLineRow.setXpeProductId(xpeDccNewContractLPCROVORow.getProductId());
-                    contractLineRow.setXpeProductUom(xpeDccNewContractLPCROVORow.getProductUom());
-                    contractLineRow.setBusinessUnitGl(xpeDccNewContractLPCROVORow.getBusinessUnitGl());
-                    contractLineRow.setXpeSwApprNbr(xpeDccNewContractLPCROVORow.getSwApprNbr());
-                    contractLineRowIterator.insertRow(contractLineRow);
-
-                    //creating contract pricing terms
-                    RowIterator contractPricingRowIterator = contractLineRow.getXpeDccContractPricingTermView();
-                    XpeDccContractPricingTermViewRowImpl contractPricingTermViewRow =
-                        (XpeDccContractPricingTermViewRowImpl) contractPricingRowIterator.createRow();
-                    contractPricingTermViewRow.setXpePricingTermLine(new BigDecimal(lineOrPriceNumber));
-                    contractPricingTermViewRow.setXpePricingTermType(xpeDccNewContractLPCROVORow.getPricingTermType());
-                    contractPricingTermViewRow.setXpeRate(xpeDccNewContractLPCROVORow.getRate());
-                    contractPricingTermViewRow.setXpePeriodType(xpeDccNewContractLPCROVORow.getPeriodType());
-                    contractPricingRowIterator.insertRow(contractPricingTermViewRow);
-
-                    //creating contract carrier and vehicle details
-                    RowIterator contractCarrierRowIterator = contractPricingTermViewRow.getXpeDccContractCarrierView();
-                    XpeDccContractCarrierViewRowImpl contractCarrierViewRow =
-                        (XpeDccContractCarrierViewRowImpl) contractCarrierRowIterator.createRow();
-                    contractCarrierViewRow.setXpeCarrierId(xpeDccNewContractLPCROVORow.getCarrierId());
-                    contractCarrierViewRow.setXpeVehicleType(xpeDccNewContractLPCROVORow.getVehicleType());
-                    contractCarrierViewRow.setXpeVehicleNbr(xpeDccNewContractLPCROVORow.getVehicleNbr());
-                    contractCarrierViewRow.setXpeSubNbr(xpeDccNewContractLPCROVORow.getSubNbr());
-                    contractCarrierRowIterator.insertRow(contractCarrierViewRow);
-                    
-                    lineOrPriceNumber++;
-                }
-            }
-            rowSetIterator.closeRowSetIterator();*/
 
             XpeDccNewContractSetupROVORowImpl newContractSetupRow =
                 (XpeDccNewContractSetupROVORowImpl) this.getXpeDccNewContractSetupROVO().getCurrentRow();
@@ -1689,13 +1643,15 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                     dmsCustomerRow.remove();
             }
             //creating approval work flow
-            String eventNumber = routeForApproval();
+            createApprovalEventAction(contractId,contractVersion,submissionType);
             //commiting transaction
             this.getDBTransaction().commit();
-            //pushing email notifications for approvals
-            pushEmailForApproval(eventNumber,null, bytes,contractId,contractVersion);
-            //commiting transaction after pushing email notification
-            this.getDBTransaction().commit();
+            if (null != submissionType && "IWF".equals(submissionType)) {
+                //pushing email notifications for approvals
+                pushEmailForApproval(bytes, contractId, contractVersion);
+                //commiting transaction after pushing email notification
+                this.getDBTransaction().commit();
+            }
             return true;
         } catch (Exception e) {
             // TODO: Add catch code
@@ -1704,150 +1660,157 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         }
     }
     
-    private String routeForApproval(){
+    private void createApprovalEventAction(String contractId, String contractVersion, String submissionType) {
 
         try {
             Map<Integer, String> approvalEmails = new HashMap<Integer, String>();
-            XpeDccContractVersionViewRowImpl xpeDccContractVersionViewRow =
-                (XpeDccContractVersionViewRowImpl) getXpeDccNewContractVersionView().getCurrentRow();
-            XpeDccContractLineViewRowImpl xpeDccContractLineViewRow =
-                (XpeDccContractLineViewRowImpl) xpeDccContractVersionViewRow.getXpeDccContractLineView().first();
-            XpeDccNewContractSetupROVORowImpl newContractSetupRow =
-                (XpeDccNewContractSetupROVORowImpl) this.getXpeDccNewContractSetupROVO().getCurrentRow();
 
-            XpeDccCfgMswFacilityEOVOImpl xpeDccCfgMswFacilityEOVO = this.getXpeDccCfgMswFacilityEOVO1();
-            XpeDccCfgMetalsFacilityEOVOImpl xpeDccCfgMetalsFacilityEOVO = this.getXpeDccCfgMetalsFacilityEOVO1();
-            XpeDccCfgCmtmntFacilityEOVOImpl xpeDccCfgCmtmntFacilityEOVO = this.getXpeDccCfgCmtmntFacilityEOVO1();
+            Key key = new Key(new Object[] { contractId, contractVersion });
+            Row[] rows = getXpeDccNewContractVersionView().findByKey(key, 1);
+            if (null != rows && rows.length > 0) {
+                XpeDccContractVersionViewRowImpl contractVersionViewRow = (XpeDccContractVersionViewRowImpl) rows[0];
+                XpeDccContractLineViewRowImpl xpeDccContractLineViewRow =
+                    (XpeDccContractLineViewRowImpl) contractVersionViewRow.getXpeDccContractLineView().first();
+                XpeDccNewContractSetupROVORowImpl newContractSetupRow =
+                    (XpeDccNewContractSetupROVORowImpl) this.getXpeDccNewContractSetupROVO().getCurrentRow();
 
-            String wasteType = xpeDccContractVersionViewRow.getXpeWasteType();
-            String contractSubType = xpeDccContractVersionViewRow.getXpeContractSubType();
-            String agreementType = xpeDccContractVersionViewRow.getXpeAgreementType();
+                XpeDccCfgMswFacilityEOVOImpl xpeDccCfgMswFacilityEOVO = this.getXpeDccCfgMswFacilityEOVO1();
+                XpeDccCfgMetalsFacilityEOVOImpl xpeDccCfgMetalsFacilityEOVO = this.getXpeDccCfgMetalsFacilityEOVO1();
+                XpeDccCfgCmtmntFacilityEOVOImpl xpeDccCfgCmtmntFacilityEOVO = this.getXpeDccCfgCmtmntFacilityEOVO1();
 
-            if (null != wasteType && "MTL".equals(wasteType)) {
-                xpeDccCfgMetalsFacilityEOVO.executeEmptyRowSet();
-                xpeDccCfgMetalsFacilityEOVO.setApplyViewCriteriaName("findByFacilityId");
-                xpeDccCfgMetalsFacilityEOVO.setbind_FacilityId(xpeDccContractLineViewRow.getXpeFacility());
-                xpeDccCfgMetalsFacilityEOVO.executeQuery();
-                XpeDccCfgMetalsFacilityEOVORowImpl xpeDccCfgMetalsFacilityEOVORow =
-                    (XpeDccCfgMetalsFacilityEOVORowImpl) xpeDccCfgMetalsFacilityEOVO.first();
-                if (null != xpeDccCfgMetalsFacilityEOVORow) {
-                    approvalEmails.put(1, xpeDccCfgMetalsFacilityEOVORow.getCustomerCareReview());
-                    approvalEmails.put(2, xpeDccCfgMetalsFacilityEOVORow.getLegalReview());
-                    approvalEmails.put(3, xpeDccCfgMetalsFacilityEOVORow.getFinancialReview());
-                    approvalEmails.put(4, xpeDccCfgMetalsFacilityEOVORow.getSvpReview());
-                }
-            }
-            if (null != wasteType && null != contractSubType) {
-                if ("MSW".equals(wasteType) &&
-                    ("SPT".equals(contractSubType) ||
-                     ("PMM".equals(contractSubType) && null != agreementType && "PNC".equals(agreementType)))) {
-                    xpeDccCfgMswFacilityEOVO.executeEmptyRowSet();
-                    xpeDccCfgMswFacilityEOVO.setApplyViewCriteriaName("findByFacilityId");
-                    xpeDccCfgMswFacilityEOVO.setbind_FacilityId(xpeDccContractLineViewRow.getXpeFacility());
-                    xpeDccCfgMswFacilityEOVO.executeQuery();
-                    XpeDccCfgMswFacilityEOVORowImpl xpeDccCfgMswFacilityEOVORow =
-                        (XpeDccCfgMswFacilityEOVORowImpl) xpeDccCfgMswFacilityEOVO.first();
-                    if (null != xpeDccCfgMswFacilityEOVORow) {
-                        approvalEmails.put(1, xpeDccCfgMswFacilityEOVORow.getCustomerCareReview());
-                        approvalEmails.put(2, xpeDccCfgMswFacilityEOVORow.getLegalReview());
-                        approvalEmails.put(3, xpeDccCfgMswFacilityEOVORow.getGeneralManagerReview());
+                String wasteType = contractVersionViewRow.getXpeWasteType();
+                String contractSubType = contractVersionViewRow.getXpeContractSubType();
+                String agreementType = contractVersionViewRow.getXpeAgreementType();
+
+                if (null != wasteType && "MTL".equals(wasteType)) {
+                    xpeDccCfgMetalsFacilityEOVO.executeEmptyRowSet();
+                    xpeDccCfgMetalsFacilityEOVO.setApplyViewCriteriaName("findByFacilityId");
+                    xpeDccCfgMetalsFacilityEOVO.setbind_FacilityId(xpeDccContractLineViewRow.getXpeFacility());
+                    xpeDccCfgMetalsFacilityEOVO.executeQuery();
+                    XpeDccCfgMetalsFacilityEOVORowImpl xpeDccCfgMetalsFacilityEOVORow =
+                        (XpeDccCfgMetalsFacilityEOVORowImpl) xpeDccCfgMetalsFacilityEOVO.first();
+                    if (null != xpeDccCfgMetalsFacilityEOVORow) {
+                        approvalEmails.put(1, xpeDccCfgMetalsFacilityEOVORow.getCustomerCareReview());
+                        approvalEmails.put(2, xpeDccCfgMetalsFacilityEOVORow.getLegalReview());
+                        approvalEmails.put(3, xpeDccCfgMetalsFacilityEOVORow.getFinancialReview());
+                        approvalEmails.put(4, xpeDccCfgMetalsFacilityEOVORow.getSvpReview());
                     }
-                } else if ("MSW".equals(wasteType) &&
-                           ("FLY".equals(contractSubType) ||
-                            ("PMM".equals(contractSubType) && null != agreementType && "PC".equals(agreementType)))) {
-                    xpeDccCfgCmtmntFacilityEOVO.executeEmptyRowSet();
-                    xpeDccCfgCmtmntFacilityEOVO.setApplyViewCriteriaName("findByFacilityId");
-                    xpeDccCfgCmtmntFacilityEOVO.setbind_FacilityId(xpeDccContractLineViewRow.getXpeFacility());
-                    xpeDccCfgCmtmntFacilityEOVO.executeQuery();
-                    XpeDccCfgCmtmntFacilityEOVORowImpl xpeDccCfgCmtmntFacilityEOVORow =
-                        (XpeDccCfgCmtmntFacilityEOVORowImpl) xpeDccCfgCmtmntFacilityEOVO.first();
-                    if (null != xpeDccCfgCmtmntFacilityEOVORow && null != newContractSetupRow.getApproval_Level()) {
-                        if ("EVP".equals(newContractSetupRow.getApproval_Level())) {
-                            approvalEmails.put(1, xpeDccCfgCmtmntFacilityEOVORow.getCustomerCareReview());
-                            approvalEmails.put(2, xpeDccCfgCmtmntFacilityEOVORow.getLegalReview());
-                            approvalEmails.put(3, xpeDccCfgCmtmntFacilityEOVORow.getFinancialReview());
-                            approvalEmails.put(4, xpeDccCfgCmtmntFacilityEOVORow.getGeneralManagerReview());
-                            approvalEmails.put(5, xpeDccCfgCmtmntFacilityEOVORow.getSustSolReview());
-                        } else if ("CEO".equals(newContractSetupRow.getApproval_Level())) {
-                            approvalEmails.put(1, xpeDccCfgCmtmntFacilityEOVORow.getCustomerCareReview());
-                            approvalEmails.put(2, xpeDccCfgCmtmntFacilityEOVORow.getLegalReview());
-                            approvalEmails.put(3, xpeDccCfgCmtmntFacilityEOVORow.getFinancialReview());
-                            approvalEmails.put(4, xpeDccCfgCmtmntFacilityEOVORow.getGeneralManagerReview());
-                            approvalEmails.put(5, xpeDccCfgCmtmntFacilityEOVORow.getSustSolReview());
-                            approvalEmails.put(6, xpeDccCfgCmtmntFacilityEOVORow.getCfoReview());
-                            approvalEmails.put(7, xpeDccCfgCmtmntFacilityEOVORow.getCeoReview());
-                        } else if ("NA".equals(newContractSetupRow.getApproval_Level())) {
-                            approvalEmails.put(1, xpeDccCfgCmtmntFacilityEOVORow.getCustomerCareReview());
-                            approvalEmails.put(2, xpeDccCfgCmtmntFacilityEOVORow.getLegalReview());
-                            approvalEmails.put(3, xpeDccCfgCmtmntFacilityEOVORow.getFinancialReview());
-                            approvalEmails.put(4, xpeDccCfgCmtmntFacilityEOVORow.getGeneralManagerReview());
+                }
+                if (null != wasteType && null != contractSubType) {
+                    if ("MSW".equals(wasteType) &&
+                        ("SPT".equals(contractSubType) ||
+                         ("PMM".equals(contractSubType) && null != agreementType && "PNC".equals(agreementType)))) {
+                        xpeDccCfgMswFacilityEOVO.executeEmptyRowSet();
+                        xpeDccCfgMswFacilityEOVO.setApplyViewCriteriaName("findByFacilityId");
+                        xpeDccCfgMswFacilityEOVO.setbind_FacilityId(xpeDccContractLineViewRow.getXpeFacility());
+                        xpeDccCfgMswFacilityEOVO.executeQuery();
+                        XpeDccCfgMswFacilityEOVORowImpl xpeDccCfgMswFacilityEOVORow =
+                            (XpeDccCfgMswFacilityEOVORowImpl) xpeDccCfgMswFacilityEOVO.first();
+                        if (null != xpeDccCfgMswFacilityEOVORow) {
+                            approvalEmails.put(1, xpeDccCfgMswFacilityEOVORow.getCustomerCareReview());
+                            approvalEmails.put(2, xpeDccCfgMswFacilityEOVORow.getLegalReview());
+                            approvalEmails.put(3, xpeDccCfgMswFacilityEOVORow.getGeneralManagerReview());
+                        }
+                    } else if ("MSW".equals(wasteType) &&
+                               ("FLY".equals(contractSubType) ||
+                                ("PMM".equals(contractSubType) && null != agreementType &&
+                                 "PC".equals(agreementType)))) {
+                        xpeDccCfgCmtmntFacilityEOVO.executeEmptyRowSet();
+                        xpeDccCfgCmtmntFacilityEOVO.setApplyViewCriteriaName("findByFacilityId");
+                        xpeDccCfgCmtmntFacilityEOVO.setbind_FacilityId(xpeDccContractLineViewRow.getXpeFacility());
+                        xpeDccCfgCmtmntFacilityEOVO.executeQuery();
+                        XpeDccCfgCmtmntFacilityEOVORowImpl xpeDccCfgCmtmntFacilityEOVORow =
+                            (XpeDccCfgCmtmntFacilityEOVORowImpl) xpeDccCfgCmtmntFacilityEOVO.first();
+                        if (null != xpeDccCfgCmtmntFacilityEOVORow && null != newContractSetupRow.getApproval_Level()) {
+                            if ("EVP".equals(newContractSetupRow.getApproval_Level())) {
+                                approvalEmails.put(1, xpeDccCfgCmtmntFacilityEOVORow.getCustomerCareReview());
+                                approvalEmails.put(2, xpeDccCfgCmtmntFacilityEOVORow.getLegalReview());
+                                approvalEmails.put(3, xpeDccCfgCmtmntFacilityEOVORow.getFinancialReview());
+                                approvalEmails.put(4, xpeDccCfgCmtmntFacilityEOVORow.getGeneralManagerReview());
+                                approvalEmails.put(5, xpeDccCfgCmtmntFacilityEOVORow.getSustSolReview());
+                            } else if ("CEO".equals(newContractSetupRow.getApproval_Level())) {
+                                approvalEmails.put(1, xpeDccCfgCmtmntFacilityEOVORow.getCustomerCareReview());
+                                approvalEmails.put(2, xpeDccCfgCmtmntFacilityEOVORow.getLegalReview());
+                                approvalEmails.put(3, xpeDccCfgCmtmntFacilityEOVORow.getFinancialReview());
+                                approvalEmails.put(4, xpeDccCfgCmtmntFacilityEOVORow.getGeneralManagerReview());
+                                approvalEmails.put(5, xpeDccCfgCmtmntFacilityEOVORow.getSustSolReview());
+                                approvalEmails.put(6, xpeDccCfgCmtmntFacilityEOVORow.getCfoReview());
+                                approvalEmails.put(7, xpeDccCfgCmtmntFacilityEOVORow.getCeoReview());
+                            } else if ("NA".equals(newContractSetupRow.getApproval_Level())) {
+                                approvalEmails.put(1, xpeDccCfgCmtmntFacilityEOVORow.getCustomerCareReview());
+                                approvalEmails.put(2, xpeDccCfgCmtmntFacilityEOVORow.getLegalReview());
+                                approvalEmails.put(3, xpeDccCfgCmtmntFacilityEOVORow.getFinancialReview());
+                                approvalEmails.put(4, xpeDccCfgCmtmntFacilityEOVORow.getGeneralManagerReview());
+                            }
                         }
                     }
                 }
-            }
 
-            //setting contract version status
-            xpeDccContractVersionViewRow.setXpeContractStatus("IWF");
+                //setting contract version status
+                contractVersionViewRow.setXpeContractStatus(submissionType);
 
-            //creating Approval Work Flow Event
-            XpeDccWfEventEOVORowImpl approvalWFEventRow =
-                (XpeDccWfEventEOVORowImpl) this.getXpeDccWfEventEOVO().createRow();
-            approvalWFEventRow.setXpeContractId(xpeDccContractVersionViewRow.getXpeContractId());
-            approvalWFEventRow.setXpeContractVersion(xpeDccContractVersionViewRow.getXpeContractVersion());
-            approvalWFEventRow.setXpeEventStatus("P");
-            approvalWFEventRow.setXpeEventType("I");
-            this.getXpeDccWfEventEOVO().insertRow(approvalWFEventRow);
+                //creating Approval Work Flow Event
+                XpeDccWfEventEOVORowImpl approvalWFEventRow =
+                    (XpeDccWfEventEOVORowImpl) this.getXpeDccWfEventEOVO().createRow();
+                approvalWFEventRow.setXpeContractId(contractVersionViewRow.getXpeContractId());
+                approvalWFEventRow.setXpeContractVersion(contractVersionViewRow.getXpeContractVersion());
+                approvalWFEventRow.setXpeEventStatus(submissionType);
+                approvalWFEventRow.setXpeEventType("I");
+                this.getXpeDccWfEventEOVO().insertRow(approvalWFEventRow);
 
-            if (null != approvalWFEventRow && null != approvalWFEventRow.getXpeEventNumber()) {
-                //creating Approval Work Flow Action
-                for (Map.Entry<Integer, String> approvalEmail : approvalEmails.entrySet()) {
+                if (null != approvalWFEventRow && null != approvalWFEventRow.getXpeEventNumber()) {
+                    //creating Approval Work Flow Action
+                    for (Map.Entry<Integer, String> approvalEmail : approvalEmails.entrySet()) {
 
-                    XpeDccWfActionEOVORowImpl xpeDccWfActionEOVORow =
-                        (XpeDccWfActionEOVORowImpl) approvalWFEventRow.getXpeDccWfActionEOVO().createRow();
-                    xpeDccWfActionEOVORow.setXpeContractId(xpeDccContractVersionViewRow.getXpeContractId());
-                    xpeDccWfActionEOVORow.setXpeContractVersion(xpeDccContractVersionViewRow.getXpeContractVersion());
-                    xpeDccWfActionEOVORow.setXpeUuid(UUID.randomUUID().toString());
-                    xpeDccWfActionEOVORow.setXpeApproverEmail(approvalEmail.getValue());
-                    xpeDccWfActionEOVORow.setXpeActionStatus("W");
-                    approvalWFEventRow.getXpeDccWfActionEOVO().insertRow(xpeDccWfActionEOVORow);
+                        XpeDccWfActionEOVORowImpl xpeDccWfActionEOVORow =
+                            (XpeDccWfActionEOVORowImpl) approvalWFEventRow.getXpeDccWfActionEOVO().createRow();
+                        xpeDccWfActionEOVORow.setXpeContractId(contractVersionViewRow.getXpeContractId());
+                        xpeDccWfActionEOVORow.setXpeContractVersion(contractVersionViewRow.getXpeContractVersion());
+                        xpeDccWfActionEOVORow.setXpeUuid(UUID.randomUUID().toString());
+                        xpeDccWfActionEOVORow.setXpeApproverEmail(approvalEmail.getValue());
+                        xpeDccWfActionEOVORow.setXpeActionStatus("W");
+                        approvalWFEventRow.getXpeDccWfActionEOVO().insertRow(xpeDccWfActionEOVORow);
+                    }
                 }
-                return approvalWFEventRow.getXpeEventNumber();
             }
         } catch (Exception e) {
             // TODO: Add catch code
             e.printStackTrace();
         }
-      return null;
     }
     
-    private void pushEmailForApproval(String eventNumber, XpeDccWfActionEOVORowImpl xpeDccWfActionEOVORow, byte[] bytes,String contractId, String contractVersion){
-        try {
+    private void pushEmailForApproval(XpeDccWfActionEOVORowImpl xpeDccWfActionEOVORow, byte[] bytes, String contractId,
+                                     String contractVersion) {
 
-            if (null != xpeDccWfActionEOVORow) {
+        if (EmailUtils.sendEmail(xpeDccWfActionEOVORow.getXpeApproverEmail(),
+                                 buildEmailBody(xpeDccWfActionEOVORow.getXpeUuid(), contractId, contractVersion),
+                                 bytes)) {
+            xpeDccWfActionEOVORow.setXpeActionStatus("P");
+        }
+    }
+
+    public void pushEmailForApproval(byte[] bytes, String contractId, String contractVersion) {
+        try {
+            XpeDccWfEventEOVOImpl approvalWFEvent = this.getXpeDccWfEventEOVO();
+            approvalWFEvent.executeEmptyRowSet();
+            approvalWFEvent.setApplyViewCriteriaName("XpeDccWfEventContractVersionEOVOCriteria");
+            approvalWFEvent.setbind_contractId(contractId);
+            approvalWFEvent.setbind_contractVersion(contractVersion);
+            approvalWFEvent.executeQuery();
+            XpeDccWfEventEOVORowImpl approvalWFEventRow = (XpeDccWfEventEOVORowImpl) approvalWFEvent.first();
+            if (null != approvalWFEventRow) {
+                XpeDccWfActionEOVORowImpl xpeDccWfActionEOVORow =
+                    (XpeDccWfActionEOVORowImpl) approvalWFEventRow.getXpeDccWfActionEOVO().first();
                 if (EmailUtils.sendEmail(xpeDccWfActionEOVORow.getXpeApproverEmail(),
-                                         buildEmailBody(xpeDccWfActionEOVORow.getXpeUuid(),contractId,contractVersion), bytes)) {
+                                         buildEmailBody(xpeDccWfActionEOVORow.getXpeUuid(), contractId,
+                                                        contractVersion), bytes)) {
+                    if (null != approvalWFEventRow.getXpeEventStatus() &&
+                        "DRA".equals(approvalWFEventRow.getXpeEventStatus()))
+                        approvalWFEventRow.setXpeEventStatus("IWF");
                     xpeDccWfActionEOVORow.setXpeActionStatus("P");
                 }
-            } else {
-                XpeDccWfEventEOVOImpl approvalWFEvent = this.getXpeDccWfEventEOVO();
-                approvalWFEvent.executeEmptyRowSet();
-                approvalWFEvent.setApplyViewCriteriaName("XpeDccWfEventEOVOCriteria");
-                approvalWFEvent.setbind_eventNumber(eventNumber);
-                approvalWFEvent.executeQuery();
-                XpeDccWfEventEOVORowImpl approvalWFEventRow = (XpeDccWfEventEOVORowImpl) approvalWFEvent.first();
-                if (null != approvalWFEventRow) {
-                    xpeDccWfActionEOVORow =
-                        (XpeDccWfActionEOVORowImpl) approvalWFEventRow.getXpeDccWfActionEOVO().first();
-                    if (null != xpeDccWfActionEOVORow && null != xpeDccWfActionEOVORow.getXpeActionStatus() &&
-                        "W".equals(xpeDccWfActionEOVORow.getXpeActionStatus())) {
-                        if (EmailUtils.sendEmail(xpeDccWfActionEOVORow.getXpeApproverEmail(),
-                                                 buildEmailBody(xpeDccWfActionEOVORow.getXpeUuid(),contractId,contractVersion),bytes)) {
-                            xpeDccWfActionEOVORow.setXpeActionStatus("P");
-                        }
-
-                    }
-                }
             }
+
         } catch (Exception e) {
             // TODO: Add catch code
             e.printStackTrace();
@@ -1856,10 +1819,13 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     
     private String buildEmailBody(String uuId, String contractId, String contractVersion){
         String customerName=null,contractStartDate=null,contractEndDate=null,salesPerson=null;
-        Key contractKey = new Key(new Object[] { contractId });
-        Row[] xpeDccNewContractsEOVORows = this.getXpeDccNewContractsEOVO().findByKey(contractKey, 1);
-        if (null != xpeDccNewContractsEOVORows && xpeDccNewContractsEOVORows.length>0) {
-            XpeDccNewContractsEOVORowImpl xpeDccNewContractsEOVORow = (XpeDccNewContractsEOVORowImpl)xpeDccNewContractsEOVORows[0];
+        XpeDccNewContractsEOVOImpl contractView = this.getXpeDccNewContractsEOVO1();
+        contractView.executeEmptyRowSet();
+        contractView.setApplyViewCriteriaName("FetchExtContractCriteria");
+        contractView.setbind_ContractId(contractId);
+        contractView.executeQuery();
+        XpeDccNewContractsEOVORowImpl xpeDccNewContractsEOVORow = (XpeDccNewContractsEOVORowImpl) contractView.first();
+        if(null!=xpeDccNewContractsEOVORow){
             XpeDccNewContractCustomerSearchROVOImpl xpeDccNewContractCustomerSearchROVO = this.getXpeDccNewContractCustomerSearchROVO1();
             xpeDccNewContractCustomerSearchROVO.executeEmptyRowSet();
             xpeDccNewContractCustomerSearchROVO.setApplyViewCriteriaName("NewContractCustomerSearch");
@@ -1949,7 +1915,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                 (XpeDccWfActionROVORowImpl) this.getXpeDccWfActionROVO().first();
             if (null != xpeDccWfActionROVORow)
                 return this.buildXML(xpeDccWfActionROVORow.getXpeContractId(),
-                                     xpeDccWfActionROVORow.getXpeContractVersion());
+                                     xpeDccWfActionROVORow.getXpeContractVersion(),"N");
             else
                 return new HashMap();
         } catch (Exception e) {
@@ -1986,12 +1952,12 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                                     xpeDccWfActionEOVORow.setXpeActionStatus("A");
                                 else if ("REJECT".equals(action)) {
                                     xpeDccWfActionEOVORow.setXpeActionStatus("R");
-                                    approvalWFEventRow.setXpeEventStatus("R");
+                                    approvalWFEventRow.setXpeEventStatus("REJ");
                                     updateContractVersionStatus(approvalWFEventRow, "REJ");
                                 }
                             } else if ("ACCEPT".equals(action) &&
                                        !"A".equals(xpeDccWfActionEOVORow.getXpeActionStatus())) {
-                                this.pushEmailForApproval(null, xpeDccWfActionEOVORow, bytes,
+                                this.pushEmailForApproval(xpeDccWfActionEOVORow, bytes,
                                                           xpeDccWfActionEOVORow.getXpeContractId(),
                                                           xpeDccWfActionEOVORow.getXpeContractVersion());
                                 break;
@@ -2010,7 +1976,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                         this.getXpeDccWfActionROVO().executeQuery();
                         Long rowCount = this.getXpeDccWfActionROVO().getEstimatedRowCount();
                         if (rowCount.intValue() == 0) {
-                            approvalWFEventRow.setXpeEventStatus("A");
+                            approvalWFEventRow.setXpeEventStatus("APR");
                             updateContractVersionStatus(approvalWFEventRow, "APR");
                             //commiting transaction
                             this.getDBTransaction().commit();
@@ -2044,7 +2010,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     }
     
     
-    public Map buildXML(String contractId, String contractVersion){
+    public Map buildXML(String contractId, String contractVersion, String inContractFlow){
         Map pdf = new HashMap();
         try {
             String xmlTag = "<?xml version=\"1.0\" encoding=\"windows-1252\"?>";
@@ -2053,11 +2019,26 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             xmlBuilder.append("<CONTRACT_DETAILS>");
             xmlBuilder.append("<CONTRACT_DETAILS_ROW>");
             
-            Key contractKey = new Key(new Object[] { contractId });
-            Row[] xpeDccNewContractsEOVORows = this.getXpeDccNewContractsEOVO().findByKey(contractKey, 1);
-            if (null != xpeDccNewContractsEOVORows && xpeDccNewContractsEOVORows.length>0) {
+            XpeDccNewContractsEOVORowImpl xpeDccNewContractsEOVORow = null;
+            if (null != inContractFlow) {
+                if ("Y".equals(inContractFlow)) {
+                    Key contractKey = new Key(new Object[] { contractId });
+                    Row[] xpeDccNewContractsEOVORows = this.getXpeDccNewContractsEOVO().findByKey(contractKey, 1);
+                    if (null != xpeDccNewContractsEOVORows && xpeDccNewContractsEOVORows.length > 0)
+                        xpeDccNewContractsEOVORow = (XpeDccNewContractsEOVORowImpl) xpeDccNewContractsEOVORows[0];
+                } else if ("N".equals(inContractFlow)) {
+                    XpeDccNewContractsEOVOImpl contractView = this.getXpeDccNewContractsEOVO1();
+                    contractView.executeEmptyRowSet();
+                    contractView.setApplyViewCriteriaName("FetchExtContractCriteria");
+                    contractView.setbind_ContractId(contractId);
+                    contractView.executeQuery();
+                    if(null!=contractView.first())
+                        xpeDccNewContractsEOVORow = (XpeDccNewContractsEOVORowImpl)contractView.first();
+                }
+            }
+            
+            if (null != xpeDccNewContractsEOVORow) {
                 String customerName = null;
-                XpeDccNewContractsEOVORowImpl xpeDccNewContractsEOVORow = (XpeDccNewContractsEOVORowImpl)xpeDccNewContractsEOVORows[0];
                 XpeDccNewContractCustomerSearchROVOImpl xpeDccNewContractCustomerSearchROVO = this.getXpeDccNewContractCustomerSearchROVO1();
                 xpeDccNewContractCustomerSearchROVO.executeEmptyRowSet();
                 xpeDccNewContractCustomerSearchROVO.setApplyViewCriteriaName("NewContractCustomerSearch");
@@ -3259,6 +3240,30 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public ViewLinkImpl getNotificationFkLink2() {
         return (ViewLinkImpl) findViewLink("NotificationFkLink2");
+    }
+
+    /**
+     * Container's getter for XpeDccNewContractsEOVO1.
+     * @return XpeDccNewContractsEOVO1
+     */
+    public XpeDccNewContractsEOVOImpl getXpeDccNewContractsEOVO1() {
+        return (XpeDccNewContractsEOVOImpl) findViewObject("XpeDccNewContractsEOVO1");
+    }
+
+    /**
+     * Container's getter for XpeDccContractVersionView3.
+     * @return XpeDccContractVersionView3
+     */
+    public XpeDccContractVersionViewImpl getXpeDccContractVersionView3() {
+        return (XpeDccContractVersionViewImpl) findViewObject("XpeDccContractVersionView3");
+    }
+
+    /**
+     * Container's getter for XpeDccContractVersionFKVL1.
+     * @return XpeDccContractVersionFKVL1
+     */
+    public ViewLinkImpl getXpeDccContractVersionFKVL1() {
+        return (ViewLinkImpl) findViewLink("XpeDccContractVersionFKVL1");
     }
 }
 
