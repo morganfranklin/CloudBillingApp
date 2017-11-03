@@ -149,8 +149,7 @@
         Name="LOV_XpeBillOptionsSet"
         ListVOName="XpeDccDicOptionsBilling1"
         ListRangeSize="-1"
-        NullValueFlag="start"
-        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+        NullValueFlag="none"
         MRUCount="0">
         <AttrArray Name="AttrNames">
             <Item Value="XpeBillOptionsSet"/>
@@ -168,8 +167,7 @@
         Name="LOV_XpeAcctgOptionsSet"
         ListVOName="XpeDccDicOptionsAccounting1"
         ListRangeSize="-1"
-        NullValueFlag="start"
-        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+        NullValueFlag="none"
         MRUCount="0">
         <AttrArray Name="AttrNames">
             <Item Value="XpeAcctgOptionsSet"/>
@@ -404,10 +402,10 @@
         LOVName="LOV_XpeBillOptionsSet">
         <Properties>
             <SchemaBasedProperties>
-                <CONTROLTYPE
-                    Value="choice"/>
                 <DISPLAYWIDTH
                     Value="20"/>
+                <CONTROLTYPE
+                    Value="choice"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>
@@ -420,10 +418,12 @@
         LOVName="LOV_XpeAcctgOptionsSet">
         <Properties>
             <SchemaBasedProperties>
-                <CONTROLTYPE
-                    Value="choice"/>
                 <DISPLAYWIDTH
                     Value="20"/>
+                <CONTROLTYPE
+                    Value="choice"/>
+                <LABEL
+                    ResId="model.XpeDccContractVersionView.XpeAcctgOptionsSet_LABEL"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>

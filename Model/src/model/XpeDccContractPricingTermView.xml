@@ -218,7 +218,14 @@
         PrecisionRule="true"
         EntityAttrName="XpeQtyMax"
         EntityUsage="XpeDccContractPricingTerm"
-        AliasName="XPE_QTY_MAX"/>
+        AliasName="XPE_QTY_MAX">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContractPricingTermView.XpeQtyMax_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
     <ViewAttribute
         Name="XpeRate"
         PrecisionRule="true"
@@ -305,7 +312,14 @@
         PrecisionRule="true"
         EntityAttrName="XpePeriodNbr"
         EntityUsage="XpeDccContractPricingTerm"
-        AliasName="XPE_PERIOD_NBR"/>
+        AliasName="XPE_PERIOD_NBR">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContractPricingTermView.XpePeriodNbr_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
     <ViewAttribute
         Name="XpeIcon"
         PrecisionRule="true"

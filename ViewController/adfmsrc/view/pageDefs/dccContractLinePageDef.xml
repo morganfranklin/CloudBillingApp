@@ -88,5 +88,9 @@
                 Action="rollbackTransaction"/>
         <action IterBinding="XpeDccContractPricingTermView3Iterator" id="Delete" RequiresUpdateModel="false"
                 Action="removeCurrentRow"/>
+        <action IterBinding="XpeDccContractPricingOverView1Iterator" id="CreateInsert1" RequiresUpdateModel="true"
+                Action="createInsertRow"/>
+        <action IterBinding="XpeDccContractPricingOverView1Iterator" id="Delete1" RequiresUpdateModel="false"
+                Action="removeCurrentRow"/>
     </bindings>
 </pageDefinition>

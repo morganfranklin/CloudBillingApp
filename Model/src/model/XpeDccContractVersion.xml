@@ -112,7 +112,8 @@
         SQLType="VARCHAR"
         Type="java.lang.String"
         ColumnType="VARCHAR2"
-        TableName="XPE_DCC_CONTRACT_VERSION">
+        TableName="XPE_DCC_CONTRACT_VERSION"
+        DefaultValue="STD">
         <DesignTime>
             <Attr Name="_DisplaySize" Value="10"/>
         </DesignTime>

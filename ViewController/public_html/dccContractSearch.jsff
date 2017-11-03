@@ -141,6 +141,11 @@
                                    shortDesc="#{bindings.XpeDccCustomerSearch1.hints.XpeContractStatus.tooltip}"
                                    id="ot11"/>
                 </af:column>
-            </af:table>
+            <af:column sortProperty="#{bindings.XpeDccCustomerSearch1.hints.XpeContractStatus.name}" sortable="true"
+                       headerText="#{bindings.XpeDccCustomerSearch1.hints.SalesPerson.label}" id="c5">
+                <af:outputText value="#{row.SalesPerson}"
+                               shortDesc="#{bindings.XpeDccCustomerSearch1.hints.SalesPerson.tooltip}" id="ot12"/>
+            </af:column>
+        </af:table>
         </af:panelGroupLayout>
 </ui:composition>

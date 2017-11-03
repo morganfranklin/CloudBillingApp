@@ -140,7 +140,7 @@
                                                    id="b3"/>
                                         <af:spacer width="10" height="10" id="s4"/>
                                         <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
-                                                   disabled="#{!bindings.Delete.enabled}" id="b6"/>
+                                                   disabled="#{!bindings.Delete.enabled}" id="b6" immediate="true"/>
                                     </af:toolbar>
                                 </f:facet>
                                 <f:facet name="toolbar"/>
@@ -271,121 +271,138 @@
                         </af:showDetailItem>
                         <af:showDetailItem id="tab2" text="Document Setup - Terms and Conditions"/>
                         <af:showDetailItem id="tab3" text="Blue Light Specials">
-                            <af:table value="#{bindings.XpeDccContractPricingOverView1.collectionModel}" var="row"
-                                      rows="#{bindings.XpeDccContractPricingOverView1.rangeSize}"
-                                      emptyText="#{bindings.XpeDccContractPricingOverView1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                      rowBandingInterval="0" columnStretching="last"
-                                      selectedRowKeys="#{bindings.XpeDccContractPricingOverView1.collectionModel.selectedRow}"
-                                      selectionListener="#{bindings.XpeDccContractPricingOverView1.collectionModel.makeCurrent}"
-                                      rowSelection="single"
-                                      fetchSize="#{bindings.XpeDccContractPricingOverView1.rangeSize}" id="t2">
-                                <af:column sortProperty="#{bindings.XpeDccContractPricingOverView1.hints.XpeContractOverNbr.name}"
-                                           sortable="true" headerText="Override #" id="c9">
-                                    <af:inputText value="#{row.bindings.XpeContractOverNbr.inputValue}"
-                                                  label="#{bindings.XpeDccContractPricingOverView1.hints.XpeContractOverNbr.label}"
-                                                  required="#{bindings.XpeDccContractPricingOverView1.hints.XpeContractOverNbr.mandatory}"
-                                                  columns="#{bindings.XpeDccContractPricingOverView1.hints.XpeContractOverNbr.displayWidth}"
-                                                  maximumLength="#{bindings.XpeDccContractPricingOverView1.hints.XpeContractOverNbr.precision}"
-                                                  shortDesc="#{bindings.XpeDccContractPricingOverView1.hints.XpeContractOverNbr.tooltip}"
-                                                  id="it10">
-                                        <f:validator binding="#{row.bindings.XpeContractOverNbr.validator}"/>
-                                        <af:convertNumber groupingUsed="false"
-                                                          pattern="#{bindings.XpeDccContractPricingOverView1.hints.XpeContractOverNbr.format}"/>
-                                    </af:inputText>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverStart.name}"
-                                           sortable="true" headerText="Start" id="c10">
-                                    <af:inputDate value="#{row.bindings.XpeOverStart.inputValue}"
-                                                  label="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverStart.label}"
-                                                  required="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverStart.mandatory}"
-                                                  columns="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverStart.displayWidth}"
-                                                  shortDesc="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverStart.tooltip}"
-                                                  id="id1">
-                                        <f:validator binding="#{row.bindings.XpeOverStart.validator}"/>
-                                        <af:convertDateTime pattern="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverStart.format}"/>
-                                    </af:inputDate>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverEnd.name}"
-                                           sortable="true" headerText="End" id="c11">
-                                    <af:inputDate value="#{row.bindings.XpeOverEnd.inputValue}"
-                                                  label="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverEnd.label}"
-                                                  required="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverEnd.mandatory}"
-                                                  columns="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverEnd.displayWidth}"
-                                                  shortDesc="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverEnd.tooltip}"
-                                                  id="id2">
-                                        <f:validator binding="#{row.bindings.XpeOverEnd.validator}"/>
-                                        <af:convertDateTime pattern="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverEnd.format}"/>
-                                    </af:inputDate>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverType.name}"
-                                           sortable="true" headerText="Type" id="c12">
-                                    <af:selectOneChoice value="#{row.bindings.XpeOverType.inputValue}"
-                                                        label="#{row.bindings.XpeOverType.label}"
-                                                        required="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverType.mandatory}"
-                                                        shortDesc="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverType.tooltip}"
-                                                        id="soc7">
-                                        <f:selectItems value="#{row.bindings.XpeOverType.items}" id="si7"/>
-                                        <f:validator binding="#{row.bindings.XpeOverType.validator}"/>
-                                    </af:selectOneChoice>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.XpeDccContractPricingOverView1.hints.XpeSourceFld.name}"
-                                           sortable="true" headerText="Source Field" id="c13">
-                                    <af:selectOneChoice value="#{row.bindings.XpeSourceFld.inputValue}"
-                                                        label="#{row.bindings.XpeSourceFld.label}"
-                                                        required="#{bindings.XpeDccContractPricingOverView1.hints.XpeSourceFld.mandatory}"
-                                                        shortDesc="#{bindings.XpeDccContractPricingOverView1.hints.XpeSourceFld.tooltip}"
-                                                        id="soc8">
-                                        <f:selectItems value="#{row.bindings.XpeSourceFld.items}" id="si8"/>
-                                        <f:validator binding="#{row.bindings.XpeSourceFld.validator}"/>
-                                    </af:selectOneChoice>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.XpeDccContractPricingOverView1.hints.XpeCondition.name}"
-                                           sortable="true" headerText="Condition" id="c14">
-                                    <af:selectOneChoice value="#{row.bindings.XpeCondition.inputValue}"
-                                                        label="#{row.bindings.XpeCondition.label}"
-                                                        required="#{bindings.XpeDccContractPricingOverView1.hints.XpeCondition.mandatory}"
-                                                        shortDesc="#{bindings.XpeDccContractPricingOverView1.hints.XpeCondition.tooltip}"
-                                                        id="soc9">
-                                        <f:selectItems value="#{row.bindings.XpeCondition.items}" id="si9"/>
-                                        <f:validator binding="#{row.bindings.XpeCondition.validator}"/>
-                                    </af:selectOneChoice>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.XpeDccContractPricingOverView1.hints.XpeTargetFld.name}"
-                                           sortable="true" headerText="Target Field" id="c15">
-                                    <af:selectOneChoice value="#{row.bindings.XpeTargetFld.inputValue}"
-                                                        label="#{row.bindings.XpeTargetFld.label}"
-                                                        required="#{bindings.XpeDccContractPricingOverView1.hints.XpeTargetFld.mandatory}"
-                                                        shortDesc="#{bindings.XpeDccContractPricingOverView1.hints.XpeTargetFld.tooltip}"
-                                                        id="soc10">
-                                        <f:selectItems value="#{row.bindings.XpeTargetFld.items}" id="si10"/>
-                                        <f:validator binding="#{row.bindings.XpeTargetFld.validator}"/>
-                                    </af:selectOneChoice>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.XpeDccContractPricingOverView1.hints.XpeCheck.name}"
-                                           sortable="true" headerText="New Value / Rate" id="c16">
-                                    <af:inputText value="#{row.bindings.XpeCheck.inputValue}"
-                                                  label="#{bindings.XpeDccContractPricingOverView1.hints.XpeCheck.label}"
-                                                  required="#{bindings.XpeDccContractPricingOverView1.hints.XpeCheck.mandatory}"
-                                                  columns="#{bindings.XpeDccContractPricingOverView1.hints.XpeCheck.displayWidth}"
-                                                  maximumLength="#{bindings.XpeDccContractPricingOverView1.hints.XpeCheck.precision}"
-                                                  shortDesc="#{bindings.XpeDccContractPricingOverView1.hints.XpeCheck.tooltip}"
-                                                  id="it11">
-                                        <f:validator binding="#{row.bindings.XpeCheck.validator}"/>
-                                    </af:inputText>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverMsg.name}"
-                                           sortable="true" headerText="Message" id="c17">
-                                    <af:inputText value="#{row.bindings.XpeOverMsg.inputValue}"
-                                                  label="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverMsg.label}"
-                                                  required="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverMsg.mandatory}"
-                                                  columns="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverMsg.displayWidth}"
-                                                  maximumLength="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverMsg.precision}"
-                                                  shortDesc="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverMsg.tooltip}"
-                                                  id="it12">
-                                        <f:validator binding="#{row.bindings.XpeOverMsg.validator}"/>
-                                    </af:inputText>
-                                </af:column>
-                            </af:table>
+                            <af:panelHeader text="" id="ph2">
+                                <f:facet name="context">
+                                    <af:toolbar id="t4">
+                                        <af:button actionListener="#{bindings.CreateInsert1.execute}" text="Add"
+                                                   disabled="#{!bindings.CreateInsert1.enabled}" id="b7"/>
+                                        <af:spacer width="10" height="10" id="s6"/>
+                                        <af:button actionListener="#{bindings.Delete1.execute}" text="Delete"
+                                                   disabled="#{!bindings.Delete1.enabled}" id="b8" immediate="true"/>
+                                    </af:toolbar>
+                                </f:facet>
+                                <f:facet name="toolbar"/>
+                                <f:facet name="menuBar"/>
+                                <f:facet name="legend"/>
+                                <f:facet name="info"/>
+                                <af:spacer width="10" height="10" id="s7"/>
+                                <af:table value="#{bindings.XpeDccContractPricingOverView1.collectionModel}" var="row"
+                                          rows="#{bindings.XpeDccContractPricingOverView1.rangeSize}"
+                                          emptyText="#{bindings.XpeDccContractPricingOverView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0" columnStretching="last"
+                                          selectedRowKeys="#{bindings.XpeDccContractPricingOverView1.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.XpeDccContractPricingOverView1.collectionModel.makeCurrent}"
+                                          rowSelection="single"
+                                          fetchSize="#{bindings.XpeDccContractPricingOverView1.rangeSize}" id="t2"
+                                          partialTriggers="::b7 ::b8">
+                                    <af:column sortProperty="#{bindings.XpeDccContractPricingOverView1.hints.XpeContractOverNbr.name}"
+                                               sortable="true" headerText="Override #" id="c9">
+                                        <af:inputText value="#{row.bindings.XpeContractOverNbr.inputValue}"
+                                                      label="#{bindings.XpeDccContractPricingOverView1.hints.XpeContractOverNbr.label}"
+                                                      required="#{bindings.XpeDccContractPricingOverView1.hints.XpeContractOverNbr.mandatory}"
+                                                      columns="#{bindings.XpeDccContractPricingOverView1.hints.XpeContractOverNbr.displayWidth}"
+                                                      maximumLength="#{bindings.XpeDccContractPricingOverView1.hints.XpeContractOverNbr.precision}"
+                                                      shortDesc="#{bindings.XpeDccContractPricingOverView1.hints.XpeContractOverNbr.tooltip}"
+                                                      id="it10">
+                                            <f:validator binding="#{row.bindings.XpeContractOverNbr.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.XpeDccContractPricingOverView1.hints.XpeContractOverNbr.format}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverStart.name}"
+                                               sortable="true" headerText="Start" id="c10">
+                                        <af:inputDate value="#{row.bindings.XpeOverStart.inputValue}"
+                                                      label="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverStart.label}"
+                                                      required="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverStart.mandatory}"
+                                                      columns="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverStart.displayWidth}"
+                                                      shortDesc="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverStart.tooltip}"
+                                                      id="id1">
+                                            <f:validator binding="#{row.bindings.XpeOverStart.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverStart.format}"/>
+                                        </af:inputDate>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverEnd.name}"
+                                               sortable="true" headerText="End" id="c11">
+                                        <af:inputDate value="#{row.bindings.XpeOverEnd.inputValue}"
+                                                      label="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverEnd.label}"
+                                                      required="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverEnd.mandatory}"
+                                                      columns="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverEnd.displayWidth}"
+                                                      shortDesc="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverEnd.tooltip}"
+                                                      id="id2">
+                                            <f:validator binding="#{row.bindings.XpeOverEnd.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverEnd.format}"/>
+                                        </af:inputDate>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverType.name}"
+                                               sortable="true" headerText="Type" id="c12">
+                                        <af:selectOneChoice value="#{row.bindings.XpeOverType.inputValue}"
+                                                            label="#{row.bindings.XpeOverType.label}"
+                                                            required="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverType.mandatory}"
+                                                            shortDesc="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverType.tooltip}"
+                                                            id="soc7">
+                                            <f:selectItems value="#{row.bindings.XpeOverType.items}" id="si7"/>
+                                            <f:validator binding="#{row.bindings.XpeOverType.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.XpeDccContractPricingOverView1.hints.XpeSourceFld.name}"
+                                               sortable="true" headerText="Source Field" id="c13">
+                                        <af:selectOneChoice value="#{row.bindings.XpeSourceFld.inputValue}"
+                                                            label="#{row.bindings.XpeSourceFld.label}"
+                                                            required="#{bindings.XpeDccContractPricingOverView1.hints.XpeSourceFld.mandatory}"
+                                                            shortDesc="#{bindings.XpeDccContractPricingOverView1.hints.XpeSourceFld.tooltip}"
+                                                            id="soc8">
+                                            <f:selectItems value="#{row.bindings.XpeSourceFld.items}" id="si8"/>
+                                            <f:validator binding="#{row.bindings.XpeSourceFld.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.XpeDccContractPricingOverView1.hints.XpeCondition.name}"
+                                               sortable="true" headerText="Condition" id="c14">
+                                        <af:selectOneChoice value="#{row.bindings.XpeCondition.inputValue}"
+                                                            label="#{row.bindings.XpeCondition.label}"
+                                                            required="#{bindings.XpeDccContractPricingOverView1.hints.XpeCondition.mandatory}"
+                                                            shortDesc="#{bindings.XpeDccContractPricingOverView1.hints.XpeCondition.tooltip}"
+                                                            id="soc9">
+                                            <f:selectItems value="#{row.bindings.XpeCondition.items}" id="si9"/>
+                                            <f:validator binding="#{row.bindings.XpeCondition.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.XpeDccContractPricingOverView1.hints.XpeTargetFld.name}"
+                                               sortable="true" headerText="Target Field" id="c15">
+                                        <af:selectOneChoice value="#{row.bindings.XpeTargetFld.inputValue}"
+                                                            label="#{row.bindings.XpeTargetFld.label}"
+                                                            required="#{bindings.XpeDccContractPricingOverView1.hints.XpeTargetFld.mandatory}"
+                                                            shortDesc="#{bindings.XpeDccContractPricingOverView1.hints.XpeTargetFld.tooltip}"
+                                                            id="soc10">
+                                            <f:selectItems value="#{row.bindings.XpeTargetFld.items}" id="si10"/>
+                                            <f:validator binding="#{row.bindings.XpeTargetFld.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.XpeDccContractPricingOverView1.hints.XpeCheck.name}"
+                                               sortable="true" headerText="New Value / Rate" id="c16">
+                                        <af:inputText value="#{row.bindings.XpeCheck.inputValue}"
+                                                      label="#{bindings.XpeDccContractPricingOverView1.hints.XpeCheck.label}"
+                                                      required="#{bindings.XpeDccContractPricingOverView1.hints.XpeCheck.mandatory}"
+                                                      columns="#{bindings.XpeDccContractPricingOverView1.hints.XpeCheck.displayWidth}"
+                                                      maximumLength="#{bindings.XpeDccContractPricingOverView1.hints.XpeCheck.precision}"
+                                                      shortDesc="#{bindings.XpeDccContractPricingOverView1.hints.XpeCheck.tooltip}"
+                                                      id="it11">
+                                            <f:validator binding="#{row.bindings.XpeCheck.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverMsg.name}"
+                                               sortable="true" headerText="Message" id="c17">
+                                        <af:inputText value="#{row.bindings.XpeOverMsg.inputValue}"
+                                                      label="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverMsg.label}"
+                                                      required="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverMsg.mandatory}"
+                                                      columns="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverMsg.displayWidth}"
+                                                      maximumLength="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverMsg.precision}"
+                                                      shortDesc="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverMsg.tooltip}"
+                                                      id="it12">
+                                            <f:validator binding="#{row.bindings.XpeOverMsg.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                </af:table>
+                            </af:panelHeader>
                         </af:showDetailItem>
                         <af:showDetailItem text="TBD4" id="sdi1"/>
                     </af:panelTabbed>

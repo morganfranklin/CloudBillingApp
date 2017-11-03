@@ -109,6 +109,8 @@
           <Item Value="XpePricingTermType"/>
           <Item Value="XpeRate"/>
           <Item Value="XpePeriodType"/>
+          <Item Value="XpeQtyMax"/>
+          <Item Value="XpePeriodNbr"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -167,6 +169,10 @@
       </AttrNames>
     </attributeValues>
     <list IterBinding="XpeDccNewContractNotesViewIterator" StaticList="false" Uses="LOV_XpeNoteType" id="XpeNoteType"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccNewContractVersionViewIterator" StaticList="false" Uses="LOV_XpeAcctgOptionsSet"
+          id="XpeAcctgOptionsSet" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccNewContractVersionViewIterator" StaticList="false" Uses="LOV_CurrencyCd" id="CurrencyCd"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>
