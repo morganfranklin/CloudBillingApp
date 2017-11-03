@@ -138,8 +138,13 @@
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3" halign="stretch"
                                          valign="stretch">
                                 <af:button action="refreshAll" text="Refresh" id="b1"/>
+                                <af:spacer width="10" height="10" id="s3"/>
                                 <af:button actionListener="#{bindings.Commit.execute}" text="Submit" id="b3"/>
+                                <af:spacer width="10" height="10" id="s2"/>
                                 <af:button text="Back" action="goBack" id="b2"/>
+                                <af:spacer width="10" height="10" id="s1"/>
+                                <af:button text="Return To Home" id="b5" action="Home"
+                                           actionListener="#{bindings.Rollback.execute}"/>
                             </af:gridCell>
                         </af:gridRow>
                     </af:panelGridLayout>
@@ -150,90 +155,100 @@
             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" halign="stretch" valign="stretch">
                 <af:panelBox text="Carrier Details" id="pb2" showDisclosure="false">
                     <f:facet name="toolbar"/>
-                    <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add Row" id="b4"/>
-                    <af:table value="#{bindings.XpeDccContractCarrierView3.collectionModel}" var="row"
-                              rows="#{bindings.XpeDccContractCarrierView3.rangeSize}"
-                              emptyText="#{bindings.XpeDccContractCarrierView3.viewable ? 'No data to display.' : 'Access Denied.'}"
-                              rowBandingInterval="0"
-                              selectedRowKeys="#{bindings.XpeDccContractCarrierView3.collectionModel.selectedRow}"
-                              selectionListener="#{bindings.XpeDccContractCarrierView3.collectionModel.makeCurrent}"
-                              rowSelection="single" fetchSize="#{bindings.XpeDccContractCarrierView3.rangeSize}" id="t1"
-                              partialTriggers="::b4">
-                        <af:column sortProperty="#{bindings.XpeDccContractCarrierView3.hints.XpeCarrierId.name}"
-                                   sortable="true" headerText="Carrier" id="c5">
-                            <af:selectOneChoice value="#{row.bindings.XpeCarrierId.inputValue}"
-                                                label="#{row.bindings.XpeCarrierId.label}"
-                                                required="#{bindings.XpeDccContractCarrierView3.hints.XpeCarrierId.mandatory}"
-                                                shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeCarrierId.tooltip}"
-                                                id="soc5">
-                                <f:selectItems value="#{row.bindings.XpeCarrierId.items}" id="si5"/>
-                                <f:validator binding="#{row.bindings.XpeCarrierId.validator}"/>
-                            </af:selectOneChoice>
-                        </af:column>
-                        <af:column sortProperty="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleType.name}"
-                                   sortable="true" headerText="Vehicle Type" id="c6">
-                            <af:selectOneChoice value="#{row.bindings.XpeVehicleType.inputValue}"
-                                                label="#{row.bindings.XpeVehicleType.label}"
-                                                required="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleType.mandatory}"
-                                                shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleType.tooltip}"
-                                                id="soc6">
-                                <f:selectItems value="#{row.bindings.XpeVehicleType.items}" id="si6"/>
-                                <f:validator binding="#{row.bindings.XpeVehicleType.validator}"/>
-                            </af:selectOneChoice>
-                        </af:column>
-                        <af:column sortProperty="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleNbr.name}"
-                                   sortable="true" headerText="Vehicle Number" id="c8">
-                            <af:inputText value="#{row.bindings.XpeVehicleNbr.inputValue}"
-                                          label="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleNbr.label}"
-                                          required="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleNbr.mandatory}"
-                                          columns="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleNbr.displayWidth}"
-                                          maximumLength="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleNbr.precision}"
-                                          shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleNbr.tooltip}"
-                                          id="it16">
-                                <f:validator binding="#{row.bindings.XpeVehicleNbr.validator}"/>
-                            </af:inputText>
-                        </af:column>
-                        <af:column sortProperty="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.name}"
-                                   sortable="true" headerText="Rate Override" id="c9">
-                            <af:inputText value="#{row.bindings.XpeRateOverride.inputValue}"
-                                          label="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.label}"
-                                          required="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.mandatory}"
-                                          columns="15"
-                                          shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.tooltip}"
-                                          id="it17">
-                                <f:validator binding="#{row.bindings.XpeRateOverride.validator}"/>
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.format}"/>
-                            </af:inputText>
-                        </af:column>
-                        <af:column sortProperty="#{bindings.XpeDccContractCarrierView3.hints.XpeSubNbr.name}"
-                                   sortable="true" headerText="Sub Number" id="c1">
-                            <af:inputText value="#{row.bindings.XpeSubNbr.inputValue}"
-                                          label="#{bindings.XpeDccContractCarrierView3.hints.XpeSubNbr.label}"
-                                          required="#{bindings.XpeDccContractCarrierView3.hints.XpeSubNbr.mandatory}"
-                                          columns="10"
-                                          maximumLength="#{bindings.XpeDccContractCarrierView3.hints.XpeSubNbr.precision}"
-                                          shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeSubNbr.tooltip}"
-                                          id="it11">
-                                <f:validator binding="#{row.bindings.XpeSubNbr.validator}"/>
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.XpeDccContractCarrierView3.hints.XpeSubNbr.format}"/>
-                            </af:inputText>
-                        </af:column>
-                        <af:column sortProperty="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.name}"
-                                   sortable="true" headerText="Surcharge" id="c10">
-                            <af:inputText value="#{row.bindings.XpeSurcharge.inputValue}"
-                                          label="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.label}"
-                                          required="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.mandatory}"
-                                          columns="15"
-                                          shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.tooltip}"
-                                          id="it18">
-                                <f:validator binding="#{row.bindings.XpeSurcharge.validator}"/>
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.format}"/>
-                            </af:inputText>
-                        </af:column>
-                    </af:table>
+                    <af:panelHeader text="" id="ph1">
+                        <f:facet name="context">
+                            <af:toolbar id="t2">
+                                <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add Row" id="b4"/>
+                            </af:toolbar>
+                        </f:facet>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="menuBar"/>
+                        <f:facet name="legend"/>
+                        <f:facet name="info"/>
+                        <af:table value="#{bindings.XpeDccContractCarrierView3.collectionModel}" var="row"
+                                  rows="#{bindings.XpeDccContractCarrierView3.rangeSize}"
+                                  emptyText="#{bindings.XpeDccContractCarrierView3.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.XpeDccContractCarrierView3.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.XpeDccContractCarrierView3.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.XpeDccContractCarrierView3.rangeSize}"
+                                  id="t1" partialTriggers="::b4">
+                            <af:column sortProperty="#{bindings.XpeDccContractCarrierView3.hints.XpeCarrierId.name}"
+                                       sortable="true" headerText="Carrier" id="c5">
+                                <af:selectOneChoice value="#{row.bindings.XpeCarrierId.inputValue}"
+                                                    label="#{row.bindings.XpeCarrierId.label}"
+                                                    required="#{bindings.XpeDccContractCarrierView3.hints.XpeCarrierId.mandatory}"
+                                                    shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeCarrierId.tooltip}"
+                                                    id="soc5">
+                                    <f:selectItems value="#{row.bindings.XpeCarrierId.items}" id="si5"/>
+                                    <f:validator binding="#{row.bindings.XpeCarrierId.validator}"/>
+                                </af:selectOneChoice>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleType.name}"
+                                       sortable="true" headerText="Vehicle Type" id="c6">
+                                <af:selectOneChoice value="#{row.bindings.XpeVehicleType.inputValue}"
+                                                    label="#{row.bindings.XpeVehicleType.label}"
+                                                    required="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleType.mandatory}"
+                                                    shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleType.tooltip}"
+                                                    id="soc6">
+                                    <f:selectItems value="#{row.bindings.XpeVehicleType.items}" id="si6"/>
+                                    <f:validator binding="#{row.bindings.XpeVehicleType.validator}"/>
+                                </af:selectOneChoice>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleNbr.name}"
+                                       sortable="true" headerText="Vehicle Number" id="c8">
+                                <af:inputText value="#{row.bindings.XpeVehicleNbr.inputValue}"
+                                              label="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleNbr.label}"
+                                              required="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleNbr.mandatory}"
+                                              columns="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleNbr.displayWidth}"
+                                              maximumLength="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleNbr.precision}"
+                                              shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleNbr.tooltip}"
+                                              id="it16">
+                                    <f:validator binding="#{row.bindings.XpeVehicleNbr.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.name}"
+                                       sortable="true" headerText="Rate Override" id="c9">
+                                <af:inputText value="#{row.bindings.XpeRateOverride.inputValue}"
+                                              label="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.label}"
+                                              required="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.mandatory}"
+                                              columns="15"
+                                              shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.tooltip}"
+                                              id="it17">
+                                    <f:validator binding="#{row.bindings.XpeRateOverride.validator}"/>
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.format}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.XpeDccContractCarrierView3.hints.XpeSubNbr.name}"
+                                       sortable="true" headerText="Sub Number" id="c1">
+                                <af:inputText value="#{row.bindings.XpeSubNbr.inputValue}"
+                                              label="#{bindings.XpeDccContractCarrierView3.hints.XpeSubNbr.label}"
+                                              required="#{bindings.XpeDccContractCarrierView3.hints.XpeSubNbr.mandatory}"
+                                              columns="10"
+                                              maximumLength="#{bindings.XpeDccContractCarrierView3.hints.XpeSubNbr.precision}"
+                                              shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeSubNbr.tooltip}"
+                                              id="it11">
+                                    <f:validator binding="#{row.bindings.XpeSubNbr.validator}"/>
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.XpeDccContractCarrierView3.hints.XpeSubNbr.format}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.name}"
+                                       sortable="true" headerText="Surcharge" id="c10">
+                                <af:inputText value="#{row.bindings.XpeSurcharge.inputValue}"
+                                              label="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.label}"
+                                              required="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.mandatory}"
+                                              columns="15"
+                                              shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.tooltip}"
+                                              id="it18">
+                                    <f:validator binding="#{row.bindings.XpeSurcharge.validator}"/>
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.format}"/>
+                                </af:inputText>
+                            </af:column>
+                        </af:table>
+                    </af:panelHeader>
                 </af:panelBox>
             </af:gridCell>
         </af:gridRow>

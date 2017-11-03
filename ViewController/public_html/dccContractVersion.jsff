@@ -131,14 +131,21 @@
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3" halign="stretch"
                                          valign="stretch">
                                 <af:button action="refreshAll" text="Refresh" id="b1"/>
+                                <af:spacer width="10" height="10" id="s1"/>
                                 <!--    <af:button text="Submit" id="b3"/>-->
                                 <af:button actionListener="#{bindings.Commit.execute}" text="Submit"
-                                           action="reexecuteContractLine" disabled="#{!bindings.Commit.enabled}"
+                                           action="reexecuteContractLine"
                                            id="b4"/>
+                                <af:spacer width="10" height="10" id="s2"/>
                                 <af:button immediate="true" text="Back" id="b2" action="goBack"/>
+                                <af:spacer width="10" height="10" id="s3"
+                                           rendered="#{bindings.XpeContractStatus.inputValue eq 'APR' ? 'true':'false'}"/>
                                 <af:button immediate="true" text="Copy" id="b6"
                                            rendered="#{bindings.XpeContractStatus.inputValue eq 'APR' ? 'true':'false'}"
                                            actionListener="#{backingBeanScope.XpeDccMainBean.copyActionListener}"/>
+                                <af:spacer width="10" height="10" id="s4"/>
+                                <af:button text="Return To Home" id="b8" action="Home"
+                                           actionListener="#{bindings.Rollback.execute}" immediate="true"/>
                             </af:gridCell>
                         </af:gridRow>
                     </af:panelGridLayout>
@@ -211,203 +218,233 @@
                     <f:facet name="toolbar"/>
                     <af:panelTabbed position="above" id="pt1" dimensionsFrom="auto">
                         <af:showDetailItem id="tab1" text="Contract Lines" disclosed="true">
-                            <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add Row" id="b3"/>
-                            <af:table value="#{bindings.XpeDccContractLineView2.collectionModel}" var="row"
-                                      rows="#{bindings.XpeDccContractLineView2.rangeSize}"
-                                      emptyText="#{bindings.XpeDccContractLineView2.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                      rowBandingInterval="0"
-                                      selectedRowKeys="#{bindings.XpeDccContractLineView2.collectionModel.selectedRow}"
-                                      selectionListener="#{bindings.XpeDccContractLineView2.collectionModel.makeCurrent}"
-                                      rowSelection="single" fetchSize="#{bindings.XpeDccContractLineView2.rangeSize}"
-                                      filterModel="#{bindings.XpeDccContractLineView2Query.queryDescriptor}"
-                                      filterVisible="true"
-                                      queryListener="#{bindings.XpeDccContractLineView2Query.processQuery}"
-                                      varStatus="vs" id="t1" partialTriggers="::b3">
-                                <af:column sortProperty="#{bindings.XpeDccContractLineView2.hints.XpeContractLine.name}"
-                                           filterable="true" sortable="true" headerText="Contract line" id="c1">
-                                    <af:inputText value="#{row.bindings.XpeContractLine.inputValue}"
-                                                  label="#{bindings.XpeDccContractLineView2.hints.XpeContractLine.label}"
-                                                  required="#{bindings.XpeDccContractLineView2.hints.XpeContractLine.mandatory}"
-                                                  columns="#{bindings.XpeDccContractLineView2.hints.XpeContractLine.displayWidth}"
-                                                  rendered="#{row.row.entities[0].entityState==0? 'true':'false'}"
-                                                  maximumLength="#{bindings.XpeDccContractLineView2.hints.XpeContractLine.precision}"
-                                                  shortDesc="#{bindings.XpeDccContractLineView2.hints.XpeContractLine.tooltip}"
-                                                  id="it9">
-                                        <f:validator binding="#{row.bindings.XpeContractLine.validator}"/>
-                                    </af:inputText>
-                                    <af:link text="#{row.bindings.XpeContractLine.inputValue}" id="l1"
-                                             rendered="#{row.row.entities[0].entityState==0? 'false':'true'}"
-                                             action="toContractLine"/>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.XpeDccContractLineView2.hints.XpeFacility.name}"
-                                           filterable="true" sortable="true" headerText="Facility" id="c2">
-                                    <af:selectOneChoice value="#{row.bindings.XpeFacility.inputValue}"
-                                                        label="#{row.bindings.XpeFacility.label}"
-                                                        readOnly="#{(bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }"
-                                                        required="#{bindings.XpeDccContractLineView2.hints.XpeFacility.mandatory}"
-                                                        shortDesc="#{bindings.XpeDccContractLineView2.hints.XpeFacility.tooltip}"
-                                                        id="soc6">
-                                        <f:selectItems value="#{row.bindings.XpeFacility.items}" id="si6"/>
-                                        <f:validator binding="#{row.bindings.XpeFacility.validator}"/>
-                                    </af:selectOneChoice>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.XpeDccContractLineView2.hints.XpeProductId.name}"
-                                           filterable="true" sortable="true" headerText="Product Id" id="c3">
-                                    <af:selectOneChoice value="#{row.bindings.XpeProductId.inputValue}"
-                                                        label="#{row.bindings.XpeProductId.label}"
-                                                        readOnly="#{(bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }"
-                                                        required="#{bindings.XpeDccContractLineView2.hints.XpeProductId.mandatory}"
-                                                        shortDesc="#{bindings.XpeDccContractLineView2.hints.XpeProductId.tooltip}"
-                                                        id="soc7">
-                                        <f:selectItems value="#{row.bindings.XpeProductId.items}" id="si7"/>
-                                        <f:validator binding="#{row.bindings.XpeProductId.validator}"/>
-                                    </af:selectOneChoice>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.XpeDccContractLineView2.hints.XpeProductUom.name}"
-                                           filterable="true" sortable="true" headerText="UOM" id="c4">
-                                    <af:selectOneChoice value="#{row.bindings.XpeProductUom.inputValue}"
-                                                        label="#{row.bindings.XpeProductUom.label}"
-                                                        required="#{bindings.XpeDccContractLineView2.hints.XpeProductUom.mandatory}"
-                                                        readOnly="#{(bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }"
-                                                        shortDesc="#{bindings.XpeDccContractLineView2.hints.XpeProductUom.tooltip}"
-                                                        id="soc8">
-                                        <f:selectItems value="#{row.bindings.XpeProductUom.items}" id="si8"/>
-                                        <f:validator binding="#{row.bindings.XpeProductUom.validator}"/>
-                                    </af:selectOneChoice>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.XpeDccContractLineView2.hints.XpeQtyMin.name}"
-                                           filterable="true" sortable="true" headerText="Qty Min" id="c5">
-                                    <af:inputText value="#{row.bindings.XpeQtyMin.inputValue}"
-                                                  label="#{bindings.XpeDccContractLineView2.hints.XpeQtyMin.label}"
-                                                  readOnly="#{(bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }"
-                                                  required="#{bindings.XpeDccContractLineView2.hints.XpeQtyMin.mandatory}"
-                                                  columns="#{bindings.XpeDccContractLineView2.hints.XpeQtyMin.displayWidth}"
-                                                  maximumLength="#{bindings.XpeDccContractLineView2.hints.XpeQtyMin.precision}"
-                                                  shortDesc="#{bindings.XpeDccContractLineView2.hints.XpeQtyMin.tooltip}"
-                                                  id="it13">
-                                        <f:validator binding="#{row.bindings.XpeQtyMin.validator}"/>
-                                        <af:convertNumber groupingUsed="false"
-                                                          pattern="#{bindings.XpeDccContractLineView2.hints.XpeQtyMin.format}"/>
-                                    </af:inputText>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.XpeDccContractLineView2.hints.XpeQtyMax.name}"
-                                           filterable="true" sortable="true" headerText="Qty Max" id="c6">
-                                    <af:inputText value="#{row.bindings.XpeQtyMax.inputValue}"
-                                                  label="#{bindings.XpeDccContractLineView2.hints.XpeQtyMax.label}"
-                                                  required="#{bindings.XpeDccContractLineView2.hints.XpeQtyMax.mandatory}"
-                                                  columns="#{bindings.XpeDccContractLineView2.hints.XpeQtyMax.displayWidth}"
-                                                  readOnly="#{(bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }"
-                                                  maximumLength="#{bindings.XpeDccContractLineView2.hints.XpeQtyMax.precision}"
-                                                  shortDesc="#{bindings.XpeDccContractLineView2.hints.XpeQtyMax.tooltip}"
-                                                  id="it5">
-                                        <f:validator binding="#{row.bindings.XpeQtyMax.validator}"/>
-                                        <af:convertNumber groupingUsed="false"
-                                                          pattern="#{bindings.XpeDccContractLineView2.hints.XpeQtyMax.format}"/>
-                                    </af:inputText>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.XpeDccContractLineView2.hints.XpePeriodType.name}"
-                                           filterable="true" sortable="true" headerText="Period Type" id="c7">
-                                    <af:selectOneChoice value="#{row.bindings.XpePeriodType.inputValue}"
-                                                        label="#{row.bindings.XpePeriodType.label}"
-                                                        readOnly="#{(bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }"
-                                                        required="#{bindings.XpeDccContractLineView2.hints.XpePeriodType.mandatory}"
-                                                        shortDesc="#{bindings.XpeDccContractLineView2.hints.XpePeriodType.tooltip}"
-                                                        id="soc9">
-                                        <f:selectItems value="#{row.bindings.XpePeriodType.items}" id="si9"/>
-                                        <f:validator binding="#{row.bindings.XpePeriodType.validator}"/>
-                                    </af:selectOneChoice>
-                                </af:column>
-                                <af:column id="c17" headerText="SW Approval #" sortable="true" filterable="true">
-                                    <af:inputText value="#{row.bindings.XpeSwApprNbr.inputValue}" simple="true"
-                                                  required="#{bindings.XpeDccContractLineView2.hints.XpeSwApprNbr.mandatory}"
-                                                  columns="#{bindings.XpeDccContractLineView2.hints.XpeSwApprNbr.displayWidth}"
-                                                  readOnly="#{(bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }"
-                                                  maximumLength="#{bindings.XpeDccContractLineView2.hints.XpeSwApprNbr.precision}"
-                                                  shortDesc="#{bindings.XpeDccContractLineView2.hints.XpeSwApprNbr.tooltip}"
-                                                  id="it12">
-                                        <f:validator binding="#{row.bindings.XpeSwApprNbr.validator}"/>
-                                    </af:inputText>
-                                </af:column>
-                            </af:table>
+                            <af:panelHeader text="" id="ph1">
+                                <f:facet name="context">
+                                    <af:toolbar id="t5">
+                                        <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add"
+                                                   id="b3"/>
+                                        <af:spacer width="10" height="10" id="s5"/>
+                                        <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                                                   disabled="#{!bindings.Delete.enabled}" id="b9"/>
+                                    </af:toolbar>
+                                </f:facet>
+                                <f:facet name="toolbar"/>
+                                <f:facet name="menuBar"/>
+                                <f:facet name="legend"/>
+                                <f:facet name="info"/>
+                                <af:spacer width="10" height="10" id="s6"/>
+                                <af:table value="#{bindings.XpeDccContractLineView2.collectionModel}" var="row"
+                                          rows="#{bindings.XpeDccContractLineView2.rangeSize}"
+                                          emptyText="#{bindings.XpeDccContractLineView2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0" columnStretching="last"
+                                          selectedRowKeys="#{bindings.XpeDccContractLineView2.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.XpeDccContractLineView2.collectionModel.makeCurrent}"
+                                          rowSelection="single"
+                                          fetchSize="#{bindings.XpeDccContractLineView2.rangeSize}"
+                                          filterModel="#{bindings.XpeDccContractLineView2Query.queryDescriptor}"
+                                          filterVisible="true"
+                                          queryListener="#{bindings.XpeDccContractLineView2Query.processQuery}"
+                                          varStatus="vs" id="t1" partialTriggers="::b3 ::b9">
+                                    <af:column sortProperty="#{bindings.XpeDccContractLineView2.hints.XpeContractLine.name}"
+                                               filterable="true" sortable="true" headerText="Contract line" id="c1">
+                                        <af:inputText value="#{row.bindings.XpeContractLine.inputValue}"
+                                                      label="#{bindings.XpeDccContractLineView2.hints.XpeContractLine.label}"
+                                                      required="#{bindings.XpeDccContractLineView2.hints.XpeContractLine.mandatory}"
+                                                      columns="#{bindings.XpeDccContractLineView2.hints.XpeContractLine.displayWidth}"
+                                                      rendered="#{row.row.entities[0].entityState==0? 'true':'false'}"
+                                                      maximumLength="#{bindings.XpeDccContractLineView2.hints.XpeContractLine.precision}"
+                                                      shortDesc="#{bindings.XpeDccContractLineView2.hints.XpeContractLine.tooltip}"
+                                                      id="it9">
+                                            <f:validator binding="#{row.bindings.XpeContractLine.validator}"/>
+                                        </af:inputText>
+                                        <af:link text="#{row.bindings.XpeContractLine.inputValue}" id="l1"
+                                                 rendered="#{row.row.entities[0].entityState==0? 'false':'true'}"
+                                                 action="toContractLine"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.XpeDccContractLineView2.hints.BusinessUnitGl.name}"
+                                               filterable="true" sortable="true" headerText="Business Unit"
+                                               id="c11">
+                                        <af:selectOneChoice value="#{row.bindings.BusinessUnitGl.inputValue}"
+                                                            label="#{row.bindings.BusinessUnitGl.label}"
+                                                            required="#{bindings.XpeDccContractLineView2.hints.BusinessUnitGl.mandatory}"
+                                                            shortDesc="#{bindings.XpeDccContractLineView2.hints.BusinessUnitGl.tooltip}"
+                                                            id="soc10">
+                                            <f:selectItems value="#{row.bindings.BusinessUnitGl.items}" id="si10"/>
+                                            <f:validator binding="#{row.bindings.BusinessUnitGl.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.XpeDccContractLineView2.hints.XpeFacility.name}"
+                                               filterable="true" sortable="true" headerText="Facility" id="c2">
+                                        <af:selectOneChoice value="#{row.bindings.XpeFacility.inputValue}"
+                                                            label="#{row.bindings.XpeFacility.label}"
+                                                            readOnly="#{(bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }"
+                                                            required="#{bindings.XpeDccContractLineView2.hints.XpeFacility.mandatory}"
+                                                            shortDesc="#{bindings.XpeDccContractLineView2.hints.XpeFacility.tooltip}"
+                                                            id="soc6">
+                                            <f:selectItems value="#{row.bindings.XpeFacility.items}" id="si6"/>
+                                            <f:validator binding="#{row.bindings.XpeFacility.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.XpeDccContractLineView2.hints.XpeProductId.name}"
+                                               filterable="true" sortable="true" headerText="Product Id" id="c3">
+                                        <af:selectOneChoice value="#{row.bindings.XpeProductId.inputValue}"
+                                                            label="#{row.bindings.XpeProductId.label}"
+                                                            readOnly="#{(bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }"
+                                                            required="#{bindings.XpeDccContractLineView2.hints.XpeProductId.mandatory}"
+                                                            shortDesc="#{bindings.XpeDccContractLineView2.hints.XpeProductId.tooltip}"
+                                                            id="soc7" autoSubmit="true">
+                                            <f:selectItems value="#{row.bindings.XpeProductId.items}" id="si7"/>
+                                            <f:validator binding="#{row.bindings.XpeProductId.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.XpeDccContractLineView2.hints.XpeProductUom.name}"
+                                               filterable="true" sortable="true" headerText="UOM" id="c4">
+                                        <af:selectOneChoice value="#{row.bindings.XpeProductUom.inputValue}"
+                                                            label="#{row.bindings.XpeProductUom.label}"
+                                                            required="#{bindings.XpeDccContractLineView2.hints.XpeProductUom.mandatory}"
+                                                            readOnly="#{(bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }"
+                                                            shortDesc="#{bindings.XpeDccContractLineView2.hints.XpeProductUom.tooltip}"
+                                                            id="soc8" partialTriggers="soc7">
+                                            <f:selectItems value="#{row.bindings.XpeProductUom.items}" id="si8"/>
+                                            <f:validator binding="#{row.bindings.XpeProductUom.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.XpeDccContractLineView2.hints.XpeQtyMin.name}"
+                                               filterable="true" sortable="true" headerText="Qty Min" id="c5">
+                                        <af:inputText value="#{row.bindings.XpeQtyMin.inputValue}"
+                                                      label="#{bindings.XpeDccContractLineView2.hints.XpeQtyMin.label}"
+                                                      readOnly="#{(bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }"
+                                                      required="#{bindings.XpeDccContractLineView2.hints.XpeQtyMin.mandatory}"
+                                                      columns="#{bindings.XpeDccContractLineView2.hints.XpeQtyMin.displayWidth}"
+                                                      maximumLength="#{bindings.XpeDccContractLineView2.hints.XpeQtyMin.precision}"
+                                                      shortDesc="#{bindings.XpeDccContractLineView2.hints.XpeQtyMin.tooltip}"
+                                                      id="it13">
+                                            <f:validator binding="#{row.bindings.XpeQtyMin.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.XpeDccContractLineView2.hints.XpeQtyMin.format}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.XpeDccContractLineView2.hints.XpeQtyMax.name}"
+                                               filterable="true" sortable="true" headerText="Qty Max" id="c6">
+                                        <af:inputText value="#{row.bindings.XpeQtyMax.inputValue}"
+                                                      label="#{bindings.XpeDccContractLineView2.hints.XpeQtyMax.label}"
+                                                      required="#{bindings.XpeDccContractLineView2.hints.XpeQtyMax.mandatory}"
+                                                      columns="#{bindings.XpeDccContractLineView2.hints.XpeQtyMax.displayWidth}"
+                                                      readOnly="#{(bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }"
+                                                      maximumLength="#{bindings.XpeDccContractLineView2.hints.XpeQtyMax.precision}"
+                                                      shortDesc="#{bindings.XpeDccContractLineView2.hints.XpeQtyMax.tooltip}"
+                                                      id="it5">
+                                            <f:validator binding="#{row.bindings.XpeQtyMax.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.XpeDccContractLineView2.hints.XpeQtyMax.format}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.XpeDccContractLineView2.hints.XpePeriodType.name}"
+                                               filterable="true" sortable="true" headerText="Period Type" id="c7">
+                                        <af:selectOneChoice value="#{row.bindings.XpePeriodType.inputValue}"
+                                                            label="#{row.bindings.XpePeriodType.label}"
+                                                            readOnly="#{(bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }"
+                                                            required="#{bindings.XpeDccContractLineView2.hints.XpePeriodType.mandatory}"
+                                                            shortDesc="#{bindings.XpeDccContractLineView2.hints.XpePeriodType.tooltip}"
+                                                            id="soc9">
+                                            <f:selectItems value="#{row.bindings.XpePeriodType.items}" id="si9"/>
+                                            <f:validator binding="#{row.bindings.XpePeriodType.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column id="c17" headerText="SW Approval #" sortable="true" filterable="true">
+                                        <af:inputText value="#{row.bindings.XpeSwApprNbr.inputValue}" simple="true"
+                                                      required="#{bindings.XpeDccContractLineView2.hints.XpeSwApprNbr.mandatory}"
+                                                      columns="#{bindings.XpeDccContractLineView2.hints.XpeSwApprNbr.displayWidth}"
+                                                      readOnly="#{(bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }"
+                                                      maximumLength="#{bindings.XpeDccContractLineView2.hints.XpeSwApprNbr.precision}"
+                                                      shortDesc="#{bindings.XpeDccContractLineView2.hints.XpeSwApprNbr.tooltip}"
+                                                      id="it12">
+                                            <f:validator binding="#{row.bindings.XpeSwApprNbr.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                </af:table>
+                            </af:panelHeader>
                         </af:showDetailItem>
                         <af:showDetailItem id="tab2" text="Contract Notes">
-                            <af:button actionListener="#{bindings.CreateInsert1.execute}" text="Add New Comment"
-                                       id="b5"/>
-                            <af:table value="#{bindings.XpeDccContractNotesView2.collectionModel}" var="row"
-                                      rows="#{bindings.XpeDccContractNotesView2.rangeSize}"
-                                      emptyText="#{bindings.XpeDccContractNotesView2.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                      rowBandingInterval="0"
-                                      selectedRowKeys="#{bindings.XpeDccContractNotesView2.collectionModel.selectedRow}"
-                                      selectionListener="#{bindings.XpeDccContractNotesView2.collectionModel.makeCurrent}"
-                                      rowSelection="single" fetchSize="#{bindings.XpeDccContractNotesView2.rangeSize}"
-                                      filterModel="#{bindings.XpeDccContractNotesView2Query.queryDescriptor}"
-                                      filterVisible="true"
-                                      queryListener="#{bindings.XpeDccContractNotesView2Query.processQuery}"
-                                      varStatus="vs" id="t2" partialTriggers="::b5">
-                                <af:column sortProperty="#{bindings.XpeDccContractNotesView2.hints.XpeNoteDttm.name}"
-                                           filterable="true" sortable="true" headerText="Date" id="c8" width="100">
-                                    <f:facet name="filter">
-                                        <af:inputDate value="#{bindings.XpeDccContractNotesView2Query.queryDescriptor.filterConjunctionCriterion.criterionMap.XpeNoteDttm.value}"
-                                                      id="id3">
+                            <af:panelHeader text="" id="ph2">
+                                <f:facet name="context">
+                                    <af:toolbar id="t6">
+                                        <af:button actionListener="#{bindings.CreateInsert1.execute}"
+                                                   text="Add New Comment" id="b5"/>
+                                        <af:spacer width="10" height="10" id="s8"/>
+                                        <af:button actionListener="#{bindings.Delete1.execute}" text="Delete Comment"
+                                                   disabled="#{!bindings.Delete1.enabled}" id="b10"/>
+                                    </af:toolbar>
+                                </f:facet>
+                                <f:facet name="toolbar"/>
+                                <f:facet name="menuBar"/>
+                                <f:facet name="legend"/>
+                                <f:facet name="info"/>
+                                <af:spacer width="10" height="10" id="s7"/>
+                                <af:table value="#{bindings.XpeDccContractNotesView2.collectionModel}" var="row"
+                                          rows="#{bindings.XpeDccContractNotesView2.rangeSize}"
+                                          emptyText="#{bindings.XpeDccContractNotesView2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0" columnStretching="last"
+                                          selectedRowKeys="#{bindings.XpeDccContractNotesView2.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.XpeDccContractNotesView2.collectionModel.makeCurrent}"
+                                          rowSelection="single"
+                                          fetchSize="#{bindings.XpeDccContractNotesView2.rangeSize}"
+                                          filterModel="#{bindings.XpeDccContractNotesView2Query.queryDescriptor}"
+                                          filterVisible="true"
+                                          queryListener="#{bindings.XpeDccContractNotesView2Query.processQuery}"
+                                          varStatus="vs" id="t2" partialTriggers="::b5 ::b10">
+                                    <af:column sortProperty="#{bindings.XpeDccContractNotesView2.hints.XpeNoteDttm.name}"
+                                               filterable="true" sortable="true" headerText="Date" id="c8" width="100">
+                                        <f:facet name="filter">
+                                            <af:inputDate value="#{bindings.XpeDccContractNotesView2Query.queryDescriptor.filterConjunctionCriterion.criterionMap.XpeNoteDttm.value}"
+                                                          id="id3">
+                                                <af:convertDateTime pattern="#{bindings.XpeDccContractNotesView2.hints.XpeNoteDttm.format}"/>
+                                            </af:inputDate>
+                                        </f:facet>
+                                        <af:inputDate value="#{row.bindings.XpeNoteDttm.inputValue}"
+                                                      label="#{bindings.XpeDccContractNotesView2.hints.XpeNoteDttm.label}"
+                                                      required="#{bindings.XpeDccContractNotesView2.hints.XpeNoteDttm.mandatory}"
+                                                      columns="#{bindings.XpeDccContractNotesView2.hints.XpeNoteDttm.displayWidth}"
+                                                      shortDesc="#{bindings.XpeDccContractNotesView2.hints.XpeNoteDttm.tooltip}"
+                                                      id="id4">
+                                            <f:validator binding="#{row.bindings.XpeNoteDttm.validator}"/>
                                             <af:convertDateTime pattern="#{bindings.XpeDccContractNotesView2.hints.XpeNoteDttm.format}"/>
                                         </af:inputDate>
-                                    </f:facet>
-                                    <af:inputDate value="#{row.bindings.XpeNoteDttm.inputValue}"
-                                                  label="#{bindings.XpeDccContractNotesView2.hints.XpeNoteDttm.label}"
-                                                  required="#{bindings.XpeDccContractNotesView2.hints.XpeNoteDttm.mandatory}"
-                                                  columns="#{bindings.XpeDccContractNotesView2.hints.XpeNoteDttm.displayWidth}"
-                                                  shortDesc="#{bindings.XpeDccContractNotesView2.hints.XpeNoteDttm.tooltip}"
-                                                  id="id4">
-                                        <f:validator binding="#{row.bindings.XpeNoteDttm.validator}"/>
-                                        <af:convertDateTime pattern="#{bindings.XpeDccContractNotesView2.hints.XpeNoteDttm.format}"/>
-                                    </af:inputDate>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.XpeDccContractNotesView2.hints.XpeNoteType.name}"
-                                           filterable="true" sortable="true" headerText="Note Type" id="c9" width="100">
-                                    <af:inputText value="#{row.bindings.XpeNoteType.inputValue}"
-                                                  label="#{bindings.XpeDccContractNotesView2.hints.XpeNoteType.label}"
-                                                  required="#{bindings.XpeDccContractNotesView2.hints.XpeNoteType.mandatory}"
-                                                  columns="#{bindings.XpeDccContractNotesView2.hints.XpeNoteType.displayWidth}"
-                                                  maximumLength="#{bindings.XpeDccContractNotesView2.hints.XpeNoteType.precision}"
-                                                  shortDesc="#{bindings.XpeDccContractNotesView2.hints.XpeNoteType.tooltip}"
-                                                  id="it6">
-                                        <f:validator binding="#{row.bindings.XpeNoteType.validator}"/>
-                                    </af:inputText>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.XpeDccContractNotesView2.hints.XpeNote.name}"
-                                           filterable="true" sortable="true" headerText="Note " id="c10" width="335">
-                                    <af:inputText value="#{row.bindings.XpeNote.inputValue}"
-                                                  label="#{bindings.XpeDccContractNotesView2.hints.XpeNote.label}"
-                                                  required="#{bindings.XpeDccContractNotesView2.hints.XpeNote.mandatory}"
-                                                  columns="#{bindings.XpeDccContractNotesView2.hints.XpeNote.displayWidth}"
-                                                  maximumLength="#{bindings.XpeDccContractNotesView2.hints.XpeNote.precision}"
-                                                  shortDesc="#{bindings.XpeDccContractNotesView2.hints.XpeNote.tooltip}"
-                                                  id="it7">
-                                        <f:validator binding="#{row.bindings.XpeNote.validator}"/>
-                                    </af:inputText>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.XpeDccContractNotesView2.hints.XpeUser.name}"
-                                           filterable="true" sortable="true" headerText="User" id="c11" width="80">
-                                    <!--     <af:outputText value="#{row.XpeUser}"
-                                                   shortDesc="#{bindings.XpeDccContractNotesView2.hints.XpeUser.tooltip}"
-                                                   id="ot5"/>-->
-                                    <af:inputText value="#{row.bindings.XpeUser.inputValue}"
-                                                  label="#{bindings.XpeDccContractNotesView2.hints.XpeUser.label}"
-                                                  required="#{bindings.XpeDccContractNotesView2.hints.XpeUser.mandatory}"
-                                                  columns="#{bindings.XpeDccContractNotesView2.hints.XpeUser.displayWidth}"
-                                                  maximumLength="#{bindings.XpeDccContractNotesView2.hints.XpeUser.precision}"
-                                                  shortDesc="#{bindings.XpeDccContractNotesView2.hints.XpeUser.tooltip}"
-                                                  id="it8">
-                                        <f:validator binding="#{row.bindings.XpeUser.validator}"/>
-                                    </af:inputText>
-                                </af:column>
-                            </af:table>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.XpeDccContractNotesView2.hints.XpeNoteType.name}"
+                                               filterable="true" sortable="true" headerText="Note Type" id="c9"
+                                               width="100">
+                                        <af:inputText value="#{row.bindings.XpeNoteType.inputValue}"
+                                                      label="#{bindings.XpeDccContractNotesView2.hints.XpeNoteType.label}"
+                                                      required="#{bindings.XpeDccContractNotesView2.hints.XpeNoteType.mandatory}"
+                                                      columns="#{bindings.XpeDccContractNotesView2.hints.XpeNoteType.displayWidth}"
+                                                      maximumLength="#{bindings.XpeDccContractNotesView2.hints.XpeNoteType.precision}"
+                                                      shortDesc="#{bindings.XpeDccContractNotesView2.hints.XpeNoteType.tooltip}"
+                                                      id="it6">
+                                            <f:validator binding="#{row.bindings.XpeNoteType.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.XpeDccContractNotesView2.hints.XpeNote.name}"
+                                               filterable="true" sortable="true" headerText="Note " id="c10"
+                                               width="335">
+                                        <af:inputText value="#{row.bindings.XpeNote.inputValue}"
+                                                      label="#{bindings.XpeDccContractNotesView2.hints.XpeNote.label}"
+                                                      required="#{bindings.XpeDccContractNotesView2.hints.XpeNote.mandatory}"
+                                                      columns="#{bindings.XpeDccContractNotesView2.hints.XpeNote.displayWidth}"
+                                                      maximumLength="#{bindings.XpeDccContractNotesView2.hints.XpeNote.precision}"
+                                                      shortDesc="#{bindings.XpeDccContractNotesView2.hints.XpeNote.tooltip}"
+                                                      id="it7">
+                                            <f:validator binding="#{row.bindings.XpeNote.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                </af:table>
+                            </af:panelHeader>
                         </af:showDetailItem>
                         <af:showDetailItem id="tab3" text="Contract Release Workflow">
                             <af:table value="#{bindings.XpeDccWorkflowView2.collectionModel}" var="row"
                                       rows="#{bindings.XpeDccWorkflowView2.rangeSize}"
                                       emptyText="#{bindings.XpeDccWorkflowView2.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                      rowBandingInterval="0"
+                                      rowBandingInterval="0" columnStretching="last"
                                       selectedRowKeys="#{bindings.XpeDccWorkflowView2.collectionModel.selectedRow}"
                                       selectionListener="#{bindings.XpeDccWorkflowView2.collectionModel.makeCurrent}"
                                       rowSelection="single" fetchSize="#{bindings.XpeDccWorkflowView2.rangeSize}"

@@ -420,4 +420,23 @@
       <property
          name="sdm:polyPoints">T50,626.0,881.79297,736.0,817.33887,B50</property>
    </ControlFlowCase>
+   <WildcardControlFlowRule
+      id="WildcardControlFlowRule38">
+      <property
+         name="activityId">*</property>
+      <property
+         name="x">-151.0</property>
+      <property
+         name="y">446.29883</property>
+   </WildcardControlFlowRule>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase39"
+      from="WildcardControlFlowRule38"
+      to="View2">
+      <property
+         name="fromOutcome">Home</property>
+      <property
+         name="sdm:polyPoints">R50,-115.0,446.44824,57.5,535.56744,T50</property>
+   </ControlFlowCase>
 </SDM>

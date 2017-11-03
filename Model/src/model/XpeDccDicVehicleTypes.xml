@@ -4,7 +4,7 @@
 <ViewObject
     xmlns="http://xmlns.oracle.com/bc4j"
     Name="XpeDccDicVehicleTypes"
-    Version="12.2.1.0.31"
+    Version="12.2.1.11.57"
     InheritPersonalization="merge"
     BindingStyle="OracleName"
     CustomQuery="true"
@@ -18,7 +18,7 @@
                 ResId="model.XpeDccDicVehicleTypes_LABEL"/>
         </SchemaBasedProperties>
     </Properties>
-    <SQLQuery><![CDATA[SELECT XPE_LOOKUP_ID, XPE_LOOKUP_DESC FROM XPE_DCC_LOOKUP_MASTER WHERE XPE_LOOKUP_TYPE = 'VHT']]></SQLQuery>
+    <SQLQuery><![CDATA[SELECT VEHICLE_ID XPE_LOOKUP_ID, VEHICLE_DESC XPE_LOOKUP_DESC FROM XPE_DCC_CFG_VEHICLES]]></SQLQuery>
     <ViewAttribute
         Name="XpeLookupId"
         IsUpdateable="false"

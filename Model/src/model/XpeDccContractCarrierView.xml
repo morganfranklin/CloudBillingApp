@@ -24,8 +24,8 @@
         ViewObjectName="model.XpeDccDicVehicleTypes"
         RowLevelBinds="true"/>
     <ViewAccessor
-        Name="XpeDccCarriersView1"
-        ViewObjectName="model.XpeDccCarriersView"
+        Name="XpeDccCfgCarriersROVO1"
+        ViewObjectName="model.views.readonly.XpeDccCfgCarriersROVO"
         RowLevelBinds="true"/>
     <ListBinding
         Name="LOV_XpeVehicleType"
@@ -47,7 +47,7 @@
     </ListBinding>
     <ListBinding
         Name="LOV_XpeCarrierId"
-        ListVOName="XpeDccCarriersView1"
+        ListVOName="XpeDccCfgCarriersROVO1"
         ListRangeSize="-1"
         NullValueFlag="none"
         MRUCount="0">
@@ -56,10 +56,10 @@
         </AttrArray>
         <AttrArray Name="AttrExpressions"/>
         <AttrArray Name="ListAttrNames">
-            <Item Value="XpeCarrierId"/>
+            <Item Value="CarrierId"/>
         </AttrArray>
         <AttrArray Name="ListDisplayAttrNames">
-            <Item Value="XpeCarrierDesc"/>
+            <Item Value="CarrierName"/>
         </AttrArray>
         <DisplayCriteria/>
     </ListBinding>
@@ -104,12 +104,12 @@
         LOVName="LOV_XpeCarrierId">
         <Properties>
             <SchemaBasedProperties>
-                <CONTROLTYPE
-                    Value="choice"/>
                 <DISPLAYWIDTH
                     Value="20"/>
                 <LABEL
                     ResId="model.XpeDccContractCarrierView.XpeCarrierId_LABEL"/>
+                <CONTROLTYPE
+                    Value="choice"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>

@@ -24,6 +24,7 @@ import view.utils.JSFUtils;
 
 public class XpeDccMainBean {
     private RichTable contractVersionTableBidning;
+    private RichTable customerSearchTblBind;
 
     public XpeDccMainBean() {
         super();
@@ -126,5 +127,13 @@ public class XpeDccMainBean {
             (XpeDccContractVersionViewRowImpl) ADFUtils.findViewObjectFromIteratorName("XpeDccContractVersionView2Iterator").getCurrentRow();
         versionRow.setXpeContractVersion("V1");
 
+    }
+
+    public void setCustomerSearchTblBind(RichTable customerSearchTblBind) {
+        this.customerSearchTblBind = customerSearchTblBind;
+    }
+
+    public RichTable getCustomerSearchTblBind() {
+        return customerSearchTblBind;
     }
 }

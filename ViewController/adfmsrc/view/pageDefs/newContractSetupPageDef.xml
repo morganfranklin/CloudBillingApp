@@ -85,11 +85,6 @@
         <Item Value="XpeUser"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="XpeDccNewContractNotesViewIterator" id="XpeNoteType">
-      <AttrNames>
-        <Item Value="XpeNoteType"/>
-      </AttrNames>
-    </attributeValues>
     <action IterBinding="XpeDccNewContractLPCROVOIterator" id="Delete" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
     <tree IterBinding="XpeDccNewContractLineViewIterator" id="XpeDccNewContractLineView">
@@ -171,5 +166,7 @@
         <Item Value="CarryForwardedPricingOver"/>
       </AttrNames>
     </attributeValues>
+    <list IterBinding="XpeDccNewContractNotesViewIterator" StaticList="false" Uses="LOV_XpeNoteType" id="XpeNoteType"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

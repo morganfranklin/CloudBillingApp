@@ -19,6 +19,28 @@
         <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
         <Attr Name="_isCodegen" Value="true"/>
     </DesignTime>
+    <ViewAccessor
+        Name="XpeDccCfgContractNotesSLVO1"
+        ViewObjectName="model.views.readonly.XpeDccCfgContractNotesSLVO"
+        RowLevelBinds="true"/>
+    <ListBinding
+        Name="LOV_XpeNoteType"
+        ListVOName="XpeDccCfgContractNotesSLVO1"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="XpeNoteType"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="NoteKey"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="NoteType"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
     <EntityUsage
         Name="XpeDccContractNotes"
         Entity="model.XpeDccContractNotes"/>
@@ -69,5 +91,13 @@
         PrecisionRule="true"
         EntityAttrName="XpeNoteType"
         EntityUsage="XpeDccContractNotes"
-        AliasName="XPE_NOTE_TYPE"/>
+        AliasName="XPE_NOTE_TYPE"
+        LOVName="LOV_XpeNoteType">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
 </ViewObject>

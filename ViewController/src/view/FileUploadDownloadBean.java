@@ -21,9 +21,14 @@ import oracle.adf.model.binding.DCBindingContainer;
 import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.view.rich.component.rich.input.RichInputFile;
 
+import oracle.adf.view.rich.context.AdfFacesContext;
+import oracle.adf.view.rich.event.QueryOperationEvent;
+
 import oracle.jbo.domain.BlobDomain;
 
 import org.apache.myfaces.trinidad.model.UploadedFile;
+
+import view.utils.ADFUtils;
 
 
 public class FileUploadDownloadBean {
@@ -181,5 +186,21 @@ public class FileUploadDownloadBean {
 
     public BlobDomain getBlob() {
         return blob;
+    }
+    
+    private XpeDccMainBean getXpeDccMainBean() {
+        XpeDccMainBean xpeDccMainBean =
+            (XpeDccMainBean) ADFUtils.evaluateEL("#{backingBeanScope.XpeDccMainBean}");
+        return xpeDccMainBean;
+    }
+
+    public void queryOperationListener(QueryOperationEvent queryOperationEvent) {
+        ADFUtils.invokeEL("#{bindings.ImplicitViewCriteriaQuery.processQueryOperation}",Object.class,
+                 QueryOperationEvent.class, queryOperationEvent);
+        if (queryOperationEvent.getOperation().name().toUpperCase().equals("RESET")) {
+            DCIteratorBinding custSrchIter = ADFUtils.findIterator("XpeDccCustomerSearch1Iterator");
+            custSrchIter.getViewObject().executeEmptyRowSet();
+            AdfFacesContext.getCurrentInstance().addPartialTarget(this.getXpeDccMainBean().getCustomerSearchTblBind());
+        }
     }
 }

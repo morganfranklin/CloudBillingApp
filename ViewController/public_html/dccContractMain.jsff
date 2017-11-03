@@ -79,8 +79,10 @@
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3" halign="stretch"
                                          valign="stretch">
                                 <af:button action="refreshAll" text="Refresh" id="b1"/>
+                                <af:spacer width="10" height="10" id="s1"/>
                                 <af:button actionListener="#{bindings.Commit.execute}" text="Submit"
-                                           disabled="#{!bindings.Commit.enabled}" id="b4" action="reexecuteVersion"/>
+                                           id="b4" action="reexecuteVersion"/>
+                                <af:spacer width="10" height="10" id="s2"/>
                                 <af:button text="Back" action="goBack" immediate="true" id="b2"></af:button>
                             </af:gridCell>
                         </af:gridRow>
@@ -94,107 +96,123 @@
                     <f:facet name="toolbar"/>
                     <af:panelTabbed position="above" id="pt1" dimensionsFrom="auto">
                         <af:showDetailItem id="tab1" text="Contract Releases" disclosed="true">
-                            <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add Row" id="b3"/>
-                            <af:table value="#{bindings.XpeDccContractVersionView1.collectionModel}" var="row"
-                                      rows="#{bindings.XpeDccContractVersionView1.rangeSize}"
-                                      emptyText="#{bindings.XpeDccContractVersionView1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                      rowBandingInterval="0"
-                                      selectedRowKeys="#{bindings.XpeDccContractVersionView1.collectionModel.selectedRow}"
-                                      contentDelivery="lazy"
-                                      selectionListener="#{bindings.XpeDccContractVersionView1.collectionModel.makeCurrent}"
-                                      rowSelection="single" fetchSize="#{bindings.XpeDccContractVersionView1.rangeSize}"
-                                      id="t4" partialTriggers="::b3 ::b4"
-                                      binding="#{backingBeanScope.XpeDccMainBean.contractVersionTableBidning}">
-                                <af:column headerText="Release Number" id="c34">
-                                    <af:inputText value="#{row.bindings.XpeContractVersion.inputValue}"
-                                                  label="#{bindings.XpeDccContractVersionView1.hints.XpeContractVersion.label}"
-                                                  required="#{bindings.XpeDccContractVersionView1.hints.XpeContractVersion.mandatory}"
-                                                  columns="#{bindings.XpeDccContractVersionView1.hints.XpeContractVersion.displayWidth}"
-                                                  rendered="#{row.row.entities[0].entityState==0? 'true':'false'}"
-                                                  maximumLength="#{bindings.XpeDccContractVersionView1.hints.XpeContractVersion.precision}"
-                                                  shortDesc="#{bindings.XpeDccContractVersionView1.hints.XpeContractVersion.tooltip}"
-                                                  id="it3">
-                                        <f:validator binding="#{row.bindings.XpeContractVersion.validator}"/>
-                                    </af:inputText>
-                                    <af:link rendered="#{row.row.entities[0].entityState==0? 'false':'true'}"
-                                             text="#{row.XpeContractVersion}" id="l3" action="toContractVersion"/>
-                                </af:column>
-                                <af:column headerText="Status" id="c17">
-                                    <af:selectOneChoice value="#{row.bindings.XpeContractStatus.inputValue}"
-                                                        label="#{row.bindings.XpeContractStatus.label}"
-                                                        readOnly="#{row.row.entities[0].entityState==0? 'false':'true'}"
-                                                        required="#{bindings.XpeDccContractVersionView1.hints.XpeContractStatus.mandatory}"
-                                                        shortDesc="#{bindings.XpeDccContractVersionView1.hints.XpeContractStatus.tooltip}"
-                                                        id="soc7">
-                                        <f:selectItems value="#{row.bindings.XpeContractStatus.items}" id="si7"/>
-                                        <f:validator binding="#{row.bindings.XpeContractStatus.validator}"/>
-                                    </af:selectOneChoice>
-                                </af:column>
-                                <af:column headerText="Start Date" id="c22">
-                                    <af:inputDate value="#{row.bindings.XpeStartDate.inputValue}"
-                                                  label="#{bindings.XpeDccContractVersionView1.hints.XpeStartDate.label}"
-                                                  required="#{bindings.XpeDccContractVersionView1.hints.XpeStartDate.mandatory}"
-                                                  readOnly="#{row.row.entities[0].entityState==0? 'false':'true'}"
-                                                  columns="#{bindings.XpeDccContractVersionView1.hints.XpeStartDate.displayWidth}"
-                                                  shortDesc="#{bindings.XpeDccContractVersionView1.hints.XpeStartDate.tooltip}"
-                                                  id="id4">
-                                        <f:validator binding="#{row.bindings.XpeStartDate.validator}"/>
-                                        <af:convertDateTime pattern="#{bindings.XpeDccContractVersionView1.hints.XpeStartDate.format}"/>
-                                    </af:inputDate>
-                                </af:column>
-                                <af:column headerText="End Date" id="c23">
-                                    <af:inputDate value="#{row.bindings.XpeEndDate.inputValue}"
-                                                  label="#{bindings.XpeDccContractVersionView1.hints.XpeEndDate.label}"
-                                                  required="#{bindings.XpeDccContractVersionView1.hints.XpeEndDate.mandatory}"
-                                                  readOnly="#{row.row.entities[0].entityState==0? 'false':'true'}"
-                                                  columns="#{bindings.XpeDccContractVersionView1.hints.XpeEndDate.displayWidth}"
-                                                  shortDesc="#{bindings.XpeDccContractVersionView1.hints.XpeEndDate.tooltip}"
-                                                  id="id5">
-                                        <f:validator binding="#{row.bindings.XpeEndDate.validator}"/>
-                                        <af:convertDateTime pattern="#{bindings.XpeDccContractVersionView1.hints.XpeEndDate.format}"/>
-                                    </af:inputDate>
-                                </af:column>
-                                <af:column headerText="Contract Term" id="c24">
-                                    <af:inputText value="#{row.bindings.XpeContractTemplate.inputValue}"
-                                                  label="#{bindings.XpeDccContractVersionView1.hints.XpeContractTemplate.label}"
-                                                  required="#{bindings.XpeDccContractVersionView1.hints.XpeContractTemplate.mandatory}"
-                                                  readOnly="#{row.row.entities[0].entityState==0? 'false':'true'}"
-                                                  columns="#{bindings.XpeDccContractVersionView1.hints.XpeContractTemplate.displayWidth}"
-                                                  maximumLength="#{bindings.XpeDccContractVersionView1.hints.XpeContractTemplate.precision}"
-                                                  shortDesc="#{bindings.XpeDccContractVersionView1.hints.XpeContractTemplate.tooltip}"
-                                                  id="it7">
-                                        <f:validator binding="#{row.bindings.XpeContractTemplate.validator}"/>
-                                    </af:inputText>
-                                </af:column>
-                                <af:column headerText="Business Unit" id="c25">
-                                    <af:selectOneChoice value="#{row.bindings.BusinessUnitGl.inputValue}"
-                                                        label="#{row.bindings.BusinessUnitGl.label}"
-                                                        required="#{bindings.XpeDccContractVersionView1.hints.BusinessUnitGl.mandatory}"
-                                                        readOnly="#{row.row.entities[0].entityState==0? 'false':'true'}"
-                                                        shortDesc="#{bindings.XpeDccContractVersionView1.hints.BusinessUnitGl.tooltip}"
-                                                        id="soc11">
-                                        <f:selectItems value="#{row.bindings.BusinessUnitGl.items}" id="si11"/>
-                                        <f:validator binding="#{row.bindings.BusinessUnitGl.validator}"/>
-                                    </af:selectOneChoice>
-                                </af:column>
-                                <af:column headerText="Currency" id="c26">
-                                    <af:selectOneChoice value="#{row.bindings.CurrencyCd.inputValue}"
-                                                        label="#{row.bindings.CurrencyCd.label}"
-                                                        readOnly="#{row.row.entities[0].entityState==0? 'false':'true'}"
-                                                        required="#{bindings.XpeDccContractVersionView1.hints.CurrencyCd.mandatory}"
-                                                        shortDesc="#{bindings.XpeDccContractVersionView1.hints.CurrencyCd.tooltip}"
-                                                        id="soc12">
-                                        <f:selectItems value="#{row.bindings.CurrencyCd.items}" id="si12"/>
-                                        <f:validator binding="#{row.bindings.CurrencyCd.validator}"/>
-                                    </af:selectOneChoice>
-                                </af:column>
-                            </af:table>
+                            <af:panelHeader text="" id="ph1">
+                                <f:facet name="context">
+                                    <af:toolbar id="t1">
+                                        <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add"
+                                                   id="b3"/>
+                                        <af:spacer width="10" height="10" id="s3"/>
+                                        <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                                                   disabled="#{!bindings.Delete.enabled}" id="b5"/>
+                                    </af:toolbar>
+                                </f:facet>
+                                <f:facet name="toolbar"/>
+                                <f:facet name="menuBar"/>
+                                <f:facet name="legend"/>
+                                <f:facet name="info"/>
+                                <af:spacer width="10" height="10" id="s4"/>
+                                <af:table value="#{bindings.XpeDccContractVersionView1.collectionModel}" var="row"
+                                          rows="#{bindings.XpeDccContractVersionView1.rangeSize}"
+                                          emptyText="#{bindings.XpeDccContractVersionView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.XpeDccContractVersionView1.collectionModel.selectedRow}"
+                                          contentDelivery="lazy"
+                                          selectionListener="#{bindings.XpeDccContractVersionView1.collectionModel.makeCurrent}"
+                                          rowSelection="single"
+                                          fetchSize="#{bindings.XpeDccContractVersionView1.rangeSize}" id="t4"
+                                          partialTriggers="::b3 ::b4 ::b5" columnStretching="last"
+                                          binding="#{backingBeanScope.XpeDccMainBean.contractVersionTableBidning}">
+                                    <af:column headerText="Release Number" id="c34">
+                                        <af:inputText value="#{row.bindings.XpeContractVersion.inputValue}"
+                                                      label="#{bindings.XpeDccContractVersionView1.hints.XpeContractVersion.label}"
+                                                      required="#{bindings.XpeDccContractVersionView1.hints.XpeContractVersion.mandatory}"
+                                                      columns="#{bindings.XpeDccContractVersionView1.hints.XpeContractVersion.displayWidth}"
+                                                      rendered="#{row.row.entities[0].entityState==0? 'true':'false'}"
+                                                      maximumLength="#{bindings.XpeDccContractVersionView1.hints.XpeContractVersion.precision}"
+                                                      shortDesc="#{bindings.XpeDccContractVersionView1.hints.XpeContractVersion.tooltip}"
+                                                      id="it3">
+                                            <f:validator binding="#{row.bindings.XpeContractVersion.validator}"/>
+                                        </af:inputText>
+                                        <af:link rendered="#{row.row.entities[0].entityState==0? 'false':'true'}"
+                                                 text="#{row.XpeContractVersion}" id="l3" action="toContractVersion"/>
+                                    </af:column>
+                                    <af:column headerText="Status" id="c17">
+                                        <af:selectOneChoice value="#{row.bindings.XpeContractStatus.inputValue}"
+                                                            label="#{row.bindings.XpeContractStatus.label}"
+                                                            readOnly="#{row.row.entities[0].entityState==0? 'false':'true'}"
+                                                            required="#{bindings.XpeDccContractVersionView1.hints.XpeContractStatus.mandatory}"
+                                                            shortDesc="#{bindings.XpeDccContractVersionView1.hints.XpeContractStatus.tooltip}"
+                                                            id="soc7">
+                                            <f:selectItems value="#{row.bindings.XpeContractStatus.items}" id="si7"/>
+                                            <f:validator binding="#{row.bindings.XpeContractStatus.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column headerText="Start Date" id="c22">
+                                        <af:inputDate value="#{row.bindings.XpeStartDate.inputValue}"
+                                                      label="#{bindings.XpeDccContractVersionView1.hints.XpeStartDate.label}"
+                                                      required="#{bindings.XpeDccContractVersionView1.hints.XpeStartDate.mandatory}"
+                                                      readOnly="#{row.row.entities[0].entityState==0? 'false':'true'}"
+                                                      columns="#{bindings.XpeDccContractVersionView1.hints.XpeStartDate.displayWidth}"
+                                                      shortDesc="#{bindings.XpeDccContractVersionView1.hints.XpeStartDate.tooltip}"
+                                                      id="id4">
+                                            <f:validator binding="#{row.bindings.XpeStartDate.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.XpeDccContractVersionView1.hints.XpeStartDate.format}"/>
+                                        </af:inputDate>
+                                    </af:column>
+                                    <af:column headerText="End Date" id="c23">
+                                        <af:inputDate value="#{row.bindings.XpeEndDate.inputValue}"
+                                                      label="#{bindings.XpeDccContractVersionView1.hints.XpeEndDate.label}"
+                                                      required="#{bindings.XpeDccContractVersionView1.hints.XpeEndDate.mandatory}"
+                                                      readOnly="#{row.row.entities[0].entityState==0? 'false':'true'}"
+                                                      columns="#{bindings.XpeDccContractVersionView1.hints.XpeEndDate.displayWidth}"
+                                                      shortDesc="#{bindings.XpeDccContractVersionView1.hints.XpeEndDate.tooltip}"
+                                                      id="id5">
+                                            <f:validator binding="#{row.bindings.XpeEndDate.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.XpeDccContractVersionView1.hints.XpeEndDate.format}"/>
+                                        </af:inputDate>
+                                    </af:column>
+                                    <af:column headerText="Contract Term" id="c24">
+                                        <af:inputText value="#{row.bindings.XpeContractTemplate.inputValue}"
+                                                      label="#{bindings.XpeDccContractVersionView1.hints.XpeContractTemplate.label}"
+                                                      required="#{bindings.XpeDccContractVersionView1.hints.XpeContractTemplate.mandatory}"
+                                                      readOnly="#{row.row.entities[0].entityState==0? 'false':'true'}"
+                                                      columns="#{bindings.XpeDccContractVersionView1.hints.XpeContractTemplate.displayWidth}"
+                                                      maximumLength="#{bindings.XpeDccContractVersionView1.hints.XpeContractTemplate.precision}"
+                                                      shortDesc="#{bindings.XpeDccContractVersionView1.hints.XpeContractTemplate.tooltip}"
+                                                      id="it7">
+                                            <f:validator binding="#{row.bindings.XpeContractTemplate.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="Business Unit" id="c25">
+                                        <af:selectOneChoice value="#{row.bindings.BusinessUnitGl.inputValue}"
+                                                            label="#{row.bindings.BusinessUnitGl.label}"
+                                                            required="#{bindings.XpeDccContractVersionView1.hints.BusinessUnitGl.mandatory}"
+                                                            readOnly="#{row.row.entities[0].entityState==0? 'false':'true'}"
+                                                            shortDesc="#{bindings.XpeDccContractVersionView1.hints.BusinessUnitGl.tooltip}"
+                                                            id="soc11">
+                                            <f:selectItems value="#{row.bindings.BusinessUnitGl.items}" id="si11"/>
+                                            <f:validator binding="#{row.bindings.BusinessUnitGl.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column headerText="Currency" id="c26">
+                                        <af:selectOneChoice value="#{row.bindings.CurrencyCd.inputValue}"
+                                                            label="#{row.bindings.CurrencyCd.label}"
+                                                            readOnly="#{row.row.entities[0].entityState==0? 'false':'true'}"
+                                                            required="#{bindings.XpeDccContractVersionView1.hints.CurrencyCd.mandatory}"
+                                                            shortDesc="#{bindings.XpeDccContractVersionView1.hints.CurrencyCd.tooltip}"
+                                                            id="soc12">
+                                            <f:selectItems value="#{row.bindings.CurrencyCd.items}" id="si12"/>
+                                            <f:validator binding="#{row.bindings.CurrencyCd.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                </af:table>
+                            </af:panelHeader>
                         </af:showDetailItem>
                         <af:showDetailItem id="tab2" text="Contractual Parties">
                             <af:table value="#{bindings.XpeDccContractPartyView2.collectionModel}" var="row"
                                       rows="#{bindings.XpeDccContractPartyView2.rangeSize}"
                                       emptyText="#{bindings.XpeDccContractPartyView2.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                      rowBandingInterval="0"
+                                      rowBandingInterval="0" columnStretching="last"
                                       selectedRowKeys="#{bindings.XpeDccContractPartyView2.collectionModel.selectedRow}"
                                       selectionListener="#{bindings.XpeDccContractPartyView2.collectionModel.makeCurrent}"
                                       rowSelection="single" fetchSize="#{bindings.XpeDccContractPartyView2.rangeSize}"

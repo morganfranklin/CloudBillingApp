@@ -50,11 +50,6 @@
         <Item Value="XpeNoteDttm"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="XpeDccNewContractNotesViewIterator" id="XpeNoteType">
-      <AttrNames>
-        <Item Value="XpeNoteType"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="XpeDccNewContractNotesViewIterator" id="XpeNote">
       <AttrNames>
         <Item Value="XpeNote"/>
@@ -63,11 +58,6 @@
     <attributeValues IterBinding="XpeDccNewContractNotesViewIterator" id="XpeNoteLong">
       <AttrNames>
         <Item Value="XpeNoteLong"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="XpeDccNewContractNotesViewIterator" id="XpeUser">
-      <AttrNames>
-        <Item Value="XpeUser"/>
       </AttrNames>
     </attributeValues>
     <tree IterBinding="XpeDccNewContractLPCROVOIterator" id="XpeDccNewContractLPCROVO">
@@ -177,5 +167,7 @@
         <Item Value="XpeContractVersion"/>
       </AttrNames>
     </attributeValues>
+    <list IterBinding="XpeDccNewContractNotesViewIterator" StaticList="false" Uses="LOV_XpeNoteType" id="XpeNoteType"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

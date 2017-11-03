@@ -13,6 +13,8 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class XpeDccContractCarrierViewRowImpl extends ViewRowImpl {
+
+
     public static final int ENTITY_XPEDCCCONTRACTCARRIER = 0;
 
     /**
@@ -31,8 +33,9 @@ public class XpeDccContractCarrierViewRowImpl extends ViewRowImpl {
         XpeSurcharge,
         XpeDccContractCarrierOverView,
         XpeDccDicVehicleTypes1,
-        XpeDccCarriersView1;
-        private static AttributesEnum[] vals = null;
+        XpeDccCfgCarriersROVO1;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -54,6 +57,8 @@ public class XpeDccContractCarrierViewRowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
+
     public static final int XPECONTRACTID = AttributesEnum.XpeContractId.index();
     public static final int XPEPRICINGTERMLINE = AttributesEnum.XpePricingTermLine.index();
     public static final int XPECONTRACTLINE = AttributesEnum.XpeContractLine.index();
@@ -66,7 +71,7 @@ public class XpeDccContractCarrierViewRowImpl extends ViewRowImpl {
     public static final int XPESURCHARGE = AttributesEnum.XpeSurcharge.index();
     public static final int XPEDCCCONTRACTCARRIEROVERVIEW = AttributesEnum.XpeDccContractCarrierOverView.index();
     public static final int XPEDCCDICVEHICLETYPES1 = AttributesEnum.XpeDccDicVehicleTypes1.index();
-    public static final int XPEDCCCARRIERSVIEW1 = AttributesEnum.XpeDccCarriersView1.index();
+    public static final int XPEDCCCFGCARRIERSROVO1 = AttributesEnum.XpeDccCfgCarriersROVO1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -257,10 +262,10 @@ public class XpeDccContractCarrierViewRowImpl extends ViewRowImpl {
     }
 
     /**
-     * Gets the view accessor <code>RowSet</code> XpeDccCarriersView1.
+     * Gets the view accessor <code>RowSet</code> XpeDccCfgCarriersROVO1.
      */
-    public RowSet getXpeDccCarriersView1() {
-        return (RowSet) getAttributeInternal(XPEDCCCARRIERSVIEW1);
+    public RowSet getXpeDccCfgCarriersROVO1() {
+        return (RowSet) getAttributeInternal(XPEDCCCFGCARRIERSROVO1);
     }
 }
 

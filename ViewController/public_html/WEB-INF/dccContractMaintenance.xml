@@ -192,6 +192,13 @@
                 <to-activity-id>dccAddContract</to-activity-id>
             </control-flow-case>
         </control-flow-rule>
+        <control-flow-rule id="__37">
+            <from-activity-id>*</from-activity-id>
+            <control-flow-case id="__39">
+                <from-outcome>Home</from-outcome>
+                <to-activity-id>dccContractSearch</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
         <use-page-fragments/>
     </task-flow-definition>
 </adfc-config>

@@ -113,5 +113,7 @@
                 <Item Value="XpeDccPcsname"/>
             </AttrNames>
         </attributeValues>
+        <action IterBinding="XpeDccContractVersionView2Iterator" id="Delete" RequiresUpdateModel="false"
+                Action="removeCurrentRow"/>
     </bindings>
 </pageDefinition>

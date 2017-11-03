@@ -221,7 +221,8 @@
                                                                     label="#{row.bindings.ProductUom.label}"
                                                                     required="#{bindings.XpeDccNewContractLPCROVO.hints.ProductUom.mandatory}"
                                                                     shortDesc="#{bindings.XpeDccNewContractLPCROVO.hints.ProductUom.tooltip}"
-                                                                    id="soc14" autoSubmit="true">
+                                                                    id="soc14" autoSubmit="true"
+                                                                    partialTriggers="soc13">
                                                     <f:selectItems value="#{row.bindings.ProductUom.items}" id="si25"/>
                                                     <f:validator binding="#{row.bindings.ProductUom.validator}"/>
                                                 </af:selectOneChoice>
@@ -400,7 +401,8 @@
                                                                     required="#{bindings.XpeDccNewContractLineView.hints.XpeProductId.mandatory}"
                                                                     shortDesc="#{bindings.XpeDccNewContractLineView.hints.XpeProductId.tooltip}"
                                                                     id="soc7"
-                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                                    autoSubmit="true">
                                                     <f:selectItems value="#{row.bindings.XpeProductId.items}" id="si7"/>
                                                     <f:validator binding="#{row.bindings.XpeProductId.validator}"/>
                                                 </af:selectOneChoice>
@@ -412,7 +414,8 @@
                                                                     required="#{bindings.XpeDccNewContractLineView.hints.XpeProductUom.mandatory}"
                                                                     shortDesc="#{bindings.XpeDccNewContractLineView.hints.XpeProductUom.tooltip}"
                                                                     id="soc8"
-                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                                    partialTriggers="soc7">
                                                     <f:selectItems value="#{row.bindings.XpeProductUom.items}"
                                                                    id="si8"/>
                                                     <f:validator binding="#{row.bindings.XpeProductUom.validator}"/>
@@ -853,16 +856,15 @@
                                                 <f:validator binding="#{bindings.XpeNoteDttm.validator}"/>
                                                 <af:convertDateTime pattern="#{bindings.XpeNoteDttm.format}"/>
                                             </af:inputDate>
-                                            <af:inputText value="#{bindings.XpeNoteType.inputValue}"
-                                                          label="Note Type"
-                                                          required="#{bindings.XpeNoteType.hints.mandatory}"
-                                                          columns="#{bindings.XpeNoteType.hints.displayWidth}"
-                                                          maximumLength="#{bindings.XpeNoteType.hints.precision}"
-                                                          shortDesc="#{bindings.XpeNoteType.hints.tooltip}" id="it11"
-                                                          autoSubmit="true"
-                                                          readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                            <af:selectOneChoice value="#{bindings.XpeNoteType.inputValue}"
+                                                                label="#{bindings.XpeNoteType.label}"
+                                                                required="#{bindings.XpeNoteType.hints.mandatory}"
+                                                                shortDesc="#{bindings.XpeNoteType.hints.tooltip}"
+                                                                id="soc26" autoSubmit="true"
+                                                                readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                <f:selectItems value="#{bindings.XpeNoteType.items}" id="si19"/>
                                                 <f:validator binding="#{bindings.XpeNoteType.validator}"/>
-                                            </af:inputText>
+                                            </af:selectOneChoice>
                                             <af:inputText value="#{bindings.XpeNote.inputValue}"
                                                           label="Note for Customer"
                                                           required="#{bindings.XpeNote.hints.mandatory}" columns="50"
@@ -889,7 +891,8 @@
                                                           maximumLength="#{bindings.XpeUser.hints.precision}"
                                                           shortDesc="#{bindings.XpeUser.hints.tooltip}" id="it5"
                                                           autoSubmit="true"
-                                                          readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                          readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                          rendered="false">
                                                 <f:validator binding="#{bindings.XpeUser.validator}"/>
                                             </af:inputText>
                                         </af:panelFormLayout>

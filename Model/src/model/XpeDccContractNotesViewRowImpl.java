@@ -2,6 +2,7 @@ package model;
 
 import java.sql.Timestamp;
 
+import oracle.jbo.RowSet;
 import oracle.jbo.domain.ClobDomain;
 import oracle.jbo.server.EntityImpl;
 import oracle.jbo.server.ViewRowImpl;
@@ -12,6 +13,8 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class XpeDccContractNotesViewRowImpl extends ViewRowImpl {
+
+
     public static final int ENTITY_XPEDCCCONTRACTNOTES = 0;
 
     /**
@@ -24,8 +27,10 @@ public class XpeDccContractNotesViewRowImpl extends ViewRowImpl {
         XpeNote,
         XpeUser,
         XpeNoteLong,
-        XpeNoteType;
-        private static AttributesEnum[] vals = null;
+        XpeNoteType,
+        XpeDccCfgContractNotesSLVO1;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -47,6 +52,8 @@ public class XpeDccContractNotesViewRowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
+
     public static final int XPECONTRACTID = AttributesEnum.XpeContractId.index();
     public static final int XPECONTRACTVERSION = AttributesEnum.XpeContractVersion.index();
     public static final int XPENOTEDTTM = AttributesEnum.XpeNoteDttm.index();
@@ -54,6 +61,7 @@ public class XpeDccContractNotesViewRowImpl extends ViewRowImpl {
     public static final int XPEUSER = AttributesEnum.XpeUser.index();
     public static final int XPENOTELONG = AttributesEnum.XpeNoteLong.index();
     public static final int XPENOTETYPE = AttributesEnum.XpeNoteType.index();
+    public static final int XPEDCCCFGCONTRACTNOTESSLVO1 = AttributesEnum.XpeDccCfgContractNotesSLVO1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -179,6 +187,13 @@ public class XpeDccContractNotesViewRowImpl extends ViewRowImpl {
      */
     public void setXpeNoteType(String value) {
         setAttributeInternal(XPENOTETYPE, value);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> XpeDccCfgContractNotesSLVO1.
+     */
+    public RowSet getXpeDccCfgContractNotesSLVO1() {
+        return (RowSet) getAttributeInternal(XPEDCCCFGCONTRACTNOTESSLVO1);
     }
 }
 

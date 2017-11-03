@@ -89,6 +89,7 @@
                     <Item Value="XpeQtyMax"/>
                     <Item Value="XpePeriodType"/>
                     <Item Value="XpeSwApprNbr"/>
+                    <Item Value="BusinessUnitGl"/>
                 </AttrNames>
             </nodeDefinition>
         </tree>
@@ -160,5 +161,9 @@
         <methodAction id="copyContractRow" RequiresUpdateModel="true" Action="invokeMethod" MethodName="copyContractRow"
                       IsViewObjectMethod="false" DataControl="AppModuleDataControl"
                       InstanceName="data.AppModuleDataControl.dataProvider"/>
+        <action IterBinding="XpeDccContractLineView3Iterator" id="Delete" RequiresUpdateModel="false"
+                Action="removeCurrentRow"/>
+        <action IterBinding="XpeDccContractNotesView3Iterator" id="Delete1" RequiresUpdateModel="false"
+                Action="removeCurrentRow"/>
     </bindings>
 </pageDefinition>

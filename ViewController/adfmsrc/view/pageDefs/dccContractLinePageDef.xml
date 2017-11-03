@@ -84,5 +84,9 @@
         </tree>
         <list IterBinding="XpeDccContractLineView3Iterator" StaticList="false" Uses="LOV_CurrencyCd" id="CurrencyCd"
               DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+        <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false"
+                Action="rollbackTransaction"/>
+        <action IterBinding="XpeDccContractPricingTermView3Iterator" id="Delete" RequiresUpdateModel="false"
+                Action="removeCurrentRow"/>
     </bindings>
 </pageDefinition>

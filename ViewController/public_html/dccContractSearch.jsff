@@ -1,19 +1,18 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
-    <af:panelFormLayout id="pfl1">
         <af:panelGroupLayout layout="vertical" id="pgl1">
             <af:panelHeader text="Contract Search" id="ph1">
                 <af:query id="qryId1" headerText="Search" disclosed="true"
                           value="#{bindings.ImplicitViewCriteriaQuery.queryDescriptor}"
                           model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
                           queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}"
-                          queryOperationListener="#{bindings.ImplicitViewCriteriaQuery.processQueryOperation}"
+                          queryOperationListener="#{pageFlowScope.FileUploadDownloadBean.queryOperationListener}"
                           resultComponentId="::resId1"/>
             </af:panelHeader>
         <!--    <af:button actionListener="#{backingBeanScope.XpeDccMainBean.addContractActionListener}"
                        text="Add Contract"></af:button>-->
-            <af:button action="addContract" text="Add Contract Wizard"></af:button>
+            <af:button action="addContract" text="Add Contract Wizard" rendered="false"></af:button>
             <af:popup contentDelivery="lazyUncached" id="p1" autoCancel="disabled"
                       popupCanceledListener="#{backingBeanScope.XpeDccMainBean.contractPopupCancelListener}">
                 <af:panelWindow modal="true" closeIconVisible="true">
@@ -79,7 +78,8 @@
                       contentDelivery="lazy" rowBandingInterval="0"
                       selectedRowKeys="#{bindings.XpeDccCustomerSearch1.collectionModel.selectedRow}"
                       selectionListener="#{bindings.XpeDccCustomerSearch1.collectionModel.makeCurrent}"
-                      rowSelection="single" fetchSize="#{bindings.XpeDccCustomerSearch1.rangeSize}" id="resId1">
+                      rowSelection="single" fetchSize="#{bindings.XpeDccCustomerSearch1.rangeSize}" id="resId1"
+                      binding="#{backingBeanScope.XpeDccMainBean.customerSearchTblBind}">
                 <af:column sortProperty="#{bindings.XpeDccCustomerSearch1.hints.XpeContractId.name}" sortable="true"
                            headerText="#{bindings.XpeDccCustomerSearch1.hints.XpeContractId.label}" id="resId1c1">
                     <af:link text="#{row.XpeContractId}" id="l1" action="toDccContractMaster"/>
@@ -143,6 +143,4 @@
                 </af:column>
             </af:table>
         </af:panelGroupLayout>
-        <f:facet name="footer"/>
-    </af:panelFormLayout>
 </ui:composition>

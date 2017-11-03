@@ -4,7 +4,7 @@
 <ViewObject
     xmlns="http://xmlns.oracle.com/bc4j"
     Name="XpeDccDicProducts"
-    Version="12.2.1.0.31"
+    Version="12.2.1.11.57"
     InheritPersonalization="merge"
     BindingStyle="OracleName"
     CustomQuery="true"
@@ -18,7 +18,7 @@
                 ResId="model.XpeDccDicProducts_LABEL"/>
         </SchemaBasedProperties>
     </Properties>
-    <SQLQuery><![CDATA[SELECT XPE_LOOKUP_ID, XPE_LOOKUP_DESC FROM XPE_DCC_LOOKUP_MASTER WHERE XPE_LOOKUP_TYPE = 'PRD']]></SQLQuery>
+    <SQLQuery><![CDATA[SELECT ITEM_ID XPE_LOOKUP_ID, DESCRIPTION XPE_LOOKUP_DESC FROM XPE_DCC_CFG_PRODUCTSERVICE WHERE ITEM_TYPE = 'PRD']]></SQLQuery>
     <ViewAttribute
         Name="XpeLookupId"
         IsUpdateable="false"

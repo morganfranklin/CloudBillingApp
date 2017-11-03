@@ -46,7 +46,14 @@
         Type="java.sql.Timestamp"
         ColumnType="TIMESTAMP"
         TableName="XPE_DCC_CONTRACT_NOTES"
-        PrimaryKey="true"/>
+        PrimaryKey="true">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContractNotes.XpeNoteDttm_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </Attribute>
     <Attribute
         Name="XpeNote"
         Precision="255"
@@ -58,10 +65,15 @@
         <DesignTime>
             <Attr Name="_DisplaySize" Value="255"/>
         </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContractNotes.XpeNote_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
     </Attribute>
     <Attribute
         Name="XpeUser"
-        IsNotNull="true"
         Precision="20"
         ColumnName="XPE_USER"
         SQLType="VARCHAR"
@@ -79,7 +91,14 @@
         SQLType="CLOB"
         Type="oracle.jbo.domain.ClobDomain"
         ColumnType="CLOB"
-        TableName="XPE_DCC_CONTRACT_NOTES"/>
+        TableName="XPE_DCC_CONTRACT_NOTES">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContractNotes.XpeNoteLong_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </Attribute>
     <Attribute
         Name="XpeNoteType"
         IsNotNull="true"
@@ -92,6 +111,12 @@
         <DesignTime>
             <Attr Name="_DisplaySize" Value="3"/>
         </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContractNotes.XpeNoteType_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
     </Attribute>
     <AccessorAttribute
         Name="XpeDccContractVersion"
@@ -125,4 +150,8 @@
             <Item Value="model.XpeDccContractNotes.XpeContractVersion"/>
         </AttrArray>
     </Key>
+    <ResourceBundle>
+        <PropertiesBundle
+            PropertiesFile="model.ModelBundle"/>
+    </ResourceBundle>
 </Entity>

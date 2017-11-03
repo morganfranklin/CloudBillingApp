@@ -38,7 +38,15 @@
     <ViewAccessor
         Name="XpeDccDicUnitsOfMeasure1"
         ViewObjectName="model.XpeDccDicUnitsOfMeasure"
-        RowLevelBinds="true"/>
+        RowLevelBinds="true">
+        <ParameterMap>
+            <PIMap Variable="bind_ItemId">
+                <TransientExpression
+                    trustMode="untrusted"
+                    Name="ExpressionScript"><![CDATA[XpeProductId]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
     <ViewAccessor
         Name="XpeDccDicCurrency1"
         ViewObjectName="model.XpeDccDicCurrency"
@@ -80,8 +88,7 @@
         Name="LOV_XpeProductId"
         ListVOName="XpeDccDicProducts1"
         ListRangeSize="-1"
-        NullValueFlag="start"
-        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+        NullValueFlag="none"
         MRUCount="0">
         <AttrArray Name="AttrNames">
             <Item Value="XpeProductId"/>
@@ -99,8 +106,7 @@
         Name="LOV_XpeProductUom"
         ListVOName="XpeDccDicUnitsOfMeasure1"
         ListRangeSize="-1"
-        NullValueFlag="start"
-        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+        NullValueFlag="none"
         MRUCount="0">
         <AttrArray Name="AttrNames">
             <Item Value="XpeProductUom"/>
@@ -239,12 +245,12 @@
         LOVName="LOV_XpeProductId">
         <Properties>
             <SchemaBasedProperties>
-                <CONTROLTYPE
-                    Value="choice"/>
                 <DISPLAYWIDTH
                     Value="20"/>
                 <LABEL
                     ResId="model.XpeDccContractLineView.XpeProductId_LABEL"/>
+                <CONTROLTYPE
+                    Value="choice"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>
@@ -259,10 +265,10 @@
             <SchemaBasedProperties>
                 <DISPLAYWIDTH
                     Value="20"/>
-                <CONTROLTYPE
-                    Value="choice"/>
                 <LABEL
                     ResId="model.XpeDccContractLineView.XpeProductUom_LABEL"/>
+                <CONTROLTYPE
+                    Value="choice"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>

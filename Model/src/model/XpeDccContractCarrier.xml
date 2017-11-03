@@ -91,7 +91,6 @@
     </Attribute>
     <Attribute
         Name="XpeSubNbr"
-        IsNotNull="true"
         Precision="2"
         Scale="0"
         ColumnName="XPE_SUB_NBR"
@@ -102,7 +101,6 @@
         PrimaryKey="true"/>
     <Attribute
         Name="XpeVehicleNbr"
-        IsNotNull="true"
         Precision="20"
         ColumnName="XPE_VEHICLE_NBR"
         SQLType="VARCHAR"

@@ -236,15 +236,14 @@
                                                     <f:validator binding="#{bindings.XpeNoteDttm.validator}"/>
                                                     <af:convertDateTime pattern="#{bindings.XpeNoteDttm.format}"/>
                                                 </af:inputDate>
-                                                <af:inputText value="#{bindings.XpeNoteType.inputValue}"
-                                                              label="#{bindings.XpeNoteType.hints.label}"
-                                                              required="#{bindings.XpeNoteType.hints.mandatory}"
-                                                              columns="#{bindings.XpeNoteType.hints.displayWidth}"
-                                                              maximumLength="#{bindings.XpeNoteType.hints.precision}"
-                                                              shortDesc="#{bindings.XpeNoteType.hints.tooltip}" id="it1"
-                                                              readOnly="true">
+                                                <af:selectOneChoice value="#{bindings.XpeNoteType.inputValue}"
+                                                                    label="#{bindings.XpeNoteType.label}"
+                                                                    required="#{bindings.XpeNoteType.hints.mandatory}"
+                                                                    shortDesc="#{bindings.XpeNoteType.hints.tooltip}"
+                                                                    id="soc15" readOnly="true">
+                                                    <f:selectItems value="#{bindings.XpeNoteType.items}" id="si16"/>
                                                     <f:validator binding="#{bindings.XpeNoteType.validator}"/>
-                                                </af:inputText>
+                                                </af:selectOneChoice>
                                                 <af:inputText value="#{bindings.XpeNote.inputValue}"
                                                               label="#{bindings.XpeNote.hints.label}"
                                                               required="#{bindings.XpeNote.hints.mandatory}"
@@ -262,15 +261,6 @@
                                                               shortDesc="#{bindings.XpeNoteLong.hints.tooltip}" id="it3"
                                                               readOnly="true">
                                                     <f:validator binding="#{bindings.XpeNoteLong.validator}"/>
-                                                </af:inputText>
-                                                <af:inputText value="#{bindings.XpeUser.inputValue}"
-                                                              label="#{bindings.XpeUser.hints.label}"
-                                                              required="#{bindings.XpeUser.hints.mandatory}"
-                                                              columns="#{bindings.XpeUser.hints.displayWidth}"
-                                                              maximumLength="#{bindings.XpeUser.hints.precision}"
-                                                              shortDesc="#{bindings.XpeUser.hints.tooltip}" id="it4"
-                                                              readOnly="true">
-                                                    <f:validator binding="#{bindings.XpeUser.validator}"/>
                                                 </af:inputText>
                                             </af:panelFormLayout>
                                         </af:panelBox>

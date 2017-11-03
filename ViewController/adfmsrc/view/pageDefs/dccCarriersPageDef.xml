@@ -87,5 +87,7 @@
         <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
         <action IterBinding="XpeDccContractCarrierView4Iterator" id="CreateInsert" RequiresUpdateModel="true"
                 Action="createInsertRow"/>
+        <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false"
+                Action="rollbackTransaction"/>
     </bindings>
 </pageDefinition>
