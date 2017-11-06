@@ -146,6 +146,9 @@
                                 <af:spacer width="10" height="10" id="s4"/>
                                 <af:button text="Return To Home" id="b8" action="Home"
                                            actionListener="#{bindings.Rollback.execute}" immediate="true"/>
+                                <af:spacer width="10" height="10" id="s9"/>
+                                <af:button text="Route For Approval" id="b11"
+                                           actionListener="#{backingBeanScope.XpeDccMainBean.onRouteForApproval}"/>
                             </af:gridCell>
                         </af:gridRow>
                     </af:panelGridLayout>

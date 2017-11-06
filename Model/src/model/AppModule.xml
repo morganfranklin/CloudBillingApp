@@ -1543,5 +1543,34 @@
                 Name="submissionType"
                 Type="java.lang.String"/>
         </Method>
+        <Method
+            Name="routeForApproval"
+            MethodName="routeForApproval">
+            <Return
+                Name="_return_type_"
+                Type="java.util.Map"/>
+            <Parameter
+                Name="contractId"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="contractVersion"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="pushEmailForApproval"
+            MethodName="pushEmailForApproval">
+            <Return
+                Name="_return_type_"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="bytes"
+                Type="byte[]"/>
+            <Parameter
+                Name="contractId"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="contractVersion"
+                Type="java.lang.String"/>
+        </Method>
     </ClientInterface>
 </AppModule>
