@@ -1,0 +1,556 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
+  <name>NEU_ALL_SOURCE_TBL</name>
+  <columns>
+    <column>
+      <name>OPC</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">10</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>OPC</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>NEU_ALL_SOURCE_TBL</name>
+              <identifier class="java.math.BigDecimal">93547</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>DPC</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">10</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>DPC</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>NEU_ALL_SOURCE_TBL</name>
+              <identifier class="java.math.BigDecimal">93547</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>OCN</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">10</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>OCN</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>NEU_ALL_SOURCE_TBL</name>
+              <identifier class="java.math.BigDecimal">93547</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>MSG_DATE</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>DATE</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>MSG_DATE</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>NEU_ALL_SOURCE_TBL</name>
+              <identifier class="java.math.BigDecimal">93547</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>MSG_TYPE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">5</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>MSG_TYPE</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>NEU_ALL_SOURCE_TBL</name>
+              <identifier class="java.math.BigDecimal">93547</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>MSG_COUNT</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>MSG_COUNT</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>NEU_ALL_SOURCE_TBL</name>
+              <identifier class="java.math.BigDecimal">93547</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>MSG_STATUS</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">1</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>MSG_STATUS</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>NEU_ALL_SOURCE_TBL</name>
+              <identifier class="java.math.BigDecimal">93547</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>MSG_DATETM</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>DATE</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>MSG_DATETM</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>NEU_ALL_SOURCE_TBL</name>
+              <identifier class="java.math.BigDecimal">93547</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+  </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <name>NEU_ALL_SOURCE_TBL_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>OPC</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>NEU_ALL_SOURCE_TBL</name>
+            <schemaName>PAAS</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>PAAS</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>DPC</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>NEU_ALL_SOURCE_TBL</name>
+            <schemaName>PAAS</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>PAAS</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>OCN</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>NEU_ALL_SOURCE_TBL</name>
+            <schemaName>PAAS</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>PAAS</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>MSG_DATE</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>NEU_ALL_SOURCE_TBL</name>
+            <schemaName>PAAS</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>PAAS</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>MSG_TYPE</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>NEU_ALL_SOURCE_TBL</name>
+            <schemaName>PAAS</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>PAAS</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <indexID class="oracle.javatools.db.NameBasedID">
+        <name>NEU_ALL_SOURCE_TBL_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>NEU_ALL_SOURCE_TBL</name>
+          <schemaName>PAAS</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>PAAS</schemaName>
+        <type>INDEX</type>
+      </indexID>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>NEU_ALL_SOURCE_TBL_PK</name>
+            <childObjectNames>
+              <childObjectName>OPC</childObjectName>
+              <childObjectName>DPC</childObjectName>
+              <childObjectName>OCN</childObjectName>
+              <childObjectName>MSG_DATE</childObjectName>
+              <childObjectName>MSG_TYPE</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>NEU_ALL_SOURCE_TBL</name>
+              <identifier class="java.math.BigDecimal">93547</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>PKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+    </constraint>
+  </constraints>
+  <indexes>
+    <index>
+      <name>NEU_ALL_SOURCE_TBL_PK</name>
+      <columnExpressions>
+        <columnExpression>
+          <expressionSource>OPC</expressionSource>
+          <orderType>ASC</orderType>
+          <properties>
+            <entry>
+              <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+              <value class="oracle.javatools.db.ReferenceID">
+                <name>OPC</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>NEU_ALL_SOURCE_TBL_PK</name>
+                  <identifier class="java.math.BigDecimal">93548</identifier>
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <name>NEU_ALL_SOURCE_TBL</name>
+                    <identifier class="java.math.BigDecimal">93547</identifier>
+                    <schemaName>PAAS</schemaName>
+                    <type>TABLE</type>
+                  </parent>
+                  <schemaName>PAAS</schemaName>
+                  <type>INDEX</type>
+                </parent>
+                <type>IndexObject</type>
+              </value>
+            </entry>
+          </properties>
+        </columnExpression>
+        <columnExpression>
+          <expressionSource>DPC</expressionSource>
+          <orderType>ASC</orderType>
+          <properties>
+            <entry>
+              <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+              <value class="oracle.javatools.db.ReferenceID">
+                <name>DPC</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>NEU_ALL_SOURCE_TBL_PK</name>
+                  <identifier class="java.math.BigDecimal">93548</identifier>
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <name>NEU_ALL_SOURCE_TBL</name>
+                    <identifier class="java.math.BigDecimal">93547</identifier>
+                    <schemaName>PAAS</schemaName>
+                    <type>TABLE</type>
+                  </parent>
+                  <schemaName>PAAS</schemaName>
+                  <type>INDEX</type>
+                </parent>
+                <type>IndexObject</type>
+              </value>
+            </entry>
+          </properties>
+        </columnExpression>
+        <columnExpression>
+          <expressionSource>OCN</expressionSource>
+          <orderType>ASC</orderType>
+          <properties>
+            <entry>
+              <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+              <value class="oracle.javatools.db.ReferenceID">
+                <name>OCN</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>NEU_ALL_SOURCE_TBL_PK</name>
+                  <identifier class="java.math.BigDecimal">93548</identifier>
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <name>NEU_ALL_SOURCE_TBL</name>
+                    <identifier class="java.math.BigDecimal">93547</identifier>
+                    <schemaName>PAAS</schemaName>
+                    <type>TABLE</type>
+                  </parent>
+                  <schemaName>PAAS</schemaName>
+                  <type>INDEX</type>
+                </parent>
+                <type>IndexObject</type>
+              </value>
+            </entry>
+          </properties>
+        </columnExpression>
+        <columnExpression>
+          <expressionSource>MSG_DATE</expressionSource>
+          <orderType>ASC</orderType>
+          <properties>
+            <entry>
+              <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+              <value class="oracle.javatools.db.ReferenceID">
+                <name>MSG_DATE</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>NEU_ALL_SOURCE_TBL_PK</name>
+                  <identifier class="java.math.BigDecimal">93548</identifier>
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <name>NEU_ALL_SOURCE_TBL</name>
+                    <identifier class="java.math.BigDecimal">93547</identifier>
+                    <schemaName>PAAS</schemaName>
+                    <type>TABLE</type>
+                  </parent>
+                  <schemaName>PAAS</schemaName>
+                  <type>INDEX</type>
+                </parent>
+                <type>IndexObject</type>
+              </value>
+            </entry>
+          </properties>
+        </columnExpression>
+        <columnExpression>
+          <expressionSource>MSG_TYPE</expressionSource>
+          <orderType>ASC</orderType>
+          <properties>
+            <entry>
+              <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+              <value class="oracle.javatools.db.ReferenceID">
+                <name>MSG_TYPE</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>NEU_ALL_SOURCE_TBL_PK</name>
+                  <identifier class="java.math.BigDecimal">93548</identifier>
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <name>NEU_ALL_SOURCE_TBL</name>
+                    <identifier class="java.math.BigDecimal">93547</identifier>
+                    <schemaName>PAAS</schemaName>
+                    <type>TABLE</type>
+                  </parent>
+                  <schemaName>PAAS</schemaName>
+                  <type>INDEX</type>
+                </parent>
+                <type>IndexObject</type>
+              </value>
+            </entry>
+          </properties>
+        </columnExpression>
+      </columnExpressions>
+      <indexType>UNIQUE</indexType>
+      <parallelDegree>1</parallelDegree>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>NEU_ALL_SOURCE_TBL_PK</name>
+            <identifier class="java.math.BigDecimal">93548</identifier>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>NEU_ALL_SOURCE_TBL</name>
+              <identifier class="java.math.BigDecimal">93547</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <schemaName>PAAS</schemaName>
+            <type>INDEX</type>
+          </value>
+        </entry>
+        <entry>
+          <key>OracleStorageProperties</key>
+          <value class="oracle.javatools.db.ora.OracleStorageProperties">
+            <bufferMode>DEFAULT</bufferMode>
+            <initrans>2</initrans>
+            <logging>true</logging>
+            <percentFree>10</percentFree>
+            <tablespaceID class="oracle.javatools.db.ReferenceID">
+              <name>USERS</name>
+              <type>TABLESPACE</type>
+            </tablespaceID>
+          </value>
+        </entry>
+      </properties>
+      <reverse>false</reverse>
+      <schema>
+        <name>PAAS</name>
+      </schema>
+      <systemGenerated>true</systemGenerated>
+    </index>
+  </indexes>
+  <properties>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_CONNECTION</key>
+      <value class="java.lang.String">fsuat91.neustar.com</value>
+    </entry>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+      <value class="oracle.javatools.db.ReferenceID">
+        <name>NEU_ALL_SOURCE_TBL</name>
+        <identifier class="java.math.BigDecimal">93547</identifier>
+        <schemaName>PAAS</schemaName>
+        <type>TABLE</type>
+      </value>
+    </entry>
+    <entry>
+      <key>OracleInMemoryProperties</key>
+      <value class="oracle.javatools.db.ora.OracleInMemoryProperties">
+        <inMemory>false</inMemory>
+      </value>
+    </entry>
+    <entry>
+      <key>OracleStorageProperties</key>
+      <value class="oracle.javatools.db.ora.OracleStorageProperties">
+        <bufferMode>DEFAULT</bufferMode>
+        <initrans>1</initrans>
+        <logging>true</logging>
+        <percentFree>10</percentFree>
+        <tablespaceID class="oracle.javatools.db.ReferenceID">
+          <name>USERS</name>
+          <type>TABLESPACE</type>
+        </tablespaceID>
+      </value>
+    </entry>
+    <entry>
+      <key>OracleTableProperties</key>
+      <value class="oracle.javatools.db.ora.OracleTableProperties">
+        <parallelDegree>1</parallelDegree>
+        <tableCompression>NOCOMPRESS</tableCompression>
+      </value>
+    </entry>
+    <entry>
+      <key>TableType</key>
+      <value class="oracle.javatools.db.Table$TableType">NORMAL</value>
+    </entry>
+  </properties>
+  <schema>
+    <name>PAAS</name>
+  </schema>
+</table>

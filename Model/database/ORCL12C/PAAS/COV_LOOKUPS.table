@@ -1,14 +1,14 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
-  <name>XPE_DCC_LOOKUP_MASTER</name>
+  <name>COV_LOOKUPS</name>
   <columns>
     <column>
-      <name>XPE_LOOKUP_TYPE</name>
+      <name>DETAIL_CLASS</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
             <key>size</key>
-            <value class="java.lang.Long">5</value>
+            <value class="java.lang.Long">10</value>
           </entry>
           <entry>
             <key>unit</key>
@@ -22,16 +22,12 @@
       <notNull>true</notNull>
       <properties>
         <entry>
-          <key>Comment</key>
-          <value class="java.lang.String">Lookup type</value>
-        </entry>
-        <entry>
           <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
           <value class="oracle.javatools.db.ReferenceID">
-            <name>XPE_LOOKUP_TYPE</name>
+            <name>DETAIL_CLASS</name>
             <parent class="oracle.javatools.db.ReferenceID">
-              <name>XPE_DCC_LOOKUP_MASTER</name>
-              <identifier class="java.math.BigDecimal">112920</identifier>
+              <name>COV_LOOKUPS</name>
+              <identifier class="java.math.BigDecimal">93545</identifier>
               <schemaName>PAAS</schemaName>
               <type>TABLE</type>
             </parent>
@@ -41,12 +37,12 @@
       </properties>
     </column>
     <column>
-      <name>XPE_LOOKUP_ID</name>
+      <name>LOOKUP_CODE</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
             <key>size</key>
-            <value class="java.lang.Long">3</value>
+            <value class="java.lang.Long">20</value>
           </entry>
           <entry>
             <key>unit</key>
@@ -60,16 +56,12 @@
       <notNull>true</notNull>
       <properties>
         <entry>
-          <key>Comment</key>
-          <value class="java.lang.String">Lookup code</value>
-        </entry>
-        <entry>
           <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
           <value class="oracle.javatools.db.ReferenceID">
-            <name>XPE_LOOKUP_ID</name>
+            <name>LOOKUP_CODE</name>
             <parent class="oracle.javatools.db.ReferenceID">
-              <name>XPE_DCC_LOOKUP_MASTER</name>
-              <identifier class="java.math.BigDecimal">112920</identifier>
+              <name>COV_LOOKUPS</name>
+              <identifier class="java.math.BigDecimal">93545</identifier>
               <schemaName>PAAS</schemaName>
               <type>TABLE</type>
             </parent>
@@ -79,12 +71,12 @@
       </properties>
     </column>
     <column>
-      <name>XPE_LOOKUP_DESC</name>
+      <name>LOOKUP_DESC</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
             <key>size</key>
-            <value class="java.lang.Long">250</value>
+            <value class="java.lang.Long">50</value>
           </entry>
           <entry>
             <key>unit</key>
@@ -93,21 +85,51 @@
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>LOOKUP_DESC</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>COV_LOOKUPS</name>
+              <identifier class="java.math.BigDecimal">93545</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>SEQ_NUM</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">5</value>
+          </entry>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">0</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
         </dataTypeID>
       </dataTypeUsage>
       <notNull>false</notNull>
       <properties>
         <entry>
-          <key>Comment</key>
-          <value class="java.lang.String">Description</value>
-        </entry>
-        <entry>
           <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
           <value class="oracle.javatools.db.ReferenceID">
-            <name>XPE_LOOKUP_DESC</name>
+            <name>SEQ_NUM</name>
             <parent class="oracle.javatools.db.ReferenceID">
-              <name>XPE_DCC_LOOKUP_MASTER</name>
-              <identifier class="java.math.BigDecimal">112920</identifier>
+              <name>COV_LOOKUPS</name>
+              <identifier class="java.math.BigDecimal">93545</identifier>
               <schemaName>PAAS</schemaName>
               <type>TABLE</type>
             </parent>
@@ -119,12 +141,12 @@
   </columns>
   <constraints>
     <constraint class="oracle.javatools.db.PKConstraint">
-      <name>XPE_DCC_LOOKUP_MASTER_PK</name>
+      <name>COV_LOOKUPS_PK</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>XPE_LOOKUP_TYPE</name>
+          <name>DETAIL_CLASS</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>XPE_DCC_LOOKUP_MASTER</name>
+            <name>COV_LOOKUPS</name>
             <schemaName>PAAS</schemaName>
             <type>TABLE</type>
           </parent>
@@ -132,9 +154,9 @@
           <type>COLUMN</type>
         </columnID>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>XPE_LOOKUP_ID</name>
+          <name>LOOKUP_CODE</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>XPE_DCC_LOOKUP_MASTER</name>
+            <name>COV_LOOKUPS</name>
             <schemaName>PAAS</schemaName>
             <type>TABLE</type>
           </parent>
@@ -144,9 +166,9 @@
       </columnIDs>
       <enabled>true</enabled>
       <indexID class="oracle.javatools.db.NameBasedID">
-        <name>XPE_DCC_LOOKUP_MASTER_PK</name>
+        <name>COV_LOOKUPS_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>XPE_DCC_LOOKUP_MASTER</name>
+          <name>COV_LOOKUPS</name>
           <schemaName>PAAS</schemaName>
           <type>TABLE</type>
         </parent>
@@ -157,14 +179,14 @@
         <entry>
           <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
           <value class="oracle.javatools.db.ReferenceID">
-            <name>XPE_DCC_LOOKUP_MASTER_PK</name>
+            <name>COV_LOOKUPS_PK</name>
             <childObjectNames>
-              <childObjectName>XPE_LOOKUP_TYPE</childObjectName>
-              <childObjectName>XPE_LOOKUP_ID</childObjectName>
+              <childObjectName>DETAIL_CLASS</childObjectName>
+              <childObjectName>LOOKUP_CODE</childObjectName>
             </childObjectNames>
             <parent class="oracle.javatools.db.ReferenceID">
-              <name>XPE_DCC_LOOKUP_MASTER</name>
-              <identifier class="java.math.BigDecimal">112920</identifier>
+              <name>COV_LOOKUPS</name>
+              <identifier class="java.math.BigDecimal">93545</identifier>
               <schemaName>PAAS</schemaName>
               <type>TABLE</type>
             </parent>
@@ -177,22 +199,22 @@
   </constraints>
   <indexes>
     <index>
-      <name>XPE_DCC_LOOKUP_MASTER_PK</name>
+      <name>COV_LOOKUPS_PK</name>
       <columnExpressions>
         <columnExpression>
-          <expressionSource>XPE_LOOKUP_TYPE</expressionSource>
+          <expressionSource>DETAIL_CLASS</expressionSource>
           <orderType>ASC</orderType>
           <properties>
             <entry>
               <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
               <value class="oracle.javatools.db.ReferenceID">
-                <name>XPE_LOOKUP_TYPE</name>
+                <name>DETAIL_CLASS</name>
                 <parent class="oracle.javatools.db.ReferenceID">
-                  <name>XPE_DCC_LOOKUP_MASTER_PK</name>
-                  <identifier class="java.math.BigDecimal">112921</identifier>
+                  <name>COV_LOOKUPS_PK</name>
+                  <identifier class="java.math.BigDecimal">93546</identifier>
                   <parent class="oracle.javatools.db.ReferenceID">
-                    <name>XPE_DCC_LOOKUP_MASTER</name>
-                    <identifier class="java.math.BigDecimal">112920</identifier>
+                    <name>COV_LOOKUPS</name>
+                    <identifier class="java.math.BigDecimal">93545</identifier>
                     <schemaName>PAAS</schemaName>
                     <type>TABLE</type>
                   </parent>
@@ -205,19 +227,19 @@
           </properties>
         </columnExpression>
         <columnExpression>
-          <expressionSource>XPE_LOOKUP_ID</expressionSource>
+          <expressionSource>LOOKUP_CODE</expressionSource>
           <orderType>ASC</orderType>
           <properties>
             <entry>
               <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
               <value class="oracle.javatools.db.ReferenceID">
-                <name>XPE_LOOKUP_ID</name>
+                <name>LOOKUP_CODE</name>
                 <parent class="oracle.javatools.db.ReferenceID">
-                  <name>XPE_DCC_LOOKUP_MASTER_PK</name>
-                  <identifier class="java.math.BigDecimal">112921</identifier>
+                  <name>COV_LOOKUPS_PK</name>
+                  <identifier class="java.math.BigDecimal">93546</identifier>
                   <parent class="oracle.javatools.db.ReferenceID">
-                    <name>XPE_DCC_LOOKUP_MASTER</name>
-                    <identifier class="java.math.BigDecimal">112920</identifier>
+                    <name>COV_LOOKUPS</name>
+                    <identifier class="java.math.BigDecimal">93545</identifier>
                     <schemaName>PAAS</schemaName>
                     <type>TABLE</type>
                   </parent>
@@ -236,11 +258,11 @@
         <entry>
           <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
           <value class="oracle.javatools.db.ReferenceID">
-            <name>XPE_DCC_LOOKUP_MASTER_PK</name>
-            <identifier class="java.math.BigDecimal">112921</identifier>
+            <name>COV_LOOKUPS_PK</name>
+            <identifier class="java.math.BigDecimal">93546</identifier>
             <parent class="oracle.javatools.db.ReferenceID">
-              <name>XPE_DCC_LOOKUP_MASTER</name>
-              <identifier class="java.math.BigDecimal">112920</identifier>
+              <name>COV_LOOKUPS</name>
+              <identifier class="java.math.BigDecimal">93545</identifier>
               <schemaName>PAAS</schemaName>
               <type>TABLE</type>
             </parent>
@@ -252,6 +274,8 @@
           <key>OracleStorageProperties</key>
           <value class="oracle.javatools.db.ora.OracleStorageProperties">
             <bufferMode>DEFAULT</bufferMode>
+            <freelistGroups>1</freelistGroups>
+            <freelists>1</freelists>
             <initialExtent>65536</initialExtent>
             <initrans>2</initrans>
             <logging>true</logging>
@@ -260,7 +284,7 @@
             <nextExtent>1048576</nextExtent>
             <percentFree>10</percentFree>
             <tablespaceID class="oracle.javatools.db.ReferenceID">
-              <name>USERS</name>
+              <name>SYSTEM</name>
               <type>TABLESPACE</type>
             </tablespaceID>
           </value>
@@ -281,8 +305,8 @@
     <entry>
       <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
       <value class="oracle.javatools.db.ReferenceID">
-        <name>XPE_DCC_LOOKUP_MASTER</name>
-        <identifier class="java.math.BigDecimal">112920</identifier>
+        <name>COV_LOOKUPS</name>
+        <identifier class="java.math.BigDecimal">93545</identifier>
         <schemaName>PAAS</schemaName>
         <type>TABLE</type>
       </value>
@@ -297,6 +321,8 @@
       <key>OracleStorageProperties</key>
       <value class="oracle.javatools.db.ora.OracleStorageProperties">
         <bufferMode>DEFAULT</bufferMode>
+        <freelistGroups>1</freelistGroups>
+        <freelists>1</freelists>
         <initialExtent>65536</initialExtent>
         <initrans>1</initrans>
         <logging>true</logging>
@@ -304,8 +330,9 @@
         <minExtent>1</minExtent>
         <nextExtent>1048576</nextExtent>
         <percentFree>10</percentFree>
+        <percentUsed>40</percentUsed>
         <tablespaceID class="oracle.javatools.db.ReferenceID">
-          <name>USERS</name>
+          <name>SYSTEM</name>
           <type>TABLESPACE</type>
         </tablespaceID>
       </value>

@@ -1,14 +1,14 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
-  <name>XPE_DCC_LOOKUP_MASTER</name>
+  <name>PS_CIS_XPE_MAPPING</name>
   <columns>
     <column>
-      <name>XPE_LOOKUP_TYPE</name>
+      <name>TABLENAME</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
             <key>size</key>
-            <value class="java.lang.Long">5</value>
+            <value class="java.lang.Long">30</value>
           </entry>
           <entry>
             <key>unit</key>
@@ -22,16 +22,12 @@
       <notNull>true</notNull>
       <properties>
         <entry>
-          <key>Comment</key>
-          <value class="java.lang.String">Lookup type</value>
-        </entry>
-        <entry>
           <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
           <value class="oracle.javatools.db.ReferenceID">
-            <name>XPE_LOOKUP_TYPE</name>
+            <name>TABLENAME</name>
             <parent class="oracle.javatools.db.ReferenceID">
-              <name>XPE_DCC_LOOKUP_MASTER</name>
-              <identifier class="java.math.BigDecimal">112920</identifier>
+              <name>PS_CIS_XPE_MAPPING</name>
+              <identifier class="java.math.BigDecimal">92054</identifier>
               <schemaName>PAAS</schemaName>
               <type>TABLE</type>
             </parent>
@@ -41,12 +37,12 @@
       </properties>
     </column>
     <column>
-      <name>XPE_LOOKUP_ID</name>
+      <name>CIS_ACTION_CODE</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
             <key>size</key>
-            <value class="java.lang.Long">3</value>
+            <value class="java.lang.Long">50</value>
           </entry>
           <entry>
             <key>unit</key>
@@ -60,54 +56,12 @@
       <notNull>true</notNull>
       <properties>
         <entry>
-          <key>Comment</key>
-          <value class="java.lang.String">Lookup code</value>
-        </entry>
-        <entry>
           <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
           <value class="oracle.javatools.db.ReferenceID">
-            <name>XPE_LOOKUP_ID</name>
+            <name>CIS_ACTION_CODE</name>
             <parent class="oracle.javatools.db.ReferenceID">
-              <name>XPE_DCC_LOOKUP_MASTER</name>
-              <identifier class="java.math.BigDecimal">112920</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>XPE_LOOKUP_DESC</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">250</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">BYTE</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
-      <properties>
-        <entry>
-          <key>Comment</key>
-          <value class="java.lang.String">Description</value>
-        </entry>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>XPE_LOOKUP_DESC</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>XPE_DCC_LOOKUP_MASTER</name>
-              <identifier class="java.math.BigDecimal">112920</identifier>
+              <name>PS_CIS_XPE_MAPPING</name>
+              <identifier class="java.math.BigDecimal">92054</identifier>
               <schemaName>PAAS</schemaName>
               <type>TABLE</type>
             </parent>
@@ -118,13 +72,59 @@
     </column>
   </columns>
   <constraints>
-    <constraint class="oracle.javatools.db.PKConstraint">
-      <name>XPE_DCC_LOOKUP_MASTER_PK</name>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>PS_CIS_XPE_MAPG_ACTIONS_FK1</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>XPE_LOOKUP_TYPE</name>
+          <name>CIS_ACTION_CODE</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>XPE_DCC_LOOKUP_MASTER</name>
+            <name>PS_CIS_XPE_MAPPING</name>
+            <schemaName>PAAS</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>PAAS</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <onDeleteAction>NO_ACTION</onDeleteAction>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>PS_CIS_XPE_MAPG_ACTIONS_FK1</name>
+            <childObjectNames>
+              <childObjectName>CIS_ACTION_CODE</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_CIS_XPE_MAPPING</name>
+              <identifier class="java.math.BigDecimal">92054</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>FKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>PS_CIS_XPE_ACTION_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>PS_CIS_XPE_ACTION</name>
+          <schemaName>PAAS</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>PAAS</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <name>PS_CIS_XPE_MAPPING_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>TABLENAME</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>PS_CIS_XPE_MAPPING</name>
             <schemaName>PAAS</schemaName>
             <type>TABLE</type>
           </parent>
@@ -132,9 +132,9 @@
           <type>COLUMN</type>
         </columnID>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>XPE_LOOKUP_ID</name>
+          <name>CIS_ACTION_CODE</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>XPE_DCC_LOOKUP_MASTER</name>
+            <name>PS_CIS_XPE_MAPPING</name>
             <schemaName>PAAS</schemaName>
             <type>TABLE</type>
           </parent>
@@ -144,9 +144,9 @@
       </columnIDs>
       <enabled>true</enabled>
       <indexID class="oracle.javatools.db.NameBasedID">
-        <name>XPE_DCC_LOOKUP_MASTER_PK</name>
+        <name>PS_CIS_XPE_MAPPING_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>XPE_DCC_LOOKUP_MASTER</name>
+          <name>PS_CIS_XPE_MAPPING</name>
           <schemaName>PAAS</schemaName>
           <type>TABLE</type>
         </parent>
@@ -157,14 +157,14 @@
         <entry>
           <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
           <value class="oracle.javatools.db.ReferenceID">
-            <name>XPE_DCC_LOOKUP_MASTER_PK</name>
+            <name>PS_CIS_XPE_MAPPING_PK</name>
             <childObjectNames>
-              <childObjectName>XPE_LOOKUP_TYPE</childObjectName>
-              <childObjectName>XPE_LOOKUP_ID</childObjectName>
+              <childObjectName>TABLENAME</childObjectName>
+              <childObjectName>CIS_ACTION_CODE</childObjectName>
             </childObjectNames>
             <parent class="oracle.javatools.db.ReferenceID">
-              <name>XPE_DCC_LOOKUP_MASTER</name>
-              <identifier class="java.math.BigDecimal">112920</identifier>
+              <name>PS_CIS_XPE_MAPPING</name>
+              <identifier class="java.math.BigDecimal">92054</identifier>
               <schemaName>PAAS</schemaName>
               <type>TABLE</type>
             </parent>
@@ -177,22 +177,22 @@
   </constraints>
   <indexes>
     <index>
-      <name>XPE_DCC_LOOKUP_MASTER_PK</name>
+      <name>PS_CIS_XPE_MAPPING_PK</name>
       <columnExpressions>
         <columnExpression>
-          <expressionSource>XPE_LOOKUP_TYPE</expressionSource>
+          <expressionSource>TABLENAME</expressionSource>
           <orderType>ASC</orderType>
           <properties>
             <entry>
               <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
               <value class="oracle.javatools.db.ReferenceID">
-                <name>XPE_LOOKUP_TYPE</name>
+                <name>TABLENAME</name>
                 <parent class="oracle.javatools.db.ReferenceID">
-                  <name>XPE_DCC_LOOKUP_MASTER_PK</name>
-                  <identifier class="java.math.BigDecimal">112921</identifier>
+                  <name>PS_CIS_XPE_MAPPING_PK</name>
+                  <identifier class="java.math.BigDecimal">92055</identifier>
                   <parent class="oracle.javatools.db.ReferenceID">
-                    <name>XPE_DCC_LOOKUP_MASTER</name>
-                    <identifier class="java.math.BigDecimal">112920</identifier>
+                    <name>PS_CIS_XPE_MAPPING</name>
+                    <identifier class="java.math.BigDecimal">92054</identifier>
                     <schemaName>PAAS</schemaName>
                     <type>TABLE</type>
                   </parent>
@@ -205,19 +205,19 @@
           </properties>
         </columnExpression>
         <columnExpression>
-          <expressionSource>XPE_LOOKUP_ID</expressionSource>
+          <expressionSource>CIS_ACTION_CODE</expressionSource>
           <orderType>ASC</orderType>
           <properties>
             <entry>
               <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
               <value class="oracle.javatools.db.ReferenceID">
-                <name>XPE_LOOKUP_ID</name>
+                <name>CIS_ACTION_CODE</name>
                 <parent class="oracle.javatools.db.ReferenceID">
-                  <name>XPE_DCC_LOOKUP_MASTER_PK</name>
-                  <identifier class="java.math.BigDecimal">112921</identifier>
+                  <name>PS_CIS_XPE_MAPPING_PK</name>
+                  <identifier class="java.math.BigDecimal">92055</identifier>
                   <parent class="oracle.javatools.db.ReferenceID">
-                    <name>XPE_DCC_LOOKUP_MASTER</name>
-                    <identifier class="java.math.BigDecimal">112920</identifier>
+                    <name>PS_CIS_XPE_MAPPING</name>
+                    <identifier class="java.math.BigDecimal">92054</identifier>
                     <schemaName>PAAS</schemaName>
                     <type>TABLE</type>
                   </parent>
@@ -236,11 +236,11 @@
         <entry>
           <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
           <value class="oracle.javatools.db.ReferenceID">
-            <name>XPE_DCC_LOOKUP_MASTER_PK</name>
-            <identifier class="java.math.BigDecimal">112921</identifier>
+            <name>PS_CIS_XPE_MAPPING_PK</name>
+            <identifier class="java.math.BigDecimal">92055</identifier>
             <parent class="oracle.javatools.db.ReferenceID">
-              <name>XPE_DCC_LOOKUP_MASTER</name>
-              <identifier class="java.math.BigDecimal">112920</identifier>
+              <name>PS_CIS_XPE_MAPPING</name>
+              <identifier class="java.math.BigDecimal">92054</identifier>
               <schemaName>PAAS</schemaName>
               <type>TABLE</type>
             </parent>
@@ -281,8 +281,8 @@
     <entry>
       <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
       <value class="oracle.javatools.db.ReferenceID">
-        <name>XPE_DCC_LOOKUP_MASTER</name>
-        <identifier class="java.math.BigDecimal">112920</identifier>
+        <name>PS_CIS_XPE_MAPPING</name>
+        <identifier class="java.math.BigDecimal">92054</identifier>
         <schemaName>PAAS</schemaName>
         <type>TABLE</type>
       </value>

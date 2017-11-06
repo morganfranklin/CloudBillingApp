@@ -1,159 +1,9 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
-  <name>XPE_LINKED_DEALS</name>
+  <name>XPE_DCC_CFG_METALS_FACILITY</name>
   <columns>
     <column>
-      <name>XPE_GROUP_ID</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>precision</key>
-            <value class="java.lang.String">38</value>
-          </entry>
-          <entry>
-            <key>scale</key>
-            <value class="java.lang.Long">0</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>NUMBER</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>XPE_GROUP_ID</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>XPE_LINKED_DEALS</name>
-              <identifier class="java.math.BigDecimal">123277</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>CREATED_BY</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>precision</key>
-            <value class="java.lang.String">15</value>
-          </entry>
-          <entry>
-            <key>scale</key>
-            <value class="java.lang.Long">0</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>NUMBER</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>CREATED_BY</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>XPE_LINKED_DEALS</name>
-              <identifier class="java.math.BigDecimal">123277</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>CREATION_DATE</name>
-      <dataTypeUsage>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>DATE</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>CREATION_DATE</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>XPE_LINKED_DEALS</name>
-              <identifier class="java.math.BigDecimal">123277</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>LAST_UPDATED_BY</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>precision</key>
-            <value class="java.lang.String">15</value>
-          </entry>
-          <entry>
-            <key>scale</key>
-            <value class="java.lang.Long">0</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>NUMBER</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>LAST_UPDATED_BY</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>XPE_LINKED_DEALS</name>
-              <identifier class="java.math.BigDecimal">123277</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>LAST_UPDATE_DATE</name>
-      <dataTypeUsage>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>DATE</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>LAST_UPDATE_DATE</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>XPE_LINKED_DEALS</name>
-              <identifier class="java.math.BigDecimal">123277</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>XPE_CONTRACT_ID</name>
+      <name>XPE_FACILITY_ID</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -174,10 +24,338 @@
         <entry>
           <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
           <value class="oracle.javatools.db.ReferenceID">
-            <name>XPE_CONTRACT_ID</name>
+            <name>XPE_FACILITY_ID</name>
             <parent class="oracle.javatools.db.ReferenceID">
-              <name>XPE_LINKED_DEALS</name>
-              <identifier class="java.math.BigDecimal">123277</identifier>
+              <name>XPE_DCC_CFG_METALS_FACILITY</name>
+              <identifier class="java.math.BigDecimal">124701</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>CUSTOMER_CARE_REVIEW</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">100</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>CUSTOMER_CARE_REVIEW</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_DCC_CFG_METALS_FACILITY</name>
+              <identifier class="java.math.BigDecimal">124701</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>LEGAL_REVIEW</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">100</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>LEGAL_REVIEW</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_DCC_CFG_METALS_FACILITY</name>
+              <identifier class="java.math.BigDecimal">124701</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>FINANCIAL_REVIEW</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">100</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>FINANCIAL_REVIEW</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_DCC_CFG_METALS_FACILITY</name>
+              <identifier class="java.math.BigDecimal">124701</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>SVP_REVIEW</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">100</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>SVP_REVIEW</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_DCC_CFG_METALS_FACILITY</name>
+              <identifier class="java.math.BigDecimal">124701</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>CREATED_BY</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">20</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>CREATED_BY</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_DCC_CFG_METALS_FACILITY</name>
+              <identifier class="java.math.BigDecimal">124701</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>CREATION_DATE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">6</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>TIMESTAMP</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>CREATION_DATE</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_DCC_CFG_METALS_FACILITY</name>
+              <identifier class="java.math.BigDecimal">124701</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>LAST_UPDATED_BY</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">20</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>LAST_UPDATED_BY</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_DCC_CFG_METALS_FACILITY</name>
+              <identifier class="java.math.BigDecimal">124701</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>LAST_UPDATE_DATE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">6</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>TIMESTAMP</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>LAST_UPDATE_DATE</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_DCC_CFG_METALS_FACILITY</name>
+              <identifier class="java.math.BigDecimal">124701</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>INACTIVE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">1</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>INACTIVE</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_DCC_CFG_METALS_FACILITY</name>
+              <identifier class="java.math.BigDecimal">124701</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>INACTIVE_DATE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">6</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>TIMESTAMP</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>INACTIVE_DATE</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_DCC_CFG_METALS_FACILITY</name>
+              <identifier class="java.math.BigDecimal">124701</identifier>
               <schemaName>PAAS</schemaName>
               <type>TABLE</type>
             </parent>
@@ -188,115 +366,13 @@
     </column>
   </columns>
   <constraints>
-    <constraint class="oracle.javatools.db.FKConstraint">
-      <name>FK_CONTRACTS</name>
-      <columnIDs>
-        <columnID class="oracle.javatools.db.NameBasedID">
-          <name>XPE_CONTRACT_ID</name>
-          <parent class="oracle.javatools.db.NameBasedID">
-            <name>XPE_LINKED_DEALS</name>
-            <schemaName>PAAS</schemaName>
-            <type>TABLE</type>
-          </parent>
-          <schemaName>PAAS</schemaName>
-          <type>COLUMN</type>
-        </columnID>
-      </columnIDs>
-      <enabled>true</enabled>
-      <onDeleteAction>NO_ACTION</onDeleteAction>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>FK_CONTRACTS</name>
-            <childObjectNames>
-              <childObjectName>XPE_CONTRACT_ID</childObjectName>
-            </childObjectNames>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>XPE_LINKED_DEALS</name>
-              <identifier class="java.math.BigDecimal">123277</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <subType>FKConstraint</subType>
-            <type>CONSTRAINT</type>
-          </value>
-        </entry>
-      </properties>
-      <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>XPE_DCC_CONTRACTS_PK</name>
-        <parent class="oracle.javatools.db.NameBasedID">
-          <name>XPE_DCC_CONTRACTS</name>
-          <schemaName>PAAS</schemaName>
-          <type>TABLE</type>
-        </parent>
-        <schemaName>PAAS</schemaName>
-        <type>CONSTRAINT</type>
-      </referenceID>
-    </constraint>
-    <constraint class="oracle.javatools.db.FKConstraint">
-      <name>FK_LINKING_GROUPS</name>
-      <columnIDs>
-        <columnID class="oracle.javatools.db.NameBasedID">
-          <name>XPE_GROUP_ID</name>
-          <parent class="oracle.javatools.db.NameBasedID">
-            <name>XPE_LINKED_DEALS</name>
-            <schemaName>PAAS</schemaName>
-            <type>TABLE</type>
-          </parent>
-          <schemaName>PAAS</schemaName>
-          <type>COLUMN</type>
-        </columnID>
-      </columnIDs>
-      <enabled>true</enabled>
-      <onDeleteAction>NO_ACTION</onDeleteAction>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>FK_LINKING_GROUPS</name>
-            <childObjectNames>
-              <childObjectName>XPE_GROUP_ID</childObjectName>
-            </childObjectNames>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>XPE_LINKED_DEALS</name>
-              <identifier class="java.math.BigDecimal">123277</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <subType>FKConstraint</subType>
-            <type>CONSTRAINT</type>
-          </value>
-        </entry>
-      </properties>
-      <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>PK_GROUP_ID</name>
-        <parent class="oracle.javatools.db.NameBasedID">
-          <name>XPE_LINKING_GROUPS</name>
-          <schemaName>PAAS</schemaName>
-          <type>TABLE</type>
-        </parent>
-        <schemaName>PAAS</schemaName>
-        <type>CONSTRAINT</type>
-      </referenceID>
-    </constraint>
     <constraint class="oracle.javatools.db.PKConstraint">
-      <name>PK_CONTRACT_GROUP</name>
+      <name>XPE_METALS_FACILITY_PK</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>XPE_GROUP_ID</name>
+          <name>XPE_FACILITY_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>XPE_LINKED_DEALS</name>
-            <schemaName>PAAS</schemaName>
-            <type>TABLE</type>
-          </parent>
-          <schemaName>PAAS</schemaName>
-          <type>COLUMN</type>
-        </columnID>
-        <columnID class="oracle.javatools.db.NameBasedID">
-          <name>XPE_CONTRACT_ID</name>
-          <parent class="oracle.javatools.db.NameBasedID">
-            <name>XPE_LINKED_DEALS</name>
+            <name>XPE_DCC_CFG_METALS_FACILITY</name>
             <schemaName>PAAS</schemaName>
             <type>TABLE</type>
           </parent>
@@ -306,9 +382,9 @@
       </columnIDs>
       <enabled>true</enabled>
       <indexID class="oracle.javatools.db.NameBasedID">
-        <name>PK_CONTRACT_GROUP</name>
+        <name>XPE_METALS_FACILITY_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>XPE_LINKED_DEALS</name>
+          <name>XPE_DCC_CFG_METALS_FACILITY</name>
           <schemaName>PAAS</schemaName>
           <type>TABLE</type>
         </parent>
@@ -319,14 +395,13 @@
         <entry>
           <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
           <value class="oracle.javatools.db.ReferenceID">
-            <name>PK_CONTRACT_GROUP</name>
+            <name>XPE_METALS_FACILITY_PK</name>
             <childObjectNames>
-              <childObjectName>XPE_GROUP_ID</childObjectName>
-              <childObjectName>XPE_CONTRACT_ID</childObjectName>
+              <childObjectName>XPE_FACILITY_ID</childObjectName>
             </childObjectNames>
             <parent class="oracle.javatools.db.ReferenceID">
-              <name>XPE_LINKED_DEALS</name>
-              <identifier class="java.math.BigDecimal">123277</identifier>
+              <name>XPE_DCC_CFG_METALS_FACILITY</name>
+              <identifier class="java.math.BigDecimal">124701</identifier>
               <schemaName>PAAS</schemaName>
               <type>TABLE</type>
             </parent>
@@ -339,47 +414,22 @@
   </constraints>
   <indexes>
     <index>
-      <name>PK_CONTRACT_GROUP</name>
+      <name>XPE_METALS_FACILITY_PK</name>
       <columnExpressions>
         <columnExpression>
-          <expressionSource>XPE_GROUP_ID</expressionSource>
+          <expressionSource>XPE_FACILITY_ID</expressionSource>
           <orderType>ASC</orderType>
           <properties>
             <entry>
               <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
               <value class="oracle.javatools.db.ReferenceID">
-                <name>XPE_GROUP_ID</name>
+                <name>XPE_FACILITY_ID</name>
                 <parent class="oracle.javatools.db.ReferenceID">
-                  <name>PK_CONTRACT_GROUP</name>
-                  <identifier class="java.math.BigDecimal">124283</identifier>
+                  <name>XPE_METALS_FACILITY_PK</name>
+                  <identifier class="java.math.BigDecimal">124704</identifier>
                   <parent class="oracle.javatools.db.ReferenceID">
-                    <name>XPE_LINKED_DEALS</name>
-                    <identifier class="java.math.BigDecimal">123277</identifier>
-                    <schemaName>PAAS</schemaName>
-                    <type>TABLE</type>
-                  </parent>
-                  <schemaName>PAAS</schemaName>
-                  <type>INDEX</type>
-                </parent>
-                <type>IndexObject</type>
-              </value>
-            </entry>
-          </properties>
-        </columnExpression>
-        <columnExpression>
-          <expressionSource>XPE_CONTRACT_ID</expressionSource>
-          <orderType>ASC</orderType>
-          <properties>
-            <entry>
-              <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-              <value class="oracle.javatools.db.ReferenceID">
-                <name>XPE_CONTRACT_ID</name>
-                <parent class="oracle.javatools.db.ReferenceID">
-                  <name>PK_CONTRACT_GROUP</name>
-                  <identifier class="java.math.BigDecimal">124283</identifier>
-                  <parent class="oracle.javatools.db.ReferenceID">
-                    <name>XPE_LINKED_DEALS</name>
-                    <identifier class="java.math.BigDecimal">123277</identifier>
+                    <name>XPE_DCC_CFG_METALS_FACILITY</name>
+                    <identifier class="java.math.BigDecimal">124701</identifier>
                     <schemaName>PAAS</schemaName>
                     <type>TABLE</type>
                   </parent>
@@ -398,11 +448,11 @@
         <entry>
           <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
           <value class="oracle.javatools.db.ReferenceID">
-            <name>PK_CONTRACT_GROUP</name>
-            <identifier class="java.math.BigDecimal">124283</identifier>
+            <name>XPE_METALS_FACILITY_PK</name>
+            <identifier class="java.math.BigDecimal">124704</identifier>
             <parent class="oracle.javatools.db.ReferenceID">
-              <name>XPE_LINKED_DEALS</name>
-              <identifier class="java.math.BigDecimal">123277</identifier>
+              <name>XPE_DCC_CFG_METALS_FACILITY</name>
+              <identifier class="java.math.BigDecimal">124701</identifier>
               <schemaName>PAAS</schemaName>
               <type>TABLE</type>
             </parent>
@@ -414,8 +464,12 @@
           <key>OracleStorageProperties</key>
           <value class="oracle.javatools.db.ora.OracleStorageProperties">
             <bufferMode>DEFAULT</bufferMode>
+            <initialExtent>65536</initialExtent>
             <initrans>2</initrans>
             <logging>true</logging>
+            <maxExtent>0</maxExtent>
+            <minExtent>1</minExtent>
+            <nextExtent>1048576</nextExtent>
             <percentFree>10</percentFree>
             <tablespaceID class="oracle.javatools.db.ReferenceID">
               <name>USERS</name>
@@ -439,8 +493,8 @@
     <entry>
       <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
       <value class="oracle.javatools.db.ReferenceID">
-        <name>XPE_LINKED_DEALS</name>
-        <identifier class="java.math.BigDecimal">123277</identifier>
+        <name>XPE_DCC_CFG_METALS_FACILITY</name>
+        <identifier class="java.math.BigDecimal">124701</identifier>
         <schemaName>PAAS</schemaName>
         <type>TABLE</type>
       </value>
@@ -455,8 +509,12 @@
       <key>OracleStorageProperties</key>
       <value class="oracle.javatools.db.ora.OracleStorageProperties">
         <bufferMode>DEFAULT</bufferMode>
+        <initialExtent>65536</initialExtent>
         <initrans>1</initrans>
         <logging>true</logging>
+        <maxExtent>0</maxExtent>
+        <minExtent>1</minExtent>
+        <nextExtent>1048576</nextExtent>
         <percentFree>10</percentFree>
         <tablespaceID class="oracle.javatools.db.ReferenceID">
           <name>USERS</name>
