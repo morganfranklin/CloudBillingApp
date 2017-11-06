@@ -140,22 +140,27 @@
                                                     </af:inputDate>
                                                 </f:facet>
                                             </af:panelLabelAndMessage>
-                                            <af:selectOneChoice value="#{bindings.XpeAcctgOptionsSet.inputValue}"
-                                                                label="#{bindings.XpeAcctgOptionsSet.label}"
-                                                                required="true"
-                                                                shortDesc="#{bindings.XpeAcctgOptionsSet.hints.tooltip}"
-                                                                id="soc27" autoSubmit="true">
-                                                <f:selectItems value="#{bindings.XpeAcctgOptionsSet.items}" id="si20"/>
-                                                <f:validator binding="#{bindings.XpeAcctgOptionsSet.validator}"/>
-                                            </af:selectOneChoice>
-                                            <af:selectOneChoice value="#{bindings.CurrencyCd.inputValue}"
-                                                                label="#{bindings.CurrencyCd.label}"
-                                                                required="#{bindings.CurrencyCd.hints.mandatory}"
-                                                                shortDesc="#{bindings.CurrencyCd.hints.tooltip}"
-                                                                id="soc28" autoSubmit="true">
-                                                <f:selectItems value="#{bindings.CurrencyCd.items}" id="si21"/>
-                                                <f:validator binding="#{bindings.CurrencyCd.validator}"/>
-                                            </af:selectOneChoice>
+                                            <af:panelLabelAndMessage label="#{bindings.XpeAcctgOptionsSet.label}" id="plam6">
+                                                <af:selectOneChoice value="#{bindings.XpeAcctgOptionsSet.inputValue}"
+                                                                    label="#{bindings.XpeAcctgOptionsSet.label}"
+                                                                    required="true"
+                                                                    shortDesc="#{bindings.XpeAcctgOptionsSet.hints.tooltip}"
+                                                                    id="soc27" autoSubmit="true" simple="true">
+                                                    <f:selectItems value="#{bindings.XpeAcctgOptionsSet.items}"
+                                                                   id="si20"/>
+                                                    <f:validator binding="#{bindings.XpeAcctgOptionsSet.validator}"/>
+                                                </af:selectOneChoice>
+                                            </af:panelLabelAndMessage>
+                                            <af:panelLabelAndMessage label="#{bindings.CurrencyCd.label}" id="plam7">
+                                                <af:selectOneChoice value="#{bindings.CurrencyCd.inputValue}"
+                                                                    label="#{bindings.CurrencyCd.label}"
+                                                                    required="#{bindings.CurrencyCd.hints.mandatory}"
+                                                                    shortDesc="#{bindings.CurrencyCd.hints.tooltip}"
+                                                                    id="soc28" autoSubmit="true" simple="true">
+                                                    <f:selectItems value="#{bindings.CurrencyCd.items}" id="si21"/>
+                                                    <f:validator binding="#{bindings.CurrencyCd.validator}"/>
+                                                </af:selectOneChoice>
+                                            </af:panelLabelAndMessage>
                                             <af:inputText value="#{bindings.SalesPerson.inputValue}"
                                                           label="#{bindings.SalesPerson.hints.label}"
                                                           required="#{bindings.SalesPerson.hints.mandatory}"

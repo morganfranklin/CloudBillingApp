@@ -495,6 +495,8 @@
                     Value="20"/>
                 <CONTROLTYPE
                     Value="choice"/>
+                <LABEL
+                    ResId="model.XpeDccContractVersionView.CurrencyCd_LABEL"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>
