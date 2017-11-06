@@ -40,6 +40,7 @@ public class XpeDccContractVersionViewRowImpl extends ViewRowImpl {
         XpeContractSubType,
         XpeTermId,
         SalesPerson,
+        XpeContractDirection,
         XpeDccContractNotesView,
         XpeDccContractLineView,
         XpeDccWorkflowView,
@@ -54,7 +55,8 @@ public class XpeDccContractVersionViewRowImpl extends ViewRowImpl {
         LookupSharedAppModule_XpeDccDicWasteType,
         LookupSharedAppModule_XpeDccDicContractSubtype,
         LookupSharedAppModule_XpeDccDicAgreementType,
-        XpeDccMasterTermsLOV;
+        XpeDccMasterTermsLOV,
+        LookupSharedAppModule_XpeDccDicNewContractSetupROVO1;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -99,6 +101,7 @@ public class XpeDccContractVersionViewRowImpl extends ViewRowImpl {
     public static final int XPECONTRACTSUBTYPE = AttributesEnum.XpeContractSubType.index();
     public static final int XPETERMID = AttributesEnum.XpeTermId.index();
     public static final int SALESPERSON = AttributesEnum.SalesPerson.index();
+    public static final int XPECONTRACTDIRECTION = AttributesEnum.XpeContractDirection.index();
     public static final int XPEDCCCONTRACTNOTESVIEW = AttributesEnum.XpeDccContractNotesView.index();
     public static final int XPEDCCCONTRACTLINEVIEW = AttributesEnum.XpeDccContractLineView.index();
     public static final int XPEDCCWORKFLOWVIEW = AttributesEnum.XpeDccWorkflowView.index();
@@ -117,6 +120,8 @@ public class XpeDccContractVersionViewRowImpl extends ViewRowImpl {
     public static final int LOOKUPSHAREDAPPMODULE_XPEDCCDICAGREEMENTTYPE =
         AttributesEnum.LookupSharedAppModule_XpeDccDicAgreementType.index();
     public static final int XPEDCCMASTERTERMSLOV = AttributesEnum.XpeDccMasterTermsLOV.index();
+    public static final int LOOKUPSHAREDAPPMODULE_XPEDCCDICNEWCONTRACTSETUPROVO1 =
+        AttributesEnum.LookupSharedAppModule_XpeDccDicNewContractSetupROVO1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -437,6 +442,23 @@ public class XpeDccContractVersionViewRowImpl extends ViewRowImpl {
         setAttributeInternal(SALESPERSON, value);
     }
 
+
+    /**
+     * Gets the attribute value for XPE_CONTRACT_DIRECTION using the alias name XpeContractDirection.
+     * @return the XPE_CONTRACT_DIRECTION
+     */
+    public String getXpeContractDirection() {
+        return (String) getAttributeInternal(XPECONTRACTDIRECTION);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for XPE_CONTRACT_DIRECTION using the alias name XpeContractDirection.
+     * @param value value to set the XPE_CONTRACT_DIRECTION
+     */
+    public void setXpeContractDirection(String value) {
+        setAttributeInternal(XPECONTRACTDIRECTION, value);
+    }
+
     /**
      * Gets the associated <code>RowIterator</code> using master-detail link XpeDccContractNotesView.
      */
@@ -540,6 +562,13 @@ public class XpeDccContractVersionViewRowImpl extends ViewRowImpl {
      */
     public RowSet getXpeDccMasterTermsLOV() {
         return (RowSet) getAttributeInternal(XPEDCCMASTERTERMSLOV);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> LookupSharedAppModule_XpeDccDicNewContractSetupROVO1.
+     */
+    public RowSet getLookupSharedAppModule_XpeDccDicNewContractSetupROVO1() {
+        return (RowSet) getAttributeInternal(LOOKUPSHAREDAPPMODULE_XPEDCCDICNEWCONTRACTSETUPROVO1);
     }
 }
 

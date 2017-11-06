@@ -58,6 +58,17 @@
                                                     <f:validator binding="#{bindings.XpeAgreementType.validator}"/>
                                                 </af:selectOneChoice>
                                             </af:panelLabelAndMessage>
+                                            <af:panelLabelAndMessage label="#{bindings.XpeContractDirection.label}" id="plam5">
+                                                <af:selectOneChoice value="#{bindings.XpeContractDirection.inputValue}"
+                                                                    label="#{bindings.XpeContractDirection.label}"
+                                                                    required="#{bindings.XpeContractDirection.hints.mandatory}"
+                                                                    shortDesc="#{bindings.XpeContractDirection.hints.tooltip}"
+                                                                    id="soc29" simple="true">
+                                                    <f:selectItems value="#{bindings.XpeContractDirection.items}"
+                                                                   id="si22"/>
+                                                    <f:validator binding="#{bindings.XpeContractDirection.validator}"/>
+                                                </af:selectOneChoice>
+                                            </af:panelLabelAndMessage>
                                         </af:panelFormLayout>
                                     </af:panelBox>
                                 </af:gridCell>

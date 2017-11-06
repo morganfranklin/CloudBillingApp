@@ -165,5 +165,7 @@
                 Action="removeCurrentRow"/>
         <action IterBinding="XpeDccContractNotesView3Iterator" id="Delete1" RequiresUpdateModel="false"
                 Action="removeCurrentRow"/>
+        <list IterBinding="XpeDccContractVersionView2Iterator" StaticList="false" Uses="LOV_XpeContractDirection"
+              id="XpeContractDirection" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     </bindings>
 </pageDefinition>

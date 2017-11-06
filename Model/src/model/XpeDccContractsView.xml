@@ -33,6 +33,10 @@
         Name="NeuCustomersVwView1"
         ViewObjectName="model.NeuCustomersVwView"
         RowLevelBinds="true"/>
+    <ViewAccessor
+        Name="XpeDccCfgPCSShortNamesROVO1"
+        ViewObjectName="model.views.readonly.XpeDccCfgPCSShortNamesROVO"
+        RowLevelBinds="true"/>
     <ListBinding
         Name="LOV_CurrencyCd"
         ListVOName="XpeDccDicCurrency1"
@@ -72,6 +76,24 @@
         </AttrArray>
         <DisplayCriteria
             Hint="showAndExecute"/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_XpeDccPcsname"
+        ListVOName="XpeDccCfgPCSShortNamesROVO1"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="XpeDccPcsname"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="PcsshortnameId"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="PcsshortName"/>
+        </AttrArray>
+        <DisplayCriteria/>
     </ListBinding>
     <EntityUsage
         Name="XpeDccContracts"
@@ -192,11 +214,14 @@
         PrecisionRule="true"
         EntityAttrName="XpeDccPcsname"
         EntityUsage="XpeDccContracts"
-        AliasName="XPE_DCC_PCSNAME">
+        AliasName="XPE_DCC_PCSNAME"
+        LOVName="LOV_XpeDccPcsname">
         <Properties>
             <SchemaBasedProperties>
                 <LABEL
                     ResId="model.XpeDccContractsView.XpeDccPcsname_LABEL"/>
+                <CONTROLTYPE
+                    Value="choice"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>

@@ -53,12 +53,23 @@
                                                                    shortDesc="#{bindings.CreatedBy.hints.tooltip}"
                                                                    id="ot3"/>
                                                 </af:panelLabelAndMessage>
-                                                 <af:panelLabelAndMessage label="#{bindings.XpeDccPcsname.label}" id="plam5">
-                                                <af:outputText value="#{bindings.XpeDccPcsname.inputValue}"
-                                                               shortDesc="#{bindings.XpeDccPcsname.hints.tooltip}"
-                                                               id="ot4"/>
-                                                </af:panelLabelAndMessage>
-                                               
+                                                <af:selectOneChoice value="#{bindings.XpeDccPcsname.inputValue}"
+                                                                    label="#{bindings.XpeDccPcsname.label}"
+                                                                    required="#{bindings.XpeDccPcsname.hints.mandatory}"
+                                                                    shortDesc="#{bindings.XpeDccPcsname.hints.tooltip}"
+                                                                    id="soc1" readOnly="true">
+                                                    <f:selectItems value="#{bindings.XpeDccPcsname.items}" id="si1"/>
+                                                    <f:validator binding="#{bindings.XpeDccPcsname.validator}"/>
+                                                </af:selectOneChoice>
+                                                <af:inputText value="#{bindings.SalesPerson.inputValue}"
+                                                              label="#{bindings.SalesPerson.hints.label}"
+                                                              required="#{bindings.SalesPerson.hints.mandatory}"
+                                                              columns="#{bindings.SalesPerson.hints.displayWidth}"
+                                                              maximumLength="#{bindings.SalesPerson.hints.precision}"
+                                                              shortDesc="#{bindings.SalesPerson.hints.tooltip}"
+                                                              id="it2" partialTriggers="t4">
+                                                    <f:validator binding="#{bindings.SalesPerson.validator}"/>
+                                                </af:inputText>
                                                 <!--       <af:selectOneChoice value="#{bindings.CurrencyCd.inputValue}"
                                                                     label="Contract Currency"
                                                                     required="#{bindings.CurrencyCd.hints.mandatory}"
@@ -103,7 +114,7 @@
                                                    id="b3"/>
                                         <af:spacer width="10" height="10" id="s3"/>
                                         <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
-                                                   disabled="#{!bindings.Delete.enabled}" id="b5"/>
+                                                   disabled="#{!bindings.Delete.enabled}" id="b5" immediate="true"/>
                                     </af:toolbar>
                                 </f:facet>
                                 <f:facet name="toolbar"/>

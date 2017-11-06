@@ -221,6 +221,18 @@
             <Attr Name="_DisplaySize" Value="40"/>
         </DesignTime>
     </Attribute>
+    <Attribute
+        Name="XpeContractDirection"
+        Precision="20"
+        ColumnName="XPE_CONTRACT_DIRECTION"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="XPE_DCC_CONTRACT_VERSION">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
     <AccessorAttribute
         Name="XpeDccContractNotes"
         Association="model.XpeDccContractNotesFk1Assoc"
