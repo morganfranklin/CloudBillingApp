@@ -2269,6 +2269,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                         targetContractVersionViewRow.setSalesPerson(sourceContractVersionViewRow.getSalesPerson());
                         targetContractVersionViewRow.setXpeAcctgOptionsSet(sourceContractVersionViewRow.getXpeAcctgOptionsSet());
                         targetContractVersionViewRow.setCurrencyCd(sourceContractVersionViewRow.getCurrencyCd());
+                        targetContractVersionViewRow.setXpeContractDirection(sourceContractVersionViewRow.getXpeContractDirection());
                         xpeDccNewContractsEOVORow.getXpeDccContractVersionView().insertRow(targetContractVersionViewRow);
                         copyNewVersionContractLine(sourceContractVersionViewRow, targetContractVersionViewRow,
                                                    contractType);

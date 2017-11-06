@@ -37,13 +37,15 @@ public class XpeDccContractVersionImpl extends EntityImpl {
         XpeAgreementType,
         XpeAsOfDate,
         SalesPerson,
+        XpeContractDirection,
         XpeDccContractNotes,
         XpeDccContractLine,
         XpeDccContracts,
         XpeDccWorkflow,
         XpeDccContractsAttachments,
         XpeDccTermsContractEO;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -85,6 +87,7 @@ public class XpeDccContractVersionImpl extends EntityImpl {
     public static final int XPEAGREEMENTTYPE = AttributesEnum.XpeAgreementType.index();
     public static final int XPEASOFDATE = AttributesEnum.XpeAsOfDate.index();
     public static final int SALESPERSON = AttributesEnum.SalesPerson.index();
+    public static final int XPECONTRACTDIRECTION = AttributesEnum.XpeContractDirection.index();
     public static final int XPEDCCCONTRACTNOTES = AttributesEnum.XpeDccContractNotes.index();
     public static final int XPEDCCCONTRACTLINE = AttributesEnum.XpeDccContractLine.index();
     public static final int XPEDCCCONTRACTS = AttributesEnum.XpeDccContracts.index();
@@ -392,6 +395,22 @@ public class XpeDccContractVersionImpl extends EntityImpl {
      */
     public void setSalesPerson(String value) {
         setAttributeInternal(SALESPERSON, value);
+    }
+
+    /**
+     * Gets the attribute value for XpeContractDirection, using the alias name XpeContractDirection.
+     * @return the value of XpeContractDirection
+     */
+    public String getXpeContractDirection() {
+        return (String) getAttributeInternal(XPECONTRACTDIRECTION);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for XpeContractDirection.
+     * @param value value to set the XpeContractDirection
+     */
+    public void setXpeContractDirection(String value) {
+        setAttributeInternal(XPECONTRACTDIRECTION, value);
     }
 
     /**

@@ -107,6 +107,20 @@
             </PIMap>
         </ParameterMap>
     </ViewAccessor>
+    <ViewAccessor
+        Name="LookupSharedAppModule_XpeDccDicNewContractSetupROVO1"
+        ViewObjectName="model.views.readonly.XpeDccDicNewContractSetupROVO"
+        AMUsageName="LookupSharedAppModule"
+        ViewInstanceName="XpeDccDicNewContractSetupROVO"
+        RowLevelBinds="true">
+        <ParameterMap>
+            <PIMap Variable="bind_Lookup_Type">
+                <TransientExpression
+                    trustMode="untrusted"
+                    Name="ExpressionScript"><![CDATA['PSIO']]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
     <ListBinding
         Name="LOV_XpeContractStatus"
         ListVOName="XpeDccDicContractStatus1"
@@ -204,8 +218,7 @@
         Name="LOV_CurrencyCd"
         ListVOName="XpeDccDicCurrency1"
         ListRangeSize="-1"
-        NullValueFlag="start"
-        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+        NullValueFlag="none"
         MRUCount="0">
         <AttrArray Name="AttrNames">
             <Item Value="CurrencyCd"/>
@@ -288,6 +301,24 @@
         </AttrArray>
         <AttrArray Name="ListDisplayAttrNames">
             <Item Value="XpeDccTerm"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_XpeContractDirection"
+        ListVOName="LookupSharedAppModule_XpeDccDicNewContractSetupROVO1"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="XpeContractDirection"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="XpeLookupId"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="XpeLookupDesc"/>
         </AttrArray>
         <DisplayCriteria/>
     </ListBinding>
@@ -577,6 +608,22 @@
             <SchemaBasedProperties>
                 <LABEL
                     ResId="model.XpeDccContractVersionView.SalesPerson_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="XpeContractDirection"
+        PrecisionRule="true"
+        EntityAttrName="XpeContractDirection"
+        EntityUsage="XpeDccContractVersion"
+        AliasName="XPE_CONTRACT_DIRECTION"
+        LOVName="LOV_XpeContractDirection">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+                <LABEL
+                    ResId="model.XpeDccContractVersionView.XpeContractDirection_LABEL"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>

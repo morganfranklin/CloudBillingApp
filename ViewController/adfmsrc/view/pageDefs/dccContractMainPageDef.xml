@@ -108,12 +108,14 @@
                 <Item Value="Name1"/>
             </AttrNames>
         </attributeValues>
-        <attributeValues IterBinding="XpeDccContractsView1Iterator" id="XpeDccPcsname">
-            <AttrNames>
-                <Item Value="XpeDccPcsname"/>
-            </AttrNames>
-        </attributeValues>
         <action IterBinding="XpeDccContractVersionView2Iterator" id="Delete" RequiresUpdateModel="false"
                 Action="removeCurrentRow"/>
+        <attributeValues IterBinding="XpeDccContractVersionView2Iterator" id="SalesPerson">
+            <AttrNames>
+                <Item Value="SalesPerson"/>
+            </AttrNames>
+        </attributeValues>
+        <list IterBinding="XpeDccContractsView1Iterator" StaticList="false" Uses="LOV_XpeDccPcsname"
+              id="XpeDccPcsname" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     </bindings>
 </pageDefinition>

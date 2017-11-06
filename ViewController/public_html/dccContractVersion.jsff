@@ -119,6 +119,15 @@
                                                     <f:selectItems value="#{bindings.CurrencyCd.items}" id="si5"/>
                                                     <f:validator binding="#{bindings.CurrencyCd.validator}"/>
                                                 </af:selectOneChoice>
+                                                <af:selectOneChoice value="#{bindings.XpeContractDirection.inputValue}"
+                                                                    label="#{bindings.XpeContractDirection.label}"
+                                                                    required="#{bindings.XpeContractDirection.hints.mandatory}"
+                                                                    shortDesc="#{bindings.XpeContractDirection.hints.tooltip}"
+                                                                    id="soc11">
+                                                    <f:selectItems value="#{bindings.XpeContractDirection.items}"
+                                                                   id="si11"/>
+                                                    <f:validator binding="#{bindings.XpeContractDirection.validator}"/>
+                                                </af:selectOneChoice>
                                                 <f:facet name="footer"/>
                                             </af:panelFormLayout>
                                         </af:gridCell>

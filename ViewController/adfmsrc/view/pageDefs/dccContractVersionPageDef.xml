@@ -182,5 +182,7 @@
             <NamedData NDName="contractVersion" NDValue="#{bindings.XpeContractVersion.inputValue}"
                        NDType="java.lang.String"/>
         </methodAction>
+        <list IterBinding="XpeDccContractVersionView2Iterator" StaticList="false" Uses="LOV_XpeContractDirection"
+              id="XpeContractDirection" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     </bindings>
 </pageDefinition>

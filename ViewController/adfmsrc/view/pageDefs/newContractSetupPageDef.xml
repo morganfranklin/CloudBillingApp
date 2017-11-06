@@ -174,5 +174,7 @@
           id="XpeAcctgOptionsSet" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="XpeDccNewContractVersionViewIterator" StaticList="false" Uses="LOV_CurrencyCd" id="CurrencyCd"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccNewContractVersionViewIterator" StaticList="false" Uses="LOV_XpeContractDirection"
+          id="XpeContractDirection" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>
