@@ -165,6 +165,23 @@
                 Action="removeCurrentRow"/>
         <action IterBinding="XpeDccContractNotesView3Iterator" id="Delete1" RequiresUpdateModel="false"
                 Action="removeCurrentRow"/>
+        <methodAction id="routeForApproval" RequiresUpdateModel="true" Action="invokeMethod"
+                      MethodName="routeForApproval" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                      InstanceName="data.AppModuleDataControl.dataProvider"
+                      ReturnName="data.AppModuleDataControl.methodResults.routeForApproval_AppModuleDataControl_dataProvider_routeForApproval_result">
+            <NamedData NDName="contractId" NDValue="#{bindings.XpeContractId.inputValue}" NDType="java.lang.String"/>
+            <NamedData NDName="contractVersion" NDValue="#{bindings.XpeContractVersion.inputValue}"
+                       NDType="java.lang.String"/>
+        </methodAction>
+        <methodAction id="pushEmailForApproval" RequiresUpdateModel="true" Action="invokeMethod"
+                      MethodName="pushEmailForApproval" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                      InstanceName="data.AppModuleDataControl.dataProvider"
+                      ReturnName="data.AppModuleDataControl.methodResults.pushEmailForApproval_AppModuleDataControl_dataProvider_pushEmailForApproval_result">
+            <NamedData NDName="bytes" NDType="byte[]"/>
+            <NamedData NDName="contractId" NDValue="#{bindings.XpeContractId.inputValue}" NDType="java.lang.String"/>
+            <NamedData NDName="contractVersion" NDValue="#{bindings.XpeContractVersion.inputValue}"
+                       NDType="java.lang.String"/>
+        </methodAction>
         <list IterBinding="XpeDccContractVersionView2Iterator" StaticList="false" Uses="LOV_XpeContractDirection"
               id="XpeContractDirection" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     </bindings>

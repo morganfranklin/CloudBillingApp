@@ -52,5 +52,9 @@ public interface AppModule extends ApplicationModule {
     Map buildXML(String contractId, String contractVersion, String inContractFlow);
 
     boolean newContractCreation(byte[] bytes, String contractId, String contractVersion, String submissionType);
+
+    Map routeForApproval(String contractId, String contractVersion);
+
+    String pushEmailForApproval(byte[] bytes, String contractId, String contractVersion);
 }
 

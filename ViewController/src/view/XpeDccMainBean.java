@@ -1,22 +1,22 @@
 package view;
 
+import java.util.Map;
+
 import javax.faces.event.ActionEvent;
 
 import model.XpeDccContractLineViewImpl;
 import model.XpeDccContractLineViewRowImpl;
-import model.XpeDccContractVersionViewImpl;
-
 import model.XpeDccContractVersionViewRowImpl;
-
 import model.XpeDccContractsViewImpl;
-
 import model.XpeDccContractsViewRowImpl;
 
+import oracle.adf.model.BindingContext;
 import oracle.adf.view.rich.component.rich.data.RichTable;
 import oracle.adf.view.rich.context.AdfFacesContext;
 import oracle.adf.view.rich.event.PopupCanceledEvent;
 
-import oracle.jbo.Row;
+import oracle.binding.BindingContainer;
+import oracle.binding.OperationBinding;
 
 import view.utils.ADFUtils;
 import view.utils.JSFUtils;
@@ -127,6 +127,40 @@ public class XpeDccMainBean {
             (XpeDccContractVersionViewRowImpl) ADFUtils.findViewObjectFromIteratorName("XpeDccContractVersionView2Iterator").getCurrentRow();
         versionRow.setXpeContractVersion("V1");
 
+    }
+
+
+    public void onRouteForApproval(ActionEvent actionEvent) {
+        try {
+            BindingContext bc = BindingContext.getCurrent();
+            BindingContainer bindings = bc.getCurrentBindingsEntry();
+            OperationBinding operationBinding = bindings.getOperationBinding("routeForApproval");
+            if (null != operationBinding) {
+                Map pdf = (Map) operationBinding.execute();
+                if (null != pdf) {
+                    if (pdf.size() > 1) {
+                        if (null != pdf.get("VERSION_STATUS") && "DRA".equals(pdf.get("VERSION_STATUS"))) {
+                            OperationBinding operationBinding1 = bindings.getOperationBinding("pushEmailForApproval");
+                            if (null != operationBinding1) {
+                                operationBinding1.getParamsMap().put("bytes",
+                                                                     FileOperations.genPdfRep(String.valueOf(pdf.get("XML")).getBytes(),
+                                                                                              FileOperations.getRTFAsInputStream(String.valueOf(pdf.get("TEMPLATE_NAME")))));
+                                String emailStatus = (String) operationBinding1.execute();
+                                if (null != emailStatus && "SUCCESS".equals(emailStatus)) {
+                                    ADFUtils.setvalueToExpression("#{bindings.XpeContractStatus.inputValue}","IWF");
+                                    ADFUtils.invokeEL("#{bindings.Commit.execute}");
+                                    ADFUtils.showErrorMessage("Email Sent to Approver.");
+                                }
+                            }
+                        } else
+                            ADFUtils.showErrorMessage(String.valueOf(pdf.get("VERSION_STATUS")));
+                    } else
+                        ADFUtils.showErrorMessage(String.valueOf(pdf.get("VERSION_STATUS")));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void setCustomerSearchTblBind(RichTable customerSearchTblBind) {

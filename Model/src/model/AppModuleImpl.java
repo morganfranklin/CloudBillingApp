@@ -1789,7 +1789,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         }
     }
 
-    public void pushEmailForApproval(byte[] bytes, String contractId, String contractVersion) {
+    public String pushEmailForApproval(byte[] bytes, String contractId, String contractVersion) {
+        String emailStatus = null;
         try {
             XpeDccWfEventEOVOImpl approvalWFEvent = this.getXpeDccWfEventEOVO();
             approvalWFEvent.executeEmptyRowSet();
@@ -1808,13 +1809,14 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                         "DRA".equals(approvalWFEventRow.getXpeEventStatus()))
                         approvalWFEventRow.setXpeEventStatus("IWF");
                     xpeDccWfActionEOVORow.setXpeActionStatus("P");
+                    emailStatus = "SUCCESS";
                 }
             }
-
         } catch (Exception e) {
             // TODO: Add catch code
             e.printStackTrace();
         }
+        return emailStatus;
     }
     
     private String buildEmailBody(String uuId, String contractId, String contractVersion){
@@ -1904,6 +1906,43 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
            }
           return "";
        }
+    
+    public Map routeForApproval(String contractId, String contractVersion) {
+        Map pdf = new HashMap();
+        try {
+            Key contractKey = new Key(new Object[] { contractId });
+            Row[] xpeDccExtContractsRows = this.getXpeDccContractsView2().findByKey(contractKey, 1);
+            if (null != xpeDccExtContractsRows && xpeDccExtContractsRows.length > 0) {
+                XpeDccContractsViewRowImpl xpeDccExtContractsRow =
+                    (XpeDccContractsViewRowImpl) xpeDccExtContractsRows[0];
+                if (null != xpeDccExtContractsRow) {
+                    Key key = new Key(new Object[] { contractId, contractVersion });
+                    Row[] rows = xpeDccExtContractsRow.getXpeDccContractVersionView().findByKey(key, 1);
+                    if (null != rows && rows.length > 0) {
+                        XpeDccContractVersionViewRowImpl contractVersionViewRow =
+                            (XpeDccContractVersionViewRowImpl) rows[0];
+                        String contractVersionStatus = contractVersionViewRow.getXpeContractStatus();
+                        if (null != contractVersionStatus) {
+                            if ("DRA".equals(contractVersionStatus)) {
+                                pdf.putAll(buildXML(contractId, contractVersion, "N"));
+                                pdf.put("VERSION_STATUS", contractVersionStatus);
+                            } else if ("IWF".equals(contractVersionStatus))
+                                pdf.put("VERSION_STATUS", "This contract is already in approval workflow.");
+                            else if ("APR".equals(contractVersionStatus))
+                                pdf.put("VERSION_STATUS", "This contract is already approved.");
+                            else if ("REJ".equals(contractVersionStatus))
+                                pdf.put("VERSION_STATUS", "This contract is already rejected.");
+                        } else
+                            pdf.put("VERSION_STATUS", "Unexpected Error. Please contact system administrator.");
+                    }
+                }
+            }
+        } catch (Exception e) {
+            // TODO: Add catch code
+            e.printStackTrace();
+        }
+        return pdf;
+    }
     
     public Map fetchPDFXML(String uuId){
         try {
