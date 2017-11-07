@@ -149,7 +149,7 @@ public class XpeDccMainBean {
                                 if (null != emailStatus && "SUCCESS".equals(emailStatus)) {
                                     ADFUtils.setvalueToExpression("#{bindings.XpeContractStatus.inputValue}","IWF");
                                     ADFUtils.invokeEL("#{bindings.Commit.execute}");
-                                    ADFUtils.showErrorMessage("Email Sent to Approver.");
+                                    ADFUtils.showInfoMessage("Email Sent to Approver.");
                                 }
                             }
                         } else
