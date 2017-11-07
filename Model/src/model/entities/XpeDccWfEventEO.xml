@@ -60,7 +60,7 @@
   </Attribute>
   <Attribute
     Name="XpeEventStatus"
-    Precision="1"
+    Precision="3"
     ColumnName="XPE_EVENT_STATUS"
     SQLType="VARCHAR"
     Type="java.lang.String"
