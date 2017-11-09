@@ -31,7 +31,7 @@
                       selectionListener="#{bindings.XpeDccCfgNotificationEOVO1.collectionModel.makeCurrent}"
                       rowSelection="single" fetchSize="#{bindings.XpeDccCfgNotificationEOVO1.rangeSize}" id="resId1"
                       binding="#{backingBeanScope.NotificationSetUpTableBBean.notificationSetUpTblBind}"
-                      contentDelivery="immediate" columnStretching="last" partialTriggers="::b1 ::b5 ::b9">
+                      contentDelivery="immediate" columnStretching="last" partialTriggers="::b1">
                 <af:column headerText="#{bindings.XpeDccCfgNotificationEOVO1.hints.NotificationId.label}" id="resId1c1">
                     <af:link text="#{row.NotificationId}" id="l1" partialSubmit="true"
                              action="Edit"/>

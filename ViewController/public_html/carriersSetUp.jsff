@@ -10,11 +10,12 @@
                       queryOperationListener="#{pageFlowScope.CarriersSetUpTableMBean.queryOperationListener}"
                       resultComponentId="::resId1"/>
         </af:panelHeader>
+        <af:spacer width="10" height="10" id="s1"/>
         <af:panelHeader text="Carriers" id="ph2" size="5">
             <f:facet name="context"/>
             <f:facet name="toolbar">
                 <af:toolbar id="t1">
-                    <af:button action="#{bindings.CreateInsert.execute}" text="Add Item"
+                    <af:button action="#{bindings.CreateInsert.execute}" text="Add"
                                disabled="#{!bindings.CreateInsert.enabled}" id="b1"
                                actionListener="#{pageFlowScope.CarriersSetUpTableMBean.onCarriersCreation}"/>
                 </af:toolbar>
@@ -69,6 +70,7 @@
                         <af:button action="#{bindings.Commit.execute}" text="Save"
                                    disabled="#{!bindings.Commit.enabled}" id="b4"
                                    actionListener="#{pageFlowScope.CarriersSetUpTableMBean.onCarrierCreationSaveorCancel}"/>
+                        <af:spacer width="10" height="10" id="s2"/>
                         <af:button action="#{bindings.Rollback.execute}" text="Cancel"
                                    disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b5"
                                    actionListener="#{pageFlowScope.CarriersSetUpTableMBean.onCarrierCreationSaveorCancel}">
@@ -106,6 +108,7 @@
                         <af:button action="#{bindings.Commit.execute}" text="Save"
                                     id="b2"
                                    actionListener="#{pageFlowScope.CarriersSetUpTableMBean.onCarrierEditSaveorCancel}"/>
+                        <af:spacer width="10" height="10" id="s3"/>
                         <af:button action="#{bindings.Rollback.execute}" text="Cancel"
                                     immediate="true" id="b3"
                                    actionListener="#{pageFlowScope.CarriersSetUpTableMBean.onCarrierEditSaveorCancel}">
@@ -132,14 +135,17 @@
                                       shortDesc="#{bindings.State1.hints.tooltip}" id="it4">
                             <f:validator binding="#{bindings.State1.validator}"/>
                         </af:inputText>
-                        <af:selectOneChoice value="#{bindings.Inactive.inputValue}" label="#{bindings.Inactive.label}"
-                                            required="#{bindings.Inactive.hints.mandatory}"
-                                            shortDesc="#{bindings.Inactive.hints.tooltip}" id="soc2"
-                                            valueChangeListener="#{pageFlowScope.CarriersSetUpTableMBean.onInActiveValChgLstnr}"
-                                            autoSubmit="true">
-                            <f:selectItems value="#{bindings.Inactive.items}" id="si2"/>
-                            <f:validator binding="#{bindings.Inactive.validator}"/>
-                        </af:selectOneChoice>
+                        <af:panelLabelAndMessage label="#{bindings.Inactive.label}" id="plam3">
+                            <af:selectOneChoice value="#{bindings.Inactive.inputValue}"
+                                                label="#{bindings.Inactive.label}"
+                                                required="#{bindings.Inactive.hints.mandatory}"
+                                                shortDesc="#{bindings.Inactive.hints.tooltip}" id="soc2"
+                                                valueChangeListener="#{pageFlowScope.CarriersSetUpTableMBean.onInActiveValChgLstnr}"
+                                                autoSubmit="true" simple="true">
+                                <f:selectItems value="#{bindings.Inactive.items}" id="si2"/>
+                                <f:validator binding="#{bindings.Inactive.validator}"/>
+                            </af:selectOneChoice>
+                        </af:panelLabelAndMessage>
                         <af:inputDate value="#{bindings.InactiveDate.inputValue}"
                                       label="#{bindings.InactiveDate.hints.label}"
                                       required="#{bindings.InactiveDate.hints.mandatory}"

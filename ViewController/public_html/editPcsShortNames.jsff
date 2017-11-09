@@ -36,14 +36,17 @@
           </af:inputText>
           <af:selectBooleanCheckbox value="#{bindings.InvSupress.inputValue}" label="#{bindings.InvSupress.label}"
                                     shortDesc="#{bindings.InvSupress.hints.tooltip}" id="sbc1"/>
+        <af:panelLabelAndMessage label="#{bindings.Inactive.label}" id="plam3">
           <af:selectOneChoice value="#{bindings.Inactive.inputValue}" label="#{bindings.Inactive.label}"
-                            required="#{bindings.Inactive.hints.mandatory}"
-                            shortDesc="#{bindings.Inactive.hints.tooltip}" id="soc1" autoSubmit="true"
-                              valueChangeListener="#{pageFlowScope.PcsShortNameSetUpTableBean.onEditPcsShortNameInactiveValChgLstnr}">
-          <f:selectItems value="#{bindings.Inactive.items}" id="si1"/>
-          <f:validator binding="#{bindings.Inactive.validator}"/>
-        </af:selectOneChoice>
-          <af:inputDate value="#{bindings.InactiveDate.inputValue}" label="#{bindings.InactiveDate.hints.label}"
+                              required="#{bindings.Inactive.hints.mandatory}"
+                              shortDesc="#{bindings.Inactive.hints.tooltip}" id="soc1" autoSubmit="true"
+                              valueChangeListener="#{pageFlowScope.PcsShortNameSetUpTableBean.onEditPcsShortNameInactiveValChgLstnr}"
+                              simple="true">
+            <f:selectItems value="#{bindings.Inactive.items}" id="si1"/>
+            <f:validator binding="#{bindings.Inactive.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
+        <af:inputDate value="#{bindings.InactiveDate.inputValue}" label="#{bindings.InactiveDate.hints.label}"
                       required="#{bindings.InactiveDate.hints.mandatory}"
                       columns="#{bindings.InactiveDate.hints.displayWidth}"
                       shortDesc="#{bindings.InactiveDate.hints.tooltip}" id="id1" autoSubmit="true"
@@ -217,14 +220,12 @@
       </af:panelHeader>
     </af:panelGroupLayout>
     <af:spacer width="10" height="10" id="s2"/>
-    <af:group id="g1">
-      <af:button actionListener="#{bindings.Commit.execute}" text="Save" 
-                 id="b1"/>
+    <af:panelGroupLayout id="pgl3" layout="horizontal">
+      <af:button actionListener="#{bindings.Commit.execute}" text="Save" id="b1"/>
       <af:spacer width="10" height="10" id="s1"/>
-      <af:button actionListener="#{bindings.Rollback.execute}" text="Back" 
-                 immediate="true" id="b2" action="Back">
+      <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel" immediate="true" id="b2" action="Back">
         <af:resetActionListener/>
       </af:button>
-    </af:group>
+    </af:panelGroupLayout>
   </af:panelGroupLayout>
 </ui:composition>

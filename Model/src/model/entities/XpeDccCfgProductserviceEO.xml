@@ -155,6 +155,30 @@
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
     TableName="XPE_DCC_CFG_PRODUCTSERVICE"/>
+  <Attribute
+    Name="Pcsuom"
+    Precision="15"
+    ColumnName="PCSUOM"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_PRODUCTSERVICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="WeightClass"
+    Precision="15"
+    ColumnName="WEIGHT_CLASS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_PRODUCTSERVICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="XpeDccCfgUomEO"
     Association="model.entities.associations.XpeDccCfgProductserviceFkAssoc"

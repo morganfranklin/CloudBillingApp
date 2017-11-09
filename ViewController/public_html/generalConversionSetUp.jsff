@@ -134,13 +134,15 @@
                                   shortDesc="#{bindings.PcsShortNameId.hints.tooltip}">
               <f:validator binding="#{bindings.PcsShortNameId.validator}"/>
             </af:inputListOfValues>
-            <af:selectOneChoice value="#{bindings.TranslationConsumer.inputValue}"
-                                label="#{bindings.TranslationConsumer.label}"
-                                required="#{bindings.TranslationConsumer.hints.mandatory}"
-                                shortDesc="#{bindings.TranslationConsumer.hints.tooltip}" id="soc2">
-              <f:selectItems value="#{bindings.TranslationConsumer.items}" id="si2"/>
-              <f:validator binding="#{bindings.TranslationConsumer.validator}"/>
-            </af:selectOneChoice>
+            <af:panelLabelAndMessage label="#{bindings.TranslationConsumer.label}" id="plam3">
+              <af:selectOneChoice value="#{bindings.TranslationConsumer.inputValue}"
+                                  label="#{bindings.TranslationConsumer.label}"
+                                  required="#{bindings.TranslationConsumer.hints.mandatory}"
+                                  shortDesc="#{bindings.TranslationConsumer.hints.tooltip}" id="soc2" simple="true">
+                <f:selectItems value="#{bindings.TranslationConsumer.items}" id="si2"/>
+                <f:validator binding="#{bindings.TranslationConsumer.validator}"/>
+              </af:selectOneChoice>
+            </af:panelLabelAndMessage>
             <af:inputText value="#{bindings.ConversionValue.inputValue}" label="#{bindings.ConversionValue.hints.label}"
                           required="#{bindings.ConversionValue.hints.mandatory}"
                           columns="#{bindings.ConversionValue.hints.displayWidth}"
@@ -215,13 +217,15 @@
                                   shortDesc="#{bindings.PcsShortNameId1.hints.tooltip}">
               <f:validator binding="#{bindings.PcsShortNameId1.validator}"/>
             </af:inputListOfValues>
-            <af:selectOneChoice value="#{bindings.TranslationConsumer1.inputValue}"
-                                label="#{bindings.TranslationConsumer1.label}"
-                                required="#{bindings.TranslationConsumer1.hints.mandatory}"
-                                shortDesc="#{bindings.TranslationConsumer1.hints.tooltip}" id="soc3">
-              <f:selectItems value="#{bindings.TranslationConsumer1.items}" id="si3"/>
-              <f:validator binding="#{bindings.TranslationConsumer1.validator}"/>
-            </af:selectOneChoice>
+            <af:panelLabelAndMessage label="#{bindings.TranslationConsumer1.label}" id="plam4">
+              <af:selectOneChoice value="#{bindings.TranslationConsumer1.inputValue}"
+                                  label="#{bindings.TranslationConsumer1.label}"
+                                  required="#{bindings.TranslationConsumer1.hints.mandatory}"
+                                  shortDesc="#{bindings.TranslationConsumer1.hints.tooltip}" id="soc3" simple="true">
+                <f:selectItems value="#{bindings.TranslationConsumer1.items}" id="si3"/>
+                <f:validator binding="#{bindings.TranslationConsumer1.validator}"/>
+              </af:selectOneChoice>
+            </af:panelLabelAndMessage>
             <af:inputText value="#{bindings.ConversionValue1.inputValue}"
                           label="#{bindings.ConversionValue1.hints.label}"
                           required="#{bindings.ConversionValue1.hints.mandatory}"

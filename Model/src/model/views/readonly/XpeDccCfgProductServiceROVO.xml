@@ -18,10 +18,10 @@
         ResId="model.views.readonly.XpeDccCfgProductServiceROVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <SQLQuery><![CDATA[SELECT  
-    XPE_DCC_CFG_PRODUCTSERVICE.ITEM_ID ITEM_ID,  
-    XPE_DCC_CFG_PRODUCTSERVICE.DESCRIPTION DESCRIPTION  
-FROM  
+  <SQLQuery><![CDATA[SELECT    
+    XPE_DCC_CFG_PRODUCTSERVICE.ITEM_ID ITEM_ID,    
+    XPE_DCC_CFG_PRODUCTSERVICE.DESCRIPTION DESCRIPTION 
+FROM    
     XPE_DCC_CFG_PRODUCTSERVICE]]></SQLQuery>
   <ViewAttribute
     Name="ItemId"

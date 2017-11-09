@@ -10,45 +10,45 @@
           <f:facet name="context">
             <af:menuBar id="mb1">
               <af:menu text="" id="m1">
-                <af:commandMenuItem text="Terminals" id="cmi1" action="#{viewScope.SetupTableMBean.terminalSetUpTable}"
-                                    inlineStyle="font-weight:bold;"/>
-                <af:commandMenuItem text="Destinations" id="cmi2"
-                                    action="#{viewScope.SetupTableMBean.destinationSetUpTable}"
-                                    inlineStyle="font-weight:bold;"/>
-                <af:commandMenuItem text="Counties" id="cmi3" action="#{viewScope.SetupTableMBean.countiesSetUpTable}"
-                                    inlineStyle="font-weight:bold;"/>
-                <af:commandMenuItem text="Carriers" id="cmi4" action="#{viewScope.SetupTableMBean.carriersSetUpTable}"
-                                    inlineStyle="font-weight:bold;"/>
-                <af:commandMenuItem text="Vehicle Types" id="cmi5"
-                                    action="#{viewScope.SetupTableMBean.vehicleTypesSetUpTable}"
-                                    inlineStyle="font-weight:bold;"/>
-                <af:commandMenuItem text="Origins" id="cmi6" action="#{viewScope.SetupTableMBean.originsSetUpTable}"
-                                    inlineStyle="font-weight:bold;"/>
-                <af:commandMenuItem text="PCS Installation" id="cmi7"
-                                    action="#{viewScope.SetupTableMBean.pcsInstallationSetUpTable}"
-                                    inlineStyle="font-weight:bold;"/>
-                <af:commandMenuItem text="General" id="cmi8" action="#{viewScope.SetupTableMBean.generalSetUpTable}"
-                                    inlineStyle="font-weight:bold;"/>
-                <af:commandMenuItem text="Product Service" id="cmi9"
-                                    action="#{viewScope.SetupTableMBean.productServiceSetUpTable}"
-                                    inlineStyle="font-weight:bold;"/>
-                <af:commandMenuItem text="PCS Short Name" id="cmi10"
-                                    action="#{viewScope.SetupTableMBean.pcsShortNameSetUpTable}"
-                                    inlineStyle="font-weight:bold;"/>
-                <af:commandMenuItem text="General Conversion" id="cmi11"
-                                    action="#{viewScope.SetupTableMBean.generalConversionSetUpTable}"
-                                    inlineStyle="font-weight:bold;"/>
                 <af:commandMenuItem text="Accounting" id="cmi12"
                                     action="#{viewScope.SetupTableMBean.accountingSetUpTable}"
                                     inlineStyle="font-weight:bold;"/>
                 <af:commandMenuItem text="Business Unit" id="cmi13"
                                     action="#{viewScope.SetupTableMBean.businessUnitSetUpTable}"
                                     inlineStyle="font-weight:bold;"/>
-                <af:commandMenuItem text="Contract Approval Facility Lookup" id="cmi14"
+                <af:commandMenuItem text="Carriers" id="cmi4" action="#{viewScope.SetupTableMBean.carriersSetUpTable}"
+                                    inlineStyle="font-weight:bold;"/>
+                <af:commandMenuItem text="Contract Approval Facilities" id="cmi14"
                                     action="#{viewScope.SetupTableMBean.contractAprFcltyLookUp}"
+                                    inlineStyle="font-weight:bold;"/>
+                <af:commandMenuItem text="Counties" id="cmi3" action="#{viewScope.SetupTableMBean.countiesSetUpTable}"
                                     inlineStyle="font-weight:bold;"/>
                 <af:commandMenuItem text="Credit Status" id="cmi15"
                                     action="#{viewScope.SetupTableMBean.notificationSetUpTable}"
+                                    inlineStyle="font-weight:bold;"/>
+                <af:commandMenuItem text="Destinations" id="cmi2"
+                                    action="#{viewScope.SetupTableMBean.destinationSetUpTable}"
+                                    inlineStyle="font-weight:bold;"/>
+                <af:commandMenuItem text="General" id="cmi8" action="#{viewScope.SetupTableMBean.generalSetUpTable}"
+                                    inlineStyle="font-weight:bold;"/>
+                <af:commandMenuItem text="General Conversion" id="cmi11"
+                                    action="#{viewScope.SetupTableMBean.generalConversionSetUpTable}"
+                                    inlineStyle="font-weight:bold;"/>
+                <af:commandMenuItem text="Origins" id="cmi6" action="#{viewScope.SetupTableMBean.originsSetUpTable}"
+                                    inlineStyle="font-weight:bold;"/>
+                <af:commandMenuItem text="PCS Installation" id="cmi7"
+                                    action="#{viewScope.SetupTableMBean.pcsInstallationSetUpTable}"
+                                    inlineStyle="font-weight:bold;"/>
+                <af:commandMenuItem text="PCS Short Name" id="cmi10"
+                                    action="#{viewScope.SetupTableMBean.pcsShortNameSetUpTable}"
+                                    inlineStyle="font-weight:bold;"/>
+                <af:commandMenuItem text="Product Service" id="cmi9"
+                                    action="#{viewScope.SetupTableMBean.productServiceSetUpTable}"
+                                    inlineStyle="font-weight:bold;"/>
+                <af:commandMenuItem text="Terminals" id="cmi1" action="#{viewScope.SetupTableMBean.terminalSetUpTable}"
+                                    inlineStyle="font-weight:bold;"/>
+                <af:commandMenuItem text="Vehicle Types" id="cmi5"
+                                    action="#{viewScope.SetupTableMBean.vehicleTypesSetUpTable}"
                                     inlineStyle="font-weight:bold;"/>
               </af:menu>
             </af:menuBar>

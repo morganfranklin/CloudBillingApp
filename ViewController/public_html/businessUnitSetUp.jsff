@@ -314,13 +314,16 @@
                                     shortDesc="#{bindings.AccountingClass1.hints.tooltip}">
                 <f:validator binding="#{bindings.AccountingClass1.validator}"/>
               </af:inputListOfValues>
-              <af:selectOneChoice value="#{bindings.Inactive.inputValue}" label="#{bindings.Inactive.label}"
-                                  required="#{bindings.Inactive.hints.mandatory}"
-                                  shortDesc="#{bindings.Inactive.hints.tooltip}" id="soc4" autoSubmit="true"
-                                  valueChangeListener="#{pageFlowScope.BusinessUnitSetUpTableMBean.businessUnitInactiveValChgLstnr}">
-                <f:selectItems value="#{bindings.Inactive.items}" id="si4"/>
-                <f:validator binding="#{bindings.Inactive.validator}"/>
-              </af:selectOneChoice>
+              <af:panelLabelAndMessage label="#{bindings.Inactive.label}" id="plam1">
+                <af:selectOneChoice value="#{bindings.Inactive.inputValue}" label="#{bindings.Inactive.label}"
+                                    required="#{bindings.Inactive.hints.mandatory}"
+                                    shortDesc="#{bindings.Inactive.hints.tooltip}" id="soc4" autoSubmit="true"
+                                    valueChangeListener="#{pageFlowScope.BusinessUnitSetUpTableMBean.businessUnitInactiveValChgLstnr}"
+                                    simple="true">
+                  <f:selectItems value="#{bindings.Inactive.items}" id="si4"/>
+                  <f:validator binding="#{bindings.Inactive.validator}"/>
+                </af:selectOneChoice>
+              </af:panelLabelAndMessage>
               <af:inputDate value="#{bindings.InactiveDate.inputValue}" label="#{bindings.InactiveDate.hints.label}"
                             required="#{bindings.InactiveDate.hints.mandatory}"
                             columns="#{bindings.InactiveDate.hints.displayWidth}"

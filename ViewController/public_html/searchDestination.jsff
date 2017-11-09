@@ -10,6 +10,7 @@
                       queryOperationListener="#{pageFlowScope.DestinationSetUpTableMBean.queryOperationListener}"
                       resultComponentId="::resId1"/>
         </af:panelHeader>
+        <af:spacer width="10" height="10" id="s1"/>
         <af:panelHeader text="Destinations" id="ph2" size="5">
             <af:table value="#{bindings.XpeDccCfgDestinationsEOVO.collectionModel}" var="row"
                       rows="#{bindings.XpeDccCfgDestinationsEOVO.rangeSize}"

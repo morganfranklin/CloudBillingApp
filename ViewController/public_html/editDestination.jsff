@@ -23,13 +23,16 @@
                               shortDesc="#{bindings.State.hints.tooltip}" id="it2">
                     <f:validator binding="#{bindings.State.validator}"/>
                 </af:inputText>
-                <af:selectOneChoice value="#{bindings.Inactive.inputValue}" label="#{bindings.Inactive.label}"
-                                    required="#{bindings.Inactive.hints.mandatory}"
-                                    shortDesc="#{bindings.Inactive.hints.tooltip}" id="soc1" autoSubmit="true"
-                                    valueChangeListener="#{pageFlowScope.DestinationSetUpTableMBean.onDestinationInactiveValChgLstnr}">
-                    <f:selectItems value="#{bindings.Inactive.items}" id="si1"/>
-                    <f:validator binding="#{bindings.Inactive.validator}"/>
-                </af:selectOneChoice>
+                <af:panelLabelAndMessage label="#{bindings.Inactive.label}" id="plam4">
+                    <af:selectOneChoice value="#{bindings.Inactive.inputValue}" label="#{bindings.Inactive.label}"
+                                        required="#{bindings.Inactive.hints.mandatory}"
+                                        shortDesc="#{bindings.Inactive.hints.tooltip}" id="soc1" autoSubmit="true"
+                                        valueChangeListener="#{pageFlowScope.DestinationSetUpTableMBean.onDestinationInactiveValChgLstnr}"
+                                        simple="true">
+                        <f:selectItems value="#{bindings.Inactive.items}" id="si1"/>
+                        <f:validator binding="#{bindings.Inactive.validator}"/>
+                    </af:selectOneChoice>
+                </af:panelLabelAndMessage>
                 <af:inputDate value="#{bindings.InactiveDate.inputValue}" label="#{bindings.InactiveDate.hints.label}"
                               required="#{bindings.InactiveDate.hints.mandatory}"
                               columns="#{bindings.InactiveDate.hints.displayWidth}"
@@ -91,16 +94,15 @@
                     </af:outputText>
                 </af:column>
             </af:table>
+            <af:spacer width="10" height="10" id="s4"/>
         </af:panelHeader>
-        <af:spacer width="10" height="10" id="s4"/>
-        <af:group id="g1">
-            <af:button actionListener="#{bindings.Commit.execute}" text="Save"
-                       id="b1"/>
+        <af:panelGroupLayout id="pgl1" layout="horizontal">
+            <af:button actionListener="#{bindings.Commit.execute}" text="Save" id="b1"/>
             <af:spacer width="10" height="10" id="s1"/>
-            <af:button actionListener="#{bindings.Rollback.execute}" text="Back" immediate="true" id="b2" action="Back">
+            <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel" immediate="true" id="b2" action="Back">
                 <af:resetActionListener/>
             </af:button>
-        </af:group>       
+        </af:panelGroupLayout>       
         <af:popup autoCancel="disabled" id="p1" contentDelivery="lazyUncached"
                   binding="#{backingBeanScope.DestinationSetUpTableBBean.terminalSearch_popup}">
             <af:dialog id="d1" type="none" closeIconVisible="false" title="Add Destination Terminal">
@@ -108,6 +110,7 @@
                 <f:facet name="buttonBar">
                     <af:button text="Ok" id="b5"
                                actionListener="#{pageFlowScope.DestinationSetUpTableMBean.onTerminalSearchSave}"/>
+                    <af:spacer width="10" height="10" id="s5"/>
                     <af:button text="Cancel" id="b4"
                                actionListener="#{pageFlowScope.DestinationSetUpTableMBean.onTerminalSearchCancel}"/>
                 </f:facet>
@@ -140,14 +143,16 @@
                                   shortDesc="#{bindings.DestinationId1.hints.tooltip}" id="it3">
                         <f:validator binding="#{bindings.DestinationId1.validator}"/>
                     </af:inputText>
-                    <af:selectOneChoice value="#{bindings.Inactive1.inputValue}" label="#{bindings.Inactive1.label}"
-                                        required="#{bindings.Inactive1.hints.mandatory}"
-                                        shortDesc="#{bindings.Inactive1.hints.tooltip}" id="soc3"
-                                        valueChangeListener="#{pageFlowScope.DestinationSetUpTableMBean.onInactiveValChgLstnr}"
-                                        autoSubmit="true">
-                        <f:selectItems value="#{bindings.Inactive1.items}" id="si3"/>
-                        <f:validator binding="#{bindings.Inactive1.validator}"/>
-                    </af:selectOneChoice>
+                    <af:panelLabelAndMessage label="#{bindings.Inactive1.label}" id="plam5">
+                        <af:selectOneChoice value="#{bindings.Inactive1.inputValue}" label="#{bindings.Inactive1.label}"
+                                            required="#{bindings.Inactive1.hints.mandatory}"
+                                            shortDesc="#{bindings.Inactive1.hints.tooltip}" id="soc3"
+                                            valueChangeListener="#{pageFlowScope.DestinationSetUpTableMBean.onInactiveValChgLstnr}"
+                                            autoSubmit="true" simple="true">
+                            <f:selectItems value="#{bindings.Inactive1.items}" id="si3"/>
+                            <f:validator binding="#{bindings.Inactive1.validator}"/>
+                        </af:selectOneChoice>
+                    </af:panelLabelAndMessage>
                     <af:inputDate value="#{bindings.InactiveDate1.inputValue}"
                                   label="#{bindings.InactiveDate1.hints.label}"
                                   required="#{bindings.InactiveDate1.hints.mandatory}"

@@ -40,10 +40,6 @@
           <af:outputText value="#{row.SiteDesc}" shortDesc="#{bindings.XpeDccCfgPcsEOVO.hints.SiteDesc.tooltip}"
                          id="ot2"/>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgPcsEOVO.hints.FacilityId.label}" id="resId1c3">
-          <af:outputText value="#{row.FacilityId}" shortDesc="#{bindings.XpeDccCfgPcsEOVO.hints.FacilityId.tooltip}"
-                         id="ot3"/>
-        </af:column>
         <af:column headerText="#{bindings.XpeDccCfgPcsEOVO.hints.DbLink.label}" id="resId1c4">
           <af:outputText value="#{row.DbLink}" shortDesc="#{bindings.XpeDccCfgPcsEOVO.hints.DbLink.tooltip}" id="ot4"/>
         </af:column>

@@ -29,13 +29,16 @@
                               shortDesc="#{bindings.CreditUtilization.hints.tooltip}" id="it3">
                     <f:validator binding="#{bindings.CreditUtilization.validator}"/>
                 </af:inputText>
-                <af:selectOneChoice value="#{bindings.Inactive.inputValue}" label="#{bindings.Inactive.label}"
-                                    required="#{bindings.Inactive.hints.mandatory}"
-                                    shortDesc="#{bindings.Inactive.hints.tooltip}" id="soc1" autoSubmit="true"
-                                    valueChangeListener="#{pageFlowScope.NotificationSetUpTableMBean.inactiveNotificationValChgLstnr}">
-                    <f:selectItems value="#{bindings.Inactive.items}" id="si1"/>
-                    <f:validator binding="#{bindings.Inactive.validator}"/>
-                </af:selectOneChoice>
+                <af:panelLabelAndMessage label="#{bindings.Inactive.label}" id="plam2">
+                    <af:selectOneChoice value="#{bindings.Inactive.inputValue}" label="#{bindings.Inactive.label}"
+                                        required="#{bindings.Inactive.hints.mandatory}"
+                                        shortDesc="#{bindings.Inactive.hints.tooltip}" id="soc1" autoSubmit="true"
+                                        valueChangeListener="#{pageFlowScope.NotificationSetUpTableMBean.inactiveNotificationValChgLstnr}"
+                                        simple="true">
+                        <f:selectItems value="#{bindings.Inactive.items}" id="si1"/>
+                        <f:validator binding="#{bindings.Inactive.validator}"/>
+                    </af:selectOneChoice>
+                </af:panelLabelAndMessage>
                 <af:inputDate value="#{bindings.InactiveDate.inputValue}" label="#{bindings.InactiveDate.hints.label}"
                               required="#{bindings.InactiveDate.hints.mandatory}"
                               columns="#{bindings.InactiveDate.hints.displayWidth}"
@@ -173,16 +176,14 @@
                     <f:facet name="footer"/>
                 </af:richTextEditor>
             </af:panelFormLayout>
+            <af:spacer width="10" height="10" id="s5"/>
         </af:panelHeader>
-        <af:spacer width="10" height="10" id="s5"/>
-        <af:group id="g1">
-            <af:button actionListener="#{bindings.Commit.execute}" text="Save"
-                       id="b3"/>
+        <af:panelGroupLayout id="pgl2" layout="horizontal">
+            <af:button actionListener="#{bindings.Commit.execute}" text="Save" id="b3"/>
             <af:spacer width="10" height="10" id="s4"/>
-            <af:button actionListener="#{bindings.Rollback.execute}" text="Back"
-                       immediate="true" id="b4" action="Back">
+            <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel" immediate="true" id="b4" action="Back">
                 <af:resetActionListener/>
             </af:button>
-        </af:group>
+        </af:panelGroupLayout>
     </af:panelGroupLayout>
 </ui:composition>

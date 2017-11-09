@@ -18,8 +18,6 @@
           <af:button action="#{bindings.CreateInsert.execute}" text="Add Item"
                      disabled="#{!bindings.CreateInsert.enabled}" id="b1"
                      actionListener="#{pageFlowScope.generalSetUpTableMBean.onGeneralItemCreation}"/>
-          <!--<af:button action="#{bindings.Delete.execute}" text="Delete" disabled="#{!bindings.Delete.enabled}" id="b6"
-                     actionListener="#{pageFlowScope.generalSetUpTableMBean.onGeneralItemDelete}"/>-->
         </af:toolbar>
       </f:facet>
       <f:facet name="menuBar"/>
@@ -58,6 +56,7 @@
         <f:facet name="buttonBar">
           <af:button action="#{bindings.Commit.execute}" text="Save" disabled="#{!bindings.Commit.enabled}"
                      id="b2" actionListener="#{pageFlowScope.generalSetUpTableMBean.onGeneralItemSaveOrCancel}"/>
+          <af:spacer width="10" height="10" id="s3"/>
           <af:button action="#{bindings.Rollback.execute}" text="Cancel"
                      disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b3"
                      actionListener="#{pageFlowScope.generalSetUpTableMBean.onGeneralItemSaveOrCancel}">
@@ -71,12 +70,14 @@
                         id="it1">
             <f:validator binding="#{bindings.ItemId.validator}"/>
           </af:inputText>
-          <af:selectOneChoice value="#{bindings.ItemListType.inputValue}" label="#{bindings.ItemListType.label}"
-                              required="#{bindings.ItemListType.hints.mandatory}"
-                              shortDesc="#{bindings.ItemListType.hints.tooltip}" id="soc2">
-            <f:selectItems value="#{bindings.ItemListType.items}" id="si2"/>
-            <f:validator binding="#{bindings.ItemListType.validator}"/>
-          </af:selectOneChoice>
+          <af:panelLabelAndMessage label="#{bindings.ItemListType.label}" id="plam2">
+            <af:selectOneChoice value="#{bindings.ItemListType.inputValue}" label="#{bindings.ItemListType.label}"
+                                required="#{bindings.ItemListType.hints.mandatory}"
+                                shortDesc="#{bindings.ItemListType.hints.tooltip}" id="soc2" simple="true">
+              <f:selectItems value="#{bindings.ItemListType.items}" id="si2"/>
+              <f:validator binding="#{bindings.ItemListType.validator}"/>
+            </af:selectOneChoice>
+          </af:panelLabelAndMessage>
           <af:inputText value="#{bindings.ValidValue.inputValue}" label="#{bindings.ValidValue.hints.label}"
                         required="#{bindings.ValidValue.hints.mandatory}"
                         columns="#{bindings.ValidValue.hints.displayWidth}"
@@ -94,6 +95,7 @@
         <f:facet name="buttonBar">
           <af:button action="#{bindings.Commit.execute}" text="Save" 
                      id="b4" actionListener="#{pageFlowScope.generalSetUpTableMBean.onGeneralItemEditSaveOrCancel}"/>
+          <af:spacer width="10" height="10" id="s2"/>
           <af:button action="#{bindings.Rollback.execute}" text="Cancel"
                      immediate="true" id="b5"
                      actionListener="#{pageFlowScope.generalSetUpTableMBean.onGeneralItemEditSaveOrCancel}">
@@ -105,12 +107,14 @@
             <af:outputText value="#{bindings.ItemId1.inputValue}" shortDesc="#{bindings.ItemId1.hints.tooltip}"
                            id="ot1"/>
           </af:panelLabelAndMessage>
-          <af:selectOneChoice value="#{bindings.ItemListType1.inputValue}" label="#{bindings.ItemListType1.label}"
-                              required="#{bindings.ItemListType1.hints.mandatory}"
-                              shortDesc="#{bindings.ItemListType1.hints.tooltip}" id="soc3">
-            <f:selectItems value="#{bindings.ItemListType1.items}" id="si3"/>
-            <f:validator binding="#{bindings.ItemListType1.validator}"/>
-          </af:selectOneChoice>
+          <af:panelLabelAndMessage label="#{bindings.ItemListType1.label}" id="plam3">
+            <af:selectOneChoice value="#{bindings.ItemListType1.inputValue}" label="#{bindings.ItemListType1.label}"
+                                required="#{bindings.ItemListType1.hints.mandatory}"
+                                shortDesc="#{bindings.ItemListType1.hints.tooltip}" id="soc3" simple="true">
+              <f:selectItems value="#{bindings.ItemListType1.items}" id="si3"/>
+              <f:validator binding="#{bindings.ItemListType1.validator}"/>
+            </af:selectOneChoice>
+          </af:panelLabelAndMessage>
           <af:inputText value="#{bindings.ValidValue1.inputValue}" label="#{bindings.ValidValue1.hints.label}"
                         required="#{bindings.ValidValue1.hints.mandatory}"
                         columns="#{bindings.ValidValue1.hints.displayWidth}"

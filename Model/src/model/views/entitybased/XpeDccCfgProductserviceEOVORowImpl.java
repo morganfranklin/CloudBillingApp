@@ -14,6 +14,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
 public class XpeDccCfgProductserviceEOVORowImpl extends ViewRowImpl {
 
+
     public static final int ENTITY_XPEDCCCFGPRODUCTSERVICEEO = 0;
 
     /**
@@ -33,13 +34,17 @@ public class XpeDccCfgProductserviceEOVORowImpl extends ViewRowImpl {
         CreatedDate,
         LastUpdatedBy,
         LastUpdatedDate,
+        Pcsuom,
+        WeightClass,
         XpeDccCfgUomEOVO,
         LookupSharedAppModule_ProductServiceItemLOV,
         LookupSharedAppModule_ProductServiceINOUTLOV,
         LookupSharedAppModule_ProductServiceClassTypeLOV,
         XpeDccGeneralItemListROVO_CategoryLOV,
         XpeDccGeneralItemListROVO_AccountBoundClassLOV,
-        LookupSharedAppModule_YONLOV;
+        LookupSharedAppModule_YONLOV,
+        XpeDccGeneralItemListROVO1,
+        XpeDccGeneralItemListROVO2;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -64,6 +69,7 @@ public class XpeDccCfgProductserviceEOVORowImpl extends ViewRowImpl {
         }
     }
 
+
     public static final int ITEMID = AttributesEnum.ItemId.index();
     public static final int ITEMTYPE = AttributesEnum.ItemType.index();
     public static final int DESCRIPTION = AttributesEnum.Description.index();
@@ -77,6 +83,8 @@ public class XpeDccCfgProductserviceEOVORowImpl extends ViewRowImpl {
     public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
+    public static final int PCSUOM = AttributesEnum.Pcsuom.index();
+    public static final int WEIGHTCLASS = AttributesEnum.WeightClass.index();
     public static final int XPEDCCCFGUOMEOVO = AttributesEnum.XpeDccCfgUomEOVO.index();
     public static final int LOOKUPSHAREDAPPMODULE_PRODUCTSERVICEITEMLOV =
         AttributesEnum.LookupSharedAppModule_ProductServiceItemLOV.index();
@@ -89,6 +97,8 @@ public class XpeDccCfgProductserviceEOVORowImpl extends ViewRowImpl {
     public static final int XPEDCCGENERALITEMLISTROVO_ACCOUNTBOUNDCLASSLOV =
         AttributesEnum.XpeDccGeneralItemListROVO_AccountBoundClassLOV.index();
     public static final int LOOKUPSHAREDAPPMODULE_YONLOV = AttributesEnum.LookupSharedAppModule_YONLOV.index();
+    public static final int XPEDCCGENERALITEMLISTROVO1 = AttributesEnum.XpeDccGeneralItemListROVO1.index();
+    public static final int XPEDCCGENERALITEMLISTROVO2 = AttributesEnum.XpeDccGeneralItemListROVO2.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -313,6 +323,38 @@ public class XpeDccCfgProductserviceEOVORowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for PCSUOM using the alias name Pcsuom.
+     * @return the PCSUOM
+     */
+    public String getPcsuom() {
+        return (String) getAttributeInternal(PCSUOM);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for PCSUOM using the alias name Pcsuom.
+     * @param value value to set the PCSUOM
+     */
+    public void setPcsuom(String value) {
+        setAttributeInternal(PCSUOM, value);
+    }
+
+    /**
+     * Gets the attribute value for WEIGHT_CLASS using the alias name WeightClass.
+     * @return the WEIGHT_CLASS
+     */
+    public String getWeightClass() {
+        return (String) getAttributeInternal(WEIGHTCLASS);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for WEIGHT_CLASS using the alias name WeightClass.
+     * @param value value to set the WEIGHT_CLASS
+     */
+    public void setWeightClass(String value) {
+        setAttributeInternal(WEIGHTCLASS, value);
+    }
+
+    /**
      * Gets the associated <code>RowIterator</code> using master-detail link XpeDccCfgUomEOVO.
      */
     public RowIterator getXpeDccCfgUomEOVO() {
@@ -359,6 +401,20 @@ public class XpeDccCfgProductserviceEOVORowImpl extends ViewRowImpl {
      */
     public RowSet getLookupSharedAppModule_YONLOV() {
         return (RowSet) getAttributeInternal(LOOKUPSHAREDAPPMODULE_YONLOV);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> XpeDccGeneralItemListROVO1.
+     */
+    public RowSet getXpeDccGeneralItemListROVO1() {
+        return (RowSet) getAttributeInternal(XPEDCCGENERALITEMLISTROVO1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> XpeDccGeneralItemListROVO2.
+     */
+    public RowSet getXpeDccGeneralItemListROVO2() {
+        return (RowSet) getAttributeInternal(XPEDCCGENERALITEMLISTROVO2);
     }
 }
 

@@ -22,11 +22,6 @@
         <Item Value="SiteDesc"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="XpeDccCfgNewPcsEOVOIterator" id="FacilityId">
-      <AttrNames>
-        <Item Value="FacilityId"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="XpeDccCfgNewPcsEOVOIterator" id="DbLink">
       <AttrNames>
         <Item Value="DbLink"/>

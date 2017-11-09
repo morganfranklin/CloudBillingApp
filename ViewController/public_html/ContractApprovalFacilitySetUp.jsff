@@ -126,12 +126,15 @@
               </af:button>
             </f:facet>
             <af:panelFormLayout id="pfl3">
-              <af:selectOneChoice value="#{bindings.XpeFacilityId2.inputValue}" label="#{bindings.XpeFacilityId2.label}"
-                                  required="#{bindings.XpeFacilityId2.hints.mandatory}"
-                                  shortDesc="#{bindings.XpeFacilityId2.hints.tooltip}" id="soc9">
-                <f:selectItems value="#{bindings.XpeFacilityId2.items}" id="si9"/>
-                <f:validator binding="#{bindings.XpeFacilityId2.validator}"/>
-              </af:selectOneChoice>
+              <af:panelLabelAndMessage label="#{bindings.XpeFacilityId2.label}" id="plam5">
+                <af:selectOneChoice value="#{bindings.XpeFacilityId2.inputValue}"
+                                    label="#{bindings.XpeFacilityId2.label}"
+                                    required="#{bindings.XpeFacilityId2.hints.mandatory}"
+                                    shortDesc="#{bindings.XpeFacilityId2.hints.tooltip}" id="soc9" simple="true">
+                  <f:selectItems value="#{bindings.XpeFacilityId2.items}" id="si9"/>
+                  <f:validator binding="#{bindings.XpeFacilityId2.validator}"/>
+                </af:selectOneChoice>
+              </af:panelLabelAndMessage>
               <af:inputText value="#{bindings.CustomerCareReview1.inputValue}"
                             label="#{bindings.CustomerCareReview1.hints.label}"
                             required="#{bindings.CustomerCareReview1.hints.mandatory}"
@@ -173,12 +176,16 @@
               </af:button>
             </f:facet>
             <af:panelFormLayout id="pfl2">
-              <af:selectOneChoice value="#{bindings.XpeFacilityId1.inputValue}" label="#{bindings.XpeFacilityId1.label}"
-                                  required="#{bindings.XpeFacilityId1.hints.mandatory}"
-                                  shortDesc="#{bindings.XpeFacilityId1.hints.tooltip}" readOnly="true" id="soc8">
-                <f:selectItems value="#{bindings.XpeFacilityId1.items}" id="si8"/>
-                <f:validator binding="#{bindings.XpeFacilityId1.validator}"/>
-              </af:selectOneChoice>
+              <af:panelLabelAndMessage label="#{bindings.XpeFacilityId1.label}" id="plam6">
+                <af:selectOneChoice value="#{bindings.XpeFacilityId1.inputValue}"
+                                    label="#{bindings.XpeFacilityId1.label}"
+                                    required="#{bindings.XpeFacilityId1.hints.mandatory}"
+                                    shortDesc="#{bindings.XpeFacilityId1.hints.tooltip}" readOnly="true" id="soc8"
+                                    simple="true">
+                  <f:selectItems value="#{bindings.XpeFacilityId1.items}" id="si8"/>
+                  <f:validator binding="#{bindings.XpeFacilityId1.validator}"/>
+                </af:selectOneChoice>
+              </af:panelLabelAndMessage>
               <af:inputText value="#{bindings.CustomerCareReview.inputValue}"
                             label="#{bindings.CustomerCareReview.hints.label}"
                             required="#{bindings.CustomerCareReview.hints.mandatory}"
@@ -202,13 +209,16 @@
                             shortDesc="#{bindings.GeneralManagerReview.hints.tooltip}" id="it3">
                 <f:validator binding="#{bindings.GeneralManagerReview.validator}"/>
               </af:inputText>
-              <af:selectOneChoice value="#{bindings.Inactive.inputValue}" label="#{bindings.Inactive.label}"
-                                  required="#{bindings.Inactive.hints.mandatory}"
-                                  shortDesc="#{bindings.Inactive.hints.tooltip}" id="soc10" autoSubmit="true"
-                                  valueChangeListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.mswInactiveValChgLstnr}">
-                <f:selectItems value="#{bindings.Inactive.items}" id="si10"/>
-                <f:validator binding="#{bindings.Inactive.validator}"/>
-              </af:selectOneChoice>
+              <af:panelLabelAndMessage label="#{bindings.Inactive.label}" id="plam7">
+                <af:selectOneChoice value="#{bindings.Inactive.inputValue}" label="#{bindings.Inactive.label}"
+                                    required="#{bindings.Inactive.hints.mandatory}"
+                                    shortDesc="#{bindings.Inactive.hints.tooltip}" id="soc10" autoSubmit="true"
+                                    valueChangeListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.mswInactiveValChgLstnr}"
+                                    simple="true">
+                  <f:selectItems value="#{bindings.Inactive.items}" id="si10"/>
+                  <f:validator binding="#{bindings.Inactive.validator}"/>
+                </af:selectOneChoice>
+              </af:panelLabelAndMessage>
               <af:inputDate value="#{bindings.InactiveDate.inputValue}" label="#{bindings.InactiveDate.hints.label}"
                             required="#{bindings.InactiveDate.hints.mandatory}"
                             columns="#{bindings.InactiveDate.hints.displayWidth}"
@@ -299,12 +309,15 @@
               </af:button>
             </f:facet>
             <af:panelFormLayout id="pfl5">
-              <af:selectOneChoice value="#{bindings.XpeFacilityId4.inputValue}" label="#{bindings.XpeFacilityId4.label}"
-                                  required="#{bindings.XpeFacilityId4.hints.mandatory}"
-                                  shortDesc="#{bindings.XpeFacilityId4.hints.tooltip}" id="soc13">
-                <f:selectItems value="#{bindings.XpeFacilityId4.items}" id="si13"/>
-                <f:validator binding="#{bindings.XpeFacilityId4.validator}"/>
-              </af:selectOneChoice>
+              <af:panelLabelAndMessage label="#{bindings.XpeFacilityId4.label}" id="plam8">
+                <af:selectOneChoice value="#{bindings.XpeFacilityId4.inputValue}"
+                                    label="#{bindings.XpeFacilityId4.label}"
+                                    required="#{bindings.XpeFacilityId4.hints.mandatory}"
+                                    shortDesc="#{bindings.XpeFacilityId4.hints.tooltip}" id="soc13" simple="true">
+                  <f:selectItems value="#{bindings.XpeFacilityId4.items}" id="si13"/>
+                  <f:validator binding="#{bindings.XpeFacilityId4.validator}"/>
+                </af:selectOneChoice>
+              </af:panelLabelAndMessage>
               <af:inputText value="#{bindings.CustomerCareReview3.inputValue}"
                             label="#{bindings.CustomerCareReview3.hints.label}"
                             required="#{bindings.CustomerCareReview3.hints.mandatory}"
@@ -375,12 +388,16 @@
               </af:button>
             </f:facet>
             <af:panelFormLayout id="pfl4">
-              <af:selectOneChoice value="#{bindings.XpeFacilityId3.inputValue}" label="#{bindings.XpeFacilityId3.label}"
-                                  required="#{bindings.XpeFacilityId3.hints.mandatory}"
-                                  shortDesc="#{bindings.XpeFacilityId3.hints.tooltip}" readOnly="true" id="soc11">
-                <f:selectItems value="#{bindings.XpeFacilityId3.items}" id="si11"/>
-                <f:validator binding="#{bindings.XpeFacilityId3.validator}"/>
-              </af:selectOneChoice>
+              <af:panelLabelAndMessage label="#{bindings.XpeFacilityId3.label}" id="plam9">
+                <af:selectOneChoice value="#{bindings.XpeFacilityId3.inputValue}"
+                                    label="#{bindings.XpeFacilityId3.label}"
+                                    required="#{bindings.XpeFacilityId3.hints.mandatory}"
+                                    shortDesc="#{bindings.XpeFacilityId3.hints.tooltip}" readOnly="true" id="soc11"
+                                    simple="true">
+                  <f:selectItems value="#{bindings.XpeFacilityId3.items}" id="si11"/>
+                  <f:validator binding="#{bindings.XpeFacilityId3.validator}"/>
+                </af:selectOneChoice>
+              </af:panelLabelAndMessage>
               <af:inputText value="#{bindings.CustomerCareReview2.inputValue}"
                             label="#{bindings.CustomerCareReview2.hints.label}"
                             required="#{bindings.CustomerCareReview2.hints.mandatory}"
@@ -433,13 +450,16 @@
                             shortDesc="#{bindings.CeoReview.hints.tooltip}" id="it13">
                 <f:validator binding="#{bindings.CeoReview.validator}"/>
               </af:inputText>
-              <af:selectOneChoice value="#{bindings.Inactive1.inputValue}" label="#{bindings.Inactive1.label}"
-                                  required="#{bindings.Inactive1.hints.mandatory}"
-                                  shortDesc="#{bindings.Inactive1.hints.tooltip}" id="soc12" autoSubmit="true"
-                                  valueChangeListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.cmtmntInactiveValChgLstnr}">
-                <f:selectItems value="#{bindings.Inactive1.items}" id="si12"/>
-                <f:validator binding="#{bindings.Inactive1.validator}"/>
-              </af:selectOneChoice>
+              <af:panelLabelAndMessage label="#{bindings.Inactive1.label}" id="plam10">
+                <af:selectOneChoice value="#{bindings.Inactive1.inputValue}" label="#{bindings.Inactive1.label}"
+                                    required="#{bindings.Inactive1.hints.mandatory}"
+                                    shortDesc="#{bindings.Inactive1.hints.tooltip}" id="soc12" autoSubmit="true"
+                                    valueChangeListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.cmtmntInactiveValChgLstnr}"
+                                    simple="true">
+                  <f:selectItems value="#{bindings.Inactive1.items}" id="si12"/>
+                  <f:validator binding="#{bindings.Inactive1.validator}"/>
+                </af:selectOneChoice>
+              </af:panelLabelAndMessage>
               <af:inputDate value="#{bindings.InactiveDate1.inputValue}" label="#{bindings.InactiveDate1.hints.label}"
                             required="#{bindings.InactiveDate1.hints.mandatory}"
                             columns="#{bindings.InactiveDate1.hints.displayWidth}"
@@ -517,12 +537,15 @@
               </af:button>
             </f:facet>
             <af:panelFormLayout id="pfl7">
-              <af:selectOneChoice value="#{bindings.XpeFacilityId6.inputValue}" label="#{bindings.XpeFacilityId6.label}"
-                                  required="#{bindings.XpeFacilityId6.hints.mandatory}"
-                                  shortDesc="#{bindings.XpeFacilityId6.hints.tooltip}" id="soc17">
-                <f:selectItems value="#{bindings.XpeFacilityId6.items}" id="si17"/>
-                <f:validator binding="#{bindings.XpeFacilityId6.validator}"/>
-              </af:selectOneChoice>
+              <af:panelLabelAndMessage label="#{bindings.XpeFacilityId6.label}" id="plam11">
+                <af:selectOneChoice value="#{bindings.XpeFacilityId6.inputValue}"
+                                    label="#{bindings.XpeFacilityId6.label}"
+                                    required="#{bindings.XpeFacilityId6.hints.mandatory}"
+                                    shortDesc="#{bindings.XpeFacilityId6.hints.tooltip}" id="soc17" simple="true">
+                  <f:selectItems value="#{bindings.XpeFacilityId6.items}" id="si17"/>
+                  <f:validator binding="#{bindings.XpeFacilityId6.validator}"/>
+                </af:selectOneChoice>
+              </af:panelLabelAndMessage>
               <af:inputText value="#{bindings.CustomerCareReview5.inputValue}"
                             label="#{bindings.CustomerCareReview5.hints.label}"
                             required="#{bindings.CustomerCareReview5.hints.mandatory}"
@@ -553,12 +576,14 @@
                             shortDesc="#{bindings.SvpReview1.hints.tooltip}" id="it28">
                 <f:validator binding="#{bindings.SvpReview1.validator}"/>
               </af:inputText>
-              <af:selectOneChoice value="#{bindings.Inactive4.inputValue}" label="#{bindings.Inactive4.label}"
-                                  required="#{bindings.Inactive4.hints.mandatory}"
-                                  shortDesc="#{bindings.Inactive4.hints.tooltip}" id="soc18">
-                <f:selectItems value="#{bindings.Inactive4.items}" id="si18"/>
-                <f:validator binding="#{bindings.Inactive4.validator}"/>
-              </af:selectOneChoice>
+              <af:panelLabelAndMessage label="#{bindings.Inactive4.label}" id="plam12">
+                <af:selectOneChoice value="#{bindings.Inactive4.inputValue}" label="#{bindings.Inactive4.label}"
+                                    required="#{bindings.Inactive4.hints.mandatory}"
+                                    shortDesc="#{bindings.Inactive4.hints.tooltip}" id="soc18" simple="true">
+                  <f:selectItems value="#{bindings.Inactive4.items}" id="si18"/>
+                  <f:validator binding="#{bindings.Inactive4.validator}"/>
+                </af:selectOneChoice>
+              </af:panelLabelAndMessage>
               <af:inputDate value="#{bindings.InactiveDate4.inputValue}" label="#{bindings.InactiveDate4.hints.label}"
                             required="#{bindings.InactiveDate4.hints.mandatory}"
                             columns="#{bindings.InactiveDate4.hints.displayWidth}"
@@ -584,12 +609,16 @@
               </af:button>
             </f:facet>
             <af:panelFormLayout id="pfl6">
-              <af:selectOneChoice value="#{bindings.XpeFacilityId5.inputValue}" label="#{bindings.XpeFacilityId5.label}"
-                                  required="#{bindings.XpeFacilityId5.hints.mandatory}"
-                                  shortDesc="#{bindings.XpeFacilityId5.hints.tooltip}" readOnly="true" id="soc15">
-                <f:selectItems value="#{bindings.XpeFacilityId5.items}" id="si15"/>
-                <f:validator binding="#{bindings.XpeFacilityId5.validator}"/>
-              </af:selectOneChoice>
+              <af:panelLabelAndMessage label="#{bindings.XpeFacilityId5.label}" id="plam13">
+                <af:selectOneChoice value="#{bindings.XpeFacilityId5.inputValue}"
+                                    label="#{bindings.XpeFacilityId5.label}"
+                                    required="#{bindings.XpeFacilityId5.hints.mandatory}"
+                                    shortDesc="#{bindings.XpeFacilityId5.hints.tooltip}" readOnly="true" id="soc15"
+                                    simple="true">
+                  <f:selectItems value="#{bindings.XpeFacilityId5.items}" id="si15"/>
+                  <f:validator binding="#{bindings.XpeFacilityId5.validator}"/>
+                </af:selectOneChoice>
+              </af:panelLabelAndMessage>
               <af:inputText value="#{bindings.CustomerCareReview4.inputValue}"
                             label="#{bindings.CustomerCareReview4.hints.label}"
                             required="#{bindings.CustomerCareReview4.hints.mandatory}"
@@ -620,13 +649,16 @@
                             shortDesc="#{bindings.SvpReview.hints.tooltip}" id="it24">
                 <f:validator binding="#{bindings.SvpReview.validator}"/>
               </af:inputText>
-              <af:selectOneChoice value="#{bindings.Inactive3.inputValue}" label="#{bindings.Inactive3.label}"
-                                  required="#{bindings.Inactive3.hints.mandatory}"
-                                  shortDesc="#{bindings.Inactive3.hints.tooltip}" id="soc16" autoSubmit="true"
-                                  valueChangeListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.mtlInactiveValChgLstnr}">
-                <f:selectItems value="#{bindings.Inactive3.items}" id="si16"/>
-                <f:validator binding="#{bindings.Inactive3.validator}"/>
-              </af:selectOneChoice>
+              <af:panelLabelAndMessage label="#{bindings.Inactive3.label}" id="plam14">
+                <af:selectOneChoice value="#{bindings.Inactive3.inputValue}" label="#{bindings.Inactive3.label}"
+                                    required="#{bindings.Inactive3.hints.mandatory}"
+                                    shortDesc="#{bindings.Inactive3.hints.tooltip}" id="soc16" autoSubmit="true"
+                                    valueChangeListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.mtlInactiveValChgLstnr}"
+                                    simple="true">
+                  <f:selectItems value="#{bindings.Inactive3.items}" id="si16"/>
+                  <f:validator binding="#{bindings.Inactive3.validator}"/>
+                </af:selectOneChoice>
+              </af:panelLabelAndMessage>
               <af:inputDate value="#{bindings.InactiveDate3.inputValue}" label="#{bindings.InactiveDate3.hints.label}"
                             required="#{bindings.InactiveDate3.hints.mandatory}"
                             columns="#{bindings.InactiveDate3.hints.displayWidth}"

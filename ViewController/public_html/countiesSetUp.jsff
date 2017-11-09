@@ -69,6 +69,7 @@
                         <af:button action="#{bindings.Commit.execute}" text="Save"
                                    disabled="#{!bindings.Commit.enabled}" id="b2"
                                    actionListener="#{pageFlowScope.countiesSetUpTableMBean.onCountyCreationSaveorCancel}"/>
+                        <af:spacer width="10" height="10" id="s3"/>
                         <af:button action="#{bindings.Rollback.execute}" text="Cancel"
                                    disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b3"
                                    actionListener="#{pageFlowScope.countiesSetUpTableMBean.onCountyCreationSaveorCancel}">
@@ -109,6 +110,7 @@
                         <af:button action="#{bindings.Commit.execute}" text="Save"
                                     id="b4"
                                    actionListener="#{pageFlowScope.countiesSetUpTableMBean.onCountyEditSaveorCancel}"/>
+                        <af:spacer width="10" height="10" id="s2"/>
                         <af:button action="#{bindings.Rollback.execute}" text="Cancel"
                                     immediate="true" id="b5"
                                    actionListener="#{pageFlowScope.countiesSetUpTableMBean.onCountyEditSaveorCancel}">
@@ -135,13 +137,18 @@
                                       shortDesc="#{bindings.State1.hints.tooltip}" id="it4">
                             <f:validator binding="#{bindings.State1.validator}"/>
                         </af:inputText>
-                        <af:selectOneChoice value="#{bindings.Inactive1.inputValue}" label="#{bindings.Inactive1.label}"
-                                            required="#{bindings.Inactive1.hints.mandatory}"
-                                            shortDesc="#{bindings.Inactive1.hints.tooltip}" id="soc1" autoSubmit="true"
-                                            valueChangeListener="#{pageFlowScope.countiesSetUpTableMBean.onInactiveValChgLstnr}">
-                            <f:selectItems value="#{bindings.Inactive1.items}" id="si1"/>
-                            <f:validator binding="#{bindings.Inactive1.validator}"/>
-                        </af:selectOneChoice>
+                        <af:panelLabelAndMessage label="#{bindings.Inactive1.label}" id="plam1">
+                            <af:selectOneChoice value="#{bindings.Inactive1.inputValue}"
+                                                label="#{bindings.Inactive1.label}"
+                                                required="#{bindings.Inactive1.hints.mandatory}"
+                                                shortDesc="#{bindings.Inactive1.hints.tooltip}" id="soc1"
+                                                autoSubmit="true"
+                                                valueChangeListener="#{pageFlowScope.countiesSetUpTableMBean.onInactiveValChgLstnr}"
+                                                simple="true">
+                                <f:selectItems value="#{bindings.Inactive1.items}" id="si1"/>
+                                <f:validator binding="#{bindings.Inactive1.validator}"/>
+                            </af:selectOneChoice>
+                        </af:panelLabelAndMessage>
                         <af:inputDate value="#{bindings.InactiveDate.inputValue}"
                                       label="#{bindings.InactiveDate.hints.label}"
                                       required="#{bindings.InactiveDate.hints.mandatory}"

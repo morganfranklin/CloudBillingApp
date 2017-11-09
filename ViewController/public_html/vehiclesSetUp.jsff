@@ -10,6 +10,7 @@
                 queryOperationListener="#{pageFlowScope.VehicleTypeSetUpTableMBean.queryOperationListener}"
                 resultComponentId="::resId1"/>
     </af:panelHeader>
+    <af:spacer width="10" height="10" id="s1"/>
     <af:panelHeader text="Vehicle Types" id="ph2" size="5">
       <f:facet name="context"/>
       <f:facet name="toolbar">
@@ -75,6 +76,7 @@
           <f:facet name="buttonBar">
             <af:button action="#{bindings.Commit.execute}" text="Save" disabled="#{!bindings.Commit.enabled}" id="b2"
                        actionListener="#{pageFlowScope.VehicleTypeSetUpTableMBean.onVehicleTypeCreationSaveorCancel}"/>
+            <af:spacer width="10" height="10" id="s2"/>
             <af:button action="#{bindings.Rollback.execute}" text="Cancel" disabled="#{!bindings.Rollback.enabled}"
                        immediate="true" id="b3"
                        actionListener="#{pageFlowScope.VehicleTypeSetUpTableMBean.onVehicleTypeCreationSaveorCancel}">
@@ -100,12 +102,15 @@
                           shortDesc="#{bindings.VehicleDesc.hints.tooltip}" id="it2" autoSubmit="true">
               <f:validator binding="#{bindings.VehicleDesc.validator}"/>
             </af:inputText>
-            <af:selectOneChoice value="#{bindings.RequireTrailer.inputValue}" label="#{bindings.RequireTrailer.label}"
-                                required="#{bindings.RequireTrailer.hints.mandatory}"
-                                shortDesc="#{bindings.RequireTrailer.hints.tooltip}" id="soc3" autoSubmit="true">
-              <f:selectItems value="#{bindings.RequireTrailer.items}" id="si3"/>
-              <f:validator binding="#{bindings.RequireTrailer.validator}"/>
-            </af:selectOneChoice>
+            <af:panelLabelAndMessage label="#{bindings.RequireTrailer.label}" id="plam3">
+              <af:selectOneChoice value="#{bindings.RequireTrailer.inputValue}" label="#{bindings.RequireTrailer.label}"
+                                  required="#{bindings.RequireTrailer.hints.mandatory}"
+                                  shortDesc="#{bindings.RequireTrailer.hints.tooltip}" id="soc3" autoSubmit="true"
+                                  simple="true">
+                <f:selectItems value="#{bindings.RequireTrailer.items}" id="si3"/>
+                <f:validator binding="#{bindings.RequireTrailer.validator}"/>
+              </af:selectOneChoice>
+            </af:panelLabelAndMessage>
           </af:panelFormLayout>
         </af:dialog>
       </af:popup>
@@ -116,6 +121,7 @@
           <f:facet name="buttonBar">
             <af:button action="#{bindings.Commit.execute}" text="Save" id="b4"
                        actionListener="#{pageFlowScope.VehicleTypeSetUpTableMBean.onVehicleTypeEditSaveorCancel}"/>
+            <af:spacer width="10" height="10" id="s3"/>
             <af:button action="#{bindings.Rollback.execute}" text="Cancel"
                        immediate="true" id="b5"
                        actionListener="#{pageFlowScope.VehicleTypeSetUpTableMBean.onVehicleTypeEditSaveorCancel}">
@@ -141,20 +147,25 @@
                           shortDesc="#{bindings.VehicleDesc1.hints.tooltip}" id="it4">
               <f:validator binding="#{bindings.VehicleDesc1.validator}"/>
             </af:inputText>
-            <af:selectOneChoice value="#{bindings.RequireTrailer1.inputValue}" label="#{bindings.RequireTrailer1.label}"
-                                required="#{bindings.RequireTrailer1.hints.mandatory}"
-                                shortDesc="#{bindings.RequireTrailer1.hints.tooltip}" id="soc4">
-              <f:selectItems value="#{bindings.RequireTrailer1.items}" id="si4"/>
-              <f:validator binding="#{bindings.RequireTrailer1.validator}"/>
-            </af:selectOneChoice>
-            <af:selectOneChoice value="#{bindings.Inactive1.inputValue}" label="#{bindings.Inactive1.label}"
-                                required="#{bindings.Inactive1.hints.mandatory}"
-                                shortDesc="#{bindings.Inactive1.hints.tooltip}" id="soc5"
-                                valueChangeListener="#{pageFlowScope.VehicleTypeSetUpTableMBean.onInactiveValChgLstnr}"
-                                autoSubmit="true">
-              <f:selectItems value="#{bindings.Inactive1.items}" id="si5"/>
-              <f:validator binding="#{bindings.Inactive1.validator}"/>
-            </af:selectOneChoice>
+            <af:panelLabelAndMessage label="#{bindings.RequireTrailer1.label}" id="plam4">
+              <af:selectOneChoice value="#{bindings.RequireTrailer1.inputValue}"
+                                  label="#{bindings.RequireTrailer1.label}"
+                                  required="#{bindings.RequireTrailer1.hints.mandatory}"
+                                  shortDesc="#{bindings.RequireTrailer1.hints.tooltip}" id="soc4" simple="true">
+                <f:selectItems value="#{bindings.RequireTrailer1.items}" id="si4"/>
+                <f:validator binding="#{bindings.RequireTrailer1.validator}"/>
+              </af:selectOneChoice>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.Inactive1.label}" id="plam5">
+              <af:selectOneChoice value="#{bindings.Inactive1.inputValue}" label="#{bindings.Inactive1.label}"
+                                  required="#{bindings.Inactive1.hints.mandatory}"
+                                  shortDesc="#{bindings.Inactive1.hints.tooltip}" id="soc5"
+                                  valueChangeListener="#{pageFlowScope.VehicleTypeSetUpTableMBean.onInactiveValChgLstnr}"
+                                  autoSubmit="true" simple="true">
+                <f:selectItems value="#{bindings.Inactive1.items}" id="si5"/>
+                <f:validator binding="#{bindings.Inactive1.validator}"/>
+              </af:selectOneChoice>
+            </af:panelLabelAndMessage>
             <af:inputDate value="#{bindings.InactiveDate.inputValue}" label="#{bindings.InactiveDate.hints.label}"
                           required="#{bindings.InactiveDate.hints.mandatory}"
                           columns="#{bindings.InactiveDate.hints.displayWidth}"

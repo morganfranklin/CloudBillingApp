@@ -12,12 +12,14 @@
         <af:panelLabelAndMessage label="#{bindings.ItemId.hints.label}" id="plam1">
           <af:outputText value="#{bindings.ItemId.inputValue}" shortDesc="#{bindings.ItemId.hints.tooltip}" id="ot1"/>
         </af:panelLabelAndMessage>
-        <af:selectOneChoice value="#{bindings.ItemType.inputValue}" label="#{bindings.ItemType.label}"
-                            required="#{bindings.ItemType.hints.mandatory}"
-                            shortDesc="#{bindings.ItemType.hints.tooltip}" readOnly="true" id="soc1">
-          <f:selectItems value="#{bindings.ItemType.items}" id="si1"/>
-          <f:validator binding="#{bindings.ItemType.validator}"/>
-        </af:selectOneChoice>
+        <af:panelLabelAndMessage label="#{bindings.ItemType.label}" id="plam2">
+          <af:selectOneChoice value="#{bindings.ItemType.inputValue}" label="#{bindings.ItemType.label}"
+                              required="#{bindings.ItemType.hints.mandatory}"
+                              shortDesc="#{bindings.ItemType.hints.tooltip}" id="soc1" simple="true">
+            <f:selectItems value="#{bindings.ItemType.items}" id="si1"/>
+            <f:validator binding="#{bindings.ItemType.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
         <af:inputText value="#{bindings.Description.inputValue}" label="#{bindings.Description.hints.label}"
                       required="#{bindings.Description.hints.mandatory}"
                       columns="#{bindings.Description.hints.displayWidth}"
@@ -25,12 +27,14 @@
                       shortDesc="#{bindings.Description.hints.tooltip}" id="it1">
           <f:validator binding="#{bindings.Description.validator}"/>
         </af:inputText>
-        <af:selectOneChoice value="#{bindings.Inoutbound.inputValue}" label="#{bindings.Inoutbound.label}"
-                            required="#{bindings.Inoutbound.hints.mandatory}"
-                            shortDesc="#{bindings.Inoutbound.hints.tooltip}" id="soc2">
-          <f:selectItems value="#{bindings.Inoutbound.items}" id="si2"/>
-          <f:validator binding="#{bindings.Inoutbound.validator}"/>
-        </af:selectOneChoice>
+        <af:panelLabelAndMessage label="#{bindings.Inoutbound.label}" id="plam3">
+          <af:selectOneChoice value="#{bindings.Inoutbound.inputValue}" label="#{bindings.Inoutbound.label}"
+                              required="#{bindings.Inoutbound.hints.mandatory}"
+                              shortDesc="#{bindings.Inoutbound.hints.tooltip}" id="soc2" simple="true">
+            <f:selectItems value="#{bindings.Inoutbound.items}" id="si2"/>
+            <f:validator binding="#{bindings.Inoutbound.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
         <af:inputListOfValues id="categoryId" popupTitle="Search and Select: #{bindings.Category.hints.label}"
                               value="#{bindings.Category.inputValue}" label="#{bindings.Category.hints.label}"
                               model="#{bindings.Category.listOfValuesModel}"
@@ -39,6 +43,14 @@
                               shortDesc="#{bindings.Category.hints.tooltip}">
           <f:validator binding="#{bindings.Category.validator}"/>
         </af:inputListOfValues>
+        <af:panelLabelAndMessage label="#{bindings.Pcsuom.label}" id="plam4">
+          <af:selectOneChoice value="#{bindings.Pcsuom.inputValue}" label="#{bindings.Pcsuom.label}"
+                              required="#{bindings.Pcsuom.hints.mandatory}" shortDesc="#{bindings.Pcsuom.hints.tooltip}"
+                              id="soc9" simple="true">
+            <f:selectItems value="#{bindings.Pcsuom.items}" id="si9"/>
+            <f:validator binding="#{bindings.Pcsuom.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
       </af:panelFormLayout>
     </af:panelHeader>
     <af:spacer width="10" height="10" id="s1"/>
@@ -50,12 +62,14 @@
       <f:facet name="info"/>
       <af:panelFormLayout id="pfl4">
         <f:facet name="footer"/>
-        <af:selectOneChoice value="#{bindings.ClassType.inputValue}" label="#{bindings.ClassType.label}"
-                            required="#{bindings.ClassType.hints.mandatory}"
-                            shortDesc="#{bindings.ClassType.hints.tooltip}" id="soc3" autoSubmit="true">
-          <f:selectItems value="#{bindings.ClassType.items}" id="si3"/>
-          <f:validator binding="#{bindings.ClassType.validator}"/>
-        </af:selectOneChoice>
+        <af:panelLabelAndMessage label="#{bindings.ClassType.label}" id="plam5">
+          <af:selectOneChoice value="#{bindings.ClassType.inputValue}" label="#{bindings.ClassType.label}"
+                              required="#{bindings.ClassType.hints.mandatory}"
+                              shortDesc="#{bindings.ClassType.hints.tooltip}" id="soc3" autoSubmit="true" simple="true">
+            <f:selectItems value="#{bindings.ClassType.items}" id="si3"/>
+            <f:validator binding="#{bindings.ClassType.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
         <af:inputListOfValues id="classIdId" popupTitle="Search and Select: #{bindings.ClassId.hints.label}"
                               value="#{bindings.ClassId.inputValue}" label="#{bindings.ClassId.hints.label}"
                               model="#{bindings.ClassId.listOfValuesModel}"
@@ -65,14 +79,16 @@
                               disabled="#{bindings.ClassType.inputValue eq 'DC'}" partialTriggers="soc3">
           <f:validator binding="#{bindings.ClassId.validator}"/>
         </af:inputListOfValues>
-        <af:selectOneChoice value="#{bindings.Inactive.inputValue}" label="#{bindings.Inactive.label}"
-                            required="#{bindings.Inactive.hints.mandatory}"
-                            shortDesc="#{bindings.Inactive.hints.tooltip}" id="soc4"
-                            valueChangeListener="#{pageFlowScope.ProductServiceSetUpTableMBean.onEditPrdtInactiveValChgLstnr}"
-                            autoSubmit="true">
-          <f:selectItems value="#{bindings.Inactive.items}" id="si4"/>
-          <f:validator binding="#{bindings.Inactive.validator}"/>
-        </af:selectOneChoice>
+        <af:panelLabelAndMessage label="#{bindings.Inactive.label}" id="plam6">
+          <af:selectOneChoice value="#{bindings.Inactive.inputValue}" label="#{bindings.Inactive.label}"
+                              required="#{bindings.Inactive.hints.mandatory}"
+                              shortDesc="#{bindings.Inactive.hints.tooltip}" id="soc4"
+                              valueChangeListener="#{pageFlowScope.ProductServiceSetUpTableMBean.onEditPrdtInactiveValChgLstnr}"
+                              autoSubmit="true" simple="true">
+            <f:selectItems value="#{bindings.Inactive.items}" id="si4"/>
+            <f:validator binding="#{bindings.Inactive.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
         <af:inputDate value="#{bindings.InactiveDate.inputValue}" label="#{bindings.InactiveDate.hints.label}"
                       required="#{bindings.InactiveDate.hints.mandatory}"
                       columns="#{bindings.InactiveDate.hints.displayWidth}"
@@ -135,17 +151,15 @@
           </af:outputText>
         </af:column>
       </af:table>
+      <af:spacer width="10" height="10" id="s2"/>
     </af:panelHeader>
-    <af:spacer width="10" height="10" id="s2"/>
-    <af:group id="g1">
-      <af:button actionListener="#{bindings.Commit.execute}" text="Save"
-                 id="b2"/>
+    <af:panelGroupLayout id="pgl2" layout="horizontal">
+      <af:button actionListener="#{bindings.Commit.execute}" text="Save" id="b2"/>
       <af:spacer width="10" height="10" id="s3"/>
-      <af:button actionListener="#{bindings.Rollback.execute}" text="Back"
-                 immediate="true" id="b3" action="Back">
+      <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel" immediate="true" id="b3" action="Back">
         <af:resetActionListener/>
       </af:button>
-    </af:group>
+    </af:panelGroupLayout>
     <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
               binding="#{backingBeanScope.ProductServiceSetUpTableBBean.productServiceUomAddItem_popup}">
       <af:dialog id="d1" type="none" title="Add Unit of Measure" closeIconVisible="false">
@@ -173,12 +187,14 @@
                         shortDesc="#{bindings.UomDesc.hints.tooltip}" id="it2" partialTriggers="ilov1">
             <f:validator binding="#{bindings.UomDesc.validator}"/>
           </af:inputText>
-          <af:selectOneChoice value="#{bindings.FeedMethod.inputValue}" label="#{bindings.FeedMethod.label}"
-                              required="#{bindings.FeedMethod.hints.mandatory}"
-                              shortDesc="#{bindings.FeedMethod.hints.tooltip}" id="soc6">
-            <f:selectItems value="#{bindings.FeedMethod.items}" id="si6"/>
-            <f:validator binding="#{bindings.FeedMethod.validator}"/>
-          </af:selectOneChoice>
+          <af:panelLabelAndMessage label="#{bindings.FeedMethod.label}" id="plam7">
+            <af:selectOneChoice value="#{bindings.FeedMethod.inputValue}" label="#{bindings.FeedMethod.label}"
+                                required="#{bindings.FeedMethod.hints.mandatory}"
+                                shortDesc="#{bindings.FeedMethod.hints.tooltip}" id="soc6" simple="true">
+              <f:selectItems value="#{bindings.FeedMethod.items}" id="si6"/>
+              <f:validator binding="#{bindings.FeedMethod.validator}"/>
+            </af:selectOneChoice>
+          </af:panelLabelAndMessage>
         </af:panelFormLayout>
       </af:dialog>
     </af:popup>
@@ -209,19 +225,24 @@
                         shortDesc="#{bindings.UomDesc.hints.tooltip}" id="it3" partialTriggers="uom1Id">
             <f:validator binding="#{bindings.UomDesc.validator}"/>
           </af:inputText>
-          <af:selectOneChoice value="#{bindings.FeedMethod.inputValue}" label="#{bindings.FeedMethod.label}"
-                              required="#{bindings.FeedMethod.hints.mandatory}"
-                              shortDesc="#{bindings.FeedMethod.hints.tooltip}" id="soc7">
-            <f:selectItems value="#{bindings.FeedMethod.items}" id="si7"/>
-            <f:validator binding="#{bindings.FeedMethod.validator}"/>
-          </af:selectOneChoice>
-          <af:selectOneChoice value="#{bindings.Inactive1.inputValue}" label="#{bindings.Inactive1.label}"
-                              required="#{bindings.Inactive1.hints.mandatory}"
-                              shortDesc="#{bindings.Inactive1.hints.tooltip}" id="soc8" autoSubmit="true"
-                              valueChangeListener="#{pageFlowScope.ProductServiceSetUpTableMBean.onEditPrdtUomInactiveValChgLstnr}">
-            <f:selectItems value="#{bindings.Inactive1.items}" id="si8"/>
-            <f:validator binding="#{bindings.Inactive1.validator}"/>
-          </af:selectOneChoice>
+          <af:panelLabelAndMessage label="#{bindings.FeedMethod.label}" id="plam8">
+            <af:selectOneChoice value="#{bindings.FeedMethod.inputValue}" label="#{bindings.FeedMethod.label}"
+                                required="#{bindings.FeedMethod.hints.mandatory}"
+                                shortDesc="#{bindings.FeedMethod.hints.tooltip}" id="soc7" simple="true">
+              <f:selectItems value="#{bindings.FeedMethod.items}" id="si7"/>
+              <f:validator binding="#{bindings.FeedMethod.validator}"/>
+            </af:selectOneChoice>
+          </af:panelLabelAndMessage>
+          <af:panelLabelAndMessage label="#{bindings.Inactive1.label}" id="plam9">
+            <af:selectOneChoice value="#{bindings.Inactive1.inputValue}" label="#{bindings.Inactive1.label}"
+                                required="#{bindings.Inactive1.hints.mandatory}"
+                                shortDesc="#{bindings.Inactive1.hints.tooltip}" id="soc8" autoSubmit="true"
+                                valueChangeListener="#{pageFlowScope.ProductServiceSetUpTableMBean.onEditPrdtUomInactiveValChgLstnr}"
+                                simple="true">
+              <f:selectItems value="#{bindings.Inactive1.items}" id="si8"/>
+              <f:validator binding="#{bindings.Inactive1.validator}"/>
+            </af:selectOneChoice>
+          </af:panelLabelAndMessage>
           <af:inputDate value="#{bindings.InactiveDate1.inputValue}" label="#{bindings.InactiveDate1.hints.label}"
                         required="#{bindings.InactiveDate1.hints.mandatory}"
                         columns="#{bindings.InactiveDate1.hints.displayWidth}"

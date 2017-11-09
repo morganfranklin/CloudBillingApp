@@ -328,7 +328,8 @@
     EntityAttrName="Inactive"
     EntityUsage="XpeDccCfgBusinessunitEO"
     AliasName="INACTIVE"
-    LOVName="LOV_Inactive">
+    LOVName="LOV_Inactive"
+    DefaultValue="N">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
