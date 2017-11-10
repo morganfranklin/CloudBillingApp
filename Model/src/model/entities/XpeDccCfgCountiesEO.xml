@@ -14,7 +14,7 @@
     Name="CountyId"
     IsUpdateable="while_insert"
     IsNotNull="true"
-    Precision="5"
+    Precision="20"
     ColumnName="COUNTY_ID"
     SQLType="VARCHAR"
     Type="java.lang.String"

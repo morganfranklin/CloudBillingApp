@@ -29,7 +29,6 @@ public class XpeDccCfgOgnAssTerminalsEOVORowImpl extends ViewRowImpl {
         OriginId,
         TerminalDesc,
         TerminalId,
-        PcsshortnameId,
         LookupSharedAppModule_YONLOV,
         XpeDccCfgPCSShortNamesROVO1;
         static AttributesEnum[] vals = null;
@@ -66,7 +65,6 @@ public class XpeDccCfgOgnAssTerminalsEOVORowImpl extends ViewRowImpl {
     public static final int ORIGINID = AttributesEnum.OriginId.index();
     public static final int TERMINALDESC = AttributesEnum.TerminalDesc.index();
     public static final int TERMINALID = AttributesEnum.TerminalId.index();
-    public static final int PCSSHORTNAMEID = AttributesEnum.PcsshortnameId.index();
     public static final int LOOKUPSHAREDAPPMODULE_YONLOV = AttributesEnum.LookupSharedAppModule_YONLOV.index();
     public static final int XPEDCCCFGPCSSHORTNAMESROVO1 = AttributesEnum.XpeDccCfgPCSShortNamesROVO1.index();
 
@@ -228,21 +226,6 @@ public class XpeDccCfgOgnAssTerminalsEOVORowImpl extends ViewRowImpl {
         setAttributeInternal(TERMINALID, value);
     }
 
-    /**
-     * Gets the attribute value for PCSSHORTNAME_ID using the alias name PcsshortnameId.
-     * @return the PCSSHORTNAME_ID
-     */
-    public String getPcsshortnameId() {
-        return (String) getAttributeInternal(PCSSHORTNAMEID);
-    }
-
-    /**
-     * Sets <code>value</code> as attribute value for PCSSHORTNAME_ID using the alias name PcsshortnameId.
-     * @param value value to set the PCSSHORTNAME_ID
-     */
-    public void setPcsshortnameId(String value) {
-        setAttributeInternal(PCSSHORTNAMEID, value);
-    }
 
     /**
      * Gets the view accessor <code>RowSet</code> LookupSharedAppModule_YONLOV.

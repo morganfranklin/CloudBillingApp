@@ -71,7 +71,7 @@
   </Attribute>
   <Attribute
     Name="County"
-    Precision="5"
+    Precision="20"
     ColumnName="COUNTY"
     SQLType="VARCHAR"
     Type="java.lang.String"

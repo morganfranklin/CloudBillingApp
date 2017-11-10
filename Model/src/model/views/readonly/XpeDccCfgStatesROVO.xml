@@ -22,7 +22,10 @@
     Name="bind_CountyId"
     Kind="where"
     Type="java.lang.String"/>
-  <SQLQuery><![CDATA[SELECT STATE FROM XPE_DCC_CFG_COUNTIES WHERE COUNTY_ID=:bind_CountyId]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT cnty.STATE, gen.ITEM_LIST_TYPE, gen.VALID_VALUE NAME FROM XPE_DCC_CFG_COUNTIES cnty, XPE_DCC_CFG_GENERAL gen     
+  WHERE cnty.STATE = gen.ITEM_ID    
+  AND gen.ITEM_LIST_TYPE = 'ST'    
+  AND cnty.COUNTY_ID=:bind_CountyId]]></SQLQuery>
   <ViewAttribute
     Name="State"
     IsPersistent="false"
@@ -37,6 +40,48 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="5"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccCfgStatesROVO.State_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ItemListType"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="3"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ITEM_LIST_TYPE"
+    Expression="ITEM_LIST_TYPE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Name"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="3"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="NAME"
+    Expression="NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccCfgStatesROVO.Name_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <AttrArray Name="KeyAttributes">
     <Item Value="State"/>

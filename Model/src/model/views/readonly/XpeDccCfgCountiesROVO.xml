@@ -20,7 +20,40 @@
         ResId="model.views.readonly.XpeDccCfgCountiesROVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <SQLQuery><![CDATA[SELECT COUNTY_ID, COUNTY_NAME FROM XPE_DCC_CFG_COUNTIES 
+  <ViewAccessor
+    Name="XpeDccGeneralItemListROVO1"
+    ViewObjectName="model.views.readonly.XpeDccGeneralItemListROVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="findByItemListType"
+      FullName="model.views.readonly.XpeDccGeneralItemListROVO.findByItemListType"/>
+    <ParameterMap>
+      <PIMap Variable="bind_ItemListType">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA['ST']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_State"
+    ListVOName="XpeDccGeneralItemListROVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="State"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ItemId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValidValue"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT COUNTY_ID, COUNTY_NAME, STATE FROM XPE_DCC_CFG_COUNTIES  
 WHERE INACTIVE <> 'Y']]></SQLQuery>
   <ViewAttribute
     Name="CountyId"
@@ -38,7 +71,7 @@ WHERE INACTIVE <> 'Y']]></SQLQuery>
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="45"/>
+          Value="30"/>
         <LABEL
           ResId="model.views.readonly.XpeDccCfgCountiesROVO.CountyId_LABEL"/>
       </SchemaBasedProperties>
@@ -62,6 +95,32 @@ WHERE INACTIVE <> 'Y']]></SQLQuery>
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.readonly.XpeDccCfgCountiesROVO.CountyName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="State"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="5"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="STATE"
+    Expression="STATE"
+    SQLType="VARCHAR"
+    LOVName="LOV_State">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

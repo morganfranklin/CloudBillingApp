@@ -24,11 +24,6 @@
     </attributeValues>
     <list IterBinding="XpeDccCfgNewDestinationsCreationEOVOIterator" StaticList="false" Uses="LOV_Inactive"
           id="Inactive" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
-    <attributeValues IterBinding="XpeDccCfgNewDestinationsCreationEOVOIterator" id="State">
-      <AttrNames>
-        <Item Value="State"/>
-      </AttrNames>
-    </attributeValues>
     <tree IterBinding="XpeDccCfgNewDstAssTerminalsCreationEOVOIterator" id="XpeDccCfgNewDstAssTerminalsCreationEOVO">
       <nodeDefinition DefName="model.views.entitybased.XpeDccCfgDstAssTerminalsEOVO"
                       Name="XpeDccCfgNewDstAssTerminalsCreationEOVO0">
@@ -68,5 +63,7 @@
         <Item Value="InactiveDate"/>
       </AttrNames>
     </attributeValues>
+    <list IterBinding="XpeDccCfgNewDestinationsCreationEOVOIterator" StaticList="false" Uses="LOV_State" id="State"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

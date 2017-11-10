@@ -36,11 +36,6 @@
         <Item Value="CountyName"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="XpeDccCfgNewCountiesCreationEOVOIterator" id="State">
-      <AttrNames>
-        <Item Value="State"/>
-      </AttrNames>
-    </attributeValues>
     <list IterBinding="XpeDccCfgNewCountiesCreationEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <attributeValues IterBinding="XpeDccCfgCountiesEOVOIterator" id="CountyId1">
@@ -51,11 +46,6 @@
     <attributeValues IterBinding="XpeDccCfgCountiesEOVOIterator" id="CountyName1">
       <AttrNames>
         <Item Value="CountyName"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="XpeDccCfgCountiesEOVOIterator" id="State1">
-      <AttrNames>
-        <Item Value="State"/>
       </AttrNames>
     </attributeValues>
     <list IterBinding="XpeDccCfgCountiesEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive1"
@@ -70,5 +60,9 @@
         <Item Value="CountyId"/>
       </AttrNames>
     </attributeValues>
+    <list IterBinding="XpeDccCfgNewCountiesCreationEOVOIterator" StaticList="false" Uses="LOV_State" id="State"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgCountiesEOVOIterator" StaticList="false" Uses="LOV_State" id="State1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

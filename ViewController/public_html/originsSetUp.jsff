@@ -91,20 +91,11 @@
                                    shortDesc="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.hints.TerminalId.tooltip}"
                                    id="ot5"/>
                 </af:column>
-                <af:column headerText="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.hints.TerminalDesc.label}" id="c2">
+                <af:column headerText="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.hints.TerminalDesc.label}" id="c2"
+                           width="200">
                     <af:outputText value="#{row.TerminalDesc}"
                                    shortDesc="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.hints.TerminalDesc.tooltip}"
                                    id="ot6"/>
-                </af:column>
-                <af:column headerText="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.hints.OriginId.label}" id="c3">
-                    <af:outputText value="#{row.OriginId}"
-                                   shortDesc="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.hints.OriginId.tooltip}"
-                                   id="ot7"/>
-                </af:column>
-                <af:column headerText="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.hints.PcsshortnameId.label}" id="c6">
-                    <af:outputText value="#{row.PcsshortnameId}"
-                                   shortDesc="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.hints.PcsshortnameId.tooltip}"
-                                   id="ot1"/>
                 </af:column>
                 <af:column headerText="#{bindings.XpeDccCfgOgnAssTerminalsEOVO.hints.Inactive.label}" id="c4">
                     <af:selectOneChoice value="#{row.bindings.Inactive.inputValue}"

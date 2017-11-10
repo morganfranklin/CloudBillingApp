@@ -27,12 +27,14 @@
                               shortDesc="#{bindings.County.hints.tooltip}" autoSubmit="true">
           <f:validator binding="#{bindings.County.validator}"/>
         </af:inputListOfValues>
-        <af:selectOneChoice value="#{bindings.State.inputValue}" label="#{bindings.State.label}"
-                            required="#{bindings.State.hints.mandatory}" shortDesc="#{bindings.State.hints.tooltip}"
-                            id="soc1" autoSubmit="true" partialTriggers="countyId">
-          <f:selectItems value="#{bindings.State.items}" id="si1"/>
-          <f:validator binding="#{bindings.State.validator}"/>
-        </af:selectOneChoice>
+        <af:panelLabelAndMessage label="#{bindings.State.label}" id="plam4">
+          <af:selectOneChoice value="#{bindings.State.inputValue}" label="#{bindings.State.label}"
+                              required="#{bindings.State.hints.mandatory}" shortDesc="#{bindings.State.hints.tooltip}"
+                              id="soc1" autoSubmit="true" partialTriggers="countyId" simple="true">
+            <f:selectItems value="#{bindings.State.items}" id="si1"/>
+            <f:validator binding="#{bindings.State.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
         <af:inputText value="#{bindings.XpeDccNycDosDistrict.inputValue}"
                       label="#{bindings.XpeDccNycDosDistrict.hints.label}"
                       required="#{bindings.XpeDccNycDosDistrict.hints.mandatory}"
@@ -41,14 +43,16 @@
                       shortDesc="#{bindings.XpeDccNycDosDistrict.hints.tooltip}" id="it3">
           <f:validator binding="#{bindings.XpeDccNycDosDistrict.validator}"/>
         </af:inputText>
-        <af:selectOneChoice value="#{bindings.Inactive.inputValue}" label="#{bindings.Inactive.label}"
-                            required="#{bindings.Inactive.hints.mandatory}"
-                            shortDesc="#{bindings.Inactive.hints.tooltip}" id="soc2"
-                            valueChangeListener="#{pageFlowScope.OriginsSetUpTableMBean.onOriginInactiveValChgLstnr}"
-                            autoSubmit="true">
-          <f:selectItems value="#{bindings.Inactive.items}" id="si2"/>
-          <f:validator binding="#{bindings.Inactive.validator}"/>
-        </af:selectOneChoice>
+        <af:panelLabelAndMessage label="#{bindings.Inactive.label}" id="plam5">
+          <af:selectOneChoice value="#{bindings.Inactive.inputValue}" label="#{bindings.Inactive.label}"
+                              required="#{bindings.Inactive.hints.mandatory}"
+                              shortDesc="#{bindings.Inactive.hints.tooltip}" id="soc2"
+                              valueChangeListener="#{pageFlowScope.OriginsSetUpTableMBean.onOriginInactiveValChgLstnr}"
+                              autoSubmit="true" simple="true">
+            <f:selectItems value="#{bindings.Inactive.items}" id="si2"/>
+            <f:validator binding="#{bindings.Inactive.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
         <af:inputDate value="#{bindings.InactiveDate.inputValue}" label="#{bindings.InactiveDate.hints.label}"
                       required="#{bindings.InactiveDate.hints.mandatory}"
                       columns="#{bindings.InactiveDate.hints.displayWidth}"
@@ -80,19 +84,12 @@
           <af:link text="#{row.TerminalId}" id="l1" partialSubmit="true"
                    actionListener="#{pageFlowScope.OriginsSetUpTableMBean.onTerminalEdit}"/>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgNewOgnAssTerminalsEOVO.hints.TerminalDesc.label}" id="c2">
+        <af:column headerText="#{bindings.XpeDccCfgNewOgnAssTerminalsEOVO.hints.TerminalDesc.label}" id="c2"
+                   width="200">
           <af:outputText value="#{row.TerminalDesc}"
                          shortDesc="#{bindings.XpeDccCfgNewOgnAssTerminalsEOVO.hints.TerminalDesc.tooltip}" id="ot3"/>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgNewOgnAssTerminalsEOVO.hints.OriginId.label}" id="c3">
-          <af:outputText value="#{row.OriginId}"
-                         shortDesc="#{bindings.XpeDccCfgNewOgnAssTerminalsEOVO.hints.OriginId.tooltip}" id="ot4"/>
-        </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgNewOgnAssTerminalsEOVO.hints.PcsshortnameId.label}" id="c6">
-          <af:outputText value="#{row.PcsshortnameId}"
-                         shortDesc="#{bindings.XpeDccCfgNewOgnAssTerminalsEOVO.hints.PcsshortnameId.tooltip}" id="ot7"/>
-        </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgNewOgnAssTerminalsEOVO.hints.Inactive.label}" id="c4">
+        <af:column headerText="#{bindings.XpeDccCfgNewOgnAssTerminalsEOVO.hints.Inactive.label}" id="c4" width="160">
           <af:selectOneChoice value="#{row.bindings.Inactive.inputValue}" label="#{row.bindings.Inactive.label}"
                               required="#{bindings.XpeDccCfgNewOgnAssTerminalsEOVO.hints.Inactive.mandatory}"
                               shortDesc="#{bindings.XpeDccCfgNewOgnAssTerminalsEOVO.hints.Inactive.tooltip}"
@@ -108,17 +105,15 @@
           </af:outputText>
         </af:column>
       </af:table>
+      <af:spacer width="10" height="10" id="s2"/>
     </af:panelHeader>
-    <af:spacer width="10" height="10" id="s2"/>
-    <af:group id="g1">
-      <af:button actionListener="#{bindings.Commit.execute}" text="Save" 
-                 id="b1"/>
+    <af:panelGroupLayout id="pgl2" layout="horizontal">
+      <af:button actionListener="#{bindings.Commit.execute}" text="Save" id="b1"/>
       <af:spacer width="10" height="10" id="s1"/>
-      <af:button actionListener="#{bindings.Rollback.execute}" text="Back" 
-                 immediate="true" id="b2" action="Back">
+      <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel" immediate="true" id="b2" action="Back">
         <af:resetActionListener/>
       </af:button>
-    </af:group>
+    </af:panelGroupLayout>
     <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
               binding="#{backingBeanScope.OriginSetUpTableBBean.orgAssTerminalCreation_popup}"
               contentDelivery="lazyUncached">
@@ -128,7 +123,7 @@
           <af:button text="Ok" id="b6"
                      actionListener="#{pageFlowScope.OriginsSetUpTableMBean.onTerminalSearchSave}"/>
           <af:spacer width="10" height="10" id="s3"/>
-          <af:button text="cancel" id="b7"
+          <af:button text="Cancel" id="b7"
                      actionListener="#{pageFlowScope.OriginsSetUpTableMBean.onTerminalSearchCancel}"/>
         </f:facet>
       </af:dialog>
@@ -140,6 +135,7 @@
         <f:facet name="buttonBar">
           <af:button text="Ok" id="b3"
                      actionListener="#{pageFlowScope.OriginsSetUpTableMBean.onTerminalEditSaveorCancel}"/>
+          <af:spacer width="10" height="10" id="s4"/>
           <af:button text="Cancel" id="b4"
                      actionListener="#{pageFlowScope.OriginsSetUpTableMBean.onTerminalEditSaveorCancel}"/>
         </f:facet>
@@ -148,34 +144,23 @@
             <af:outputText value="#{bindings.TerminalId.inputValue}" shortDesc="#{bindings.TerminalId.hints.tooltip}"
                            id="ot2"/>
           </af:panelLabelAndMessage>
-          <af:panelLabelAndMessage label="#{bindings.TerminalDesc.hints.label}" id="plam3">
-            <af:outputText value="#{bindings.TerminalDesc.inputValue}"
-                           shortDesc="#{bindings.TerminalDesc.hints.tooltip}" id="ot6"/>
-          </af:panelLabelAndMessage>
-          <af:inputText value="#{bindings.OriginId1.inputValue}" label="#{bindings.OriginId1.hints.label}"
-                        required="#{bindings.OriginId1.hints.mandatory}"
-                        columns="#{bindings.OriginId1.hints.displayWidth}"
-                        maximumLength="#{bindings.OriginId1.hints.precision}"
-                        shortDesc="#{bindings.OriginId1.hints.tooltip}" id="it2">
-            <f:validator binding="#{bindings.OriginId1.validator}"/>
+          <af:inputText value="#{bindings.TerminalDesc.inputValue}" label="#{bindings.TerminalDesc.hints.label}"
+                        required="#{bindings.TerminalDesc.hints.mandatory}"
+                        columns="#{bindings.TerminalDesc.hints.displayWidth}"
+                        maximumLength="#{bindings.TerminalDesc.hints.precision}"
+                        shortDesc="#{bindings.TerminalDesc.hints.tooltip}" id="it2">
+            <f:validator binding="#{bindings.TerminalDesc.validator}"/>
           </af:inputText>
-          <af:inputListOfValues id="pcsshortnameIdId"
-                                popupTitle="Search and Select: #{bindings.PcsshortnameId.hints.label}"
-                                value="#{bindings.PcsshortnameId.inputValue}"
-                                label="#{bindings.PcsshortnameId.hints.label}"
-                                model="#{bindings.PcsshortnameId.listOfValuesModel}"
-                                required="#{bindings.PcsshortnameId.hints.mandatory}"
-                                columns="#{bindings.PcsshortnameId.hints.displayWidth}"
-                                shortDesc="#{bindings.PcsshortnameId.hints.tooltip}">
-            <f:validator binding="#{bindings.PcsshortnameId.validator}"/>
-          </af:inputListOfValues>
-          <af:selectOneChoice value="#{bindings.Inactive1.inputValue}" label="#{bindings.Inactive1.label}"
-                              required="#{bindings.Inactive1.hints.mandatory}"
-                              shortDesc="#{bindings.Inactive1.hints.tooltip}" id="soc4" autoSubmit="true"
-                              valueChangeListener="#{pageFlowScope.OriginsSetUpTableMBean.onTerminalInactiveValChgLstnr}">
-            <f:selectItems value="#{bindings.Inactive1.items}" id="si4"/>
-            <f:validator binding="#{bindings.Inactive1.validator}"/>
-          </af:selectOneChoice>
+          <af:panelLabelAndMessage label="#{bindings.Inactive1.label}" id="plam6">
+            <af:selectOneChoice value="#{bindings.Inactive1.inputValue}" label="#{bindings.Inactive1.label}"
+                                required="#{bindings.Inactive1.hints.mandatory}"
+                                shortDesc="#{bindings.Inactive1.hints.tooltip}" id="soc4" autoSubmit="true"
+                                valueChangeListener="#{pageFlowScope.OriginsSetUpTableMBean.onTerminalInactiveValChgLstnr}"
+                                simple="true">
+              <f:selectItems value="#{bindings.Inactive1.items}" id="si4"/>
+              <f:validator binding="#{bindings.Inactive1.validator}"/>
+            </af:selectOneChoice>
+          </af:panelLabelAndMessage>
           <af:inputDate value="#{bindings.InactiveDate1.inputValue}" label="#{bindings.InactiveDate1.hints.label}"
                         required="#{bindings.InactiveDate1.hints.mandatory}"
                         columns="#{bindings.InactiveDate1.hints.displayWidth}"
