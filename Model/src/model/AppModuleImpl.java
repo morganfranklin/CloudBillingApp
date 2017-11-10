@@ -73,7 +73,6 @@ import model.views.readonly.XpeDccContractSearchROVOImpl;
 import model.views.readonly.XpeDccContractSearchROVORowImpl;
 import model.views.readonly.XpeDccNewContractCustomerSearchROVOImpl;
 import model.views.readonly.XpeDccNewContractCustomerSearchROVORowImpl;
-import model.views.readonly.XpeDccNewContractLPCROVOImpl;
 import model.views.readonly.XpeDccNewContractSetupROVOImpl;
 import model.views.readonly.XpeDccNewContractSetupROVORowImpl;
 import model.views.readonly.XpeDccTermsForMasterTermROVOImpl;
@@ -1528,13 +1527,6 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         return (ViewLinkImpl) findViewLink("XpeDccContractCarrierFk1Link3");
     }
 
-    /**
-     * Container's getter for XpeDccNewContractLPCROVO1.
-     * @return XpeDccNewContractLPCROVO1
-     */
-    public XpeDccNewContractLPCROVOImpl getXpeDccNewContractLPCROVO() {
-        return (XpeDccNewContractLPCROVOImpl) findViewObject("XpeDccNewContractLPCROVO");
-    }
 
     /**
      * Container's getter for XpeDccTermMasterEOVO1.
@@ -1877,13 +1869,13 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                                                                           "").append("<br><br>");
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_6/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(uuId).append("&").append("action=").append("ACCEPT");
         html.append("\"><b>Accept</b></a>");
         html.append("&nbsp;&nbsp;&nbsp;");
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_6/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(uuId).append("&").append("action=").append("REJECT");
         html.append("\"><b>Reject</b></a>");
         html.append("</p>");

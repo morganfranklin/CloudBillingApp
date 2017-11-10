@@ -36,13 +36,13 @@ public class XpeDccContractLineViewRowImpl extends ViewRowImpl {
         XpeDccContractDocTermView,
         XpeDccContractPricingTermView,
         XpeDccContractPricingOverView,
-        XpeDccDicFacilities1,
         XpeDccDicProducts1,
         XpeDccDicProducts2,
         XpeDccDicPeriods1,
         XpeDccDicUnitsOfMeasure1,
         XpeDccDicCurrency1,
-        LookupSharedAppModule_BusinessUnitLOV;
+        LookupSharedAppModule_BusinessUnitLOV,
+        XpeDccCfgPcsROVO_LOV;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -83,7 +83,6 @@ public class XpeDccContractLineViewRowImpl extends ViewRowImpl {
     public static final int XPEDCCCONTRACTDOCTERMVIEW = AttributesEnum.XpeDccContractDocTermView.index();
     public static final int XPEDCCCONTRACTPRICINGTERMVIEW = AttributesEnum.XpeDccContractPricingTermView.index();
     public static final int XPEDCCCONTRACTPRICINGOVERVIEW = AttributesEnum.XpeDccContractPricingOverView.index();
-    public static final int XPEDCCDICFACILITIES1 = AttributesEnum.XpeDccDicFacilities1.index();
     public static final int XPEDCCDICPRODUCTS1 = AttributesEnum.XpeDccDicProducts1.index();
     public static final int XPEDCCDICPRODUCTS2 = AttributesEnum.XpeDccDicProducts2.index();
     public static final int XPEDCCDICPERIODS1 = AttributesEnum.XpeDccDicPeriods1.index();
@@ -91,6 +90,7 @@ public class XpeDccContractLineViewRowImpl extends ViewRowImpl {
     public static final int XPEDCCDICCURRENCY1 = AttributesEnum.XpeDccDicCurrency1.index();
     public static final int LOOKUPSHAREDAPPMODULE_BUSINESSUNITLOV =
         AttributesEnum.LookupSharedAppModule_BusinessUnitLOV.index();
+    public static final int XPEDCCCFGPCSROVO_LOV = AttributesEnum.XpeDccCfgPcsROVO_LOV.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -320,12 +320,6 @@ public class XpeDccContractLineViewRowImpl extends ViewRowImpl {
         return (RowIterator) getAttributeInternal(XPEDCCCONTRACTPRICINGOVERVIEW);
     }
 
-    /**
-     * Gets the view accessor <code>RowSet</code> XpeDccDicFacilities1.
-     */
-    public RowSet getXpeDccDicFacilities1() {
-        return (RowSet) getAttributeInternal(XPEDCCDICFACILITIES1);
-    }
 
     /**
      * Gets the view accessor <code>RowSet</code> XpeDccDicProducts1.
@@ -367,6 +361,13 @@ public class XpeDccContractLineViewRowImpl extends ViewRowImpl {
      */
     public RowSet getLookupSharedAppModule_BusinessUnitLOV() {
         return (RowSet) getAttributeInternal(LOOKUPSHAREDAPPMODULE_BUSINESSUNITLOV);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> XpeDccCfgPcsROVO_LOV.
+     */
+    public RowSet getXpeDccCfgPcsROVO_LOV() {
+        return (RowSet) getAttributeInternal(XPEDCCCFGPCSROVO_LOV);
     }
 }
 

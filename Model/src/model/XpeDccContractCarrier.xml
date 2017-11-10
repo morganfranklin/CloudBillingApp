@@ -78,7 +78,7 @@
     <Attribute
         Name="XpeVehicleType"
         IsNotNull="true"
-        Precision="3"
+        Precision="20"
         ColumnName="XPE_VEHICLE_TYPE"
         SQLType="VARCHAR"
         Type="java.lang.String"

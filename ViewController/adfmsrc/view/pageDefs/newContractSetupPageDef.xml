@@ -4,8 +4,6 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="XpeDccNewContractLPCROVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccNewContractLPCROVOIterator" ChangeEventPolicy="none"/>
     <iterator Binds="XpeDccNewContractVersionView" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccNewContractVersionViewIterator"/>
     <iterator Binds="XpeDccNewContractNotesView" RangeSize="25" DataControl="AppModuleDataControl"
@@ -20,28 +18,6 @@
               id="XpeDccNewContractPricingOverViewIterator"/>
   </executables>
   <bindings>
-    <tree IterBinding="XpeDccNewContractLPCROVOIterator" id="XpeDccNewContractLPCROVO">
-      <nodeDefinition DefName="model.views.readonly.XpeDccNewContractLPCROVO" Name="XpeDccNewContractLPCROVO0">
-        <AttrNames>
-          <Item Value="LineNumber"/>
-          <Item Value="Facility"/>
-          <Item Value="ProductId"/>
-          <Item Value="ProductUom"/>
-          <Item Value="BusinessUnitGl"/>
-          <Item Value="SwApprNbr"/>
-          <Item Value="PricingTermLine"/>
-          <Item Value="PricingTermType"/>
-          <Item Value="Rate"/>
-          <Item Value="PeriodType"/>
-          <Item Value="CarrierId"/>
-          <Item Value="VehicleType"/>
-          <Item Value="VehicleNbr"/>
-          <Item Value="SubNbr"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
-    <action IterBinding="XpeDccNewContractLPCROVOIterator" id="CreateInsert" RequiresUpdateModel="true"
-            Action="createInsertRow"/>
     <list IterBinding="XpeDccNewContractVersionViewIterator" StaticList="false" Uses="LOV_XpeAgreementType"
           id="XpeAgreementType" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <list IterBinding="XpeDccNewContractVersionViewIterator" StaticList="false" Uses="LOV_XpeWasteType"
@@ -85,8 +61,6 @@
         <Item Value="XpeUser"/>
       </AttrNames>
     </attributeValues>
-    <action IterBinding="XpeDccNewContractLPCROVOIterator" id="Delete" RequiresUpdateModel="false"
-            Action="removeCurrentRow"/>
     <tree IterBinding="XpeDccNewContractLineViewIterator" id="XpeDccNewContractLineView">
       <nodeDefinition DefName="model.XpeDccContractLineView" Name="XpeDccNewContractLineView0">
         <AttrNames>
