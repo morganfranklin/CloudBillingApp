@@ -50,4 +50,14 @@ FROM XPE_DCC_CFG_PCS]]></SQLQuery>
   <AttrArray Name="KeyAttributes">
     <Item Value="SiteId"/>
   </AttrArray>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.views.readonly.XpeDccCfgPcsROVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>
