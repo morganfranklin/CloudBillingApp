@@ -73,7 +73,8 @@
           <af:panelLabelAndMessage label="#{bindings.ItemListType.label}" id="plam2">
             <af:selectOneChoice value="#{bindings.ItemListType.inputValue}" label="#{bindings.ItemListType.label}"
                                 required="#{bindings.ItemListType.hints.mandatory}"
-                                shortDesc="#{bindings.ItemListType.hints.tooltip}" id="soc2" simple="true">
+                                shortDesc="#{bindings.ItemListType.hints.tooltip}" id="soc2" simple="true"
+                                autoSubmit="true">
               <f:selectItems value="#{bindings.ItemListType.items}" id="si2"/>
               <f:validator binding="#{bindings.ItemListType.validator}"/>
             </af:selectOneChoice>

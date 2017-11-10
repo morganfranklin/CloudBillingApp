@@ -100,12 +100,17 @@
       <Item Value="County"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="State"/>
+    </AttrArray>
     <AttrArray Name="ListAttrNames">
       <Item Value="CountyId"/>
+      <Item Value="State"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="CountyId"/>
       <Item Value="CountyName"/>
+      <Item Value="State"/>
     </AttrArray>
     <DisplayCriteria
       Hint="showAndExecute"/>
@@ -124,7 +129,7 @@
       <Item Value="State"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="State"/>
+      <Item Value="Name"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -168,10 +173,10 @@
     LOVName="LOV_County">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgOriginsEOVO.County_LABEL"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -184,10 +189,10 @@
     LOVName="LOV_State">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgOriginsEOVO.State_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
     <Dependencies>

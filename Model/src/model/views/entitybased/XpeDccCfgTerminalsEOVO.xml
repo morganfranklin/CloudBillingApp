@@ -144,12 +144,17 @@
       <Item Value="County"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="State"/>
+    </AttrArray>
     <AttrArray Name="ListAttrNames">
       <Item Value="CountyId"/>
+      <Item Value="State"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="CountyId"/>
       <Item Value="CountyName"/>
+      <Item Value="State"/>
     </AttrArray>
     <DisplayCriteria
       Hint="showAndExecute"/>
@@ -168,7 +173,7 @@
       <Item Value="State"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="State"/>
+      <Item Value="Name"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -336,11 +341,47 @@
       Name="XpeDccCfgTerminalsEOVOCriteria_row_0"
       UpperColumns="1">
       <ViewCriteriaItem
+        Name="TerminalId"
+        ViewAttribute="TerminalId"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_TerminalId"
+        UpperColumns="0"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="TerminalType"
+        ViewAttribute="TerminalType"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_TerminalType"
+        IsBindVarValue="true"
+        Required="Optional"
+        UpperColumns="0"/>
+      <ViewCriteriaItem
+        Name="TerminalDesc"
+        ViewAttribute="TerminalDesc"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_TerminalDesc"
+        UpperColumns="0"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
         Name="TerminalsCriteria_XpeDccCfgTerminalsEOVOCriteria_row_0_County"
         ViewAttribute="County"
         Operator="="
         Conjunction="AND"
         Value=":bind_County"
+        UpperColumns="0"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="State"
+        ViewAttribute="State"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_State"
         UpperColumns="0"
         IsBindVarValue="true"
         Required="Optional"/>
@@ -361,42 +402,6 @@
         Value=":bind_InactiveDate"
         IsBindVarValue="true"
         Required="Optional"/>
-      <ViewCriteriaItem
-        Name="State"
-        ViewAttribute="State"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_State"
-        UpperColumns="0"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="TerminalDesc"
-        ViewAttribute="TerminalDesc"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_TerminalDesc"
-        UpperColumns="0"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="TerminalId"
-        ViewAttribute="TerminalId"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_TerminalId"
-        UpperColumns="0"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="TerminalType"
-        ViewAttribute="TerminalType"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_TerminalType"
-        IsBindVarValue="true"
-        Required="Optional"
-        UpperColumns="0"/>
     </ViewCriteriaRow>
   </ViewCriteria>
   <ViewCriteria

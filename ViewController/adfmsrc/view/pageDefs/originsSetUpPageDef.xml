@@ -32,10 +32,8 @@
         <AttrNames>
           <Item Value="TerminalId"/>
           <Item Value="TerminalDesc"/>
-          <Item Value="OriginId"/>
           <Item Value="Inactive"/>
           <Item Value="InactiveDate"/>
-          <Item Value="PcsshortnameId"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

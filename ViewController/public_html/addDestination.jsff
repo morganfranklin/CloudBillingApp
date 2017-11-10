@@ -19,13 +19,15 @@
                               shortDesc="#{bindings.DestinationDesc.hints.tooltip}" id="it2">
                     <f:validator binding="#{bindings.DestinationDesc.validator}"/>
                 </af:inputText>
-                <af:inputText value="#{bindings.State.inputValue}" label="#{bindings.State.hints.label}"
-                              required="#{bindings.State.hints.mandatory}"
-                              columns="#{bindings.State.hints.displayWidth}"
-                              maximumLength="#{bindings.State.hints.precision}"
-                              shortDesc="#{bindings.State.hints.tooltip}" id="it3">
-                    <f:validator binding="#{bindings.State.validator}"/>
-                </af:inputText>
+                <af:panelLabelAndMessage label="#{bindings.State.label}" id="plam4">
+                    <af:selectOneChoice value="#{bindings.State.inputValue}" label="#{bindings.State.label}"
+                                        required="#{bindings.State.hints.mandatory}"
+                                        shortDesc="#{bindings.State.hints.tooltip}" id="soc2" autoSubmit="true"
+                                        simple="true">
+                        <f:selectItems value="#{bindings.State.items}" id="si2"/>
+                        <f:validator binding="#{bindings.State.validator}"/>
+                    </af:selectOneChoice>
+                </af:panelLabelAndMessage>
             </af:panelFormLayout>
         </af:panelHeader>
         <af:spacer width="10" height="10" id="s5"/>
@@ -78,7 +80,8 @@
         <af:panelGroupLayout id="pgl1" layout="horizontal">
             <af:button actionListener="#{bindings.Commit.execute}" text="Save" id="b1"/>
             <af:spacer width="10" height="10" id="s2"/>
-            <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel" immediate="true" id="b2" action="Back">
+            <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel" immediate="true" id="b2"
+                       action="Back">
                 <af:resetActionListener/>
             </af:button>
         </af:panelGroupLayout>

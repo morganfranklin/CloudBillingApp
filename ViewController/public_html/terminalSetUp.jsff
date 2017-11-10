@@ -48,13 +48,18 @@
             <f:validator binding="#{row.bindings.TerminalType.validator}"/>
           </af:selectOneChoice>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgTerminalsEOVO.hints.State.label}" id="resId1c4">
-          <af:outputText value="#{row.State}" shortDesc="#{bindings.XpeDccCfgTerminalsEOVO.hints.State.tooltip}"
-                         id="ot4"/>
-        </af:column>
         <af:column headerText="#{bindings.XpeDccCfgTerminalsEOVO.hints.County.label}" id="resId1c5">
           <af:outputText value="#{row.County}" shortDesc="#{bindings.XpeDccCfgTerminalsEOVO.hints.County.tooltip}"
                          id="ot5"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgTerminalsEOVO.hints.State.label}" id="c1">
+          <af:selectOneChoice value="#{row.bindings.State.inputValue}" label="#{row.bindings.State.label}"
+                              required="#{bindings.XpeDccCfgTerminalsEOVO.hints.State.mandatory}"
+                              shortDesc="#{bindings.XpeDccCfgTerminalsEOVO.hints.State.tooltip}" id="soc8"
+                              readOnly="true">
+            <f:selectItems value="#{row.bindings.State.items}" id="si8"/>
+            <f:validator binding="#{row.bindings.State.validator}"/>
+          </af:selectOneChoice>
         </af:column>
         <af:column headerText="#{bindings.XpeDccCfgTerminalsEOVO.hints.Inactive.label}" id="resId1c6">
           <af:selectOneChoice value="#{row.bindings.Inactive.inputValue}" label="#{row.bindings.Inactive.label}"
