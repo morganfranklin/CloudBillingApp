@@ -156,6 +156,12 @@
         <to-value>#{pageFlowScope.contractDataEntryFacet}</to-value>
       </input-page-parameter>
     </view>
+    <method-call id="Rollback">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome>
+        <fixed-outcome>parent</fixed-outcome>
+      </outcome>
+    </method-call>
     <train/>
     <control-flow-rule id="__5">
       <from-activity-id>NewContractHeaderCreateInsert</from-activity-id>
@@ -220,6 +226,10 @@
         <from-outcome>back</from-outcome>
         <to-activity-id>customer</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__30">
+        <from-outcome>rollback</from-outcome>
+        <to-activity-id>Rollback</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__53">
       <from-activity-id>customer</from-activity-id>
@@ -233,6 +243,59 @@
       <control-flow-case id="__18">
         <from-outcome>success</from-outcome>
         <to-activity-id>success</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__46">
+        <from-outcome>rollback</from-outcome>
+        <to-activity-id>Rollback</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__31">
+      <from-activity-id>contractVersion</from-activity-id>
+      <control-flow-case id="__32">
+        <from-outcome>rollback</from-outcome>
+        <to-activity-id>Rollback</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__33">
+      <from-activity-id>contractLinePriceCarrier</from-activity-id>
+      <control-flow-case id="__34">
+        <from-outcome>rollback</from-outcome>
+        <to-activity-id>Rollback</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__36">
+      <from-activity-id>contractNotes</from-activity-id>
+      <control-flow-case id="__37">
+        <from-outcome>rollback</from-outcome>
+        <to-activity-id>Rollback</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__38">
+      <from-activity-id>review</from-activity-id>
+      <control-flow-case id="__39">
+        <from-outcome>rollback</from-outcome>
+        <to-activity-id>Rollback</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__40">
+      <from-activity-id>termsAndConditions</from-activity-id>
+      <control-flow-case id="__43">
+        <from-outcome>rollback</from-outcome>
+        <to-activity-id>Rollback</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__44">
+      <from-activity-id>previewPDF</from-activity-id>
+      <control-flow-case id="__45">
+        <from-outcome>rollback</from-outcome>
+        <to-activity-id>Rollback</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__47">
+      <from-activity-id>Rollback</from-activity-id>
+      <control-flow-case id="__48">
+        <from-outcome>parent</from-outcome>
+        <to-activity-id>taskFlowReturn</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

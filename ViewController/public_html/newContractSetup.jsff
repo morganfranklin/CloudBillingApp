@@ -79,6 +79,8 @@
                                     <af:button text="Back" id="b9" action="back"/>
                                     <af:spacer width="10" height="10" id="s2"/>
                                     <af:button text="Next" id="b10" action="#{controllerContext.currentViewPort.taskFlowContext.trainModel.getNext}"/>
+                                    <af:spacer width="10" id="s4"/>
+                                    <af:button text="Cancel" id="b11" action="rollback" immediate="true"/>
                                 </af:gridCell>
                             </af:gridRow>
                         </af:panelGridLayout>
@@ -176,10 +178,13 @@
                                 </af:gridCell>
                             </af:gridRow>
                             <af:gridRow height="auto" id="gr7">
-                                <af:gridCell marginStart="5px" width="100%" id="gc7" halign="stretch" marginEnd="5px"
+                                <af:gridCell marginStart="5px" id="gc7" marginEnd="5px"
                                              valign="stretch">
-                                    <af:trainButtonBar value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
-                                                       id="tbb2"/>
+                                    <af:panelGroupLayout id="pgl6" layout="horizontal">
+                                        <af:trainButtonBar value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
+                                                           id="tbb2"/>
+                                        <af:button text="Cancel" id="b12" action="rollback" immediate="true"/>
+                                    </af:panelGroupLayout>
                                 </af:gridCell>
                             </af:gridRow>
                         </af:panelGridLayout>
@@ -708,8 +713,11 @@
                             </af:gridRow>
                             <af:gridRow height="auto" id="gr10">
                                 <af:gridCell marginStart="5px" width="100%" id="gc10" halign="stretch" marginEnd="5px">
-                                    <af:trainButtonBar value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
-                                                       id="tbb3"/>
+                                    <af:panelGroupLayout id="pgl7" layout="horizontal">
+                                        <af:trainButtonBar value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
+                                                           id="tbb3"/>
+                                        <af:button text="Cancel" id="b13" action="rollback" immediate="true"/>
+                                    </af:panelGroupLayout>
                                 </af:gridCell>
                             </af:gridRow>
                         </af:panelGridLayout>
@@ -784,8 +792,11 @@
                             <af:gridRow height="auto" id="gr13">
                                 <af:gridCell marginStart="5px" width="100%" id="gc12" halign="stretch" marginEnd="5px"
                                              valign="stretch">
-                                    <af:trainButtonBar value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
-                                                       id="tbb4"/>
+                                    <af:panelGroupLayout id="pgl8" layout="horizontal">
+                                        <af:trainButtonBar value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
+                                                           id="tbb4"/>
+                                        <af:button text="Cancel" id="b14" action="rollback" immediate="true"/>
+                                    </af:panelGroupLayout>
                                 </af:gridCell>
                             </af:gridRow>
                         </af:panelGridLayout>

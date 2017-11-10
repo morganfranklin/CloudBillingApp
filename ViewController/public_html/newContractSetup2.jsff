@@ -129,10 +129,11 @@
                             <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
                                 <af:gridCell marginStart="5px" marginEnd="5px" id="gc4" width="100%" halign="stretch"
                                              valign="stretch">
-                                    <af:button text="Back" id="b1"
-                                               action="#{controllerContext.currentViewPort.taskFlowContext.trainModel.getPrevious}"/>
-                                    <af:button text="Next" id="b2"
-                                               action="#{controllerContext.currentViewPort.taskFlowContext.trainModel.getNext}"/>
+                                    <af:panelGroupLayout id="pgl12" layout="horizontal">
+                                        <af:trainButtonBar value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
+                                                           id="tbb3"/>
+                                        <af:button text="Cancel" id="b1" action="rollback" immediate="true"/>
+                                    </af:panelGroupLayout>
                                 </af:gridCell>
                             </af:gridRow>
                         </af:panelGridLayout>
@@ -238,8 +239,11 @@
                             <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr14">
                                 <af:gridCell marginStart="5px" marginEnd="5px" id="gc12" width="100%" halign="stretch"
                                              valign="stretch">
-                                    <af:trainButtonBar value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
-                                                       id="tbb1"/>
+                                    <af:panelGroupLayout id="pgl10" layout="horizontal">
+                                        <af:trainButtonBar value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
+                                                           id="tbb1"/>
+                                        <af:button text="Cancel" id="b7" action="rollback" immediate="true"/>
+                                    </af:panelGroupLayout>
                                 </af:gridCell>
                             </af:gridRow>
                         </af:panelGridLayout>
@@ -261,8 +265,11 @@
                             <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr16">
                                 <af:gridCell marginStart="5px" marginEnd="5px" id="gc15" width="100%" halign="stretch"
                                              valign="stretch">
-                                    <af:trainButtonBar value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
-                                                       id="tbb2"/>
+                                    <af:panelGroupLayout id="pgl11" layout="horizontal">
+                                        <af:trainButtonBar value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
+                                                           id="tbb2"/>
+                                        <af:button text="Cancel" id="b8" action="rollback" immediate="true"/>
+                                    </af:panelGroupLayout>
                                 </af:gridCell>
                             </af:gridRow>
                         </af:panelGridLayout>
@@ -292,6 +299,7 @@
                                              valign="stretch">
                                     <af:button text="Back" id="b4"
                                                action="#{controllerContext.currentViewPort.taskFlowContext.trainModel.getPrevious}"/>
+                                    <af:spacer width="10" id="s5"/>
                                     <af:button text="Submit" id="b5"
                                                actionListener="#{pageFlowScope.XpeDccNewContractMBean.onSubmit}"
                                                action="#{pageFlowScope.XpeDccNewContractMBean.onSubmitAction}">
@@ -299,6 +307,7 @@
                                                                 to="#{requestScope.contractVersionApprovalStatus}"
                                                                 type="action"/>
                                     </af:button>
+                                    <af:spacer width="10" id="s4"/>
                                     <af:button text="Save as Draft" id="b6"
                                                actionListener="#{pageFlowScope.XpeDccNewContractMBean.onSubmit}"
                                                action="#{pageFlowScope.XpeDccNewContractMBean.onSubmitAction}">
@@ -306,6 +315,8 @@
                                                                 to="#{requestScope.contractVersionApprovalStatus}"
                                                                 type="action"/>
                                     </af:button>
+                                    <af:spacer width="10" id="s3"/>
+                                    <af:button text="Cancel" id="b9" action="rollback" immediate="true"/>
                                 </af:gridCell>
                             </af:gridRow>
                         </af:panelGridLayout>
@@ -314,7 +325,7 @@
                         <af:panelHeader text="New Contract has been submitted successfully" id="ph2"
                                         messageType="confirmation">
                             <f:facet name="legend">
-                                <af:button text="Return to Customer" id="b3" action="parent"/>
+                                <af:button text="Return to Customer/Contract Page" id="b3" action="parent"/>
                             </f:facet>
                         </af:panelHeader>
                     </f:facet>
