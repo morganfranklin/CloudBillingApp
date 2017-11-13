@@ -24,52 +24,6 @@
       <property
          name="exceptionHandler">false</property>
    </View>
-   <MethodCall
-      id="MethodCall3">
-      <property
-         name="activityId">SetCurrentRowWithKeyValue</property>
-      <property
-         name="x">420.7002</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>SetCurrentRowWithKeyValue&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
-      <property
-         name="y">151.74707</property>
-      <property
-         name="exceptionHandler">false</property>
-   </MethodCall>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase4"
-      from="View2"
-      to="MethodCall3">
-      <property
-         name="fromOutcome">setCurrentRow</property>
-      <property
-         name="sdm:polyPoints">R50,276.8501,150.74121,276.8501,151.39648,L50</property>
-   </ControlFlowCase>
-   <Router
-      id="Router5">
-      <property
-         name="activityId">AddOrEdit</property>
-      <property
-         name="x">614.0</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>AddOrEdit&lt;/b>&lt;/p>&lt;p>Activity Type:  Router&lt;/p></property>
-      <property
-         name="y">152.5459</property>
-      <property
-         name="exceptionHandler">false</property>
-   </Router>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase6"
-      from="MethodCall3"
-      to="Router5">
-      <property
-         name="fromOutcome">setCurrentRowWithKeyValue</property>
-      <property
-         name="sdm:polyPoints">R50,517.3501,151.39648,517.3501,152.19531,L50</property>
-   </ControlFlowCase>
    <View
       id="View7">
       <property
@@ -106,26 +60,6 @@
    </View>
    <ControlFlowCase
       islink="true"
-      id="ControlFlowCase9"
-      from="Router5"
-      to="View8">
-      <property
-         name="fromOutcome">Edit</property>
-      <property
-         name="sdm:polyPoints">B50,614.0,337.5459,R50</property>
-   </ControlFlowCase>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase10"
-      from="Router5"
-      to="View7">
-      <property
-         name="fromOutcome">Add</property>
-      <property
-         name="sdm:polyPoints">T50,614.0,-45.103516,R50</property>
-   </ControlFlowCase>
-   <ControlFlowCase
-      islink="true"
       id="ControlFlowCase11"
       from="View7"
       to="View2">
@@ -142,6 +76,26 @@
       <property
          name="fromOutcome">Back</property>
       <property
-         name="sdm:polyPoints">L50,133.0,337.5459,B50</property>
+         name="sdm:polyPoints">T50,409.0,154.24121,R54</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase13"
+      from="View2"
+      to="View7">
+      <property
+         name="fromOutcome">Add</property>
+      <property
+         name="sdm:polyPoints">R46,410.0,147.24121,B50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase14"
+      from="View2"
+      to="View8">
+      <property
+         name="fromOutcome">Edit</property>
+      <property
+         name="sdm:polyPoints">R67,L29</property>
    </ControlFlowCase>
 </SDM>

@@ -26,6 +26,8 @@ import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.context.AdfFacesContext;
 import oracle.adf.view.rich.event.QueryOperationEvent;
 
+import oracle.binding.OperationBinding;
+
 import view.utils.ADFUtils;
 import view.utils.JSFUtils;
 
@@ -58,25 +60,13 @@ public class ProductServiceSetUpTableMBean {
     }
 
     public void queryOperationListener(QueryOperationEvent queryOperationEvent) {
-        invokeEL("#{bindings.ProductServiceCriteriaQuery.processQueryOperation}", Object.class,
+        ADFUtils.invokeEL("#{bindings.ProductServiceCriteriaQuery.processQueryOperation}", Object.class,
                  QueryOperationEvent.class, queryOperationEvent);
         if (queryOperationEvent.getOperation().name().toUpperCase().equals("RESET")) {
             DCIteratorBinding carrierIter = ADFUtils.findIterator("XpeDccCfgProductserviceEOVOIterator");
             carrierIter.getViewObject().executeEmptyRowSet();
             AdfFacesContext.getCurrentInstance().addPartialTarget(this.getProductServiceSetUpTableBBean().getProductServiceSetUpTblBind());
         }
-    }
-
-    public Object invokeMethodExpression(String expr, Class returnType, Class[] argTypes, Object[] args) {
-        FacesContext fc = FacesContext.getCurrentInstance();
-        ELContext elctx = fc.getELContext();
-        ExpressionFactory elFactory = fc.getApplication().getExpressionFactory();
-        MethodExpression methodExpr = elFactory.createMethodExpression(elctx, expr, returnType, argTypes);
-        return methodExpr.invoke(elctx, args);
-    }
-
-    public Object invokeEL(String expr, Class returnType, Class argType, Object argument) {
-        return invokeMethodExpression(expr, returnType, new Class[] { argType }, new Object[] { argument });
     }
 
     public void onEditPrdtInactiveValChgLstnr(ValueChangeEvent valueChangeEvent) {
@@ -119,5 +109,15 @@ public class ProductServiceSetUpTableMBean {
         prdServiceImpl.insertRow(prdServiceRowImpl);
         prdServiceImpl.setCurrentRow(prdServiceRowImpl);
         AdfFacesContext.getCurrentInstance().getPageFlowScope().put("ItemId", prdServiceRowImpl.getItemId());
+    }
+
+    public void productServiceSaveActnLstnr(ActionEvent actionEvent) {
+        OperationBinding opb = ADFUtils.findOperation("Commit");
+        opb.execute();
+        if (opb.getErrors().isEmpty()) {
+            JSFUtils.addFacesInformationMessage("Data Saved Successfully.");
+        } else {
+            JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
+        }
     }
 }

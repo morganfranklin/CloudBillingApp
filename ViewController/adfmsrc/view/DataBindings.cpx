@@ -81,8 +81,6 @@
         <page path="/editProductService.jsff" usageId="view_editProductServicePageDef"/>
         <page path="/generalSetUp.jsff" usageId="view_generalSetUpPageDef"/>
         <page path="/pcsShortNameSetUp.jsff" usageId="view_pcsShortNameSetUpPageDef"/>
-        <page path="/WEB-INF/pcsShortNameSetUpTable.xml#pcsShortNameSetUpTable@SetCurrentRowWithKeyValue"
-              usageId="view_pcsShortNameSetUpTable_pcsShortNameSetUpTable_SetCurrentRowWithKeyValuePageDef"/>
         <page path="/addPcsShortNames.jsff" usageId="view_addPcsShortNamesPageDef"/>
         <page path="/editPcsShortNames.jsff" usageId="view_editPcsShortNamesPageDef"/>
         <page path="/activeTerminalSearch.jsff" usageId="view_activeTerminalSearchPageDef"/>
@@ -184,8 +182,6 @@
         <page id="view_editProductServicePageDef" path="view.pageDefs.editProductServicePageDef"/>
         <page id="view_generalSetUpPageDef" path="view.pageDefs.generalSetUpPageDef"/>
         <page id="view_pcsShortNameSetUpPageDef" path="view.pageDefs.pcsShortNameSetUpPageDef"/>
-        <page id="view_pcsShortNameSetUpTable_pcsShortNameSetUpTable_SetCurrentRowWithKeyValuePageDef"
-              path="view.pageDefs.pcsShortNameSetUpTable_pcsShortNameSetUpTable_SetCurrentRowWithKeyValuePageDef"/>
         <page id="view_addPcsShortNamesPageDef" path="view.pageDefs.addPcsShortNamesPageDef"/>
         <page id="view_editPcsShortNamesPageDef" path="view.pageDefs.editPcsShortNamesPageDef"/>
         <page id="view_activeTerminalSearchPageDef" path="view.pageDefs.activeTerminalSearchPageDef"/>

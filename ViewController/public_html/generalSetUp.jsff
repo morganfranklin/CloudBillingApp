@@ -29,7 +29,8 @@
                 rowBandingInterval="0" selectedRowKeys="#{bindings.XpeDccCfgGeneralEOVO.collectionModel.selectedRow}"
                 selectionListener="#{bindings.XpeDccCfgGeneralEOVO.collectionModel.makeCurrent}" rowSelection="single"
                 fetchSize="#{bindings.XpeDccCfgGeneralEOVO.rangeSize}" id="resId1" contentDelivery="immediate"
-                columnStretching="last" binding="#{backingBeanScope.GeneralSetUpTableBBean.generalSetUpTblBind}">
+                columnStretching="last" binding="#{backingBeanScope.GeneralSetUpTableBBean.generalSetUpTblBind}"
+                partialTriggers="::b2 ::b3 ::b4 ::b5">
         <af:column headerText="#{bindings.XpeDccCfgGeneralEOVO.hints.ItemId.label}" id="resId1c1">
           <af:link text="#{row.ItemId}" id="l1" partialSubmit="true"
                    actionListener="#{pageFlowScope.generalSetUpTableMBean.onGeneralItemEdit}"/>
@@ -54,12 +55,12 @@
               contentDelivery="lazyUncached">
       <af:dialog id="d1" type="none" title="General Item Details" closeIconVisible="false">
         <f:facet name="buttonBar">
-          <af:button action="#{bindings.Commit.execute}" text="Save" disabled="#{!bindings.Commit.enabled}"
-                     id="b2" actionListener="#{pageFlowScope.generalSetUpTableMBean.onGeneralItemSaveOrCancel}"/>
+          <af:button text="Save"
+                     id="b2" actionListener="#{pageFlowScope.generalSetUpTableMBean.onGeneralItemSave}"/>
           <af:spacer width="10" height="10" id="s3"/>
           <af:button action="#{bindings.Rollback.execute}" text="Cancel"
                      disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b3"
-                     actionListener="#{pageFlowScope.generalSetUpTableMBean.onGeneralItemSaveOrCancel}">
+                     actionListener="#{pageFlowScope.generalSetUpTableMBean.onGeneralItemCancel}">
             <af:resetActionListener/>
           </af:button>
         </f:facet>
@@ -94,12 +95,12 @@
               contentDelivery="lazyUncached">
       <af:dialog id="d2" type="none" title="General Item Details" closeIconVisible="false">
         <f:facet name="buttonBar">
-          <af:button action="#{bindings.Commit.execute}" text="Save" 
-                     id="b4" actionListener="#{pageFlowScope.generalSetUpTableMBean.onGeneralItemEditSaveOrCancel}"/>
+          <af:button text="Save" 
+                     id="b4" actionListener="#{pageFlowScope.generalSetUpTableMBean.onGeneralItemEditSave}"/>
           <af:spacer width="10" height="10" id="s2"/>
           <af:button action="#{bindings.Rollback.execute}" text="Cancel"
                      immediate="true" id="b5"
-                     actionListener="#{pageFlowScope.generalSetUpTableMBean.onGeneralItemEditSaveOrCancel}">
+                     actionListener="#{pageFlowScope.generalSetUpTableMBean.onGeneralItemEditCancel}">
             <af:resetActionListener/>
           </af:button>
         </f:facet>

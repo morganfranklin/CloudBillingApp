@@ -102,13 +102,13 @@
                 binding="#{backingBeanScope.BusinessUnitSetUpTableBBean.businessUnitAddItem_popup}">
         <af:dialog id="d1" title="Add Business Unit" closeIconVisible="false" type="none">
           <f:facet name="buttonBar">
-            <af:button action="#{bindings.Commit.execute}" text="Save" disabled="#{!bindings.Commit.enabled}"
+            <af:button text="Save"
                        id="b2"
-                       actionListener="#{pageFlowScope.BusinessUnitSetUpTableMBean.businessUnitCreationSaveorCancel}"/>
+                       actionListener="#{pageFlowScope.BusinessUnitSetUpTableMBean.businessUnitCreationSave}"/>
             <af:spacer width="10" height="10" id="s3"/>
             <af:button action="#{bindings.Rollback.execute}" text="Cancel"
                        disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b3"
-                       actionListener="#{pageFlowScope.BusinessUnitSetUpTableMBean.businessUnitCreationSaveorCancel}">
+                       actionListener="#{pageFlowScope.BusinessUnitSetUpTableMBean.businessUnitCreationCancel}">
               <af:resetActionListener/>
             </af:button>
           </f:facet>
@@ -252,13 +252,13 @@
                 binding="#{backingBeanScope.BusinessUnitSetUpTableBBean.businessUnitEditItem_popup}">
         <af:dialog id="d2" type="none" title="Edit Business Unit" closeIconVisible="false">
           <f:facet name="buttonBar">
-            <af:button action="#{bindings.Commit.execute}" text="Save"
+            <af:button text="Save"
                        id="b4"
-                       actionListener="#{pageFlowScope.BusinessUnitSetUpTableMBean.businessUnitEditSaveorCancel}"/>
+                       actionListener="#{pageFlowScope.BusinessUnitSetUpTableMBean.businessUnitEditSave}"/>
             <af:spacer width="10" height="10" id="s2"/>
             <af:button action="#{bindings.Rollback.execute}" text="Cancel"
                        immediate="true" id="b5"
-                       actionListener="#{pageFlowScope.BusinessUnitSetUpTableMBean.businessUnitEditSaveorCancel}">
+                       actionListener="#{pageFlowScope.BusinessUnitSetUpTableMBean.businessUnitEditCancel}">
               <af:resetActionListener/>
             </af:button>
           </f:facet>

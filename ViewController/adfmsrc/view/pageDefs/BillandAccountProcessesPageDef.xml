@@ -23,5 +23,7 @@
                   InstanceName="data.AppModuleDataControl.dataProvider"/>
     <action IterBinding="XpeDccCfgBillingandAccountingROVO1Iterator" id="CreateInsert" RequiresUpdateModel="true"
             Action="createInsertRow"/>
+    <action IterBinding="XpeDccCfgBillingandAccountingROVO1Iterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

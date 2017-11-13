@@ -153,4 +153,14 @@ public class DestinationSetUpTableMBean implements Serializable{
             destinationRow.setInactiveDate(null);
         }
     }
+
+    public void destinationSaveActnLstnr(ActionEvent actionEvent) {
+        OperationBinding opb = ADFUtils.findOperation("Commit");
+        opb.execute();
+        if (opb.getErrors().isEmpty()) {
+            JSFUtils.addFacesInformationMessage("Data Saved Successfully.");
+        } else {
+            JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
+        }
+    }
 }

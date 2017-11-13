@@ -21,6 +21,8 @@ import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.context.AdfFacesContext;
 import oracle.adf.view.rich.event.QueryOperationEvent;
 
+import oracle.binding.OperationBinding;
+
 import view.utils.ADFUtils;
 import view.utils.JSFUtils;
 
@@ -47,11 +49,33 @@ public class CarriersSetUpTableMBean implements Serializable{
         this.getcarriersSetUpTableBBean().getCarrierEditItem_popup().show(hints);
     }
 
-    public void onCarrierCreationSaveorCancel(ActionEvent actionEvent) {
+    public void onCarrierCreationSave(ActionEvent actionEvent) {
+        OperationBinding opb = ADFUtils.findOperation("Commit");
+        opb.execute();
+        if(opb.getErrors().isEmpty()){
+            this.getcarriersSetUpTableBBean().getCarrierAddItem_popup().hide();
+            JSFUtils.addFacesInformationMessage("Data Saved Successfully.");
+        }else{
+            JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
+        }
+    }
+    
+    public void onCarrierCreationCancel(ActionEvent actionEvent) {
         this.getcarriersSetUpTableBBean().getCarrierAddItem_popup().hide();
     }
 
-    public void onCarrierEditSaveorCancel(ActionEvent actionEvent) {
+    public void onCarrierEditSave(ActionEvent actionEvent) {
+        OperationBinding opb = ADFUtils.findOperation("Commit");
+        opb.execute();
+        if(opb.getErrors().isEmpty()){
+            this.getcarriersSetUpTableBBean().getCarrierEditItem_popup().hide();
+            JSFUtils.addFacesInformationMessage("Data Saved Successfully.");
+        }else{
+            JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
+        }
+    }
+    
+    public void onCarrierEditCancel(ActionEvent actionEvent) {
         this.getcarriersSetUpTableBBean().getCarrierEditItem_popup().hide();
     }
     

@@ -20,6 +20,7 @@ import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.binding.OperationBinding;
 
 import view.utils.ADFUtils;
+import view.utils.JSFUtils;
 
 public class ContractApprovalFacilitySetUpMBean implements Serializable{
     @SuppressWarnings("compatibility:-7540524635873301715")
@@ -44,11 +45,33 @@ public class ContractApprovalFacilitySetUpMBean implements Serializable{
         this.getContractApprovalFacilitySetUpBBean().getMswFacilityEdit_popup().show(hints);
     }
 
-    public void mswFacilityAddSaveorCancel(ActionEvent actionEvent) {
+    public void mswFacilityAddSave(ActionEvent actionEvent) {
+        OperationBinding opb = ADFUtils.findOperation("Commit");
+        opb.execute();
+        if (opb.getErrors().isEmpty()) {
+            this.getContractApprovalFacilitySetUpBBean().getMswFacilityAdd_popup().hide();
+            JSFUtils.addFacesInformationMessage("Data Saved Successfully.");
+        } else {
+            JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
+        }
+    }
+    
+    public void mswFacilityAddCancel(ActionEvent actionEvent) {
         this.getContractApprovalFacilitySetUpBBean().getMswFacilityAdd_popup().hide();
     }
 
-    public void mswFacilityEditSaveorCancel(ActionEvent actionEvent) {
+    public void mswFacilityEditSave(ActionEvent actionEvent) {
+        OperationBinding opb = ADFUtils.findOperation("Commit");
+        opb.execute();
+        if (opb.getErrors().isEmpty()) {
+            this.getContractApprovalFacilitySetUpBBean().getMswFacilityEdit_popup().hide();
+            JSFUtils.addFacesInformationMessage("Data Saved Successfully.");
+        } else {
+            JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
+        }
+    }
+    
+    public void mswFacilityEditCancel(ActionEvent actionEvent) {
         this.getContractApprovalFacilitySetUpBBean().getMswFacilityEdit_popup().hide();
     }
 
@@ -62,11 +85,33 @@ public class ContractApprovalFacilitySetUpMBean implements Serializable{
         this.getContractApprovalFacilitySetUpBBean().getCmtmntFacilityEdit_popup().show(hints);
     }
 
-    public void cmtmntFacilityAddSaveorCancel(ActionEvent actionEvent) {
+    public void cmtmntFacilityAddSave(ActionEvent actionEvent) {
+        OperationBinding opb = ADFUtils.findOperation("Commit");
+        opb.execute();
+        if (opb.getErrors().isEmpty()) {
+            this.getContractApprovalFacilitySetUpBBean().getCmtmntFacilityAdd_popup().hide();
+            JSFUtils.addFacesInformationMessage("Data Saved Successfully.");
+        } else {
+            JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
+        }
+    }
+    
+    public void cmtmntFacilityAddCancel(ActionEvent actionEvent) {
         this.getContractApprovalFacilitySetUpBBean().getCmtmntFacilityAdd_popup().hide();
     }
 
-    public void cmtmntFacilityEditSaveorCancel(ActionEvent actionEvent) {
+    public void cmtmntFacilityEditSave(ActionEvent actionEvent) {
+        OperationBinding opb = ADFUtils.findOperation("Commit");
+        opb.execute();
+        if (opb.getErrors().isEmpty()) {
+            this.getContractApprovalFacilitySetUpBBean().getCmtmntFacilityEdit_popup().hide();
+            JSFUtils.addFacesInformationMessage("Data Saved Successfully.");
+        } else {
+            JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
+        }
+    }
+    
+    public void cmtmntFacilityEditCancel(ActionEvent actionEvent) {
         this.getContractApprovalFacilitySetUpBBean().getCmtmntFacilityEdit_popup().hide();
     }
 
@@ -80,11 +125,33 @@ public class ContractApprovalFacilitySetUpMBean implements Serializable{
         this.getContractApprovalFacilitySetUpBBean().getMetalsFacilityEdit_popup().show(hints);
     }
 
-    public void metalsFacilityAddSaveorCancel(ActionEvent actionEvent) {
+    public void metalsFacilityAddSave(ActionEvent actionEvent) {
+        OperationBinding opb = ADFUtils.findOperation("Commit");
+        opb.execute();
+        if (opb.getErrors().isEmpty()) {
+            this.getContractApprovalFacilitySetUpBBean().getMetalsFacilityAdd_popup().hide();
+            JSFUtils.addFacesInformationMessage("Data Saved Successfully.");
+        } else {
+            JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
+        }
+    }
+    
+    public void metalsFacilityAddCancel(ActionEvent actionEvent) {
         this.getContractApprovalFacilitySetUpBBean().getMetalsFacilityAdd_popup().hide();
     }
 
-    public void metalsFacilityEditSaveorCancel(ActionEvent actionEvent) {
+    public void metalsFacilityEditSave(ActionEvent actionEvent) {
+        OperationBinding opb = ADFUtils.findOperation("Commit");
+        opb.execute();
+        if (opb.getErrors().isEmpty()) {
+            this.getContractApprovalFacilitySetUpBBean().getMetalsFacilityEdit_popup().hide();
+            JSFUtils.addFacesInformationMessage("Data Saved Successfully.");
+        } else {
+            JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
+        }
+    }
+    
+    public void metalsFacilityEditCancel(ActionEvent actionEvent) {
         this.getContractApprovalFacilitySetUpBBean().getMetalsFacilityEdit_popup().hide();
     }
 

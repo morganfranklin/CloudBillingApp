@@ -8,6 +8,9 @@
         <af:toolbar id="t2">
           <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add"
                      id="b1"/>
+          <af:spacer width="10" height="10" id="s1"/>
+          <af:button actionListener="#{bindings.Delete.execute}" text="Delete" disabled="#{!bindings.Delete.enabled}"
+                     id="b2"/>
         </af:toolbar>
       </f:facet>
       <f:facet name="menuBar"/>
@@ -21,7 +24,7 @@
                 selectedRowKeys="#{bindings.XpeDccCfgBillingandAccountingROVO1.collectionModel.selectedRow}"
                 selectionListener="#{bindings.XpeDccCfgBillingandAccountingROVO1.collectionModel.makeCurrent}"
                 rowSelection="single" fetchSize="#{bindings.XpeDccCfgBillingandAccountingROVO1.rangeSize}" id="t1"
-                contentDelivery="immediate" columnStretching="last" partialTriggers="::b1" autoHeightRows="25"
+                contentDelivery="immediate" columnStretching="last" partialTriggers="::b1 ::b2" autoHeightRows="25"
                 styleClass="AFStretchWidth">
         <af:column headerText="#{bindings.XpeDccCfgBillingandAccountingROVO1.hints.XpeFacilityId.label}" id="c1">
           <af:inputText value="#{row.bindings.XpeFacilityId.inputValue}"

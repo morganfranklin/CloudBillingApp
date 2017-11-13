@@ -13,7 +13,10 @@ import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.context.AdfFacesContext;
 import oracle.adf.view.rich.event.QueryOperationEvent;
 
+import oracle.binding.OperationBinding;
+
 import view.utils.ADFUtils;
+import view.utils.JSFUtils;
 
 public class generalSetUpTableMBean {
     public generalSetUpTableMBean() {
@@ -34,11 +37,33 @@ public class generalSetUpTableMBean {
         ADFUtils.findOperation("Commit").execute();
     }
 
-    public void onGeneralItemSaveOrCancel(ActionEvent actionEvent) {
+    public void onGeneralItemSave(ActionEvent actionEvent) {
+        OperationBinding opb = ADFUtils.findOperation("Commit");
+        opb.execute();
+        if(opb.getErrors().isEmpty()){
+            this.getGeneralSetUpTableBBean().getGeneralItemAddItem_popup().hide();
+            JSFUtils.addFacesInformationMessage("Data Saved Successfully.");
+        }else{
+            JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
+        }
+    }
+    
+    public void onGeneralItemCancel(ActionEvent actionEvent) {
         this.getGeneralSetUpTableBBean().getGeneralItemAddItem_popup().hide();
     }
 
-    public void onGeneralItemEditSaveOrCancel(ActionEvent actionEvent) {
+    public void onGeneralItemEditSave(ActionEvent actionEvent) {
+        OperationBinding opb = ADFUtils.findOperation("Commit");
+        opb.execute();
+        if(opb.getErrors().isEmpty()){
+            this.getGeneralSetUpTableBBean().getGeneralItemEditItem_popup().hide();
+            JSFUtils.addFacesInformationMessage("Data Saved Successfully.");
+        }else{
+            JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
+        }
+    }
+    
+    public void onGeneralItemEditCancel(ActionEvent actionEvent) {
         this.getGeneralSetUpTableBBean().getGeneralItemEditItem_popup().hide();
     }
 
@@ -48,38 +73,12 @@ public class generalSetUpTableMBean {
     }
 
     public void queryOperationListener(QueryOperationEvent queryOperationEvent) {
-        invokeEL("#{bindings.GeneralCriteriaQuery.processQueryOperation}",Object.class,
+        ADFUtils.invokeEL("#{bindings.GeneralCriteriaQuery.processQueryOperation}",Object.class,
                  QueryOperationEvent.class, queryOperationEvent);
         if (queryOperationEvent.getOperation().name().toUpperCase().equals("RESET")) {
             DCIteratorBinding carrierIter = ADFUtils.findIterator("XpeDccCfgGeneralEOVOIterator");
             carrierIter.getViewObject().executeEmptyRowSet();
             AdfFacesContext.getCurrentInstance().addPartialTarget(this.getGeneralSetUpTableBBean().getGeneralSetUpTblBind());
         }
-    }
-    
-    /**
-     * @param expr
-     * @param returnType
-     * @param argTypes
-     * @param args
-     * @return
-     */
-    public Object invokeMethodExpression(String expr, Class returnType, Class[] argTypes, Object[] args) {
-        FacesContext fc = FacesContext.getCurrentInstance();
-        ELContext elctx = fc.getELContext();
-        ExpressionFactory elFactory = fc.getApplication().getExpressionFactory();
-        MethodExpression methodExpr = elFactory.createMethodExpression(elctx, expr, returnType, argTypes);
-        return methodExpr.invoke(elctx, args);
-    }
-
-    /**
-     * @param expr
-     * @param returnType
-     * @param argType
-     * @param argument
-     * @return
-     */
-    public Object invokeEL(String expr, Class returnType, Class argType, Object argument) {
-        return invokeMethodExpression(expr, returnType, new Class[] { argType }, new Object[] { argument });
     }
 }

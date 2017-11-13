@@ -57,7 +57,6 @@
             Action="createInsertRow"/>
     <action IterBinding="XpeDccCfgNewNotifGroupsEOVOIterator" id="Delete" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
-    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
     <attributeValues IterBinding="XpeDccCfgNewNotificationEOVOIterator" id="CreditUtilization">
       <AttrNames>
@@ -69,5 +68,6 @@
         <Item Value="NotificationId"/>
       </AttrNames>
     </attributeValues>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
   </bindings>
 </pageDefinition>

@@ -23,7 +23,10 @@ import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.context.AdfFacesContext;
 import oracle.adf.view.rich.event.QueryOperationEvent;
 
+import oracle.binding.OperationBinding;
+
 import view.utils.ADFUtils;
+import view.utils.JSFUtils;
 
 public class NotificationSetUpTableMBean {
     public NotificationSetUpTableMBean() {
@@ -86,6 +89,16 @@ public class NotificationSetUpTableMBean {
             notifGrpRow.setInactiveDate(new Timestamp(System.currentTimeMillis()));
         }else{
             notifGrpRow.setInactiveDate(null);
+        }
+    }
+
+    public void notificationSaveActnLstnr(ActionEvent actionEvent) {
+        OperationBinding opb = ADFUtils.findOperation("Commit");
+        opb.execute();
+        if (opb.getErrors().isEmpty()) {
+            JSFUtils.addFacesInformationMessage("Data Saved Successfully.");
+        } else {
+            JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
         }
     }
 }
