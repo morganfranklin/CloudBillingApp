@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <MethodCall
+      id="MethodCall2">
+      <property
+         name="activityId">initAccrualRevenueGeneration</property>
+      <property
+         name="x">225.38086</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>initAccrualRevenueGeneration&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">200.74707</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
+   <View
+      id="View3">
+      <property
+         name="activityId">AccrualRevenueGeneration</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">564.0</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>AccrualRevenueGeneration&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">199.89648</property>
+      <property
+         name="page">/AccrualRevenueGeneration.jsff</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="MethodCall2"
+      to="View3">
+      <property
+         name="fromOutcome">initAccrualRevenueGeneration</property>
+      <property
+         name="sdm:polyPoints">R50,266.38086,200.39648,523.0,199.5459,L50</property>
+   </ControlFlowCase>
+   <TaskFlowReturn
+      id="TaskFlowReturn5">
+      <property
+         name="activityId">Back</property>
+      <property
+         name="x">820.0</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Back&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Return&lt;/p>&lt;p>Outcome:  Back&lt;/p></property>
+      <property
+         name="y">200.19531</property>
+      <property
+         name="finish">true</property>
+      <property
+         name="exceptionHandler">false</property>
+   </TaskFlowReturn>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase6"
+      from="View3"
+      to="TaskFlowReturn5">
+      <property
+         name="fromOutcome">back</property>
+      <property
+         name="sdm:polyPoints">R50,605.0,199.5459,779.0,199.84473,L50</property>
+   </ControlFlowCase>
+</SDM>

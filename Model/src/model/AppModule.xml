@@ -628,6 +628,9 @@
     <ViewUsage
         Name="XpeDccContractVersionView3"
         ViewObjectName="model.XpeDccContractVersionView"/>
+    <ViewUsage
+        Name="XpeDccCfgAccrualandRevenueGenerationROVO1"
+        ViewObjectName="model.views.readonly.XpeDccCfgAccrualandRevenueGenerationROVO"/>
     <ViewLinkUsage
         Name="NeuRuleTblFk1Link1"
         ViewLinkObjectName="model.NeuRuleTblFk1Link"
@@ -1568,6 +1571,20 @@
             <Parameter
                 Name="contractVersion"
                 Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="accrualandRevenueGenerationProcesses"
+            MethodName="accrualandRevenueGenerationProcesses">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+        </Method>
+        <Method
+            Name="initAccrualRevenueGeneration"
+            MethodName="initAccrualRevenueGeneration">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
         </Method>
     </ClientInterface>
 </AppModule>

@@ -145,4 +145,9 @@ public class integrationDashboardRegionName implements Serializable {
             setDynamicTaskFlowId("/WEB-INF/adminStats.xml#adminStats");
         }
     }
+
+    public String accrualRevenueGenerationProcesses() {
+        setDynamicTaskFlowId("/WEB-INF/accrualRevenueGenerationProcesses.xml#accrualRevenueGenerationProcesses");
+        return null;
+    }
 }
