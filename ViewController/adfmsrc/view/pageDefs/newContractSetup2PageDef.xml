@@ -8,8 +8,6 @@
               id="XpeDccNewContractVersionViewIterator" ChangeEventPolicy="none"/>
     <iterator Binds="XpeDccNewContractNotesView" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccNewContractNotesViewIterator" ChangeEventPolicy="none"/>
-    <iterator Binds="XpeDccNewContractLPCROVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccNewContractLPCROVOIterator" ChangeEventPolicy="none"/>
     <iterator Binds="XpeDccTermsContractEOVO" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccTermsContractEOVOIterator" ChangeEventPolicy="none"/>
     <iterator Binds="XpeDccNewContractSetupROVO" RangeSize="25" DataControl="AppModuleDataControl"
@@ -60,25 +58,6 @@
         <Item Value="XpeNoteLong"/>
       </AttrNames>
     </attributeValues>
-    <tree IterBinding="XpeDccNewContractLPCROVOIterator" id="XpeDccNewContractLPCROVO">
-      <nodeDefinition DefName="model.views.readonly.XpeDccNewContractLPCROVO" Name="XpeDccNewContractLPCROVO0">
-        <AttrNames>
-          <Item Value="LineNumber"/>
-          <Item Value="Facility"/>
-          <Item Value="ProductId"/>
-          <Item Value="ProductUom"/>
-          <Item Value="SwApprNbr"/>
-          <Item Value="PricingTermType"/>
-          <Item Value="Rate"/>
-          <Item Value="PeriodType"/>
-          <Item Value="CarrierId"/>
-          <Item Value="VehicleType"/>
-          <Item Value="VehicleNbr"/>
-          <Item Value="SubNbr"/>
-          <Item Value="BusinessUnitGl"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
     <list IterBinding="XpeDccNewContractVersionViewIterator" StaticList="false" Uses="LOV_XpeTermId" id="XpeTermId"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <attributeValues IterBinding="XpeDccTermsContractEOVOIterator" id="XpeDccClause">

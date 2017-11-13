@@ -84,147 +84,6 @@
                                                 </af:inputDate>
                                             </af:panelFormLayout>
                                         </af:panelBox>
-                                        <af:panelBox text="Contract Line, Price and Carrier Details" id="pb8"
-                                                     rendered="false">
-                                            <af:table value="#{bindings.XpeDccNewContractLPCROVO.collectionModel}"
-                                                      var="row" rows="#{bindings.XpeDccNewContractLPCROVO.rangeSize}"
-                                                      emptyText="#{bindings.XpeDccNewContractLPCROVO.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                                      rowBandingInterval="0"
-                                                      fetchSize="#{bindings.XpeDccNewContractLPCROVO.rangeSize}"
-                                                      id="t2">
-                                                <af:column headerText="#{bindings.XpeDccNewContractLPCROVO.hints.BusinessUnitGl.label}"
-                                                           id="c13">
-                                                    <af:selectOneChoice value="#{row.bindings.BusinessUnitGl.inputValue}"
-                                                                        label="#{row.bindings.BusinessUnitGl.label}"
-                                                                        required="#{bindings.XpeDccNewContractLPCROVO.hints.BusinessUnitGl.mandatory}"
-                                                                        shortDesc="#{bindings.XpeDccNewContractLPCROVO.hints.BusinessUnitGl.tooltip}"
-                                                                        readOnly="true" id="soc12">
-                                                        <f:selectItems value="#{row.bindings.BusinessUnitGl.items}"
-                                                                       id="si12"/>
-                                                        <f:validator binding="#{row.bindings.BusinessUnitGl.validator}"/>
-                                                    </af:selectOneChoice>
-                                                </af:column>
-                                                <af:column headerText="#{bindings.XpeDccNewContractLPCROVO.hints.LineNumber.label}"
-                                                           id="c1">
-                                                    <af:outputText value="#{row.LineNumber}"
-                                                                   shortDesc="#{bindings.XpeDccNewContractLPCROVO.hints.LineNumber.tooltip}"
-                                                                   id="ot1"/>
-                                                </af:column>
-                                                <af:column headerText="#{bindings.XpeDccNewContractLPCROVO.hints.Facility.label}"
-                                                           id="c2">
-                                                    <af:selectOneChoice value="#{row.bindings.Facility.inputValue}"
-                                                                        label="#{row.bindings.Facility.label}"
-                                                                        required="#{bindings.XpeDccNewContractLPCROVO.hints.Facility.mandatory}"
-                                                                        shortDesc="#{bindings.XpeDccNewContractLPCROVO.hints.Facility.tooltip}"
-                                                                        readOnly="true" id="soc5">
-                                                        <f:selectItems value="#{row.bindings.Facility.items}" id="si5"/>
-                                                        <f:validator binding="#{row.bindings.Facility.validator}"/>
-                                                    </af:selectOneChoice>
-                                                </af:column>
-                                                <af:column headerText="#{bindings.XpeDccNewContractLPCROVO.hints.ProductId.label}"
-                                                           id="c3">
-                                                    <af:selectOneChoice value="#{row.bindings.ProductId.inputValue}"
-                                                                        label="#{row.bindings.ProductId.label}"
-                                                                        required="#{bindings.XpeDccNewContractLPCROVO.hints.ProductId.mandatory}"
-                                                                        shortDesc="#{bindings.XpeDccNewContractLPCROVO.hints.ProductId.tooltip}"
-                                                                        readOnly="true" id="soc6">
-                                                        <f:selectItems value="#{row.bindings.ProductId.items}"
-                                                                       id="si6"/>
-                                                        <f:validator binding="#{row.bindings.ProductId.validator}"/>
-                                                    </af:selectOneChoice>
-                                                </af:column>
-                                                <af:column headerText="#{bindings.XpeDccNewContractLPCROVO.hints.ProductUom.label}"
-                                                           id="c4">
-                                                    <af:selectOneChoice value="#{row.bindings.ProductUom.inputValue}"
-                                                                        label="#{row.bindings.ProductUom.label}"
-                                                                        required="#{bindings.XpeDccNewContractLPCROVO.hints.ProductUom.mandatory}"
-                                                                        shortDesc="#{bindings.XpeDccNewContractLPCROVO.hints.ProductUom.tooltip}"
-                                                                        readOnly="true" id="soc7">
-                                                        <f:selectItems value="#{row.bindings.ProductUom.items}"
-                                                                       id="si7"/>
-                                                        <f:validator binding="#{row.bindings.ProductUom.validator}"/>
-                                                    </af:selectOneChoice>
-                                                </af:column>
-                                                <af:column headerText="#{bindings.XpeDccNewContractLPCROVO.hints.SwApprNbr.label}"
-                                                           id="c5">
-                                                    <af:outputText value="#{row.SwApprNbr}"
-                                                                   shortDesc="#{bindings.XpeDccNewContractLPCROVO.hints.SwApprNbr.tooltip}"
-                                                                   id="ot2"/>
-                                                </af:column>
-                                                <af:column headerText="#{bindings.XpeDccNewContractLPCROVO.hints.PricingTermType.label}"
-                                                           id="c6">
-                                                    <af:selectOneChoice value="#{row.bindings.PricingTermType.inputValue}"
-                                                                        label="#{row.bindings.PricingTermType.label}"
-                                                                        required="#{bindings.XpeDccNewContractLPCROVO.hints.PricingTermType.mandatory}"
-                                                                        shortDesc="#{bindings.XpeDccNewContractLPCROVO.hints.PricingTermType.tooltip}"
-                                                                        readOnly="true" id="soc8">
-                                                        <f:selectItems value="#{row.bindings.PricingTermType.items}"
-                                                                       id="si8"/>
-                                                        <f:validator binding="#{row.bindings.PricingTermType.validator}"/>
-                                                    </af:selectOneChoice>
-                                                </af:column>
-                                                <af:column headerText="#{bindings.XpeDccNewContractLPCROVO.hints.Rate.label}"
-                                                           id="c7">
-                                                    <af:outputText value="#{row.Rate}"
-                                                                   shortDesc="#{bindings.XpeDccNewContractLPCROVO.hints.Rate.tooltip}"
-                                                                   id="ot3">
-                                                        <af:convertNumber groupingUsed="false"
-                                                                          pattern="#{bindings.XpeDccNewContractLPCROVO.hints.Rate.format}"/>
-                                                    </af:outputText>
-                                                </af:column>
-                                                <af:column headerText="#{bindings.XpeDccNewContractLPCROVO.hints.PeriodType.label}"
-                                                           id="c8">
-                                                    <af:selectOneChoice value="#{row.bindings.PeriodType.inputValue}"
-                                                                        label="#{row.bindings.PeriodType.label}"
-                                                                        required="#{bindings.XpeDccNewContractLPCROVO.hints.PeriodType.mandatory}"
-                                                                        shortDesc="#{bindings.XpeDccNewContractLPCROVO.hints.PeriodType.tooltip}"
-                                                                        readOnly="true" id="soc9">
-                                                        <f:selectItems value="#{row.bindings.PeriodType.items}"
-                                                                       id="si9"/>
-                                                        <f:validator binding="#{row.bindings.PeriodType.validator}"/>
-                                                    </af:selectOneChoice>
-                                                </af:column>
-                                                <af:column headerText="#{bindings.XpeDccNewContractLPCROVO.hints.CarrierId.label}"
-                                                           id="c9">
-                                                    <af:selectOneChoice value="#{row.bindings.CarrierId.inputValue}"
-                                                                        label="#{row.bindings.CarrierId.label}"
-                                                                        required="#{bindings.XpeDccNewContractLPCROVO.hints.CarrierId.mandatory}"
-                                                                        shortDesc="#{bindings.XpeDccNewContractLPCROVO.hints.CarrierId.tooltip}"
-                                                                        readOnly="true" id="soc10">
-                                                        <f:selectItems value="#{row.bindings.CarrierId.items}"
-                                                                       id="si10"/>
-                                                        <f:validator binding="#{row.bindings.CarrierId.validator}"/>
-                                                    </af:selectOneChoice>
-                                                </af:column>
-                                                <af:column headerText="#{bindings.XpeDccNewContractLPCROVO.hints.VehicleType.label}"
-                                                           id="c10">
-                                                    <af:selectOneChoice value="#{row.bindings.VehicleType.inputValue}"
-                                                                        label="#{row.bindings.VehicleType.label}"
-                                                                        required="#{bindings.XpeDccNewContractLPCROVO.hints.VehicleType.mandatory}"
-                                                                        shortDesc="#{bindings.XpeDccNewContractLPCROVO.hints.VehicleType.tooltip}"
-                                                                        readOnly="true" id="soc11">
-                                                        <f:selectItems value="#{row.bindings.VehicleType.items}"
-                                                                       id="si11"/>
-                                                        <f:validator binding="#{row.bindings.VehicleType.validator}"/>
-                                                    </af:selectOneChoice>
-                                                </af:column>
-                                                <af:column headerText="#{bindings.XpeDccNewContractLPCROVO.hints.VehicleNbr.label}"
-                                                           id="c11">
-                                                    <af:outputText value="#{row.VehicleNbr}"
-                                                                   shortDesc="#{bindings.XpeDccNewContractLPCROVO.hints.VehicleNbr.tooltip}"
-                                                                   id="ot8"/>
-                                                </af:column>
-                                                <af:column headerText="#{bindings.XpeDccNewContractLPCROVO.hints.SubNbr.label}"
-                                                           id="c12">
-                                                    <af:outputText value="#{row.SubNbr}"
-                                                                   shortDesc="#{bindings.XpeDccNewContractLPCROVO.hints.SubNbr.tooltip}"
-                                                                   id="ot9">
-                                                        <af:convertNumber groupingUsed="false"
-                                                                          pattern="#{bindings.XpeDccNewContractLPCROVO.hints.SubNbr.format}"/>
-                                                    </af:outputText>
-                                                </af:column>
-                                            </af:table>
-                                        </af:panelBox>
                                         <af:panelBox text="Contract Notes" id="pb9">
                                             <af:panelFormLayout id="pfl3">
                                                 <af:inputDate value="#{bindings.XpeNoteDttm.inputValue}"
@@ -270,10 +129,11 @@
                             <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
                                 <af:gridCell marginStart="5px" marginEnd="5px" id="gc4" width="100%" halign="stretch"
                                              valign="stretch">
-                                    <af:button text="Back" id="b1"
-                                               action="#{controllerContext.currentViewPort.taskFlowContext.trainModel.getPrevious}"/>
-                                    <af:button text="Next" id="b2"
-                                               action="#{controllerContext.currentViewPort.taskFlowContext.trainModel.getNext}"/>
+                                    <af:panelGroupLayout id="pgl12" layout="horizontal">
+                                        <af:trainButtonBar value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
+                                                           id="tbb3"/>
+                                        <af:button text="Cancel" id="b1" action="rollback" immediate="true"/>
+                                    </af:panelGroupLayout>
                                 </af:gridCell>
                             </af:gridRow>
                         </af:panelGridLayout>
@@ -379,8 +239,11 @@
                             <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr14">
                                 <af:gridCell marginStart="5px" marginEnd="5px" id="gc12" width="100%" halign="stretch"
                                              valign="stretch">
-                                    <af:trainButtonBar value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
-                                                       id="tbb1"/>
+                                    <af:panelGroupLayout id="pgl10" layout="horizontal">
+                                        <af:trainButtonBar value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
+                                                           id="tbb1"/>
+                                        <af:button text="Cancel" id="b7" action="rollback" immediate="true"/>
+                                    </af:panelGroupLayout>
                                 </af:gridCell>
                             </af:gridRow>
                         </af:panelGridLayout>
@@ -402,8 +265,11 @@
                             <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr16">
                                 <af:gridCell marginStart="5px" marginEnd="5px" id="gc15" width="100%" halign="stretch"
                                              valign="stretch">
-                                    <af:trainButtonBar value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
-                                                       id="tbb2"/>
+                                    <af:panelGroupLayout id="pgl11" layout="horizontal">
+                                        <af:trainButtonBar value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
+                                                           id="tbb2"/>
+                                        <af:button text="Cancel" id="b8" action="rollback" immediate="true"/>
+                                    </af:panelGroupLayout>
                                 </af:gridCell>
                             </af:gridRow>
                         </af:panelGridLayout>
@@ -433,6 +299,7 @@
                                              valign="stretch">
                                     <af:button text="Back" id="b4"
                                                action="#{controllerContext.currentViewPort.taskFlowContext.trainModel.getPrevious}"/>
+                                    <af:spacer width="10" id="s5"/>
                                     <af:button text="Submit" id="b5"
                                                actionListener="#{pageFlowScope.XpeDccNewContractMBean.onSubmit}"
                                                action="#{pageFlowScope.XpeDccNewContractMBean.onSubmitAction}">
@@ -440,6 +307,7 @@
                                                                 to="#{requestScope.contractVersionApprovalStatus}"
                                                                 type="action"/>
                                     </af:button>
+                                    <af:spacer width="10" id="s4"/>
                                     <af:button text="Save as Draft" id="b6"
                                                actionListener="#{pageFlowScope.XpeDccNewContractMBean.onSubmit}"
                                                action="#{pageFlowScope.XpeDccNewContractMBean.onSubmitAction}">
@@ -447,6 +315,8 @@
                                                                 to="#{requestScope.contractVersionApprovalStatus}"
                                                                 type="action"/>
                                     </af:button>
+                                    <af:spacer width="10" id="s3"/>
+                                    <af:button text="Cancel" id="b9" action="rollback" immediate="true"/>
                                 </af:gridCell>
                             </af:gridRow>
                         </af:panelGridLayout>
@@ -455,7 +325,7 @@
                         <af:panelHeader text="New Contract has been submitted successfully" id="ph2"
                                         messageType="confirmation">
                             <f:facet name="legend">
-                                <af:button text="Return to Customer" id="b3" action="parent"/>
+                                <af:button text="Return to Customer/Contract Page" id="b3" action="parent"/>
                             </f:facet>
                         </af:panelHeader>
                     </f:facet>

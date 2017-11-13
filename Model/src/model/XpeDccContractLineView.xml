@@ -20,10 +20,6 @@
         <Attr Name="_isCodegen" Value="true"/>
     </DesignTime>
     <ViewAccessor
-        Name="XpeDccDicFacilities1"
-        ViewObjectName="model.XpeDccDicFacilities"
-        RowLevelBinds="true"/>
-    <ViewAccessor
         Name="XpeDccDicProducts1"
         ViewObjectName="model.XpeDccDicProducts"
         RowLevelBinds="true"/>
@@ -65,25 +61,10 @@
             </PIMap>
         </ParameterMap>
     </ViewAccessor>
-    <ListBinding
-        Name="LOV_XpeFacility"
-        ListVOName="XpeDccDicFacilities1"
-        ListRangeSize="-1"
-        NullValueFlag="start"
-        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
-        MRUCount="0">
-        <AttrArray Name="AttrNames">
-            <Item Value="XpeFacility"/>
-        </AttrArray>
-        <AttrArray Name="AttrExpressions"/>
-        <AttrArray Name="ListAttrNames">
-            <Item Value="XpeLookupId"/>
-        </AttrArray>
-        <AttrArray Name="ListDisplayAttrNames">
-            <Item Value="XpeLookupDesc"/>
-        </AttrArray>
-        <DisplayCriteria/>
-    </ListBinding>
+    <ViewAccessor
+        Name="XpeDccCfgPcsROVO_LOV"
+        ViewObjectName="model.views.readonly.XpeDccCfgPcsROVO"
+        RowLevelBinds="true"/>
     <ListBinding
         Name="LOV_XpeProductId"
         ListVOName="XpeDccDicProducts1"
@@ -173,6 +154,24 @@
         </AttrArray>
         <DisplayCriteria/>
     </ListBinding>
+    <ListBinding
+        Name="LOV_XpeFacility"
+        ListVOName="XpeDccCfgPcsROVO_LOV"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="XpeFacility"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="SiteId"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="SiteDesc"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
     <EntityUsage
         Name="XpeDccContractLine"
         Entity="model.XpeDccContractLine"/>
@@ -227,12 +226,12 @@
         LOVName="LOV_XpeFacility">
         <Properties>
             <SchemaBasedProperties>
-                <CONTROLTYPE
-                    Value="choice"/>
                 <DISPLAYWIDTH
                     Value="20"/>
                 <LABEL
                     ResId="model.XpeDccContractLineView.XpeFacility_LABEL"/>
+                <CONTROLTYPE
+                    Value="choice"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>

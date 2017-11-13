@@ -406,9 +406,6 @@
         Name="XpeDccNewContractCarrierView"
         ViewObjectName="model.XpeDccContractCarrierView"/>
     <ViewUsage
-        Name="XpeDccNewContractLPCROVO"
-        ViewObjectName="model.views.readonly.XpeDccNewContractLPCROVO"/>
-    <ViewUsage
         Name="XpeDccTermMasterEOVO"
         ViewObjectName="model.views.entitybased.XpeDccTermMasterEOVO"/>
     <ViewUsage

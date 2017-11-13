@@ -5,8 +5,6 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="XpeDccNewContractLPCROVO" RangeSize="10" DataControl="AppModuleDataControl"
-              id="XpeDccNewContractLPCROVOIterator" ChangeEventPolicy="none"/>
     <iterator Binds="XpeDccNewContractLineView" RangeSize="10" DataControl="AppModuleDataControl"
               id="XpeDccNewContractLineViewIterator"/>
     <iterator Binds="XpeDccNewContractPricingTermView" RangeSize="10" DataControl="AppModuleDataControl"
@@ -15,9 +13,6 @@
               id="XpeDccNewContractCarrierViewIterator"/>
   </executables>
   <bindings>
-    <action IterBinding="XpeDccNewContractLPCROVOIterator" id="LPCCreateInsert"
-            InstanceName="AppModuleDataControl.XpeDccNewContractLPCROVO" DataControl="AppModuleDataControl"
-            RequiresUpdateModel="true" Action="createInsertRow"/>
     <action IterBinding="XpeDccNewContractLineViewIterator" id="LineCreateInsert"
             InstanceName="AppModuleDataControl.XpeDccNewContractLineView" DataControl="AppModuleDataControl"
             RequiresUpdateModel="true" Action="createInsertRow"/>

@@ -107,6 +107,8 @@
         <page path="/notificationSetUp.jsff" usageId="view_notificationSetUpPageDef"/>
         <page path="/addNotification.jsff" usageId="view_addNotificationPageDef"/>
         <page path="/editNotification.jsff" usageId="view_editNotificationPageDef"/>
+        <page path="/WEB-INF/newContractSetup.xml#newContractSetup@Rollback"
+              usageId="view_newContractSetup_newContractSetup_RollbackPageDef"/>
     </pageMap>
     <pageDefinitionUsages>
         <page id="view_IntegrationDashPageDef" path="view.pageDefs.IntegrationDashPageDef"/>
@@ -208,6 +210,8 @@
         <page id="view_notificationSetUpPageDef" path="view.pageDefs.notificationSetUpPageDef"/>
         <page id="view_addNotificationPageDef" path="view.pageDefs.addNotificationPageDef"/>
         <page id="view_editNotificationPageDef" path="view.pageDefs.editNotificationPageDef"/>
+        <page id="view_newContractSetup_newContractSetup_RollbackPageDef"
+              path="view.pageDefs.newContractSetup_newContractSetup_RollbackPageDef"/>
     </pageDefinitionUsages>
     <dataControlUsages>
         <BC4JDataControl id="AppModuleDataControl" Package="model"
