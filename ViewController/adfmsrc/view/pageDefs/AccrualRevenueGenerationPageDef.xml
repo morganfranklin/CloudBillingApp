@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57"
+                id="AccrualRevenueGenerationPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XpeDccCfgAccrualandRevenueGenerationROVO1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgAccrualandRevenueGenerationROVO1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="XpeDccCfgAccrualandRevenueGenerationROVO1Iterator"
+          id="XpeDccCfgAccrualandRevenueGenerationROVO1">
+      <nodeDefinition DefName="model.views.readonly.XpeDccCfgAccrualandRevenueGenerationROVO"
+                      Name="XpeDccCfgAccrualandRevenueGenerationROVO10">
+        <AttrNames>
+          <Item Value="XpeFacilityId"/>
+          <Item Value="XpeJournalGeneratorTemplate"/>
+          <Item Value="XpeAccountingDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="XpeDccCfgAccrualandRevenueGenerationROVO1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="XpeDccCfgAccrualandRevenueGenerationROVO1Iterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <methodAction id="accrualandRevenueGenerationProcesses" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="accrualandRevenueGenerationProcesses" IsViewObjectMethod="false"
+                  DataControl="AppModuleDataControl" InstanceName="data.AppModuleDataControl.dataProvider"/>
+  </bindings>
+</pageDefinition>

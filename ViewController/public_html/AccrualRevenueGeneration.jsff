@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl1">
+    <af:panelHeader text="Accrual and Revenue Generation" id="ph1" size="1">
+      <f:facet name="context"/>
+      <f:facet name="toolbar">
+        <af:toolbar id="t1">
+          <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add"
+                     id="b1"/>
+          <af:spacer width="10" height="10" id="s1"/>
+          <af:button actionListener="#{bindings.Delete.execute}" text="Delete" disabled="#{!bindings.Delete.enabled}"
+                     id="b2"/>
+        </af:toolbar>
+      </f:facet>
+      <f:facet name="menuBar"/>
+      <f:facet name="legend"/>
+      <f:facet name="info"/>
+      <af:spacer width="10" height="10" id="s2"/>
+      <af:table value="#{bindings.XpeDccCfgAccrualandRevenueGenerationROVO1.collectionModel}" var="row"
+                rows="#{bindings.XpeDccCfgAccrualandRevenueGenerationROVO1.rangeSize}"
+                emptyText="#{bindings.XpeDccCfgAccrualandRevenueGenerationROVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                rowBandingInterval="0"
+                selectedRowKeys="#{bindings.XpeDccCfgAccrualandRevenueGenerationROVO1.collectionModel.selectedRow}"
+                selectionListener="#{bindings.XpeDccCfgAccrualandRevenueGenerationROVO1.collectionModel.makeCurrent}"
+                rowSelection="single" fetchSize="#{bindings.XpeDccCfgAccrualandRevenueGenerationROVO1.rangeSize}"
+                id="t2" contentDelivery="immediate" columnStretching="last" partialTriggers="::b1 ::b2" autoHeightRows="25"
+                styleClass="AFStretchWidth">
+        <af:column headerText="#{bindings.XpeDccCfgAccrualandRevenueGenerationROVO1.hints.XpeFacilityId.label}" id="c1"
+                   width="160">
+          <af:inputText value="#{row.bindings.XpeFacilityId.inputValue}"
+                        label="#{bindings.XpeDccCfgAccrualandRevenueGenerationROVO1.hints.XpeFacilityId.label}"
+                        required="#{bindings.XpeDccCfgAccrualandRevenueGenerationROVO1.hints.XpeFacilityId.mandatory}"
+                        columns="#{bindings.XpeDccCfgAccrualandRevenueGenerationROVO1.hints.XpeFacilityId.displayWidth}"
+                        maximumLength="#{bindings.XpeDccCfgAccrualandRevenueGenerationROVO1.hints.XpeFacilityId.precision}"
+                        shortDesc="#{bindings.XpeDccCfgAccrualandRevenueGenerationROVO1.hints.XpeFacilityId.tooltip}"
+                        id="it1">
+            <f:validator binding="#{row.bindings.XpeFacilityId.validator}"/>
+          </af:inputText>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgAccrualandRevenueGenerationROVO1.hints.XpeJournalGeneratorTemplate.label}"
+                   id="c2" width="300">
+          <af:inputText value="#{row.bindings.XpeJournalGeneratorTemplate.inputValue}"
+                        label="#{bindings.XpeDccCfgAccrualandRevenueGenerationROVO1.hints.XpeJournalGeneratorTemplate.label}"
+                        required="#{bindings.XpeDccCfgAccrualandRevenueGenerationROVO1.hints.XpeJournalGeneratorTemplate.mandatory}"
+                        columns="#{bindings.XpeDccCfgAccrualandRevenueGenerationROVO1.hints.XpeJournalGeneratorTemplate.displayWidth}"
+                        maximumLength="#{bindings.XpeDccCfgAccrualandRevenueGenerationROVO1.hints.XpeJournalGeneratorTemplate.precision}"
+                        shortDesc="#{bindings.XpeDccCfgAccrualandRevenueGenerationROVO1.hints.XpeJournalGeneratorTemplate.tooltip}"
+                        id="it2">
+            <f:validator binding="#{row.bindings.XpeJournalGeneratorTemplate.validator}"/>
+          </af:inputText>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgAccrualandRevenueGenerationROVO1.hints.XpeAccountingDate.label}"
+                   id="c3">
+          <af:inputDate value="#{row.bindings.XpeAccountingDate.inputValue}"
+                        label="#{bindings.XpeDccCfgAccrualandRevenueGenerationROVO1.hints.XpeAccountingDate.label}"
+                        required="#{bindings.XpeDccCfgAccrualandRevenueGenerationROVO1.hints.XpeAccountingDate.mandatory}"
+                        columns="#{bindings.XpeDccCfgAccrualandRevenueGenerationROVO1.hints.XpeAccountingDate.displayWidth}"
+                        shortDesc="#{bindings.XpeDccCfgAccrualandRevenueGenerationROVO1.hints.XpeAccountingDate.tooltip}"
+                        id="id1">
+            <f:validator binding="#{row.bindings.XpeAccountingDate.validator}"/>
+            <af:convertDateTime pattern="#{bindings.XpeDccCfgAccrualandRevenueGenerationROVO1.hints.XpeAccountingDate.format}"/>
+          </af:inputDate>
+        </af:column>
+      </af:table>
+    </af:panelHeader>
+    <af:spacer width="10" height="10" id="s3"/>
+    <af:panelHeader text="" id="ph2">
+      <f:facet name="context"/>
+      <f:facet name="toolbar">
+        <af:toolbar id="t3">
+          <af:button actionListener="#{bindings.accrualandRevenueGenerationProcesses.execute}"
+                     text="Process"
+                     id="b3"/>
+          <af:spacer width="10" height="10" id="s4"/>
+          <af:button text="Cancel" id="b4" action="back"/>
+        </af:toolbar>
+      </f:facet>
+      <f:facet name="menuBar"/>
+      <f:facet name="legend"/>
+      <f:facet name="info"/>
+    </af:panelHeader>
+  </af:panelGroupLayout>
+</ui:composition>

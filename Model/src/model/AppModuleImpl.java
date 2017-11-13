@@ -58,6 +58,8 @@ import model.views.entitybased.XpeDccWfEventEOVOImpl;
 import model.views.entitybased.XpeDccWfEventEOVORowImpl;
 import model.views.entitybased.XpeDmsCustomerEOVOImpl;
 import model.views.entitybased.XpeDmsCustomerEOVORowImpl;
+import model.views.readonly.XpeDccCfgAccrualandRevenueGenerationROVOImpl;
+import model.views.readonly.XpeDccCfgAccrualandRevenueGenerationROVORowImpl;
 import model.views.readonly.XpeDccCfgBillingandAccountingROVOImpl;
 import model.views.readonly.XpeDccCfgBillingandAccountingROVORowImpl;
 import model.views.readonly.XpeDccCfgCntrcttAprFcltyROVOImpl;
@@ -3085,7 +3087,26 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             XpeDccCfgBillingandAccountingROVORowImpl billAccountVORow =
                 (XpeDccCfgBillingandAccountingROVORowImpl) billAccountRSet.next();
         }
-        initBillAccountProcess();
+        this.initBillAccountProcess();
+    }
+    
+    public void initAccrualRevenueGeneration(){
+        XpeDccCfgAccrualandRevenueGenerationROVOImpl accrualRevenueVO = this.getXpeDccCfgAccrualandRevenueGenerationROVO1();
+        accrualRevenueVO.executeEmptyRowSet();
+        XpeDccCfgAccrualandRevenueGenerationROVORowImpl accrualRevenueVORow =
+            (XpeDccCfgAccrualandRevenueGenerationROVORowImpl) accrualRevenueVO.createRow();
+        accrualRevenueVO.insertRow(accrualRevenueVORow);
+    }
+    
+    public void accrualandRevenueGenerationProcesses(){
+        XpeDccCfgAccrualandRevenueGenerationROVOImpl accrualRevenueVO = this.getXpeDccCfgAccrualandRevenueGenerationROVO1();
+        RowSetIterator AccrualRevenueRSetIter =  accrualRevenueVO.createRowSetIterator(null);
+        AccrualRevenueRSetIter.reset();
+        while(AccrualRevenueRSetIter.hasNext()){
+        XpeDccCfgAccrualandRevenueGenerationROVORowImpl accrualRevenueVORow =
+                (XpeDccCfgAccrualandRevenueGenerationROVORowImpl) AccrualRevenueRSetIter.next();
+        }
+        this.initAccrualRevenueGeneration();
     }
 
     /**
@@ -3296,6 +3317,14 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public ViewLinkImpl getXpeDccContractVersionFKVL1() {
         return (ViewLinkImpl) findViewLink("XpeDccContractVersionFKVL1");
+    }
+
+    /**
+     * Container's getter for XpeDccCfgAccrualandRevenueGenerationROVO1.
+     * @return XpeDccCfgAccrualandRevenueGenerationROVO1
+     */
+    public XpeDccCfgAccrualandRevenueGenerationROVOImpl getXpeDccCfgAccrualandRevenueGenerationROVO1() {
+        return (XpeDccCfgAccrualandRevenueGenerationROVOImpl) findViewObject("XpeDccCfgAccrualandRevenueGenerationROVO1");
     }
 }
 

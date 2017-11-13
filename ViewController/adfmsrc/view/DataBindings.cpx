@@ -107,6 +107,9 @@
         <page path="/editNotification.jsff" usageId="view_editNotificationPageDef"/>
         <page path="/WEB-INF/newContractSetup.xml#newContractSetup@Rollback"
               usageId="view_newContractSetup_newContractSetup_RollbackPageDef"/>
+        <page path="/WEB-INF/accrualRevenueGenerationProcesses.xml#accrualRevenueGenerationProcesses@initAccrualRevenueGeneration"
+              usageId="view_accrualRevenueGenerationProcesses_accrualRevenueGenerationProcesses_initAccrualRevenueGenerationPageDef"/>
+        <page path="/AccrualRevenueGeneration.jsff" usageId="view_AccrualRevenueGenerationPageDef"/>
     </pageMap>
     <pageDefinitionUsages>
         <page id="view_IntegrationDashPageDef" path="view.pageDefs.IntegrationDashPageDef"/>
@@ -208,6 +211,9 @@
         <page id="view_editNotificationPageDef" path="view.pageDefs.editNotificationPageDef"/>
         <page id="view_newContractSetup_newContractSetup_RollbackPageDef"
               path="view.pageDefs.newContractSetup_newContractSetup_RollbackPageDef"/>
+        <page id="view_accrualRevenueGenerationProcesses_accrualRevenueGenerationProcesses_initAccrualRevenueGenerationPageDef"
+              path="view.pageDefs.accrualRevenueGenerationProcesses_accrualRevenueGenerationProcesses_initAccrualRevenueGenerationPageDef"/>
+        <page id="view_AccrualRevenueGenerationPageDef" path="view.pageDefs.AccrualRevenueGenerationPageDef"/>
     </pageDefinitionUsages>
     <dataControlUsages>
         <BC4JDataControl id="AppModuleDataControl" Package="model"

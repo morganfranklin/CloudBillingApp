@@ -193,6 +193,13 @@
                                                          action="#{viewScope.integrationDashboardRegionName.billingAccountingProcesses}"/>
                                             </af:gridCell>
                                         </af:gridRow>
+                                        <af:gridRow id="gr31" marginTop="5px" marginBottom="5px">
+                                            <af:gridCell id="gc31" width="100%" marginStart="5px" marginEnd="5px">
+                                                <af:link text="Accrual and Revenue Generation" id="l26"
+                                                         partialSubmit="true"
+                                                         action="#{viewScope.integrationDashboardRegionName.accrualRevenueGenerationProcesses}"/>
+                                            </af:gridCell>
+                                        </af:gridRow>
                                     </af:panelGridLayout>
                                 </af:panelBox>
                             </af:gridCell>
