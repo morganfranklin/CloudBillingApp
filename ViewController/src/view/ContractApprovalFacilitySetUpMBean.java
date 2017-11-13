@@ -5,7 +5,6 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 import javax.faces.event.ActionEvent;
-
 import javax.faces.event.ValueChangeEvent;
 
 import model.views.entitybased.XpeDccCfgCmtmntFacilityEOVORowImpl;
@@ -18,6 +17,9 @@ import oracle.adf.share.ADFContext;
 import oracle.adf.view.rich.component.rich.RichPopup;
 
 import oracle.binding.OperationBinding;
+
+import oracle.jbo.ViewObject;
+import oracle.jbo.domain.BlobDomain;
 
 import view.utils.ADFUtils;
 import view.utils.JSFUtils;
@@ -46,6 +48,22 @@ public class ContractApprovalFacilitySetUpMBean implements Serializable{
     }
 
     public void mswFacilityAddSave(ActionEvent actionEvent) {
+        BlobDomain blobDomain = (BlobDomain)ADFUtils.evaluateEL("#{sessionScope.SIGNATURE}");
+        if (null != blobDomain) {
+            //Get current row of viewObject using iterator
+            DCIteratorBinding iterator = ADFUtils.findIterator("XpeDccCfgNewMswFacilityEOVOIterator");
+            ViewObject viewObject = iterator.getViewObject();
+            XpeDccCfgMswFacilityEOVORowImpl currentRow = (XpeDccCfgMswFacilityEOVORowImpl) viewObject.getCurrentRow();
+            try {
+                //Save image in Blob column in database
+                if(null!=currentRow)
+                    currentRow.setGeneralManagerSignature(blobDomain);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }finally{
+                ADFUtils.setvalueToExpression("#{sessionScope.SIGNATURE}", null);
+            }
+        }
         OperationBinding opb = ADFUtils.findOperation("Commit");
         opb.execute();
         if (opb.getErrors().isEmpty()) {
@@ -61,6 +79,22 @@ public class ContractApprovalFacilitySetUpMBean implements Serializable{
     }
 
     public void mswFacilityEditSave(ActionEvent actionEvent) {
+        BlobDomain blobDomain = (BlobDomain)ADFUtils.evaluateEL("#{sessionScope.SIGNATURE}");
+        if (null != blobDomain) {
+            //Get current row of viewObject using iterator
+            DCIteratorBinding iterator = ADFUtils.findIterator("XpeDccCfgMswFacilityEOVO1Iterator");
+            ViewObject viewObject = iterator.getViewObject();
+            XpeDccCfgMswFacilityEOVORowImpl currentRow = (XpeDccCfgMswFacilityEOVORowImpl) viewObject.getCurrentRow();
+            try {
+                //Save image in Blob column in database
+                if(null!=currentRow)
+                    currentRow.setGeneralManagerSignature(blobDomain);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }finally{
+                ADFUtils.setvalueToExpression("#{sessionScope.SIGNATURE}", null);
+            }
+        }
         OperationBinding opb = ADFUtils.findOperation("Commit");
         opb.execute();
         if (opb.getErrors().isEmpty()) {
@@ -86,6 +120,22 @@ public class ContractApprovalFacilitySetUpMBean implements Serializable{
     }
 
     public void cmtmntFacilityAddSave(ActionEvent actionEvent) {
+        BlobDomain blobDomain = (BlobDomain)ADFUtils.evaluateEL("#{sessionScope.SIGNATURE}");
+        if (null != blobDomain) {
+            //Get current row of viewObject using iterator
+            DCIteratorBinding iterator = ADFUtils.findIterator("XpeDccCfgNewCmtmntFacilityEOVOIterator");
+            ViewObject viewObject = iterator.getViewObject();
+            XpeDccCfgCmtmntFacilityEOVORowImpl currentRow = (XpeDccCfgCmtmntFacilityEOVORowImpl) viewObject.getCurrentRow();
+            try {
+                //Save image in Blob column in database
+                if(null!=currentRow)
+                    currentRow.setCeoSignature(blobDomain);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }finally{
+                ADFUtils.setvalueToExpression("#{sessionScope.SIGNATURE}", null);
+            }
+        }
         OperationBinding opb = ADFUtils.findOperation("Commit");
         opb.execute();
         if (opb.getErrors().isEmpty()) {
@@ -101,6 +151,22 @@ public class ContractApprovalFacilitySetUpMBean implements Serializable{
     }
 
     public void cmtmntFacilityEditSave(ActionEvent actionEvent) {
+        BlobDomain blobDomain = (BlobDomain)ADFUtils.evaluateEL("#{sessionScope.SIGNATURE}");
+        if (null != blobDomain) {
+            //Get current row of viewObject using iterator
+            DCIteratorBinding iterator = ADFUtils.findIterator("XpeDccCfgCmtmntFacilityEOVO1Iterator");
+            ViewObject viewObject = iterator.getViewObject();
+            XpeDccCfgCmtmntFacilityEOVORowImpl currentRow = (XpeDccCfgCmtmntFacilityEOVORowImpl) viewObject.getCurrentRow();
+            try {
+                //Save image in Blob column in database
+                if(null!=currentRow)
+                    currentRow.setCeoSignature(blobDomain);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }finally{
+                ADFUtils.setvalueToExpression("#{sessionScope.SIGNATURE}", null);
+            }
+        }
         OperationBinding opb = ADFUtils.findOperation("Commit");
         opb.execute();
         if (opb.getErrors().isEmpty()) {
@@ -126,6 +192,22 @@ public class ContractApprovalFacilitySetUpMBean implements Serializable{
     }
 
     public void metalsFacilityAddSave(ActionEvent actionEvent) {
+        BlobDomain blobDomain = (BlobDomain)ADFUtils.evaluateEL("#{sessionScope.SIGNATURE}");
+        if (null != blobDomain) {
+            //Get current row of viewObject using iterator
+            DCIteratorBinding iterator = ADFUtils.findIterator("XpeDccCfgNewMetalsFacilityEOVOIterator");
+            ViewObject viewObject = iterator.getViewObject();
+            XpeDccCfgMetalsFacilityEOVORowImpl currentRow = (XpeDccCfgMetalsFacilityEOVORowImpl) viewObject.getCurrentRow();
+            try {
+                //Save image in Blob column in database
+                if(null!=currentRow)
+                    currentRow.setSvpSignature(blobDomain);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }finally{
+                ADFUtils.setvalueToExpression("#{sessionScope.SIGNATURE}", null);
+            }
+        }
         OperationBinding opb = ADFUtils.findOperation("Commit");
         opb.execute();
         if (opb.getErrors().isEmpty()) {
@@ -141,6 +223,22 @@ public class ContractApprovalFacilitySetUpMBean implements Serializable{
     }
 
     public void metalsFacilityEditSave(ActionEvent actionEvent) {
+        BlobDomain blobDomain = (BlobDomain)ADFUtils.evaluateEL("#{sessionScope.SIGNATURE}");
+        if (null != blobDomain) {
+            //Get current row of viewObject using iterator
+            DCIteratorBinding iterator = ADFUtils.findIterator("XpeDccCfgMetalsFacilityEOVO1Iterator");
+            ViewObject viewObject = iterator.getViewObject();
+            XpeDccCfgMetalsFacilityEOVORowImpl currentRow = (XpeDccCfgMetalsFacilityEOVORowImpl) viewObject.getCurrentRow();
+            try {
+                //Save image in Blob column in database
+                if(null!=currentRow)
+                    currentRow.setSvpSignature(blobDomain);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }finally{
+                ADFUtils.setvalueToExpression("#{sessionScope.SIGNATURE}", null);
+            }
+        }
         OperationBinding opb = ADFUtils.findOperation("Commit");
         opb.execute();
         if (opb.getErrors().isEmpty()) {
