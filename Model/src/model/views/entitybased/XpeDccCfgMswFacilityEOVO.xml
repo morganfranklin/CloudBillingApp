@@ -141,25 +141,29 @@
     PrecisionRule="true"
     EntityAttrName="CreatedBy"
     EntityUsage="XpeDccCfgMswFacilityEO"
-    AliasName="CREATED_BY"/>
+    AliasName="CREATED_BY"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="CreationDate"
     PrecisionRule="true"
     EntityAttrName="CreationDate"
     EntityUsage="XpeDccCfgMswFacilityEO"
-    AliasName="CREATION_DATE"/>
+    AliasName="CREATION_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedBy"
     EntityUsage="XpeDccCfgMswFacilityEO"
-    AliasName="LAST_UPDATED_BY"/>
+    AliasName="LAST_UPDATED_BY"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdateDate"
     PrecisionRule="true"
     EntityAttrName="LastUpdateDate"
     EntityUsage="XpeDccCfgMswFacilityEO"
-    AliasName="LAST_UPDATE_DATE"/>
+    AliasName="LAST_UPDATE_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="Inactive"
     PrecisionRule="true"
@@ -181,6 +185,13 @@
     EntityAttrName="InactiveDate"
     EntityUsage="XpeDccCfgMswFacilityEO"
     AliasName="INACTIVE_DATE"/>
+  <ViewAttribute
+    Name="GeneralManagerSignature"
+    IsQueriable="false"
+    PrecisionRule="true"
+    EntityAttrName="GeneralManagerSignature"
+    EntityUsage="XpeDccCfgMswFacilityEO"
+    AliasName="GENERAL_MANAGER_SIGNATURE"/>
   <ViewCriteria
     Name="findByFacilityId"
     ViewObjectName="model.views.entitybased.XpeDccCfgMswFacilityEOVO"

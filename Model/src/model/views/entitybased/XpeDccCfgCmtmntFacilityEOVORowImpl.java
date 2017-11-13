@@ -3,6 +3,7 @@ package model.views.entitybased;
 import java.sql.Timestamp;
 
 import oracle.jbo.RowSet;
+import oracle.jbo.domain.BlobDomain;
 import oracle.jbo.server.EntityImpl;
 import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
@@ -34,6 +35,7 @@ public class XpeDccCfgCmtmntFacilityEOVORowImpl extends ViewRowImpl {
         LastUpdateDate,
         Inactive,
         InactiveDate,
+        CeoSignature,
         XpeDccDicFacilities1,
         LookupSharedAppModule_XpeDccDicNewContractSetupROVO1;
         static AttributesEnum[] vals = null;
@@ -75,6 +77,7 @@ public class XpeDccCfgCmtmntFacilityEOVORowImpl extends ViewRowImpl {
     public static final int LASTUPDATEDATE = AttributesEnum.LastUpdateDate.index();
     public static final int INACTIVE = AttributesEnum.Inactive.index();
     public static final int INACTIVEDATE = AttributesEnum.InactiveDate.index();
+    public static final int CEOSIGNATURE = AttributesEnum.CeoSignature.index();
     public static final int XPEDCCDICFACILITIES1 = AttributesEnum.XpeDccDicFacilities1.index();
     public static final int LOOKUPSHAREDAPPMODULE_XPEDCCDICNEWCONTRACTSETUPROVO1 =
         AttributesEnum.LookupSharedAppModule_XpeDccDicNewContractSetupROVO1.index();
@@ -225,17 +228,10 @@ public class XpeDccCfgCmtmntFacilityEOVORowImpl extends ViewRowImpl {
      * Gets the attribute value for CREATED_BY using the alias name CreatedBy.
      * @return the CREATED_BY
      */
-    public Long getCreatedBy() {
-        return (Long) getAttributeInternal(CREATEDBY);
+    public String getCreatedBy() {
+        return (String) getAttributeInternal(CREATEDBY);
     }
 
-    /**
-     * Sets <code>value</code> as attribute value for CREATED_BY using the alias name CreatedBy.
-     * @param value value to set the CREATED_BY
-     */
-    public void setCreatedBy(Long value) {
-        setAttributeInternal(CREATEDBY, value);
-    }
 
     /**
      * Gets the attribute value for CREATION_DATE using the alias name CreationDate.
@@ -245,29 +241,15 @@ public class XpeDccCfgCmtmntFacilityEOVORowImpl extends ViewRowImpl {
         return (Timestamp) getAttributeInternal(CREATIONDATE);
     }
 
-    /**
-     * Sets <code>value</code> as attribute value for CREATION_DATE using the alias name CreationDate.
-     * @param value value to set the CREATION_DATE
-     */
-    public void setCreationDate(Timestamp value) {
-        setAttributeInternal(CREATIONDATE, value);
-    }
 
     /**
      * Gets the attribute value for LAST_UPDATED_BY using the alias name LastUpdatedBy.
      * @return the LAST_UPDATED_BY
      */
-    public Long getLastUpdatedBy() {
-        return (Long) getAttributeInternal(LASTUPDATEDBY);
+    public String getLastUpdatedBy() {
+        return (String) getAttributeInternal(LASTUPDATEDBY);
     }
 
-    /**
-     * Sets <code>value</code> as attribute value for LAST_UPDATED_BY using the alias name LastUpdatedBy.
-     * @param value value to set the LAST_UPDATED_BY
-     */
-    public void setLastUpdatedBy(Long value) {
-        setAttributeInternal(LASTUPDATEDBY, value);
-    }
 
     /**
      * Gets the attribute value for LAST_UPDATE_DATE using the alias name LastUpdateDate.
@@ -277,13 +259,6 @@ public class XpeDccCfgCmtmntFacilityEOVORowImpl extends ViewRowImpl {
         return (Timestamp) getAttributeInternal(LASTUPDATEDATE);
     }
 
-    /**
-     * Sets <code>value</code> as attribute value for LAST_UPDATE_DATE using the alias name LastUpdateDate.
-     * @param value value to set the LAST_UPDATE_DATE
-     */
-    public void setLastUpdateDate(Timestamp value) {
-        setAttributeInternal(LASTUPDATEDATE, value);
-    }
 
     /**
      * Gets the attribute value for INACTIVE using the alias name Inactive.
@@ -315,6 +290,22 @@ public class XpeDccCfgCmtmntFacilityEOVORowImpl extends ViewRowImpl {
      */
     public void setInactiveDate(Timestamp value) {
         setAttributeInternal(INACTIVEDATE, value);
+    }
+
+    /**
+     * Gets the attribute value for CEO_SIGNATURE using the alias name CeoSignature.
+     * @return the CEO_SIGNATURE
+     */
+    public BlobDomain getCeoSignature() {
+        return (BlobDomain) getAttributeInternal(CEOSIGNATURE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for CEO_SIGNATURE using the alias name CeoSignature.
+     * @param value value to set the CEO_SIGNATURE
+     */
+    public void setCeoSignature(BlobDomain value) {
+        setAttributeInternal(CEOSIGNATURE, value);
     }
 
     /**

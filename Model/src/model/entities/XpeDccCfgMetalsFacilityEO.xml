@@ -127,6 +127,14 @@
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
     TableName="XPE_DCC_CFG_METALS_FACILITY"/>
+  <Attribute
+    Name="SvpSignature"
+    IsQueriable="false"
+    ColumnName="SVP_SIGNATURE"
+    SQLType="BLOB"
+    Type="oracle.jbo.domain.BlobDomain"
+    ColumnType="BLOB"
+    TableName="XPE_DCC_CFG_METALS_FACILITY"/>
   <Key
     Name="XpeMetalsFacilityPk"
     PrimaryKey="true">

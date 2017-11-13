@@ -18,6 +18,18 @@
               id="XpeDccCfgNewCmtmntFacilityEOVOIterator"/>
     <iterator Binds="XpeDccCfgNewMetalsFacilityEOVO" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccCfgNewMetalsFacilityEOVOIterator"/>
+    <taskFlow id="fileUploadFlow1" taskFlowId="/WEB-INF/fileUploadFlow.xml#fileUploadFlow" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="fileUploadFlow2" taskFlowId="/WEB-INF/fileUploadFlow.xml#fileUploadFlow" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="fileUploadFlow3" taskFlowId="/WEB-INF/fileUploadFlow.xml#fileUploadFlow" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="fileUploadFlow4" taskFlowId="/WEB-INF/fileUploadFlow.xml#fileUploadFlow" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="fileUploadFlow5" taskFlowId="/WEB-INF/fileUploadFlow.xml#fileUploadFlow" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="fileUploadFlow6" taskFlowId="/WEB-INF/fileUploadFlow.xml#fileUploadFlow" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
   </executables>
   <bindings>
     <list IterBinding="XpeDccCfgCntrcttAprFcltyROVO1Iterator" StaticList="false" Uses="LOV_XpeWasteType"
@@ -247,13 +259,6 @@
     <attributeValues IterBinding="XpeDccCfgNewMetalsFacilityEOVOIterator" id="SvpReview1">
       <AttrNames>
         <Item Value="SvpReview"/>
-      </AttrNames>
-    </attributeValues>
-    <list IterBinding="XpeDccCfgNewMetalsFacilityEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive4"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
-    <attributeValues IterBinding="XpeDccCfgNewMetalsFacilityEOVOIterator" id="InactiveDate4">
-      <AttrNames>
-        <Item Value="InactiveDate"/>
       </AttrNames>
     </attributeValues>
     <methodAction id="searchCntrctAprFcltySetUp" RequiresUpdateModel="true" Action="invokeMethod"

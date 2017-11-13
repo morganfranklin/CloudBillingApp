@@ -115,6 +115,14 @@
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="GeneralManagerSignature"
+    IsQueriable="false"
+    ColumnName="GENERAL_MANAGER_SIGNATURE"
+    SQLType="BLOB"
+    Type="oracle.jbo.domain.BlobDomain"
+    ColumnType="BLOB"
+    TableName="XPE_DCC_CFG_MSW_FACILITY"/>
   <Key
     Name="XpeMswFacilityPk"
     PrimaryKey="true">

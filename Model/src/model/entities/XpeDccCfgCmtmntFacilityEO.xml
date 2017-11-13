@@ -163,6 +163,14 @@
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
     TableName="XPE_DCC_CFG_CMTMNT_FACILITY"/>
+  <Attribute
+    Name="CeoSignature"
+    IsQueriable="false"
+    ColumnName="CEO_SIGNATURE"
+    SQLType="BLOB"
+    Type="oracle.jbo.domain.BlobDomain"
+    ColumnType="BLOB"
+    TableName="XPE_DCC_CFG_CMTMNT_FACILITY"/>
   <Key
     Name="XpeCmtmntFacilityPk"
     PrimaryKey="true">
