@@ -69,8 +69,8 @@ public class OriginsSetUpTableMBean implements Serializable {
     }
 
     public void queryOperationListener(QueryOperationEvent queryOperationEvent) {
-        ADFUtils.invokeEL("#{bindings.OriginsCriteriaQuery.processQueryOperation}", Object.class, QueryOperationEvent.class,
-                 queryOperationEvent);
+        ADFUtils.invokeEL("#{bindings.OriginsCriteriaQuery.processQueryOperation}", Object.class,
+                          QueryOperationEvent.class, queryOperationEvent);
         if (queryOperationEvent.getOperation().name().toUpperCase().equals("RESET")) {
             DCIteratorBinding carrierIter = ADFUtils.findIterator("XpeDccCfgOriginsEOVOIterator");
             carrierIter.getViewObject().executeEmptyRowSet();
@@ -95,9 +95,9 @@ public class OriginsSetUpTableMBean implements Serializable {
     public void onOriginInactiveValChgLstnr(ValueChangeEvent valueChangeEvent) {
         DCIteratorBinding originIter = ADFUtils.findIterator("XpeDccCfgNewOriginsEOVOIterator");
         XpeDccCfgOriginsEOVORowImpl originRow = (XpeDccCfgOriginsEOVORowImpl) originIter.getCurrentRow();
-        if (null != valueChangeEvent.getNewValue() && valueChangeEvent.getNewValue().equals("Y")){
+        if (null != valueChangeEvent.getNewValue() && valueChangeEvent.getNewValue().equals("Y")) {
             originRow.setInactiveDate(new Timestamp(System.currentTimeMillis()));
-        }else{
+        } else {
             originRow.setInactiveDate(null);
         }
     }
@@ -106,9 +106,9 @@ public class OriginsSetUpTableMBean implements Serializable {
         DCIteratorBinding orgAssocTermIter = ADFUtils.findIterator("XpeDccCfgNewOgnAssTerminalsEOVOIterator");
         XpeDccCfgOgnAssTerminalsEOVORowImpl orgAssocTermRow =
             (XpeDccCfgOgnAssTerminalsEOVORowImpl) orgAssocTermIter.getCurrentRow();
-        if (null != valueChangeEvent.getNewValue() && valueChangeEvent.getNewValue().equals("Y")){
+        if (null != valueChangeEvent.getNewValue() && valueChangeEvent.getNewValue().equals("Y")) {
             orgAssocTermRow.setInactiveDate(new Timestamp(System.currentTimeMillis()));
-        }else{
+        } else {
             orgAssocTermRow.setInactiveDate(null);
         }
     }
@@ -117,10 +117,26 @@ public class OriginsSetUpTableMBean implements Serializable {
         DCIteratorBinding orgAssocTermIter = ADFUtils.findIterator("XpeDccCfgNewOgnAssTerminalsEOVOIterator");
         XpeDccCfgOgnAssTerminalsEOVORowImpl orgAssocTermRow =
             (XpeDccCfgOgnAssTerminalsEOVORowImpl) orgAssocTermIter.getCurrentRow();
-        if (null != valueChangeEvent.getNewValue() && valueChangeEvent.getNewValue().equals("Y")){
+        if (null != valueChangeEvent.getNewValue() && valueChangeEvent.getNewValue().equals("Y")) {
             orgAssocTermRow.setInactiveDate(new Timestamp(System.currentTimeMillis()));
-        }else{
+        } else {
             orgAssocTermRow.setInactiveDate(null);
+        }
+    }
+
+    public void originSetUpSaveActnLstnr(ActionEvent actionEvent) {
+        DCIteratorBinding orgAssocTermIter = ADFUtils.findIterator("XpeDccCfgNewOgnAssTerminalsEOVOIterator");
+        long rowCount = orgAssocTermIter.getEstimatedRowCount();
+        if (rowCount > 0) {
+            OperationBinding opb = ADFUtils.findOperation("Commit");
+            opb.execute();
+            if (opb.getErrors().isEmpty()) {
+                JSFUtils.addFacesInformationMessage("Data Saved Successfully.");
+            } else {
+                JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
+            }
+        } else {
+            JSFUtils.addFacesErrorMessage("Please Associate atleast one terminal to the Origin.");
         }
     }
 }
