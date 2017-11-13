@@ -78,7 +78,7 @@
             <af:spacer width="10" height="10" id="s4"/>
         </af:panelHeader>
         <af:panelGroupLayout id="pgl1" layout="horizontal">
-            <af:button actionListener="#{bindings.Commit.execute}" text="Save" id="b1"/>
+            <af:button actionListener="#{pageFlowScope.DestinationSetUpTableMBean.destinationSaveActnLstnr}" text="Save" id="b1"/>
             <af:spacer width="10" height="10" id="s2"/>
             <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel" immediate="true" id="b2"
                        action="Back">

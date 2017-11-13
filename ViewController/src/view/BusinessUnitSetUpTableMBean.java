@@ -19,7 +19,10 @@ import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.context.AdfFacesContext;
 import oracle.adf.view.rich.event.QueryOperationEvent;
 
+import oracle.binding.OperationBinding;
+
 import view.utils.ADFUtils;
+import view.utils.JSFUtils;
 
 public class BusinessUnitSetUpTableMBean {
     public BusinessUnitSetUpTableMBean() {
@@ -63,11 +66,33 @@ public class BusinessUnitSetUpTableMBean {
         this.getBusinessUnitSetUpTableBBean().getBusinessUnitEditItem_popup().show(hints);
     }
 
-    public void businessUnitCreationSaveorCancel(ActionEvent actionEvent) {
+    public void businessUnitCreationSave(ActionEvent actionEvent) {
+        OperationBinding opb = ADFUtils.findOperation("Commit");
+        opb.execute();
+        if(opb.getErrors().isEmpty()){
+            this.getBusinessUnitSetUpTableBBean().getBusinessUnitAddItem_popup().hide();
+            JSFUtils.addFacesInformationMessage("Data Saved Successfully.");
+        }else{
+            JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
+        }
+    }
+    
+    public void businessUnitCreationCancel(ActionEvent actionEvent) {
         this.getBusinessUnitSetUpTableBBean().getBusinessUnitAddItem_popup().hide();
     }
 
-    public void businessUnitEditSaveorCancel(ActionEvent actionEvent) {
+    public void businessUnitEditSave(ActionEvent actionEvent) {
+        OperationBinding opb = ADFUtils.findOperation("Commit");
+        opb.execute();
+        if(opb.getErrors().isEmpty()){
+            this.getBusinessUnitSetUpTableBBean().getBusinessUnitEditItem_popup().hide();
+            JSFUtils.addFacesInformationMessage("Data Saved Successfully.");
+        }else{
+            JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
+        }
+    }
+    
+    public void businessUnitEditCancel(ActionEvent actionEvent) {
         this.getBusinessUnitSetUpTableBBean().getBusinessUnitEditItem_popup().hide();
     }
 

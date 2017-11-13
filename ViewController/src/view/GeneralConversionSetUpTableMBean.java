@@ -15,7 +15,10 @@ import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.context.AdfFacesContext;
 import oracle.adf.view.rich.event.QueryOperationEvent;
 
+import oracle.binding.OperationBinding;
+
 import view.utils.ADFUtils;
+import view.utils.JSFUtils;
 
 public class GeneralConversionSetUpTableMBean implements Serializable{
     @SuppressWarnings("compatibility:-5253779638613274066")
@@ -40,33 +43,43 @@ public class GeneralConversionSetUpTableMBean implements Serializable{
         this.getGeneralConversionSetUpTableBBean().getGeneralConversionEditItem_popup().show(hints);
     }
 
-    public void onGeneralConversionCreationSaveOrCancel(ActionEvent actionEvent) {
+    public void onGeneralConversionCreationSave(ActionEvent actionEvent) {
+        OperationBinding opb = ADFUtils.findOperation("Commit");
+        opb.execute();
+        if(opb.getErrors().isEmpty()){
+            this.getGeneralConversionSetUpTableBBean().getGeneralConversionAddItem_popup().hide();
+            JSFUtils.addFacesInformationMessage("Data Saved Successfully.");
+        }else{
+            JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
+        }
+    }
+    
+    public void onGeneralConversionCreationCancel(ActionEvent actionEvent) {
         this.getGeneralConversionSetUpTableBBean().getGeneralConversionAddItem_popup().hide();
     }
 
-    public void onGeneralConversionEditSaveOrCancel(ActionEvent actionEvent) {
+    public void onGeneralConversionEditSave(ActionEvent actionEvent) {
+        OperationBinding opb = ADFUtils.findOperation("Commit");
+        opb.execute();
+        if(opb.getErrors().isEmpty()){
+            this.getGeneralConversionSetUpTableBBean().getGeneralConversionEditItem_popup().hide();
+            JSFUtils.addFacesInformationMessage("Data Saved Successfully.");
+        }else{
+            JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
+        }
+    }
+    
+    public void onGeneralConversionEditCancel(ActionEvent actionEvent) {
         this.getGeneralConversionSetUpTableBBean().getGeneralConversionEditItem_popup().hide();
     }
 
     public void queryOperationListener(QueryOperationEvent queryOperationEvent) {
-        invokeEL("#{bindings.GeneralConversionCriteriaQuery.processQueryOperation}",Object.class,
+        ADFUtils.invokeEL("#{bindings.GeneralConversionCriteriaQuery.processQueryOperation}",Object.class,
                  QueryOperationEvent.class, queryOperationEvent);
         if (queryOperationEvent.getOperation().name().toUpperCase().equals("RESET")) {
             DCIteratorBinding carrierIter = ADFUtils.findIterator("XpeDccCfgGeneralCnvEOVOIterator");
             carrierIter.getViewObject().executeEmptyRowSet();
             AdfFacesContext.getCurrentInstance().addPartialTarget(this.getGeneralConversionSetUpTableBBean().getGeneralConversionSetUpTblBind());
         }
-    }
-    
-    public Object invokeMethodExpression(String expr, Class returnType, Class[] argTypes, Object[] args) {
-        FacesContext fc = FacesContext.getCurrentInstance();
-        ELContext elctx = fc.getELContext();
-        ExpressionFactory elFactory = fc.getApplication().getExpressionFactory();
-        MethodExpression methodExpr = elFactory.createMethodExpression(elctx, expr, returnType, argTypes);
-        return methodExpr.invoke(elctx, args);
-    }
-
-    public Object invokeEL(String expr, Class returnType, Class argType, Object argument) {
-        return invokeMethodExpression(expr, returnType, new Class[] { argType }, new Object[] { argument });
     }
 }

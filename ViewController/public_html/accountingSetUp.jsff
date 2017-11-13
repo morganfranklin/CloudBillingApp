@@ -30,7 +30,8 @@
                 selectionListener="#{bindings.XpeDccCfgAccountingEOVO.collectionModel.makeCurrent}"
                 rowSelection="single" fetchSize="#{bindings.XpeDccCfgAccountingEOVO.rangeSize}" id="resId1"
                 contentDelivery="immediate" columnStretching="last"
-                binding="#{backingBeanScope.AccountingSetUpTableBBean.accountingSetUpTblBind}">
+                binding="#{backingBeanScope.AccountingSetUpTableBBean.accountingSetUpTblBind}"
+                partialTriggers="::b2 ::b3 ::b4 ::b5">
         <af:column headerText="#{bindings.XpeDccCfgAccountingEOVO.hints.AccountId.label}" id="resId1c1">
           <af:link text="#{row.AccountId}" id="l1" partialSubmit="true"
                    actionListener="#{pageFlowScope.AccountingSetUpTableMBean.onAccountingEdit}"/>

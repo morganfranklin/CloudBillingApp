@@ -29,7 +29,7 @@
                 rowBandingInterval="1" selectedRowKeys="#{bindings.XpeDccCfgTerminalsEOVO.collectionModel.selectedRow}"
                 selectionListener="#{bindings.XpeDccCfgTerminalsEOVO.collectionModel.makeCurrent}" rowSelection="single"
                 fetchSize="#{bindings.XpeDccCfgTerminalsEOVO.rangeSize}" id="resId1" columnStretching="last"
-                contentDelivery="immediate" partialTriggers="::b5"
+                contentDelivery="immediate" partialTriggers="::b5 ::b3 ::b4 ::b6"
                 binding="#{backingBeanScope.XpeCfgTableSetupBBean.terminalSetUpTblBind}">
         <af:column headerText="#{bindings.XpeDccCfgTerminalsEOVO.hints.TerminalId.label}" id="resId1c1">
           <af:link text="#{row.TerminalId}" id="l1" partialSubmit="true"
@@ -81,11 +81,11 @@
                 binding="#{backingBeanScope.XpeCfgTableSetupBBean.terminalAddItem_popup}">
         <af:dialog id="d1" type="none" closeIconVisible="false" title="Terminal Details">
           <f:facet name="buttonBar">
-            <af:button text="Save" id="b3" action="#{bindings.Commit.execute}"
-                       actionListener="#{pageFlowScope.XpeCfgTableSetupMBean.onTerminalCreationSaveOrCancel}"/>
+            <af:button text="Save" id="b3"
+                       actionListener="#{pageFlowScope.XpeCfgTableSetupMBean.onTerminalCreationSave}"/>
             <af:spacer width="10" height="10" id="s2"/>
             <af:button text="Cancel" immediate="true" id="b4" action="#{bindings.Rollback.execute}"
-                       actionListener="#{pageFlowScope.XpeCfgTableSetupMBean.onTerminalCreationSaveOrCancel}">
+                       actionListener="#{pageFlowScope.XpeCfgTableSetupMBean.onTerminalCreationCancel}">
               <af:resetActionListener/>
             </af:button>
           </f:facet>
@@ -134,11 +134,11 @@
                 contentDelivery="lazyUncached">
         <af:dialog id="d2" title="Terminal Details" type="none" closeIconVisible="false">
           <f:facet name="buttonBar">
-            <af:button text="Save" id="b5" action="#{bindings.Commit.execute}"
-                       actionListener="#{pageFlowScope.XpeCfgTableSetupMBean.onTerminalEditSaveOrCancel}"/>
+            <af:button text="Save" id="b5"
+                       actionListener="#{pageFlowScope.XpeCfgTableSetupMBean.onTerminalEditSave}"/>
             <af:spacer width="10" height="10" id="s3"/>
             <af:button text="Cancel" immediate="true" id="b6" action="#{bindings.Rollback.execute}"
-                       actionListener="#{pageFlowScope.XpeCfgTableSetupMBean.onTerminalEditSaveOrCancel}">
+                       actionListener="#{pageFlowScope.XpeCfgTableSetupMBean.onTerminalEditCancel}">
               <af:resetActionListener/>
             </af:button>
           </f:facet>

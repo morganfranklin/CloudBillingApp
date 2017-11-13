@@ -13,7 +13,7 @@
   <Attribute
     Name="ItemId"
     IsNotNull="true"
-    Precision="3"
+    Precision="20"
     ColumnName="ITEM_ID"
     SQLType="VARCHAR"
     Type="java.lang.String"

@@ -8,7 +8,6 @@
               id="XpeDccCfgPcsshortnamesEOVOIterator"/>
   </executables>
   <bindings>
-    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
     <attributeValues IterBinding="XpeDccCfgPcsshortnamesEOVOIterator" id="PcsshortnameId">
       <AttrNames>
@@ -107,5 +106,6 @@
                   id="CovBillLocNum"/>
     <listOfValues IterBinding="XpeDccCfgPcsshortnamesEOVOIterator" StaticList="false" Uses="LOV_CovSoldLocNum"
                   id="CovSoldLocNum"/>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
   </bindings>
 </pageDefinition>

@@ -46,7 +46,18 @@ public class XpeCfgTableSetupMBean implements Serializable {
         this.getXpeCfgTableSetupBBean().getTerminalAddItem_popup().show(hints);
     }
     
-    public void onTerminalCreationSaveOrCancel(ActionEvent actionEvent) {
+    public void onTerminalCreationSave(ActionEvent actionEvent) {
+        OperationBinding opb = ADFUtils.findOperation("Commit");
+        opb.execute();
+        if(opb.getErrors().isEmpty()){
+            this.getXpeCfgTableSetupBBean().getTerminalAddItem_popup().hide();
+            JSFUtils.addFacesInformationMessage("Data Saved Successfully.");
+        }else{
+            JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
+        }
+    }
+    
+    public void onTerminalCreationCancel(ActionEvent actionEvent) {
         this.getXpeCfgTableSetupBBean().getTerminalAddItem_popup().hide();
     }
     
@@ -55,7 +66,18 @@ public class XpeCfgTableSetupMBean implements Serializable {
         this.getXpeCfgTableSetupBBean().getTerminalEditItem_popup().show(hints);
     }
     
-    public void onTerminalEditSaveOrCancel(ActionEvent actionEvent) {
+    public void onTerminalEditSave(ActionEvent actionEvent) {
+        OperationBinding opb = ADFUtils.findOperation("Commit");
+        opb.execute();
+        if(opb.getErrors().isEmpty()){
+            this.getXpeCfgTableSetupBBean().getTerminalEditItem_popup().hide();
+            JSFUtils.addFacesInformationMessage("Data Saved Successfully.");
+        }else{
+            JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
+        }
+    }
+    
+    public void onTerminalEditCancel(ActionEvent actionEvent) {
         this.getXpeCfgTableSetupBBean().getTerminalEditItem_popup().hide();
     }
     
@@ -80,38 +102,12 @@ public class XpeCfgTableSetupMBean implements Serializable {
     }
     
     public void queryOperationListener(QueryOperationEvent queryOperationEvent) {
-        invokeEL("#{bindings.TerminalsCriteriaQuery.processQueryOperation}",Object.class,
+        ADFUtils.invokeEL("#{bindings.TerminalsCriteriaQuery.processQueryOperation}",Object.class,
                  QueryOperationEvent.class, queryOperationEvent);
         if (queryOperationEvent.getOperation().name().toUpperCase().equals("RESET")) {
             DCIteratorBinding carrierIter = ADFUtils.findIterator("XpeDccCfgTerminalsEOVOIterator");
             carrierIter.getViewObject().executeEmptyRowSet();
             AdfFacesContext.getCurrentInstance().addPartialTarget(this.getXpeCfgTableSetupBBean().getTerminalSetUpTblBind());
         }
-    }
-    
-    /**
-     * @param expr
-     * @param returnType
-     * @param argTypes
-     * @param args
-     * @return
-     */
-    public Object invokeMethodExpression(String expr, Class returnType, Class[] argTypes, Object[] args) {
-        FacesContext fc = FacesContext.getCurrentInstance();
-        ELContext elctx = fc.getELContext();
-        ExpressionFactory elFactory = fc.getApplication().getExpressionFactory();
-        MethodExpression methodExpr = elFactory.createMethodExpression(elctx, expr, returnType, argTypes);
-        return methodExpr.invoke(elctx, args);
-    }
-
-    /**
-     * @param expr
-     * @param returnType
-     * @param argType
-     * @param argument
-     * @return
-     */
-    public Object invokeEL(String expr, Class returnType, Class argType, Object argument) {
-        return invokeMethodExpression(expr, returnType, new Class[] { argType }, new Object[] { argument });
     }
 }

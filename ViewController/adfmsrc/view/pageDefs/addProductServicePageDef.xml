@@ -33,7 +33,6 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
     <action IterBinding="XpeDccCfgNewUomEOVOIterator" id="CreateInsert" RequiresUpdateModel="true"
             Action="createInsertRow"/>
@@ -65,5 +64,6 @@
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="XpeDccCfgNewProductserviceEOVOIterator" StaticList="false" Uses="LOV_WeightClass"
           id="WeightClass" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
   </bindings>
 </pageDefinition>

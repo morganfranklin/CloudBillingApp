@@ -115,13 +115,13 @@
                   binding="#{backingBeanScope.ContractApprovalFacilitySetUpBBean.mswFacilityAdd_popup}">
           <af:dialog id="d1" type="none" title="Add Facility" closeIconVisible="false">
             <f:facet name="buttonBar">
-              <af:button action="#{bindings.Commit.execute}" text="Save"
+              <af:button text="Save"
                          id="b6"
-                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.mswFacilityAddSaveorCancel}"/>
+                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.mswFacilityAddSave}"/>
               <af:spacer width="10" height="10" id="s3"/>
               <af:button action="#{bindings.Rollback.execute}" text="Cancel"
                          immediate="true" id="b7"
-                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.mswFacilityAddSaveorCancel}">
+                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.mswFacilityAddCancel}">
                 <af:resetActionListener/>
               </af:button>
             </f:facet>
@@ -166,13 +166,13 @@
                   binding="#{backingBeanScope.ContractApprovalFacilitySetUpBBean.mswFacilityEdit_popup}">
           <af:dialog id="d2" type="none" title="Edit Facility" closeIconVisible="false">
             <f:facet name="buttonBar">
-              <af:button action="#{bindings.Commit.execute}" text="Save"
+              <af:button text="Save"
                          id="b8"
-                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.mswFacilityEditSaveorCancel}"/>
+                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.mswFacilityEditSave}"/>
               <af:spacer width="10" height="10" id="s4"/>
               <af:button action="#{bindings.Rollback.execute}" text="Cancel"
                          immediate="true" id="b9"
-                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.mswFacilityEditSaveorCancel}">
+                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.mswFacilityEditCancel}">
                 <af:resetActionListener/>
               </af:button>
             </f:facet>
@@ -300,13 +300,13 @@
                   binding="#{backingBeanScope.ContractApprovalFacilitySetUpBBean.cmtmntFacilityAdd_popup}">
           <af:dialog id="d3" type="none" title="Add Facility" closeIconVisible="false">
             <f:facet name="buttonBar">
-              <af:button action="#{bindings.Commit.execute}" text="Save"
+              <af:button text="Save"
                          id="b11"
-                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.cmtmntFacilityAddSaveorCancel}"/>
+                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.cmtmntFacilityAddSave}"/>
               <af:spacer width="10" height="10" id="s7"/>
               <af:button action="#{bindings.Rollback.execute}" text="Cancel"
                          immediate="true" id="b12"
-                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.cmtmntFacilityAddSaveorCancel}">
+                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.cmtmntFacilityAddCancel}">
                 <af:resetActionListener/>
               </af:button>
             </f:facet>
@@ -380,13 +380,13 @@
                   binding="#{backingBeanScope.ContractApprovalFacilitySetUpBBean.cmtmntFacilityEdit_popup}">
           <af:dialog id="d4" type="none" title="Edit Facility" closeIconVisible="false">
             <f:facet name="buttonBar">
-              <af:button action="#{bindings.Commit.execute}" text="Save"
+              <af:button text="Save"
                          id="b13"
-                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.cmtmntFacilityEditSaveorCancel}"/>
+                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.cmtmntFacilityEditSave}"/>
               <af:spacer width="10" height="10" id="s8"/>
               <af:button action="#{bindings.Rollback.execute}" text="Cancel"
                          immediate="true" id="b14"
-                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.cmtmntFacilityEditSaveorCancel}">
+                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.cmtmntFacilityEditCancel}">
                 <af:resetActionListener/>
               </af:button>
             </f:facet>
@@ -530,13 +530,13 @@
                   binding="#{backingBeanScope.ContractApprovalFacilitySetUpBBean.metalsFacilityAdd_popup}">
           <af:dialog id="d5" type="none" title="Add Facility" closeIconVisible="false">
             <f:facet name="buttonBar">
-              <af:button action="#{bindings.Commit.execute}" text="Save"
+              <af:button text="Save"
                          id="b17"
-                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.metalsFacilityAddSaveorCancel}"/>
+                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.metalsFacilityAddSave}"/>
               <af:spacer width="10" height="10" id="s10"/>
               <af:button action="#{bindings.Rollback.execute}" text="Cancel"
                          immediate="true" id="b18"
-                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.metalsFacilityAddSaveorCancel}">
+                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.metalsFacilityAddCancel}">
                 <af:resetActionListener/>
               </af:button>
             </f:facet>
@@ -588,13 +588,13 @@
                   binding="#{backingBeanScope.ContractApprovalFacilitySetUpBBean.metalsFacilityEdit_popup}">
           <af:dialog id="d6" type="none" title="Edit Facility" closeIconVisible="false">
             <f:facet name="buttonBar">
-              <af:button action="#{bindings.Commit.execute}" text="Save"
+              <af:button text="Save"
                          id="b19"
-                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.metalsFacilityEditSaveorCancel}"/>
+                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.metalsFacilityEditSave}"/>
               <af:spacer width="10" height="10" id="s11"/>
               <af:button action="#{bindings.Rollback.execute}" text="Cancel"
                          immediate="true" id="b20"
-                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.metalsFacilityEditSaveorCancel}">
+                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.metalsFacilityEditCancel}">
                 <af:resetActionListener/>
               </af:button>
             </f:facet>

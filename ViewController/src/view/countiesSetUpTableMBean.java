@@ -21,6 +21,8 @@ import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.context.AdfFacesContext;
 import oracle.adf.view.rich.event.QueryOperationEvent;
 
+import oracle.binding.OperationBinding;
+
 import view.utils.ADFUtils;
 import view.utils.JSFUtils;
 
@@ -42,11 +44,33 @@ public class countiesSetUpTableMBean implements Serializable{
         this.getcountiesSetUpTableBBean().getCountyAddItem_popup().show(hints);
     }
 
-    public void onCountyCreationSaveorCancel(ActionEvent actionEvent) {
+    public void onCountyCreationSave(ActionEvent actionEvent) {
+        OperationBinding opb = ADFUtils.findOperation("Commit");
+        opb.execute();
+        if(opb.getErrors().isEmpty()){
+            this.getcountiesSetUpTableBBean().getCountyAddItem_popup().hide();
+            JSFUtils.addFacesInformationMessage("Data Saved Successfully.");
+        }else{
+            JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
+        }
+    }
+    
+    public void onCountyCreationCancel(ActionEvent actionEvent) {
         this.getcountiesSetUpTableBBean().getCountyAddItem_popup().hide();
     }
 
-    public void onCountyEditSaveorCancel(ActionEvent actionEvent) {
+    public void onCountyEditSave(ActionEvent actionEvent) {
+        OperationBinding opb = ADFUtils.findOperation("Commit");
+        opb.execute();
+        if(opb.getErrors().isEmpty()){
+            this.getcountiesSetUpTableBBean().getCountyEditItem_popp().hide();
+            JSFUtils.addFacesInformationMessage("Data Saved Successfully.");
+        }else{
+            JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
+        }
+    }
+    
+    public void onCountyEditCancel(ActionEvent actionEvent) {
         this.getcountiesSetUpTableBBean().getCountyEditItem_popp().hide();
     }
 

@@ -112,4 +112,14 @@ public class PcsInstallationSetUpTableMBean {
             pcsRow.setInactiveDate(null);
         }
     }
+
+    public void pcsSitesSaveActnLstnr(ActionEvent actionEvent) {
+        OperationBinding opb = ADFUtils.findOperation("Commit");
+        opb.execute();
+        if (opb.getErrors().isEmpty()) {
+            JSFUtils.addFacesInformationMessage("Data Saved Successfully.");
+        } else {
+            JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
+        }
+    }
 }

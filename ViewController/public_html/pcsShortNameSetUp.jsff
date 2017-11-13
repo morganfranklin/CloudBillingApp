@@ -16,9 +16,7 @@
       <f:facet name="toolbar">
         <af:toolbar id="t1">
           <af:button actionListener="#{pageFlowScope.PcsShortNameSetUpTableBean.onPcsShortNameCreation}" text="Add Item"
-                     id="b1" action="setCurrentRow">
-            <af:setActionListener from="ADD" to="#{pageFlowScope.NavFlow}"/>
-          </af:button>
+                     id="b1" action="Add"/>
         </af:toolbar>
       </f:facet>
       <f:facet name="menuBar"/>
@@ -34,10 +32,8 @@
                 contentDelivery="immediate" columnStretching="last"
                 binding="#{backingBeanScope.PcsShortNameSetUpTableBBean.pcsShortNamesSetUpTblBind}">
         <af:column headerText="#{bindings.XpeDccCfgPcsshortnamesEOVO.hints.PcsshortnameId.label}" id="resId1c1">
-          <af:link text="#{row.PcsshortnameId}" id="l1" partialSubmit="true" action="setCurrentRow">
-            <af:setActionListener from="#{row.PcsshortnameId}" to="#{pageFlowScope.PcsShortNameId}"/>
-            <af:setActionListener from="EDIT" to="#{pageFlowScope.NavFlow}"/>
-          </af:link>
+          <af:link text="#{row.PcsshortnameId}" id="l1" partialSubmit="true" action="Edit"
+                   actionListener="#{pageFlowScope.PcsShortNameSetUpTableBean.pcsShortNameEditActnLstnr}"/>
         </af:column>
         <af:column headerText="#{bindings.XpeDccCfgPcsshortnamesEOVO.hints.PcsshortName.label}" id="resId1c2">
           <af:outputText value="#{row.PcsshortName}"

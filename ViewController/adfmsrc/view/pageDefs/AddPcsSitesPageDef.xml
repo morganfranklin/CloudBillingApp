@@ -53,7 +53,6 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
     <attributeValues IterBinding="XpeDccCfgNewPcsAssTerminalsEOVOIterator" id="TerminalId">
       <AttrNames>
@@ -81,5 +80,6 @@
                   MethodName="addAssTerminalToPCS" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
                   InstanceName="data.AppModuleDataControl.dataProvider"
                   ReturnName="data.AppModuleDataControl.methodResults.addAssTerminalToPCS_AppModuleDataControl_dataProvider_addAssTerminalToPCS_result"/>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
   </bindings>
 </pageDefinition>

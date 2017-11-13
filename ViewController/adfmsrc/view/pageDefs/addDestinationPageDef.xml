@@ -35,7 +35,6 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
     <methodAction id="addAssTerminalToDestination" RequiresUpdateModel="true" Action="invokeMethod"
                   MethodName="addAssTerminalToDestination" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
@@ -65,5 +64,6 @@
     </attributeValues>
     <list IterBinding="XpeDccCfgNewDestinationsCreationEOVOIterator" StaticList="false" Uses="LOV_State" id="State"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
   </bindings>
 </pageDefinition>

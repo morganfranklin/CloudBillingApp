@@ -47,7 +47,6 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
     <attributeValues IterBinding="XpeDccCfgNewUomEOVOIterator" id="UomDesc">
       <AttrNames>
@@ -70,5 +69,6 @@
     <listOfValues IterBinding="XpeDccCfgNewUomEOVOIterator" StaticList="false" Uses="LOV_Uom" id="Uom1"/>
     <list IterBinding="XpeDccCfgNewProductserviceEOVOIterator" StaticList="false" Uses="LOV_Pcsuom" id="Pcsuom"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
   </bindings>
 </pageDefinition>

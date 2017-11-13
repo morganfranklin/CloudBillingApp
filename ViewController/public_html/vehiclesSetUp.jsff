@@ -28,7 +28,8 @@
                 emptyText="#{bindings.XpeDccCfgVehiclesEOVO.viewable ? 'No data to display.' : 'Access Denied.'}"
                 rowBandingInterval="0" selectedRowKeys="#{bindings.XpeDccCfgVehiclesEOVO.collectionModel.selectedRow}"
                 selectionListener="#{bindings.XpeDccCfgVehiclesEOVO.collectionModel.makeCurrent}" rowSelection="single"
-                fetchSize="#{bindings.XpeDccCfgVehiclesEOVO.rangeSize}" id="resId1" partialTriggers="::b1"
+                fetchSize="#{bindings.XpeDccCfgVehiclesEOVO.rangeSize}" id="resId1"
+                partialTriggers="::b1 ::b2 ::b3 ::b4 ::b5"
                 contentDelivery="immediate" columnStretching="last"
                 binding="#{backingBeanScope.VehicleTypeSetUpTableBBean.vehicleTypeSetUpTblBind}">
         <af:column headerText="#{bindings.XpeDccCfgVehiclesEOVO.hints.VehicleId.label}" id="resId1c1">
@@ -74,12 +75,12 @@
                 contentDelivery="lazyUncached">
         <af:dialog id="d1" type="none" title="Vehicle Type Details" closeIconVisible="false">
           <f:facet name="buttonBar">
-            <af:button action="#{bindings.Commit.execute}" text="Save" disabled="#{!bindings.Commit.enabled}" id="b2"
-                       actionListener="#{pageFlowScope.VehicleTypeSetUpTableMBean.onVehicleTypeCreationSaveorCancel}"/>
+            <af:button text="Save" id="b2"
+                       actionListener="#{pageFlowScope.VehicleTypeSetUpTableMBean.onVehicleTypeCreationSave}"/>
             <af:spacer width="10" height="10" id="s2"/>
             <af:button action="#{bindings.Rollback.execute}" text="Cancel" disabled="#{!bindings.Rollback.enabled}"
                        immediate="true" id="b3"
-                       actionListener="#{pageFlowScope.VehicleTypeSetUpTableMBean.onVehicleTypeCreationSaveorCancel}">
+                       actionListener="#{pageFlowScope.VehicleTypeSetUpTableMBean.onVehicleTypeCreationCancel}">
               <af:resetActionListener/>
             </af:button>
           </f:facet>
@@ -119,12 +120,12 @@
                 contentDelivery="lazyUncached">
         <af:dialog id="d2" type="none" title="Vehicle Type Details" closeIconVisible="false">
           <f:facet name="buttonBar">
-            <af:button action="#{bindings.Commit.execute}" text="Save" id="b4"
-                       actionListener="#{pageFlowScope.VehicleTypeSetUpTableMBean.onVehicleTypeEditSaveorCancel}"/>
+            <af:button text="Save" id="b4"
+                       actionListener="#{pageFlowScope.VehicleTypeSetUpTableMBean.onVehicleTypeEditSave}"/>
             <af:spacer width="10" height="10" id="s3"/>
             <af:button action="#{bindings.Rollback.execute}" text="Cancel"
                        immediate="true" id="b5"
-                       actionListener="#{pageFlowScope.VehicleTypeSetUpTableMBean.onVehicleTypeEditSaveorCancel}">
+                       actionListener="#{pageFlowScope.VehicleTypeSetUpTableMBean.onVehicleTypeEditCancel}">
               <af:resetActionListener/>
             </af:button>
           </f:facet>
