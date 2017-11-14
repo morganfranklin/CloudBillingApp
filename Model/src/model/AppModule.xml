@@ -631,6 +631,9 @@
     <ViewUsage
         Name="XpeDccCfgAccrualandRevenueGenerationROVO1"
         ViewObjectName="model.views.readonly.XpeDccCfgAccrualandRevenueGenerationROVO"/>
+    <ViewUsage
+        Name="XpeDccContractPricingOverView2"
+        ViewObjectName="model.XpeDccContractPricingOverView"/>
     <ViewLinkUsage
         Name="NeuRuleTblFk1Link1"
         ViewLinkObjectName="model.NeuRuleTblFk1Link"
@@ -912,6 +915,12 @@
         ViewLinkObjectName="model.views.entitybased.XpeDccContractVersionFKVL"
         SrcViewUsageName="model.AppModule.XpeDccNewContractsEOVO1"
         DstViewUsageName="model.AppModule.XpeDccContractVersionView3"
+        Reversed="false"/>
+    <ViewLinkUsage
+        Name="XpeDccContractPricingFk2Link3"
+        ViewLinkObjectName="model.XpeDccContractPricingFk2Link"
+        SrcViewUsageName="model.AppModule.XpeDccContractLineView1"
+        DstViewUsageName="model.AppModule.XpeDccContractPricingOverView2"
         Reversed="false"/>
     <ClientInterface
         Name="__clientInterface">

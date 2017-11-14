@@ -3326,5 +3326,21 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     public XpeDccCfgAccrualandRevenueGenerationROVOImpl getXpeDccCfgAccrualandRevenueGenerationROVO1() {
         return (XpeDccCfgAccrualandRevenueGenerationROVOImpl) findViewObject("XpeDccCfgAccrualandRevenueGenerationROVO1");
     }
+
+    /**
+     * Container's getter for XpeDccContractPricingOverView2.
+     * @return XpeDccContractPricingOverView2
+     */
+    public XpeDccContractPricingOverViewImpl getXpeDccContractPricingOverView2() {
+        return (XpeDccContractPricingOverViewImpl) findViewObject("XpeDccContractPricingOverView2");
+    }
+
+    /**
+     * Container's getter for XpeDccContractPricingFk2Link3.
+     * @return XpeDccContractPricingFk2Link3
+     */
+    public ViewLinkImpl getXpeDccContractPricingFk2Link3() {
+        return (ViewLinkImpl) findViewLink("XpeDccContractPricingFk2Link3");
+    }
 }
 

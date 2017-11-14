@@ -8,7 +8,7 @@
                   DataControl="AppModuleDataControl" RangeSize="25"/>
         <iterator id="XpeDccContractPricingTermView3Iterator" Binds="XpeDccContractPricingTermView1"
                   DataControl="AppModuleDataControl" RangeSize="25"/>
-        <iterator Binds="XpeDccContractPricingOverView1" RangeSize="25" DataControl="AppModuleDataControl"
+        <iterator Binds="XpeDccContractPricingOverView2" RangeSize="25" DataControl="AppModuleDataControl"
                   id="XpeDccContractPricingOverView1Iterator"/>
     </executables>
     <bindings>
