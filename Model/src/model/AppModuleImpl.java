@@ -1743,7 +1743,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                 //setting contract version status
                 contractVersionViewRow.setXpeContractStatus(submissionType);
 
-                //creating Approval Work Flow Event
+                //creating Internal Approval Work Flow Event
                 XpeDccWfEventEOVORowImpl approvalWFEventRow =
                     (XpeDccWfEventEOVORowImpl) this.getXpeDccWfEventEOVO().createRow();
                 approvalWFEventRow.setXpeContractId(contractVersionViewRow.getXpeContractId());
@@ -2010,7 +2010,31 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                         Long rowCount = this.getXpeDccWfActionROVO().getEstimatedRowCount();
                         if (rowCount.intValue() == 0) {
                             approvalWFEventRow.setXpeEventStatus("APR");
-                            updateContractVersionStatus(approvalWFEventRow, "APR");
+                            //updateContractVersionStatus(approvalWFEventRow, "APR");
+
+                            //creating External Approval Work Flow Event
+                            XpeDccWfEventEOVORowImpl approvalWFEventExternalRow =
+                                (XpeDccWfEventEOVORowImpl) this.getXpeDccWfEventEOVO().createRow();
+                            approvalWFEventExternalRow.setXpeContractId(approvalWFEventRow.getXpeContractId());
+                            approvalWFEventExternalRow.setXpeContractVersion(approvalWFEventRow.getXpeContractVersion());
+                            approvalWFEventExternalRow.setXpeEventStatus("IWF");
+                            approvalWFEventExternalRow.setXpeEventType("E");
+                            this.getXpeDccWfEventEOVO().insertRow(approvalWFEventExternalRow);
+
+                            if (null != approvalWFEventExternalRow && null != approvalWFEventExternalRow.getXpeEventNumber()) {
+                                //creating External Approval Work Flow Action
+                                XpeDccWfActionEOVORowImpl xpeDccWfActionEOVORow =
+                                                                      (XpeDccWfActionEOVORowImpl) approvalWFEventExternalRow.getXpeDccWfActionEOVO().createRow();
+                                xpeDccWfActionEOVORow.setXpeContractId(approvalWFEventExternalRow.getXpeContractId());
+                                xpeDccWfActionEOVORow.setXpeContractVersion(approvalWFEventExternalRow.getXpeContractVersion());
+                                xpeDccWfActionEOVORow.setXpeUuid(UUID.randomUUID().toString());
+                                //Need to set customer email Id
+                                xpeDccWfActionEOVORow.setXpeApproverEmail("");
+                                approvalWFEventExternalRow.getXpeDccWfActionEOVO().insertRow(xpeDccWfActionEOVORow);
+                                this.pushEmailForApproval(xpeDccWfActionEOVORow, bytes,
+                                                          xpeDccWfActionEOVORow.getXpeContractId(),
+                                                          xpeDccWfActionEOVORow.getXpeContractVersion());
+                            }
                             //commiting transaction
                             this.getDBTransaction().commit();
                         }
