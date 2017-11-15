@@ -222,7 +222,8 @@
                                                               maximumLength="#{bindings.XpeDccNewContractLineView.hints.XpeContractLine.precision}"
                                                               shortDesc="#{bindings.XpeDccNewContractLineView.hints.XpeContractLine.tooltip}"
                                                               id="it6"
-                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                              autoSubmit="true">
                                                     <f:validator binding="#{row.bindings.XpeContractLine.validator}"/>
                                                 </af:inputText>
                                             </af:column>
@@ -233,7 +234,8 @@
                                                                     required="#{bindings.XpeDccNewContractLineView.hints.BusinessUnitGl.mandatory}"
                                                                     shortDesc="#{bindings.XpeDccNewContractLineView.hints.BusinessUnitGl.tooltip}"
                                                                     id="soc9"
-                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                                    autoSubmit="true">
                                                     <f:selectItems value="#{row.bindings.BusinessUnitGl.items}"
                                                                    id="si9"/>
                                                     <f:validator binding="#{row.bindings.BusinessUnitGl.validator}"/>
@@ -246,7 +248,8 @@
                                                                     required="#{bindings.XpeDccNewContractLineView.hints.XpeFacility.mandatory}"
                                                                     shortDesc="#{bindings.XpeDccNewContractLineView.hints.XpeFacility.tooltip}"
                                                                     id="soc6"
-                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                                    autoSubmit="true">
                                                     <f:selectItems value="#{row.bindings.XpeFacility.items}" id="si6"/>
                                                     <f:validator binding="#{row.bindings.XpeFacility.validator}"/>
                                                 </af:selectOneChoice>
@@ -272,7 +275,7 @@
                                                                     shortDesc="#{bindings.XpeDccNewContractLineView.hints.XpeProductUom.tooltip}"
                                                                     id="soc8"
                                                                     readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
-                                                                    partialTriggers="soc7">
+                                                                    partialTriggers="soc7" autoSubmit="true">
                                                     <f:selectItems value="#{row.bindings.XpeProductUom.items}"
                                                                    id="si8"/>
                                                     <f:validator binding="#{row.bindings.XpeProductUom.validator}"/>
@@ -311,7 +314,8 @@
                                                                     required="#{bindings.XpeDccNewContractLineView.hints.XpePeriodType.mandatory}"
                                                                     shortDesc="#{bindings.XpeDccNewContractLineView.hints.XpePeriodType.tooltip}"
                                                                     id="soc10"
-                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                                    autoSubmit="true">
                                                     <f:selectItems value="#{row.bindings.XpePeriodType.items}"
                                                                    id="si10"/>
                                                     <f:validator binding="#{row.bindings.XpePeriodType.validator}"/>
