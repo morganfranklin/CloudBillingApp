@@ -247,6 +247,7 @@ public class XpeDccContractCarrierViewRowImpl extends ViewRowImpl {
         setAttributeInternal(XPESURCHARGE, value);
     }
 
+
     /**
      * Gets the associated <code>RowIterator</code> using master-detail link XpeDccContractCarrierOverView.
      */
