@@ -138,7 +138,8 @@
         PrecisionRule="true"
         EntityAttrName="XpeSubNbr"
         EntityUsage="XpeDccContractCarrier"
-        AliasName="XPE_SUB_NBR">
+        AliasName="XPE_SUB_NBR"
+        PrimaryKey="true">
         <Properties>
             <SchemaBasedProperties>
                 <LABEL
@@ -152,7 +153,8 @@
         PrecisionRule="true"
         EntityAttrName="XpeVehicleNbr"
         EntityUsage="XpeDccContractCarrier"
-        AliasName="XPE_VEHICLE_NBR">
+        AliasName="XPE_VEHICLE_NBR"
+        PrimaryKey="true">
         <Properties>
             <SchemaBasedProperties>
                 <LABEL
@@ -186,9 +188,19 @@
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>
+    <AttrArray Name="KeyAttributes">
+        <Item Value="XpeContractId"/>
+        <Item Value="XpePricingTermLine"/>
+        <Item Value="XpeContractLine"/>
+        <Item Value="XpeContractVersion"/>
+        <Item Value="XpeCarrierId"/>
+        <Item Value="XpeVehicleType"/>
+        <Item Value="XpeSubNbr"/>
+        <Item Value="XpeVehicleNbr"/>
+    </AttrArray>
     <ViewLinkAccessor
         Name="XpeDccContractCarrierOverView"
-        ViewLink="model.XpeDccContractCarrierFk2Assoc1Link"
+        ViewLink="model.XpeDccContractCarrierFkLink"
         Type="oracle.jbo.RowIterator"
         IsUpdateable="false"/>
     <ResourceBundle>

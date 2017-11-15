@@ -4,7 +4,7 @@
 <Entity
     xmlns="http://xmlns.oracle.com/bc4j"
     Name="XpeDccContractCarrierOver"
-    Version="12.2.1.0.31"
+    Version="12.2.1.11.57"
     InheritPersonalization="merge"
     DBObjectType="table"
     DBObjectName="XPE_DCC_CONTRACT_CARRIER_OVER"
@@ -222,10 +222,10 @@
         </DesignTime>
     </Attribute>
     <AccessorAttribute
-        Name="XpeDccContractCarrier"
-        Association="model.XpeDccContractCarrierFk2Assoc1"
-        AssociationEnd="model.XpeDccContractCarrierFk2Assoc1.XpeDccContractCarrier"
-        AssociationOtherEnd="model.XpeDccContractCarrierFk2Assoc1.XpeDccContractCarrierOver"
+        Name="XpeDccContractCarrier1"
+        Association="model.XpeDccContractCarrierFkAssoc"
+        AssociationEnd="model.XpeDccContractCarrierFkAssoc.XpeDccContractCarrier1"
+        AssociationOtherEnd="model.XpeDccContractCarrierFkAssoc.XpeDccContractCarrierOver1"
         Type="oracle.jbo.server.EntityImpl"
         IsUpdateable="true"/>
     <Key
@@ -247,12 +247,12 @@
         </AttrArray>
     </Key>
     <Key
-        Name="XpeDccContractCarrierFk2">
+        Name="XpeDccContractCarrierFk">
         <DesignTime>
             <Attr Name="_isCascadeDelete" Value="true"/>
             <Attr Name="_referencedKey" Value="XPE_DCC_CONTRACT_CARRIER_PK"/>
             <Attr Name="_isForeign" Value="true"/>
-            <Attr Name="_DBObjectName" Value="XPE_DCC_CONTRACT_CARRIER__FK2"/>
+            <Attr Name="_DBObjectName" Value="XPE_DCC_CONTRACT_CARRIER_FK"/>
         </DesignTime>
         <AttrArray Name="Attributes">
             <Item Value="model.XpeDccContractCarrierOver.XpeContractId"/>
@@ -261,8 +261,6 @@
             <Item Value="model.XpeDccContractCarrierOver.XpeContractVersion"/>
             <Item Value="model.XpeDccContractCarrierOver.XpeCarrierId"/>
             <Item Value="model.XpeDccContractCarrierOver.XpeVehicleType"/>
-            <Item Value="model.XpeDccContractCarrierOver.XpeSubNbr"/>
-            <Item Value="model.XpeDccContractCarrierOver.XpeVehicleNbr"/>
         </AttrArray>
     </Key>
 </Entity>

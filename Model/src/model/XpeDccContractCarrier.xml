@@ -97,8 +97,7 @@
         SQLType="NUMERIC"
         Type="java.lang.Integer"
         ColumnType="NUMBER"
-        TableName="XPE_DCC_CONTRACT_CARRIER"
-        PrimaryKey="true"/>
+        TableName="XPE_DCC_CONTRACT_CARRIER"/>
     <Attribute
         Name="XpeVehicleNbr"
         Precision="20"
@@ -106,8 +105,7 @@
         SQLType="VARCHAR"
         Type="java.lang.String"
         ColumnType="VARCHAR2"
-        TableName="XPE_DCC_CONTRACT_CARRIER"
-        PrimaryKey="true">
+        TableName="XPE_DCC_CONTRACT_CARRIER">
         <DesignTime>
             <Attr Name="_DisplaySize" Value="20"/>
         </DesignTime>
@@ -131,26 +129,19 @@
         ColumnType="NUMBER"
         TableName="XPE_DCC_CONTRACT_CARRIER"/>
     <AccessorAttribute
-        Name="XpeDccCarriers"
-        Association="model.XpeDccContractCarrierFk2Assoc"
-        AssociationEnd="model.XpeDccContractCarrierFk2Assoc.XpeDccCarriers"
-        AssociationOtherEnd="model.XpeDccContractCarrierFk2Assoc.XpeDccContractCarrier"
-        Type="oracle.jbo.server.EntityImpl"
-        IsUpdateable="true"/>
-    <AccessorAttribute
-        Name="XpeDccContractCarrierOver"
-        Association="model.XpeDccContractCarrierFk2Assoc1"
-        AssociationEnd="model.XpeDccContractCarrierFk2Assoc1.XpeDccContractCarrierOver"
-        AssociationOtherEnd="model.XpeDccContractCarrierFk2Assoc1.XpeDccContractCarrier"
-        Type="oracle.jbo.RowIterator"
-        IsUpdateable="false"/>
-    <AccessorAttribute
         Name="XpeDccContractPricingTerm"
         Association="model.XpeDccContractCarrierFk1Assoc"
         AssociationEnd="model.XpeDccContractCarrierFk1Assoc.XpeDccContractPricingTerm"
         AssociationOtherEnd="model.XpeDccContractCarrierFk1Assoc.XpeDccContractCarrier"
         Type="oracle.jbo.server.EntityImpl"
         IsUpdateable="true"/>
+    <AccessorAttribute
+        Name="XpeDccContractCarrierOver1"
+        Association="model.XpeDccContractCarrierFkAssoc"
+        AssociationEnd="model.XpeDccContractCarrierFkAssoc.XpeDccContractCarrierOver1"
+        AssociationOtherEnd="model.XpeDccContractCarrierFkAssoc.XpeDccContractCarrier1"
+        Type="oracle.jbo.RowIterator"
+        IsUpdateable="false"/>
     <Key
         Name="XpeDccContractCarrierPk"
         PrimaryKey="true">
@@ -164,8 +155,6 @@
             <Item Value="model.XpeDccContractCarrier.XpeContractVersion"/>
             <Item Value="model.XpeDccContractCarrier.XpeCarrierId"/>
             <Item Value="model.XpeDccContractCarrier.XpeVehicleType"/>
-            <Item Value="model.XpeDccContractCarrier.XpeSubNbr"/>
-            <Item Value="model.XpeDccContractCarrier.XpeVehicleNbr"/>
         </AttrArray>
     </Key>
     <Key
@@ -181,18 +170,6 @@
             <Item Value="model.XpeDccContractCarrier.XpePricingTermLine"/>
             <Item Value="model.XpeDccContractCarrier.XpeContractLine"/>
             <Item Value="model.XpeDccContractCarrier.XpeContractVersion"/>
-        </AttrArray>
-    </Key>
-    <Key
-        Name="XpeDccContractCarrierFk2">
-        <DesignTime>
-            <Attr Name="_isCascadeDelete" Value="true"/>
-            <Attr Name="_referencedKey" Value="XPE_DCC_CARRIERS_PK"/>
-            <Attr Name="_isForeign" Value="true"/>
-            <Attr Name="_DBObjectName" Value="XPE_DCC_CONTRACT_CARRIER_FK2"/>
-        </DesignTime>
-        <AttrArray Name="Attributes">
-            <Item Value="model.XpeDccContractCarrier.XpeCarrierId"/>
         </AttrArray>
     </Key>
 </Entity>
