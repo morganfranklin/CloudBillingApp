@@ -58,7 +58,8 @@
                                                     <f:validator binding="#{bindings.XpeAgreementType.validator}"/>
                                                 </af:selectOneChoice>
                                             </af:panelLabelAndMessage>
-                                            <af:panelLabelAndMessage label="#{bindings.XpeContractDirection.label}" id="plam5">
+                                            <af:panelLabelAndMessage label="#{bindings.XpeContractDirection.label}"
+                                                                     id="plam5">
                                                 <af:selectOneChoice value="#{bindings.XpeContractDirection.inputValue}"
                                                                     label="#{bindings.XpeContractDirection.label}"
                                                                     required="#{bindings.XpeContractDirection.hints.mandatory}"
@@ -78,7 +79,8 @@
                                              valign="stretch">
                                     <af:button text="Back" id="b9" action="back"/>
                                     <af:spacer width="10" height="10" id="s2"/>
-                                    <af:button text="Next" id="b10" action="#{controllerContext.currentViewPort.taskFlowContext.trainModel.getNext}"/>
+                                    <af:button text="Next" id="b10"
+                                               action="#{controllerContext.currentViewPort.taskFlowContext.trainModel.getNext}"/>
                                     <af:spacer width="10" id="s4"/>
                                     <af:button text="Cancel" id="b11" action="rollback" immediate="true"/>
                                 </af:gridCell>
@@ -142,7 +144,8 @@
                                                     </af:inputDate>
                                                 </f:facet>
                                             </af:panelLabelAndMessage>
-                                            <af:panelLabelAndMessage label="#{bindings.XpeAcctgOptionsSet.label}" id="plam6">
+                                            <af:panelLabelAndMessage label="#{bindings.XpeAcctgOptionsSet.label}"
+                                                                     id="plam6">
                                                 <af:selectOneChoice value="#{bindings.XpeAcctgOptionsSet.inputValue}"
                                                                     label="#{bindings.XpeAcctgOptionsSet.label}"
                                                                     required="true"
@@ -178,8 +181,7 @@
                                 </af:gridCell>
                             </af:gridRow>
                             <af:gridRow height="auto" id="gr7">
-                                <af:gridCell marginStart="5px" id="gc7" marginEnd="5px"
-                                             valign="stretch">
+                                <af:gridCell marginStart="5px" id="gc7" marginEnd="5px" valign="stretch">
                                     <af:panelGroupLayout id="pgl6" layout="horizontal">
                                         <af:trainButtonBar value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
                                                            id="tbb2"/>
@@ -192,15 +194,13 @@
                     <f:facet name="three">
                         <af:panelGridLayout id="pgl4">
                             <af:gridRow marginTop="5px" height="auto" id="gr8">
-                                <af:gridCell marginStart="5px" width="100%" id="gc9" halign="stretch"
-                                             marginEnd="5px">
+                                <af:gridCell marginStart="5px" width="100%" id="gc9" halign="stretch" marginEnd="5px">
                                     <af:train value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
                                               id="t3"/>
                                 </af:gridCell>
                             </af:gridRow>
                             <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr9">
-                                <af:gridCell marginStart="5px" width="100%" id="gc8" halign="stretch"
-                                             marginEnd="5px">
+                                <af:gridCell marginStart="5px" width="100%" id="gc8" halign="stretch" marginEnd="5px">
                                     <af:panelBox text="Contract Line" id="pb5" partialTriggers="b1 b2">
                                         <af:table id="md1" rows="#{bindings.XpeDccNewContractLineView.rangeSize}"
                                                   fetchSize="#{bindings.XpeDccNewContractLineView.rangeSize}"
@@ -333,11 +333,10 @@
                                         </af:table>
                                         <f:facet name="toolbar">
                                             <af:group id="g2">
-                                                <af:button actionListener="#{bindings.CreateInsert1.execute}"
-                                                           text="Add" id="b1"
-                                                           disabled="#{pageFlowScope.ContractType eq 'BLS'}"/>
-                                                <af:button actionListener="#{bindings.Delete1.execute}" text="Delete" id="b2"
-                                                           immediate="true"
+                                                <af:button actionListener="#{bindings.CreateInsert1.execute}" text="Add"
+                                                           id="b1" disabled="#{pageFlowScope.ContractType eq 'BLS'}"/>
+                                                <af:button actionListener="#{bindings.Delete1.execute}" text="Delete"
+                                                           id="b2" immediate="true"
                                                            disabled="#{bindings.XpeDccNewContractLineViewIterator.estimatedRowCount&lt;=1 or pageFlowScope.ContractType eq 'BLS'}"/>
                                             </af:group>
                                         </f:facet>
@@ -369,16 +368,16 @@
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractPricingTermView.hints.XpePricingTermType.label}"
                                                        id="c31" headerNoWrap="true" width="120">
-                                                <af:selectOneChoice value="#{row.bindings.XpePricingTermType.inputValue}"
-                                                                    label="#{row.bindings.XpePricingTermType.label}"
-                                                                    required="#{bindings.XpeDccNewContractPricingTermView.hints.XpePricingTermType.mandatory}"
-                                                                    shortDesc="#{bindings.XpeDccNewContractPricingTermView.hints.XpePricingTermType.tooltip}"
-                                                                    id="soc11"
-                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
-                                                    <f:selectItems value="#{row.bindings.XpePricingTermType.items}"
-                                                                   id="si11"/>
+                                                <af:inputListOfValues label="#{row.bindings.XpePricingTermType.label}"
+                                                                      popupTitle="Search and Select: #{row.bindings.XpePricingTermType.label}"
+                                                                      id="ilov1"
+                                                                      value="#{row.bindings.XpePricingTermType.inputValue}"
+                                                                      required="#{bindings.XpeDccNewContractPricingTermView.hints.XpePricingTermType.mandatory}"
+                                                                      shortDesc="#{bindings.XpeDccNewContractPricingTermView.hints.XpePricingTermType.tooltip}"
+                                                                      model="#{row.bindings.XpePricingTermType.listOfValuesModel}"
+                                                                      readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
                                                     <f:validator binding="#{row.bindings.XpePricingTermType.validator}"/>
-                                                </af:selectOneChoice>
+                                                </af:inputListOfValues>
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractPricingTermView.hints.XpeQtyMax.label}"
                                                        id="c41">
@@ -441,11 +440,10 @@
                                         </af:table>
                                         <f:facet name="toolbar">
                                             <af:group id="g3">
-                                                <af:button actionListener="#{bindings.CreateInsert2.execute}"
-                                                           text="Add" id="b3"
-                                                           disabled="#{pageFlowScope.ContractType eq 'BLS'}"/>
-                                                <af:button actionListener="#{bindings.Delete2.execute}" text="Delete" id="b4"
-                                                           immediate="true"
+                                                <af:button actionListener="#{bindings.CreateInsert2.execute}" text="Add"
+                                                           id="b3" disabled="#{pageFlowScope.ContractType eq 'BLS'}"/>
+                                                <af:button actionListener="#{bindings.Delete2.execute}" text="Delete"
+                                                           id="b4" immediate="true"
                                                            disabled="#{pageFlowScope.ContractType eq 'BLS' or bindings.XpeDccNewContractPricingTermViewIterator.estimatedRowCount lt 1}"/>
                                             </af:group>
                                         </f:facet>
@@ -609,11 +607,10 @@
                                                  partialTriggers="b5 b6 md1 t6 b1 b3 b2 b4">
                                         <f:facet name="toolbar">
                                             <af:group id="g4">
-                                                <af:button actionListener="#{bindings.CreateInsert3.execute}"
-                                                           text="Add" id="b5"
-                                                           disabled="#{pageFlowScope.ContractType eq 'BLS'}"/>
-                                                <af:button actionListener="#{bindings.Delete3.execute}" text="Delete" id="b6"
-                                                           immediate="true"
+                                                <af:button actionListener="#{bindings.CreateInsert3.execute}" text="Add"
+                                                           id="b5" disabled="#{pageFlowScope.ContractType eq 'BLS'}"/>
+                                                <af:button actionListener="#{bindings.Delete3.execute}" text="Delete"
+                                                           id="b6" immediate="true"
                                                            disabled="#{pageFlowScope.ContractType eq 'BLS' or bindings.XpeDccNewContractCarrierViewIterator.estimatedRowCount lt 1}"/>
                                             </af:group>
                                         </f:facet>
@@ -736,8 +733,7 @@
                                              marginEnd="5px">
                                     <af:panelBox id="pb4" text="Contract Notes">
                                         <af:panelFormLayout id="pfl3">
-                                            <af:inputDate value="#{bindings.XpeNoteDttm.inputValue}"
-                                                          label="Date"
+                                            <af:inputDate value="#{bindings.XpeNoteDttm.inputValue}" label="Date"
                                                           required="#{bindings.XpeNoteDttm.hints.mandatory}"
                                                           columns="#{bindings.XpeNoteDttm.hints.displayWidth}"
                                                           shortDesc="#{bindings.XpeNoteDttm.hints.tooltip}" id="id4"
@@ -774,8 +770,7 @@
                                                           readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
                                                 <f:validator binding="#{bindings.XpeNoteLong.validator}"/>
                                             </af:inputText>
-                                            <af:inputText value="#{bindings.XpeUser.inputValue}"
-                                                          label="User"
+                                            <af:inputText value="#{bindings.XpeUser.inputValue}" label="User"
                                                           required="#{bindings.XpeUser.hints.mandatory}"
                                                           columns="#{bindings.XpeUser.hints.displayWidth}"
                                                           maximumLength="#{bindings.XpeUser.hints.precision}"

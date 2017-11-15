@@ -49,15 +49,14 @@
                                         <af:convertNumber groupingUsed="false"
                                                           pattern="#{bindings.XpePricingTermLine.format}"/>
                                     </af:inputText>
-                                    <af:selectOneChoice value="#{bindings.XpePricingTermType.inputValue}"
-                                                        label="Pricing Term Type"
-                                                        required="#{bindings.XpePricingTermType.hints.mandatory}"
-                                                        autoSubmit="true"
-                                                        shortDesc="#{bindings.XpePricingTermType.hints.tooltip}"
-                                                        id="soc1">
-                                        <f:selectItems value="#{bindings.XpePricingTermType.items}" id="si1"/>
+                                    <af:inputListOfValues label="Pricing Term Type"
+                                                          popupTitle="Search and Select: Pricing Term Type" id="ilov1"
+                                                          value="#{bindings.XpePricingTermType.inputValue}"
+                                                          required="#{bindings.XpePricingTermType.hints.mandatory}"
+                                                          shortDesc="#{bindings.XpePricingTermType.hints.tooltip}"
+                                                          model="#{bindings.XpePricingTermType.listOfValuesModel}">
                                         <f:validator binding="#{bindings.XpePricingTermType.validator}"/>
-                                    </af:selectOneChoice>
+                                    </af:inputListOfValues>
                                     <af:inputText value="#{bindings.XpeQtyMax.inputValue}" label="Quantity Max"
                                                   autoSubmit="true" required="#{bindings.XpeQtyMax.hints.mandatory}"
                                                   columns="#{bindings.XpeQtyMax.hints.displayWidth}"
@@ -102,26 +101,36 @@
                                                   shortDesc="#{bindings.XpeChargeDesc.hints.tooltip}" id="it9">
                                         <f:validator binding="#{bindings.XpeChargeDesc.validator}"/>
                                     </af:inputText>
-                                    <af:selectOneChoice value="#{bindings.XpeRolloverType.inputValue}" autoSubmit="true"
-                                                        label="Rollover Type"
-                                                        required="#{bindings.XpeRolloverType.hints.mandatory}"
-                                                        shortDesc="#{bindings.XpeRolloverType.hints.tooltip}" id="soc2">
-                                        <f:selectItems value="#{bindings.XpeRolloverType.items}" id="si2"/>
-                                        <f:validator binding="#{bindings.XpeRolloverType.validator}"/>
-                                    </af:selectOneChoice>
-                                    <af:selectOneChoice value="#{bindings.XpeResetType.inputValue}" label="Reset Type"
-                                                        autoSubmit="true"
-                                                        required="#{bindings.XpeResetType.hints.mandatory}"
-                                                        shortDesc="#{bindings.XpeResetType.hints.tooltip}" id="soc3">
-                                        <f:selectItems value="#{bindings.XpeResetType.items}" id="si3"/>
-                                        <f:validator binding="#{bindings.XpeResetType.validator}"/>
-                                    </af:selectOneChoice>
-                                    <af:selectOneChoice value="#{bindings.XpePeriodType.inputValue}" label="Period Type"
-                                                        required="#{bindings.XpePeriodType.hints.mandatory}"
-                                                        shortDesc="#{bindings.XpePeriodType.hints.tooltip}" id="soc4">
-                                        <f:selectItems value="#{bindings.XpePeriodType.items}" id="si4"/>
-                                        <f:validator binding="#{bindings.XpePeriodType.validator}"/>
-                                    </af:selectOneChoice>
+                                    <af:panelLabelAndMessage label="Rollover Type" id="plam1">
+                                        <af:selectOneChoice value="#{bindings.XpeRolloverType.inputValue}"
+                                                            autoSubmit="true" label="Rollover Type"
+                                                            required="#{bindings.XpeRolloverType.hints.mandatory}"
+                                                            shortDesc="#{bindings.XpeRolloverType.hints.tooltip}"
+                                                            id="soc2" simple="true">
+                                            <f:selectItems value="#{bindings.XpeRolloverType.items}" id="si2"/>
+                                            <f:validator binding="#{bindings.XpeRolloverType.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:panelLabelAndMessage>
+                                    <af:panelLabelAndMessage label="Reset Type" id="plam2">
+                                        <af:selectOneChoice value="#{bindings.XpeResetType.inputValue}"
+                                                            label="Reset Type" autoSubmit="true"
+                                                            required="#{bindings.XpeResetType.hints.mandatory}"
+                                                            shortDesc="#{bindings.XpeResetType.hints.tooltip}"
+                                                            id="soc3" simple="true">
+                                            <f:selectItems value="#{bindings.XpeResetType.items}" id="si3"/>
+                                            <f:validator binding="#{bindings.XpeResetType.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:panelLabelAndMessage>
+                                    <af:panelLabelAndMessage label="Period Type" id="plam3">
+                                        <af:selectOneChoice value="#{bindings.XpePeriodType.inputValue}"
+                                                            label="Period Type"
+                                                            required="#{bindings.XpePeriodType.hints.mandatory}"
+                                                            shortDesc="#{bindings.XpePeriodType.hints.tooltip}"
+                                                            id="soc4" simple="true">
+                                            <f:selectItems value="#{bindings.XpePeriodType.items}" id="si4"/>
+                                            <f:validator binding="#{bindings.XpePeriodType.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:panelLabelAndMessage>
                                     <af:inputText value="#{bindings.XpePeriodNbr.inputValue}" label="# of Periods"
                                                   autoSubmit="true" required="#{bindings.XpePeriodNbr.hints.mandatory}"
                                                   columns="#{bindings.XpePeriodNbr.hints.displayWidth}"

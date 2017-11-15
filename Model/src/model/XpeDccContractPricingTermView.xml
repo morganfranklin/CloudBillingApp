@@ -47,9 +47,9 @@
         Name="LOV_XpePricingTermType"
         ListVOName="XpeDccDicRateTypes1"
         ListRangeSize="-1"
-        NullValueFlag="start"
-        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
-        MRUCount="0">
+        NullValueFlag="none"
+        MRUCount="0"
+        ComboRowCountHint="10">
         <AttrArray Name="AttrNames">
             <Item Value="XpePricingTermType"/>
         </AttrArray>
@@ -58,9 +58,11 @@
             <Item Value="XpeLookupId"/>
         </AttrArray>
         <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="XpeLookupId"/>
             <Item Value="XpeLookupDesc"/>
         </AttrArray>
-        <DisplayCriteria/>
+        <DisplayCriteria
+            Hint="showAndExecute"/>
     </ListBinding>
     <ListBinding
         Name="LOV_XpeRolloverType"
@@ -204,12 +206,12 @@
         LOVName="LOV_XpePricingTermType">
         <Properties>
             <SchemaBasedProperties>
-                <CONTROLTYPE
-                    Value="choice"/>
                 <DISPLAYWIDTH
                     Value="20"/>
                 <LABEL
                     ResId="model.XpeDccContractPricingTermView.XpePricingTermType_LABEL"/>
+                <CONTROLTYPE
+                    Value="input_text_lov"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>

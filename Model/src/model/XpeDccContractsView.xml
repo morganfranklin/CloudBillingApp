@@ -37,6 +37,10 @@
         Name="XpeDccCfgPCSShortNamesROVO1"
         ViewObjectName="model.views.readonly.XpeDccCfgPCSShortNamesROVO"
         RowLevelBinds="true"/>
+    <ViewAccessor
+        Name="PsCustomerROVO1"
+        ViewObjectName="model.views.readonly.PsCustomerROVO"
+        RowLevelBinds="true"/>
     <ListBinding
         Name="LOV_CurrencyCd"
         ListVOName="XpeDccDicCurrency1"
@@ -58,7 +62,7 @@
     </ListBinding>
     <ListBinding
         Name="LOV_CustId"
-        ListVOName="NeuCustomersVwView1"
+        ListVOName="PsCustomerROVO1"
         ListRangeSize="-1"
         NullValueFlag="none"
         MRUCount="0"
@@ -71,8 +75,8 @@
             <Item Value="CustId"/>
         </AttrArray>
         <AttrArray Name="ListDisplayAttrNames">
-            <Item Value="Name1"/>
             <Item Value="CustId"/>
+            <Item Value="Name1"/>
         </AttrArray>
         <DisplayCriteria
             Hint="showAndExecute"/>
@@ -159,10 +163,10 @@
             <SchemaBasedProperties>
                 <DISPLAYWIDTH
                     Value="20"/>
-                <CONTROLTYPE
-                    Value="input_text_lov"/>
                 <LABEL
                     ResId="model.XpeDccContractsView.CustId_LABEL"/>
+                <CONTROLTYPE
+                    Value="input_text_lov"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>

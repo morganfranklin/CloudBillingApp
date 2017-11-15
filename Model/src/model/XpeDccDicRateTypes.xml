@@ -4,7 +4,7 @@
 <ViewObject
     xmlns="http://xmlns.oracle.com/bc4j"
     Name="XpeDccDicRateTypes"
-    Version="12.2.1.0.31"
+    Version="12.2.1.11.57"
     InheritPersonalization="merge"
     BindingStyle="OracleName"
     CustomQuery="true"
@@ -18,7 +18,9 @@
                 ResId="model.XpeDccDicRateTypes_LABEL"/>
         </SchemaBasedProperties>
     </Properties>
-    <SQLQuery><![CDATA[SELECT XPE_LOOKUP_ID, XPE_LOOKUP_DESC FROM XPE_DCC_LOOKUP_MASTER WHERE XPE_LOOKUP_TYPE = 'TRM']]></SQLQuery>
+    <SQLQuery><![CDATA[SELECT XPE_LOOKUP_ID, XPE_LOOKUP_DESC FROM XPE_DCC_LOOKUP_MASTER WHERE XPE_LOOKUP_TYPE = 'TRM' 
+UNION ALL 
+SELECT ITEM_ID XPE_LOOKUP_ID, DESCRIPTION XPE_LOOKUP_DESC FROM XPE_DCC_CFG_PRODUCTSERVICE WHERE ITEM_TYPE = 'FEE']]></SQLQuery>
     <ViewAttribute
         Name="XpeLookupId"
         IsUpdateable="false"
@@ -33,6 +35,14 @@
         <DesignTime>
             <Attr Name="_DisplaySize" Value="3"/>
         </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccDicRateTypes.XpeLookupId_LABEL"/>
+                <DISPLAYWIDTH
+                    Value="30"/>
+            </SchemaBasedProperties>
+        </Properties>
     </ViewAttribute>
     <ViewAttribute
         Name="XpeLookupDesc"
@@ -48,6 +58,14 @@
         <DesignTime>
             <Attr Name="_DisplaySize" Value="20"/>
         </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccDicRateTypes.XpeLookupDesc_LABEL"/>
+                <DISPLAYWIDTH
+                    Value="30"/>
+            </SchemaBasedProperties>
+        </Properties>
     </ViewAttribute>
     <AttrArray Name="KeyAttributes">
         <Item Value="XpeLookupId"/>

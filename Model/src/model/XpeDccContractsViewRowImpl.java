@@ -33,7 +33,8 @@ public class XpeDccContractsViewRowImpl extends ViewRowImpl {
         XpeDccPlatformEventView,
         XpeDccDicCurrency1,
         NeuCustomersVwView1,
-        XpeDccCfgPCSShortNamesROVO1;
+        XpeDccCfgPCSShortNamesROVO1,
+        PsCustomerROVO1;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -74,6 +75,7 @@ public class XpeDccContractsViewRowImpl extends ViewRowImpl {
     public static final int XPEDCCDICCURRENCY1 = AttributesEnum.XpeDccDicCurrency1.index();
     public static final int NEUCUSTOMERSVWVIEW1 = AttributesEnum.NeuCustomersVwView1.index();
     public static final int XPEDCCCFGPCSSHORTNAMESROVO1 = AttributesEnum.XpeDccCfgPCSShortNamesROVO1.index();
+    public static final int PSCUSTOMERROVO1 = AttributesEnum.PsCustomerROVO1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -273,6 +275,13 @@ public class XpeDccContractsViewRowImpl extends ViewRowImpl {
      */
     public RowSet getXpeDccCfgPCSShortNamesROVO1() {
         return (RowSet) getAttributeInternal(XPEDCCCFGPCSSHORTNAMESROVO1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> PsCustomerROVO1.
+     */
+    public RowSet getPsCustomerROVO1() {
+        return (RowSet) getAttributeInternal(PSCUSTOMERROVO1);
     }
 }
 

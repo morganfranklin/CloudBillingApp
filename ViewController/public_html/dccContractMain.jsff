@@ -53,14 +53,17 @@
                                                                    shortDesc="#{bindings.CreatedBy.hints.tooltip}"
                                                                    id="ot3"/>
                                                 </af:panelLabelAndMessage>
-                                                <af:selectOneChoice value="#{bindings.XpeDccPcsname.inputValue}"
-                                                                    label="#{bindings.XpeDccPcsname.label}"
-                                                                    required="#{bindings.XpeDccPcsname.hints.mandatory}"
-                                                                    shortDesc="#{bindings.XpeDccPcsname.hints.tooltip}"
-                                                                    id="soc1" readOnly="true">
-                                                    <f:selectItems value="#{bindings.XpeDccPcsname.items}" id="si1"/>
-                                                    <f:validator binding="#{bindings.XpeDccPcsname.validator}"/>
-                                                </af:selectOneChoice>
+                                                <af:panelLabelAndMessage label="#{bindings.XpeDccPcsname.label}" id="plam4">
+                                                    <af:selectOneChoice value="#{bindings.XpeDccPcsname.inputValue}"
+                                                                        label="#{bindings.XpeDccPcsname.label}"
+                                                                        required="#{bindings.XpeDccPcsname.hints.mandatory}"
+                                                                        shortDesc="#{bindings.XpeDccPcsname.hints.tooltip}"
+                                                                        id="soc1" simple="true">
+                                                        <f:selectItems value="#{bindings.XpeDccPcsname.items}"
+                                                                       id="si1"/>
+                                                        <f:validator binding="#{bindings.XpeDccPcsname.validator}"/>
+                                                    </af:selectOneChoice>
+                                                </af:panelLabelAndMessage>
                                                 <af:inputText value="#{bindings.SalesPerson.inputValue}"
                                                               label="#{bindings.SalesPerson.hints.label}"
                                                               required="#{bindings.SalesPerson.hints.mandatory}"

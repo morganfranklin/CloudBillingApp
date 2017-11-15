@@ -28,32 +28,39 @@
                                                                    shortDesc="#{bindings.XpeContractLine.hints.tooltip}"
                                                                    id="ot3"/>
                                                 </af:panelLabelAndMessage>
-                                                <af:selectOneChoice value="#{bindings.XpeFacility.inputValue}"
-                                                                    label="Facility" autoSubmit="true"
-                                                                    required="#{bindings.XpeFacility.hints.mandatory}"
-                                                                    shortDesc="#{bindings.XpeFacility.hints.tooltip}"
-                                                                    id="soc1">
-                                                    <f:selectItems value="#{bindings.XpeFacility.items}" id="si1"/>
-                                                    <f:validator binding="#{bindings.XpeFacility.validator}"/>
-                                                </af:selectOneChoice>
-                                                <af:selectOneChoice value="#{bindings.XpeProductId.inputValue}"
-                                                                    label="Product Id"
-                                                                    required="#{bindings.XpeProductId.hints.mandatory}"
-                                                                    autoSubmit="true"
-                                                                    shortDesc="#{bindings.XpeProductId.hints.tooltip}"
-                                                                    id="soc2">
-                                                    <f:selectItems value="#{bindings.XpeProductId.items}" id="si2"/>
-                                                    <f:validator binding="#{bindings.XpeProductId.validator}"/>
-                                                </af:selectOneChoice>
-                                                <af:selectOneChoice value="#{bindings.XpeProductUom.inputValue}"
-                                                                    label="UOM"
-                                                                    required="#{bindings.XpeProductUom.hints.mandatory}"
-                                                                    autoSubmit="true"
-                                                                    shortDesc="#{bindings.XpeProductUom.hints.tooltip}"
-                                                                    id="soc3">
-                                                    <f:selectItems value="#{bindings.XpeProductUom.items}" id="si3"/>
-                                                    <f:validator binding="#{bindings.XpeProductUom.validator}"/>
-                                                </af:selectOneChoice>
+                                                <af:panelLabelAndMessage label="Facility" id="plam4">
+                                                    <af:selectOneChoice value="#{bindings.XpeFacility.inputValue}"
+                                                                        label="Facility" autoSubmit="true"
+                                                                        required="#{bindings.XpeFacility.hints.mandatory}"
+                                                                        shortDesc="#{bindings.XpeFacility.hints.tooltip}"
+                                                                        id="soc1" simple="true">
+                                                        <f:selectItems value="#{bindings.XpeFacility.items}" id="si1"/>
+                                                        <f:validator binding="#{bindings.XpeFacility.validator}"/>
+                                                    </af:selectOneChoice>
+                                                </af:panelLabelAndMessage>
+                                                <af:panelLabelAndMessage label="Product Id" id="plam5">
+                                                    <af:selectOneChoice value="#{bindings.XpeProductId.inputValue}"
+                                                                        label="Product Id"
+                                                                        required="#{bindings.XpeProductId.hints.mandatory}"
+                                                                        autoSubmit="true"
+                                                                        shortDesc="#{bindings.XpeProductId.hints.tooltip}"
+                                                                        id="soc2" simple="true">
+                                                        <f:selectItems value="#{bindings.XpeProductId.items}" id="si2"/>
+                                                        <f:validator binding="#{bindings.XpeProductId.validator}"/>
+                                                    </af:selectOneChoice>
+                                                </af:panelLabelAndMessage>
+                                                <af:panelLabelAndMessage label="UOM" id="plam6">
+                                                    <af:selectOneChoice value="#{bindings.XpeProductUom.inputValue}"
+                                                                        label="UOM"
+                                                                        required="#{bindings.XpeProductUom.hints.mandatory}"
+                                                                        autoSubmit="true"
+                                                                        shortDesc="#{bindings.XpeProductUom.hints.tooltip}"
+                                                                        id="soc3" simple="true">
+                                                        <f:selectItems value="#{bindings.XpeProductUom.items}"
+                                                                       id="si3"/>
+                                                        <f:validator binding="#{bindings.XpeProductUom.validator}"/>
+                                                    </af:selectOneChoice>
+                                                </af:panelLabelAndMessage>
                                                 <af:inputText value="#{bindings.XpeQtyMin.inputValue}"
                                                               label="Quantity Minimum" autoSubmit="true"
                                                               required="#{bindings.XpeQtyMin.hints.mandatory}"
@@ -75,15 +82,18 @@
                                                     <af:convertNumber groupingUsed="false"
                                                                       pattern="#{bindings.XpeQtyMax.format}"/>
                                                 </af:inputText>
-                                                <af:selectOneChoice value="#{bindings.XpePeriodType.inputValue}"
-                                                                    label="Period Type"
-                                                                    required="#{bindings.XpePeriodType.hints.mandatory}"
-                                                                    autoSubmit="true"
-                                                                    shortDesc="#{bindings.XpePeriodType.hints.tooltip}"
-                                                                    id="soc4">
-                                                    <f:selectItems value="#{bindings.XpePeriodType.items}" id="si4"/>
-                                                    <f:validator binding="#{bindings.XpePeriodType.validator}"/>
-                                                </af:selectOneChoice>
+                                                <af:panelLabelAndMessage label="Period Type" id="plam7">
+                                                    <af:selectOneChoice value="#{bindings.XpePeriodType.inputValue}"
+                                                                        label="Period Type"
+                                                                        required="#{bindings.XpePeriodType.hints.mandatory}"
+                                                                        autoSubmit="true"
+                                                                        shortDesc="#{bindings.XpePeriodType.hints.tooltip}"
+                                                                        id="soc4" simple="true">
+                                                        <f:selectItems value="#{bindings.XpePeriodType.items}"
+                                                                       id="si4"/>
+                                                        <f:validator binding="#{bindings.XpePeriodType.validator}"/>
+                                                    </af:selectOneChoice>
+                                                </af:panelLabelAndMessage>
                                                 <af:inputText value="#{bindings.XpeSwApprNbr.inputValue}"
                                                               label="#{bindings.XpeSwApprNbr.hints.label}"
                                                               required="#{bindings.XpeSwApprNbr.hints.mandatory}"
@@ -93,14 +103,16 @@
                                                               id="it9">
                                                     <f:validator binding="#{bindings.XpeSwApprNbr.validator}"/>
                                                 </af:inputText>
-                                                <af:selectOneChoice value="#{bindings.CurrencyCd.inputValue}"
-                                                                    label="#{bindings.CurrencyCd.label}"
-                                                                    required="#{bindings.CurrencyCd.hints.mandatory}"
-                                                                    shortDesc="#{bindings.CurrencyCd.hints.tooltip}"
-                                                                    id="soc11">
-                                                    <f:selectItems value="#{bindings.CurrencyCd.items}" id="si11"/>
-                                                    <f:validator binding="#{bindings.CurrencyCd.validator}"/>
-                                                </af:selectOneChoice>
+                                                <af:panelLabelAndMessage label="Currency Cd" id="plam8">
+                                                    <af:selectOneChoice value="#{bindings.CurrencyCd.inputValue}"
+                                                                        label="#{bindings.CurrencyCd.label}"
+                                                                        required="#{bindings.CurrencyCd.hints.mandatory}"
+                                                                        shortDesc="#{bindings.CurrencyCd.hints.tooltip}"
+                                                                        id="soc11" simple="true">
+                                                        <f:selectItems value="#{bindings.CurrencyCd.items}" id="si11"/>
+                                                        <f:validator binding="#{bindings.CurrencyCd.validator}"/>
+                                                    </af:selectOneChoice>
+                                                </af:panelLabelAndMessage>
                                                 <f:facet name="footer"/>
                                             </af:panelFormLayout>
                                         </af:gridCell>
@@ -176,14 +188,15 @@
                                     </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccContractPricingTermView2.hints.XpePricingTermType.name}"
                                                sortable="true" headerText="Term Type" id="c2">
-                                        <af:selectOneChoice value="#{row.bindings.XpePricingTermType.inputValue}"
-                                                            label="#{row.bindings.XpePricingTermType.label}"
-                                                            required="#{bindings.XpeDccContractPricingTermView2.hints.XpePricingTermType.mandatory}"
-                                                            shortDesc="#{bindings.XpeDccContractPricingTermView2.hints.XpePricingTermType.tooltip}"
-                                                            id="soc5">
-                                            <f:selectItems value="#{row.bindings.XpePricingTermType.items}" id="si5"/>
+                                        <af:inputListOfValues label="#{row.bindings.XpePricingTermType.label}"
+                                                              popupTitle="Search and Select: #{row.bindings.XpePricingTermType.label}"
+                                                              id="ilov1"
+                                                              value="#{row.bindings.XpePricingTermType.inputValue}"
+                                                              required="#{bindings.XpeDccContractPricingTermView2.hints.XpePricingTermType.mandatory}"
+                                                              shortDesc="#{bindings.XpeDccContractPricingTermView2.hints.XpePricingTermType.tooltip}"
+                                                              model="#{row.bindings.XpePricingTermType.listOfValuesModel}">
                                             <f:validator binding="#{row.bindings.XpePricingTermType.validator}"/>
-                                        </af:selectOneChoice>
+                                        </af:inputListOfValues>
                                     </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccContractPricingTermView2.hints.XpeQtyMax.name}"
                                                sortable="true" headerText="Qty Max" id="c3">
