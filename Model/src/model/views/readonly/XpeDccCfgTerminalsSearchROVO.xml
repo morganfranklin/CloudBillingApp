@@ -73,6 +73,21 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="XpeDccGeneralItemListROVO1"
+    ViewObjectName="model.views.readonly.XpeDccGeneralItemListROVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="findByItemListType"
+      FullName="model.views.readonly.XpeDccGeneralItemListROVO.findByItemListType"/>
+    <ParameterMap>
+      <PIMap Variable="bind_ItemListType">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA['ST']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LOV_TerminalType"
     ListVOName="LookupSharedAppModule_XpeDccDicNewContractSetupROVO1"
@@ -106,15 +121,16 @@
       <Item Value="CountyId"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="CountyName"/>
       <Item Value="CountyId"/>
+      <Item Value="CountyName"/>
+      <Item Value="State"/>
     </AttrArray>
     <DisplayCriteria
       Hint="showAndExecute"/>
   </ListBinding>
   <ListBinding
     Name="LOV_State"
-    ListVOName="XpeDccCfgStatesROVO1"
+    ListVOName="XpeDccGeneralItemListROVO1"
     ListRangeSize="-1"
     NullValueFlag="none"
     MRUCount="0">
@@ -123,15 +139,15 @@
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
-      <Item Value="State"/>
+      <Item Value="ItemId"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="State"/>
+      <Item Value="ValidValue"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
-  <SQLQuery><![CDATA[SELECT TERMINAL_ID,TERMINAL_DESC, TERMINAL_TYPE, STATE, COUNTY FROM XPE_DCC_CFG_TERMINALS     
-WHERE INACTIVE <> 'N']]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT TERMINAL_ID,TERMINAL_DESC, TERMINAL_TYPE, STATE, COUNTY FROM XPE_DCC_CFG_TERMINALS      
+WHERE INACTIVE <> 'Y']]></SQLQuery>
   <ViewAttribute
     Name="TerminalId"
     IsUpdateable="false"

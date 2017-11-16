@@ -20,7 +20,8 @@ public class XpeDccCfgTerminalsSearchROVORowImpl extends ViewRowImpl {
         County,
         LookupSharedAppModule_XpeDccDicNewContractSetupROVO1,
         XpeDccCfgCountiesROVO1,
-        XpeDccCfgStatesROVO1;
+        XpeDccCfgStatesROVO1,
+        XpeDccGeneralItemListROVO1;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -43,6 +44,8 @@ public class XpeDccCfgTerminalsSearchROVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
+
     public static final int TERMINALID = AttributesEnum.TerminalId.index();
     public static final int TERMINALDESC = AttributesEnum.TerminalDesc.index();
     public static final int TERMINALTYPE = AttributesEnum.TerminalType.index();
@@ -52,6 +55,7 @@ public class XpeDccCfgTerminalsSearchROVORowImpl extends ViewRowImpl {
         AttributesEnum.LookupSharedAppModule_XpeDccDicNewContractSetupROVO1.index();
     public static final int XPEDCCCFGCOUNTIESROVO1 = AttributesEnum.XpeDccCfgCountiesROVO1.index();
     public static final int XPEDCCCFGSTATESROVO1 = AttributesEnum.XpeDccCfgStatesROVO1.index();
+    public static final int XPEDCCGENERALITEMLISTROVO1 = AttributesEnum.XpeDccGeneralItemListROVO1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -118,6 +122,13 @@ public class XpeDccCfgTerminalsSearchROVORowImpl extends ViewRowImpl {
      */
     public RowSet getXpeDccCfgStatesROVO1() {
         return (RowSet) getAttributeInternal(XPEDCCCFGSTATESROVO1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> XpeDccGeneralItemListROVO1.
+     */
+    public RowSet getXpeDccGeneralItemListROVO1() {
+        return (RowSet) getAttributeInternal(XPEDCCGENERALITEMLISTROVO1);
     }
 }
 

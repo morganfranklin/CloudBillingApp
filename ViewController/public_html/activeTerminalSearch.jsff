@@ -15,7 +15,8 @@
               selectedRowKeys="#{bindings.XpeDccCfgTerminalsSearchROVO1.collectionModel.selectedRow}"
               selectionListener="#{bindings.XpeDccCfgTerminalsSearchROVO1.collectionModel.makeCurrent}"
               rowSelection="single" fetchSize="#{bindings.XpeDccCfgTerminalsSearchROVO1.rangeSize}" id="resId1"
-              contentDelivery="immediate" columnStretching="last" binding="#{TerminalSearchBean.terminalSearchTblBind}">
+              contentDelivery="immediate" columnStretching="last" binding="#{TerminalSearchBean.terminalSearchTblBind}"
+              autoHeightRows="8" styleClass="AFStretchWidth">
       <af:column headerText="#{bindings.XpeDccCfgTerminalsSearchROVO1.hints.TerminalId.label}" id="resId1c1">
         <af:outputText value="#{row.TerminalId}"
                        shortDesc="#{bindings.XpeDccCfgTerminalsSearchROVO1.hints.TerminalId.tooltip}" id="ot1"/>
