@@ -181,6 +181,7 @@
       <NamedData NDName="contractVersion" NDValue="#{bindings.XpeContractVersion.inputValue}"
                  NDType="java.lang.String"/>
       <NamedData NDName="inContractFlow" NDValue="Y" NDType="java.lang.String"/>
+      <NamedData NDName="uuId" NDType="java.lang.String"/>
     </methodAction>
     <attributeValues IterBinding="XpeDccNewContractVersionViewIterator" id="XpeContractId">
       <AttrNames>

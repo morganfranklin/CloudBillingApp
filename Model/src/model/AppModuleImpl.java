@@ -1775,10 +1775,10 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     }
     
     private void pushEmailForApproval(XpeDccWfActionEOVORowImpl xpeDccWfActionEOVORow, byte[] bytes, String contractId,
-                                     String contractVersion) {
+                                     String contractVersion,String userType) {
 
         if (EmailUtils.sendEmail(xpeDccWfActionEOVORow.getXpeApproverEmail(),
-                                 buildEmailBody(xpeDccWfActionEOVORow.getXpeUuid(), contractId, contractVersion),
+                                 buildEmailBody(xpeDccWfActionEOVORow.getXpeUuid(), contractId, contractVersion,userType),
                                  bytes)) {
             xpeDccWfActionEOVORow.setXpeActionStatus("P");
         }
@@ -1799,7 +1799,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                     (XpeDccWfActionEOVORowImpl) approvalWFEventRow.getXpeDccWfActionEOVO().first();
                 if (EmailUtils.sendEmail(xpeDccWfActionEOVORow.getXpeApproverEmail(),
                                          buildEmailBody(xpeDccWfActionEOVORow.getXpeUuid(), contractId,
-                                                        contractVersion), bytes)) {
+                                                        contractVersion,"I"), bytes)) {
                     if (null != approvalWFEventRow.getXpeEventStatus() &&
                         "DRA".equals(approvalWFEventRow.getXpeEventStatus()))
                         approvalWFEventRow.setXpeEventStatus("IWF");
@@ -1814,7 +1814,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         return emailStatus;
     }
     
-    private String buildEmailBody(String uuId, String contractId, String contractVersion){
+    private String buildEmailBody(String uuId, String contractId, String contractVersion, String userType){
         String customerName=null,contractStartDate=null,contractEndDate=null,salesPerson=null;
         XpeDccNewContractsEOVOImpl contractView = this.getXpeDccNewContractsEOVO1();
         contractView.executeEmptyRowSet();
@@ -1872,14 +1872,14 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                                                                           "").append("<br><br>");
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_10/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("&").append("uuid=").append(uuId).append("&").append("action=").append("ACCEPT");
+        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_14/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("&").append("uuid=").append(uuId).append("&").append("action=").append("ACCEPT").append("&").append("user=").append(userType);
         html.append("\"><b>Accept</b></a>");
         html.append("&nbsp;&nbsp;&nbsp;");
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_10/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("&").append("uuid=").append(uuId).append("&").append("action=").append("REJECT");
+        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_14/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("&").append("uuid=").append(uuId).append("&").append("action=").append("REJECT").append("&").append("user=").append(userType);
         html.append("\"><b>Reject</b></a>");
         html.append("</p>");
 
@@ -1919,7 +1919,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                         String contractVersionStatus = contractVersionViewRow.getXpeContractStatus();
                         if (null != contractVersionStatus) {
                             if ("DRA".equals(contractVersionStatus)) {
-                                pdf.putAll(buildXML(contractId, contractVersion, "N"));
+                                pdf.putAll(buildXML(contractId, contractVersion, "N",null));
                                 pdf.put("VERSION_STATUS", contractVersionStatus);
                             } else if ("IWF".equals(contractVersionStatus))
                                 pdf.put("VERSION_STATUS", "This contract is already in approval workflow.");
@@ -1949,7 +1949,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                 (XpeDccWfActionROVORowImpl) this.getXpeDccWfActionROVO().first();
             if (null != xpeDccWfActionROVORow)
                 return this.buildXML(xpeDccWfActionROVORow.getXpeContractId(),
-                                     xpeDccWfActionROVORow.getXpeContractVersion(),"N");
+                                     xpeDccWfActionROVORow.getXpeContractVersion(),"N",uuId);
             else
                 return new HashMap();
         } catch (Exception e) {
@@ -1960,7 +1960,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     }
     
     
-    public void updateContractApprovalStatus(String uuId, String action, byte[] bytes){
+    public void updateContractApprovalStatus(String uuId, String action, byte[] bytes, String userType){
         try {
             this.getXpeDccWfActionROVO().executeEmptyRowSet();
             this.getXpeDccWfActionROVO().setApplyViewCriteriaName("XpeDccWfActionROVOCriteria");
@@ -1993,11 +1993,11 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                                        !"A".equals(xpeDccWfActionEOVORow.getXpeActionStatus())) {
                                 this.pushEmailForApproval(xpeDccWfActionEOVORow, bytes,
                                                           xpeDccWfActionEOVORow.getXpeContractId(),
-                                                          xpeDccWfActionEOVORow.getXpeContractVersion());
+                                                          xpeDccWfActionEOVORow.getXpeContractVersion(),"I");//I - Internal User
                                 break;
                             } else if ("REJECT".equals(action) &&
                                        !"A".equals(xpeDccWfActionEOVORow.getXpeActionStatus()))
-                                xpeDccWfActionEOVORow.setXpeActionStatus("I");
+                                xpeDccWfActionEOVORow.setXpeActionStatus("I");//I - Ignore
                         }
                     }
                     //commiting transaction
@@ -2011,31 +2011,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                         Long rowCount = this.getXpeDccWfActionROVO().getEstimatedRowCount();
                         if (rowCount.intValue() == 0) {
                             approvalWFEventRow.setXpeEventStatus("APR");
-                            //updateContractVersionStatus(approvalWFEventRow, "APR");
-
-                            //creating External Approval Work Flow Event
-                            XpeDccWfEventEOVORowImpl approvalWFEventExternalRow =
-                                (XpeDccWfEventEOVORowImpl) this.getXpeDccWfEventEOVO().createRow();
-                            approvalWFEventExternalRow.setXpeContractId(approvalWFEventRow.getXpeContractId());
-                            approvalWFEventExternalRow.setXpeContractVersion(approvalWFEventRow.getXpeContractVersion());
-                            approvalWFEventExternalRow.setXpeEventStatus("IWF");
-                            approvalWFEventExternalRow.setXpeEventType("E");
-                            this.getXpeDccWfEventEOVO().insertRow(approvalWFEventExternalRow);
-
-                            if (null != approvalWFEventExternalRow && null != approvalWFEventExternalRow.getXpeEventNumber()) {
-                                //creating External Approval Work Flow Action
-                                XpeDccWfActionEOVORowImpl xpeDccWfActionEOVORow =
-                                                                      (XpeDccWfActionEOVORowImpl) approvalWFEventExternalRow.getXpeDccWfActionEOVO().createRow();
-                                xpeDccWfActionEOVORow.setXpeContractId(approvalWFEventExternalRow.getXpeContractId());
-                                xpeDccWfActionEOVORow.setXpeContractVersion(approvalWFEventExternalRow.getXpeContractVersion());
-                                xpeDccWfActionEOVORow.setXpeUuid(UUID.randomUUID().toString());
-                                //Need to set customer email Id
-                                xpeDccWfActionEOVORow.setXpeApproverEmail("");
-                                approvalWFEventExternalRow.getXpeDccWfActionEOVO().insertRow(xpeDccWfActionEOVORow);
-                                this.pushEmailForApproval(xpeDccWfActionEOVORow, bytes,
-                                                          xpeDccWfActionEOVORow.getXpeContractId(),
-                                                          xpeDccWfActionEOVORow.getXpeContractVersion());
-                            }
+                            pushEmailForExternalUser(userType,approvalWFEventRow,bytes);
                             //commiting transaction
                             this.getDBTransaction().commit();
                         }
@@ -2067,8 +2043,40 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         }
     }
     
+    private void pushEmailForExternalUser(String userType,XpeDccWfEventEOVORowImpl approvalWFEventRow, byte[] bytes){
+        if (null != userType) {
+            if ("I".equals(userType)) { //I - Internal User(Last Approver)
+                //creating External Approval Work Flow Event
+                XpeDccWfEventEOVORowImpl approvalWFEventExternalRow =
+                    (XpeDccWfEventEOVORowImpl) this.getXpeDccWfEventEOVO().createRow();
+                approvalWFEventExternalRow.setXpeContractId(approvalWFEventRow.getXpeContractId());
+                approvalWFEventExternalRow.setXpeContractVersion(approvalWFEventRow.getXpeContractVersion());
+                approvalWFEventExternalRow.setXpeEventStatus("IWF");
+                approvalWFEventExternalRow.setXpeEventType("E");//E - External User
+                this.getXpeDccWfEventEOVO().insertRow(approvalWFEventExternalRow);
+
+                if (null != approvalWFEventExternalRow && null != approvalWFEventExternalRow.getXpeEventNumber()) {
+                    //creating External Approval Work Flow Action
+                    XpeDccWfActionEOVORowImpl xpeDccWfActionEOVORow = (XpeDccWfActionEOVORowImpl) approvalWFEventExternalRow.getXpeDccWfActionEOVO().createRow();
+                    xpeDccWfActionEOVORow.setXpeContractId(approvalWFEventExternalRow.getXpeContractId());
+                    xpeDccWfActionEOVORow.setXpeContractVersion(approvalWFEventExternalRow.getXpeContractVersion());
+                    xpeDccWfActionEOVORow.setXpeUuid(UUID.randomUUID().toString());
+                    //Need to set customer email Id
+                    xpeDccWfActionEOVORow.setXpeApproverEmail("");
+                    approvalWFEventExternalRow.getXpeDccWfActionEOVO().insertRow(xpeDccWfActionEOVORow);
+                    this.pushEmailForApproval(xpeDccWfActionEOVORow, bytes,
+                                              xpeDccWfActionEOVORow.getXpeContractId(),
+                                              xpeDccWfActionEOVORow.getXpeContractVersion(),
+                                              "E"); //E - External User
+                }
+            } else if ("E".equals(userType)) { //E - External User
+                updateContractVersionStatus(approvalWFEventRow, "APR");
+            }
+        }
+    }
     
-    public Map buildXML(String contractId, String contractVersion, String inContractFlow){
+    
+    public Map buildXML(String contractId, String contractVersion, String inContractFlow, String uuId){
         Map pdf = new HashMap();
         try {
             String xmlTag = "<?xml version=\"1.0\" encoding=\"windows-1252\"?>";
@@ -2165,6 +2173,27 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                     
                     xmlBuilder = buildXMLForTerms(contractVersionViewRow,xmlBuilder,customerName);
                     pdf.put("TEMPLATE_NAME",this.getTemplateName(contractVersionViewRow));
+                }
+                
+                if (null != inContractFlow && "N".equals(inContractFlow)) {
+                    this.getXpeDccWfActionROVO().executeEmptyRowSet();
+                    this.getXpeDccWfActionROVO().setApplyViewCriteriaName("XpeDccWfActionROVOCriteria");
+                    this.getXpeDccWfActionROVO().setbind_uuId(uuId);
+                    this.getXpeDccWfActionROVO().executeQuery();
+                    XpeDccWfActionROVORowImpl xpeDccWfActionROVORow =
+                        (XpeDccWfActionROVORowImpl) this.getXpeDccWfActionROVO().first();
+                    if (null != xpeDccWfActionROVORow) {
+                        this.getXpeDccWfActionROVO().executeEmptyRowSet();
+                        this.getXpeDccWfActionROVO().setApplyViewCriteriaName("XpeDccWfActionApprovalCheckCriteria");
+                        this.getXpeDccWfActionROVO().setbind_EventNumber(xpeDccWfActionROVORow.getXpeEventNumber());
+                        this.getXpeDccWfActionROVO().setbind_ActionStatus("A");
+                        this.getXpeDccWfActionROVO().executeQuery();
+                        Long rowCount = this.getXpeDccWfActionROVO().getEstimatedRowCount();
+                        if (rowCount.intValue() == 1) {
+
+
+                        }
+                    }
                 }
             }
             
