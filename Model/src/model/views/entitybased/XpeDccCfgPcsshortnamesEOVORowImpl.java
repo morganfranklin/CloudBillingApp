@@ -55,7 +55,8 @@ public class XpeDccCfgPcsshortnamesEOVORowImpl extends ViewRowImpl {
         XpeDccShortNameCustomerSearchROVO_LOV,
         XpeDccShortNameSoldLocSearchROVO_LOV,
         XpeDccShortNameBillLocSearchROVO_LOV,
-        LookupSharedAppModule_XpeDccDicNewContractSetupROVO1;
+        LookupSharedAppModule_XpeDccDicNewContractSetupROVO1,
+        PsBiCycleROVO1;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -118,6 +119,7 @@ public class XpeDccCfgPcsshortnamesEOVORowImpl extends ViewRowImpl {
         AttributesEnum.XpeDccShortNameBillLocSearchROVO_LOV.index();
     public static final int LOOKUPSHAREDAPPMODULE_XPEDCCDICNEWCONTRACTSETUPROVO1 =
         AttributesEnum.LookupSharedAppModule_XpeDccDicNewContractSetupROVO1.index();
+    public static final int PSBICYCLEROVO1 = AttributesEnum.PsBiCycleROVO1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -612,6 +614,13 @@ public class XpeDccCfgPcsshortnamesEOVORowImpl extends ViewRowImpl {
      */
     public RowSet getLookupSharedAppModule_XpeDccDicNewContractSetupROVO1() {
         return (RowSet) getAttributeInternal(LOOKUPSHAREDAPPMODULE_XPEDCCDICNEWCONTRACTSETUPROVO1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> PsBiCycleROVO1.
+     */
+    public RowSet getPsBiCycleROVO1() {
+        return (RowSet) getAttributeInternal(PSBICYCLEROVO1);
     }
 }
 

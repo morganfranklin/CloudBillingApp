@@ -41,9 +41,14 @@
                     <af:outputText value="#{row.CarrierName}"
                                    shortDesc="#{bindings.XpeDccCfgCarriersEOVO.hints.CarrierName.tooltip}" id="ot2"/>
                 </af:column>
-                <af:column headerText="#{bindings.XpeDccCfgCarriersEOVO.hints.State.label}" id="resId1c3">
-                    <af:outputText value="#{row.State}"
-                                   shortDesc="#{bindings.XpeDccCfgCarriersEOVO.hints.State.tooltip}" id="ot3"/>
+                <af:column headerText="#{bindings.XpeDccCfgCarriersEOVO.hints.State.label}" id="c1">
+                    <af:selectOneChoice value="#{row.bindings.State.inputValue}" label="#{row.bindings.State.label}"
+                                        required="#{bindings.XpeDccCfgCarriersEOVO.hints.State.mandatory}"
+                                        shortDesc="#{bindings.XpeDccCfgCarriersEOVO.hints.State.tooltip}" id="soc3"
+                                        readOnly="true">
+                        <f:selectItems value="#{row.bindings.State.items}" id="si3"/>
+                        <f:validator binding="#{row.bindings.State.validator}"/>
+                    </af:selectOneChoice>
                 </af:column>
                 <af:column headerText="#{bindings.XpeDccCfgCarriersEOVO.hints.Inactive.label}" id="resId1c4">
                     <af:selectOneChoice value="#{row.bindings.Inactive.inputValue}"
@@ -89,13 +94,14 @@
                                       shortDesc="#{bindings.CarrierName.hints.tooltip}" id="it1">
                             <f:validator binding="#{bindings.CarrierName.validator}"/>
                         </af:inputText>
-                        <af:inputText value="#{bindings.State.inputValue}" label="#{bindings.State.hints.label}"
-                                      required="#{bindings.State.hints.mandatory}"
-                                      columns="#{bindings.State.hints.displayWidth}"
-                                      maximumLength="#{bindings.State.hints.precision}"
-                                      shortDesc="#{bindings.State.hints.tooltip}" id="it2">
-                            <f:validator binding="#{bindings.State.validator}"/>
-                        </af:inputText>
+                        <af:panelLabelAndMessage label="#{bindings.State.label}" id="plam4">
+                            <af:selectOneChoice value="#{bindings.State.inputValue}" label="#{bindings.State.label}"
+                                                required="#{bindings.State.hints.mandatory}"
+                                                shortDesc="#{bindings.State.hints.tooltip}" id="soc4" simple="true">
+                                <f:selectItems value="#{bindings.State.items}" id="si4"/>
+                                <f:validator binding="#{bindings.State.validator}"/>
+                            </af:selectOneChoice>
+                        </af:panelLabelAndMessage>
                     </af:panelFormLayout>
                 </af:dialog>
             </af:popup>
@@ -125,13 +131,14 @@
                                       shortDesc="#{bindings.CarrierName1.hints.tooltip}" id="it3">
                             <f:validator binding="#{bindings.CarrierName1.validator}"/>
                         </af:inputText>
-                        <af:inputText value="#{bindings.State1.inputValue}" label="#{bindings.State1.hints.label}"
-                                      required="#{bindings.State1.hints.mandatory}"
-                                      columns="#{bindings.State1.hints.displayWidth}"
-                                      maximumLength="#{bindings.State1.hints.precision}"
-                                      shortDesc="#{bindings.State1.hints.tooltip}" id="it4">
-                            <f:validator binding="#{bindings.State1.validator}"/>
-                        </af:inputText>
+                        <af:panelLabelAndMessage label="#{bindings.State1.label}" id="plam5">
+                            <af:selectOneChoice value="#{bindings.State1.inputValue}" label="#{bindings.State1.label}"
+                                                required="#{bindings.State1.hints.mandatory}"
+                                                shortDesc="#{bindings.State1.hints.tooltip}" id="soc5" simple="true">
+                                <f:selectItems value="#{bindings.State1.items}" id="si5"/>
+                                <f:validator binding="#{bindings.State1.validator}"/>
+                            </af:selectOneChoice>
+                        </af:panelLabelAndMessage>
                         <af:panelLabelAndMessage label="#{bindings.Inactive.label}" id="plam3">
                             <af:selectOneChoice value="#{bindings.Inactive.inputValue}"
                                                 label="#{bindings.Inactive.label}"

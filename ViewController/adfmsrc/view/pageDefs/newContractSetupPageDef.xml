@@ -112,11 +112,6 @@
             Action="createInsertRow"/>
     <action IterBinding="XpeDccNewContractCarrierViewIterator" id="Delete3" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
-    <attributeValues IterBinding="XpeDccNewContractVersionViewIterator" id="SalesPerson">
-      <AttrNames>
-        <Item Value="SalesPerson"/>
-      </AttrNames>
-    </attributeValues>
     <tree IterBinding="XpeDccNewContractPricingOverViewIterator" id="XpeDccNewContractPricingOverView">
       <nodeDefinition DefName="model.XpeDccContractPricingOverView" Name="XpeDccNewContractPricingOverView0">
         <AttrNames>
@@ -150,5 +145,7 @@
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="XpeDccNewContractVersionViewIterator" StaticList="false" Uses="LOV_XpeContractDirection"
           id="XpeContractDirection" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccNewContractVersionViewIterator" StaticList="false" Uses="LOV_SalesPerson"
+          id="SalesPerson" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

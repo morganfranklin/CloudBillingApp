@@ -32,9 +32,14 @@
                                    shortDesc="#{bindings.XpeDccCfgDestinationsEOVO.hints.DestinationDesc.tooltip}"
                                    id="ot2"/>
                 </af:column>
-                <af:column headerText="#{bindings.XpeDccCfgDestinationsEOVO.hints.State.label}" id="resId1c3">
-                    <af:outputText value="#{row.State}"
-                                   shortDesc="#{bindings.XpeDccCfgDestinationsEOVO.hints.State.tooltip}" id="ot3"/>
+                <af:column headerText="#{bindings.XpeDccCfgDestinationsEOVO.hints.State.label}" id="c1">
+                    <af:selectOneChoice value="#{row.bindings.State.inputValue}" label="#{row.bindings.State.label}"
+                                        required="#{bindings.XpeDccCfgDestinationsEOVO.hints.State.mandatory}"
+                                        shortDesc="#{bindings.XpeDccCfgDestinationsEOVO.hints.State.tooltip}" id="soc2"
+                                        readOnly="true">
+                        <f:selectItems value="#{row.bindings.State.items}" id="si2"/>
+                        <f:validator binding="#{row.bindings.State.validator}"/>
+                    </af:selectOneChoice>
                 </af:column>
                 <af:column headerText="#{bindings.XpeDccCfgDestinationsEOVO.hints.Inactive.label}" id="resId1c4">
                     <af:selectOneChoice value="#{row.bindings.Inactive.inputValue}"

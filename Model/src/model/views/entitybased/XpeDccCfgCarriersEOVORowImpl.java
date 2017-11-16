@@ -13,6 +13,8 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class XpeDccCfgCarriersEOVORowImpl extends ViewRowImpl {
+
+
     public static final int ENTITY_XPEDCCCFGCARRIERSEO = 0;
 
     /**
@@ -28,8 +30,10 @@ public class XpeDccCfgCarriersEOVORowImpl extends ViewRowImpl {
         CreatedDate,
         LastUpdatedBy,
         LastUpdatedDate,
-        LookupSharedAppModule_YONLOV;
-        private static AttributesEnum[] vals = null;
+        LookupSharedAppModule_YONLOV,
+        XpeDccGeneralItemListROVO1;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -51,6 +55,8 @@ public class XpeDccCfgCarriersEOVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
+
     public static final int CARRIERID = AttributesEnum.CarrierId.index();
     public static final int CARRIERNAME = AttributesEnum.CarrierName.index();
     public static final int STATE = AttributesEnum.State.index();
@@ -61,6 +67,7 @@ public class XpeDccCfgCarriersEOVORowImpl extends ViewRowImpl {
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int LOOKUPSHAREDAPPMODULE_YONLOV = AttributesEnum.LookupSharedAppModule_YONLOV.index();
+    public static final int XPEDCCGENERALITEMLISTROVO1 = AttributesEnum.XpeDccGeneralItemListROVO1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -225,6 +232,13 @@ public class XpeDccCfgCarriersEOVORowImpl extends ViewRowImpl {
      */
     public RowSet getLookupSharedAppModule_YONLOV() {
         return (RowSet) getAttributeInternal(LOOKUPSHAREDAPPMODULE_YONLOV);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> XpeDccGeneralItemListROVO1.
+     */
+    public RowSet getXpeDccGeneralItemListROVO1() {
+        return (RowSet) getAttributeInternal(XPEDCCGENERALITEMLISTROVO1);
     }
 }
 

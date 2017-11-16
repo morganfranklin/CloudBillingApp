@@ -166,16 +166,18 @@
                                                     <f:validator binding="#{bindings.CurrencyCd.validator}"/>
                                                 </af:selectOneChoice>
                                             </af:panelLabelAndMessage>
-                                            <af:inputText value="#{bindings.SalesPerson.inputValue}"
-                                                          label="#{bindings.SalesPerson.hints.label}"
-                                                          required="#{bindings.SalesPerson.hints.mandatory}"
-                                                          columns="#{bindings.SalesPerson.hints.displayWidth}"
-                                                          maximumLength="#{bindings.SalesPerson.hints.precision}"
-                                                          shortDesc="#{bindings.SalesPerson.hints.tooltip}" id="it13"
-                                                          autoSubmit="true"
-                                                          readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
-                                                <f:validator binding="#{bindings.SalesPerson.validator}"/>
-                                            </af:inputText>
+                                            <af:panelLabelAndMessage label="#{bindings.SalesPerson.label}" id="plam8">
+                                                <af:selectOneChoice value="#{bindings.SalesPerson.inputValue}"
+                                                                    label="#{bindings.SalesPerson.label}"
+                                                                    required="#{bindings.SalesPerson.hints.mandatory}"
+                                                                    shortDesc="#{bindings.SalesPerson.hints.tooltip}"
+                                                                    id="soc5" autoSubmit="true"
+                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                                    simple="true">
+                                                    <f:selectItems value="#{bindings.SalesPerson.items}" id="si5"/>
+                                                    <f:validator binding="#{bindings.SalesPerson.validator}"/>
+                                                </af:selectOneChoice>
+                                            </af:panelLabelAndMessage>
                                         </af:panelFormLayout>
                                     </af:panelBox>
                                 </af:gridCell>

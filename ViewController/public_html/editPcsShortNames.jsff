@@ -27,14 +27,15 @@
                       shortDesc="#{bindings.AccountClass.hints.tooltip}" id="it2">
           <f:validator binding="#{bindings.AccountClass.validator}"/>
         </af:inputText>
-          <af:inputText value="#{bindings.BillCycleId.inputValue}" label="#{bindings.BillCycleId.hints.label}"
-                        required="#{bindings.BillCycleId.hints.mandatory}"
-                        columns="#{bindings.BillCycleId.hints.displayWidth}"
-                        maximumLength="#{bindings.BillCycleId.hints.precision}"
-                        shortDesc="#{bindings.BillCycleId.hints.tooltip}" id="it14">
-            <f:validator binding="#{bindings.BillCycleId.validator}"/>
-          </af:inputText>
-          <af:selectBooleanCheckbox value="#{bindings.InvSupress.inputValue}" label="#{bindings.InvSupress.label}"
+        <af:inputListOfValues id="billCycleIdId" popupTitle="Search and Select: #{bindings.BillCycleId.hints.label}"
+                              value="#{bindings.BillCycleId.inputValue}" label="#{bindings.BillCycleId.hints.label}"
+                              model="#{bindings.BillCycleId.listOfValuesModel}"
+                              required="#{bindings.BillCycleId.hints.mandatory}"
+                              columns="#{bindings.BillCycleId.hints.displayWidth}"
+                              shortDesc="#{bindings.BillCycleId.hints.tooltip}">
+          <f:validator binding="#{bindings.BillCycleId.validator}"/>
+        </af:inputListOfValues>
+        <af:selectBooleanCheckbox value="#{bindings.InvSupress.inputValue}" label="#{bindings.InvSupress.label}"
                                     shortDesc="#{bindings.InvSupress.hints.tooltip}" id="sbc1"/>
         <af:panelLabelAndMessage label="#{bindings.Inactive.label}" id="plam3">
           <af:selectOneChoice value="#{bindings.Inactive.inputValue}" label="#{bindings.Inactive.label}"

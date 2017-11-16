@@ -80,11 +80,6 @@
       </AttrNames>
     </attributeValues>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
-    <attributeValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" id="BillCycleId">
-      <AttrNames>
-        <Item Value="BillCycleId"/>
-      </AttrNames>
-    </attributeValues>
     <button IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" StaticList="false" Uses="LOV_InvSupress"
             id="InvSupress" DTSupportsMRU="false">
       <AttrNames>
@@ -100,5 +95,7 @@
     <listOfValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" StaticList="false" Uses="LOV_CovBillLocNum"
                   id="CovBillLocNum"/>
     <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <listOfValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" StaticList="false" Uses="LOV_BillCycleId"
+                  id="BillCycleId"/>
   </bindings>
 </pageDefinition>

@@ -65,6 +65,14 @@
         Name="XpeDccCfgPcsROVO_LOV"
         ViewObjectName="model.views.readonly.XpeDccCfgPcsROVO"
         RowLevelBinds="true"/>
+    <ViewAccessor
+        Name="PcBusUnitTblGlROVO1"
+        ViewObjectName="model.views.readonly.PcBusUnitTblGlROVO"
+        RowLevelBinds="true"/>
+    <ViewAccessor
+        Name="PsCurrencyCdTblROVO1"
+        ViewObjectName="model.views.readonly.PsCurrencyCdTblROVO"
+        RowLevelBinds="true"/>
     <ListBinding
         Name="LOV_XpeProductId"
         ListVOName="XpeDccDicProducts1"
@@ -121,40 +129,6 @@
         <DisplayCriteria/>
     </ListBinding>
     <ListBinding
-        Name="LOV_CurrencyCd"
-        ListVOName="XpeDccDicCurrency1"
-        ListRangeSize="-1"
-        NullValueFlag="start"
-        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
-        MRUCount="0">
-        <AttrArray Name="AttrNames">
-            <Item Value="CurrencyCd"/>
-        </AttrArray>
-        <AttrArray Name="AttrExpressions"/>
-        <AttrArray Name="ListAttrNames">
-            <Item Value="XpeLookupId"/>
-        </AttrArray>
-        <DisplayCriteria/>
-    </ListBinding>
-    <ListBinding
-        Name="LOV_BusinessUnitGl"
-        ListVOName="LookupSharedAppModule_BusinessUnitLOV"
-        ListRangeSize="-1"
-        NullValueFlag="none"
-        MRUCount="0">
-        <AttrArray Name="AttrNames">
-            <Item Value="BusinessUnitGl"/>
-        </AttrArray>
-        <AttrArray Name="AttrExpressions"/>
-        <AttrArray Name="ListAttrNames">
-            <Item Value="XpeLookupId"/>
-        </AttrArray>
-        <AttrArray Name="ListDisplayAttrNames">
-            <Item Value="XpeLookupDesc"/>
-        </AttrArray>
-        <DisplayCriteria/>
-    </ListBinding>
-    <ListBinding
         Name="LOV_XpeFacility"
         ListVOName="XpeDccCfgPcsROVO_LOV"
         ListRangeSize="-1"
@@ -169,6 +143,42 @@
         </AttrArray>
         <AttrArray Name="ListDisplayAttrNames">
             <Item Value="SiteDesc"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_BusinessUnitGl"
+        ListVOName="PcBusUnitTblGlROVO1"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="BusinessUnitGl"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="BusinessUnit"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="BusinessUnit"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_CurrencyCd"
+        ListVOName="PsCurrencyCdTblROVO1"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="CurrencyCd"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="CurrencyCd"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="Descr"/>
         </AttrArray>
         <DisplayCriteria/>
     </ListBinding>
@@ -351,10 +361,10 @@
         LOVName="LOV_BusinessUnitGl">
         <Properties>
             <SchemaBasedProperties>
-                <CONTROLTYPE
-                    Value="choice"/>
                 <LABEL
                     ResId="model.XpeDccContractLineView.BusinessUnitGl_LABEL"/>
+                <CONTROLTYPE
+                    Value="choice"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>

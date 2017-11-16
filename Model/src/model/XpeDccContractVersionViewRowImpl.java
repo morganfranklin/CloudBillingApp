@@ -56,7 +56,10 @@ public class XpeDccContractVersionViewRowImpl extends ViewRowImpl {
         LookupSharedAppModule_XpeDccDicContractSubtype,
         LookupSharedAppModule_XpeDccDicAgreementType,
         XpeDccMasterTermsLOV,
-        LookupSharedAppModule_XpeDccDicNewContractSetupROVO1;
+        LookupSharedAppModule_XpeDccDicNewContractSetupROVO1,
+        PsCurrencyCdTblROVO1,
+        PsSalesPersonROVO1,
+        PcBusUnitTblGlROVO1;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -122,6 +125,9 @@ public class XpeDccContractVersionViewRowImpl extends ViewRowImpl {
     public static final int XPEDCCMASTERTERMSLOV = AttributesEnum.XpeDccMasterTermsLOV.index();
     public static final int LOOKUPSHAREDAPPMODULE_XPEDCCDICNEWCONTRACTSETUPROVO1 =
         AttributesEnum.LookupSharedAppModule_XpeDccDicNewContractSetupROVO1.index();
+    public static final int PSCURRENCYCDTBLROVO1 = AttributesEnum.PsCurrencyCdTblROVO1.index();
+    public static final int PSSALESPERSONROVO1 = AttributesEnum.PsSalesPersonROVO1.index();
+    public static final int PCBUSUNITTBLGLROVO1 = AttributesEnum.PcBusUnitTblGlROVO1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -569,6 +575,27 @@ public class XpeDccContractVersionViewRowImpl extends ViewRowImpl {
      */
     public RowSet getLookupSharedAppModule_XpeDccDicNewContractSetupROVO1() {
         return (RowSet) getAttributeInternal(LOOKUPSHAREDAPPMODULE_XPEDCCDICNEWCONTRACTSETUPROVO1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> PsCurrencyCdTblROVO1.
+     */
+    public RowSet getPsCurrencyCdTblROVO1() {
+        return (RowSet) getAttributeInternal(PSCURRENCYCDTBLROVO1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> PsSalesPersonROVO1.
+     */
+    public RowSet getPsSalesPersonROVO1() {
+        return (RowSet) getAttributeInternal(PSSALESPERSONROVO1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> PcBusUnitTblGlROVO1.
+     */
+    public RowSet getPcBusUnitTblGlROVO1() {
+        return (RowSet) getAttributeInternal(PCBUSUNITTBLGLROVO1);
     }
 }
 

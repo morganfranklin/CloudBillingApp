@@ -23,11 +23,6 @@
         <Item Value="DestinationDesc"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="XpeDccCfgNewDestinationsCreationEOVOIterator" id="State">
-      <AttrNames>
-        <Item Value="State"/>
-      </AttrNames>
-    </attributeValues>
     <list IterBinding="XpeDccCfgNewDestinationsCreationEOVOIterator" StaticList="false" Uses="LOV_Inactive"
           id="Inactive" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <attributeValues IterBinding="XpeDccCfgNewDestinationsCreationEOVOIterator" id="InactiveDate">
@@ -74,5 +69,7 @@
                   InstanceName="data.AppModuleDataControl.dataProvider"
                   ReturnName="data.AppModuleDataControl.methodResults.addAssTerminalToDestination_AppModuleDataControl_dataProvider_addAssTerminalToDestination_result"/>
     <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <list IterBinding="XpeDccCfgNewDestinationsCreationEOVOIterator" StaticList="false" Uses="LOV_State" id="State"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

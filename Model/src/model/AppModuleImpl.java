@@ -65,6 +65,7 @@ import model.views.readonly.XpeDccCfgBillingandAccountingROVORowImpl;
 import model.views.readonly.XpeDccCfgCntrcttAprFcltyROVOImpl;
 import model.views.readonly.XpeDccCfgCntrcttAprFcltyROVORowImpl;
 import model.views.readonly.XpeDccCfgDstAssTerminalsROVOImpl;
+import model.views.readonly.XpeDccCfgDstAssTerminalsROVORowImpl;
 import model.views.readonly.XpeDccCfgOgnAssTerminalsROVOImpl;
 import model.views.readonly.XpeDccCfgOgnAssTerminalsROVORowImpl;
 import model.views.readonly.XpeDccCfgPcsAssTerminalsROVOImpl;
@@ -2879,7 +2880,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         dstTerminal.setNamedWhereClauseParam("bind_DestinationId", destinationId);
         dstTerminal.setNamedWhereClauseParam("bind_TerminalId", terminalId);
         dstTerminal.executeQuery();
-        XpeDccCfgDstAssTerminalsEOVORowImpl dstTerminalRow = (XpeDccCfgDstAssTerminalsEOVORowImpl) dstTerminal.first();
+        XpeDccCfgDstAssTerminalsROVORowImpl dstTerminalRow = (XpeDccCfgDstAssTerminalsROVORowImpl) dstTerminal.first();
         if(null != dstTerminalRow){
             rtn = true;
         }

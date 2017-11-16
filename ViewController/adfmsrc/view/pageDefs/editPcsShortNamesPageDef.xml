@@ -82,11 +82,6 @@
         <Item Value="COV_Bill_Zip"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="XpeDccCfgPcsshortnamesEOVOIterator" id="BillCycleId">
-      <AttrNames>
-        <Item Value="BillCycleId"/>
-      </AttrNames>
-    </attributeValues>
     <button IterBinding="XpeDccCfgPcsshortnamesEOVOIterator" StaticList="false" Uses="LOV_InvSupress" id="InvSupress"
             DTSupportsMRU="false">
       <AttrNames>
@@ -107,5 +102,7 @@
     <listOfValues IterBinding="XpeDccCfgPcsshortnamesEOVOIterator" StaticList="false" Uses="LOV_CovSoldLocNum"
                   id="CovSoldLocNum"/>
     <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <listOfValues IterBinding="XpeDccCfgPcsshortnamesEOVOIterator" StaticList="false" Uses="LOV_BillCycleId"
+                  id="BillCycleId"/>
   </bindings>
 </pageDefinition>

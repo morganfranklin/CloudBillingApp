@@ -80,6 +80,10 @@
             </PIMap>
         </ParameterMap>
     </ViewAccessor>
+    <ViewAccessor
+        Name="PsBiCycleROVO1"
+        ViewObjectName="model.views.readonly.PsBiCycleROVO"
+        RowLevelBinds="true"/>
     <ListBinding
       Name="LOV_CovId"
       ListVOName="XpeDccShortNameCustomerSearchROVO_LOV"
@@ -256,6 +260,27 @@
         <DisplayCriteria
           Hint="showAndExecute"/>
     </ListBinding>
+    <ListBinding
+        Name="LOV_BillCycleId"
+        ListVOName="PsBiCycleROVO1"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0"
+        ComboRowCountHint="10">
+        <AttrArray Name="AttrNames">
+            <Item Value="BillCycleId"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="BillCycleId"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="BillCycleId"/>
+            <Item Value="Descr"/>
+        </AttrArray>
+        <DisplayCriteria
+            Hint="showAndExecute"/>
+    </ListBinding>
     <SQLQuery><![CDATA[SELECT XpeDccCfgPcsshortnamesEO.COV_ID,
           XpeDccCfgPcsshortnamesEO.PCSSHORTNAME_ID,
           XpeDccCfgPcsshortnamesEO.PCSSHORT_NAME,
@@ -401,11 +426,14 @@ AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
       PrecisionRule="true"
       EntityAttrName="BillCycleId"
       EntityUsage="XpeDccCfgPcsshortnamesEO"
-      AliasName="BILL_CYCLE_ID">
+      AliasName="BILL_CYCLE_ID"
+        LOVName="LOV_BillCycleId">
         <Properties>
             <SchemaBasedProperties>
                 <LABEL
                   ResId="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO.BillCycleId_LABEL"/>
+                <CONTROLTYPE
+                    Value="input_text_lov"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>
