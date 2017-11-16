@@ -44,6 +44,7 @@ public class XpeDccNewContractCustomerSearchROVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
     public static final int SETID = AttributesEnum.Setid.index();
     public static final int CUSTID = AttributesEnum.CustId.index();
     public static final int NAME1 = AttributesEnum.Name1.index();
