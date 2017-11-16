@@ -281,28 +281,27 @@
         <DisplayCriteria
             Hint="showAndExecute"/>
     </ListBinding>
-    <SQLQuery><![CDATA[SELECT XpeDccCfgPcsshortnamesEO.COV_ID,
-          XpeDccCfgPcsshortnamesEO.PCSSHORTNAME_ID,
-          XpeDccCfgPcsshortnamesEO.PCSSHORT_NAME,
-          XpeDccCfgPcsshortnamesEO.ACCOUNT_CLASS, 
-          A.CUST_ID,
-          A.NAME1 CUSTOMER_NAME,
-          A.SETID,  
-          XpeDccCfgPcsshortnamesEO.BILL_CYCLE_ID, 
-          XpeDccCfgPcsshortnamesEO.INV_SUPRESS, 
-          XpeDccCfgPcsshortnamesEO.COV_SOLD_ID,
-          XpeDccCfgPcsshortnamesEO.COV_SOLD_LOC_NUM, 
-          XpeDccCfgPcsshortnamesEO.COV_BILL_ID, 
-          XpeDccCfgPcsshortnamesEO.COV_BILL_LOC_NUM,         
-          XpeDccCfgPcsshortnamesEO.CREATED_BY,                  
-          XpeDccCfgPcsshortnamesEO.CREATED_DATE,                  
-          XpeDccCfgPcsshortnamesEO.INACTIVE,                  
-          XpeDccCfgPcsshortnamesEO.INACTIVE_DATE,                  
-          XpeDccCfgPcsshortnamesEO.LAST_UPDATED_BY,                  
-          XpeDccCfgPcsshortnamesEO.LAST_UPDATED_DATE
-FROM  XPE_DCC_CFG_PCSSHORTNAMES XpeDccCfgPcsshortnamesEO,PS_CUSTOMER A             
-where A.SETID='SHARE'                                     
-AND A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID]]></SQLQuery>
+    <SQLQuery><![CDATA[SELECT XpeDccCfgPcsshortnamesEO.COV_ID, 
+          XpeDccCfgPcsshortnamesEO.PCSSHORTNAME_ID, 
+          XpeDccCfgPcsshortnamesEO.PCSSHORT_NAME, 
+          XpeDccCfgPcsshortnamesEO.ACCOUNT_CLASS,  
+          A.CUST_ID, 
+          A.NAME1 CUSTOMER_NAME, 
+          A.SETID,   
+          XpeDccCfgPcsshortnamesEO.BILL_CYCLE_ID,  
+          XpeDccCfgPcsshortnamesEO.INV_SUPRESS,  
+          XpeDccCfgPcsshortnamesEO.COV_SOLD_ID, 
+          XpeDccCfgPcsshortnamesEO.COV_SOLD_LOC_NUM,  
+          XpeDccCfgPcsshortnamesEO.COV_BILL_ID,  
+          XpeDccCfgPcsshortnamesEO.COV_BILL_LOC_NUM,          
+          XpeDccCfgPcsshortnamesEO.CREATED_BY,                   
+          XpeDccCfgPcsshortnamesEO.CREATED_DATE,                   
+          XpeDccCfgPcsshortnamesEO.INACTIVE,                   
+          XpeDccCfgPcsshortnamesEO.INACTIVE_DATE,                   
+          XpeDccCfgPcsshortnamesEO.LAST_UPDATED_BY,                   
+          XpeDccCfgPcsshortnamesEO.LAST_UPDATED_DATE 
+FROM  XPE_DCC_CFG_PCSSHORTNAMES XpeDccCfgPcsshortnamesEO,PS_CUSTOMER A              
+where A.CUST_ID=XpeDccCfgPcsshortnamesEO.COV_ID(+)]]></SQLQuery>
     <EntityUsage
       Name="XpeDccCfgPcsshortnamesEO"
       Entity="model.entities.XpeDccCfgPcsshortnamesEO"/>
