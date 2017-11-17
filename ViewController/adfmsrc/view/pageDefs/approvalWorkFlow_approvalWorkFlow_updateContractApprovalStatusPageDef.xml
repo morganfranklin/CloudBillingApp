@@ -9,8 +9,9 @@
                   MethodName="updateContractApprovalStatus" IsViewObjectMethod="false"
                   DataControl="AppModuleDataControl" InstanceName="data.AppModuleDataControl.dataProvider">
       <NamedData NDName="uuId" NDValue="#{pageFlowScope.uuid}" NDType="java.lang.String"/>
-      <NamedData NDName="action" NDValue="#{pageFlowScope.uuid}" NDType="java.lang.String"/>
-      <NamedData NDName="bytes" NDValue="#{pageFlowScope.PDF}" NDType="byte[]"/>
+      <NamedData NDName="action" NDValue="#{pageFlowScope.action}" NDType="java.lang.String"/>
+      <NamedData NDName="bytes" NDValue="#{pageFlowScope.PDF}" NDType="[B"/>
+      <NamedData NDName="userType" NDValue="#{pageFlowScope.user}" NDType="java.lang.String"/>
     </methodAction>
   </bindings>
 </pageDefinition>

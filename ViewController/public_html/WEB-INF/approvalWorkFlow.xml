@@ -15,6 +15,11 @@
       <value>#{pageFlowScope.action}</value>
       <class>java.lang.String</class>
     </input-parameter-definition>
+    <input-parameter-definition id="__5">
+      <name>user</name>
+      <value>#{pageFlowScope.user}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
     <managed-bean id="__6">
       <managed-bean-name>approvalWF</managed-bean-name>
       <managed-bean-class>view.XpeDccApprovalWF</managed-bean-class>

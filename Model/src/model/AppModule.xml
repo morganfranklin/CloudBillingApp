@@ -1502,38 +1502,6 @@
                 Type="java.lang.String"/>
         </Method>
         <Method
-            Name="updateContractApprovalStatus"
-            MethodName="updateContractApprovalStatus">
-            <Return
-                Name="_return_type_"
-                Type="void"/>
-            <Parameter
-                Name="uuId"
-                Type="java.lang.String"/>
-            <Parameter
-                Name="action"
-                Type="java.lang.String"/>
-            <Parameter
-                Name="bytes"
-                Type="byte[]"/>
-        </Method>
-        <Method
-            Name="buildXML"
-            MethodName="buildXML">
-            <Return
-                Name="_return_type_"
-                Type="java.util.Map"/>
-            <Parameter
-                Name="contractId"
-                Type="java.lang.String"/>
-            <Parameter
-                Name="contractVersion"
-                Type="java.lang.String"/>
-            <Parameter
-                Name="inContractFlow"
-                Type="java.lang.String"/>
-        </Method>
-        <Method
             Name="newContractCreation"
             MethodName="newContractCreation">
             <Return
@@ -1594,6 +1562,44 @@
             <Return
                 Name="_return_type_"
                 Type="void"/>
+        </Method>
+        <Method
+            Name="updateContractApprovalStatus"
+            MethodName="updateContractApprovalStatus">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+            <Parameter
+                Name="uuId"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="action"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="bytes"
+                Type="byte[]"/>
+            <Parameter
+                Name="userType"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="buildXML"
+            MethodName="buildXML">
+            <Return
+                Name="_return_type_"
+                Type="java.util.Map"/>
+            <Parameter
+                Name="contractId"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="contractVersion"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="inContractFlow"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="uuId"
+                Type="java.lang.String"/>
         </Method>
     </ClientInterface>
 </AppModule>
