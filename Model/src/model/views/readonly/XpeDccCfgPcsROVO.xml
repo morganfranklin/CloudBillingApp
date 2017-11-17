@@ -14,6 +14,10 @@
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
   </DesignTime>
+  <Variable
+    Name="bindSiteId"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <SQLQuery><![CDATA[SELECT SITE_ID, 
        SITE_DESC  
 FROM XPE_DCC_CFG_PCS]]></SQLQuery>
@@ -31,6 +35,14 @@ FROM XPE_DCC_CFG_PCS]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccCfgPcsROVO.SiteId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="SiteDesc"
@@ -46,7 +58,51 @@ FROM XPE_DCC_CFG_PCS]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="45"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccCfgPcsROVO.SiteDesc_LABEL"/>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
+  <ViewCriteria
+    Name="findBySiteId"
+    ViewObjectName="model.views.readonly.XpeDccCfgPcsROVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="XpeDccCfgPcsROVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="SiteId"
+        ViewAttribute="SiteId"
+        Operator="="
+        Conjunction="AND"
+        Value=":bindSiteId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <AttrArray Name="KeyAttributes">
     <Item Value="SiteId"/>
   </AttrArray>

@@ -8,7 +8,8 @@
   InheritPersonalization="merge"
   BindingStyle="OracleName"
   CustomQuery="true"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  OrderBy='"TERMINAL_ID"'>
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
   </DesignTime>
@@ -42,12 +43,26 @@
     Name="XpeDccCfgCountiesROVO1"
     ViewObjectName="model.views.readonly.XpeDccCfgCountiesROVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="XpeDccGeneralItemListROVO1"
+    ViewObjectName="model.views.readonly.XpeDccGeneralItemListROVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="findByItemListType"
+      FullName="model.views.readonly.XpeDccGeneralItemListROVO.findByItemListType"/>
+    <ParameterMap>
+      <PIMap Variable="bind_ItemListType">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA['ST']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LOV_County"
     ListVOName="XpeDccCfgCountiesROVO1"
     ListRangeSize="-1"
-    NullValueFlag="start"
-    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    NullValueFlag="none"
     MRUCount="0">
     <AttrArray Name="AttrNames">
       <Item Value="County"/>
@@ -61,8 +76,26 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
-  <SQLQuery><![CDATA[SELECT TERMINAL_ID,TERMINAL_DESC, TERMINAL_TYPE, STATE, COUNTY FROM XPE_DCC_CFG_TERMINALS    
-WHERE INACTIVE <> 'N']]></SQLQuery>
+  <ListBinding
+    Name="LOV_State"
+    ListVOName="XpeDccGeneralItemListROVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="State"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ItemId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValidValue"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT TERMINAL_ID,TERMINAL_DESC, TERMINAL_TYPE, STATE, COUNTY FROM XPE_DCC_CFG_TERMINALS      
+WHERE INACTIVE <> 'Y']]></SQLQuery>
   <ViewAttribute
     Name="TerminalId"
     IsUpdateable="false"
@@ -80,7 +113,7 @@ WHERE INACTIVE <> 'N']]></SQLQuery>
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="45"/>
+          Value="15"/>
         <LABEL
           ResId="model.views.readonly.XpeDccCfgTerminalsROVO.TerminalId_LABEL"/>
       </SchemaBasedProperties>
@@ -104,6 +137,8 @@ WHERE INACTIVE <> 'N']]></SQLQuery>
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.readonly.XpeDccCfgTerminalsROVO.TerminalDesc_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -125,6 +160,8 @@ WHERE INACTIVE <> 'N']]></SQLQuery>
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.readonly.XpeDccCfgTerminalsROVO.TerminalType_LABEL"/>
+        <DISPLAYWIDTH
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -138,7 +175,8 @@ WHERE INACTIVE <> 'N']]></SQLQuery>
     ColumnType="VARCHAR2"
     AliasName="STATE"
     Expression="STATE"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    LOVName="LOV_State">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="5"/>
     </DesignTime>
@@ -146,6 +184,10 @@ WHERE INACTIVE <> 'N']]></SQLQuery>
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.readonly.XpeDccCfgTerminalsROVO.State_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+        <DISPLAYWIDTH
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -170,6 +212,8 @@ WHERE INACTIVE <> 'N']]></SQLQuery>
           ResId="model.views.readonly.XpeDccCfgTerminalsROVO.County_LABEL"/>
         <CONTROLTYPE
           Value="choice"/>
+        <DISPLAYWIDTH
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

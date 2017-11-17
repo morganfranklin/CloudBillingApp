@@ -13,6 +13,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
 public class XpeDccCfgBusinessunitEOVORowImpl extends ViewRowImpl {
 
+
     public static final int ENTITY_XPEDCCCFGBUSINESSUNITEO = 0;
 
     /**
@@ -42,7 +43,9 @@ public class XpeDccCfgBusinessunitEOVORowImpl extends ViewRowImpl {
         XpeDccCfgTerminals_LOV,
         XpeDccCfgPCSShortNames_LOV,
         XpeDccGeneralItemList_ACLOV,
-        LookupSharedAppModule_YONLOV;
+        LookupSharedAppModule_YONLOV,
+        XpeDccCfgPcsAssTerminalsROVO1,
+        XpeDccCfgPcsROVO1;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -66,6 +69,7 @@ public class XpeDccCfgBusinessunitEOVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
 
     public static final int SITEID = AttributesEnum.SiteId.index();
     public static final int TERMINALID = AttributesEnum.TerminalId.index();
@@ -91,6 +95,8 @@ public class XpeDccCfgBusinessunitEOVORowImpl extends ViewRowImpl {
     public static final int XPEDCCCFGPCSSHORTNAMES_LOV = AttributesEnum.XpeDccCfgPCSShortNames_LOV.index();
     public static final int XPEDCCGENERALITEMLIST_ACLOV = AttributesEnum.XpeDccGeneralItemList_ACLOV.index();
     public static final int LOOKUPSHAREDAPPMODULE_YONLOV = AttributesEnum.LookupSharedAppModule_YONLOV.index();
+    public static final int XPEDCCCFGPCSASSTERMINALSROVO1 = AttributesEnum.XpeDccCfgPcsAssTerminalsROVO1.index();
+    public static final int XPEDCCCFGPCSROVO1 = AttributesEnum.XpeDccCfgPcsROVO1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -452,6 +458,20 @@ public class XpeDccCfgBusinessunitEOVORowImpl extends ViewRowImpl {
      */
     public RowSet getLookupSharedAppModule_YONLOV() {
         return (RowSet) getAttributeInternal(LOOKUPSHAREDAPPMODULE_YONLOV);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> XpeDccCfgPcsAssTerminalsROVO1.
+     */
+    public RowSet getXpeDccCfgPcsAssTerminalsROVO1() {
+        return (RowSet) getAttributeInternal(XPEDCCCFGPCSASSTERMINALSROVO1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> XpeDccCfgPcsROVO1.
+     */
+    public RowSet getXpeDccCfgPcsROVO1() {
+        return (RowSet) getAttributeInternal(XPEDCCCFGPCSROVO1);
     }
 }
 

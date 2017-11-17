@@ -150,7 +150,8 @@
                                                                     label="#{bindings.XpeAcctgOptionsSet.label}"
                                                                     required="true"
                                                                     shortDesc="#{bindings.XpeAcctgOptionsSet.hints.tooltip}"
-                                                                    id="soc27" autoSubmit="true" simple="true">
+                                                                    id="soc27" autoSubmit="true" simple="true"
+                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
                                                     <f:selectItems value="#{bindings.XpeAcctgOptionsSet.items}"
                                                                    id="si20"/>
                                                     <f:validator binding="#{bindings.XpeAcctgOptionsSet.validator}"/>
@@ -161,7 +162,8 @@
                                                                     label="#{bindings.CurrencyCd.label}"
                                                                     required="#{bindings.CurrencyCd.hints.mandatory}"
                                                                     shortDesc="#{bindings.CurrencyCd.hints.tooltip}"
-                                                                    id="soc28" autoSubmit="true" simple="true">
+                                                                    id="soc28" autoSubmit="true" simple="true"
+                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
                                                     <f:selectItems value="#{bindings.CurrencyCd.items}" id="si21"/>
                                                     <f:validator binding="#{bindings.CurrencyCd.validator}"/>
                                                 </af:selectOneChoice>
@@ -284,7 +286,7 @@
                                                 </af:selectOneChoice>
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractLineView.hints.XpeQtyMin.label}"
-                                                       id="c23">
+                                                       id="c23" rendered="false">
                                                 <af:inputText value="#{row.bindings.XpeQtyMin.inputValue}"
                                                               label="#{bindings.XpeDccNewContractLineView.hints.XpeQtyMin.label}"
                                                               required="#{bindings.XpeDccNewContractLineView.hints.XpeQtyMin.mandatory}"
@@ -297,7 +299,7 @@
                                                 </af:inputText>
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractLineView.hints.XpeQtyMax.label}"
-                                                       id="c24">
+                                                       id="c24" rendered="false">
                                                 <af:inputText value="#{row.bindings.XpeQtyMax.inputValue}"
                                                               label="#{bindings.XpeDccNewContractLineView.hints.XpeQtyMax.label}"
                                                               required="#{bindings.XpeDccNewContractLineView.hints.XpeQtyMax.mandatory}"

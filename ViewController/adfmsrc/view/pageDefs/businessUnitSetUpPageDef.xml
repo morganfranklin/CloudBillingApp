@@ -41,11 +41,6 @@
     </attributeValues>
     <listOfValues IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" StaticList="false" Uses="LOV_TerminalId"
                   id="TerminalId"/>
-    <attributeValues IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" id="SiteDesc">
-      <AttrNames>
-        <Item Value="SiteDesc"/>
-      </AttrNames>
-    </attributeValues>
     <listOfValues IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" StaticList="false" Uses="LOV_AccountingClass"
                   id="AccountingClass"/>
     <attributeValues IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" id="Affliate">
@@ -83,11 +78,6 @@
     </attributeValues>
     <listOfValues IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_TerminalId"
                   id="TerminalId1"/>
-    <attributeValues IterBinding="XpeDccCfgBusinessunitEOVOIterator" id="SiteDesc1">
-      <AttrNames>
-        <Item Value="SiteDesc"/>
-      </AttrNames>
-    </attributeValues>
     <listOfValues IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_AccountingClass"
                   id="AccountingClass1"/>
     <attributeValues IterBinding="XpeDccCfgBusinessunitEOVOIterator" id="Affliate1">
@@ -164,5 +154,9 @@
         <Item Value="BillingOperatingUnit"/>
       </AttrNames>
     </attributeValues>
+    <list IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" StaticList="false" Uses="LOV_SiteDesc" id="SiteDesc"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_SiteDesc" id="SiteDesc1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

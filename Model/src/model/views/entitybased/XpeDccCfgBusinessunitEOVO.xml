@@ -82,6 +82,25 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="XpeDccCfgPcsAssTerminalsROVO1"
+    ViewObjectName="model.views.readonly.XpeDccCfgPcsAssTerminalsROVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="XpeDccCfgPcsROVO1"
+    ViewObjectName="model.views.readonly.XpeDccCfgPcsROVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="findBySiteId"
+      FullName="model.views.readonly.XpeDccCfgPcsROVO.findBySiteId"/>
+    <ParameterMap>
+      <PIMap Variable="bindSiteId">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA[SiteId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LOV_TerminalId"
     ListVOName="XpeDccCfgTerminals_LOV"
@@ -97,33 +116,11 @@
       <Item Value="TerminalId"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="TerminalDesc"/>
       <Item Value="TerminalId"/>
-    </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
-  </ListBinding>
-  <ListBinding
-    Name="LOV_SiteId"
-    ListVOName="XpeDccCfgPCSShortNames_LOV"
-    ListRangeSize="-1"
-    ComboRowCountHint="10"
-    NullValueFlag="none"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="SiteId"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="DerivedAttrNames">
-      <Item Value="SiteDesc"/>
-    </AttrArray>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="PcsshortnameId"/>
-      <Item Value="PcsshortName"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="PcsshortName"/>
-      <Item Value="PcsshortnameId"/>
+      <Item Value="TerminalDesc"/>
+      <Item Value="TerminalType"/>
+      <Item Value="County"/>
+      <Item Value="State"/>
     </AttrArray>
     <DisplayCriteria
       Hint="showAndExecute"/>
@@ -186,6 +183,46 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LOV_SiteId"
+    ListVOName="XpeDccCfgPcsAssTerminalsROVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0"
+    ComboRowCountHint="10">
+    <AttrArray Name="AttrNames">
+      <Item Value="SiteId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="SiteId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="SiteId"/>
+      <Item Value="TerminalId"/>
+      <Item Value="TerminalDesc"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_SiteDesc"
+    ListVOName="XpeDccCfgPcsROVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SiteDesc"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="SiteDesc"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="SiteDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="XpeDccCfgBusinessunitEO"
     Entity="model.entities.XpeDccCfgBusinessunitEO"/>
@@ -198,12 +235,12 @@
     LOVName="LOV_SiteId">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.SiteId_LABEL"/>
         <DISPLAYWIDTH
           Value="10"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -218,12 +255,12 @@
     LOVName="LOV_TerminalId">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.TerminalId_LABEL"/>
         <DISPLAYWIDTH
           Value="10"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -372,13 +409,16 @@
     PrecisionRule="true"
     EntityAttrName="SiteDesc"
     EntityUsage="XpeDccCfgBusinessunitEO"
-    AliasName="SITE_DESC">
+    AliasName="SITE_DESC"
+    LOVName="LOV_SiteDesc">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.SiteDesc_LABEL"/>
         <DISPLAYWIDTH
           Value="10"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

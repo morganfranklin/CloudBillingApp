@@ -333,7 +333,8 @@
                                         </af:selectOneChoice>
                                     </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccContractLineView2.hints.XpeQtyMin.name}"
-                                               filterable="true" sortable="true" headerText="Qty Min" id="c5">
+                                               filterable="true" sortable="true" headerText="Qty Min" id="c5"
+                                               rendered="false">
                                         <af:inputText value="#{row.bindings.XpeQtyMin.inputValue}"
                                                       label="#{bindings.XpeDccContractLineView2.hints.XpeQtyMin.label}"
                                                       readOnly="#{(bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }"
@@ -348,7 +349,8 @@
                                         </af:inputText>
                                     </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccContractLineView2.hints.XpeQtyMax.name}"
-                                               filterable="true" sortable="true" headerText="Qty Max" id="c6">
+                                               filterable="true" sortable="true" headerText="Qty Max" id="c6"
+                                               rendered="false">
                                         <af:inputText value="#{row.bindings.XpeQtyMax.inputValue}"
                                                       label="#{bindings.XpeDccContractLineView2.hints.XpeQtyMax.label}"
                                                       required="#{bindings.XpeDccContractLineView2.hints.XpeQtyMax.mandatory}"

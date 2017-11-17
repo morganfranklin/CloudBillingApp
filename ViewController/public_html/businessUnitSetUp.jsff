@@ -124,7 +124,7 @@
                             required="#{bindings.BusinessUnit.hints.mandatory}"
                             columns="#{bindings.BusinessUnit.hints.displayWidth}"
                             maximumLength="#{bindings.BusinessUnit.hints.precision}"
-                            shortDesc="#{bindings.BusinessUnit.hints.tooltip}" id="it1">
+                            shortDesc="#{bindings.BusinessUnit.hints.tooltip}" id="it1" autoSubmit="true">
                 <f:validator binding="#{bindings.BusinessUnit.validator}"/>
               </af:inputText>
               <af:inputListOfValues id="terminalIdId" popupTitle="Search and Select: #{bindings.TerminalId.hints.label}"
@@ -132,7 +132,7 @@
                                     model="#{bindings.TerminalId.listOfValuesModel}"
                                     required="#{bindings.TerminalId.hints.mandatory}"
                                     columns="#{bindings.TerminalId.hints.displayWidth}"
-                                    shortDesc="#{bindings.TerminalId.hints.tooltip}">
+                                    shortDesc="#{bindings.TerminalId.hints.tooltip}" autoSubmit="true">
                 <f:validator binding="#{bindings.TerminalId.validator}"/>
               </af:inputListOfValues>
               <af:inputListOfValues id="siteIdId" popupTitle="Search and Select: #{bindings.SiteId.hints.label}"
@@ -140,16 +140,17 @@
                                     model="#{bindings.SiteId.listOfValuesModel}"
                                     required="#{bindings.SiteId.hints.mandatory}"
                                     columns="#{bindings.SiteId.hints.displayWidth}"
-                                    shortDesc="#{bindings.SiteId.hints.tooltip}">
+                                    shortDesc="#{bindings.SiteId.hints.tooltip}" autoSubmit="true">
                 <f:validator binding="#{bindings.SiteId.validator}"/>
               </af:inputListOfValues>
-              <af:inputText value="#{bindings.SiteDesc.inputValue}" label="#{bindings.SiteDesc.hints.label}"
-                            required="#{bindings.SiteDesc.hints.mandatory}"
-                            columns="#{bindings.SiteDesc.hints.displayWidth}"
-                            maximumLength="#{bindings.SiteDesc.hints.precision}"
-                            shortDesc="#{bindings.SiteDesc.hints.tooltip}" partialTriggers="siteIdId" id="it2">
-                <f:validator binding="#{bindings.SiteDesc.validator}"/>
-              </af:inputText>
+              <af:panelLabelAndMessage label="#{bindings.SiteDesc.label}" id="plam2" partialTriggers="siteIdId">
+                <af:selectOneChoice value="#{bindings.SiteDesc.inputValue}" label="#{bindings.SiteDesc.label}"
+                                    required="#{bindings.SiteDesc.hints.mandatory}"
+                                    shortDesc="#{bindings.SiteDesc.hints.tooltip}" id="soc3">
+                  <f:selectItems value="#{bindings.SiteDesc.items}" id="si3"/>
+                  <f:validator binding="#{bindings.SiteDesc.validator}"/>
+                </af:selectOneChoice>
+              </af:panelLabelAndMessage>
               <af:selectBooleanCheckbox value="#{bindings.StatsOnly.inputValue}" label="#{bindings.StatsOnly.label}"
                                         shortDesc="#{bindings.StatsOnly.hints.tooltip}" id="sbc2"/>
               <af:inputListOfValues id="accountingClassId"
@@ -274,7 +275,7 @@
                             required="#{bindings.BusinessUnit1.hints.mandatory}"
                             columns="#{bindings.BusinessUnit1.hints.displayWidth}"
                             maximumLength="#{bindings.BusinessUnit1.hints.precision}"
-                            shortDesc="#{bindings.BusinessUnit1.hints.tooltip}" id="it8">
+                            shortDesc="#{bindings.BusinessUnit1.hints.tooltip}" id="it8" autoSubmit="true">
                 <f:validator binding="#{bindings.BusinessUnit1.validator}"/>
               </af:inputText>
               <af:inputListOfValues id="terminalId1Id"
@@ -284,7 +285,7 @@
                                     model="#{bindings.TerminalId1.listOfValuesModel}"
                                     required="#{bindings.TerminalId1.hints.mandatory}"
                                     columns="#{bindings.TerminalId1.hints.displayWidth}"
-                                    shortDesc="#{bindings.TerminalId1.hints.tooltip}">
+                                    shortDesc="#{bindings.TerminalId1.hints.tooltip}" autoSubmit="true">
                 <f:validator binding="#{bindings.TerminalId1.validator}"/>
               </af:inputListOfValues>
               <af:inputListOfValues id="siteId1Id" popupTitle="Search and Select: #{bindings.SiteId1.hints.label}"
@@ -292,16 +293,17 @@
                                     model="#{bindings.SiteId1.listOfValuesModel}"
                                     required="#{bindings.SiteId1.hints.mandatory}"
                                     columns="#{bindings.SiteId1.hints.displayWidth}"
-                                    shortDesc="#{bindings.SiteId1.hints.tooltip}">
+                                    shortDesc="#{bindings.SiteId1.hints.tooltip}" autoSubmit="true">
                 <f:validator binding="#{bindings.SiteId1.validator}"/>
               </af:inputListOfValues>
-              <af:inputText value="#{bindings.SiteDesc1.inputValue}" label="#{bindings.SiteDesc1.hints.label}"
-                            required="#{bindings.SiteDesc1.hints.mandatory}"
-                            columns="#{bindings.SiteDesc1.hints.displayWidth}"
-                            maximumLength="#{bindings.SiteDesc1.hints.precision}"
-                            shortDesc="#{bindings.SiteDesc1.hints.tooltip}" partialTriggers="siteId1Id" id="it9">
-                <f:validator binding="#{bindings.SiteDesc1.validator}"/>
-              </af:inputText>
+              <af:panelLabelAndMessage label="#{bindings.SiteDesc1.label}" id="plam3">
+                <af:selectOneChoice value="#{bindings.SiteDesc1.inputValue}" label="#{bindings.SiteDesc1.label}"
+                                    required="#{bindings.SiteDesc1.hints.mandatory}"
+                                    shortDesc="#{bindings.SiteDesc1.hints.tooltip}" id="soc5" simple="true">
+                  <f:selectItems value="#{bindings.SiteDesc1.items}" id="si5"/>
+                  <f:validator binding="#{bindings.SiteDesc1.validator}"/>
+                </af:selectOneChoice>
+              </af:panelLabelAndMessage>
               <af:selectBooleanCheckbox value="#{bindings.StatsOnly1.inputValue}" label="#{bindings.StatsOnly1.label}"
                                         shortDesc="#{bindings.StatsOnly1.hints.tooltip}" id="sbc1"/>
               <af:inputListOfValues id="accountingClass1Id"
