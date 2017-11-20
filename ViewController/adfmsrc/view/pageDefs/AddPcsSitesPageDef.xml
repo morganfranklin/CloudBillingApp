@@ -12,11 +12,6 @@
               xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
   </executables>
   <bindings>
-    <attributeValues IterBinding="XpeDccCfgNewPcsEOVOIterator" id="SiteId">
-      <AttrNames>
-        <Item Value="SiteId"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="XpeDccCfgNewPcsEOVOIterator" id="SiteDesc">
       <AttrNames>
         <Item Value="SiteDesc"/>
@@ -81,5 +76,10 @@
                   InstanceName="data.AppModuleDataControl.dataProvider"
                   ReturnName="data.AppModuleDataControl.methodResults.addAssTerminalToPCS_AppModuleDataControl_dataProvider_addAssTerminalToPCS_result"/>
     <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="XpeDccCfgNewPcsEOVOIterator" id="SiteId">
+      <AttrNames>
+        <Item Value="SiteId"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

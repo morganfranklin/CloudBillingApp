@@ -240,19 +240,19 @@
       <ViewCriteriaItem
         Name="DestinationId"
         ViewAttribute="DestinationId"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bind_DestinationId"
-        UpperColumns="0"
+        UpperColumns="1"
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
         Name="DestinationDesc"
         ViewAttribute="DestinationDesc"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bind_DestinationDesc"
-        UpperColumns="0"
+        UpperColumns="1"
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem

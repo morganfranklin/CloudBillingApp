@@ -16,7 +16,8 @@
                               required="#{bindings.DestinationDesc.hints.mandatory}"
                               columns="#{bindings.DestinationDesc.hints.displayWidth}"
                               maximumLength="#{bindings.DestinationDesc.hints.precision}"
-                              shortDesc="#{bindings.DestinationDesc.hints.tooltip}" id="it2">
+                              shortDesc="#{bindings.DestinationDesc.hints.tooltip}" id="it2"
+                              contentStyle="text-transform:uppercase;">
                     <f:validator binding="#{bindings.DestinationDesc.validator}"/>
                 </af:inputText>
                 <af:panelLabelAndMessage label="#{bindings.State.label}" id="plam4">

@@ -1,5 +1,6 @@
 package model.views.entitybased;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 
 import java.sql.Timestamp;
@@ -260,7 +261,11 @@ public class XpeDccCfgPcsshortnamesEOVORowImpl extends ViewRowImpl {
      * @param value value to set the PCSSHORT_NAME
      */
     public void setPcsshortName(String value) {
-        setAttributeInternal(PCSSHORTNAME, value);
+        if (null != value) {
+            setAttributeInternal(PCSSHORTNAME, value.toUpperCase());
+        } else {
+            setAttributeInternal(PCSSHORTNAME, value);
+        }
     }
 
     /**
@@ -331,15 +336,15 @@ public class XpeDccCfgPcsshortnamesEOVORowImpl extends ViewRowImpl {
      * Gets the attribute value for COV_SOLD_LOC_NUM using the alias name CovSoldLocNum.
      * @return the COV_SOLD_LOC_NUM
      */
-    public BigInteger getCovSoldLocNum() {
-        return (BigInteger) getAttributeInternal(COVSOLDLOCNUM);
+    public BigDecimal getCovSoldLocNum() {
+        return (BigDecimal) getAttributeInternal(COVSOLDLOCNUM);
     }
 
     /**
      * Sets <code>value</code> as attribute value for COV_SOLD_LOC_NUM using the alias name CovSoldLocNum.
      * @param value value to set the COV_SOLD_LOC_NUM
      */
-    public void setCovSoldLocNum(BigInteger value) {
+    public void setCovSoldLocNum(BigDecimal value) {
         setAttributeInternal(COVSOLDLOCNUM, value);
     }
 
@@ -347,15 +352,15 @@ public class XpeDccCfgPcsshortnamesEOVORowImpl extends ViewRowImpl {
      * Gets the attribute value for COV_BILL_LOC_NUM using the alias name CovBillLocNum.
      * @return the COV_BILL_LOC_NUM
      */
-    public BigInteger getCovBillLocNum() {
-        return (BigInteger) getAttributeInternal(COVBILLLOCNUM);
+    public BigDecimal getCovBillLocNum() {
+        return (BigDecimal) getAttributeInternal(COVBILLLOCNUM);
     }
 
     /**
      * Sets <code>value</code> as attribute value for COV_BILL_LOC_NUM using the alias name CovBillLocNum.
      * @param value value to set the COV_BILL_LOC_NUM
      */
-    public void setCovBillLocNum(BigInteger value) {
+    public void setCovBillLocNum(BigDecimal value) {
         setAttributeInternal(COVBILLLOCNUM, value);
     }
 

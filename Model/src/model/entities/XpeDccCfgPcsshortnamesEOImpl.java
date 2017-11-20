@@ -97,7 +97,7 @@ public class XpeDccCfgPcsshortnamesEOImpl extends EntityImpl {
 
     protected String nextVal(String sequenceName) {
         SequenceImpl s = new SequenceImpl(sequenceName, getDBTransaction());
-        return "SN"+s.getSequenceNumber().toString();
+        return s.getSequenceNumber().toString();
     }
 }
 

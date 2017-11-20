@@ -296,7 +296,7 @@
       <ViewCriteriaItem
         Name="OriginId"
         ViewAttribute="OriginId"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bind_OriginId"
         IsBindVarValue="true"
@@ -304,7 +304,7 @@
       <ViewCriteriaItem
         Name="OriginDesc"
         ViewAttribute="OriginDesc"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bind_OriginDesc"
         IsBindVarValue="true"

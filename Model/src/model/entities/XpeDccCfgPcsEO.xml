@@ -29,9 +29,6 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
-    <TransientExpression
-      Name="ExpressionScript"
-      CodeSourceName="XpeDccCfgPcsEORow"/>
   </Attribute>
   <Attribute
     Name="SiteDesc"

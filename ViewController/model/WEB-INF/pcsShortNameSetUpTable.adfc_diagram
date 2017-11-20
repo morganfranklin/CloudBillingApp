@@ -96,6 +96,6 @@
       <property
          name="fromOutcome">Edit</property>
       <property
-         name="sdm:polyPoints">R67,L29</property>
+         name="sdm:polyPoints">B50,133.0,337.5459,L50</property>
    </ControlFlowCase>
 </SDM>

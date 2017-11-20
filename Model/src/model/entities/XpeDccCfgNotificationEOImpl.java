@@ -94,7 +94,7 @@ public class XpeDccCfgNotificationEOImpl extends EntityImpl {
     
     protected String nextVal(String sequenceName) {
         SequenceImpl s = new SequenceImpl(sequenceName, getDBTransaction());
-        return "NTF"+s.getSequenceNumber().toString();
+        return s.getSequenceNumber().toString();
     }
 }
 

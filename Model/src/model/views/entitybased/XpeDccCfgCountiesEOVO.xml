@@ -233,7 +233,7 @@
       <ViewCriteriaItem
         Name="CountyId"
         ViewAttribute="CountyId"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bind_CountyId"
         IsBindVarValue="true"
@@ -241,7 +241,7 @@
       <ViewCriteriaItem
         Name="XpeDccCfgCountiesEOVOCriteria_XpeDccCfgCountiesEOVOCriteria_row_0_CountyName"
         ViewAttribute="CountyName"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bind_CountyName"
         IsBindVarValue="true"

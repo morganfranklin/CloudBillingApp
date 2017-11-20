@@ -40,7 +40,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_VEHICLES">
+    TableName="XPE_DCC_CFG_VEHICLES"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="45"/>
     </DesignTime>
@@ -52,7 +53,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_VEHICLES">
+    TableName="XPE_DCC_CFG_VEHICLES"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="45"/>
     </DesignTime>
@@ -64,7 +66,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_VEHICLES">
+    TableName="XPE_DCC_CFG_VEHICLES"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -134,6 +137,42 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.entities.XpeDccCfgVehiclesEO.VehicleId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgVehiclesRequireTrailerCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"REQUIRE_TRAILER" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_VEHICLES_REQUIRE_T"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgVehiclesEO.RequireTrailer"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgVehiclesVehicleDescCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"VEHICLE_DESC" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_VEHICLES_VEHICLE_D"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgVehiclesEO.VehicleDesc"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgVehiclesVehicleTypeCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"VEHICLE_TYPE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_VEHICLES_VEHICLE_T"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgVehiclesEO.VehicleType"/>
     </AttrArray>
   </Key>
 </Entity>

@@ -112,7 +112,11 @@ public class XpeDccCfgCarriersEOVORowImpl extends ViewRowImpl {
      * @param value value to set the CARRIER_NAME
      */
     public void setCarrierName(String value) {
-        setAttributeInternal(CARRIERNAME, value);
+        if (null != value) {
+            setAttributeInternal(CARRIERNAME, value.toUpperCase());
+        } else {
+            setAttributeInternal(CARRIERNAME, value);
+        }
     }
 
     /**

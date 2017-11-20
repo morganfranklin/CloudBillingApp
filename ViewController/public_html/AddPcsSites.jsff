@@ -10,10 +10,13 @@
                 <f:facet name="legend"/>
                 <f:facet name="info"/>
                 <af:panelFormLayout id="pfl1">
-                    <af:panelLabelAndMessage label="#{bindings.SiteId.hints.label}" id="plam1">
-                        <af:outputText value="#{bindings.SiteId.inputValue}"
-                                       shortDesc="#{bindings.SiteId.hints.tooltip}" id="ot1"/>
-                    </af:panelLabelAndMessage>
+                    <af:inputText value="#{bindings.SiteId.inputValue}" label="#{bindings.SiteId.hints.label}"
+                                  required="#{bindings.SiteId.hints.mandatory}"
+                                  columns="#{bindings.SiteId.hints.displayWidth}"
+                                  maximumLength="#{bindings.SiteId.hints.precision}"
+                                  shortDesc="#{bindings.SiteId.hints.tooltip}" id="it5" autoSubmit="true">
+                        <f:validator binding="#{bindings.SiteId.validator}"/>
+                    </af:inputText>
                     <af:inputText value="#{bindings.SiteDesc.inputValue}" label="#{bindings.SiteDesc.hints.label}"
                                   required="#{bindings.SiteDesc.hints.mandatory}"
                                   columns="#{bindings.SiteDesc.hints.displayWidth}"

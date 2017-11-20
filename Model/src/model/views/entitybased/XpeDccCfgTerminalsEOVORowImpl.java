@@ -240,7 +240,11 @@ public class XpeDccCfgTerminalsEOVORowImpl extends ViewRowImpl {
      * @param value value to set the TERMINAL_DESC
      */
     public void setTerminalDesc(String value) {
-        setAttributeInternal(TERMINALDESC, value);
+        if (null != value) {
+            setAttributeInternal(TERMINALDESC, value.toUpperCase());
+        } else {
+            setAttributeInternal(TERMINALDESC, value);
+        }
     }
 
     /**

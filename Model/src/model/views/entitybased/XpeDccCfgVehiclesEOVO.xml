@@ -233,7 +233,7 @@
       <ViewCriteriaItem
         Name="VehicleId"
         ViewAttribute="VehicleId"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bind_VehicleId"
         IsBindVarValue="true"
@@ -241,7 +241,7 @@
       <ViewCriteriaItem
         Name="VehicleType"
         ViewAttribute="VehicleType"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bind_VehicleType"
         IsBindVarValue="true"
@@ -249,7 +249,7 @@
       <ViewCriteriaItem
         Name="VehicleDesc"
         ViewAttribute="VehicleDesc"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bind_VehicleDesc"
         IsBindVarValue="true"

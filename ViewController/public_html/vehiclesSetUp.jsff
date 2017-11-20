@@ -100,7 +100,8 @@
                           required="#{bindings.VehicleDesc.hints.mandatory}"
                           columns="#{bindings.VehicleDesc.hints.displayWidth}"
                           maximumLength="#{bindings.VehicleDesc.hints.precision}"
-                          shortDesc="#{bindings.VehicleDesc.hints.tooltip}" id="it2" autoSubmit="true">
+                          shortDesc="#{bindings.VehicleDesc.hints.tooltip}" id="it2" autoSubmit="true"
+                          contentStyle="text-transform:uppercase;">
               <f:validator binding="#{bindings.VehicleDesc.validator}"/>
             </af:inputText>
             <af:panelLabelAndMessage label="#{bindings.RequireTrailer.label}" id="plam3">
@@ -145,7 +146,8 @@
                           required="#{bindings.VehicleDesc1.hints.mandatory}"
                           columns="#{bindings.VehicleDesc1.hints.displayWidth}"
                           maximumLength="#{bindings.VehicleDesc1.hints.precision}"
-                          shortDesc="#{bindings.VehicleDesc1.hints.tooltip}" id="it4">
+                          shortDesc="#{bindings.VehicleDesc1.hints.tooltip}" id="it4"
+                          contentStyle="text-transform:uppercase;">
               <f:validator binding="#{bindings.VehicleDesc1.validator}"/>
             </af:inputText>
             <af:panelLabelAndMessage label="#{bindings.RequireTrailer1.label}" id="plam4">

@@ -40,7 +40,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_TERMINALS">
+    TableName="XPE_DCC_CFG_TERMINALS"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="45"/>
     </DesignTime>
@@ -52,7 +53,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_TERMINALS">
+    TableName="XPE_DCC_CFG_TERMINALS"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="3"/>
     </DesignTime>
@@ -76,7 +78,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_TERMINALS">
+    TableName="XPE_DCC_CFG_TERMINALS"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="3"/>
     </DesignTime>
@@ -160,6 +163,18 @@
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <Key
+    Name="XpeDccCfgTerminalsCountyCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"COUNTY" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_TERMINALS_COUNTY_C"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgTerminalsEO.County"/>
+    </AttrArray>
+  </Key>
+  <Key
     Name="XpeDccCfgTerminalsPk"
     PrimaryKey="true">
     <DesignTime>
@@ -167,6 +182,30 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.entities.XpeDccCfgTerminalsEO.TerminalId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgTerminalsTerminalDescCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"TERMINAL_DESC" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_TERMINALS_TERMINAL"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgTerminalsEO.TerminalDesc"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgTerminalsTerminalTypeCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"TERMINAL_TYPE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_TERMINALS_TERMINAL"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgTerminalsEO.TerminalType"/>
     </AttrArray>
   </Key>
 </Entity>

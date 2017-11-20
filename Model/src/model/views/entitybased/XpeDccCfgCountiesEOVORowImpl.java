@@ -111,7 +111,11 @@ public class XpeDccCfgCountiesEOVORowImpl extends ViewRowImpl {
      * @param value value to set the COUNTY_NAME
      */
     public void setCountyName(String value) {
-        setAttributeInternal(COUNTYNAME, value);
+        if (null != value) {
+            setAttributeInternal(COUNTYNAME, value.toUpperCase());
+        } else {
+            setAttributeInternal(COUNTYNAME, value);
+        }
     }
 
     /**

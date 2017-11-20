@@ -8,11 +8,6 @@
               id="XpeDccCfgNewPcsshortnamesEOVOIterator"/>
   </executables>
   <bindings>
-    <attributeValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" id="PcsshortnameId">
-      <AttrNames>
-        <Item Value="PcsshortnameId"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" id="PcsshortName">
       <AttrNames>
         <Item Value="PcsshortName"/>
@@ -97,5 +92,10 @@
     <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
     <listOfValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" StaticList="false" Uses="LOV_BillCycleId"
                   id="BillCycleId"/>
+    <attributeValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" id="PcsshortnameId">
+      <AttrNames>
+        <Item Value="PcsshortnameId"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

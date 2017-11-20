@@ -40,7 +40,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_CARRIERS">
+    TableName="XPE_DCC_CFG_CARRIERS"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="45"/>
     </DesignTime>
@@ -52,7 +53,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_CARRIERS">
+    TableName="XPE_DCC_CFG_CARRIERS"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="5"/>
     </DesignTime>
@@ -115,6 +117,18 @@
     ColumnType="TIMESTAMP"
     TableName="XPE_DCC_CFG_CARRIERS"/>
   <Key
+    Name="XpeDccCfgCarriersCarrierNameCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"CARRIER_NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_CARRIERS_CARRIER_N"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgCarriersEO.CarrierName"/>
+    </AttrArray>
+  </Key>
+  <Key
     Name="XpeDccCfgCarriersPk"
     PrimaryKey="true">
     <DesignTime>
@@ -122,6 +136,18 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.entities.XpeDccCfgCarriersEO.CarrierId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgCarriersStateCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"STATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_CARRIERS_STATE_CHE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgCarriersEO.State"/>
     </AttrArray>
   </Key>
 </Entity>

@@ -36,10 +36,6 @@
     Kind="viewcriteria"
     Type="java.lang.String"/>
   <Variable
-    Name="bind_OperatingUnit"
-    Kind="viewcriteria"
-    Type="java.lang.String"/>
-  <Variable
     Name="bind_ProductService"
     Kind="viewcriteria"
     Type="java.lang.String"/>
