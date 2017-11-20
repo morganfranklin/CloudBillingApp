@@ -20,6 +20,8 @@ import model.common.AppModule;
 
 import model.utils.EmailUtils;
 
+import org.apache.commons.codec.binary.Base64;
+
 import model.views.entitybased.XpeDccCfgBusinessunitEOVOImpl;
 import model.views.entitybased.XpeDccCfgCarriersEOVOImpl;
 import model.views.entitybased.XpeDccCfgCmtmntFacilityEOVOImpl;
@@ -1872,13 +1874,13 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                                                                           "").append("<br><br>");
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_14/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_15/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(uuId).append("&").append("action=").append("ACCEPT").append("&").append("user=").append(userType);
         html.append("\"><b>Accept</b></a>");
         html.append("&nbsp;&nbsp;&nbsp;");
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_14/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_15/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(uuId).append("&").append("action=").append("REJECT").append("&").append("user=").append(userType);
         html.append("\"><b>Reject</b></a>");
         html.append("</p>");
@@ -2189,9 +2191,32 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                         this.getXpeDccWfActionROVO().setbind_ActionStatus("A");
                         this.getXpeDccWfActionROVO().executeQuery();
                         Long rowCount = this.getXpeDccWfActionROVO().getEstimatedRowCount();
-                        if (rowCount.intValue() == 1) {
+                        if (rowCount.intValue() == 1 && null != rows && rows.length > 0) {
+                            XpeDccContractVersionViewRowImpl contractVersionViewRow = (XpeDccContractVersionViewRowImpl) rows[0];
+                            XpeDccContractLineViewRowImpl xpeDccContractLineViewRow =
+                                (XpeDccContractLineViewRowImpl) contractVersionViewRow.getXpeDccContractLineView().first();
 
+                            String wasteType = contractVersionViewRow.getXpeWasteType();
+                            String contractSubType = contractVersionViewRow.getXpeContractSubType();
 
+                            if (null != wasteType && null != contractSubType && "MSW".equals(wasteType) &&
+                                "SPT".equals(contractSubType)) {
+                                XpeDccCfgMswFacilityEOVOImpl xpeDccCfgMswFacilityEOVO = this.getXpeDccCfgMswFacilityEOVO1();
+                                xpeDccCfgMswFacilityEOVO.executeEmptyRowSet();
+                                xpeDccCfgMswFacilityEOVO.setApplyViewCriteriaName("findByFacilityId");
+                                xpeDccCfgMswFacilityEOVO.setbind_FacilityId(xpeDccContractLineViewRow.getXpeFacility());
+                                xpeDccCfgMswFacilityEOVO.executeQuery();
+                                XpeDccCfgMswFacilityEOVORowImpl xpeDccCfgMswFacilityEOVORow =
+                                    (XpeDccCfgMswFacilityEOVORowImpl) xpeDccCfgMswFacilityEOVO.first();
+                                if (null != xpeDccCfgMswFacilityEOVORow) {
+                                    //(assuming you have a ResultSet named RS)
+                                    BlobDomain signatureBlob = xpeDccCfgMswFacilityEOVORow.getGeneralManagerSignature();
+                                    if (null != signatureBlob && (int) signatureBlob.getLength() > 0) {
+                                        byte[] signatureBlobAsEncodedBytes = Base64.encodeBase64(signatureBlob.getBytes(1, (int)signatureBlob.getLength()));
+                                        xmlBuilder.append("<IMAGE_ELEMENT>").append(signatureBlobAsEncodedBytes).append("</IMAGE_ELEMENT>");
+                                    } 
+                                }
+                            }
                         }
                     }
                 }
