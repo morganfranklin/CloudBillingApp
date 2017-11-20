@@ -26,6 +26,8 @@ public class XpeDccNewContractsEOVORowImpl extends ViewRowImpl {
         XpeContractDesc,
         XpeContractId,
         XpeDccPcsname,
+        CustContractApproverEmail,
+        CustContractContactName,
         XpeDccContractVersionView;
         static AttributesEnum[] vals = null;
         ;
@@ -59,6 +61,8 @@ public class XpeDccNewContractsEOVORowImpl extends ViewRowImpl {
     public static final int XPECONTRACTDESC = AttributesEnum.XpeContractDesc.index();
     public static final int XPECONTRACTID = AttributesEnum.XpeContractId.index();
     public static final int XPEDCCPCSNAME = AttributesEnum.XpeDccPcsname.index();
+    public static final int CUSTCONTRACTAPPROVEREMAIL = AttributesEnum.CustContractApproverEmail.index();
+    public static final int CUSTCONTRACTCONTACTNAME = AttributesEnum.CustContractContactName.index();
     public static final int XPEDCCCONTRACTVERSIONVIEW = AttributesEnum.XpeDccContractVersionView.index();
 
     /**
@@ -185,6 +189,38 @@ public class XpeDccNewContractsEOVORowImpl extends ViewRowImpl {
      */
     public void setXpeDccPcsname(String value) {
         setAttributeInternal(XPEDCCPCSNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for CUST_CONTRACT_APPROVER_EMAIL using the alias name CustContractApproverEmail.
+     * @return the CUST_CONTRACT_APPROVER_EMAIL
+     */
+    public String getCustContractApproverEmail() {
+        return (String) getAttributeInternal(CUSTCONTRACTAPPROVEREMAIL);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for CUST_CONTRACT_APPROVER_EMAIL using the alias name CustContractApproverEmail.
+     * @param value value to set the CUST_CONTRACT_APPROVER_EMAIL
+     */
+    public void setCustContractApproverEmail(String value) {
+        setAttributeInternal(CUSTCONTRACTAPPROVEREMAIL, value);
+    }
+
+    /**
+     * Gets the attribute value for CUST_CONTRACT_CONTACT_NAME using the alias name CustContractContactName.
+     * @return the CUST_CONTRACT_CONTACT_NAME
+     */
+    public String getCustContractContactName() {
+        return (String) getAttributeInternal(CUSTCONTRACTCONTACTNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for CUST_CONTRACT_CONTACT_NAME using the alias name CustContractContactName.
+     * @param value value to set the CUST_CONTRACT_CONTACT_NAME
+     */
+    public void setCustContractContactName(String value) {
+        setAttributeInternal(CUSTCONTRACTCONTACTNAME, value);
     }
 
     /**

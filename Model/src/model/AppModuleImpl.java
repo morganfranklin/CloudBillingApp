@@ -1782,8 +1782,9 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         if (EmailUtils.sendEmail(xpeDccWfActionEOVORow.getXpeApproverEmail(),
                                  buildEmailBody(xpeDccWfActionEOVORow.getXpeUuid(), contractId, contractVersion,userType),
                                  bytes)) {
-            xpeDccWfActionEOVORow.setXpeActionStatus("P");
-        }
+            xpeDccWfActionEOVORow.setXpeActionStatus("P");//P - Pending
+        }else
+            xpeDccWfActionEOVORow.setXpeActionStatus("W");//W - Waiting
     }
 
     public String pushEmailForApproval(byte[] bytes, String contractId, String contractVersion) {
@@ -2058,18 +2059,26 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                 this.getXpeDccWfEventEOVO().insertRow(approvalWFEventExternalRow);
 
                 if (null != approvalWFEventExternalRow && null != approvalWFEventExternalRow.getXpeEventNumber()) {
-                    //creating External Approval Work Flow Action
-                    XpeDccWfActionEOVORowImpl xpeDccWfActionEOVORow = (XpeDccWfActionEOVORowImpl) approvalWFEventExternalRow.getXpeDccWfActionEOVO().createRow();
-                    xpeDccWfActionEOVORow.setXpeContractId(approvalWFEventExternalRow.getXpeContractId());
-                    xpeDccWfActionEOVORow.setXpeContractVersion(approvalWFEventExternalRow.getXpeContractVersion());
-                    xpeDccWfActionEOVORow.setXpeUuid(UUID.randomUUID().toString());
-                    //Need to set customer email Id
-                    xpeDccWfActionEOVORow.setXpeApproverEmail("");
-                    approvalWFEventExternalRow.getXpeDccWfActionEOVO().insertRow(xpeDccWfActionEOVORow);
-                    this.pushEmailForApproval(xpeDccWfActionEOVORow, bytes,
-                                              xpeDccWfActionEOVORow.getXpeContractId(),
-                                              xpeDccWfActionEOVORow.getXpeContractVersion(),
-                                              "E"); //E - External User
+                    XpeDccNewContractsEOVOImpl contractView = this.getXpeDccNewContractsEOVO();
+                    contractView.executeEmptyRowSet();
+                    contractView.setApplyViewCriteriaName("FetchExtContractCriteria");
+                    contractView.setbind_ContractId(approvalWFEventRow.getXpeContractId());
+                    contractView.executeQuery();
+                    XpeDccNewContractsEOVORowImpl xpeDccNewContractsEOVORow = (XpeDccNewContractsEOVORowImpl) contractView.first();
+                    if(null!=xpeDccNewContractsEOVORow){
+                        //creating External Approval Work Flow Action
+                        XpeDccWfActionEOVORowImpl xpeDccWfActionEOVORow = (XpeDccWfActionEOVORowImpl) approvalWFEventExternalRow.getXpeDccWfActionEOVO().createRow();
+                        xpeDccWfActionEOVORow.setXpeContractId(approvalWFEventExternalRow.getXpeContractId());
+                        xpeDccWfActionEOVORow.setXpeContractVersion(approvalWFEventExternalRow.getXpeContractVersion());
+                        xpeDccWfActionEOVORow.setXpeUuid(UUID.randomUUID().toString());
+                        //setting customer email Id to push email notification
+                        xpeDccWfActionEOVORow.setXpeApproverEmail(xpeDccNewContractsEOVORow.getCustContractApproverEmail());
+                        approvalWFEventExternalRow.getXpeDccWfActionEOVO().insertRow(xpeDccWfActionEOVORow);
+                        this.pushEmailForApproval(xpeDccWfActionEOVORow, bytes,
+                                                  xpeDccWfActionEOVORow.getXpeContractId(),
+                                                  xpeDccWfActionEOVORow.getXpeContractVersion(),
+                                                  "E"); //E - External User   
+                    }
                 }
             } else if ("E".equals(userType)) { //E - External User
                 updateContractVersionStatus(approvalWFEventRow, "APR");

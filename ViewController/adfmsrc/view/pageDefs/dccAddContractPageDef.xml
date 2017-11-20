@@ -147,5 +147,15 @@
     <action IterBinding="XpeDccContractLineView2Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
     <action IterBinding="XpeDccContractLineView2Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
     <action IterBinding="XpeDccContractLineView2Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <attributeValues IterBinding="XpeDccContractsView1Iterator" id="CustContractContactName">
+      <AttrNames>
+        <Item Value="CustContractContactName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccContractsView1Iterator" id="CustContractApproverEmail">
+      <AttrNames>
+        <Item Value="CustContractApproverEmail"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

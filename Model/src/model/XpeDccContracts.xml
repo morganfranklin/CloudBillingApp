@@ -105,6 +105,42 @@
             <Attr Name="_DisplaySize" Value="50"/>
         </DesignTime>
     </Attribute>
+    <Attribute
+        Name="CustContractContactName"
+        Precision="50"
+        ColumnName="CUST_CONTRACT_CONTACT_NAME"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="XPE_DCC_CONTRACTS">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="50"/>
+        </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContracts.CustContractContactName_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </Attribute>
+    <Attribute
+        Name="CustContractApproverEmail"
+        Precision="50"
+        ColumnName="CUST_CONTRACT_APPROVER_EMAIL"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="XPE_DCC_CONTRACTS">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="50"/>
+        </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContracts.CustContractApproverEmail_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </Attribute>
     <AccessorAttribute
       Name="XpeDccContractParty"
       Association="model.XpeDccContractPartyFk1Assoc"
@@ -136,4 +172,8 @@
             <Item Value="model.XpeDccContracts.XpeContractId"/>
         </AttrArray>
     </Key>
+    <ResourceBundle>
+        <PropertiesBundle
+            PropertiesFile="model.ModelBundle"/>
+    </ResourceBundle>
 </Entity>

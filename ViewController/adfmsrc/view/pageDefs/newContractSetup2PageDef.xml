@@ -18,6 +18,8 @@
               id="XpeDccNewContractCustomerSearchROVOIterator" ChangeEventPolicy="none"/>
     <iterator Binds="XpeDccContractSearchROVO" RangeSize="10" DataControl="AppModuleDataControl"
               id="XpeDccContractSearchROVOIterator"/>
+    <iterator Binds="XpeDccNewContractsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccNewContractsEOVOIterator"/>
   </executables>
   <bindings>
     <list IterBinding="XpeDccNewContractVersionViewIterator" StaticList="false" Uses="LOV_XpeWasteType"
@@ -150,5 +152,15 @@
     </attributeValues>
     <list IterBinding="XpeDccNewContractNotesViewIterator" StaticList="false" Uses="LOV_XpeNoteType" id="XpeNoteType"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccNewContractsEOVOIterator" id="CustContractContactName">
+      <AttrNames>
+        <Item Value="CustContractContactName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractsEOVOIterator" id="CustContractApproverEmail">
+      <AttrNames>
+        <Item Value="CustContractApproverEmail"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

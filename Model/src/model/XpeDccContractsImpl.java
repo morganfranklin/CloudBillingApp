@@ -22,11 +22,12 @@ public class XpeDccContractsImpl extends EntityImpl {
         CreatedBy,
         CurrencyCd,
         XpeDccPcsname,
+        CustContractContactName,
+        CustContractApproverEmail,
         XpeDccContractParty,
         XpeDccContractVersion,
         XpeDccPlatformEvent;
-        static AttributesEnum[] vals = null;
-        ;
+        private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -57,6 +58,8 @@ public class XpeDccContractsImpl extends EntityImpl {
     public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
     public static final int CURRENCYCD = AttributesEnum.CurrencyCd.index();
     public static final int XPEDCCPCSNAME = AttributesEnum.XpeDccPcsname.index();
+    public static final int CUSTCONTRACTCONTACTNAME = AttributesEnum.CustContractContactName.index();
+    public static final int CUSTCONTRACTAPPROVEREMAIL = AttributesEnum.CustContractApproverEmail.index();
     public static final int XPEDCCCONTRACTPARTY = AttributesEnum.XpeDccContractParty.index();
     public static final int XPEDCCCONTRACTVERSION = AttributesEnum.XpeDccContractVersion.index();
     public static final int XPEDCCPLATFORMEVENT = AttributesEnum.XpeDccPlatformEvent.index();

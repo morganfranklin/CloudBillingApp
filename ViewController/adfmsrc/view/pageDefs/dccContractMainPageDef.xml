@@ -117,5 +117,15 @@
         </attributeValues>
         <list IterBinding="XpeDccContractsView1Iterator" StaticList="false" Uses="LOV_XpeDccPcsname"
               id="XpeDccPcsname" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+        <attributeValues IterBinding="XpeDccContractsView1Iterator" id="CustContractContactName">
+            <AttrNames>
+                <Item Value="CustContractContactName"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccContractsView1Iterator" id="CustContractApproverEmail">
+            <AttrNames>
+                <Item Value="CustContractApproverEmail"/>
+            </AttrNames>
+        </attributeValues>
     </bindings>
 </pageDefinition>

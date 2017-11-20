@@ -17,7 +17,9 @@
        XpeDccContracts.CURRENCY_CD, 
        PsCustomer.NAME1, 
        PsCustomer.ROWID, 
-       XpeDccContracts.XPE_DCC_PCSNAME"
+       XpeDccContracts.XPE_DCC_PCSNAME, 
+       XpeDccContracts.CUST_CONTRACT_APPROVER_EMAIL, 
+       XpeDccContracts.CUST_CONTRACT_CONTACT_NAME"
     FromList="XPE_DCC_CONTRACTS XpeDccContracts, PS_CUSTOMER PsCustomer"
     RowClass="model.XpeDccContractsViewRowImpl"
     ComponentClass="model.XpeDccContractsViewImpl">
@@ -229,6 +231,19 @@
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>
+    <ViewAttribute
+        Name="CustContractApproverEmail"
+        IsNotNull="true"
+        PrecisionRule="true"
+        EntityAttrName="CustContractApproverEmail"
+        EntityUsage="XpeDccContracts"
+        AliasName="CUST_CONTRACT_APPROVER_EMAIL"/>
+    <ViewAttribute
+        Name="CustContractContactName"
+        PrecisionRule="true"
+        EntityAttrName="CustContractContactName"
+        EntityUsage="XpeDccContracts"
+        AliasName="CUST_CONTRACT_CONTACT_NAME"/>
     <ViewLinkAccessor
         Name="XpeDccContractPartyView"
         ViewLink="model.XpeDccContractPartyFk1Link"

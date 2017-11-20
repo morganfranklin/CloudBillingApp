@@ -77,6 +77,19 @@
     EntityAttrName="XpeDccPcsname"
     EntityUsage="XpeDccContracts"
     AliasName="XPE_DCC_PCSNAME"/>
+  <ViewAttribute
+    Name="CustContractApproverEmail"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CustContractApproverEmail"
+    EntityUsage="XpeDccContracts"
+    AliasName="CUST_CONTRACT_APPROVER_EMAIL"/>
+  <ViewAttribute
+    Name="CustContractContactName"
+    PrecisionRule="true"
+    EntityAttrName="CustContractContactName"
+    EntityUsage="XpeDccContracts"
+    AliasName="CUST_CONTRACT_CONTACT_NAME"/>
   <ViewCriteria
     Name="NewContractsEmptyCriteria"
     ViewObjectName="model.views.entitybased.XpeDccNewContractsEOVO"

@@ -294,6 +294,28 @@
                                     </af:selectOneRadio>
                                 </af:gridCell>
                             </af:gridRow>
+                            <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr9">
+                                <af:gridCell marginStart="5px" marginEnd="5px" id="gc8" width="100%" halign="stretch"
+                                             valign="stretch">
+                                    <af:inputText value="#{bindings.CustContractContactName.inputValue}"
+                                                  label="#{bindings.CustContractContactName.hints.label}"
+                                                  required="#{bindings.CustContractContactName.hints.mandatory}"
+                                                  columns="#{bindings.CustContractContactName.hints.displayWidth}"
+                                                  maximumLength="#{bindings.CustContractContactName.hints.precision}"
+                                                  shortDesc="#{bindings.CustContractContactName.hints.tooltip}"
+                                                  id="it1">
+                                        <f:validator binding="#{bindings.CustContractContactName.validator}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.CustContractApproverEmail.inputValue}"
+                                                  label="#{bindings.CustContractApproverEmail.hints.label}"
+                                                  columns="#{bindings.CustContractApproverEmail.hints.displayWidth}"
+                                                  maximumLength="#{bindings.CustContractApproverEmail.hints.precision}"
+                                                  shortDesc="#{bindings.CustContractApproverEmail.hints.tooltip}"
+                                                  id="it4" required="true">
+                                        <f:validator binding="#{bindings.CustContractApproverEmail.validator}"/>
+                                    </af:inputText>
+                                </af:gridCell>
+                            </af:gridRow>
                             <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr8">
                                 <af:gridCell marginStart="5px" marginEnd="5px" id="gc7" width="100%" halign="stretch"
                                              valign="stretch">

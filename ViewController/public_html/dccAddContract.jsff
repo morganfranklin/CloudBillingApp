@@ -33,6 +33,22 @@
                         </af:inputListOfValues>
                         <af:outputText value="#{bindings.Name1.inputValue}" shortDesc="#{bindings.Name1.hints.tooltip}"
                                        partialTriggers="custIdId" id="ot1"/>
+                        <af:inputText value="#{bindings.CustContractContactName.inputValue}"
+                                      label="#{bindings.CustContractContactName.hints.label}"
+                                      required="#{bindings.CustContractContactName.hints.mandatory}"
+                                      columns="#{bindings.CustContractContactName.hints.displayWidth}"
+                                      maximumLength="#{bindings.CustContractContactName.hints.precision}"
+                                      shortDesc="#{bindings.CustContractContactName.hints.tooltip}" id="it3">
+                            <f:validator binding="#{bindings.CustContractContactName.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.CustContractApproverEmail.inputValue}"
+                                      label="#{bindings.CustContractApproverEmail.hints.label}"
+                                      columns="#{bindings.CustContractApproverEmail.hints.displayWidth}"
+                                      maximumLength="#{bindings.CustContractApproverEmail.hints.precision}"
+                                      shortDesc="#{bindings.CustContractApproverEmail.hints.tooltip}" id="it4"
+                                      required="true">
+                            <f:validator binding="#{bindings.CustContractApproverEmail.validator}"/>
+                        </af:inputText>
                         <af:inputText value="#{bindings.XpeContractVersion.inputValue}"
                                       label="#{bindings.XpeContractVersion.hints.label}"
                                       required="#{bindings.XpeContractVersion.hints.mandatory}"
