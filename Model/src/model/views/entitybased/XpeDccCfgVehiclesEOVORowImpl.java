@@ -123,7 +123,11 @@ public class XpeDccCfgVehiclesEOVORowImpl extends ViewRowImpl {
      * @param value value to set the VEHICLE_DESC
      */
     public void setVehicleDesc(String value) {
-        setAttributeInternal(VEHICLEDESC, value);
+        if (null != value) {
+            setAttributeInternal(VEHICLEDESC, value.toUpperCase());
+        } else {
+            setAttributeInternal(VEHICLEDESC, value);
+        }
     }
 
     /**

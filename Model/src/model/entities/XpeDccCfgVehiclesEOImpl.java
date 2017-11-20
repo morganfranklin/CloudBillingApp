@@ -47,6 +47,7 @@ public class XpeDccCfgVehiclesEOImpl extends EntityImpl {
             return vals;
         }
     }
+
     public static final int VEHICLEID = AttributesEnum.VehicleId.index();
     public static final int VEHICLETYPE = AttributesEnum.VehicleType.index();
     public static final int VEHICLEDESC = AttributesEnum.VehicleDesc.index();
@@ -79,10 +80,11 @@ public class XpeDccCfgVehiclesEOImpl extends EntityImpl {
     public static synchronized EntityDefImpl getDefinitionObject() {
         return EntityDefImpl.findDefObject("model.entities.XpeDccCfgVehiclesEO");
     }
-    
+
+
     protected String nextVal(String sequenceName) {
         SequenceImpl s = new SequenceImpl(sequenceName, getDBTransaction());
-        return "V"+s.getSequenceNumber().toString();
+        return s.getSequenceNumber().toString();
     }
 }
 

@@ -40,7 +40,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_DESTINATIONS">
+    TableName="XPE_DCC_CFG_DESTINATIONS"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="45"/>
     </DesignTime>
@@ -52,7 +53,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_DESTINATIONS">
+    TableName="XPE_DCC_CFG_DESTINATIONS"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="3"/>
     </DesignTime>
@@ -122,6 +124,18 @@
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <Key
+    Name="XpeDccCfgDestinationsDestinationDescCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"DESTINATION_DESC" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_DESTINATIONS_DESTI"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgDestinationsEO.DestinationDesc"/>
+    </AttrArray>
+  </Key>
+  <Key
     Name="XpeDccCfgDestinationsPk"
     PrimaryKey="true">
     <DesignTime>
@@ -129,6 +143,18 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.entities.XpeDccCfgDestinationsEO.DestinationId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgDestinationsStateCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"STATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_DESTINATIONS_STATE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgDestinationsEO.State"/>
     </AttrArray>
   </Key>
 </Entity>

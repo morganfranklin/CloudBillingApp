@@ -17,7 +17,8 @@
                       required="#{bindings.PcsshortName.hints.mandatory}"
                       columns="#{bindings.PcsshortName.hints.displayWidth}"
                       maximumLength="#{bindings.PcsshortName.hints.precision}"
-                      shortDesc="#{bindings.PcsshortName.hints.tooltip}" id="it1">
+                      shortDesc="#{bindings.PcsshortName.hints.tooltip}" id="it1"
+                      contentStyle="text-transform:uppercase;">
           <f:validator binding="#{bindings.PcsshortName.validator}"/>
         </af:inputText>
         <af:inputText value="#{bindings.AccountClass.inputValue}" label="#{bindings.AccountClass.hints.label}"

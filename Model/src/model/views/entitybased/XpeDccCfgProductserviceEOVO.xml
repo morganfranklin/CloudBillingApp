@@ -549,7 +549,7 @@
       <ViewCriteriaItem
         Name="ItemId"
         ViewAttribute="ItemId"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bind_ItemId"
         IsBindVarValue="true"

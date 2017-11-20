@@ -90,7 +90,7 @@ public class XpeDccCfgOriginsEOImpl extends EntityImpl {
 
     protected String nextVal(String sequenceName) {
         SequenceImpl s = new SequenceImpl(sequenceName, getDBTransaction());
-        return "O"+s.getSequenceNumber().toString();
+        return s.getSequenceNumber().toString();
     }
 
 }

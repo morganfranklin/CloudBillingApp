@@ -34,10 +34,6 @@
     Kind="viewcriteria"
     Type="java.lang.String"/>
   <Variable
-    Name="bind_FacilityId"
-    Kind="viewcriteria"
-    Type="java.lang.String"/>
-  <Variable
     Name="bind_PrintStage"
     Kind="viewcriteria"
     Type="java.lang.String"/>
@@ -332,7 +328,7 @@
       <ViewCriteriaItem
         Name="SiteId"
         ViewAttribute="SiteId"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bind_SiteId"
         IsBindVarValue="true"
@@ -340,7 +336,7 @@
       <ViewCriteriaItem
         Name="SiteDesc"
         ViewAttribute="SiteDesc"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bind_SiteDesc"
         IsBindVarValue="true"

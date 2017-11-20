@@ -485,6 +485,8 @@ where XpeDccCfgPcsshortnamesEO.COV_ID = A.CUST_ID(+)]]></SQLQuery>
                   Value="true"/>
                 <CONTROLTYPE
                   Value="input_text_lov"/>
+                <DISPLAYWIDTH
+                    Value="5"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>
@@ -521,6 +523,8 @@ where XpeDccCfgPcsshortnamesEO.COV_ID = A.CUST_ID(+)]]></SQLQuery>
                   Value="true"/>
                 <CONTROLTYPE
                   Value="input_text_lov"/>
+                <DISPLAYWIDTH
+                    Value="5"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>
@@ -775,7 +779,7 @@ where XpeDccCfgPcsshortnamesEO.COV_ID = A.CUST_ID(+)]]></SQLQuery>
             <ViewCriteriaItem
               Name="PcsshortnameId"
               ViewAttribute="PcsshortnameId"
-              Operator="="
+                Operator="CONTAINS"
               Conjunction="AND"
               Value=":bind_PcsShortNameId"
               IsBindVarValue="true"
@@ -783,7 +787,7 @@ where XpeDccCfgPcsshortnamesEO.COV_ID = A.CUST_ID(+)]]></SQLQuery>
             <ViewCriteriaItem
               Name="PcsshortName"
               ViewAttribute="PcsshortName"
-              Operator="="
+                Operator="CONTAINS"
               Conjunction="AND"
               Value=":bind_PcsShortName"
               IsBindVarValue="true"

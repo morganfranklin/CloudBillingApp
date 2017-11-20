@@ -290,7 +290,7 @@
       <ViewCriteriaItem
         Name="NotificationId"
         ViewAttribute="NotificationId"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bind_NotificationId"
         IsBindVarValue="true"
@@ -298,7 +298,7 @@
       <ViewCriteriaItem
         Name="NotificationName"
         ViewAttribute="NotificationName"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bind_NotificationName"
         IsBindVarValue="true"
@@ -306,7 +306,7 @@
       <ViewCriteriaItem
         Name="CreditUtilization"
         ViewAttribute="CreditUtilization"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bind_CreditUtilization"
         IsBindVarValue="true"
@@ -314,7 +314,7 @@
       <ViewCriteriaItem
         Name="NotificationTopic"
         ViewAttribute="NotificationTopic"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bind_NotificationTopic"
         IsBindVarValue="true"

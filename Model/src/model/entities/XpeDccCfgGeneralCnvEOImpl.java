@@ -89,7 +89,7 @@ public class XpeDccCfgGeneralCnvEOImpl extends EntityImpl {
 
     protected String nextVal(String sequenceName) {
         SequenceImpl s = new SequenceImpl(sequenceName, getDBTransaction());
-        return "GCNV"+s.getSequenceNumber().toString();
+        return s.getSequenceNumber().toString();
     }
 }
 

@@ -201,7 +201,11 @@ public class XpeDccCfgOriginsEOVORowImpl extends ViewRowImpl {
      * @param value value to set the ORIGIN_DESC
      */
     public void setOriginDesc(String value) {
-        setAttributeInternal(ORIGINDESC, value);
+        if (null != value) {
+            setAttributeInternal(ORIGINDESC, value.toUpperCase());
+        } else {
+            setAttributeInternal(ORIGINDESC, value);
+        }
     }
 
     /**

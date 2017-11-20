@@ -46,6 +46,7 @@ public class XpeDccCfgCarriersEOImpl extends EntityImpl {
             return vals;
         }
     }
+
     public static final int CARRIERID = AttributesEnum.CarrierId.index();
     public static final int CARRIERNAME = AttributesEnum.CarrierName.index();
     public static final int STATE = AttributesEnum.State.index();
@@ -77,10 +78,11 @@ public class XpeDccCfgCarriersEOImpl extends EntityImpl {
     public static synchronized EntityDefImpl getDefinitionObject() {
         return EntityDefImpl.findDefObject("model.entities.XpeDccCfgCarriersEO");
     }
-    
+
+
     protected String nextVal(String sequenceName) {
         SequenceImpl s = new SequenceImpl(sequenceName, getDBTransaction());
-        return "C"+s.getSequenceNumber().toString();
+        return s.getSequenceNumber().toString();
     }
 }
 

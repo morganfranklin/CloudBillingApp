@@ -231,7 +231,7 @@
       <ViewCriteriaItem
         Name="XpeDccCfgCarriersEOVOCriteria_XpeDccCfgCarriersEOVOCriteria_row_0_CarrierId"
         ViewAttribute="CarrierId"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bind_CarrierId"
         IsBindVarValue="true"
@@ -239,7 +239,7 @@
       <ViewCriteriaItem
         Name="XpeDccCfgCarriersEOVOCriteria_XpeDccCfgCarriersEOVOCriteria_row_0_CarrierName"
         ViewAttribute="CarrierName"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bind_CarrierName"
         IsBindVarValue="true"

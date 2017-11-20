@@ -91,7 +91,8 @@
                                       required="#{bindings.CarrierName.hints.mandatory}"
                                       columns="#{bindings.CarrierName.hints.displayWidth}"
                                       maximumLength="#{bindings.CarrierName.hints.precision}"
-                                      shortDesc="#{bindings.CarrierName.hints.tooltip}" id="it1">
+                                      shortDesc="#{bindings.CarrierName.hints.tooltip}" id="it1"
+                                      contentStyle="text-transform:uppercase;">
                             <f:validator binding="#{bindings.CarrierName.validator}"/>
                         </af:inputText>
                         <af:panelLabelAndMessage label="#{bindings.State.label}" id="plam4">
@@ -128,7 +129,8 @@
                                       required="#{bindings.CarrierName1.hints.mandatory}"
                                       columns="#{bindings.CarrierName1.hints.displayWidth}"
                                       maximumLength="#{bindings.CarrierName1.hints.precision}"
-                                      shortDesc="#{bindings.CarrierName1.hints.tooltip}" id="it3">
+                                      shortDesc="#{bindings.CarrierName1.hints.tooltip}" id="it3"
+                                      contentStyle="text-transform:uppercase;">
                             <f:validator binding="#{bindings.CarrierName1.validator}"/>
                         </af:inputText>
                         <af:panelLabelAndMessage label="#{bindings.State1.label}" id="plam5">

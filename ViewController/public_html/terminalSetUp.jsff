@@ -106,7 +106,8 @@
                           required="#{bindings.TerminalDesc.hints.mandatory}"
                           columns="#{bindings.TerminalDesc.hints.displayWidth}"
                           maximumLength="#{bindings.TerminalDesc.hints.precision}"
-                          shortDesc="#{bindings.TerminalDesc.hints.tooltip}" id="it1">
+                          shortDesc="#{bindings.TerminalDesc.hints.tooltip}" id="it1"
+                          contentStyle="text-transform:uppercase;">
               <f:validator binding="#{bindings.TerminalDesc.validator}"/>
             </af:inputText>
             <af:inputListOfValues id="countyId" popupTitle="Search and Select: #{bindings.County.hints.label}"
@@ -159,7 +160,8 @@
                           required="#{bindings.TerminalDesc1.hints.mandatory}"
                           columns="#{bindings.TerminalDesc1.hints.displayWidth}"
                           maximumLength="#{bindings.TerminalDesc1.hints.precision}"
-                          shortDesc="#{bindings.TerminalDesc1.hints.tooltip}" id="it5">
+                          shortDesc="#{bindings.TerminalDesc1.hints.tooltip}" id="it5"
+                          contentStyle="text-transform:uppercase;">
               <f:validator binding="#{bindings.TerminalDesc1.validator}"/>
             </af:inputText>
             <af:inputListOfValues id="county1Id" popupTitle="Search and Select: #{bindings.County1.hints.label}"

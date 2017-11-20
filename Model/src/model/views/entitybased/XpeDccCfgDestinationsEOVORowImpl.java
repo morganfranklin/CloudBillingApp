@@ -131,7 +131,11 @@ public class XpeDccCfgDestinationsEOVORowImpl extends ViewRowImpl {
      * @param value value to set the DESTINATION_DESC
      */
     public void setDestinationDesc(String value) {
-        setAttributeInternal(DESTINATIONDESC, value);
+        if (null != value) {
+            setAttributeInternal(DESTINATIONDESC, value.toUpperCase());
+        } else {
+            setAttributeInternal(DESTINATIONDESC, value);
+        }
     }
 
     /**

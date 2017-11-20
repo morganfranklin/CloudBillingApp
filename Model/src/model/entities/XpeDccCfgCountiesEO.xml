@@ -33,7 +33,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_COUNTIES">
+    TableName="XPE_DCC_CFG_COUNTIES"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="45"/>
     </DesignTime>
@@ -108,6 +109,18 @@
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
     TableName="XPE_DCC_CFG_COUNTIES"/>
+  <Key
+    Name="XpeDccCfgCountiesCountyNameCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"COUNTY_NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_COUNTIES_COUNTY_NA"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgCountiesEO.CountyName"/>
+    </AttrArray>
+  </Key>
   <Key
     Name="XpeDccCfgCountiesPk"
     PrimaryKey="true">
