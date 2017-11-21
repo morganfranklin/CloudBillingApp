@@ -286,7 +286,7 @@
                                                 </af:selectOneChoice>
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractLineView.hints.XpeQtyMin.label}"
-                                                       id="c23" rendered="false">
+                                                       id="c23">
                                                 <af:inputText value="#{row.bindings.XpeQtyMin.inputValue}"
                                                               label="#{bindings.XpeDccNewContractLineView.hints.XpeQtyMin.label}"
                                                               required="#{bindings.XpeDccNewContractLineView.hints.XpeQtyMin.mandatory}"
@@ -299,7 +299,7 @@
                                                 </af:inputText>
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractLineView.hints.XpeQtyMax.label}"
-                                                       id="c24" rendered="false">
+                                                       id="c24">
                                                 <af:inputText value="#{row.bindings.XpeQtyMax.inputValue}"
                                                               label="#{bindings.XpeDccNewContractLineView.hints.XpeQtyMax.label}"
                                                               required="#{bindings.XpeDccNewContractLineView.hints.XpeQtyMax.mandatory}"
