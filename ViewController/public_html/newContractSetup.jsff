@@ -225,8 +225,7 @@
                                                               columns="#{bindings.XpeDccNewContractLineView.hints.XpeContractLine.displayWidth}"
                                                               maximumLength="#{bindings.XpeDccNewContractLineView.hints.XpeContractLine.precision}"
                                                               shortDesc="#{bindings.XpeDccNewContractLineView.hints.XpeContractLine.tooltip}"
-                                                              id="it6"
-                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                              id="it6" readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
                                                               autoSubmit="true">
                                                     <f:validator binding="#{row.bindings.XpeContractLine.validator}"/>
                                                 </af:inputText>
@@ -260,16 +259,17 @@
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractLineView.hints.XpeProductId.label}"
                                                        id="c19">
-                                                <af:selectOneChoice value="#{row.bindings.XpeProductId.inputValue}"
-                                                                    label="#{row.bindings.XpeProductId.label}"
-                                                                    required="#{bindings.XpeDccNewContractLineView.hints.XpeProductId.mandatory}"
-                                                                    shortDesc="#{bindings.XpeDccNewContractLineView.hints.XpeProductId.tooltip}"
-                                                                    id="soc7"
-                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
-                                                                    autoSubmit="true">
-                                                    <f:selectItems value="#{row.bindings.XpeProductId.items}" id="si7"/>
+                                                <af:inputListOfValues label="#{row.bindings.XpeProductId.label}"
+                                                                      popupTitle="Search and Select: #{row.bindings.XpeProductId.label}"
+                                                                      id="ilov5"
+                                                                      value="#{row.bindings.XpeProductId.inputValue}"
+                                                                      required="#{bindings.XpeDccNewContractLineView.hints.XpeProductId.mandatory}"
+                                                                      shortDesc="#{bindings.XpeDccNewContractLineView.hints.XpeProductId.tooltip}"
+                                                                      model="#{row.bindings.XpeProductId.listOfValuesModel}"
+                                                                      readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                                      autoSubmit="true">
                                                     <f:validator binding="#{row.bindings.XpeProductId.validator}"/>
-                                                </af:selectOneChoice>
+                                                </af:inputListOfValues>
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractLineView.hints.XpeProductUom.label}"
                                                        id="c20">
@@ -279,7 +279,7 @@
                                                                     shortDesc="#{bindings.XpeDccNewContractLineView.hints.XpeProductUom.tooltip}"
                                                                     id="soc8"
                                                                     readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
-                                                                    partialTriggers="soc7" autoSubmit="true">
+                                                                    partialTriggers="ilov5" autoSubmit="true">
                                                     <f:selectItems value="#{row.bindings.XpeProductUom.items}"
                                                                    id="si8"/>
                                                     <f:validator binding="#{row.bindings.XpeProductUom.validator}"/>
@@ -294,7 +294,8 @@
                                                               maximumLength="#{bindings.XpeDccNewContractLineView.hints.XpeQtyMin.precision}"
                                                               shortDesc="#{bindings.XpeDccNewContractLineView.hints.XpeQtyMin.tooltip}"
                                                               id="it15"
-                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                              autoSubmit="true">
                                                     <f:validator binding="#{row.bindings.XpeQtyMin.validator}"/>
                                                 </af:inputText>
                                             </af:column>
@@ -307,7 +308,8 @@
                                                               maximumLength="#{bindings.XpeDccNewContractLineView.hints.XpeQtyMax.precision}"
                                                               shortDesc="#{bindings.XpeDccNewContractLineView.hints.XpeQtyMax.tooltip}"
                                                               id="it16"
-                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                              autoSubmit="true">
                                                     <f:validator binding="#{row.bindings.XpeQtyMax.validator}"/>
                                                 </af:inputText>
                                             </af:column>
@@ -334,7 +336,8 @@
                                                               maximumLength="#{bindings.XpeDccNewContractLineView.hints.XpeSwApprNbr.precision}"
                                                               shortDesc="#{bindings.XpeDccNewContractLineView.hints.XpeSwApprNbr.tooltip}"
                                                               id="it17"
-                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                              autoSubmit="true">
                                                     <f:validator binding="#{row.bindings.XpeSwApprNbr.validator}"/>
                                                 </af:inputText>
                                             </af:column>
@@ -370,7 +373,8 @@
                                                               maximumLength="#{bindings.XpeDccNewContractPricingTermView.hints.XpePricingTermLine.precision}"
                                                               shortDesc="#{bindings.XpeDccNewContractPricingTermView.hints.XpePricingTermLine.tooltip}"
                                                               id="it12"
-                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                              autoSubmit="true">
                                                     <f:validator binding="#{row.bindings.XpePricingTermLine.validator}"/>
                                                 </af:inputText>
                                             </af:column>
@@ -383,7 +387,8 @@
                                                                       required="#{bindings.XpeDccNewContractPricingTermView.hints.XpePricingTermType.mandatory}"
                                                                       shortDesc="#{bindings.XpeDccNewContractPricingTermView.hints.XpePricingTermType.tooltip}"
                                                                       model="#{row.bindings.XpePricingTermType.listOfValuesModel}"
-                                                                      readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                                      readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                                      autoSubmit="true">
                                                     <f:validator binding="#{row.bindings.XpePricingTermType.validator}"/>
                                                 </af:inputListOfValues>
                                             </af:column>
@@ -396,7 +401,8 @@
                                                               maximumLength="#{bindings.XpeDccNewContractPricingTermView.hints.XpeQtyMax.precision}"
                                                               shortDesc="#{bindings.XpeDccNewContractPricingTermView.hints.XpeQtyMax.tooltip}"
                                                               id="it11"
-                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                              autoSubmit="true">
                                                     <f:validator binding="#{row.bindings.XpeQtyMax.validator}"/>
                                                     <af:convertNumber groupingUsed="false"
                                                                       pattern="#{bindings.XpeDccNewContractPricingTermView.hints.XpeQtyMax.format}"/>
@@ -411,7 +417,8 @@
                                                               maximumLength="#{bindings.XpeDccNewContractPricingTermView.hints.XpeRate.precision}"
                                                               shortDesc="#{bindings.XpeDccNewContractPricingTermView.hints.XpeRate.tooltip}"
                                                               id="it2"
-                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                              autoSubmit="true">
                                                     <f:validator binding="#{row.bindings.XpeRate.validator}"/>
                                                     <af:convertNumber groupingUsed="false"
                                                                       pattern="#{bindings.XpeDccNewContractPricingTermView.hints.XpeRate.format}"/>
@@ -424,7 +431,8 @@
                                                                     required="#{bindings.XpeDccNewContractPricingTermView.hints.XpePeriodType.mandatory}"
                                                                     shortDesc="#{bindings.XpeDccNewContractPricingTermView.hints.XpePeriodType.tooltip}"
                                                                     id="soc21"
-                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                                    autoSubmit="true">
                                                     <f:selectItems value="#{row.bindings.XpePeriodType.items}"
                                                                    id="si14"/>
                                                     <f:validator binding="#{row.bindings.XpePeriodType.validator}"/>
@@ -439,7 +447,8 @@
                                                               maximumLength="#{bindings.XpeDccNewContractPricingTermView.hints.XpePeriodNbr.precision}"
                                                               shortDesc="#{bindings.XpeDccNewContractPricingTermView.hints.XpePeriodNbr.tooltip}"
                                                               id="it24"
-                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                              autoSubmit="true">
                                                     <f:validator binding="#{row.bindings.XpePeriodNbr.validator}"/>
                                                     <af:convertNumber groupingUsed="false"
                                                                       pattern="#{bindings.XpeDccNewContractPricingTermView.hints.XpePeriodNbr.format}"/>
@@ -487,7 +496,8 @@
                                                               maximumLength="#{bindings.XpeDccNewContractPricingOverView.hints.XpeContractOverNbr.precision}"
                                                               shortDesc="#{bindings.XpeDccNewContractPricingOverView.hints.XpeContractOverNbr.tooltip}"
                                                               id="it20"
-                                                              readOnly="#{bindings.CarryForwardedPricingOver.inputValue eq 'Y'}">
+                                                              readOnly="#{bindings.CarryForwardedPricingOver.inputValue eq 'Y'}"
+                                                              autoSubmit="true">
                                                     <f:validator binding="#{row.bindings.XpeContractOverNbr.validator}"/>
                                                     <af:convertNumber groupingUsed="false"
                                                                       pattern="#{bindings.XpeDccNewContractPricingOverView.hints.XpeContractOverNbr.format}"/>
@@ -500,7 +510,8 @@
                                                                     required="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverType.mandatory}"
                                                                     shortDesc="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverType.tooltip}"
                                                                     id="soc19"
-                                                                    readOnly="#{bindings.CarryForwardedPricingOver.inputValue eq 'Y'}">
+                                                                    readOnly="#{bindings.CarryForwardedPricingOver.inputValue eq 'Y'}"
+                                                                    autoSubmit="true">
                                                     <f:selectItems value="#{row.bindings.XpeOverType.items}" id="si12"/>
                                                     <f:validator binding="#{row.bindings.XpeOverType.validator}"/>
                                                 </af:selectOneChoice>
@@ -513,7 +524,8 @@
                                                               columns="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverStart.displayWidth}"
                                                               shortDesc="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverStart.tooltip}"
                                                               id="id5"
-                                                              readOnly="#{bindings.CarryForwardedPricingOver.inputValue eq 'Y'}">
+                                                              readOnly="#{bindings.CarryForwardedPricingOver.inputValue eq 'Y'}"
+                                                              autoSubmit="true">
                                                     <f:validator binding="#{row.bindings.XpeOverStart.validator}"/>
                                                     <af:convertDateTime pattern="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverStart.format}"/>
                                                 </af:inputDate>
@@ -526,7 +538,8 @@
                                                               columns="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverEnd.displayWidth}"
                                                               shortDesc="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverEnd.tooltip}"
                                                               id="id6"
-                                                              readOnly="#{bindings.CarryForwardedPricingOver.inputValue eq 'Y'}">
+                                                              readOnly="#{bindings.CarryForwardedPricingOver.inputValue eq 'Y'}"
+                                                              autoSubmit="true">
                                                     <f:validator binding="#{row.bindings.XpeOverEnd.validator}"/>
                                                     <af:convertDateTime pattern="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverEnd.format}"/>
                                                 </af:inputDate>
@@ -538,7 +551,8 @@
                                                                     required="#{bindings.XpeDccNewContractPricingOverView.hints.XpeSourceFld.mandatory}"
                                                                     shortDesc="#{bindings.XpeDccNewContractPricingOverView.hints.XpeSourceFld.tooltip}"
                                                                     id="soc20"
-                                                                    readOnly="#{bindings.CarryForwardedPricingOver.inputValue eq 'Y'}">
+                                                                    readOnly="#{bindings.CarryForwardedPricingOver.inputValue eq 'Y'}"
+                                                                    autoSubmit="true">
                                                     <f:selectItems value="#{row.bindings.XpeSourceFld.items}"
                                                                    id="si13"/>
                                                     <f:validator binding="#{row.bindings.XpeSourceFld.validator}"/>
@@ -551,7 +565,8 @@
                                                                     required="#{bindings.XpeDccNewContractPricingOverView.hints.XpeCondition.mandatory}"
                                                                     shortDesc="#{bindings.XpeDccNewContractPricingOverView.hints.XpeCondition.tooltip}"
                                                                     id="soc22"
-                                                                    readOnly="#{bindings.CarryForwardedPricingOver.inputValue eq 'Y'}">
+                                                                    readOnly="#{bindings.CarryForwardedPricingOver.inputValue eq 'Y'}"
+                                                                    autoSubmit="true">
                                                     <f:selectItems value="#{row.bindings.XpeCondition.items}"
                                                                    id="si15"/>
                                                     <f:validator binding="#{row.bindings.XpeCondition.validator}"/>
@@ -566,7 +581,8 @@
                                                               maximumLength="#{bindings.XpeDccNewContractPricingOverView.hints.XpeCheck.precision}"
                                                               shortDesc="#{bindings.XpeDccNewContractPricingOverView.hints.XpeCheck.tooltip}"
                                                               id="it21"
-                                                              readOnly="#{bindings.CarryForwardedPricingOver.inputValue eq 'Y'}">
+                                                              readOnly="#{bindings.CarryForwardedPricingOver.inputValue eq 'Y'}"
+                                                              autoSubmit="true">
                                                     <f:validator binding="#{row.bindings.XpeCheck.validator}"/>
                                                 </af:inputText>
                                             </af:column>
@@ -577,7 +593,8 @@
                                                                     required="#{bindings.XpeDccNewContractPricingOverView.hints.XpeTargetFld.mandatory}"
                                                                     shortDesc="#{bindings.XpeDccNewContractPricingOverView.hints.XpeTargetFld.tooltip}"
                                                                     id="soc23"
-                                                                    readOnly="#{bindings.CarryForwardedPricingOver.inputValue eq 'Y'}">
+                                                                    readOnly="#{bindings.CarryForwardedPricingOver.inputValue eq 'Y'}"
+                                                                    autoSubmit="true">
                                                     <f:selectItems value="#{row.bindings.XpeTargetFld.items}"
                                                                    id="si16"/>
                                                     <f:validator binding="#{row.bindings.XpeTargetFld.validator}"/>
@@ -592,7 +609,8 @@
                                                               maximumLength="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverMsg.precision}"
                                                               shortDesc="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverMsg.tooltip}"
                                                               id="it22"
-                                                              readOnly="#{bindings.CarryForwardedPricingOver.inputValue eq 'Y'}">
+                                                              readOnly="#{bindings.CarryForwardedPricingOver.inputValue eq 'Y'}"
+                                                              autoSubmit="true">
                                                     <f:validator binding="#{row.bindings.XpeOverMsg.validator}"/>
                                                 </af:inputText>
                                             </af:column>
@@ -605,7 +623,8 @@
                                                               maximumLength="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverDesc.precision}"
                                                               shortDesc="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverDesc.tooltip}"
                                                               id="it23"
-                                                              readOnly="#{bindings.CarryForwardedPricingOver.inputValue eq 'Y'}">
+                                                              readOnly="#{bindings.CarryForwardedPricingOver.inputValue eq 'Y'}"
+                                                              autoSubmit="true">
                                                     <f:validator binding="#{row.bindings.XpeOverDesc.validator}"/>
                                                 </af:inputText>
                                             </af:column>
@@ -639,7 +658,8 @@
                                                                     required="#{bindings.XpeDccNewContractCarrierView.hints.XpeCarrierId.mandatory}"
                                                                     shortDesc="#{bindings.XpeDccNewContractCarrierView.hints.XpeCarrierId.tooltip}"
                                                                     id="soc24"
-                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                                    autoSubmit="true">
                                                     <f:selectItems value="#{row.bindings.XpeCarrierId.items}"
                                                                    id="si17"/>
                                                     <f:validator binding="#{row.bindings.XpeCarrierId.validator}"/>
@@ -652,7 +672,8 @@
                                                                     required="#{bindings.XpeDccNewContractCarrierView.hints.XpeVehicleType.mandatory}"
                                                                     shortDesc="#{bindings.XpeDccNewContractCarrierView.hints.XpeVehicleType.tooltip}"
                                                                     id="soc25"
-                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                                    autoSubmit="true">
                                                     <f:selectItems value="#{row.bindings.XpeVehicleType.items}"
                                                                    id="si18"/>
                                                     <f:validator binding="#{row.bindings.XpeVehicleType.validator}"/>
@@ -667,7 +688,8 @@
                                                               maximumLength="#{bindings.XpeDccNewContractCarrierView.hints.XpeVehicleNbr.precision}"
                                                               shortDesc="#{bindings.XpeDccNewContractCarrierView.hints.XpeVehicleNbr.tooltip}"
                                                               id="it14"
-                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                              autoSubmit="true">
                                                     <f:validator binding="#{row.bindings.XpeVehicleNbr.validator}"/>
                                                 </af:inputText>
                                             </af:column>
@@ -680,7 +702,8 @@
                                                               maximumLength="#{bindings.XpeDccNewContractCarrierView.hints.XpeRateOverride.precision}"
                                                               shortDesc="#{bindings.XpeDccNewContractCarrierView.hints.XpeRateOverride.tooltip}"
                                                               id="it18"
-                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                              autoSubmit="true">
                                                     <f:validator binding="#{row.bindings.XpeRateOverride.validator}"/>
                                                 </af:inputText>
                                             </af:column>
@@ -693,7 +716,8 @@
                                                               maximumLength="#{bindings.XpeDccNewContractCarrierView.hints.XpeSubNbr.precision}"
                                                               shortDesc="#{bindings.XpeDccNewContractCarrierView.hints.XpeSubNbr.tooltip}"
                                                               id="it1"
-                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                              autoSubmit="true">
                                                     <f:validator binding="#{row.bindings.XpeSubNbr.validator}"/>
                                                 </af:inputText>
                                             </af:column>
@@ -706,7 +730,8 @@
                                                               maximumLength="#{bindings.XpeDccNewContractCarrierView.hints.XpeSurcharge.precision}"
                                                               shortDesc="#{bindings.XpeDccNewContractCarrierView.hints.XpeSurcharge.tooltip}"
                                                               id="it19"
-                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                              autoSubmit="true">
                                                     <f:validator binding="#{row.bindings.XpeSurcharge.validator}"/>
                                                     <af:convertNumber groupingUsed="false"
                                                                       pattern="#{bindings.XpeDccNewContractCarrierView.hints.XpeSurcharge.format}"/>

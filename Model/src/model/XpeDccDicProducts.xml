@@ -33,6 +33,12 @@
         <DesignTime>
             <Attr Name="_DisplaySize" Value="3"/>
         </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <DISPLAYWIDTH
+                    Value="30"/>
+            </SchemaBasedProperties>
+        </Properties>
     </ViewAttribute>
     <ViewAttribute
         Name="XpeLookupDesc"
@@ -48,6 +54,12 @@
         <DesignTime>
             <Attr Name="_DisplaySize" Value="20"/>
         </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <DISPLAYWIDTH
+                    Value="30"/>
+            </SchemaBasedProperties>
+        </Properties>
     </ViewAttribute>
     <AttrArray Name="KeyAttributes">
         <Item Value="XpeLookupId"/>

@@ -517,7 +517,8 @@
         EntityAttrName="CurrencyCd"
         EntityUsage="XpeDccContractVersion"
         AliasName="CURRENCY_CD"
-        LOVName="LOV_CurrencyCd">
+        LOVName="LOV_CurrencyCd"
+        DefaultValue="USD">
         <Properties>
             <SchemaBasedProperties>
                 <DISPLAYWIDTH
@@ -555,6 +556,10 @@
         EntityAttrName="XpeAsOfDate"
         EntityUsage="XpeDccContractVersion"
         AliasName="XPE_AS_OF_DATE">
+        <TransientExpression
+            Name="ExpressionScript"
+            trustMode="untrusted"
+            CodeSourceName="XpeDccContractVersionViewRow"/>
         <Properties>
             <SchemaBasedProperties>
                 <FMT_FORMAT

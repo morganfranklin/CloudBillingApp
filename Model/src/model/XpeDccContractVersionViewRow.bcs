@@ -1,0 +1,12 @@
+//Groovy Scripts for model.XpeDccContractVersionView
+
+package model
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="XpeAsOfDate")
+def XpeAsOfDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+
