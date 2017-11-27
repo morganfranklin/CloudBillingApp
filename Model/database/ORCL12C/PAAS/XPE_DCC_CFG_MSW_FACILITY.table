@@ -330,6 +330,76 @@
         </entry>
       </properties>
     </column>
+    <column>
+      <name>GENERAL_MANAGER_SIGNATURE</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>BLOB</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>GENERAL_MANAGER_SIGNATURE</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_DCC_CFG_MSW_FACILITY</name>
+              <identifier class="java.math.BigDecimal">124698</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+        <entry>
+          <key>OracleColumnProperties</key>
+          <value class="oracle.javatools.db.ora.OracleColumnProperties">
+            <LOBProperties>
+              <name></name>
+              <LOBCache>NOCACHE</LOBCache>
+              <LOBSegName>SYS_LOB0000124698C00011$$</LOBSegName>
+              <chunk>8192</chunk>
+              <properties>
+                <entry>
+                  <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+                  <value class="oracle.javatools.db.ReferenceID">
+                    <parent class="oracle.javatools.db.ReferenceID">
+                      <parent class="oracle.javatools.db.ReferenceID">
+                        <name>GENERAL_MANAGER_SIGNATURE</name>
+                        <parent class="oracle.javatools.db.ReferenceID">
+                          <name>XPE_DCC_CFG_MSW_FACILITY</name>
+                          <identifier class="java.math.BigDecimal">124698</identifier>
+                          <schemaName>PAAS</schemaName>
+                          <type>TABLE</type>
+                        </parent>
+                        <type>COLUMN</type>
+                      </parent>
+                      <type>OracleColumnProperties</type>
+                    </parent>
+                    <type>LOB DESCRIPTOR</type>
+                  </value>
+                </entry>
+              </properties>
+              <retention>false</retention>
+              <storage>
+                <bufferMode>DEFAULT</bufferMode>
+                <initialExtent>106496</initialExtent>
+                <logging>true</logging>
+                <maxExtent>0</maxExtent>
+                <minExtent>1</minExtent>
+                <nextExtent>1048576</nextExtent>
+                <tablespaceID class="oracle.javatools.db.ReferenceID">
+                  <name>USERS</name>
+                  <type>TABLESPACE</type>
+                </tablespaceID>
+              </storage>
+              <storageInRow>true</storageInRow>
+            </LOBProperties>
+          </value>
+        </entry>
+      </properties>
+    </column>
   </columns>
   <constraints>
     <constraint class="oracle.javatools.db.PKConstraint">

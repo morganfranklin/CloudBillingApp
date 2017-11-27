@@ -426,7 +426,7 @@
                 <name>GROUP_ID</name>
                 <parent class="oracle.javatools.db.ReferenceID">
                   <name>NOTIF_GROUP_PK</name>
-                  <identifier class="java.math.BigDecimal">125570</identifier>
+                  <identifier class="java.math.BigDecimal">128634</identifier>
                   <parent class="oracle.javatools.db.ReferenceID">
                     <name>XPE_DCC_CFG_NOTIF_GROUPS</name>
                     <identifier class="java.math.BigDecimal">125568</identifier>
@@ -451,7 +451,7 @@
                 <name>GROUP_TYPE</name>
                 <parent class="oracle.javatools.db.ReferenceID">
                   <name>NOTIF_GROUP_PK</name>
-                  <identifier class="java.math.BigDecimal">125570</identifier>
+                  <identifier class="java.math.BigDecimal">128634</identifier>
                   <parent class="oracle.javatools.db.ReferenceID">
                     <name>XPE_DCC_CFG_NOTIF_GROUPS</name>
                     <identifier class="java.math.BigDecimal">125568</identifier>
@@ -476,7 +476,7 @@
                 <name>NOTIFICATION_ID</name>
                 <parent class="oracle.javatools.db.ReferenceID">
                   <name>NOTIF_GROUP_PK</name>
-                  <identifier class="java.math.BigDecimal">125570</identifier>
+                  <identifier class="java.math.BigDecimal">128634</identifier>
                   <parent class="oracle.javatools.db.ReferenceID">
                     <name>XPE_DCC_CFG_NOTIF_GROUPS</name>
                     <identifier class="java.math.BigDecimal">125568</identifier>
@@ -499,7 +499,7 @@
           <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
           <value class="oracle.javatools.db.ReferenceID">
             <name>NOTIF_GROUP_PK</name>
-            <identifier class="java.math.BigDecimal">125570</identifier>
+            <identifier class="java.math.BigDecimal">128634</identifier>
             <parent class="oracle.javatools.db.ReferenceID">
               <name>XPE_DCC_CFG_NOTIF_GROUPS</name>
               <identifier class="java.math.BigDecimal">125568</identifier>

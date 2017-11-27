@@ -1,0 +1,414 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
+  <name>XPE_BILL_ACCOUNT_PROCESSES</name>
+  <columns>
+    <column>
+      <name>XPE_FACILITY_ID</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">30</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>XPE_FACILITY_ID</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_BILL_ACCOUNT_PROCESSES</name>
+              <identifier class="java.math.BigDecimal">124155</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>XPE_BILL_CYCLE_ID</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">38</value>
+          </entry>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">0</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>XPE_BILL_CYCLE_ID</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_BILL_ACCOUNT_PROCESSES</name>
+              <identifier class="java.math.BigDecimal">124155</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>XPE_BILL_DATE</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>DATE</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>XPE_BILL_DATE</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_BILL_ACCOUNT_PROCESSES</name>
+              <identifier class="java.math.BigDecimal">124155</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>CREATED_BY</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">15</value>
+          </entry>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">0</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>CREATED_BY</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_BILL_ACCOUNT_PROCESSES</name>
+              <identifier class="java.math.BigDecimal">124155</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>CREATION_DATE</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>DATE</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>CREATION_DATE</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_BILL_ACCOUNT_PROCESSES</name>
+              <identifier class="java.math.BigDecimal">124155</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>LAST_UPDATED_BY</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">15</value>
+          </entry>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">0</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>LAST_UPDATED_BY</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_BILL_ACCOUNT_PROCESSES</name>
+              <identifier class="java.math.BigDecimal">124155</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>LAST_UPDATE_DATE</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>DATE</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>LAST_UPDATE_DATE</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_BILL_ACCOUNT_PROCESSES</name>
+              <identifier class="java.math.BigDecimal">124155</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+  </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <name>BILL_ACCOUNT_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>XPE_FACILITY_ID</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>XPE_BILL_ACCOUNT_PROCESSES</name>
+            <schemaName>PAAS</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>PAAS</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>XPE_BILL_CYCLE_ID</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>XPE_BILL_ACCOUNT_PROCESSES</name>
+            <schemaName>PAAS</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>PAAS</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <indexID class="oracle.javatools.db.NameBasedID">
+        <name>BILL_ACCOUNT_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>XPE_BILL_ACCOUNT_PROCESSES</name>
+          <schemaName>PAAS</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>PAAS</schemaName>
+        <type>INDEX</type>
+      </indexID>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>BILL_ACCOUNT_PK</name>
+            <childObjectNames>
+              <childObjectName>XPE_FACILITY_ID</childObjectName>
+              <childObjectName>XPE_BILL_CYCLE_ID</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_BILL_ACCOUNT_PROCESSES</name>
+              <identifier class="java.math.BigDecimal">124155</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>PKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+    </constraint>
+  </constraints>
+  <indexes>
+    <index>
+      <name>BILL_ACCOUNT_PK</name>
+      <columnExpressions>
+        <columnExpression>
+          <expressionSource>XPE_FACILITY_ID</expressionSource>
+          <orderType>ASC</orderType>
+          <properties>
+            <entry>
+              <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+              <value class="oracle.javatools.db.ReferenceID">
+                <name>XPE_FACILITY_ID</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>BILL_ACCOUNT_PK</name>
+                  <identifier class="java.math.BigDecimal">124156</identifier>
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <name>XPE_BILL_ACCOUNT_PROCESSES</name>
+                    <identifier class="java.math.BigDecimal">124155</identifier>
+                    <schemaName>PAAS</schemaName>
+                    <type>TABLE</type>
+                  </parent>
+                  <schemaName>PAAS</schemaName>
+                  <type>INDEX</type>
+                </parent>
+                <type>IndexObject</type>
+              </value>
+            </entry>
+          </properties>
+        </columnExpression>
+        <columnExpression>
+          <expressionSource>XPE_BILL_CYCLE_ID</expressionSource>
+          <orderType>ASC</orderType>
+          <properties>
+            <entry>
+              <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+              <value class="oracle.javatools.db.ReferenceID">
+                <name>XPE_BILL_CYCLE_ID</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>BILL_ACCOUNT_PK</name>
+                  <identifier class="java.math.BigDecimal">124156</identifier>
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <name>XPE_BILL_ACCOUNT_PROCESSES</name>
+                    <identifier class="java.math.BigDecimal">124155</identifier>
+                    <schemaName>PAAS</schemaName>
+                    <type>TABLE</type>
+                  </parent>
+                  <schemaName>PAAS</schemaName>
+                  <type>INDEX</type>
+                </parent>
+                <type>IndexObject</type>
+              </value>
+            </entry>
+          </properties>
+        </columnExpression>
+      </columnExpressions>
+      <indexType>UNIQUE</indexType>
+      <parallelDegree>1</parallelDegree>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>BILL_ACCOUNT_PK</name>
+            <identifier class="java.math.BigDecimal">124156</identifier>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_BILL_ACCOUNT_PROCESSES</name>
+              <identifier class="java.math.BigDecimal">124155</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <schemaName>PAAS</schemaName>
+            <type>INDEX</type>
+          </value>
+        </entry>
+        <entry>
+          <key>OracleStorageProperties</key>
+          <value class="oracle.javatools.db.ora.OracleStorageProperties">
+            <bufferMode>DEFAULT</bufferMode>
+            <initrans>2</initrans>
+            <logging>true</logging>
+            <percentFree>10</percentFree>
+            <tablespaceID class="oracle.javatools.db.ReferenceID">
+              <name>USERS</name>
+              <type>TABLESPACE</type>
+            </tablespaceID>
+          </value>
+        </entry>
+      </properties>
+      <reverse>false</reverse>
+      <schema>
+        <name>PAAS</name>
+      </schema>
+      <systemGenerated>true</systemGenerated>
+    </index>
+  </indexes>
+  <properties>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_CONNECTION</key>
+      <value class="java.lang.String">fsuat91.neustar.com</value>
+    </entry>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+      <value class="oracle.javatools.db.ReferenceID">
+        <name>XPE_BILL_ACCOUNT_PROCESSES</name>
+        <identifier class="java.math.BigDecimal">124155</identifier>
+        <schemaName>PAAS</schemaName>
+        <type>TABLE</type>
+      </value>
+    </entry>
+    <entry>
+      <key>OracleInMemoryProperties</key>
+      <value class="oracle.javatools.db.ora.OracleInMemoryProperties">
+        <inMemory>false</inMemory>
+      </value>
+    </entry>
+    <entry>
+      <key>OracleStorageProperties</key>
+      <value class="oracle.javatools.db.ora.OracleStorageProperties">
+        <bufferMode>DEFAULT</bufferMode>
+        <initrans>1</initrans>
+        <logging>true</logging>
+        <percentFree>10</percentFree>
+        <tablespaceID class="oracle.javatools.db.ReferenceID">
+          <name>USERS</name>
+          <type>TABLESPACE</type>
+        </tablespaceID>
+      </value>
+    </entry>
+    <entry>
+      <key>OracleTableProperties</key>
+      <value class="oracle.javatools.db.ora.OracleTableProperties">
+        <parallelDegree>1</parallelDegree>
+        <tableCompression>NOCOMPRESS</tableCompression>
+      </value>
+    </entry>
+    <entry>
+      <key>TableType</key>
+      <value class="oracle.javatools.db.Table$TableType">NORMAL</value>
+    </entry>
+  </properties>
+  <schema>
+    <name>PAAS</name>
+  </schema>
+</table>

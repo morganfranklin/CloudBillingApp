@@ -634,7 +634,7 @@
                 <name>NOTIFICATION_ID</name>
                 <parent class="oracle.javatools.db.ReferenceID">
                   <name>NOTIFICATION_PK</name>
-                  <identifier class="java.math.BigDecimal">125569</identifier>
+                  <identifier class="java.math.BigDecimal">128633</identifier>
                   <parent class="oracle.javatools.db.ReferenceID">
                     <name>XPE_DCC_CFG_NOTIFICATION</name>
                     <identifier class="java.math.BigDecimal">125563</identifier>
@@ -657,7 +657,7 @@
           <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
           <value class="oracle.javatools.db.ReferenceID">
             <name>NOTIFICATION_PK</name>
-            <identifier class="java.math.BigDecimal">125569</identifier>
+            <identifier class="java.math.BigDecimal">128633</identifier>
             <parent class="oracle.javatools.db.ReferenceID">
               <name>XPE_DCC_CFG_NOTIFICATION</name>
               <identifier class="java.math.BigDecimal">125563</identifier>
