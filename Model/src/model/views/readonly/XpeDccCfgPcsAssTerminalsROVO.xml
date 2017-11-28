@@ -144,6 +144,42 @@
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
+  <ViewCriteria
+    Name="findByTerminalId"
+    ViewObjectName="model.views.readonly.XpeDccCfgPcsAssTerminalsROVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="XpeDccCfgPcsAssTerminalsROVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="TerminalId"
+        ViewAttribute="TerminalId"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_TerminalId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <AttrArray Name="KeyAttributes">
     <Item Value="SiteId"/>
     <Item Value="TerminalId"/>

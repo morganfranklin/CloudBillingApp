@@ -71,7 +71,7 @@
   </Attribute>
   <Attribute
     Name="MaterialId"
-    Precision="3"
+    Precision="20"
     ColumnName="MATERIAL_ID"
     SQLType="VARCHAR"
     Type="java.lang.String"

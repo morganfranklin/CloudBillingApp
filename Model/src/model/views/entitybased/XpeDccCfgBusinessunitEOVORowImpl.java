@@ -45,7 +45,15 @@ public class XpeDccCfgBusinessunitEOVORowImpl extends ViewRowImpl {
         XpeDccGeneralItemList_ACLOV,
         LookupSharedAppModule_YONLOV,
         XpeDccCfgPcsAssTerminalsROVO1,
-        XpeDccCfgPcsROVO1;
+        XpeDccCfgPcsROVO1,
+        PcBusUnitTblGlROVO1,
+        PsBusUnitTblBiROVO1,
+        PsOperUnitTblROVO1,
+        PcBusUnitTblGlROVO2,
+        PcBusUnitTblGlROVO3,
+        PcBusUnitTblGlROVO4,
+        PcBusUnitTblGlROVO5,
+        PsOperUnitTblROVO2;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -97,6 +105,14 @@ public class XpeDccCfgBusinessunitEOVORowImpl extends ViewRowImpl {
     public static final int LOOKUPSHAREDAPPMODULE_YONLOV = AttributesEnum.LookupSharedAppModule_YONLOV.index();
     public static final int XPEDCCCFGPCSASSTERMINALSROVO1 = AttributesEnum.XpeDccCfgPcsAssTerminalsROVO1.index();
     public static final int XPEDCCCFGPCSROVO1 = AttributesEnum.XpeDccCfgPcsROVO1.index();
+    public static final int PCBUSUNITTBLGLROVO1 = AttributesEnum.PcBusUnitTblGlROVO1.index();
+    public static final int PSBUSUNITTBLBIROVO1 = AttributesEnum.PsBusUnitTblBiROVO1.index();
+    public static final int PSOPERUNITTBLROVO1 = AttributesEnum.PsOperUnitTblROVO1.index();
+    public static final int PCBUSUNITTBLGLROVO2 = AttributesEnum.PcBusUnitTblGlROVO2.index();
+    public static final int PCBUSUNITTBLGLROVO3 = AttributesEnum.PcBusUnitTblGlROVO3.index();
+    public static final int PCBUSUNITTBLGLROVO4 = AttributesEnum.PcBusUnitTblGlROVO4.index();
+    public static final int PCBUSUNITTBLGLROVO5 = AttributesEnum.PcBusUnitTblGlROVO5.index();
+    public static final int PSOPERUNITTBLROVO2 = AttributesEnum.PsOperUnitTblROVO2.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -472,6 +488,62 @@ public class XpeDccCfgBusinessunitEOVORowImpl extends ViewRowImpl {
      */
     public RowSet getXpeDccCfgPcsROVO1() {
         return (RowSet) getAttributeInternal(XPEDCCCFGPCSROVO1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> PcBusUnitTblGlROVO1.
+     */
+    public RowSet getPcBusUnitTblGlROVO1() {
+        return (RowSet) getAttributeInternal(PCBUSUNITTBLGLROVO1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> PsBusUnitTblBiROVO1.
+     */
+    public RowSet getPsBusUnitTblBiROVO1() {
+        return (RowSet) getAttributeInternal(PSBUSUNITTBLBIROVO1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> PsOperUnitTblROVO1.
+     */
+    public RowSet getPsOperUnitTblROVO1() {
+        return (RowSet) getAttributeInternal(PSOPERUNITTBLROVO1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> PcBusUnitTblGlROVO2.
+     */
+    public RowSet getPcBusUnitTblGlROVO2() {
+        return (RowSet) getAttributeInternal(PCBUSUNITTBLGLROVO2);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> PcBusUnitTblGlROVO3.
+     */
+    public RowSet getPcBusUnitTblGlROVO3() {
+        return (RowSet) getAttributeInternal(PCBUSUNITTBLGLROVO3);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> PcBusUnitTblGlROVO4.
+     */
+    public RowSet getPcBusUnitTblGlROVO4() {
+        return (RowSet) getAttributeInternal(PCBUSUNITTBLGLROVO4);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> PcBusUnitTblGlROVO5.
+     */
+    public RowSet getPcBusUnitTblGlROVO5() {
+        return (RowSet) getAttributeInternal(PCBUSUNITTBLGLROVO5);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> PsOperUnitTblROVO2.
+     */
+    public RowSet getPsOperUnitTblROVO2() {
+        return (RowSet) getAttributeInternal(PSOPERUNITTBLROVO2);
     }
 }
 

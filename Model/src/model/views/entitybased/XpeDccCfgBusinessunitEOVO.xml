@@ -85,7 +85,18 @@
   <ViewAccessor
     Name="XpeDccCfgPcsAssTerminalsROVO1"
     ViewObjectName="model.views.readonly.XpeDccCfgPcsAssTerminalsROVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="findByTerminalId"
+      FullName="model.views.readonly.XpeDccCfgPcsAssTerminalsROVO.findByTerminalId"/>
+    <ParameterMap>
+      <PIMap Variable="bind_TerminalId">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA[TerminalId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="XpeDccCfgPcsROVO1"
     ViewObjectName="model.views.readonly.XpeDccCfgPcsROVO"
@@ -101,6 +112,49 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="PcBusUnitTblGlROVO1"
+    ViewObjectName="model.views.readonly.PcBusUnitTblGlROVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="PsBusUnitTblBiROVO1"
+    ViewObjectName="model.views.readonly.PsBusUnitTblBiROVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="PsOperUnitTblROVO1"
+    ViewObjectName="model.views.readonly.PsOperUnitTblROVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="findBySetId"
+      FullName="model.views.readonly.PsOperUnitTblROVO.findBySetId"/>
+    <ParameterMap>
+      <PIMap Variable="bindSetId">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA['MASTR']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="PcBusUnitTblGlROVO2"
+    ViewObjectName="model.views.readonly.PcBusUnitTblGlROVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="PcBusUnitTblGlROVO3"
+    ViewObjectName="model.views.readonly.PcBusUnitTblGlROVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="PcBusUnitTblGlROVO4"
+    ViewObjectName="model.views.readonly.PcBusUnitTblGlROVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="PcBusUnitTblGlROVO5"
+    ViewObjectName="model.views.readonly.PcBusUnitTblGlROVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="PsOperUnitTblROVO2"
+    ViewObjectName="model.views.readonly.PsOperUnitTblROVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_TerminalId"
     ListVOName="XpeDccCfgTerminals_LOV"
@@ -223,6 +277,150 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LOV_BusinessUnit"
+    ListVOName="PcBusUnitTblGlROVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BusinessUnit"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="BusinessUnit"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="BusinessUnit"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_BillingBusinessUnit"
+    ListVOName="PsBusUnitTblBiROVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BillingBusinessUnit"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="BusinessUnit"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="BusinessUnit"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_BillingGlBusinessUnit"
+    ListVOName="PcBusUnitTblGlROVO2"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BillingGlBusinessUnit"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="BusinessUnit"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="BusinessUnit"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_BillingAffiliate"
+    ListVOName="PcBusUnitTblGlROVO3"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BillingAffiliate"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Affiliate"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Affiliate"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_BillingOperatingUnit"
+    ListVOName="PsOperUnitTblROVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BillingOperatingUnit"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OperatingUnit"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OperatingUnit"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_OperatingUnit"
+    ListVOName="PsOperUnitTblROVO2"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="OperatingUnit"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OperatingUnit"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OperatingUnit"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Affliate"
+    ListVOName="PcBusUnitTblGlROVO4"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Affliate"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Affiliate"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Affiliate"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_GlBusinessUnit"
+    ListVOName="PcBusUnitTblGlROVO5"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="GlBusinessUnit"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="BusinessUnit"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="BusinessUnit"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="XpeDccCfgBusinessunitEO"
     Entity="model.entities.XpeDccCfgBusinessunitEO"/>
@@ -235,12 +433,12 @@
     LOVName="LOV_SiteId">
     <Properties>
       <SchemaBasedProperties>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.SiteId_LABEL"/>
         <DISPLAYWIDTH
           Value="10"/>
         <CONTROLTYPE
           Value="input_text_lov"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.SiteId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -271,13 +469,16 @@
     PrecisionRule="true"
     EntityAttrName="BusinessUnit"
     EntityUsage="XpeDccCfgBusinessunitEO"
-    AliasName="BUSINESS_UNIT">
+    AliasName="BUSINESS_UNIT"
+    LOVName="LOV_BusinessUnit">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.BusinessUnit_LABEL"/>
         <DISPLAYWIDTH
           Value="10"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -304,13 +505,16 @@
     PrecisionRule="true"
     EntityAttrName="Affliate"
     EntityUsage="XpeDccCfgBusinessunitEO"
-    AliasName="AFFLIATE">
+    AliasName="AFFLIATE"
+    LOVName="LOV_Affliate">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.Affliate_LABEL"/>
         <DISPLAYWIDTH
           Value="10"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -319,13 +523,16 @@
     PrecisionRule="true"
     EntityAttrName="BillingBusinessUnit"
     EntityUsage="XpeDccCfgBusinessunitEO"
-    AliasName="BILLING_BUSINESS_UNIT">
+    AliasName="BILLING_BUSINESS_UNIT"
+    LOVName="LOV_BillingBusinessUnit">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.BillingBusinessUnit_LABEL"/>
         <DISPLAYWIDTH
           Value="10"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -349,13 +556,16 @@
     PrecisionRule="true"
     EntityAttrName="GlBusinessUnit"
     EntityUsage="XpeDccCfgBusinessunitEO"
-    AliasName="GL_BUSINESS_UNIT">
+    AliasName="GL_BUSINESS_UNIT"
+    LOVName="LOV_GlBusinessUnit">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.GlBusinessUnit_LABEL"/>
         <DISPLAYWIDTH
           Value="10"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -394,13 +604,16 @@
     PrecisionRule="true"
     EntityAttrName="OperatingUnit"
     EntityUsage="XpeDccCfgBusinessunitEO"
-    AliasName="OPERATING_UNIT">
+    AliasName="OPERATING_UNIT"
+    LOVName="LOV_OperatingUnit">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.OperatingUnit_LABEL"/>
         <DISPLAYWIDTH
           Value="10"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -413,12 +626,12 @@
     LOVName="LOV_SiteDesc">
     <Properties>
       <SchemaBasedProperties>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.SiteDesc_LABEL"/>
         <DISPLAYWIDTH
           Value="10"/>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.SiteDesc_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -467,11 +680,14 @@
     PrecisionRule="true"
     EntityAttrName="BillingGlBusinessUnit"
     EntityUsage="XpeDccCfgBusinessunitEO"
-    AliasName="BILLING_GL_BUSINESS_UNIT">
+    AliasName="BILLING_GL_BUSINESS_UNIT"
+    LOVName="LOV_BillingGlBusinessUnit">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.BillingGlBusinessUnit_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -480,11 +696,14 @@
     PrecisionRule="true"
     EntityAttrName="BillingOperatingUnit"
     EntityUsage="XpeDccCfgBusinessunitEO"
-    AliasName="BILLING_OPERATING_UNIT">
+    AliasName="BILLING_OPERATING_UNIT"
+    LOVName="LOV_BillingOperatingUnit">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.BillingOperatingUnit_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -493,11 +712,14 @@
     PrecisionRule="true"
     EntityAttrName="BillingAffiliate"
     EntityUsage="XpeDccCfgBusinessunitEO"
-    AliasName="BILLING_AFFILIATE">
+    AliasName="BILLING_AFFILIATE"
+    LOVName="LOV_BillingAffiliate">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.BillingAffiliate_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

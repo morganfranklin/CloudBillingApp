@@ -3,7 +3,7 @@
 <!---->
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="PcBusUnitTblGlROVO"
+  Name="PsBusUnitTblBiROVO"
   Version="12.2.1.11.57"
   InheritPersonalization="merge"
   BindingStyle="OracleName"
@@ -15,10 +15,10 @@
   <Properties>
     <SchemaBasedProperties>
       <LABEL
-        ResId="model.views.readonly.PcBusUnitTblGlROVO_LABEL"/>
+        ResId="model.views.readonly.PsBusUnitTblBiROVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <SQLQuery><![CDATA[SELECT BUSINESS_UNIT, AFFILIATE FROM PS_BUS_UNIT_TBL_GL]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT BUSINESS_UNIT FROM PS_BUS_UNIT_TBL_BI]]></SQLQuery>
   <ViewAttribute
     Name="BusinessUnit"
     IsUpdateable="false"
@@ -29,21 +29,6 @@
     ColumnType="VARCHAR2"
     AliasName="BUSINESS_UNIT"
     Expression="BUSINESS_UNIT"
-    SQLType="VARCHAR">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="5"/>
-    </DesignTime>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="Affiliate"
-    IsUpdateable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Precision="5"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="AFFILIATE"
-    Expression="AFFILIATE"
     SQLType="VARCHAR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="5"/>

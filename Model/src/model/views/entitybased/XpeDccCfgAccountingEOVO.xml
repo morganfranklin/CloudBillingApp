@@ -96,9 +96,13 @@
     Name="XpeDccCfgProductServiceROVO_LOV"
     ViewObjectName="model.views.readonly.XpeDccCfgProductServiceROVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="XpeDccCfgPcsROVO1"
+    ViewObjectName="model.views.readonly.XpeDccCfgPcsROVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_SiteId"
-    ListVOName="XpeDccCfgPCSShortNames_LOV"
+    ListVOName="XpeDccCfgPcsROVO1"
     ListRangeSize="-1"
     ComboRowCountHint="10"
     NullValueFlag="none"
@@ -108,11 +112,11 @@
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
-      <Item Value="PcsshortnameId"/>
+      <Item Value="SiteId"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="PcsshortName"/>
-      <Item Value="PcsshortnameId"/>
+      <Item Value="SiteId"/>
+      <Item Value="SiteDesc"/>
     </AttrArray>
     <DisplayCriteria
       Hint="showAndExecute"/>
@@ -234,12 +238,12 @@
     LOVName="LOV_SiteId">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgAccountingEOVO.SiteId_LABEL"/>
         <DISPLAYWIDTH
           Value="15"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

@@ -48,6 +48,15 @@
             <f:validator binding="#{row.bindings.ItemType.validator}"/>
           </af:selectOneChoice>
         </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgProductserviceEOVO.hints.Inoutbound.label}" id="resId1c7">
+          <af:selectOneChoice value="#{row.bindings.Inoutbound.inputValue}" label="#{row.bindings.Inoutbound.label}"
+                              required="#{bindings.XpeDccCfgProductserviceEOVO.hints.Inoutbound.mandatory}"
+                              shortDesc="#{bindings.XpeDccCfgProductserviceEOVO.hints.Inoutbound.tooltip}"
+                              readOnly="true" id="soc3">
+            <f:selectItems value="#{row.bindings.Inoutbound.items}" id="si3"/>
+            <f:validator binding="#{row.bindings.Inoutbound.validator}"/>
+          </af:selectOneChoice>
+        </af:column>
         <af:column headerText="#{bindings.XpeDccCfgProductserviceEOVO.hints.Description.label}" id="resId1c3">
           <af:outputText value="#{row.Description}"
                          shortDesc="#{bindings.XpeDccCfgProductserviceEOVO.hints.Description.tooltip}" id="ot2"/>
@@ -55,10 +64,6 @@
         <af:column headerText="#{bindings.XpeDccCfgProductserviceEOVO.hints.Category.label}" id="resId1c4">
           <af:outputText value="#{row.Category}"
                          shortDesc="#{bindings.XpeDccCfgProductserviceEOVO.hints.Category.tooltip}" id="ot3"/>
-        </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgProductserviceEOVO.hints.ClassId.label}" id="resId1c5">
-          <af:outputText value="#{row.ClassId}"
-                         shortDesc="#{bindings.XpeDccCfgProductserviceEOVO.hints.ClassId.tooltip}" id="ot4"/>
         </af:column>
         <af:column headerText="#{bindings.XpeDccCfgProductserviceEOVO.hints.ClassType.label}" id="resId1c6">
           <af:selectOneChoice value="#{row.bindings.ClassType.inputValue}" label="#{row.bindings.ClassType.label}"
@@ -69,14 +74,9 @@
             <f:validator binding="#{row.bindings.ClassType.validator}"/>
           </af:selectOneChoice>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgProductserviceEOVO.hints.Inoutbound.label}" id="resId1c7">
-          <af:selectOneChoice value="#{row.bindings.Inoutbound.inputValue}" label="#{row.bindings.Inoutbound.label}"
-                              required="#{bindings.XpeDccCfgProductserviceEOVO.hints.Inoutbound.mandatory}"
-                              shortDesc="#{bindings.XpeDccCfgProductserviceEOVO.hints.Inoutbound.tooltip}"
-                              readOnly="true" id="soc3">
-            <f:selectItems value="#{row.bindings.Inoutbound.items}" id="si3"/>
-            <f:validator binding="#{row.bindings.Inoutbound.validator}"/>
-          </af:selectOneChoice>
+        <af:column headerText="#{bindings.XpeDccCfgProductserviceEOVO.hints.ClassId.label}" id="resId1c5">
+          <af:outputText value="#{row.ClassId}"
+                         shortDesc="#{bindings.XpeDccCfgProductserviceEOVO.hints.ClassId.tooltip}" id="ot4"/>
         </af:column>
         <af:column headerText="#{bindings.XpeDccCfgProductserviceEOVO.hints.Inactive.label}" id="resId1c8">
           <af:selectOneChoice value="#{row.bindings.Inactive.inputValue}" label="#{row.bindings.Inactive.label}"
