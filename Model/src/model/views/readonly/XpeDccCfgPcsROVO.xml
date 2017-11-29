@@ -100,7 +100,8 @@ FROM XPE_DCC_CFG_PCS]]></SQLQuery>
         Conjunction="AND"
         Value=":bindSiteId"
         IsBindVarValue="true"
-        Required="Optional"/>
+        Required="Optional"
+        UpperColumns="0"/>
     </ViewCriteriaRow>
   </ViewCriteria>
   <AttrArray Name="KeyAttributes">
