@@ -2181,16 +2181,17 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                     xmlBuilder.append("<USER_NAME>").append(checkIfNull(contractVersionViewRow.getSalesPerson())).append("</USER_NAME>");
                     //Getting Facility details
                     RowIterator contractLineRowSet = contractVersionViewRow.getXpeDccContractLineView();
-                    xmlBuilder.append("<FACILITIES_ROW>");
+                    
                     while (contractLineRowSet.hasNext()) {
                         XpeDccContractLineViewRowImpl contractLineRow = (XpeDccContractLineViewRowImpl) contractLineRowSet.next();
                         if(null!=contractLineRow){
+                            xmlBuilder.append("<FACILITIES_ROW>");
                             XpeDccCfgPcsAddressROVOImpl xpeDccCfgPcsAddressROVO = this.getXpeDccCfgPcsAddressROVO();
                             xpeDccCfgPcsAddressROVO.setbind_SiteId(contractLineRow.getXpeFacility());
                             xpeDccCfgPcsAddressROVO.executeQuery();
                             XpeDccCfgPcsAddressROVORowImpl xpeDccCfgPcsAddressROVORow = (XpeDccCfgPcsAddressROVORowImpl)xpeDccCfgPcsAddressROVO.first();
                             if(null!=xpeDccCfgPcsAddressROVORow){
-                                xmlBuilder.append("<FACILITY>").append(checkIfNull(xpeDccCfgPcsAddressROVORow.getSiteId())).append("</FACILITY>");
+                                xmlBuilder.append("<FACILITY>").append(checkIfNull(contractLineRow.getXpeFacility())).append("</FACILITY>");
                                 xmlBuilder.append("<FACILITY_ADDRESS>").append(checkIfNull(xpeDccCfgPcsAddressROVORow.getSiteAddress1())).append("</FACILITY_ADDRESS>");
                                 xmlBuilder.append("<FACILITY_CITY>").append(checkIfNull(xpeDccCfgPcsAddressROVORow.getSiteCity())).append("</FACILITY_CITY>");
                                 xmlBuilder.append("<FACILITY_STATE>").append(checkIfNull(xpeDccCfgPcsAddressROVORow.getSiteState())).append("</FACILITY_STATE>");
@@ -2198,14 +2199,12 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                                 xmlBuilder.append("<FACILITY_OPERATING_HOURS>").append(checkIfNull(xpeDccCfgPcsAddressROVORow.getSiteOperatingHours())).append("</FACILITY_OPERATING_HOURS>");
                             }
                             RowIterator pricingTermRowSet = contractLineRow.getXpeDccContractPricingTermView();
-                            String pricingRow=null,pricingFeeRow=null;
                             while (pricingTermRowSet.hasNext()) {
                                 XpeDccContractPricingTermViewRowImpl pricingTermRow = (XpeDccContractPricingTermViewRowImpl) pricingTermRowSet.next();
                                 if(null!=pricingTermRow){
                                     if(null!=pricingTermRow.getXpePricingTermType()){
-                                        if (!"Fee".equals(pricingTermRow.getXpePricingTermType())) {
-                                            if (null == pricingRow)
-                                                xmlBuilder.append("<PRICING_ROW>");
+                                        if (!"FEE".equalsIgnoreCase(pricingTermRow.getXpePricingTermType())) {
+                                            xmlBuilder.append("<PRICING_ROW>");
                                             xmlBuilder.append("<MATERIAL_WASTE_TYPE>").append(checkIfNull(contractLineRow.getXpeProductId())).append("</MATERIAL_WASTE_TYPE>");
                                             xmlBuilder.append("<PRICING_TYPE>").append(checkIfNull(pricingTermRow.getXpePricingTermType())).append("</PRICING_TYPE>");
                                             if (null != pricingTermRow.getXpePricingTermType()) {
@@ -2219,28 +2218,23 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                                             }
                                             xmlBuilder.append("<DISPOSAL_PRICE>").append(pricingTermRow.getXpeRate()).append("</DISPOSAL_PRICE>");
                                             xmlBuilder.append("<RESET_PERIOD>").append(checkIfNull(pricingTermRow.getXpePeriodType())).append("</RESET_PERIOD>");
-                                            if (null == pricingRow)
-                                                xmlBuilder.append("</PRICING_ROW>");
-                                            pricingRow = "PRICING_ROW";
+                                            xmlBuilder.append("</PRICING_ROW>");
                                         }else{
-                                            if (null == pricingFeeRow)
-                                                xmlBuilder.append("</PRICING_FEE_ROW>");
+                                            xmlBuilder.append("<PRICING_FEE_ROW>");
                                             xmlBuilder.append("<MATERIAL_WASTE_TYPE>").append(checkIfNull(pricingTermRow.getXpePricingTermType())).append("</MATERIAL_WASTE_TYPE>");
                                             //xmlBuilder.append("<PRICING_TYPE>").append(checkIfNull(xpeDccCfgPcsAddressROVORow.getSiteAddress1())).append("</PRICING_TYPE>");
                                             //xmlBuilder.append("<MATERIAL_QUANTITY_FROM>").append(checkIfNull(xpeDccCfgPcsAddressROVORow.getSiteCity())).append("</MATERIAL_QUANTITY_FROM>");
                                             //xmlBuilder.append("<MATERIAL_QUANTITY_TO>").append(checkIfNull(xpeDccCfgPcsAddressROVORow.getSiteState())).append("</MATERIAL_QUANTITY_TO>");
                                             xmlBuilder.append("<DISPOSAL_PRICE>").append(pricingTermRow.getXpeRate()).append("</DISPOSAL_PRICE>");
                                             xmlBuilder.append("<RESET_PERIOD>").append(checkIfNull(pricingTermRow.getXpePeriodType())).append("</RESET_PERIOD>");
-                                            if (null == pricingFeeRow)
-                                                xmlBuilder.append("</PRICING_FEE_ROW>");
-                                            pricingFeeRow = "PRICING_FEE_ROW";
+                                            xmlBuilder.append("</PRICING_FEE_ROW>");
                                         }
                                     }
                                 }
                             }
+                            xmlBuilder.append("</FACILITIES_ROW>");
                         }   
                     }
-                    xmlBuilder.append("</FACILITIES_ROW>");
                     
                     XpeDccContractNotesViewRowImpl xpeDccContractNotesViewRow = (XpeDccContractNotesViewRowImpl)contractVersionViewRow.getXpeDccContractNotesView().first();
                     if(null!=xpeDccContractNotesViewRow)
