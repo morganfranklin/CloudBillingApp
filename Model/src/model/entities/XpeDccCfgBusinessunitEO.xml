@@ -254,10 +254,12 @@
     TableName="XPE_DCC_CFG_BUSINESSUNIT"
     IsNotNull="true"
     PrimaryKey="true"
-    Precision="20">
+    Precision="20"
+    IsUpdateable="while_insert"
+    RetrievedOnInsert="true">
     <TransientExpression
       Name="ExpressionScript"
-      trustMode="untrusted"
+      trustMode="trusted"
       CodeSourceName="XpeDccCfgBusinessunitEORow"/>
   </Attribute>
   <Key

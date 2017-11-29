@@ -31,7 +31,7 @@
     </DesignTime>
     <TransientExpression
       Name="ExpressionScript"
-      trustMode="untrusted"
+      trustMode="trusted"
       CodeSourceName="XpeDccCfgCountiesEORow"/>
   </Attribute>
   <Attribute

@@ -102,7 +102,7 @@
                                       required="#{bindings.CountyName.hints.mandatory}"
                                       columns="#{bindings.CountyName.hints.displayWidth}"
                                       maximumLength="#{bindings.CountyName.hints.precision}"
-                                      shortDesc="#{bindings.CountyName.hints.tooltip}" id="it1" autoSubmit="true"
+                                      shortDesc="#{bindings.CountyName.hints.tooltip}" id="it1"
                                       contentStyle="text-transform:uppercase;">
                             <f:validator binding="#{bindings.CountyName.validator}"/>
                         </af:inputText>
