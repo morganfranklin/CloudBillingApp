@@ -71,6 +71,10 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="PsCountryTblROVO1"
+    ViewObjectName="model.views.readonly.PsCountryTblROVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_Inactive"
     ListVOName="LookupSharedAppModule_YONLOV"
@@ -130,6 +134,24 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Country"
+    ListVOName="PsCountryTblROVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Country"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Country"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -267,6 +289,23 @@
     EntityAttrName="LastUpdatedDate"
     EntityUsage="XpeDccCfgOriginsEO"
     AliasName="LAST_UPDATED_DATE"/>
+  <ViewAttribute
+    Name="Country"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Country"
+    EntityUsage="XpeDccCfgOriginsEO"
+    AliasName="COUNTRY"
+    LOVName="LOV_Country">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgOriginsEOVO.Country_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="OriginsCriteria"
     ViewObjectName="model.views.entitybased.XpeDccCfgOriginsEOVO"

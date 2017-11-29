@@ -22,7 +22,7 @@
     Name="bindSetId"
     Kind="viewcriteria"
     Type="java.lang.String"/>
-  <SQLQuery><![CDATA[SELECT SETID, OPERATING_UNIT FROM PS_OPER_UNIT_TBL]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT SETID, OPERATING_UNIT, DESCR FROM PS_OPER_UNIT_TBL]]></SQLQuery>
   <ViewAttribute
     Name="Setid"
     IsUpdateable="false"
@@ -51,6 +51,21 @@
     SQLType="VARCHAR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="8"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Descr"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="DESCR"
+    Expression="DESCR"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
   </ViewAttribute>
   <ViewCriteria

@@ -20,6 +20,10 @@ import model.common.AppModule;
 
 import model.utils.EmailUtils;
 
+import model.views.entitybased.XpeDccCfgGeneralCnvEOVOImpl;
+
+import model.views.entitybased.XpeDccCfgGeneralEOVOImpl;
+
 import org.apache.commons.codec.binary.Base64;
 
 import model.views.entitybased.XpeDccCfgBusinessunitEOVOImpl;
@@ -2716,8 +2720,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      * Container's getter for XpeDccCfgGeneralEOVO1.
      * @return XpeDccCfgGeneralEOVO1
      */
-    public ViewObjectImpl getXpeDccCfgGeneralEOVO() {
-        return (ViewObjectImpl) findViewObject("XpeDccCfgGeneralEOVO");
+    public XpeDccCfgGeneralEOVOImpl getXpeDccCfgGeneralEOVO() {
+        return (XpeDccCfgGeneralEOVOImpl) findViewObject("XpeDccCfgGeneralEOVO");
     }
 
     /**
@@ -2765,8 +2769,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      * Container's getter for XpeDccCfgGeneralCnvEOVO1.
      * @return XpeDccCfgGeneralCnvEOVO1
      */
-    public ViewObjectImpl getXpeDccCfgGeneralCnvEOVO() {
-        return (ViewObjectImpl) findViewObject("XpeDccCfgGeneralCnvEOVO");
+    public XpeDccCfgGeneralCnvEOVOImpl getXpeDccCfgGeneralCnvEOVO() {
+        return (XpeDccCfgGeneralCnvEOVOImpl) findViewObject("XpeDccCfgGeneralCnvEOVO");
     }
 
 
@@ -2886,8 +2890,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      * Container's getter for XpeDccCfgGeneralEOVO1.
      * @return XpeDccCfgGeneralEOVO1
      */
-    public ViewObjectImpl getXpeDccCfgNewGeneralEOVO() {
-        return (ViewObjectImpl) findViewObject("XpeDccCfgNewGeneralEOVO");
+    public XpeDccCfgGeneralEOVOImpl getXpeDccCfgNewGeneralEOVO() {
+        return (XpeDccCfgGeneralEOVOImpl) findViewObject("XpeDccCfgNewGeneralEOVO");
     }
 
     /**
@@ -3050,8 +3054,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      * Container's getter for XpeDccCfgGeneralCnvEOVO1.
      * @return XpeDccCfgGeneralCnvEOVO1
      */
-    public ViewObjectImpl getXpeDccCfgNewGeneralCnvEOVO() {
-        return (ViewObjectImpl) findViewObject("XpeDccCfgNewGeneralCnvEOVO");
+    public XpeDccCfgGeneralCnvEOVOImpl getXpeDccCfgNewGeneralCnvEOVO() {
+        return (XpeDccCfgGeneralCnvEOVOImpl) findViewObject("XpeDccCfgNewGeneralCnvEOVO");
     }
 
     /**

@@ -22,6 +22,7 @@
           <Item Value="State"/>
           <Item Value="Inactive"/>
           <Item Value="InactiveDate"/>
+          <Item Value="Country"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

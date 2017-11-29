@@ -33,10 +33,12 @@ public class XpeDccCfgOriginsEOVORowImpl extends ViewRowImpl {
         InactiveDate,
         LastUpdatedBy,
         LastUpdatedDate,
+        Country,
         XpeDccCfgOgnAssTerminalsEOVO,
         LookupSharedAppModule_YONLOV,
         XpeDccCfgCountiesLOV,
-        XpeDccCfgStatesLOV;
+        XpeDccCfgStatesLOV,
+        PsCountryTblROVO1;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -73,10 +75,12 @@ public class XpeDccCfgOriginsEOVORowImpl extends ViewRowImpl {
     public static final int INACTIVEDATE = AttributesEnum.InactiveDate.index();
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
+    public static final int COUNTRY = AttributesEnum.Country.index();
     public static final int XPEDCCCFGOGNASSTERMINALSEOVO = AttributesEnum.XpeDccCfgOgnAssTerminalsEOVO.index();
     public static final int LOOKUPSHAREDAPPMODULE_YONLOV = AttributesEnum.LookupSharedAppModule_YONLOV.index();
     public static final int XPEDCCCFGCOUNTIESLOV = AttributesEnum.XpeDccCfgCountiesLOV.index();
     public static final int XPEDCCCFGSTATESLOV = AttributesEnum.XpeDccCfgStatesLOV.index();
+    public static final int PSCOUNTRYTBLROVO1 = AttributesEnum.PsCountryTblROVO1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -189,6 +193,22 @@ public class XpeDccCfgOriginsEOVORowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for COUNTRY using the alias name Country.
+     * @return the COUNTRY
+     */
+    public String getCountry() {
+        return (String) getAttributeInternal(COUNTRY);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for COUNTRY using the alias name Country.
+     * @param value value to set the COUNTRY
+     */
+    public void setCountry(String value) {
+        setAttributeInternal(COUNTRY, value);
+    }
+
+    /**
      * Gets the attribute value for ORIGIN_DESC using the alias name OriginDesc.
      * @return the ORIGIN_DESC
      */
@@ -298,6 +318,13 @@ public class XpeDccCfgOriginsEOVORowImpl extends ViewRowImpl {
      */
     public RowSet getXpeDccCfgStatesLOV() {
         return (RowSet) getAttributeInternal(XPEDCCCFGSTATESLOV);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> PsCountryTblROVO1.
+     */
+    public RowSet getPsCountryTblROVO1() {
+        return (RowSet) getAttributeInternal(PSCOUNTRYTBLROVO1);
     }
 }
 

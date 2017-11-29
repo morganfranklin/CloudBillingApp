@@ -49,6 +49,15 @@
                         <f:validator binding="#{row.bindings.State.validator}"/>
                     </af:selectOneChoice>
                 </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgCountiesEOVO.hints.Country.label}" id="c3">
+                    <af:selectOneChoice value="#{row.bindings.Country.inputValue}" label="#{row.bindings.Country.label}"
+                                        required="#{bindings.XpeDccCfgCountiesEOVO.hints.Country.mandatory}"
+                                        shortDesc="#{bindings.XpeDccCfgCountiesEOVO.hints.Country.tooltip}" id="soc8"
+                                        readOnly="true">
+                        <f:selectItems value="#{row.bindings.Country.items}" id="si8"/>
+                        <f:validator binding="#{row.bindings.Country.validator}"/>
+                    </af:selectOneChoice>
+                </af:column>
                 <af:column headerText="#{bindings.XpeDccCfgCountiesEOVO.hints.Inactive.label}" id="resId1c5">
                     <af:selectOneChoice value="#{row.bindings.Inactive.inputValue}"
                                         label="#{row.bindings.Inactive.label}"
@@ -97,12 +106,21 @@
                                       contentStyle="text-transform:uppercase;">
                             <f:validator binding="#{bindings.CountyName.validator}"/>
                         </af:inputText>
-                        <af:panelLabelAndMessage label="#{bindings.State.label}" id="plam3">
+                        <af:panelLabelAndMessage label="#{bindings.State.label}" id="plam3" showRequired="true">
                             <af:selectOneChoice value="#{bindings.State.inputValue}" label="#{bindings.State.label}"
                                                 required="#{bindings.State.hints.mandatory}"
                                                 shortDesc="#{bindings.State.hints.tooltip}" id="soc3" simple="true">
                                 <f:selectItems value="#{bindings.State.items}" id="si3"/>
                                 <f:validator binding="#{bindings.State.validator}"/>
+                            </af:selectOneChoice>
+                        </af:panelLabelAndMessage>
+                        <af:panelLabelAndMessage label="#{bindings.Country.label}" id="plam5" showRequired="true">
+                            <af:selectOneChoice value="#{bindings.Country.inputValue}" label="#{bindings.Country.label}"
+                                                required="#{bindings.Country.hints.mandatory}"
+                                                shortDesc="#{bindings.Country.hints.tooltip}" id="soc6" simple="true"
+                                                autoSubmit="true">
+                                <f:selectItems value="#{bindings.Country.items}" id="si6"/>
+                                <f:validator binding="#{bindings.Country.validator}"/>
                             </af:selectOneChoice>
                         </af:panelLabelAndMessage>
                     </af:panelFormLayout>
@@ -137,12 +155,22 @@
                                       contentStyle="text-transform:uppercase;">
                             <f:validator binding="#{bindings.CountyName1.validator}"/>
                         </af:inputText>
-                        <af:panelLabelAndMessage label="#{bindings.State1.label}" id="plam4">
+                        <af:panelLabelAndMessage label="#{bindings.State1.label}" id="plam4" showRequired="true">
                             <af:selectOneChoice value="#{bindings.State1.inputValue}" label="#{bindings.State1.label}"
                                                 required="#{bindings.State1.hints.mandatory}"
                                                 shortDesc="#{bindings.State1.hints.tooltip}" id="soc4" simple="true">
                                 <f:selectItems value="#{bindings.State1.items}" id="si4"/>
                                 <f:validator binding="#{bindings.State1.validator}"/>
+                            </af:selectOneChoice>
+                        </af:panelLabelAndMessage>
+                        <af:panelLabelAndMessage label="#{bindings.Country1.label}" id="plam6" showRequired="true">
+                            <af:selectOneChoice value="#{bindings.Country1.inputValue}"
+                                                label="#{bindings.Country1.label}"
+                                                required="#{bindings.Country1.hints.mandatory}"
+                                                shortDesc="#{bindings.Country1.hints.tooltip}" id="soc7"
+                                                autoSubmit="true" simple="true">
+                                <f:selectItems value="#{bindings.Country1.items}" id="si7"/>
+                                <f:validator binding="#{bindings.Country1.validator}"/>
                             </af:selectOneChoice>
                         </af:panelLabelAndMessage>
                         <af:panelLabelAndMessage label="#{bindings.Inactive1.label}" id="plam1">

@@ -2,12 +2,20 @@ package view;
 
 import java.io.Serializable;
 
+import java.sql.Timestamp;
+
 import javax.el.ELContext;
 import javax.el.ExpressionFactory;
 import javax.el.MethodExpression;
 
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+
+import javax.faces.event.ValueChangeEvent;
+
+import model.views.entitybased.XpeDccCfgCountiesEOVORowImpl;
+
+import model.views.entitybased.XpeDccCfgGeneralCnvEOVORowImpl;
 
 import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.view.rich.component.rich.RichPopup;
@@ -80,6 +88,16 @@ public class GeneralConversionSetUpTableMBean implements Serializable{
             DCIteratorBinding carrierIter = ADFUtils.findIterator("XpeDccCfgGeneralCnvEOVOIterator");
             carrierIter.getViewObject().executeEmptyRowSet();
             AdfFacesContext.getCurrentInstance().addPartialTarget(this.getGeneralConversionSetUpTableBBean().getGeneralConversionSetUpTblBind());
+        }
+    }
+
+    public void onInactiveValChgLstnr(ValueChangeEvent valueChangeEvent) {
+        DCIteratorBinding genCnvIter = ADFUtils.findIterator("XpeDccCfgGeneralCnvEOVOIterator");
+        XpeDccCfgGeneralCnvEOVORowImpl genCnvRow = (XpeDccCfgGeneralCnvEOVORowImpl) genCnvIter.getCurrentRow();
+        if (null != valueChangeEvent.getNewValue() && valueChangeEvent.getNewValue().equals("Y")) {
+            genCnvRow.setInactiveDate(new Timestamp(System.currentTimeMillis()));
+        } else {
+            genCnvRow.setInactiveDate(null);
         }
     }
 }

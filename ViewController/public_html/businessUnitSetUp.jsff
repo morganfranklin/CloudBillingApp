@@ -148,7 +148,7 @@
               <af:panelLabelAndMessage label="#{bindings.SiteDesc.label}" id="plam2" partialTriggers="siteIdId">
                 <af:selectOneChoice value="#{bindings.SiteDesc.inputValue}" label="#{bindings.SiteDesc.label}"
                                     required="#{bindings.SiteDesc.hints.mandatory}"
-                                    shortDesc="#{bindings.SiteDesc.hints.tooltip}" id="soc3">
+                                    shortDesc="#{bindings.SiteDesc.hints.tooltip}" id="soc3" simple="true">
                   <f:selectItems value="#{bindings.SiteDesc.items}" id="si3"/>
                   <f:validator binding="#{bindings.SiteDesc.validator}"/>
                 </af:selectOneChoice>

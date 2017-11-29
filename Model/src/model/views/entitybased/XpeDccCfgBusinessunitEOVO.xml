@@ -363,7 +363,7 @@
       <Item Value="OperatingUnit"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="OperatingUnit"/>
+      <Item Value="Descr"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -381,7 +381,7 @@
       <Item Value="OperatingUnit"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="OperatingUnit"/>
+      <Item Value="Descr"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>

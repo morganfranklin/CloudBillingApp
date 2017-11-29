@@ -26,6 +26,7 @@ public class XpeDccCfgOriginsEOImpl extends EntityImpl {
         LastUpdatedDate,
         County,
         XpeDccNycDosDistrict,
+        Country,
         XpeDccCfgOgnAssTerminalsEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -63,6 +64,7 @@ public class XpeDccCfgOriginsEOImpl extends EntityImpl {
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int COUNTY = AttributesEnum.County.index();
     public static final int XPEDCCNYCDOSDISTRICT = AttributesEnum.XpeDccNycDosDistrict.index();
+    public static final int COUNTRY = AttributesEnum.Country.index();
     public static final int XPEDCCCFGOGNASSTERMINALSEO = AttributesEnum.XpeDccCfgOgnAssTerminalsEO.index();
 
     /**

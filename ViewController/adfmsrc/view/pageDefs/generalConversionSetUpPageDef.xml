@@ -83,5 +83,12 @@
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="XpeDccCfgGeneralCnvEOVOIterator" StaticList="false" Uses="LOV_PcsShortNameId"
           id="PcsShortNameId2" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgGeneralCnvEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgGeneralCnvEOVOIterator" id="InactiveDate">
+      <AttrNames>
+        <Item Value="InactiveDate"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

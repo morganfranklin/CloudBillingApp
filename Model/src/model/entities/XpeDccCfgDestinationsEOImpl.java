@@ -24,6 +24,7 @@ public class XpeDccCfgDestinationsEOImpl extends EntityImpl {
         CreatedDate,
         LastUpdatedBy,
         LastUpdatedDate,
+        Country,
         XpeDccCfgDstAssTerminalsEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -58,6 +59,7 @@ public class XpeDccCfgDestinationsEOImpl extends EntityImpl {
     public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
+    public static final int COUNTRY = AttributesEnum.Country.index();
     public static final int XPEDCCCFGDSTASSTERMINALSEO = AttributesEnum.XpeDccCfgDstAssTerminalsEO.index();
 
     /**

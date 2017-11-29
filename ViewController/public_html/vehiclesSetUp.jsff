@@ -93,7 +93,8 @@
                           required="#{bindings.VehicleType.hints.mandatory}"
                           columns="#{bindings.VehicleType.hints.displayWidth}"
                           maximumLength="#{bindings.VehicleType.hints.precision}"
-                          shortDesc="#{bindings.VehicleType.hints.tooltip}" id="it1" autoSubmit="true">
+                          shortDesc="#{bindings.VehicleType.hints.tooltip}" id="it1" autoSubmit="true"
+                          contentStyle="text-transform:uppercase;">
               <f:validator binding="#{bindings.VehicleType.validator}"/>
             </af:inputText>
             <af:inputText value="#{bindings.VehicleDesc.inputValue}" label="#{bindings.VehicleDesc.hints.label}"
@@ -139,7 +140,8 @@
                           required="#{bindings.VehicleType1.hints.mandatory}"
                           columns="#{bindings.VehicleType1.hints.displayWidth}"
                           maximumLength="#{bindings.VehicleType1.hints.precision}"
-                          shortDesc="#{bindings.VehicleType1.hints.tooltip}" id="it3">
+                          shortDesc="#{bindings.VehicleType1.hints.tooltip}" id="it3"
+                          contentStyle="text-transform:uppercase;">
               <f:validator binding="#{bindings.VehicleType1.validator}"/>
             </af:inputText>
             <af:inputText value="#{bindings.VehicleDesc1.inputValue}" label="#{bindings.VehicleDesc1.hints.label}"

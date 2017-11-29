@@ -116,6 +116,19 @@
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
     TableName="XPE_DCC_CFG_DESTINATIONS"/>
+  <Attribute
+    Name="Country"
+    IsNotNull="true"
+    Precision="3"
+    ColumnName="COUNTRY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_DESTINATIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="XpeDccCfgDstAssTerminalsEO"
     Association="model.entities.associations.XpeDccCfgDestinationsFkAssoc"
