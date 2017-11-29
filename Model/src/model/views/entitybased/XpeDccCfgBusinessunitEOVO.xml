@@ -723,6 +723,13 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="BusinessunitId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="BusinessunitId"
+    EntityUsage="XpeDccCfgBusinessunitEO"
+    AliasName="BUSINESSUNIT_ID"/>
   <ViewCriteria
     Name="BusinessUnitCriteria"
     ViewObjectName="model.views.entitybased.XpeDccCfgBusinessunitEOVO"

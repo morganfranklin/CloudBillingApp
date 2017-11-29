@@ -94,7 +94,7 @@
                                       required="#{bindings.CountyId.hints.mandatory}"
                                       columns="#{bindings.CountyId.hints.displayWidth}"
                                       maximumLength="#{bindings.CountyId.hints.precision}"
-                                      shortDesc="#{bindings.CountyId.hints.tooltip}" id="it5">
+                                      shortDesc="#{bindings.CountyId.hints.tooltip}" id="it5" readOnly="true">
                             <f:validator binding="#{bindings.CountyId.validator}"/>
                         </af:inputText>
                         <af:inputText value="#{bindings.CountyName.inputValue}"

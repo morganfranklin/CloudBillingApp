@@ -9,7 +9,11 @@
   DBObjectType="table"
   DBObjectName="XPE_DCC_CFG_BUSINESSUNIT"
   AliasName="XpeDccCfgBusinessunitEO"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="model.entities.XpeDccCfgBusinessunitEOImpl">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="BusinessUnit"
     IsNotNull="true"
@@ -19,7 +23,6 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     TableName="XPE_DCC_CFG_BUSINESSUNIT"
-    PrimaryKey="true"
     IsUpdateable="while_insert"
     RetrievedOnInsert="true">
     <DesignTime>
@@ -35,7 +38,6 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     TableName="XPE_DCC_CFG_BUSINESSUNIT"
-    PrimaryKey="true"
     IsUpdateable="while_insert"
     RetrievedOnInsert="true">
     <DesignTime>
@@ -243,15 +245,29 @@
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="BusinessunitId"
+    ColumnName="BUSINESSUNIT_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_BUSINESSUNIT"
+    IsNotNull="true"
+    PrimaryKey="true"
+    Precision="20">
+    <TransientExpression
+      Name="ExpressionScript"
+      trustMode="untrusted"
+      CodeSourceName="XpeDccCfgBusinessunitEORow"/>
+  </Attribute>
   <Key
-    Name="XpeDccCfgBusinessunitPk"
+    Name="BusinessunitPk"
     PrimaryKey="true">
     <DesignTime>
-      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_BUSINESSUNIT_PK"/>
+      <Attr Name="_DBObjectName" Value="BUSINESSUNIT_PK"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="model.entities.XpeDccCfgBusinessunitEO.BusinessUnit"/>
-      <Item Value="model.entities.XpeDccCfgBusinessunitEO.TerminalId"/>
+      <Item Value="model.entities.XpeDccCfgBusinessunitEO.BusinessunitId"/>
     </AttrArray>
   </Key>
 </Entity>

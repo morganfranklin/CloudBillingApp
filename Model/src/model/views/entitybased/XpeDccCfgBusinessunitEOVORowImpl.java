@@ -1,5 +1,7 @@
 package model.views.entitybased;
 
+import java.math.BigDecimal;
+
 import java.sql.Timestamp;
 
 import oracle.jbo.RowSet;
@@ -40,6 +42,7 @@ public class XpeDccCfgBusinessunitEOVORowImpl extends ViewRowImpl {
         BillingGlBusinessUnit,
         BillingOperatingUnit,
         BillingAffiliate,
+        BusinessunitId,
         XpeDccCfgTerminals_LOV,
         XpeDccCfgPCSShortNames_LOV,
         XpeDccGeneralItemList_ACLOV,
@@ -99,6 +102,7 @@ public class XpeDccCfgBusinessunitEOVORowImpl extends ViewRowImpl {
     public static final int BILLINGGLBUSINESSUNIT = AttributesEnum.BillingGlBusinessUnit.index();
     public static final int BILLINGOPERATINGUNIT = AttributesEnum.BillingOperatingUnit.index();
     public static final int BILLINGAFFILIATE = AttributesEnum.BillingAffiliate.index();
+    public static final int BUSINESSUNITID = AttributesEnum.BusinessunitId.index();
     public static final int XPEDCCCFGTERMINALS_LOV = AttributesEnum.XpeDccCfgTerminals_LOV.index();
     public static final int XPEDCCCFGPCSSHORTNAMES_LOV = AttributesEnum.XpeDccCfgPCSShortNames_LOV.index();
     public static final int XPEDCCGENERALITEMLIST_ACLOV = AttributesEnum.XpeDccGeneralItemList_ACLOV.index();
@@ -446,6 +450,22 @@ public class XpeDccCfgBusinessunitEOVORowImpl extends ViewRowImpl {
      */
     public void setBillingAffiliate(String value) {
         setAttributeInternal(BILLINGAFFILIATE, value);
+    }
+
+    /**
+     * Gets the attribute value for BUSINESSUNIT_ID using the alias name BusinessunitId.
+     * @return the BUSINESSUNIT_ID
+     */
+    public BigDecimal getBusinessunitId() {
+        return (BigDecimal) getAttributeInternal(BUSINESSUNITID);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for BUSINESSUNIT_ID using the alias name BusinessunitId.
+     * @param value value to set the BUSINESSUNIT_ID
+     */
+    public void setBusinessunitId(BigDecimal value) {
+        setAttributeInternal(BUSINESSUNITID, value);
     }
 
     /**
