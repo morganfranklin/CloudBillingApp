@@ -634,6 +634,9 @@
     <ViewUsage
         Name="XpeDccContractPricingOverView2"
         ViewObjectName="model.XpeDccContractPricingOverView"/>
+    <ViewUsage
+        Name="XpeDccCfgPcsAddressROVO"
+        ViewObjectName="model.views.readonly.XpeDccCfgPcsAddressROVO"/>
     <ViewLinkUsage
         Name="NeuRuleTblFk1Link1"
         ViewLinkObjectName="model.NeuRuleTblFk1Link"
