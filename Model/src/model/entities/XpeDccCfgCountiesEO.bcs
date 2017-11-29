@@ -1,0 +1,12 @@
+//Groovy Scripts for model.entities.XpeDccCfgCountiesEO
+
+package model.entities
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="CountyId")
+def CountyId_ExpressionScript_Expression()
+{
+adf.object.nextVal("XPE_DCC_CFG_COUNTIES_SEQ")
+}
+

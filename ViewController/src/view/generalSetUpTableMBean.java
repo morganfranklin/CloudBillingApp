@@ -1,11 +1,19 @@
 package view;
 
+import java.sql.Timestamp;
+
 import javax.el.ELContext;
 import javax.el.ExpressionFactory;
 import javax.el.MethodExpression;
 
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+
+import javax.faces.event.ValueChangeEvent;
+
+import model.views.entitybased.XpeDccCfgCountiesEOVORowImpl;
+
+import model.views.entitybased.XpeDccCfgGeneralEOVORowImpl;
 
 import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.view.rich.component.rich.RichPopup;
@@ -79,6 +87,16 @@ public class generalSetUpTableMBean {
             DCIteratorBinding carrierIter = ADFUtils.findIterator("XpeDccCfgGeneralEOVOIterator");
             carrierIter.getViewObject().executeEmptyRowSet();
             AdfFacesContext.getCurrentInstance().addPartialTarget(this.getGeneralSetUpTableBBean().getGeneralSetUpTblBind());
+        }
+    }
+
+    public void onInactiveValChgLstnr(ValueChangeEvent valueChangeEvent) {
+        DCIteratorBinding generalIter = ADFUtils.findIterator("XpeDccCfgGeneralEOVOIterator");
+        XpeDccCfgGeneralEOVORowImpl generalRow = (XpeDccCfgGeneralEOVORowImpl) generalIter.getCurrentRow();
+        if (null != valueChangeEvent.getNewValue() && valueChangeEvent.getNewValue().equals("Y")) {
+            generalRow.setInactiveDate(new Timestamp(System.currentTimeMillis()));
+        } else {
+            generalRow.setInactiveDate(null);
         }
     }
 }

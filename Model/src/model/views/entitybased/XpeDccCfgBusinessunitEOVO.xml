@@ -363,7 +363,7 @@
       <Item Value="OperatingUnit"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="OperatingUnit"/>
+      <Item Value="Descr"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -381,7 +381,7 @@
       <Item Value="OperatingUnit"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="OperatingUnit"/>
+      <Item Value="Descr"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -723,6 +723,13 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="BusinessunitId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="BusinessunitId"
+    EntityUsage="XpeDccCfgBusinessunitEO"
+    AliasName="BUSINESSUNIT_ID"/>
   <ViewCriteria
     Name="BusinessUnitCriteria"
     ViewObjectName="model.views.entitybased.XpeDccCfgBusinessunitEOVO"

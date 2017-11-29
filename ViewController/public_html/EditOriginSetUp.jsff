@@ -28,12 +28,20 @@
                               shortDesc="#{bindings.County.hints.tooltip}" autoSubmit="true">
           <f:validator binding="#{bindings.County.validator}"/>
         </af:inputListOfValues>
-        <af:panelLabelAndMessage label="#{bindings.State.label}" id="plam4">
+        <af:panelLabelAndMessage label="#{bindings.State.label}" id="plam4" showRequired="true">
           <af:selectOneChoice value="#{bindings.State.inputValue}" label="#{bindings.State.label}"
                               required="#{bindings.State.hints.mandatory}" shortDesc="#{bindings.State.hints.tooltip}"
                               id="soc1" autoSubmit="true" partialTriggers="countyId" simple="true">
             <f:selectItems value="#{bindings.State.items}" id="si1"/>
             <f:validator binding="#{bindings.State.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Country.label}" id="plam3" showRequired="true">
+          <af:selectOneChoice value="#{bindings.Country.inputValue}" label="#{bindings.Country.label}"
+                              required="#{bindings.Country.hints.mandatory}"
+                              shortDesc="#{bindings.Country.hints.tooltip}" id="soc5" simple="true" autoSubmit="true">
+            <f:selectItems value="#{bindings.Country.items}" id="si5"/>
+            <f:validator binding="#{bindings.Country.validator}"/>
           </af:selectOneChoice>
         </af:panelLabelAndMessage>
         <af:inputText value="#{bindings.XpeDccNycDosDistrict.inputValue}"

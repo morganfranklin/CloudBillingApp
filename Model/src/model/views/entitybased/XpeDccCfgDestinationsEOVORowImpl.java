@@ -31,9 +31,11 @@ public class XpeDccCfgDestinationsEOVORowImpl extends ViewRowImpl {
         CreatedDate,
         LastUpdatedBy,
         LastUpdatedDate,
+        Country,
         XpeDccCfgDstAssTerminalsEOVO,
         LookupSharedAppModule_YONLOV,
-        XpeDccGeneralItemListROVO1;
+        XpeDccGeneralItemListROVO1,
+        PsCountryTblROVO1;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -68,9 +70,11 @@ public class XpeDccCfgDestinationsEOVORowImpl extends ViewRowImpl {
     public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
+    public static final int COUNTRY = AttributesEnum.Country.index();
     public static final int XPEDCCCFGDSTASSTERMINALSEOVO = AttributesEnum.XpeDccCfgDstAssTerminalsEOVO.index();
     public static final int LOOKUPSHAREDAPPMODULE_YONLOV = AttributesEnum.LookupSharedAppModule_YONLOV.index();
     public static final int XPEDCCGENERALITEMLISTROVO1 = AttributesEnum.XpeDccGeneralItemListROVO1.index();
+    public static final int PSCOUNTRYTBLROVO1 = AttributesEnum.PsCountryTblROVO1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -219,6 +223,22 @@ public class XpeDccCfgDestinationsEOVORowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for COUNTRY using the alias name Country.
+     * @return the COUNTRY
+     */
+    public String getCountry() {
+        return (String) getAttributeInternal(COUNTRY);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for COUNTRY using the alias name Country.
+     * @param value value to set the COUNTRY
+     */
+    public void setCountry(String value) {
+        setAttributeInternal(COUNTRY, value);
+    }
+
+    /**
      * Gets the attribute value for STATE using the alias name State.
      * @return the STATE
      */
@@ -253,6 +273,13 @@ public class XpeDccCfgDestinationsEOVORowImpl extends ViewRowImpl {
      */
     public RowSet getXpeDccGeneralItemListROVO1() {
         return (RowSet) getAttributeInternal(XPEDCCGENERALITEMLISTROVO1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> PsCountryTblROVO1.
+     */
+    public RowSet getPsCountryTblROVO1() {
+        return (RowSet) getAttributeInternal(PSCOUNTRYTBLROVO1);
     }
 }
 

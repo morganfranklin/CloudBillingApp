@@ -12,7 +12,13 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="model.views.entitybased.XpeDccCfgGeneralCnvEOVORowImpl"
+  ComponentClass="model.views.entitybased.XpeDccCfgGeneralCnvEOVOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Properties>
     <SchemaBasedProperties>
       <LABEL
@@ -70,6 +76,20 @@
         <TransientExpression
           trustMode="untrusted"
           Name="ExpressionScript"><![CDATA['TRALT']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="LookupSharedAppModule_XpeDccDicNewContractSetupROVO1"
+    ViewObjectName="model.views.readonly.XpeDccDicNewContractSetupROVO"
+    AMUsageName="LookupSharedAppModule"
+    ViewInstanceName="XpeDccDicNewContractSetupROVO"
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="bind_Lookup_Type">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA['YON']]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
@@ -186,6 +206,24 @@
     MRUCount="0">
     <AttrArray Name="AttrNames">
       <Item Value="TranslationConsumer"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Inactive"
+    ListVOName="LookupSharedAppModule_XpeDccDicNewContractSetupROVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Inactive"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
@@ -347,6 +385,27 @@
     EntityAttrName="LastUpdatedDate"
     EntityUsage="XpeDccCfgGeneralCnvEO"
     AliasName="LAST_UPDATED_DATE"/>
+  <ViewAttribute
+    Name="Inactive"
+    PrecisionRule="true"
+    EntityAttrName="Inactive"
+    EntityUsage="XpeDccCfgGeneralCnvEO"
+    AliasName="INACTIVE"
+    LOVName="LOV_Inactive"
+    DefaultValue="N">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="InactiveDate"
+    PrecisionRule="true"
+    EntityAttrName="InactiveDate"
+    EntityUsage="XpeDccCfgGeneralCnvEO"
+    AliasName="INACTIVE_DATE"/>
   <ViewCriteria
     Name="GeneralConversionCriteria"
     ViewObjectName="model.views.entitybased.XpeDccCfgGeneralCnvEOVO"

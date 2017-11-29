@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PsCountryTblROVO"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.views.readonly.PsCountryTblROVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <SQLQuery><![CDATA[SELECT COUNTRY, DESCRIPTION, COUNTRY_CODE FROM PS_COUNTRY_TBL]]></SQLQuery>
+  <ViewAttribute
+    Name="Country"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="COUNTRY"
+    Expression="COUNTRY"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="3"/>
+        <LABEL
+          ResId="model.views.readonly.PsCountryTblROVO.Country_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Description"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="DESCRIPTION"
+    Expression="DESCRIPTION"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+        <LABEL
+          ResId="model.views.readonly.PsCountryTblROVO.Description_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CountryCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="2"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="COUNTRY_CODE"
+    Expression="COUNTRY_CODE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="2"/>
+        <LABEL
+          ResId="model.views.readonly.PsCountryTblROVO.CountryCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="Country"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

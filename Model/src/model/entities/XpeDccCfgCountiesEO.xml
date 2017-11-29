@@ -9,7 +9,11 @@
   DBObjectType="table"
   DBObjectName="XPE_DCC_CFG_COUNTIES"
   AliasName="XpeDccCfgCountiesEO"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="model.entities.XpeDccCfgCountiesEOImpl">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="CountyId"
     IsUpdateable="while_insert"
@@ -25,6 +29,10 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="8"/>
     </DesignTime>
+    <TransientExpression
+      Name="ExpressionScript"
+      trustMode="trusted"
+      CodeSourceName="XpeDccCfgCountiesEORow"/>
   </Attribute>
   <Attribute
     Name="CountyName"
@@ -109,6 +117,19 @@
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
     TableName="XPE_DCC_CFG_COUNTIES"/>
+  <Attribute
+    Name="Country"
+    IsNotNull="true"
+    Precision="3"
+    ColumnName="COUNTRY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_COUNTIES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </Attribute>
   <Key
     Name="XpeDccCfgCountiesCountyNameCheck">
     <DesignTime>

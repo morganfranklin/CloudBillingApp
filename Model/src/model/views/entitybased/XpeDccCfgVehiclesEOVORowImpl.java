@@ -107,7 +107,11 @@ public class XpeDccCfgVehiclesEOVORowImpl extends ViewRowImpl {
      * @param value value to set the VEHICLE_TYPE
      */
     public void setVehicleType(String value) {
-        setAttributeInternal(VEHICLETYPE, value);
+        if (null != value) {
+            setAttributeInternal(VEHICLETYPE, value.toUpperCase());
+        } else {
+            setAttributeInternal(VEHICLETYPE, value);
+        }
     }
 
     /**

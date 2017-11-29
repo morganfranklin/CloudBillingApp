@@ -24,6 +24,7 @@
           <Item Value="LastUpdatedBy"/>
           <Item Value="LastUpdatedDate"/>
           <Item Value="State"/>
+          <Item Value="Country"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -63,6 +64,10 @@
     <list IterBinding="XpeDccCfgNewCountiesCreationEOVOIterator" StaticList="false" Uses="LOV_State" id="State"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="XpeDccCfgCountiesEOVOIterator" StaticList="false" Uses="LOV_State" id="State1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgNewCountiesCreationEOVOIterator" StaticList="false" Uses="LOV_Country" id="Country"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgCountiesEOVOIterator" StaticList="false" Uses="LOV_Country" id="Country1"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

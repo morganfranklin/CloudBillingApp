@@ -41,6 +41,15 @@
                         <f:validator binding="#{row.bindings.State.validator}"/>
                     </af:selectOneChoice>
                 </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgDestinationsEOVO.hints.Country.label}" id="c2">
+                    <af:selectOneChoice value="#{row.bindings.Country.inputValue}" label="#{row.bindings.Country.label}"
+                                        required="#{bindings.XpeDccCfgDestinationsEOVO.hints.Country.mandatory}"
+                                        shortDesc="#{bindings.XpeDccCfgDestinationsEOVO.hints.Country.tooltip}"
+                                        id="soc3" readOnly="true">
+                        <f:selectItems value="#{row.bindings.Country.items}" id="si3"/>
+                        <f:validator binding="#{row.bindings.Country.validator}"/>
+                    </af:selectOneChoice>
+                </af:column>
                 <af:column headerText="#{bindings.XpeDccCfgDestinationsEOVO.hints.Inactive.label}" id="resId1c4">
                     <af:selectOneChoice value="#{row.bindings.Inactive.inputValue}"
                                         label="#{row.bindings.Inactive.label}"

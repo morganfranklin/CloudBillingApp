@@ -124,6 +124,23 @@
                         shortDesc="#{bindings.ValidValue1.hints.tooltip}" id="it3">
             <f:validator binding="#{bindings.ValidValue1.validator}"/>
           </af:inputText>
+          <af:panelLabelAndMessage label="#{bindings.Inactive.label}" id="plam4">
+            <af:selectOneChoice value="#{bindings.Inactive.inputValue}" label="#{bindings.Inactive.label}"
+                                required="#{bindings.Inactive.hints.mandatory}"
+                                shortDesc="#{bindings.Inactive.hints.tooltip}" id="soc4" autoSubmit="true"
+                                simple="true"
+                                valueChangeListener="#{pageFlowScope.generalSetUpTableMBean.onInactiveValChgLstnr}">
+              <f:selectItems value="#{bindings.Inactive.items}" id="si4"/>
+              <f:validator binding="#{bindings.Inactive.validator}"/>
+            </af:selectOneChoice>
+          </af:panelLabelAndMessage>
+          <af:inputDate value="#{bindings.InactiveDate.inputValue}" label="#{bindings.InactiveDate.hints.label}"
+                        required="#{bindings.InactiveDate.hints.mandatory}"
+                        columns="#{bindings.InactiveDate.hints.displayWidth}"
+                        shortDesc="#{bindings.InactiveDate.hints.tooltip}" id="id1" partialTriggers="soc4">
+            <f:validator binding="#{bindings.InactiveDate.validator}"/>
+            <af:convertDateTime pattern="#{bindings.InactiveDate.format}"/>
+          </af:inputDate>
         </af:panelFormLayout>
       </af:dialog>
     </af:popup>
