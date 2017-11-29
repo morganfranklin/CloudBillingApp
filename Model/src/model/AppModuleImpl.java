@@ -3,6 +3,8 @@ package model;
 import java.io.IOException;
 import java.io.Reader;
 
+import java.math.BigDecimal;
+
 import java.sql.Timestamp;
 
 import java.text.ParseException;
@@ -1877,13 +1879,13 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                                                                           "").append("<br><br>");
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_19/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_22/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(uuId).append("&").append("action=").append("ACCEPT").append("&").append("user=").append(userType);
         html.append("\"><b>Accept</b></a>");
         html.append("&nbsp;&nbsp;&nbsp;");
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_19/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_22/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(uuId).append("&").append("action=").append("REJECT").append("&").append("user=").append(userType);
         html.append("\"><b>Reject</b></a>");
         html.append("</p>");
@@ -2186,12 +2188,12 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                         XpeDccContractLineViewRowImpl contractLineRow = (XpeDccContractLineViewRowImpl) contractLineRowSet.next();
                         if(null!=contractLineRow){
                             xmlBuilder.append("<FACILITIES_ROW>");
+                            xmlBuilder.append("<FACILITY>").append(checkIfNull(contractLineRow.getXpeFacility())).append("</FACILITY>");
                             XpeDccCfgPcsAddressROVOImpl xpeDccCfgPcsAddressROVO = this.getXpeDccCfgPcsAddressROVO();
                             xpeDccCfgPcsAddressROVO.setbind_SiteId(contractLineRow.getXpeFacility());
                             xpeDccCfgPcsAddressROVO.executeQuery();
                             XpeDccCfgPcsAddressROVORowImpl xpeDccCfgPcsAddressROVORow = (XpeDccCfgPcsAddressROVORowImpl)xpeDccCfgPcsAddressROVO.first();
                             if(null!=xpeDccCfgPcsAddressROVORow){
-                                xmlBuilder.append("<FACILITY>").append(checkIfNull(contractLineRow.getXpeFacility())).append("</FACILITY>");
                                 xmlBuilder.append("<FACILITY_ADDRESS>").append(checkIfNull(xpeDccCfgPcsAddressROVORow.getSiteAddress1())).append("</FACILITY_ADDRESS>");
                                 xmlBuilder.append("<FACILITY_CITY>").append(checkIfNull(xpeDccCfgPcsAddressROVORow.getSiteCity())).append("</FACILITY_CITY>");
                                 xmlBuilder.append("<FACILITY_STATE>").append(checkIfNull(xpeDccCfgPcsAddressROVORow.getSiteState())).append("</FACILITY_STATE>");
@@ -2199,6 +2201,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                                 xmlBuilder.append("<FACILITY_OPERATING_HOURS>").append(checkIfNull(xpeDccCfgPcsAddressROVORow.getSiteOperatingHours())).append("</FACILITY_OPERATING_HOURS>");
                             }
                             RowIterator pricingTermRowSet = contractLineRow.getXpeDccContractPricingTermView();
+                            BigDecimal materialQtyFrom = new BigDecimal(0);
                             while (pricingTermRowSet.hasNext()) {
                                 XpeDccContractPricingTermViewRowImpl pricingTermRow = (XpeDccContractPricingTermViewRowImpl) pricingTermRowSet.next();
                                 if(null!=pricingTermRow){
@@ -2209,23 +2212,23 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                                             xmlBuilder.append("<PRICING_TYPE>").append(checkIfNull(pricingTermRow.getXpePricingTermType())).append("</PRICING_TYPE>");
                                             if (null != pricingTermRow.getXpePricingTermType()) {
                                                 if (!"RTE".equals(pricingTermRow.getXpePricingTermType())) {
-                                                    xmlBuilder.append("<MATERIAL_QUANTITY_FROM>").append(contractLineRow.getXpeQtyMin()).append("</MATERIAL_QUANTITY_FROM>");
-                                                    xmlBuilder.append("<MATERIAL_QUANTITY_TO>").append(contractLineRow.getXpeQtyMax()).append("</MATERIAL_QUANTITY_TO>");
+                                                    xmlBuilder.append("<MATERIAL_QUANTITY_FROM>").append(materialQtyFrom).append("</MATERIAL_QUANTITY_FROM>");
+                                                    xmlBuilder.append("<MATERIAL_QUANTITY_TO>").append(pricingTermRow.getXpeQtyMax()).append("</MATERIAL_QUANTITY_TO>");
                                                 }
                                             } else {
-                                                xmlBuilder.append("<MATERIAL_QUANTITY_FROM>").append(contractLineRow.getXpeQtyMin()).append("</MATERIAL_QUANTITY_FROM>");
-                                                xmlBuilder.append("<MATERIAL_QUANTITY_TO>").append(contractLineRow.getXpeQtyMax()).append("</MATERIAL_QUANTITY_TO>");
+                                                xmlBuilder.append("<MATERIAL_QUANTITY_FROM>").append(materialQtyFrom).append("</MATERIAL_QUANTITY_FROM>");
+                                                xmlBuilder.append("<MATERIAL_QUANTITY_TO>").append(pricingTermRow.getXpeQtyMax()).append("</MATERIAL_QUANTITY_TO>");
                                             }
                                             xmlBuilder.append("<DISPOSAL_PRICE>").append(pricingTermRow.getXpeRate()).append("</DISPOSAL_PRICE>");
                                             xmlBuilder.append("<RESET_PERIOD>").append(checkIfNull(pricingTermRow.getXpePeriodType())).append("</RESET_PERIOD>");
                                             xmlBuilder.append("</PRICING_ROW>");
+                                            materialQtyFrom = pricingTermRow.getXpeQtyMax();
                                         }else{
                                             xmlBuilder.append("<PRICING_FEE_ROW>");
                                             xmlBuilder.append("<MATERIAL_WASTE_TYPE>").append(checkIfNull(pricingTermRow.getXpePricingTermType())).append("</MATERIAL_WASTE_TYPE>");
-                                            //xmlBuilder.append("<PRICING_TYPE>").append(checkIfNull(xpeDccCfgPcsAddressROVORow.getSiteAddress1())).append("</PRICING_TYPE>");
-                                            //xmlBuilder.append("<MATERIAL_QUANTITY_FROM>").append(checkIfNull(xpeDccCfgPcsAddressROVORow.getSiteCity())).append("</MATERIAL_QUANTITY_FROM>");
-                                            //xmlBuilder.append("<MATERIAL_QUANTITY_TO>").append(checkIfNull(xpeDccCfgPcsAddressROVORow.getSiteState())).append("</MATERIAL_QUANTITY_TO>");
                                             xmlBuilder.append("<DISPOSAL_PRICE>").append(pricingTermRow.getXpeRate()).append("</DISPOSAL_PRICE>");
+                                            if (null != pricingTermRow.getXpePeriodType() && "EVE".equals(pricingTermRow.getXpePeriodType()))
+                                                xmlBuilder.append("<CHARGE_SHIPMENT>").append(pricingTermRow.getXpeRate()).append("</CHARGE_SHIPMENT>");
                                             xmlBuilder.append("<RESET_PERIOD>").append(checkIfNull(pricingTermRow.getXpePeriodType())).append("</RESET_PERIOD>");
                                             xmlBuilder.append("</PRICING_FEE_ROW>");
                                         }
