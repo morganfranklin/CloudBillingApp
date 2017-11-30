@@ -39,6 +39,8 @@
             <SchemaBasedProperties>
                 <DISPLAYWIDTH
                     Value="30"/>
+                <LABEL
+                    ResId="model.XpeDccDicProducts.XpeLookupId_LABEL"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>
@@ -60,6 +62,8 @@
             <SchemaBasedProperties>
                 <DISPLAYWIDTH
                     Value="30"/>
+                <LABEL
+                    ResId="model.XpeDccDicProducts.XpeLookupDesc_LABEL"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>

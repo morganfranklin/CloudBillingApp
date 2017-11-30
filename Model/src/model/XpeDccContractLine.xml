@@ -71,7 +71,8 @@
         SQLType="VARCHAR"
         Type="java.lang.String"
         ColumnType="VARCHAR2"
-        TableName="XPE_DCC_CONTRACT_LINE">
+        TableName="XPE_DCC_CONTRACT_LINE"
+        IsNotNull="true">
         <DesignTime>
             <Attr Name="_DisplaySize" Value="20"/>
         </DesignTime>
@@ -83,7 +84,8 @@
         SQLType="VARCHAR"
         Type="java.lang.String"
         ColumnType="VARCHAR2"
-        TableName="XPE_DCC_CONTRACT_LINE">
+        TableName="XPE_DCC_CONTRACT_LINE"
+        IsNotNull="true">
         <DesignTime>
             <Attr Name="_DisplaySize" Value="20"/>
         </DesignTime>
@@ -169,7 +171,8 @@
         SQLType="VARCHAR"
         Type="java.lang.String"
         ColumnType="VARCHAR2"
-        TableName="XPE_DCC_CONTRACT_LINE">
+        TableName="XPE_DCC_CONTRACT_LINE"
+        IsNotNull="true">
         <DesignTime>
             <Attr Name="_DisplaySize" Value="5"/>
         </DesignTime>
@@ -203,6 +206,18 @@
         Type="oracle.jbo.RowIterator"
         IsUpdateable="false"/>
     <Key
+        Name="XpeDccContractLineBusinessUnitGlCheck">
+        <DesignTime>
+            <Attr Name="_isNotNull" Value="true"/>
+            <Attr Name="_checkCondition" Value='"BUSINESS_UNIT_GL" IS NOT NULL'/>
+            <Attr Name="_isCheck" Value="true"/>
+            <Attr Name="_DBObjectName" Value="XPE_DCC_CONTRACT_LINE_BUSINESS"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.XpeDccContractLine.BusinessUnitGl"/>
+        </AttrArray>
+    </Key>
+    <Key
         Name="XpeDccContractLinePk"
         PrimaryKey="true">
         <DesignTime>
@@ -212,6 +227,30 @@
             <Item Value="model.XpeDccContractLine.XpeContractId"/>
             <Item Value="model.XpeDccContractLine.XpeContractVersion"/>
             <Item Value="model.XpeDccContractLine.XpeContractLine"/>
+        </AttrArray>
+    </Key>
+    <Key
+        Name="XpeDccContractLineXpeProductIdCheck">
+        <DesignTime>
+            <Attr Name="_isNotNull" Value="true"/>
+            <Attr Name="_checkCondition" Value='"XPE_PRODUCT_ID" IS NOT NULL'/>
+            <Attr Name="_isCheck" Value="true"/>
+            <Attr Name="_DBObjectName" Value="XPE_DCC_CONTRACT_LINE_XPE_PROD"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.XpeDccContractLine.XpeProductId"/>
+        </AttrArray>
+    </Key>
+    <Key
+        Name="XpeDccContractLineXpeProductUomCheck">
+        <DesignTime>
+            <Attr Name="_isNotNull" Value="true"/>
+            <Attr Name="_checkCondition" Value='"XPE_PRODUCT_UOM" IS NOT NULL'/>
+            <Attr Name="_isCheck" Value="true"/>
+            <Attr Name="_DBObjectName" Value="XPE_DCC_CONTRACT_LINE_XPE_PROD"/>
+        </DesignTime>
+        <AttrArray Name="Attributes">
+            <Item Value="model.XpeDccContractLine.XpeProductUom"/>
         </AttrArray>
     </Key>
     <Key

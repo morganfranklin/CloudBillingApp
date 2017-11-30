@@ -34,7 +34,14 @@
     PrecisionRule="true"
     EntityAttrName="XpeDccClause"
     EntityUsage="XpeDccTermsContractEO"
-    AliasName="XPE_DCC_CLAUSE"/>
+    AliasName="XPE_DCC_CLAUSE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccTermsContractEOVO.XpeDccClause_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeDccContractId"
     IsNotNull="true"
@@ -47,21 +54,42 @@
     PrecisionRule="true"
     EntityAttrName="XpeDccSeq"
     EntityUsage="XpeDccTermsContractEO"
-    AliasName="XPE_DCC_SEQ"/>
+    AliasName="XPE_DCC_SEQ">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccTermsContractEOVO.XpeDccSeq_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeDccTerm"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="XpeDccTerm"
     EntityUsage="XpeDccTermsContractEO"
-    AliasName="XPE_DCC_TERM"/>
+    AliasName="XPE_DCC_TERM">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccTermsContractEOVO.XpeDccTerm_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeDccTermTemplate"
     IsQueriable="false"
     PrecisionRule="true"
     EntityAttrName="XpeDccTermTemplate"
     EntityUsage="XpeDccTermsContractEO"
-    AliasName="XPE_DCC_TERM_TEMPLATE"/>
+    AliasName="XPE_DCC_TERM_TEMPLATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccTermsContractEOVO.XpeDccTermTemplate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeDccContractVersion"
     IsNotNull="true"
