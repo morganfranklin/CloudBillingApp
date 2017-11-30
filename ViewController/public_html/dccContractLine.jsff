@@ -38,24 +38,24 @@
                                                         <f:validator binding="#{bindings.XpeFacility.validator}"/>
                                                     </af:selectOneChoice>
                                                 </af:panelLabelAndMessage>
-                                                <af:panelLabelAndMessage label="Product Id" id="plam5">
-                                                    <af:selectOneChoice value="#{bindings.XpeProductId.inputValue}"
-                                                                        label="Product Id"
-                                                                        required="#{bindings.XpeProductId.hints.mandatory}"
-                                                                        autoSubmit="true"
-                                                                        shortDesc="#{bindings.XpeProductId.hints.tooltip}"
-                                                                        id="soc2" simple="true">
-                                                        <f:selectItems value="#{bindings.XpeProductId.items}" id="si2"/>
-                                                        <f:validator binding="#{bindings.XpeProductId.validator}"/>
-                                                    </af:selectOneChoice>
-                                                </af:panelLabelAndMessage>
-                                                <af:panelLabelAndMessage label="UOM" id="plam6">
+                                                <af:inputListOfValues id="xpeProductIdId"
+                                                                      popupTitle="Search and Select: #{bindings.XpeProductId.hints.label}"
+                                                                      value="#{bindings.XpeProductId.inputValue}"
+                                                                      label="#{bindings.XpeProductId.hints.label}"
+                                                                      model="#{bindings.XpeProductId.listOfValuesModel}"
+                                                                      required="#{bindings.XpeProductId.hints.mandatory}"
+                                                                      columns="#{bindings.XpeProductId.hints.displayWidth}"
+                                                                      shortDesc="#{bindings.XpeProductId.hints.tooltip}">
+                                                    <f:validator binding="#{bindings.XpeProductId.validator}"/>
+                                                </af:inputListOfValues>
+                                                <af:panelLabelAndMessage label="UOM" id="plam6" showRequired="true">
                                                     <af:selectOneChoice value="#{bindings.XpeProductUom.inputValue}"
                                                                         label="UOM"
                                                                         required="#{bindings.XpeProductUom.hints.mandatory}"
                                                                         autoSubmit="true"
                                                                         shortDesc="#{bindings.XpeProductUom.hints.tooltip}"
-                                                                        id="soc3" simple="true">
+                                                                        id="soc3" simple="true"
+                                                                        partialTriggers="xpeProductIdId">
                                                         <f:selectItems value="#{bindings.XpeProductUom.items}"
                                                                        id="si3"/>
                                                         <f:validator binding="#{bindings.XpeProductUom.validator}"/>

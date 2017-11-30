@@ -47,7 +47,7 @@
                                                     <f:validator binding="#{bindings.XpeEndDate.validator}"/>
                                                     <af:convertDateTime pattern="#{bindings.XpeEndDate.format}"/>
                                                 </af:inputDate>
-                                                <af:panelLabelAndMessage label="#{bindings.XpeNewTermMode.label}"
+                                                <af:panelLabelAndMessage label="Renewal mode"
                                                                          id="plam9">
                                                     <af:selectOneChoice value="#{bindings.XpeNewTermMode.inputValue}"
                                                                         label="Renewal mode"
@@ -79,7 +79,7 @@
                                                               shortDesc="#{bindings.UpdatedBy.hints.tooltip}" id="it2">
                                                     <f:validator binding="#{bindings.UpdatedBy.validator}"/>
                                                 </af:inputText>
-                                                <af:panelLabelAndMessage label="#{bindings.XpeBillOptionsSet.label}"
+                                                <af:panelLabelAndMessage label="Billing Options"
                                                                          id="plam8">
                                                     <af:selectOneChoice value="#{bindings.XpeBillOptionsSet.inputValue}"
                                                                         label="Billing Options"
@@ -281,7 +281,7 @@
                                                       rendered="#{row.row.entities[0].entityState==0? 'true':'false'}"
                                                       maximumLength="#{bindings.XpeDccContractLineView2.hints.XpeContractLine.precision}"
                                                       shortDesc="#{bindings.XpeDccContractLineView2.hints.XpeContractLine.tooltip}"
-                                                      id="it9">
+                                                      id="it9" autoSubmit="true">
                                             <f:validator binding="#{row.bindings.XpeContractLine.validator}"/>
                                         </af:inputText>
                                         <af:link text="#{row.bindings.XpeContractLine.inputValue}" id="l1"
@@ -294,7 +294,7 @@
                                                             label="#{row.bindings.BusinessUnitGl.label}"
                                                             required="#{bindings.XpeDccContractLineView2.hints.BusinessUnitGl.mandatory}"
                                                             shortDesc="#{bindings.XpeDccContractLineView2.hints.BusinessUnitGl.tooltip}"
-                                                            id="soc10">
+                                                            id="soc10" autoSubmit="true">
                                             <f:selectItems value="#{row.bindings.BusinessUnitGl.items}" id="si10"/>
                                             <f:validator binding="#{row.bindings.BusinessUnitGl.validator}"/>
                                         </af:selectOneChoice>
@@ -306,13 +306,13 @@
                                                             readOnly="#{(bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }"
                                                             required="#{bindings.XpeDccContractLineView2.hints.XpeFacility.mandatory}"
                                                             shortDesc="#{bindings.XpeDccContractLineView2.hints.XpeFacility.tooltip}"
-                                                            id="soc6">
+                                                            id="soc6" autoSubmit="true">
                                             <f:selectItems value="#{row.bindings.XpeFacility.items}" id="si6"/>
                                             <f:validator binding="#{row.bindings.XpeFacility.validator}"/>
                                         </af:selectOneChoice>
                                     </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccContractLineView2.hints.XpeProductId.name}"
-                                               filterable="true" sortable="true" headerText="Product Id" id="c3">
+                                               filterable="true" sortable="true" headerText="Material Type" id="c3">
                                         <af:inputListOfValues label="#{row.bindings.XpeProductId.label}"
                                                               popupTitle="Search and Select: #{row.bindings.XpeProductId.label}"
                                                               id="ilov5" value="#{row.bindings.XpeProductId.inputValue}"
@@ -331,7 +331,7 @@
                                                             required="#{bindings.XpeDccContractLineView2.hints.XpeProductUom.mandatory}"
                                                             readOnly="#{(bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }"
                                                             shortDesc="#{bindings.XpeDccContractLineView2.hints.XpeProductUom.tooltip}"
-                                                            id="soc8" partialTriggers="ilov5">
+                                                            id="soc8" partialTriggers="ilov5" autoSubmit="true">
                                             <f:selectItems value="#{row.bindings.XpeProductUom.items}" id="si8"/>
                                             <f:validator binding="#{row.bindings.XpeProductUom.validator}"/>
                                         </af:selectOneChoice>

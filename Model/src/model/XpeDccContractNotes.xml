@@ -40,13 +40,11 @@
     </Attribute>
     <Attribute
         Name="XpeNoteDttm"
-        IsNotNull="true"
         ColumnName="XPE_NOTE_DTTM"
         SQLType="TIMESTAMP"
         Type="java.sql.Timestamp"
         ColumnType="TIMESTAMP"
-        TableName="XPE_DCC_CONTRACT_NOTES"
-        PrimaryKey="true">
+        TableName="XPE_DCC_CONTRACT_NOTES">
         <Properties>
             <SchemaBasedProperties>
                 <LABEL
@@ -101,7 +99,6 @@
     </Attribute>
     <Attribute
         Name="XpeNoteType"
-        IsNotNull="true"
         Precision="3"
         ColumnName="XPE_NOTE_TYPE"
         SQLType="VARCHAR"
@@ -134,7 +131,6 @@
         <AttrArray Name="Attributes">
             <Item Value="model.XpeDccContractNotes.XpeContractId"/>
             <Item Value="model.XpeDccContractNotes.XpeContractVersion"/>
-            <Item Value="model.XpeDccContractNotes.XpeNoteDttm"/>
         </AttrArray>
     </Key>
     <Key
