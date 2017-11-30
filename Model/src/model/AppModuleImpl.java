@@ -22,9 +22,6 @@ import model.common.AppModule;
 
 import model.utils.EmailUtils;
 
-import model.views.entitybased.XpeDccCfgGeneralCnvEOVOImpl;
-
-import model.views.entitybased.XpeDccCfgGeneralEOVOImpl;
 import model.views.entitybased.XpeDccCfgBusinessunitEOVOImpl;
 import model.views.entitybased.XpeDccCfgCarriersEOVOImpl;
 import model.views.entitybased.XpeDccCfgCmtmntFacilityEOVOImpl;
@@ -34,6 +31,8 @@ import model.views.entitybased.XpeDccCfgDestinationsEOVOImpl;
 import model.views.entitybased.XpeDccCfgDestinationsEOVORowImpl;
 import model.views.entitybased.XpeDccCfgDstAssTerminalsEOVOImpl;
 import model.views.entitybased.XpeDccCfgDstAssTerminalsEOVORowImpl;
+import model.views.entitybased.XpeDccCfgGeneralCnvEOVOImpl;
+import model.views.entitybased.XpeDccCfgGeneralEOVOImpl;
 import model.views.entitybased.XpeDccCfgMetalsFacilityEOVOImpl;
 import model.views.entitybased.XpeDccCfgMetalsFacilityEOVORowImpl;
 import model.views.entitybased.XpeDccCfgMswFacilityEOVOImpl;
@@ -1602,16 +1601,25 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             while (rowSetIterator.hasNext()) {
                 XpeDccTermsForMasterTermROVORowImpl xpeDccTermsForMasterTermROVORow =
                     (XpeDccTermsForMasterTermROVORowImpl) rowSetIterator.next();
+                //get handle to the last row
+                 Row lastRow = xpeDccTermsContractEOVO.last();
+                 //obtain the index of the last row
+                int lastRowIndex = xpeDccTermsContractEOVO.getRangeIndexOf(lastRow);
                 XpeDccTermsContractEOVORowImpl xpeDccTermsContractEOVORow =
                     (XpeDccTermsContractEOVORowImpl) xpeDccTermsContractEOVO.createRow();
+                //initialize the row
+                xpeDccTermsContractEOVORow.setNewRowState(Row.STATUS_INITIALIZED);
                 if (null != xpeDccTermsContractEOVORow) {
                     xpeDccTermsContractEOVORow.setXpeDccTerm(xpeDccTermsForMasterTermROVORow.getXpeDccTerm());
                     xpeDccTermsContractEOVORow.setXpeDccClause(xpeDccTermsForMasterTermROVORow.getXpeDccClause());
                     xpeDccTermsContractEOVORow.setXpeDccSeq(xpeDccTermsForMasterTermROVORow.getXpeDccSeq());
                     xpeDccTermsContractEOVORow.setXpeDccTermTemplate(xpeDccTermsForMasterTermROVORow.getXpeDccTermTemplate());
-                    xpeDccTermsContractEOVO.insertRow(xpeDccTermsContractEOVORow);
+                    xpeDccTermsContractEOVO.insertRowAtRangeIndex(lastRowIndex+1,xpeDccTermsContractEOVORow);
                 }
             }
+            Row firstRow = xpeDccTermsContractEOVO.first();
+            if(null!=firstRow)
+                xpeDccTermsContractEOVO.setCurrentRow(firstRow);
             rowSetIterator.closeRowSetIterator();
         }
     }
@@ -2111,7 +2119,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                     if (null != xpeDccNewContractsEOVORows && xpeDccNewContractsEOVORows.length > 0)
                         xpeDccNewContractsEOVORow = (XpeDccNewContractsEOVORowImpl) xpeDccNewContractsEOVORows[0];
                 } else if ("N".equals(inContractFlow)) {
-                    XpeDccNewContractsEOVOImpl contractView = this.getXpeDccNewContractsEOVO1();
+                    XpeDccNewContractsEOVOImpl contractView = this.getXpeDccNewContractsEOVO();
                     contractView.executeEmptyRowSet();
                     contractView.setApplyViewCriteriaName("FetchExtContractCriteria");
                     contractView.setbind_ContractId(contractId);

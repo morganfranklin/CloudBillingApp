@@ -22,17 +22,17 @@
     Name="bind_Term"
     Kind="where"
     Type="java.lang.String"/>
-  <SQLQuery><![CDATA[SELECT      
-    XPE_DCC_TERM_MASTER.XPE_DCC_TERM,       
-    XPE_DCC_TERMS.XPE_DCC_CLAUSE,      
-    XPE_DCC_TERMS.XPE_DCC_SEQ,      
-    XPE_DCC_TERMS.XPE_DCC_TERM_TEMPLATE      
-FROM      
-    XPE_DCC_TERM_MASTER, XPE_DCC_TERMS      
-WHERE      
-    XPE_DCC_TERM_MASTER.XPE_DCC_TERM = XPE_DCC_TERMS.XPE_DCC_TERM     
-    AND XPE_DCC_TERM_MASTER.XPE_DCC_TERM=:bind_Term  
-ORDER BY XPE_DCC_SEQ DESC]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT       
+    XPE_DCC_TERM_MASTER.XPE_DCC_TERM,        
+    XPE_DCC_TERMS.XPE_DCC_CLAUSE,       
+    XPE_DCC_TERMS.XPE_DCC_SEQ,       
+    XPE_DCC_TERMS.XPE_DCC_TERM_TEMPLATE       
+FROM       
+    XPE_DCC_TERM_MASTER, XPE_DCC_TERMS       
+WHERE       
+    XPE_DCC_TERM_MASTER.XPE_DCC_TERM = XPE_DCC_TERMS.XPE_DCC_TERM      
+    AND XPE_DCC_TERM_MASTER.XPE_DCC_TERM=:bind_Term   
+ORDER BY XPE_DCC_SEQ ASC]]></SQLQuery>
   <ViewAttribute
     Name="XpeDccTerm"
     IsUpdateable="false"
