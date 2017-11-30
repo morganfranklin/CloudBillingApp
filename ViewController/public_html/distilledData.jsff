@@ -33,27 +33,27 @@
                               queryListener="#{bindings.PsCisXpeImportView1Query.processQuery}" varStatus="vs" id="t1"
                               partialTriggers="::b2">
                         <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.Key1.name}" filterable="true"
-                                   sortable="true" headerText="OPC" id="c1">
+                                   sortable="true" headerText="Scales Site" id="c1">
                             <af:outputText value="#{row.Key1}"
                                            shortDesc="#{bindings.PsCisXpeImportView1.hints.Key1.tooltip}" id="ot1"/>
                         </af:column>
                         <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.Key2.name}" filterable="true"
-                                   sortable="true" headerText="DPC" id="c2">
+                                   sortable="true" headerText="Ticket Number" id="c2">
                             <af:outputText value="#{row.Key2}"
                                            shortDesc="#{bindings.PsCisXpeImportView1.hints.Key2.tooltip}" id="ot2"/>
                         </af:column>
-                        <af:column id="c20" headerText="OCN" sortable="true" filterable="true"
+                        <af:column id="c20" headerText="Destination" sortable="true" filterable="true"
                                    sortProperty="#{bindings.PsCisXpeImportView1.hints.Key4.name}">
                             <af:outputText value="#{row.Key4}"
                                            shortDesc="#{bindings.PsCisXpeImportView1.hints.Key4.tooltip}" id="ot20"/>
                         </af:column>
                         <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.Key3.name}" filterable="true"
-                                   sortable="true" headerText="Message Type" id="c3">
+                                   sortable="true" headerText="Carrier" id="c3">
                             <af:outputText value="#{row.Key3}"
                                            shortDesc="#{bindings.PsCisXpeImportView1.hints.Key3.tooltip}" id="ot3"/>
                         </af:column>
                         <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.KeyDate01.name}" filterable="true"
-                                   sortable="true" headerText="Message Date" id="c4">
+                                   sortable="true" headerText="Ticket Date" id="c4">
                             <f:facet name="filter">
                                 <af:inputDate value="#{bindings.PsCisXpeImportView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.KeyDate01.value}"
                                               id="id1">
@@ -84,7 +84,7 @@
                                            id="ot7"/>
                         </af:column>
                         <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.CisTargtcust1det3.name}"
-                                   filterable="true" sortable="true" headerText="Context Id" id="c8">
+                                   filterable="true" sortable="true" headerText="Stage Code" id="c8">
                             <af:outputText value="#{row.CisTargtcust1det3}"
                                            shortDesc="#{bindings.PsCisXpeImportView1.hints.CisTargtcust1det3.tooltip}"
                                            id="ot8"/>
@@ -96,25 +96,25 @@
                                            id="ot9"/>
                         </af:column>
                         <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.AttrValue3.name}"
-                                   filterable="true" sortable="true" headerText="Resource Type" id="c10">
+                                   filterable="true" sortable="true" headerText="UOM" id="c10">
                             <af:outputText value="#{row.AttrValue3}"
                                            shortDesc="#{bindings.PsCisXpeImportView1.hints.AttrValue3.tooltip}"
                                            id="ot10"/>
                         </af:column>
                         <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.AttrValue4.name}"
-                                   filterable="true" sortable="true" headerText="Resource Category" id="c11">
+                                   filterable="true" sortable="true" headerText="Origin Id" id="c11">
                             <af:outputText value="#{row.AttrValue4}"
                                            shortDesc="#{bindings.PsCisXpeImportView1.hints.AttrValue4.tooltip}"
                                            id="ot11"/>
                         </af:column>
                         <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.AttrValue5.name}"
-                                   filterable="true" sortable="true" headerText="Transaction Id" id="c12">
+                                   filterable="true" sortable="true" headerText="Material Id" id="c12">
                             <af:outputText value="#{row.AttrValue5}"
                                            shortDesc="#{bindings.PsCisXpeImportView1.hints.AttrValue5.tooltip}"
                                            id="ot12"/>
                         </af:column>
                         <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.Qty1.name}" filterable="true"
-                                   sortable="true" headerText="Comp Count" id="c13">
+                                   sortable="true" headerText="Weight In" id="c13">
                             <af:outputText value="#{row.Qty1}"
                                            shortDesc="#{bindings.PsCisXpeImportView1.hints.Qty1.tooltip}" id="ot13">
                                 <af:convertNumber groupingUsed="false"
@@ -122,7 +122,7 @@
                             </af:outputText>
                         </af:column>
                         <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.Qty2.name}" filterable="true"
-                                   sortable="true" headerText="Message Count" id="c14">
+                                   sortable="true" headerText="Tare" id="c14">
                             <af:outputText value="#{row.Qty2}"
                                            shortDesc="#{bindings.PsCisXpeImportView1.hints.Qty2.tooltip}" id="ot14">
                                 <af:convertNumber groupingUsed="false"
@@ -130,7 +130,7 @@
                             </af:outputText>
                         </af:column>
                         <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.Qty3.name}" filterable="true"
-                                   sortable="true" headerText="Additional Count" id="c15">
+                                   sortable="true" headerText="Net Weight" id="c15">
                             <af:outputText value="#{row.Qty3}"
                                            shortDesc="#{bindings.PsCisXpeImportView1.hints.Qty3.tooltip}" id="ot15">
                                 <af:convertNumber groupingUsed="false"
