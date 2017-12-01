@@ -171,8 +171,7 @@
         SQLType="VARCHAR"
         Type="java.lang.String"
         ColumnType="VARCHAR2"
-        TableName="XPE_DCC_CONTRACT_LINE"
-        IsNotNull="true">
+        TableName="XPE_DCC_CONTRACT_LINE">
         <DesignTime>
             <Attr Name="_DisplaySize" Value="5"/>
         </DesignTime>
@@ -205,18 +204,6 @@
         AssociationOtherEnd="model.XpeDccContractPricingFk2Assoc.XpeDccContractLine"
         Type="oracle.jbo.RowIterator"
         IsUpdateable="false"/>
-    <Key
-        Name="XpeDccContractLineBusinessUnitGlCheck">
-        <DesignTime>
-            <Attr Name="_isNotNull" Value="true"/>
-            <Attr Name="_checkCondition" Value='"BUSINESS_UNIT_GL" IS NOT NULL'/>
-            <Attr Name="_isCheck" Value="true"/>
-            <Attr Name="_DBObjectName" Value="XPE_DCC_CONTRACT_LINE_BUSINESS"/>
-        </DesignTime>
-        <AttrArray Name="Attributes">
-            <Item Value="model.XpeDccContractLine.BusinessUnitGl"/>
-        </AttrArray>
-    </Key>
     <Key
         Name="XpeDccContractLinePk"
         PrimaryKey="true">

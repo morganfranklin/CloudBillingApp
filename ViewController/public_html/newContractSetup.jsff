@@ -234,7 +234,7 @@
                                                        id="c26">
                                                 <af:selectOneChoice value="#{row.bindings.BusinessUnitGl.inputValue}"
                                                                     label="#{row.bindings.BusinessUnitGl.label}"
-                                                                    required="#{bindings.XpeDccNewContractLineView.hints.BusinessUnitGl.mandatory}"
+                                                                    required="true"
                                                                     shortDesc="#{bindings.XpeDccNewContractLineView.hints.BusinessUnitGl.tooltip}"
                                                                     id="soc9"
                                                                     readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
