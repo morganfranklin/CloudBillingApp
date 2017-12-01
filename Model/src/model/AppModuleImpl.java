@@ -1890,13 +1890,13 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                                                                           "").append("<br><br>");
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_22/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_26/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(uuId).append("&").append("action=").append("ACCEPT").append("&").append("user=").append(userType);
         html.append("\"><b>Accept</b></a>");
         html.append("&nbsp;&nbsp;&nbsp;");
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_22/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_26/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(uuId).append("&").append("action=").append("REJECT").append("&").append("user=").append(userType);
         html.append("\"><b>Reject</b></a>");
         html.append("</p>");
@@ -2480,6 +2480,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             //lineTargetRow.setXpeContractId(contractId);
             //lineTargetRow.setXpeContractVersion(versionId);
             lineTargetRow.setXpeContractLine(lineSourceRow.getXpeContractLine());
+            lineTargetRow.setBusinessUnitGl(lineSourceRow.getBusinessUnitGl());
             lineTargetRow.setXpeFacility(lineSourceRow.getXpeFacility());
             lineTargetRow.setXpePeriodType(lineSourceRow.getXpePeriodType());
             lineTargetRow.setXpeProductId(lineSourceRow.getXpeProductId());
@@ -2519,7 +2520,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             targetPricingTermRow.setXpePricingTermLine(sourcePricingTermRow.getXpePricingTermLine());
             targetPricingTermRow.setXpePricingTermType(sourcePricingTermRow.getXpePricingTermType());
             targetPricingTermRow.setXpeQtyMax(sourcePricingTermRow.getXpeQtyMax());
-            targetPricingTermRow.setXpeRate(sourcePricingTermRow.getXpeQtyMax());
+            targetPricingTermRow.setXpeRate(sourcePricingTermRow.getXpeRate());
             targetPricingTermRow.setXpeResetType(sourcePricingTermRow.getXpeResetType());
             targetPricingTermRow.setXpeRolloverType(sourcePricingTermRow.getXpeRolloverType());
             lineTargetRowSet.insertRow(targetPricingTermRow);
