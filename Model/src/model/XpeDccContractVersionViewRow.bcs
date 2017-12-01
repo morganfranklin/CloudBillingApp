@@ -3,10 +3,39 @@
 package model
 
 import oracle.jbo.script.annotation.TransientValueExpression;
+import oracle.jbo.script.annotation.RefreshExpression;
 
 @TransientValueExpression(attributeName="XpeAsOfDate")
 def XpeAsOfDate_ExpressionScript_Expression()
 {
 adf.currentDateTime
+}
+
+
+@TransientValueExpression(attributeName="XpeStartDate")
+def XpeStartDate_ExpressionScript_Expression()
+{
+adf.object.viewObject.returnCurrentDateTime()
+}
+
+
+@TransientValueExpression(attributeName="XpeEndDate")
+def XpeEndDate_ExpressionScript_Expression()
+{
+adf.object.viewObject.returnOneYearDateTime()
+}
+
+
+@RefreshExpression(attributeName="XpeStartDate")
+def XpeStartDate_RecalcExpressionScript_RecalcExpression()
+{
+true
+}
+
+
+@RefreshExpression(attributeName="XpeEndDate")
+def XpeEndDate_RecalcExpressionScript_RecalcExpression()
+{
+true
 }
 

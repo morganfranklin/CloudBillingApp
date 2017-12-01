@@ -118,7 +118,7 @@
                                                           autoSubmit="true"
                                                           readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
                                                 <f:validator binding="#{bindings.XpeAsOfDate.validator}"/>
-                                                <af:convertDateTime pattern="#{bindings.XpeAsOfDate.format}"/>
+                                                <af:convertDateTime pattern="yyyy-MM-dd HH:mm:ss"/>
                                             </af:inputDate>
                                             <af:panelLabelAndMessage label="#{bindings.XpeStartDate.hints.label}"
                                                                      id="plam4">
@@ -130,7 +130,7 @@
                                                               id="id2" simple="true" autoSubmit="true"
                                                               readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
                                                     <f:validator binding="#{bindings.XpeStartDate.validator}"/>
-                                                    <af:convertDateTime pattern="#{bindings.XpeStartDate.format}"/>
+                                                    <af:convertDateTime pattern="yyyy-MM-dd HH:mm:ss"/>
                                                 </af:inputDate>
                                                 <f:facet name="end">
                                                     <af:inputDate value="#{bindings.XpeEndDate.inputValue}"
@@ -140,7 +140,7 @@
                                                                   shortDesc="#{bindings.XpeEndDate.hints.tooltip}"
                                                                   id="id3">
                                                         <f:validator binding="#{bindings.XpeEndDate.validator}"/>
-                                                        <af:convertDateTime pattern="#{bindings.XpeEndDate.format}"/>
+                                                        <af:convertDateTime pattern="yyyy-MM-dd HH:mm:ss"/>
                                                     </af:inputDate>
                                                 </f:facet>
                                             </af:panelLabelAndMessage>

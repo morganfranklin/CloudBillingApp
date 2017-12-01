@@ -397,12 +397,14 @@
         EntityAttrName="XpeStartDate"
         EntityUsage="XpeDccContractVersion"
         AliasName="XPE_START_DATE">
+        <TransientExpression
+            Name="ExpressionScript"
+            CodeSourceName="XpeDccContractVersionViewRow"/>
+        <RecalcCondition
+            Name="RecalcExpressionScript"
+            CodeSourceName="XpeDccContractVersionViewRow"/>
         <Properties>
             <SchemaBasedProperties>
-                <FMT_FORMATTER
-                    ResId="model.XpeDccContractVersionView.XpeStartDate_FMT_FORMATTER"/>
-                <FMT_FORMAT
-                    ResId="model.XpeDccContractVersionView.XpeStartDate_FMT_FORMAT"/>
                 <LABEL
                     ResId="model.XpeDccContractVersionView.XpeStartDate_LABEL"/>
             </SchemaBasedProperties>
@@ -414,12 +416,14 @@
         EntityAttrName="XpeEndDate"
         EntityUsage="XpeDccContractVersion"
         AliasName="XPE_END_DATE">
+        <TransientExpression
+            Name="ExpressionScript"
+            CodeSourceName="XpeDccContractVersionViewRow"/>
+        <RecalcCondition
+            Name="RecalcExpressionScript"
+            CodeSourceName="XpeDccContractVersionViewRow"/>
         <Properties>
             <SchemaBasedProperties>
-                <FMT_FORMAT
-                    ResId="model.XpeDccContractVersionView.XpeEndDate_FMT_FORMAT"/>
-                <FMT_FORMATTER
-                    ResId="model.XpeDccContractVersionView.XpeEndDate_FMT_FORMATTER"/>
                 <LABEL
                     ResId="model.XpeDccContractVersionView.XpeEndDate_LABEL"/>
             </SchemaBasedProperties>
@@ -562,10 +566,6 @@
             CodeSourceName="XpeDccContractVersionViewRow"/>
         <Properties>
             <SchemaBasedProperties>
-                <FMT_FORMAT
-                    ResId="model.XpeDccContractVersionView.XpeAsOfDate_FMT_FORMAT"/>
-                <FMT_FORMATTER
-                    ResId="model.XpeDccContractVersionView.XpeAsOfDate_FMT_FORMATTER"/>
                 <LABEL
                     ResId="model.XpeDccContractVersionView.XpeAsOfDate_LABEL"/>
             </SchemaBasedProperties>
