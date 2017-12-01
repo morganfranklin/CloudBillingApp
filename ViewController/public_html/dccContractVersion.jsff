@@ -292,7 +292,7 @@
                                                filterable="true" sortable="true" headerText="Business Unit" id="c11">
                                         <af:selectOneChoice value="#{row.bindings.BusinessUnitGl.inputValue}"
                                                             label="#{row.bindings.BusinessUnitGl.label}"
-                                                            required="#{bindings.XpeDccContractLineView2.hints.BusinessUnitGl.mandatory}"
+                                                            required="true"
                                                             shortDesc="#{bindings.XpeDccContractLineView2.hints.BusinessUnitGl.tooltip}"
                                                             id="soc10" autoSubmit="true">
                                             <f:selectItems value="#{row.bindings.BusinessUnitGl.items}" id="si10"/>
