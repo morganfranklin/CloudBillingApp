@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 
 import java.sql.Timestamp;
 
+import model.entities.XpeDccCfgBusinessunitEOImpl;
+
 import oracle.jbo.RowSet;
 import oracle.jbo.server.EntityImpl;
 import oracle.jbo.server.ViewRowImpl;
@@ -49,14 +51,14 @@ public class XpeDccCfgBusinessunitEOVORowImpl extends ViewRowImpl {
         LookupSharedAppModule_YONLOV,
         XpeDccCfgPcsAssTerminalsROVO1,
         XpeDccCfgPcsROVO1,
-        PcBusUnitTblGlROVO1,
         PsBusUnitTblBiROVO1,
         PsOperUnitTblROVO1,
-        PcBusUnitTblGlROVO2,
-        PcBusUnitTblGlROVO3,
-        PcBusUnitTblGlROVO4,
-        PcBusUnitTblGlROVO5,
-        PsOperUnitTblROVO2;
+        PsOperUnitTblROVO2,
+        PsBusUnitTblFsROVO1,
+        PsBusUnitTblFsROVO2,
+        PsBusUnitTblFsROVO3,
+        PsBusUnitTblFsROVO4,
+        PsBusUnitTblFsROVO5;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -109,14 +111,14 @@ public class XpeDccCfgBusinessunitEOVORowImpl extends ViewRowImpl {
     public static final int LOOKUPSHAREDAPPMODULE_YONLOV = AttributesEnum.LookupSharedAppModule_YONLOV.index();
     public static final int XPEDCCCFGPCSASSTERMINALSROVO1 = AttributesEnum.XpeDccCfgPcsAssTerminalsROVO1.index();
     public static final int XPEDCCCFGPCSROVO1 = AttributesEnum.XpeDccCfgPcsROVO1.index();
-    public static final int PCBUSUNITTBLGLROVO1 = AttributesEnum.PcBusUnitTblGlROVO1.index();
     public static final int PSBUSUNITTBLBIROVO1 = AttributesEnum.PsBusUnitTblBiROVO1.index();
     public static final int PSOPERUNITTBLROVO1 = AttributesEnum.PsOperUnitTblROVO1.index();
-    public static final int PCBUSUNITTBLGLROVO2 = AttributesEnum.PcBusUnitTblGlROVO2.index();
-    public static final int PCBUSUNITTBLGLROVO3 = AttributesEnum.PcBusUnitTblGlROVO3.index();
-    public static final int PCBUSUNITTBLGLROVO4 = AttributesEnum.PcBusUnitTblGlROVO4.index();
-    public static final int PCBUSUNITTBLGLROVO5 = AttributesEnum.PcBusUnitTblGlROVO5.index();
     public static final int PSOPERUNITTBLROVO2 = AttributesEnum.PsOperUnitTblROVO2.index();
+    public static final int PSBUSUNITTBLFSROVO1 = AttributesEnum.PsBusUnitTblFsROVO1.index();
+    public static final int PSBUSUNITTBLFSROVO2 = AttributesEnum.PsBusUnitTblFsROVO2.index();
+    public static final int PSBUSUNITTBLFSROVO3 = AttributesEnum.PsBusUnitTblFsROVO3.index();
+    public static final int PSBUSUNITTBLFSROVO4 = AttributesEnum.PsBusUnitTblFsROVO4.index();
+    public static final int PSBUSUNITTBLFSROVO5 = AttributesEnum.PsBusUnitTblFsROVO5.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -128,8 +130,8 @@ public class XpeDccCfgBusinessunitEOVORowImpl extends ViewRowImpl {
      * Gets XpeDccCfgBusinessunitEO entity object.
      * @return the XpeDccCfgBusinessunitEO
      */
-    public EntityImpl getXpeDccCfgBusinessunitEO() {
-        return (EntityImpl) getEntity(ENTITY_XPEDCCCFGBUSINESSUNITEO);
+    public XpeDccCfgBusinessunitEOImpl getXpeDccCfgBusinessunitEO() {
+        return (XpeDccCfgBusinessunitEOImpl) getEntity(ENTITY_XPEDCCCFGBUSINESSUNITEO);
     }
 
     /**
@@ -456,15 +458,15 @@ public class XpeDccCfgBusinessunitEOVORowImpl extends ViewRowImpl {
      * Gets the attribute value for BUSINESSUNIT_ID using the alias name BusinessunitId.
      * @return the BUSINESSUNIT_ID
      */
-    public BigDecimal getBusinessunitId() {
-        return (BigDecimal) getAttributeInternal(BUSINESSUNITID);
+    public String getBusinessunitId() {
+        return (String) getAttributeInternal(BUSINESSUNITID);
     }
 
     /**
      * Sets <code>value</code> as attribute value for BUSINESSUNIT_ID using the alias name BusinessunitId.
      * @param value value to set the BUSINESSUNIT_ID
      */
-    public void setBusinessunitId(BigDecimal value) {
+    public void setBusinessunitId(String value) {
         setAttributeInternal(BUSINESSUNITID, value);
     }
 
@@ -511,13 +513,6 @@ public class XpeDccCfgBusinessunitEOVORowImpl extends ViewRowImpl {
     }
 
     /**
-     * Gets the view accessor <code>RowSet</code> PcBusUnitTblGlROVO1.
-     */
-    public RowSet getPcBusUnitTblGlROVO1() {
-        return (RowSet) getAttributeInternal(PCBUSUNITTBLGLROVO1);
-    }
-
-    /**
      * Gets the view accessor <code>RowSet</code> PsBusUnitTblBiROVO1.
      */
     public RowSet getPsBusUnitTblBiROVO1() {
@@ -532,38 +527,45 @@ public class XpeDccCfgBusinessunitEOVORowImpl extends ViewRowImpl {
     }
 
     /**
-     * Gets the view accessor <code>RowSet</code> PcBusUnitTblGlROVO2.
-     */
-    public RowSet getPcBusUnitTblGlROVO2() {
-        return (RowSet) getAttributeInternal(PCBUSUNITTBLGLROVO2);
-    }
-
-    /**
-     * Gets the view accessor <code>RowSet</code> PcBusUnitTblGlROVO3.
-     */
-    public RowSet getPcBusUnitTblGlROVO3() {
-        return (RowSet) getAttributeInternal(PCBUSUNITTBLGLROVO3);
-    }
-
-    /**
-     * Gets the view accessor <code>RowSet</code> PcBusUnitTblGlROVO4.
-     */
-    public RowSet getPcBusUnitTblGlROVO4() {
-        return (RowSet) getAttributeInternal(PCBUSUNITTBLGLROVO4);
-    }
-
-    /**
-     * Gets the view accessor <code>RowSet</code> PcBusUnitTblGlROVO5.
-     */
-    public RowSet getPcBusUnitTblGlROVO5() {
-        return (RowSet) getAttributeInternal(PCBUSUNITTBLGLROVO5);
-    }
-
-    /**
      * Gets the view accessor <code>RowSet</code> PsOperUnitTblROVO2.
      */
     public RowSet getPsOperUnitTblROVO2() {
         return (RowSet) getAttributeInternal(PSOPERUNITTBLROVO2);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> PsBusUnitTblFsROVO1.
+     */
+    public RowSet getPsBusUnitTblFsROVO1() {
+        return (RowSet) getAttributeInternal(PSBUSUNITTBLFSROVO1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> PsBusUnitTblFsROVO2.
+     */
+    public RowSet getPsBusUnitTblFsROVO2() {
+        return (RowSet) getAttributeInternal(PSBUSUNITTBLFSROVO2);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> PsBusUnitTblFsROVO3.
+     */
+    public RowSet getPsBusUnitTblFsROVO3() {
+        return (RowSet) getAttributeInternal(PSBUSUNITTBLFSROVO3);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> PsBusUnitTblFsROVO4.
+     */
+    public RowSet getPsBusUnitTblFsROVO4() {
+        return (RowSet) getAttributeInternal(PSBUSUNITTBLFSROVO4);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> PsBusUnitTblFsROVO5.
+     */
+    public RowSet getPsBusUnitTblFsROVO5() {
+        return (RowSet) getAttributeInternal(PSBUSUNITTBLFSROVO5);
     }
 }
 

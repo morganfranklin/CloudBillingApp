@@ -78,37 +78,37 @@
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_SiteDesc" id="SiteDesc1"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
-    <list IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" StaticList="false" Uses="LOV_BusinessUnit"
-          id="BusinessUnit" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
-    <list IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_BusinessUnit"
-          id="BusinessUnit1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" StaticList="false" Uses="LOV_BillingBusinessUnit"
           id="BillingBusinessUnit" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_BillingBusinessUnit"
           id="BillingBusinessUnit1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
-    <list IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" StaticList="false" Uses="LOV_BillingGlBusinessUnit"
-          id="BillingGlBusinessUnit" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" StaticList="false" Uses="LOV_BillingOperatingUnit"
           id="BillingOperatingUnit" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
-    <list IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" StaticList="false" Uses="LOV_BillingAffiliate"
-          id="BillingAffiliate" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
-    <list IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_BillingGlBusinessUnit"
-          id="BillingGlBusinessUnit1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
-    <list IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_BillingAffiliate"
-          id="BillingAffiliate1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_BillingOperatingUnit"
           id="BillingOperatingUnit1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
-    <list IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" StaticList="false" Uses="LOV_GlBusinessUnit"
-          id="GlBusinessUnit" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" StaticList="false" Uses="LOV_OperatingUnit"
           id="OperatingUnit" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
-    <list IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" StaticList="false" Uses="LOV_Affliate" id="Affliate"
-          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
-    <list IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_GlBusinessUnit"
-          id="GlBusinessUnit1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_OperatingUnit"
           id="OperatingUnit1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
-    <list IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_Affliate" id="Affliate1"
-          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <listOfValues IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" StaticList="false" Uses="LOV_BusinessUnit"
+                  id="BusinessUnit"/>
+    <listOfValues IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" StaticList="false" Uses="LOV_BillingGlBusinessUnit"
+                  id="BillingGlBusinessUnit"/>
+    <listOfValues IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" StaticList="false" Uses="LOV_BillingAffiliate"
+                  id="BillingAffiliate"/>
+    <listOfValues IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" StaticList="false" Uses="LOV_GlBusinessUnit"
+                  id="GlBusinessUnit"/>
+    <listOfValues IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" StaticList="false" Uses="LOV_Affliate"
+                  id="Affliate"/>
+    <listOfValues IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_BusinessUnit"
+                  id="BusinessUnit1"/>
+    <listOfValues IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_BillingGlBusinessUnit"
+                  id="BillingGlBusinessUnit1"/>
+    <listOfValues IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_BillingAffiliate"
+                  id="BillingAffiliate1"/>
+    <listOfValues IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_Affliate"
+                  id="Affliate1"/>
+    <listOfValues IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_GlBusinessUnit"
+                  id="GlBusinessUnit1"/>
   </bindings>
 </pageDefinition>

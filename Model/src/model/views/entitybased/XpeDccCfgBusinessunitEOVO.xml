@@ -113,10 +113,6 @@
     </ParameterMap>
   </ViewAccessor>
   <ViewAccessor
-    Name="PcBusUnitTblGlROVO1"
-    ViewObjectName="model.views.readonly.PcBusUnitTblGlROVO"
-    RowLevelBinds="true"/>
-  <ViewAccessor
     Name="PsBusUnitTblBiROVO1"
     ViewObjectName="model.views.readonly.PsBusUnitTblBiROVO"
     RowLevelBinds="true"/>
@@ -136,24 +132,28 @@
     </ParameterMap>
   </ViewAccessor>
   <ViewAccessor
-    Name="PcBusUnitTblGlROVO2"
-    ViewObjectName="model.views.readonly.PcBusUnitTblGlROVO"
-    RowLevelBinds="true"/>
-  <ViewAccessor
-    Name="PcBusUnitTblGlROVO3"
-    ViewObjectName="model.views.readonly.PcBusUnitTblGlROVO"
-    RowLevelBinds="true"/>
-  <ViewAccessor
-    Name="PcBusUnitTblGlROVO4"
-    ViewObjectName="model.views.readonly.PcBusUnitTblGlROVO"
-    RowLevelBinds="true"/>
-  <ViewAccessor
-    Name="PcBusUnitTblGlROVO5"
-    ViewObjectName="model.views.readonly.PcBusUnitTblGlROVO"
-    RowLevelBinds="true"/>
-  <ViewAccessor
     Name="PsOperUnitTblROVO2"
     ViewObjectName="model.views.readonly.PsOperUnitTblROVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="PsBusUnitTblFsROVO1"
+    ViewObjectName="model.views.readonly.PsBusUnitTblFsROVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="PsBusUnitTblFsROVO2"
+    ViewObjectName="model.views.readonly.PsBusUnitTblFsROVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="PsBusUnitTblFsROVO3"
+    ViewObjectName="model.views.readonly.PsBusUnitTblFsROVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="PsBusUnitTblFsROVO4"
+    ViewObjectName="model.views.readonly.PsBusUnitTblFsROVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="PsBusUnitTblFsROVO5"
+    ViewObjectName="model.views.readonly.PsBusUnitTblFsROVO"
     RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_TerminalId"
@@ -278,24 +278,6 @@
     <DisplayCriteria/>
   </ListBinding>
   <ListBinding
-    Name="LOV_BusinessUnit"
-    ListVOName="PcBusUnitTblGlROVO1"
-    ListRangeSize="-1"
-    NullValueFlag="none"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="BusinessUnit"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="BusinessUnit"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="BusinessUnit"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
-  <ListBinding
     Name="LOV_BillingBusinessUnit"
     ListVOName="PsBusUnitTblBiROVO1"
     ListRangeSize="-1"
@@ -310,42 +292,6 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="BusinessUnit"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
-  <ListBinding
-    Name="LOV_BillingGlBusinessUnit"
-    ListVOName="PcBusUnitTblGlROVO2"
-    ListRangeSize="-1"
-    NullValueFlag="none"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="BillingGlBusinessUnit"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="BusinessUnit"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="BusinessUnit"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
-  <ListBinding
-    Name="LOV_BillingAffiliate"
-    ListVOName="PcBusUnitTblGlROVO3"
-    ListRangeSize="-1"
-    NullValueFlag="none"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="BillingAffiliate"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="Affiliate"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Affiliate"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -386,9 +332,31 @@
     <DisplayCriteria/>
   </ListBinding>
   <ListBinding
-    Name="LOV_Affliate"
-    ListVOName="PcBusUnitTblGlROVO4"
+    Name="LOV_BusinessUnit"
+    ListVOName="PsBusUnitTblFsROVO1"
     ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BusinessUnit"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="BusinessUnit"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="BusinessUnit"/>
+      <Item Value="Descr"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Affliate"
+    ListVOName="PsBusUnitTblFsROVO2"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
     NullValueFlag="none"
     MRUCount="0">
     <AttrArray Name="AttrNames">
@@ -396,17 +364,20 @@
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
-      <Item Value="Affiliate"/>
+      <Item Value="BusinessUnit"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Affiliate"/>
+      <Item Value="BusinessUnit"/>
+      <Item Value="Descr"/>
     </AttrArray>
-    <DisplayCriteria/>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
   </ListBinding>
   <ListBinding
     Name="LOV_GlBusinessUnit"
-    ListVOName="PcBusUnitTblGlROVO5"
+    ListVOName="PsBusUnitTblFsROVO3"
     ListRangeSize="-1"
+    ComboRowCountHint="10"
     NullValueFlag="none"
     MRUCount="0">
     <AttrArray Name="AttrNames">
@@ -418,8 +389,52 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="BusinessUnit"/>
+      <Item Value="Descr"/>
     </AttrArray>
-    <DisplayCriteria/>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_BillingGlBusinessUnit"
+    ListVOName="PsBusUnitTblFsROVO4"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BillingGlBusinessUnit"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="BusinessUnit"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="BusinessUnit"/>
+      <Item Value="Descr"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_BillingAffiliate"
+    ListVOName="PsBusUnitTblFsROVO5"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BillingAffiliate"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="BusinessUnit"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="BusinessUnit"/>
+      <Item Value="Descr"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
   </ListBinding>
   <EntityUsage
     Name="XpeDccCfgBusinessunitEO"
@@ -478,7 +493,7 @@
         <DISPLAYWIDTH
           Value="10"/>
         <CONTROLTYPE
-          Value="choice"/>
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -514,7 +529,7 @@
         <DISPLAYWIDTH
           Value="10"/>
         <CONTROLTYPE
-          Value="choice"/>
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -565,7 +580,7 @@
         <DISPLAYWIDTH
           Value="10"/>
         <CONTROLTYPE
-          Value="choice"/>
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -687,7 +702,7 @@
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.BillingGlBusinessUnit_LABEL"/>
         <CONTROLTYPE
-          Value="choice"/>
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -719,7 +734,7 @@
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.BillingAffiliate_LABEL"/>
         <CONTROLTYPE
-          Value="choice"/>
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -729,7 +744,8 @@
     PrecisionRule="true"
     EntityAttrName="BusinessunitId"
     EntityUsage="XpeDccCfgBusinessunitEO"
-    AliasName="BUSINESSUNIT_ID"/>
+    AliasName="BUSINESSUNIT_ID"
+    IsUpdateable="while_insert"/>
   <ViewCriteria
     Name="BusinessUnitCriteria"
     ViewObjectName="model.views.entitybased.XpeDccCfgBusinessunitEOVO"
