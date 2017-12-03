@@ -140,27 +140,32 @@
             <af:spacer width="10" height="10" id="s5"/>
             <af:panelFormLayout id="pfl3" maxColumns="3" rows="1" labelAlignment="top">
               <f:facet name="footer"/>
-              <af:inputText value="#{bindings.ChargeId.inputValue}" label="#{bindings.ChargeId.hints.label}"
-                            required="#{bindings.ChargeId.hints.mandatory}"
-                            columns="#{bindings.ChargeId.hints.displayWidth}"
-                            maximumLength="#{bindings.ChargeId.hints.precision}"
-                            shortDesc="#{bindings.ChargeId.hints.tooltip}" id="it1">
+              <af:inputListOfValues id="chargeIdId" popupTitle="Search and Select: #{bindings.ChargeId.hints.label}"
+                                    value="#{bindings.ChargeId.inputValue}" label="#{bindings.ChargeId.hints.label}"
+                                    model="#{bindings.ChargeId.listOfValuesModel}"
+                                    required="#{bindings.ChargeId.hints.mandatory}"
+                                    columns="#{bindings.ChargeId.hints.displayWidth}"
+                                    shortDesc="#{bindings.ChargeId.hints.tooltip}" autoSubmit="true">
                 <f:validator binding="#{bindings.ChargeId.validator}"/>
-              </af:inputText>
-              <af:inputText value="#{bindings.StatAccount.inputValue}" label="#{bindings.StatAccount.hints.label}"
-                            required="#{bindings.StatAccount.hints.mandatory}"
-                            columns="#{bindings.StatAccount.hints.displayWidth}"
-                            maximumLength="#{bindings.StatAccount.hints.precision}"
-                            shortDesc="#{bindings.StatAccount.hints.tooltip}" id="it4">
+              </af:inputListOfValues>
+              <af:inputListOfValues id="statAccountId"
+                                    popupTitle="Search and Select: #{bindings.StatAccount.hints.label}"
+                                    value="#{bindings.StatAccount.inputValue}"
+                                    label="#{bindings.StatAccount.hints.label}"
+                                    model="#{bindings.StatAccount.listOfValuesModel}"
+                                    required="#{bindings.StatAccount.hints.mandatory}"
+                                    columns="#{bindings.StatAccount.hints.displayWidth}"
+                                    shortDesc="#{bindings.StatAccount.hints.tooltip}" autoSubmit="true">
                 <f:validator binding="#{bindings.StatAccount.validator}"/>
-              </af:inputText>
-              <af:inputText value="#{bindings.EntryType.inputValue}" label="#{bindings.EntryType.hints.label}"
-                            required="#{bindings.EntryType.hints.mandatory}"
-                            columns="#{bindings.EntryType.hints.displayWidth}"
-                            maximumLength="#{bindings.EntryType.hints.precision}"
-                            shortDesc="#{bindings.EntryType.hints.tooltip}" id="it2">
+              </af:inputListOfValues>
+              <af:inputListOfValues id="entryTypeId" popupTitle="Search and Select: #{bindings.EntryType.hints.label}"
+                                    value="#{bindings.EntryType.inputValue}" label="#{bindings.EntryType.hints.label}"
+                                    model="#{bindings.EntryType.listOfValuesModel}"
+                                    required="#{bindings.EntryType.hints.mandatory}"
+                                    columns="#{bindings.EntryType.hints.displayWidth}"
+                                    shortDesc="#{bindings.EntryType.hints.tooltip}" autoSubmit="true">
                 <f:validator binding="#{bindings.EntryType.validator}"/>
-              </af:inputText>
+              </af:inputListOfValues>
             </af:panelFormLayout>
           </af:panelGroupLayout>
         </af:dialog>
@@ -232,27 +237,32 @@
             <af:spacer width="10" height="10" id="s4"/>
             <af:panelFormLayout id="pfl4" maxColumns="3" rows="1" labelAlignment="top">
               <f:facet name="footer"/>
-              <af:inputText value="#{bindings.ChargeId1.inputValue}" label="#{bindings.ChargeId1.hints.label}"
-                            required="#{bindings.ChargeId1.hints.mandatory}"
-                            columns="#{bindings.ChargeId1.hints.displayWidth}"
-                            maximumLength="#{bindings.ChargeId1.hints.precision}"
-                            shortDesc="#{bindings.ChargeId1.hints.tooltip}" id="it5">
+              <af:inputListOfValues id="chargeId1Id" popupTitle="Search and Select: #{bindings.ChargeId1.hints.label}"
+                                    value="#{bindings.ChargeId1.inputValue}" label="#{bindings.ChargeId1.hints.label}"
+                                    model="#{bindings.ChargeId1.listOfValuesModel}"
+                                    required="#{bindings.ChargeId1.hints.mandatory}"
+                                    columns="#{bindings.ChargeId1.hints.displayWidth}"
+                                    shortDesc="#{bindings.ChargeId1.hints.tooltip}" autoSubmit="true">
                 <f:validator binding="#{bindings.ChargeId1.validator}"/>
-              </af:inputText>
-              <af:inputText value="#{bindings.StatAccount1.inputValue}" label="#{bindings.StatAccount1.hints.label}"
-                            required="#{bindings.StatAccount1.hints.mandatory}"
-                            columns="#{bindings.StatAccount1.hints.displayWidth}"
-                            maximumLength="#{bindings.StatAccount1.hints.precision}"
-                            shortDesc="#{bindings.StatAccount1.hints.tooltip}" id="it8">
+              </af:inputListOfValues>
+              <af:inputListOfValues id="statAccount1Id"
+                                    popupTitle="Search and Select: #{bindings.StatAccount1.hints.label}"
+                                    value="#{bindings.StatAccount1.inputValue}"
+                                    label="#{bindings.StatAccount1.hints.label}"
+                                    model="#{bindings.StatAccount1.listOfValuesModel}"
+                                    required="#{bindings.StatAccount1.hints.mandatory}"
+                                    columns="#{bindings.StatAccount1.hints.displayWidth}"
+                                    shortDesc="#{bindings.StatAccount1.hints.tooltip}" autoSubmit="true">
                 <f:validator binding="#{bindings.StatAccount1.validator}"/>
-              </af:inputText>
-              <af:inputText value="#{bindings.EntryType1.inputValue}" label="#{bindings.EntryType1.hints.label}"
-                            required="#{bindings.EntryType1.hints.mandatory}"
-                            columns="#{bindings.EntryType1.hints.displayWidth}"
-                            maximumLength="#{bindings.EntryType1.hints.precision}"
-                            shortDesc="#{bindings.EntryType1.hints.tooltip}" id="it6">
+              </af:inputListOfValues>
+              <af:inputListOfValues id="entryType1Id" popupTitle="Search and Select: #{bindings.EntryType1.hints.label}"
+                                    value="#{bindings.EntryType1.inputValue}" label="#{bindings.EntryType1.hints.label}"
+                                    model="#{bindings.EntryType1.listOfValuesModel}"
+                                    required="#{bindings.EntryType1.hints.mandatory}"
+                                    columns="#{bindings.EntryType1.hints.displayWidth}"
+                                    shortDesc="#{bindings.EntryType1.hints.tooltip}" autoSubmit="true">
                 <f:validator binding="#{bindings.EntryType1.validator}"/>
-              </af:inputText>
+              </af:inputListOfValues>
             </af:panelFormLayout>
           </af:panelGroupLayout>
         </af:dialog>

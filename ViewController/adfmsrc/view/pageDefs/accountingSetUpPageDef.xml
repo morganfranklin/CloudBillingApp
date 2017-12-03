@@ -34,51 +34,32 @@
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
     <listOfValues IterBinding="XpeDccCfgNewAccountingEOVOIterator" StaticList="false" Uses="LOV_AccountingClass"
                   id="AccountingClass"/>
-    <attributeValues IterBinding="XpeDccCfgNewAccountingEOVOIterator" id="ChargeId">
-      <AttrNames>
-        <Item Value="ChargeId"/>
-      </AttrNames>
-    </attributeValues>
     <listOfValues IterBinding="XpeDccCfgNewAccountingEOVOIterator" StaticList="false" Uses="LOV_DealClass"
                   id="DealClass"/>
-    <attributeValues IterBinding="XpeDccCfgNewAccountingEOVOIterator" id="EntryType">
-      <AttrNames>
-        <Item Value="EntryType"/>
-      </AttrNames>
-    </attributeValues>
     <listOfValues IterBinding="XpeDccCfgNewAccountingEOVOIterator" StaticList="false" Uses="LOV_MaterialCategory"
                   id="MaterialCategory"/>
     <listOfValues IterBinding="XpeDccCfgNewAccountingEOVOIterator" StaticList="false" Uses="LOV_ProductServiceId"
                   id="ProductServiceId"/>
     <listOfValues IterBinding="XpeDccCfgNewAccountingEOVOIterator" StaticList="false" Uses="LOV_SiteId" id="SiteId"/>
-    <attributeValues IterBinding="XpeDccCfgNewAccountingEOVOIterator" id="StatAccount">
-      <AttrNames>
-        <Item Value="StatAccount"/>
-      </AttrNames>
-    </attributeValues>
     <listOfValues IterBinding="XpeDccCfgAccountingEOVOIterator" StaticList="false" Uses="LOV_AccountingClass"
                   id="AccountingClass1"/>
-    <attributeValues IterBinding="XpeDccCfgAccountingEOVOIterator" id="ChargeId1">
-      <AttrNames>
-        <Item Value="ChargeId"/>
-      </AttrNames>
-    </attributeValues>
     <listOfValues IterBinding="XpeDccCfgAccountingEOVOIterator" StaticList="false" Uses="LOV_DealClass"
                   id="DealClass1"/>
-    <attributeValues IterBinding="XpeDccCfgAccountingEOVOIterator" id="EntryType1">
-      <AttrNames>
-        <Item Value="EntryType"/>
-      </AttrNames>
-    </attributeValues>
     <listOfValues IterBinding="XpeDccCfgAccountingEOVOIterator" StaticList="false" Uses="LOV_MaterialCategory"
                   id="MaterialCategory1"/>
     <listOfValues IterBinding="XpeDccCfgAccountingEOVOIterator" StaticList="false" Uses="LOV_ProductServiceId"
                   id="ProductServiceId1"/>
     <listOfValues IterBinding="XpeDccCfgAccountingEOVOIterator" StaticList="false" Uses="LOV_SiteId" id="SiteId1"/>
-    <attributeValues IterBinding="XpeDccCfgAccountingEOVOIterator" id="StatAccount1">
-      <AttrNames>
-        <Item Value="StatAccount"/>
-      </AttrNames>
-    </attributeValues>
+    <listOfValues IterBinding="XpeDccCfgNewAccountingEOVOIterator" StaticList="false" Uses="LOV_ChargeId"
+                  id="ChargeId"/>
+    <listOfValues IterBinding="XpeDccCfgNewAccountingEOVOIterator" StaticList="false" Uses="LOV_StatAccount"
+                  id="StatAccount"/>
+    <listOfValues IterBinding="XpeDccCfgNewAccountingEOVOIterator" StaticList="false" Uses="LOV_EntryType"
+                  id="EntryType"/>
+    <listOfValues IterBinding="XpeDccCfgAccountingEOVOIterator" StaticList="false" Uses="LOV_ChargeId" id="ChargeId1"/>
+    <listOfValues IterBinding="XpeDccCfgAccountingEOVOIterator" StaticList="false" Uses="LOV_StatAccount"
+                  id="StatAccount1"/>
+    <listOfValues IterBinding="XpeDccCfgAccountingEOVOIterator" StaticList="false" Uses="LOV_EntryType"
+                  id="EntryType1"/>
   </bindings>
 </pageDefinition>

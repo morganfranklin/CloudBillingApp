@@ -100,6 +100,29 @@
     Name="XpeDccCfgPcsROVO1"
     ViewObjectName="model.views.readonly.XpeDccCfgPcsROVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="PsBiChargeROVO1"
+    ViewObjectName="model.views.readonly.PsBiChargeROVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="PsBiTypeROVO1"
+    ViewObjectName="model.views.readonly.PsBiTypeROVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="findBySetId"
+      FullName="model.views.readonly.PsBiTypeROVO.findBySetId"/>
+    <ParameterMap>
+      <PIMap Variable="bindSetId">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA['MASTR']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="PsGlAccountTblROVO1"
+    ViewObjectName="model.views.readonly.PsGlAccountTblROVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_SiteId"
     ListVOName="XpeDccCfgPcsROVO1"
@@ -202,8 +225,72 @@
       <Item Value="ItemId"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Description"/>
       <Item Value="ItemId"/>
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ChargeId"
+    ListVOName="PsBiChargeROVO1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ChargeId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ChargeId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ChargeId"/>
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_EntryType"
+    ListVOName="PsBiTypeROVO1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="EntryType"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="BillTypeId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="BillTypeId"/>
+      <Item Value="Description"/>
+      <Item Value="Setid"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_StatAccount"
+    ListVOName="PsGlAccountTblROVO1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="StatAccount"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Account"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Account"/>
+      <Item Value="Description"/>
     </AttrArray>
     <DisplayCriteria
       Hint="showAndExecute"/>
@@ -220,12 +307,12 @@
     LOVName="LOV_ProductServiceId">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgAccountingEOVO.ProductServiceId_LABEL"/>
         <DISPLAYWIDTH
           Value="15"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -285,13 +372,16 @@
     PrecisionRule="true"
     EntityAttrName="ChargeId"
     EntityUsage="XpeDccCfgAccountingEO"
-    AliasName="CHARGE_ID">
+    AliasName="CHARGE_ID"
+    LOVName="LOV_ChargeId">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgAccountingEOVO.ChargeId_LABEL"/>
         <DISPLAYWIDTH
           Value="15"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -318,13 +408,16 @@
     PrecisionRule="true"
     EntityAttrName="EntryType"
     EntityUsage="XpeDccCfgAccountingEO"
-    AliasName="ENTRY_TYPE">
+    AliasName="ENTRY_TYPE"
+    LOVName="LOV_EntryType">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgAccountingEOVO.EntryType_LABEL"/>
         <DISPLAYWIDTH
           Value="15"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -364,13 +457,16 @@
     PrecisionRule="true"
     EntityAttrName="StatAccount"
     EntityUsage="XpeDccCfgAccountingEO"
-    AliasName="STAT_ACCOUNT">
+    AliasName="STAT_ACCOUNT"
+    LOVName="LOV_StatAccount">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgAccountingEOVO.StatAccount_LABEL"/>
         <DISPLAYWIDTH
           Value="15"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
