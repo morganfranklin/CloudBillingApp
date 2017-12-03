@@ -174,7 +174,6 @@
                 binding="#{backingBeanScope.AccountingSetUpTableBBean.accountingEdit_popup}">
         <af:dialog id="d2" type="none" title="Accounting Details" closeIconVisible="false">
           <f:facet name="buttonBar">
-            <af:toolbar id="t3">
               <af:button text="Save" id="b4"
                          actionListener="#{pageFlowScope.AccountingSetUpTableMBean.onAccountingEditSave}"/>
               <af:spacer width="10" height="10" id="s3"/>
@@ -183,7 +182,6 @@
                          actionListener="#{pageFlowScope.AccountingSetUpTableMBean.onAccountingEditCancel}">
                 <af:resetActionListener/>
               </af:button>
-            </af:toolbar>
           </f:facet>
           <af:panelGroupLayout id="pgl3">
             <af:panelFormLayout id="pfl2" maxColumns="5" rows="1" labelAlignment="top">
