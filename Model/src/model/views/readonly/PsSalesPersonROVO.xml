@@ -76,4 +76,7 @@
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>
   </ResourceBundle>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="SupportTeamCd"/>
+  </AttrArray>
 </ViewObject>

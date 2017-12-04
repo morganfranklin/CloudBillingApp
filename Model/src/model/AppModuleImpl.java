@@ -93,6 +93,7 @@ import model.views.readonly.XpeDmsCustomerROVOImpl;
 import oracle.jbo.Key;
 import oracle.jbo.Row;
 import oracle.jbo.RowIterator;
+import oracle.jbo.RowSet;
 import oracle.jbo.RowSetIterator;
 import oracle.jbo.ViewCriteria;
 import oracle.jbo.domain.BlobDomain;
@@ -1890,13 +1891,13 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                                                                           "").append("<br><br>");
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_26/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_27/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(uuId).append("&").append("action=").append("ACCEPT").append("&").append("user=").append(userType);
         html.append("\"><b>Accept</b></a>");
         html.append("&nbsp;&nbsp;&nbsp;");
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_26/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_27/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(uuId).append("&").append("action=").append("REJECT").append("&").append("user=").append(userType);
         html.append("\"><b>Reject</b></a>");
         html.append("</p>");
@@ -2191,7 +2192,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                     xmlBuilder.append("<AS_OF_DATE>").append(formatDate(String.valueOf(contractVersionViewRow.getXpeAsOfDate()))).append("</AS_OF_DATE>");
                     xmlBuilder.append("<FROM_DATE>").append(formatDate(String.valueOf(contractVersionViewRow.getXpeStartDate()))).append("</FROM_DATE>");
                     xmlBuilder.append("<TO_DATE>").append(formatDate(String.valueOf(contractVersionViewRow.getXpeEndDate()))).append("</TO_DATE>");
-                    xmlBuilder.append("<USER_NAME>").append(checkIfNull(contractVersionViewRow.getSalesPerson())).append("</USER_NAME>");
+                    xmlBuilder.append("<USER_NAME>").append(getLookupDescription(contractVersionViewRow.getPsSalesPersonROVO1(),contractVersionViewRow.getSalesPerson(), "Descr")).append("</USER_NAME>");
                     //Getting Facility details
                     RowIterator contractLineRowSet = contractVersionViewRow.getXpeDccContractLineView();
                     
@@ -2199,7 +2200,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                         XpeDccContractLineViewRowImpl contractLineRow = (XpeDccContractLineViewRowImpl) contractLineRowSet.next();
                         if(null!=contractLineRow){
                             xmlBuilder.append("<FACILITIES_ROW>");
-                            xmlBuilder.append("<FACILITY>").append(checkIfNull(contractLineRow.getXpeFacility())).append("</FACILITY>");
+                            xmlBuilder.append("<FACILITY>").append(getLookupDescription(contractLineRow.getXpeDccCfgPcsROVO_LOV(),contractLineRow.getXpeFacility(), "SiteDesc")).append("</FACILITY>");
                             XpeDccCfgPcsAddressROVOImpl xpeDccCfgPcsAddressROVO = this.getXpeDccCfgPcsAddressROVO();
                             xpeDccCfgPcsAddressROVO.setbind_SiteId(contractLineRow.getXpeFacility());
                             xpeDccCfgPcsAddressROVO.executeQuery();
@@ -2219,8 +2220,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                                     if(null!=pricingTermRow.getXpePricingTermType()){
                                         if (!"FEE".equalsIgnoreCase(pricingTermRow.getXpePricingTermType())) {
                                             xmlBuilder.append("<PRICING_ROW>");
-                                            xmlBuilder.append("<MATERIAL_WASTE_TYPE>").append(checkIfNull(contractLineRow.getXpeProductId())).append("</MATERIAL_WASTE_TYPE>");
-                                            xmlBuilder.append("<PRICING_TYPE>").append(checkIfNull(pricingTermRow.getXpePricingTermType())).append("</PRICING_TYPE>");
+                                            xmlBuilder.append("<MATERIAL_WASTE_TYPE>").append(getLookupDescription(contractLineRow.getXpeDccDicProducts1(),contractLineRow.getXpeProductId(), "XpeLookupDesc")).append("</MATERIAL_WASTE_TYPE>");
+                                            xmlBuilder.append("<PRICING_TYPE>").append(getLookupDescription(pricingTermRow.getXpeDccDicRateTypes1(),pricingTermRow.getXpePricingTermType(), "XpeLookupDesc")).append("</PRICING_TYPE>");
                                             if (null != pricingTermRow.getXpePricingTermType()) {
                                                 if (!"RTE".equals(pricingTermRow.getXpePricingTermType())) {
                                                     xmlBuilder.append("<MATERIAL_QUANTITY_FROM>").append(materialQtyFrom).append("</MATERIAL_QUANTITY_FROM>");
@@ -2231,16 +2232,16 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                                                 xmlBuilder.append("<MATERIAL_QUANTITY_TO>").append(pricingTermRow.getXpeQtyMax()).append("</MATERIAL_QUANTITY_TO>");
                                             }
                                             xmlBuilder.append("<DISPOSAL_PRICE>").append(pricingTermRow.getXpeRate()).append("</DISPOSAL_PRICE>");
-                                            xmlBuilder.append("<RESET_PERIOD>").append(checkIfNull(pricingTermRow.getXpePeriodType())).append("</RESET_PERIOD>");
+                                            xmlBuilder.append("<RESET_PERIOD>").append(getLookupDescription(pricingTermRow.getXpeDccDicPeriods1(),pricingTermRow.getXpePeriodType(), "XpeLookupDesc")).append("</RESET_PERIOD>");
                                             xmlBuilder.append("</PRICING_ROW>");
                                             materialQtyFrom = pricingTermRow.getXpeQtyMax();
                                         }else{
                                             xmlBuilder.append("<PRICING_FEE_ROW>");
-                                            xmlBuilder.append("<MATERIAL_WASTE_TYPE>").append(checkIfNull(pricingTermRow.getXpePricingTermType())).append("</MATERIAL_WASTE_TYPE>");
+                                            xmlBuilder.append("<MATERIAL_WASTE_TYPE>").append(getLookupDescription(pricingTermRow.getXpeDccDicRateTypes1(),pricingTermRow.getXpePricingTermType(), "XpeLookupDesc")).append("</MATERIAL_WASTE_TYPE>");
                                             xmlBuilder.append("<DISPOSAL_PRICE>").append(pricingTermRow.getXpeRate()).append("</DISPOSAL_PRICE>");
                                             if (null != pricingTermRow.getXpePeriodType() && "EVE".equals(pricingTermRow.getXpePeriodType()))
                                                 xmlBuilder.append("<CHARGE_SHIPMENT>").append(pricingTermRow.getXpeRate()).append("</CHARGE_SHIPMENT>");
-                                            xmlBuilder.append("<RESET_PERIOD>").append(checkIfNull(pricingTermRow.getXpePeriodType())).append("</RESET_PERIOD>");
+                                            xmlBuilder.append("<RESET_PERIOD>").append(getLookupDescription(pricingTermRow.getXpeDccDicPeriods1(),pricingTermRow.getXpePeriodType(), "XpeLookupDesc")).append("</RESET_PERIOD>");
                                             xmlBuilder.append("</PRICING_FEE_ROW>");
                                         }
                                     }
@@ -2314,6 +2315,15 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             e.printStackTrace();
         }
         return pdf;
+    }
+    
+    private String getLookupDescription(RowSet rowSet, String lookupId, String lookupAttributeName){
+        String lookupDesc = "";
+        Key key = new Key(new Object[] {lookupId});
+        Row[] rows = rowSet.findByKey(key, 1);
+        if(null!=rows && rows.length>0)
+            lookupDesc = (String)rows[0].getAttribute(lookupAttributeName);
+        return lookupDesc;
     }
     
     private StringBuilder buildXMLForTerms(XpeDccContractVersionViewRowImpl contractVersionViewRow, StringBuilder xmlBuilder, String customerName){
