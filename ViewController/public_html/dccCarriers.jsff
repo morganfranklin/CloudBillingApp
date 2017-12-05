@@ -101,7 +101,7 @@
                                                   shortDesc="#{bindings.XpeChargeDesc.hints.tooltip}" id="it9">
                                         <f:validator binding="#{bindings.XpeChargeDesc.validator}"/>
                                     </af:inputText>
-                                    <af:panelLabelAndMessage label="Rollover Type" id="plam1">
+                                    <af:panelLabelAndMessage label="Rollover Type" id="plam1" rendered="false">
                                         <af:selectOneChoice value="#{bindings.XpeRolloverType.inputValue}"
                                                             autoSubmit="true" label="Rollover Type"
                                                             required="#{bindings.XpeRolloverType.hints.mandatory}"
@@ -111,7 +111,7 @@
                                             <f:validator binding="#{bindings.XpeRolloverType.validator}"/>
                                         </af:selectOneChoice>
                                     </af:panelLabelAndMessage>
-                                    <af:panelLabelAndMessage label="Reset Type" id="plam2">
+                                    <af:panelLabelAndMessage label="Reset Type" id="plam2" rendered="false">
                                         <af:selectOneChoice value="#{bindings.XpeResetType.inputValue}"
                                                             label="Reset Type" autoSubmit="true"
                                                             required="#{bindings.XpeResetType.hints.mandatory}"

@@ -294,7 +294,8 @@
                                                             label="#{row.bindings.BusinessUnitGl.label}"
                                                             required="true"
                                                             shortDesc="#{bindings.XpeDccContractLineView2.hints.BusinessUnitGl.tooltip}"
-                                                            id="soc10" autoSubmit="true">
+                                                            id="soc10" autoSubmit="true"
+                                                            readOnly="#{(bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }">
                                             <f:selectItems value="#{row.bindings.BusinessUnitGl.items}" id="si10"/>
                                             <f:validator binding="#{row.bindings.BusinessUnitGl.validator}"/>
                                         </af:selectOneChoice>
@@ -337,8 +338,7 @@
                                         </af:selectOneChoice>
                                     </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccContractLineView2.hints.XpeQtyMin.name}"
-                                               filterable="true" sortable="true" headerText="Qty Min" id="c5"
-                                               rendered="false">
+                                               filterable="true" sortable="true" headerText="Qty Min" id="c5">
                                         <af:inputText value="#{row.bindings.XpeQtyMin.inputValue}"
                                                       label="#{bindings.XpeDccContractLineView2.hints.XpeQtyMin.label}"
                                                       readOnly="#{(bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }"
@@ -353,8 +353,7 @@
                                         </af:inputText>
                                     </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccContractLineView2.hints.XpeQtyMax.name}"
-                                               filterable="true" sortable="true" headerText="Qty Max" id="c6"
-                                               rendered="false">
+                                               filterable="true" sortable="true" headerText="Qty Max" id="c6">
                                         <af:inputText value="#{row.bindings.XpeQtyMax.inputValue}"
                                                       label="#{bindings.XpeDccContractLineView2.hints.XpeQtyMax.label}"
                                                       required="#{bindings.XpeDccContractLineView2.hints.XpeQtyMax.mandatory}"
@@ -443,15 +442,14 @@
                                     <af:column sortProperty="#{bindings.XpeDccContractNotesView2.hints.XpeNoteType.name}"
                                                filterable="true" sortable="true" headerText="Note Type" id="c9"
                                                width="100">
-                                        <af:inputText value="#{row.bindings.XpeNoteType.inputValue}"
-                                                      label="#{bindings.XpeDccContractNotesView2.hints.XpeNoteType.label}"
-                                                      required="#{bindings.XpeDccContractNotesView2.hints.XpeNoteType.mandatory}"
-                                                      columns="#{bindings.XpeDccContractNotesView2.hints.XpeNoteType.displayWidth}"
-                                                      maximumLength="#{bindings.XpeDccContractNotesView2.hints.XpeNoteType.precision}"
-                                                      shortDesc="#{bindings.XpeDccContractNotesView2.hints.XpeNoteType.tooltip}"
-                                                      id="it6">
+                                        <af:selectOneChoice value="#{row.bindings.XpeNoteType.inputValue}"
+                                                            label="#{row.bindings.XpeNoteType.label}"
+                                                            required="#{bindings.XpeDccContractNotesView2.hints.XpeNoteType.mandatory}"
+                                                            shortDesc="#{bindings.XpeDccContractNotesView2.hints.XpeNoteType.tooltip}"
+                                                            id="soc7" autoSubmit="true">
+                                            <f:selectItems value="#{row.bindings.XpeNoteType.items}" id="si7"/>
                                             <f:validator binding="#{row.bindings.XpeNoteType.validator}"/>
-                                        </af:inputText>
+                                        </af:selectOneChoice>
                                     </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccContractNotesView2.hints.XpeNote.name}"
                                                filterable="true" sortable="true" headerText="Note " id="c10"

@@ -118,7 +118,6 @@
                                                           autoSubmit="true"
                                                           readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
                                                 <f:validator binding="#{bindings.XpeAsOfDate.validator}"/>
-                                                <af:convertDateTime pattern="yyyy-MM-dd HH:mm:ss"/>
                                             </af:inputDate>
                                             <af:panelLabelAndMessage label="#{bindings.XpeStartDate.hints.label}"
                                                                      id="plam4">
@@ -284,7 +283,7 @@
                                                 </af:selectOneChoice>
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractLineView.hints.XpeQtyMin.label}"
-                                                       id="c23">
+                                                       id="c23" rendered="#{pageFlowScope.ContractType ne 'NEW'}">
                                                 <af:inputText value="#{row.bindings.XpeQtyMin.inputValue}"
                                                               label="#{bindings.XpeDccNewContractLineView.hints.XpeQtyMin.label}"
                                                               required="#{bindings.XpeDccNewContractLineView.hints.XpeQtyMin.mandatory}"
@@ -297,7 +296,7 @@
                                                 </af:inputText>
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractLineView.hints.XpeQtyMax.label}"
-                                                       id="c24">
+                                                       id="c24" rendered="#{pageFlowScope.ContractType ne 'NEW'}">
                                                 <af:inputText value="#{row.bindings.XpeQtyMax.inputValue}"
                                                               label="#{bindings.XpeDccNewContractLineView.hints.XpeQtyMax.label}"
                                                               required="#{bindings.XpeDccNewContractLineView.hints.XpeQtyMax.mandatory}"
@@ -310,7 +309,7 @@
                                                 </af:inputText>
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractLineView.hints.XpePeriodType.label}"
-                                                       id="c22">
+                                                       id="c22" rendered="#{pageFlowScope.ContractType ne 'NEW'}">
                                                 <af:selectOneChoice value="#{row.bindings.XpePeriodType.inputValue}"
                                                                     label="#{row.bindings.XpePeriodType.label}"
                                                                     required="#{bindings.XpeDccNewContractLineView.hints.XpePeriodType.mandatory}"
@@ -340,6 +339,7 @@
                                             <af:group id="g2">
                                                 <af:button actionListener="#{bindings.CreateInsert1.execute}" text="Add"
                                                            id="b1" disabled="#{pageFlowScope.ContractType eq 'BLS'}"/>
+                                                <af:spacer width="10" height="10" id="s7"/>
                                                 <af:button actionListener="#{bindings.Delete1.execute}" text="Delete"
                                                            id="b2" immediate="true"
                                                            disabled="#{bindings.XpeDccNewContractLineViewIterator.estimatedRowCount&lt;=1 or pageFlowScope.ContractType eq 'BLS'}"/>
@@ -411,8 +411,9 @@
                                                               id="it2"
                                                               readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
                                                     <f:validator binding="#{row.bindings.XpeRate.validator}"/>
-                                                    <af:convertNumber groupingUsed="false"
-                                                                      pattern="#{bindings.XpeDccNewContractPricingTermView.hints.XpeRate.format}"/>
+                                                    <af:convertNumber groupingUsed="true"
+                                                                      pattern="#{bindings.XpeDccNewContractPricingTermView.hints.XpeRate.format}"
+                                                                      maxFractionDigits="5"/>
                                                 </af:inputText>
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractPricingTermView.hints.XpePeriodType.label}"
@@ -448,6 +449,7 @@
                                             <af:group id="g3">
                                                 <af:button actionListener="#{bindings.CreateInsert2.execute}" text="Add"
                                                            id="b3" disabled="#{pageFlowScope.ContractType eq 'BLS'}"/>
+                                                <af:spacer width="10" height="10" id="s6"/>
                                                 <af:button actionListener="#{bindings.Delete2.execute}" text="Delete"
                                                            id="b4" immediate="true"
                                                            disabled="#{pageFlowScope.ContractType eq 'BLS' or bindings.XpeDccNewContractPricingTermViewIterator.estimatedRowCount lt 1}"/>
@@ -616,6 +618,7 @@
                                             <af:group id="g4">
                                                 <af:button actionListener="#{bindings.CreateInsert3.execute}" text="Add"
                                                            id="b5" disabled="#{pageFlowScope.ContractType eq 'BLS'}"/>
+                                                <af:spacer width="10" height="10" id="s5"/>
                                                 <af:button actionListener="#{bindings.Delete3.execute}" text="Delete"
                                                            id="b6" immediate="true"
                                                            disabled="#{pageFlowScope.ContractType eq 'BLS' or bindings.XpeDccNewContractCarrierViewIterator.estimatedRowCount lt 1}"/>
@@ -751,15 +754,18 @@
                                                 <f:validator binding="#{bindings.XpeNoteDttm.validator}"/>
                                                 <af:convertDateTime pattern="#{bindings.XpeNoteDttm.format}"/>
                                             </af:inputDate>
-                                            <af:selectOneChoice value="#{bindings.XpeNoteType.inputValue}"
-                                                                label="#{bindings.XpeNoteType.label}"
-                                                                required="#{bindings.XpeNoteType.hints.mandatory}"
-                                                                shortDesc="#{bindings.XpeNoteType.hints.tooltip}"
-                                                                id="soc26" autoSubmit="true"
-                                                                readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
-                                                <f:selectItems value="#{bindings.XpeNoteType.items}" id="si19"/>
-                                                <f:validator binding="#{bindings.XpeNoteType.validator}"/>
-                                            </af:selectOneChoice>
+                                            <af:panelLabelAndMessage label="#{bindings.XpeNoteType.label}" id="plam9">
+                                                <af:selectOneChoice value="#{bindings.XpeNoteType.inputValue}"
+                                                                    label="#{bindings.XpeNoteType.label}"
+                                                                    required="#{bindings.XpeNoteType.hints.mandatory}"
+                                                                    shortDesc="#{bindings.XpeNoteType.hints.tooltip}"
+                                                                    id="soc26" autoSubmit="true"
+                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                                    simple="true">
+                                                    <f:selectItems value="#{bindings.XpeNoteType.items}" id="si19"/>
+                                                    <f:validator binding="#{bindings.XpeNoteType.validator}"/>
+                                                </af:selectOneChoice>
+                                            </af:panelLabelAndMessage>
                                             <af:inputText value="#{bindings.XpeNote.inputValue}"
                                                           label="Note for Customer"
                                                           required="#{bindings.XpeNote.hints.mandatory}" columns="50"
