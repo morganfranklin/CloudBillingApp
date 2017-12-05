@@ -36,8 +36,8 @@ public class XpeDccCfgCmtmntFacilityEOVORowImpl extends ViewRowImpl {
         Inactive,
         InactiveDate,
         CeoSignature,
-        XpeDccDicFacilities1,
-        LookupSharedAppModule_XpeDccDicNewContractSetupROVO1;
+        LookupSharedAppModule_XpeDccDicNewContractSetupROVO1,
+        XpeDccCfgPcsROVO_LOV;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -78,9 +78,9 @@ public class XpeDccCfgCmtmntFacilityEOVORowImpl extends ViewRowImpl {
     public static final int INACTIVE = AttributesEnum.Inactive.index();
     public static final int INACTIVEDATE = AttributesEnum.InactiveDate.index();
     public static final int CEOSIGNATURE = AttributesEnum.CeoSignature.index();
-    public static final int XPEDCCDICFACILITIES1 = AttributesEnum.XpeDccDicFacilities1.index();
     public static final int LOOKUPSHAREDAPPMODULE_XPEDCCDICNEWCONTRACTSETUPROVO1 =
         AttributesEnum.LookupSharedAppModule_XpeDccDicNewContractSetupROVO1.index();
+    public static final int XPEDCCCFGPCSROVO_LOV = AttributesEnum.XpeDccCfgPcsROVO_LOV.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -308,18 +308,19 @@ public class XpeDccCfgCmtmntFacilityEOVORowImpl extends ViewRowImpl {
         setAttributeInternal(CEOSIGNATURE, value);
     }
 
-    /**
-     * Gets the view accessor <code>RowSet</code> XpeDccDicFacilities1.
-     */
-    public RowSet getXpeDccDicFacilities1() {
-        return (RowSet) getAttributeInternal(XPEDCCDICFACILITIES1);
-    }
 
     /**
      * Gets the view accessor <code>RowSet</code> LookupSharedAppModule_XpeDccDicNewContractSetupROVO1.
      */
     public RowSet getLookupSharedAppModule_XpeDccDicNewContractSetupROVO1() {
         return (RowSet) getAttributeInternal(LOOKUPSHAREDAPPMODULE_XPEDCCDICNEWCONTRACTSETUPROVO1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> XpeDccCfgPcsROVO_LOV.
+     */
+    public RowSet getXpeDccCfgPcsROVO_LOV() {
+        return (RowSet) getAttributeInternal(XPEDCCCFGPCSROVO_LOV);
     }
 }
 

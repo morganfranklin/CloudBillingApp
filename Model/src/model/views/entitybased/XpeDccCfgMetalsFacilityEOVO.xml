@@ -24,10 +24,6 @@
     Kind="viewcriteria"
     Type="java.lang.String"/>
   <ViewAccessor
-    Name="XpeDccDicFacilities1"
-    ViewObjectName="model.XpeDccDicFacilities"
-    RowLevelBinds="true"/>
-  <ViewAccessor
     Name="LookupSharedAppModule_XpeDccDicNewContractSetupROVO1"
     ViewObjectName="model.views.readonly.XpeDccDicNewContractSetupROVO"
     AMUsageName="LookupSharedAppModule"
@@ -41,9 +37,13 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="XpeDccCfgPcsROVO_LOV"
+    ViewObjectName="model.views.readonly.XpeDccCfgPcsROVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_XpeFacilityId"
-    ListVOName="XpeDccDicFacilities1"
+    ListVOName="XpeDccCfgPcsROVO_LOV"
     ListRangeSize="-1"
     NullValueFlag="none"
     MRUCount="0">
@@ -52,10 +52,10 @@
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
-      <Item Value="XpeLookupId"/>
+      <Item Value="SiteId"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="XpeLookupDesc"/>
+      <Item Value="SiteDesc"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -90,10 +90,10 @@
     LOVName="LOV_XpeFacilityId">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgMetalsFacilityEOVO.XpeFacilityId_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
