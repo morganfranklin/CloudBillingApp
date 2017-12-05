@@ -233,6 +233,114 @@
             <Attr Name="_DisplaySize" Value="20"/>
         </DesignTime>
     </Attribute>
+    <Attribute
+        Name="XpeTermAgreement"
+        Precision="20"
+        ColumnName="XPE_TERM_AGREEMENT"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="XPE_DCC_CONTRACT_VERSION">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="XpeVarianceBudget"
+        Precision="20"
+        ColumnName="XPE_VARIANCE_BUDGET"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="XPE_DCC_CONTRACT_VERSION">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="XpeEstDisposalVol"
+        Precision="20"
+        ColumnName="XPE_EST_DISPOSAL_VOL"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="XPE_DCC_CONTRACT_VERSION">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="XpeValueTransaction"
+        Precision="20"
+        ColumnName="XPE_VALUE_TRANSACTION"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="XPE_DCC_CONTRACT_VERSION">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="XpeJustification"
+        Precision="255"
+        ColumnName="XPE_JUSTIFICATION"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="XPE_DCC_CONTRACT_VERSION">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="255"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="XpeExistingCustomer"
+        Precision="1"
+        ColumnName="XPE_EXISTING_CUSTOMER"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="XPE_DCC_CONTRACT_VERSION">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="1"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="XpePaymentMethod"
+        Precision="20"
+        ColumnName="XPE_PAYMENT_METHOD"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="XPE_DCC_CONTRACT_VERSION">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="XpePaymentHistory"
+        Precision="20"
+        ColumnName="XPE_PAYMENT_HISTORY"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="XPE_DCC_CONTRACT_VERSION">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="XpeCreditLimit"
+        Precision="20"
+        ColumnName="XPE_CREDIT_LIMIT"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="XPE_DCC_CONTRACT_VERSION">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
     <AccessorAttribute
         Name="XpeDccContractNotes"
         Association="model.XpeDccContractNotesFk1Assoc"

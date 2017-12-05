@@ -38,14 +38,22 @@ public class XpeDccContractVersionImpl extends EntityImpl {
         XpeAsOfDate,
         SalesPerson,
         XpeContractDirection,
+        XpeTermAgreement,
+        XpeVarianceBudget,
+        XpeEstDisposalVol,
+        XpeValueTransaction,
+        XpeJustification,
+        XpeExistingCustomer,
+        XpePaymentMethod,
+        XpePaymentHistory,
+        XpeCreditLimit,
         XpeDccContractNotes,
         XpeDccContractLine,
         XpeDccContracts,
         XpeDccWorkflow,
         XpeDccContractsAttachments,
         XpeDccTermsContractEO;
-        static AttributesEnum[] vals = null;
-        ;
+        private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -88,6 +96,15 @@ public class XpeDccContractVersionImpl extends EntityImpl {
     public static final int XPEASOFDATE = AttributesEnum.XpeAsOfDate.index();
     public static final int SALESPERSON = AttributesEnum.SalesPerson.index();
     public static final int XPECONTRACTDIRECTION = AttributesEnum.XpeContractDirection.index();
+    public static final int XPETERMAGREEMENT = AttributesEnum.XpeTermAgreement.index();
+    public static final int XPEVARIANCEBUDGET = AttributesEnum.XpeVarianceBudget.index();
+    public static final int XPEESTDISPOSALVOL = AttributesEnum.XpeEstDisposalVol.index();
+    public static final int XPEVALUETRANSACTION = AttributesEnum.XpeValueTransaction.index();
+    public static final int XPEJUSTIFICATION = AttributesEnum.XpeJustification.index();
+    public static final int XPEEXISTINGCUSTOMER = AttributesEnum.XpeExistingCustomer.index();
+    public static final int XPEPAYMENTMETHOD = AttributesEnum.XpePaymentMethod.index();
+    public static final int XPEPAYMENTHISTORY = AttributesEnum.XpePaymentHistory.index();
+    public static final int XPECREDITLIMIT = AttributesEnum.XpeCreditLimit.index();
     public static final int XPEDCCCONTRACTNOTES = AttributesEnum.XpeDccContractNotes.index();
     public static final int XPEDCCCONTRACTLINE = AttributesEnum.XpeDccContractLine.index();
     public static final int XPEDCCCONTRACTS = AttributesEnum.XpeDccContracts.index();
@@ -411,6 +428,150 @@ public class XpeDccContractVersionImpl extends EntityImpl {
      */
     public void setXpeContractDirection(String value) {
         setAttributeInternal(XPECONTRACTDIRECTION, value);
+    }
+
+    /**
+     * Gets the attribute value for XpeTermAgreement, using the alias name XpeTermAgreement.
+     * @return the value of XpeTermAgreement
+     */
+    public String getXpeTermAgreement() {
+        return (String) getAttributeInternal(XPETERMAGREEMENT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for XpeTermAgreement.
+     * @param value value to set the XpeTermAgreement
+     */
+    public void setXpeTermAgreement(String value) {
+        setAttributeInternal(XPETERMAGREEMENT, value);
+    }
+
+    /**
+     * Gets the attribute value for XpeVarianceBudget, using the alias name XpeVarianceBudget.
+     * @return the value of XpeVarianceBudget
+     */
+    public String getXpeVarianceBudget() {
+        return (String) getAttributeInternal(XPEVARIANCEBUDGET);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for XpeVarianceBudget.
+     * @param value value to set the XpeVarianceBudget
+     */
+    public void setXpeVarianceBudget(String value) {
+        setAttributeInternal(XPEVARIANCEBUDGET, value);
+    }
+
+    /**
+     * Gets the attribute value for XpeEstDisposalVol, using the alias name XpeEstDisposalVol.
+     * @return the value of XpeEstDisposalVol
+     */
+    public String getXpeEstDisposalVol() {
+        return (String) getAttributeInternal(XPEESTDISPOSALVOL);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for XpeEstDisposalVol.
+     * @param value value to set the XpeEstDisposalVol
+     */
+    public void setXpeEstDisposalVol(String value) {
+        setAttributeInternal(XPEESTDISPOSALVOL, value);
+    }
+
+    /**
+     * Gets the attribute value for XpeValueTransaction, using the alias name XpeValueTransaction.
+     * @return the value of XpeValueTransaction
+     */
+    public String getXpeValueTransaction() {
+        return (String) getAttributeInternal(XPEVALUETRANSACTION);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for XpeValueTransaction.
+     * @param value value to set the XpeValueTransaction
+     */
+    public void setXpeValueTransaction(String value) {
+        setAttributeInternal(XPEVALUETRANSACTION, value);
+    }
+
+    /**
+     * Gets the attribute value for XpeJustification, using the alias name XpeJustification.
+     * @return the value of XpeJustification
+     */
+    public String getXpeJustification() {
+        return (String) getAttributeInternal(XPEJUSTIFICATION);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for XpeJustification.
+     * @param value value to set the XpeJustification
+     */
+    public void setXpeJustification(String value) {
+        setAttributeInternal(XPEJUSTIFICATION, value);
+    }
+
+    /**
+     * Gets the attribute value for XpeExistingCustomer, using the alias name XpeExistingCustomer.
+     * @return the value of XpeExistingCustomer
+     */
+    public String getXpeExistingCustomer() {
+        return (String) getAttributeInternal(XPEEXISTINGCUSTOMER);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for XpeExistingCustomer.
+     * @param value value to set the XpeExistingCustomer
+     */
+    public void setXpeExistingCustomer(String value) {
+        setAttributeInternal(XPEEXISTINGCUSTOMER, value);
+    }
+
+    /**
+     * Gets the attribute value for XpePaymentMethod, using the alias name XpePaymentMethod.
+     * @return the value of XpePaymentMethod
+     */
+    public String getXpePaymentMethod() {
+        return (String) getAttributeInternal(XPEPAYMENTMETHOD);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for XpePaymentMethod.
+     * @param value value to set the XpePaymentMethod
+     */
+    public void setXpePaymentMethod(String value) {
+        setAttributeInternal(XPEPAYMENTMETHOD, value);
+    }
+
+    /**
+     * Gets the attribute value for XpePaymentHistory, using the alias name XpePaymentHistory.
+     * @return the value of XpePaymentHistory
+     */
+    public String getXpePaymentHistory() {
+        return (String) getAttributeInternal(XPEPAYMENTHISTORY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for XpePaymentHistory.
+     * @param value value to set the XpePaymentHistory
+     */
+    public void setXpePaymentHistory(String value) {
+        setAttributeInternal(XPEPAYMENTHISTORY, value);
+    }
+
+    /**
+     * Gets the attribute value for XpeCreditLimit, using the alias name XpeCreditLimit.
+     * @return the value of XpeCreditLimit
+     */
+    public String getXpeCreditLimit() {
+        return (String) getAttributeInternal(XPECREDITLIMIT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for XpeCreditLimit.
+     * @param value value to set the XpeCreditLimit
+     */
+    public void setXpeCreditLimit(String value) {
+        setAttributeInternal(XPECREDITLIMIT, value);
     }
 
     /**
