@@ -292,11 +292,6 @@
                                         <f:selectItems value="#{bindings.Approval_Level.items}" id="si15"/>
                                         <f:validator binding="#{bindings.Approval_Level.validator}"/>
                                     </af:selectOneRadio>
-                                </af:gridCell>
-                            </af:gridRow>
-                            <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr9">
-                                <af:gridCell marginStart="5px" marginEnd="5px" id="gc8" width="100%" halign="stretch"
-                                             valign="stretch">
                                     <af:inputText value="#{bindings.CustContractContactName.inputValue}"
                                                   label="#{bindings.CustContractContactName.hints.label}"
                                                   required="#{bindings.CustContractContactName.hints.mandatory}"
@@ -314,7 +309,99 @@
                                                   id="it4" required="true">
                                         <f:validator binding="#{bindings.CustContractApproverEmail.validator}"/>
                                     </af:inputText>
+                                    <af:panelHeader text="Contract Detail" id="ph1">
+                                        <af:panelFormLayout id="pfl5">
+                                            <af:inputText value="#{bindings.XpeTermAgreement.inputValue}"
+                                                          label="#{bindings.XpeTermAgreement.hints.label}"
+                                                          required="#{bindings.XpeTermAgreement.hints.mandatory}"
+                                                          columns="#{bindings.XpeTermAgreement.hints.displayWidth}"
+                                                          maximumLength="#{bindings.XpeTermAgreement.hints.precision}"
+                                                          shortDesc="#{bindings.XpeTermAgreement.hints.tooltip}"
+                                                          id="it7" autoSubmit="true">
+                                                <f:validator binding="#{bindings.XpeTermAgreement.validator}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.XpeVarianceBudget.inputValue}"
+                                                          label="#{bindings.XpeVarianceBudget.hints.label}"
+                                                          required="#{bindings.XpeVarianceBudget.hints.mandatory}"
+                                                          columns="#{bindings.XpeVarianceBudget.hints.displayWidth}"
+                                                          maximumLength="#{bindings.XpeVarianceBudget.hints.precision}"
+                                                          shortDesc="#{bindings.XpeVarianceBudget.hints.tooltip}"
+                                                          id="it8" autoSubmit="true">
+                                                <f:validator binding="#{bindings.XpeVarianceBudget.validator}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.XpeEstDisposalVol.inputValue}"
+                                                          label="#{bindings.XpeEstDisposalVol.hints.label}"
+                                                          required="#{bindings.XpeEstDisposalVol.hints.mandatory}"
+                                                          columns="#{bindings.XpeEstDisposalVol.hints.displayWidth}"
+                                                          maximumLength="#{bindings.XpeEstDisposalVol.hints.precision}"
+                                                          shortDesc="#{bindings.XpeEstDisposalVol.hints.tooltip}"
+                                                          id="it9" autoSubmit="true">
+                                                <f:validator binding="#{bindings.XpeEstDisposalVol.validator}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.XpeValueTransaction.inputValue}"
+                                                          label="#{bindings.XpeValueTransaction.hints.label}"
+                                                          required="#{bindings.XpeValueTransaction.hints.mandatory}"
+                                                          columns="#{bindings.XpeValueTransaction.hints.displayWidth}"
+                                                          maximumLength="#{bindings.XpeValueTransaction.hints.precision}"
+                                                          shortDesc="#{bindings.XpeValueTransaction.hints.tooltip}"
+                                                          id="it10" autoSubmit="true">
+                                                <f:validator binding="#{bindings.XpeValueTransaction.validator}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.XpeJustification.inputValue}"
+                                                          label="#{bindings.XpeJustification.hints.label}"
+                                                          required="#{bindings.XpeJustification.hints.mandatory}"
+                                                          columns="50"
+                                                          maximumLength="#{bindings.XpeJustification.hints.precision}"
+                                                          shortDesc="#{bindings.XpeJustification.hints.tooltip}"
+                                                          id="it11" rows="10" autoSubmit="true">
+                                                <f:validator binding="#{bindings.XpeJustification.validator}"/>
+                                            </af:inputText>
+                                        </af:panelFormLayout>
+                                    </af:panelHeader>
+                                    <af:panelHeader text="Credit Analysis" id="ph3">
+                                        <af:panelFormLayout id="pfl6">
+                                            <af:selectOneChoice value="#{bindings.XpeExistingCustomer.inputValue}"
+                                                                label="#{bindings.XpeExistingCustomer.label}"
+                                                                required="#{bindings.XpeExistingCustomer.hints.mandatory}"
+                                                                shortDesc="#{bindings.XpeExistingCustomer.hints.tooltip}"
+                                                                id="soc5" autoSubmit="true">
+                                                <f:selectItems value="#{bindings.XpeExistingCustomer.items}" id="si5"/>
+                                                <f:validator binding="#{bindings.XpeExistingCustomer.validator}"/>
+                                            </af:selectOneChoice>
+                                            <af:inputText value="#{bindings.XpePaymentMethod.inputValue}"
+                                                          label="#{bindings.XpePaymentMethod.hints.label}"
+                                                          required="#{bindings.XpePaymentMethod.hints.mandatory}"
+                                                          columns="#{bindings.XpePaymentMethod.hints.displayWidth}"
+                                                          maximumLength="#{bindings.XpePaymentMethod.hints.precision}"
+                                                          shortDesc="#{bindings.XpePaymentMethod.hints.tooltip}"
+                                                          id="it12" autoSubmit="true">
+                                                <f:validator binding="#{bindings.XpePaymentMethod.validator}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.XpePaymentHistory.inputValue}"
+                                                          label="#{bindings.XpePaymentHistory.hints.label}"
+                                                          required="#{bindings.XpePaymentHistory.hints.mandatory}"
+                                                          columns="#{bindings.XpePaymentHistory.hints.displayWidth}"
+                                                          maximumLength="#{bindings.XpePaymentHistory.hints.precision}"
+                                                          shortDesc="#{bindings.XpePaymentHistory.hints.tooltip}"
+                                                          id="it13" autoSubmit="true">
+                                                <f:validator binding="#{bindings.XpePaymentHistory.validator}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.XpeCreditLimit.inputValue}"
+                                                          label="#{bindings.XpeCreditLimit.hints.label}"
+                                                          required="#{bindings.XpeCreditLimit.hints.mandatory}"
+                                                          columns="#{bindings.XpeCreditLimit.hints.displayWidth}"
+                                                          maximumLength="#{bindings.XpeCreditLimit.hints.precision}"
+                                                          shortDesc="#{bindings.XpeCreditLimit.hints.tooltip}"
+                                                          id="it14" autoSubmit="true">
+                                                <f:validator binding="#{bindings.XpeCreditLimit.validator}"/>
+                                            </af:inputText>
+                                        </af:panelFormLayout>
+                                    </af:panelHeader>
                                 </af:gridCell>
+                            </af:gridRow>
+                            <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr9">
+                                <af:gridCell marginStart="5px" marginEnd="5px" id="gc8" width="100%" halign="stretch"
+                                             valign="stretch"/>
                             </af:gridRow>
                             <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr8">
                                 <af:gridCell marginStart="5px" marginEnd="5px" id="gc7" width="100%" halign="stretch"

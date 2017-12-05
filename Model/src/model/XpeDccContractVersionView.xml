@@ -133,6 +133,20 @@
         Name="PcBusUnitTblGlROVO1"
         ViewObjectName="model.views.readonly.PcBusUnitTblGlROVO"
         RowLevelBinds="true"/>
+    <ViewAccessor
+        Name="LookupSharedAppModule_YORNLOV"
+        ViewObjectName="model.views.readonly.XpeDccDicNewContractSetupROVO"
+        AMUsageName="LookupSharedAppModule"
+        ViewInstanceName="XpeDccDicNewContractSetupROVO"
+        RowLevelBinds="true">
+        <ParameterMap>
+            <PIMap Variable="bind_Lookup_Type">
+                <TransientExpression
+                    trustMode="untrusted"
+                    Name="ExpressionScript"><![CDATA['YON']]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
     <ListBinding
         Name="LOV_XpeContractStatus"
         ListVOName="XpeDccDicContractStatus1"
@@ -348,6 +362,24 @@
         </AttrArray>
         <AttrArray Name="ListDisplayAttrNames">
             <Item Value="BusinessUnit"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_XpeExistingCustomer"
+        ListVOName="LookupSharedAppModule_YORNLOV"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="XpeExistingCustomer"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="XpeLookupId"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="XpeLookupDesc"/>
         </AttrArray>
         <DisplayCriteria/>
     </ListBinding>
@@ -663,6 +695,126 @@
                     Value="choice"/>
                 <LABEL
                     ResId="model.XpeDccContractVersionView.XpeContractDirection_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="XpeTermAgreement"
+        PrecisionRule="true"
+        EntityAttrName="XpeTermAgreement"
+        EntityUsage="XpeDccContractVersion"
+        AliasName="XPE_TERM_AGREEMENT">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContractVersionView.XpeTermAgreement_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="XpeValueTransaction"
+        PrecisionRule="true"
+        EntityAttrName="XpeValueTransaction"
+        EntityUsage="XpeDccContractVersion"
+        AliasName="XPE_VALUE_TRANSACTION">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContractVersionView.XpeValueTransaction_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="XpeVarianceBudget"
+        PrecisionRule="true"
+        EntityAttrName="XpeVarianceBudget"
+        EntityUsage="XpeDccContractVersion"
+        AliasName="XPE_VARIANCE_BUDGET">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContractVersionView.XpeVarianceBudget_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="XpePaymentHistory"
+        PrecisionRule="true"
+        EntityAttrName="XpePaymentHistory"
+        EntityUsage="XpeDccContractVersion"
+        AliasName="XPE_PAYMENT_HISTORY">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContractVersionView.XpePaymentHistory_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="XpePaymentMethod"
+        PrecisionRule="true"
+        EntityAttrName="XpePaymentMethod"
+        EntityUsage="XpeDccContractVersion"
+        AliasName="XPE_PAYMENT_METHOD">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContractVersionView.XpePaymentMethod_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="XpeEstDisposalVol"
+        PrecisionRule="true"
+        EntityAttrName="XpeEstDisposalVol"
+        EntityUsage="XpeDccContractVersion"
+        AliasName="XPE_EST_DISPOSAL_VOL">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContractVersionView.XpeEstDisposalVol_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="XpeExistingCustomer"
+        PrecisionRule="true"
+        EntityAttrName="XpeExistingCustomer"
+        EntityUsage="XpeDccContractVersion"
+        AliasName="XPE_EXISTING_CUSTOMER"
+        LOVName="LOV_XpeExistingCustomer">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContractVersionView.XpeExistingCustomer_LABEL"/>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="XpeJustification"
+        PrecisionRule="true"
+        EntityAttrName="XpeJustification"
+        EntityUsage="XpeDccContractVersion"
+        AliasName="XPE_JUSTIFICATION">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContractVersionView.XpeJustification_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="XpeCreditLimit"
+        PrecisionRule="true"
+        EntityAttrName="XpeCreditLimit"
+        EntityUsage="XpeDccContractVersion"
+        AliasName="XPE_CREDIT_LIMIT">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContractVersionView.XpeCreditLimit_LABEL"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>

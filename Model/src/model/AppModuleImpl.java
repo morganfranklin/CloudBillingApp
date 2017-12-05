@@ -1796,7 +1796,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                                      String contractVersion,String userType) {
 
         if (EmailUtils.sendEmail(xpeDccWfActionEOVORow.getXpeApproverEmail(),
-                                 buildEmailBody(xpeDccWfActionEOVORow.getXpeUuid(), contractId, contractVersion,userType),
+                                 buildEmailBody(xpeDccWfActionEOVORow.getXpeUuid(), contractId, contractVersion,userType,xpeDccWfActionEOVORow.getXpeApproverEmail()),
                                  bytes)) {
             xpeDccWfActionEOVORow.setXpeActionStatus("P");//P - Pending
         }else
@@ -1818,7 +1818,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                     (XpeDccWfActionEOVORowImpl) approvalWFEventRow.getXpeDccWfActionEOVO().first();
                 if (EmailUtils.sendEmail(xpeDccWfActionEOVORow.getXpeApproverEmail(),
                                          buildEmailBody(xpeDccWfActionEOVORow.getXpeUuid(), contractId,
-                                                        contractVersion,"I"), bytes)) {
+                                                        contractVersion,"I",xpeDccWfActionEOVORow.getXpeApproverEmail()), bytes)) {
                     if (null != approvalWFEventRow.getXpeEventStatus() &&
                         "DRA".equals(approvalWFEventRow.getXpeEventStatus()))
                         approvalWFEventRow.setXpeEventStatus("IWF");
@@ -1833,8 +1833,9 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         return emailStatus;
     }
     
-    private String buildEmailBody(String uuId, String contractId, String contractVersion, String userType){
-        String customerName=null,contractStartDate=null,contractEndDate=null,salesPerson=null;
+    private String buildEmailBody(String uuId, String contractId, String contractVersion, String userType, String approverEmail){
+        String customerName=null,contractStartDate=null,contractEndDate=null,salesPerson=null,termAgreement=null,valTrans=null,varBudget=null,
+            paymentHist=null,paymentMethod=null,estDisposalVol=null,extCustomer=null,justification=null,creditLimit=null;
         XpeDccNewContractsEOVOImpl contractView = this.getXpeDccNewContractsEOVO1();
         contractView.executeEmptyRowSet();
         contractView.setApplyViewCriteriaName("FetchExtContractCriteria");
@@ -1874,7 +1875,16 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                 XpeDccContractVersionViewRowImpl contractVersionViewRow = (XpeDccContractVersionViewRowImpl) rows[0];
                 contractStartDate = formatDate(String.valueOf(contractVersionViewRow.getXpeStartDate()));
                 contractEndDate = formatDate(String.valueOf(contractVersionViewRow.getXpeEndDate()));
-                salesPerson = contractVersionViewRow.getSalesPerson();
+                salesPerson = getLookupDescription(contractVersionViewRow.getPsSalesPersonROVO1(),contractVersionViewRow.getSalesPerson(), "Descr");
+                termAgreement = contractVersionViewRow.getXpeTermAgreement();
+                valTrans = contractVersionViewRow.getXpeValueTransaction();
+                varBudget = contractVersionViewRow.getXpeVarianceBudget();
+                paymentHist = contractVersionViewRow.getXpePaymentHistory();
+                paymentMethod = contractVersionViewRow.getXpePaymentMethod();
+                estDisposalVol = contractVersionViewRow.getXpeEstDisposalVol();
+                extCustomer = getLookupDescription(contractVersionViewRow.getLookupSharedAppModule_YORNLOV(),contractVersionViewRow.getXpeExistingCustomer(), "XpeLookupDesc");
+                justification = contractVersionViewRow.getXpeJustification();
+                creditLimit = contractVersionViewRow.getXpeCreditLimit();
             }
         }
             
@@ -1889,6 +1899,30 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                                                                                contractEndDate : "").append("<br><br>");
         html.append("<b>Sales Person:</b>").append("&nbsp;&nbsp;").append(null != salesPerson ? salesPerson :
                                                                           "").append("<br><br>");
+        //Need to add check
+        html.append("<u><b>Contract Detail</b></u>").append("<br><br>");
+        html.append("<b>Term of Agreement:</b>").append("&nbsp;&nbsp;").append(null != termAgreement ? termAgreement :
+                                                                           "").append("<br><br>");
+        html.append("<b>Variance to Budget:</b>").append("&nbsp;&nbsp;").append(null != varBudget ?
+                                                                                 varBudget :
+                                                                                 "").append("<br><br>");
+        html.append("<b>Estimated Disposal Volume:</b>").append("&nbsp;&nbsp;").append(null != estDisposalVol ?
+                                                                               estDisposalVol : "").append("<br><br>");
+        html.append("<b>Value of Transaction:</b>").append("&nbsp;&nbsp;").append(null != valTrans ? valTrans :
+                                                                          "").append("<br><br>");
+        html.append("<b>Justification/Circumstances:</b>").append("&nbsp;&nbsp;").append(null != justification ? justification :
+                                                                           "").append("<br><br>");
+        html.append("<u><b>Credit Analysis</b></u>").append("<br><br>");
+        html.append("<b>Existing Customer:</b>").append("&nbsp;&nbsp;").append(null != extCustomer ?
+                                                                                 extCustomer :
+                                                                                 "").append("<br><br>");
+        html.append("<b>Payment Method:</b>").append("&nbsp;&nbsp;").append(null != paymentMethod ?
+                                                                               paymentMethod : "").append("<br><br>");
+        html.append("<b>Payment History:</b>").append("&nbsp;&nbsp;").append(null != paymentHist ? paymentHist :
+                                                                          "").append("<br><br>");
+        html.append("<b>Credit Limit:</b>").append("&nbsp;&nbsp;").append(null != creditLimit ? creditLimit :
+                                                                          "").append("<br><br>");
+        
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_27/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
@@ -2433,7 +2467,17 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                         targetContractVersionViewRow.setSalesPerson(sourceContractVersionViewRow.getSalesPerson());
                         targetContractVersionViewRow.setXpeAcctgOptionsSet(sourceContractVersionViewRow.getXpeAcctgOptionsSet());
                         targetContractVersionViewRow.setCurrencyCd(sourceContractVersionViewRow.getCurrencyCd());
-                        targetContractVersionViewRow.setXpeContractDirection(sourceContractVersionViewRow.getXpeContractDirection());
+                        targetContractVersionViewRow.setXpeContractDirection(sourceContractVersionViewRow.getXpeContractDirection());       
+                        targetContractVersionViewRow.setXpeTermAgreement(sourceContractVersionViewRow.getXpeTermAgreement());
+                        targetContractVersionViewRow.setXpeValueTransaction(sourceContractVersionViewRow.getXpeValueTransaction());
+                        targetContractVersionViewRow.setXpeVarianceBudget(sourceContractVersionViewRow.getXpeVarianceBudget());
+                        targetContractVersionViewRow.setXpePaymentHistory(sourceContractVersionViewRow.getXpePaymentHistory());
+                        targetContractVersionViewRow.setXpePaymentMethod(sourceContractVersionViewRow.getXpePaymentMethod());
+                        targetContractVersionViewRow.setXpeEstDisposalVol(sourceContractVersionViewRow.getXpeEstDisposalVol());
+                        targetContractVersionViewRow.setXpeExistingCustomer(sourceContractVersionViewRow.getXpeExistingCustomer());
+                        targetContractVersionViewRow.setXpeJustification(sourceContractVersionViewRow.getXpeJustification());
+                        targetContractVersionViewRow.setXpeCreditLimit(sourceContractVersionViewRow.getXpeCreditLimit());
+                        
                         xpeDccNewContractsEOVORow.getXpeDccContractVersionView().insertRow(targetContractVersionViewRow);
                         copyNewVersionContractLine(sourceContractVersionViewRow, targetContractVersionViewRow,
                                                    contractType);

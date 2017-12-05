@@ -162,5 +162,47 @@
         <Item Value="CustContractApproverEmail"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractVersionViewIterator" id="XpeTermAgreement">
+      <AttrNames>
+        <Item Value="XpeTermAgreement"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractVersionViewIterator" id="XpeVarianceBudget">
+      <AttrNames>
+        <Item Value="XpeVarianceBudget"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractVersionViewIterator" id="XpeEstDisposalVol">
+      <AttrNames>
+        <Item Value="XpeEstDisposalVol"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractVersionViewIterator" id="XpeValueTransaction">
+      <AttrNames>
+        <Item Value="XpeValueTransaction"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractVersionViewIterator" id="XpeJustification">
+      <AttrNames>
+        <Item Value="XpeJustification"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractVersionViewIterator" id="XpePaymentMethod">
+      <AttrNames>
+        <Item Value="XpePaymentMethod"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractVersionViewIterator" id="XpePaymentHistory">
+      <AttrNames>
+        <Item Value="XpePaymentHistory"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractVersionViewIterator" id="XpeCreditLimit">
+      <AttrNames>
+        <Item Value="XpeCreditLimit"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccNewContractVersionViewIterator" StaticList="false" Uses="LOV_XpeExistingCustomer"
+          id="XpeExistingCustomer" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>
