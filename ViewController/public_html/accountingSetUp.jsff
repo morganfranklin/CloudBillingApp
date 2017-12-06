@@ -1,270 +1,302 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
-  <af:panelGroupLayout layout="vertical" id="pgl1">
-    <af:panelHeader text="Accounting Set Up" id="ph1" size="1">
-      <af:query id="qryId1" headerText="Search Accounting" disclosed="true"
-                value="#{bindings.AccountingCriteriaQuery.queryDescriptor}"
-                model="#{bindings.AccountingCriteriaQuery.queryModel}"
-                queryListener="#{bindings.AccountingCriteriaQuery.processQuery}"
-                queryOperationListener="#{pageFlowScope.AccountingSetUpTableMBean.queryOperationListener}"
-                resultComponentId="::resId1"/>
-    </af:panelHeader>
-    <af:spacer width="10" height="10" id="s1"/>
-    <af:panelHeader text="Accounting" id="ph2" size="5">
-      <f:facet name="context"/>
-      <f:facet name="toolbar">
-        <af:toolbar id="t1">
-          <af:button action="#{bindings.CreateInsert.execute}" text="Add"
-                     disabled="#{!bindings.CreateInsert.enabled}" id="b1"
-                     actionListener="#{pageFlowScope.AccountingSetUpTableMBean.onAccountingCreation}"/>
-        </af:toolbar>
-      </f:facet>
-      <f:facet name="menuBar"/>
-      <f:facet name="legend"/>
-      <f:facet name="info"/>
-      <af:table value="#{bindings.XpeDccCfgAccountingEOVO.collectionModel}" var="row"
-                rows="#{bindings.XpeDccCfgAccountingEOVO.rangeSize}"
-                emptyText="#{bindings.XpeDccCfgAccountingEOVO.viewable ? 'No data to display.' : 'Access Denied.'}"
-                rowBandingInterval="0" selectedRowKeys="#{bindings.XpeDccCfgAccountingEOVO.collectionModel.selectedRow}"
-                selectionListener="#{bindings.XpeDccCfgAccountingEOVO.collectionModel.makeCurrent}"
-                rowSelection="single" fetchSize="#{bindings.XpeDccCfgAccountingEOVO.rangeSize}" id="resId1"
-                contentDelivery="immediate" columnStretching="last"
-                binding="#{backingBeanScope.AccountingSetUpTableBBean.accountingSetUpTblBind}"
-                partialTriggers="::b2 ::b3 ::b4 ::b5">
-        <af:column headerText="#{bindings.XpeDccCfgAccountingEOVO.hints.AccountId.label}" id="resId1c1">
-          <af:link text="#{row.AccountId}" id="l1" partialSubmit="true"
-                   actionListener="#{pageFlowScope.AccountingSetUpTableMBean.onAccountingEdit}"/>
-       </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgAccountingEOVO.hints.AccountingClass.label}" id="resId1c2">
-          <af:outputText value="#{row.AccountingClass}"
-                         shortDesc="#{bindings.XpeDccCfgAccountingEOVO.hints.AccountingClass.tooltip}" id="ot2"/>
-        </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgAccountingEOVO.hints.ChargeId.label}" id="resId1c3">
-          <af:outputText value="#{row.ChargeId}" shortDesc="#{bindings.XpeDccCfgAccountingEOVO.hints.ChargeId.tooltip}"
-                         id="ot3"/>
-        </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgAccountingEOVO.hints.DealClass.label}" id="resId1c4">
-          <af:outputText value="#{row.DealClass}"
-                         shortDesc="#{bindings.XpeDccCfgAccountingEOVO.hints.DealClass.tooltip}" id="ot4"/>
-        </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgAccountingEOVO.hints.EntryType.label}" id="resId1c5">
-          <af:outputText value="#{row.EntryType}"
-                         shortDesc="#{bindings.XpeDccCfgAccountingEOVO.hints.EntryType.tooltip}" id="ot5"/>
-        </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgAccountingEOVO.hints.MaterialCategory.label}" id="resId1c6">
-          <af:outputText value="#{row.MaterialCategory}"
-                         shortDesc="#{bindings.XpeDccCfgAccountingEOVO.hints.MaterialCategory.tooltip}" id="ot6"/>
-        </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgAccountingEOVO.hints.OperatingUnit.label}" id="resId1c7">
-          <af:outputText value="#{row.OperatingUnit}"
-                         shortDesc="#{bindings.XpeDccCfgAccountingEOVO.hints.OperatingUnit.tooltip}" id="ot7"/>
-        </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgAccountingEOVO.hints.ProductServiceId.label}" id="resId1c8">
-          <af:outputText value="#{row.ProductServiceId}"
-                         shortDesc="#{bindings.XpeDccCfgAccountingEOVO.hints.ProductServiceId.tooltip}" id="ot8"/>
-        </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgAccountingEOVO.hints.SiteId.label}" id="resId1c9">
-          <af:outputText value="#{row.SiteId}" shortDesc="#{bindings.XpeDccCfgAccountingEOVO.hints.SiteId.tooltip}"
-                         id="ot9"/>
-        </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgAccountingEOVO.hints.StatAccount.label}" id="resId1c10">
-          <af:outputText value="#{row.StatAccount}"
-                         shortDesc="#{bindings.XpeDccCfgAccountingEOVO.hints.StatAccount.tooltip}" id="ot10"/>
-        </af:column>
-      </af:table>
-      <af:popup childCreation="deferred" autoCancel="disabled" id="p1" contentDelivery="lazyUncached"
-                binding="#{backingBeanScope.AccountingSetUpTableBBean.accountingAddItem_popup}">
-        <af:dialog id="d1" type="none" title="Accounting Details" closeIconVisible="false">
-          <f:facet name="buttonBar">
-            <af:toolbar id="t2">
-              <af:button text="Save" id="b2"
-                         actionListener="#{pageFlowScope.AccountingSetUpTableMBean.onAccountingCreationSave}"/>
-              <af:spacer width="10" height="10" id="s2"/>
-              <af:button action="#{bindings.Rollback.execute}" text="Cancel"
-                         disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b3"
-                         actionListener="#{pageFlowScope.AccountingSetUpTableMBean.onAccountingCreationCancel}">
-                <af:resetActionListener/>
-              </af:button>
-            </af:toolbar>
-          </f:facet>
-          <af:panelGroupLayout id="pgl2">
-            <af:panelFormLayout id="pfl1" maxColumns="5" rows="1" labelAlignment="top">
-              <af:inputListOfValues id="siteIdId" popupTitle="Search and Select: #{bindings.SiteId.hints.label}"
-                                    value="#{bindings.SiteId.inputValue}" label="#{bindings.SiteId.hints.label}"
-                                    model="#{bindings.SiteId.listOfValuesModel}"
-                                    required="#{bindings.SiteId.hints.mandatory}"
-                                    columns="#{bindings.SiteId.hints.displayWidth}"
-                                    shortDesc="#{bindings.SiteId.hints.tooltip}">
-                <f:validator binding="#{bindings.SiteId.validator}"/>
-              </af:inputListOfValues>
-              <af:inputListOfValues id="accountingClassId"
-                                    popupTitle="Search and Select: #{bindings.AccountingClass.hints.label}"
-                                    value="#{bindings.AccountingClass.inputValue}"
-                                    label="#{bindings.AccountingClass.hints.label}"
-                                    model="#{bindings.AccountingClass.listOfValuesModel}"
-                                    required="#{bindings.AccountingClass.hints.mandatory}"
-                                    columns="#{bindings.AccountingClass.hints.displayWidth}"
-                                    shortDesc="#{bindings.AccountingClass.hints.tooltip}">
-                <f:validator binding="#{bindings.AccountingClass.validator}"/>
-              </af:inputListOfValues>
-              <af:inputListOfValues id="dealClassId" popupTitle="Search and Select: #{bindings.DealClass.hints.label}"
-                                    value="#{bindings.DealClass.inputValue}" label="#{bindings.DealClass.hints.label}"
-                                    model="#{bindings.DealClass.listOfValuesModel}"
-                                    required="#{bindings.DealClass.hints.mandatory}"
-                                    columns="#{bindings.DealClass.hints.displayWidth}"
-                                    shortDesc="#{bindings.DealClass.hints.tooltip}">
-                <f:validator binding="#{bindings.DealClass.validator}"/>
-              </af:inputListOfValues>
-              <af:inputListOfValues id="materialCategoryId"
-                                    popupTitle="Search and Select: #{bindings.MaterialCategory.hints.label}"
-                                    value="#{bindings.MaterialCategory.inputValue}"
-                                    label="#{bindings.MaterialCategory.hints.label}"
-                                    model="#{bindings.MaterialCategory.listOfValuesModel}"
-                                    required="#{bindings.MaterialCategory.hints.mandatory}"
-                                    columns="#{bindings.MaterialCategory.hints.displayWidth}"
-                                    shortDesc="#{bindings.MaterialCategory.hints.tooltip}">
-                <f:validator binding="#{bindings.MaterialCategory.validator}"/>
-              </af:inputListOfValues>
-              <af:inputListOfValues id="productServiceIdId"
-                                    popupTitle="Search and Select: #{bindings.ProductServiceId.hints.label}"
-                                    value="#{bindings.ProductServiceId.inputValue}"
-                                    label="#{bindings.ProductServiceId.hints.label}"
-                                    model="#{bindings.ProductServiceId.listOfValuesModel}"
-                                    required="#{bindings.ProductServiceId.hints.mandatory}"
-                                    columns="#{bindings.ProductServiceId.hints.displayWidth}"
-                                    shortDesc="#{bindings.ProductServiceId.hints.tooltip}">
-                <f:validator binding="#{bindings.ProductServiceId.validator}"/>
-              </af:inputListOfValues>
-            </af:panelFormLayout>
-            <af:spacer width="10" height="10" id="s5"/>
-            <af:panelFormLayout id="pfl3" maxColumns="3" rows="1" labelAlignment="top">
-              <f:facet name="footer"/>
-              <af:inputListOfValues id="chargeIdId" popupTitle="Search and Select: #{bindings.ChargeId.hints.label}"
-                                    value="#{bindings.ChargeId.inputValue}" label="#{bindings.ChargeId.hints.label}"
-                                    model="#{bindings.ChargeId.listOfValuesModel}"
-                                    required="#{bindings.ChargeId.hints.mandatory}"
-                                    columns="#{bindings.ChargeId.hints.displayWidth}"
-                                    shortDesc="#{bindings.ChargeId.hints.tooltip}" autoSubmit="true">
-                <f:validator binding="#{bindings.ChargeId.validator}"/>
-              </af:inputListOfValues>
-              <af:inputListOfValues id="statAccountId"
-                                    popupTitle="Search and Select: #{bindings.StatAccount.hints.label}"
-                                    value="#{bindings.StatAccount.inputValue}"
-                                    label="#{bindings.StatAccount.hints.label}"
-                                    model="#{bindings.StatAccount.listOfValuesModel}"
-                                    required="#{bindings.StatAccount.hints.mandatory}"
-                                    columns="#{bindings.StatAccount.hints.displayWidth}"
-                                    shortDesc="#{bindings.StatAccount.hints.tooltip}" autoSubmit="true">
-                <f:validator binding="#{bindings.StatAccount.validator}"/>
-              </af:inputListOfValues>
-              <af:inputListOfValues id="entryTypeId" popupTitle="Search and Select: #{bindings.EntryType.hints.label}"
-                                    value="#{bindings.EntryType.inputValue}" label="#{bindings.EntryType.hints.label}"
-                                    model="#{bindings.EntryType.listOfValuesModel}"
-                                    required="#{bindings.EntryType.hints.mandatory}"
-                                    columns="#{bindings.EntryType.hints.displayWidth}"
-                                    shortDesc="#{bindings.EntryType.hints.tooltip}" autoSubmit="true">
-                <f:validator binding="#{bindings.EntryType.validator}"/>
-              </af:inputListOfValues>
-            </af:panelFormLayout>
-          </af:panelGroupLayout>
-        </af:dialog>
-      </af:popup>
-      <af:popup childCreation="deferred" autoCancel="disabled" id="p2" contentDelivery="lazyUncached"
-                binding="#{backingBeanScope.AccountingSetUpTableBBean.accountingEdit_popup}">
-        <af:dialog id="d2" type="none" title="Accounting Details" closeIconVisible="false">
-          <f:facet name="buttonBar">
-              <af:button text="Save" id="b4"
-                         actionListener="#{pageFlowScope.AccountingSetUpTableMBean.onAccountingEditSave}"/>
-              <af:spacer width="10" height="10" id="s3"/>
-              <af:button action="#{bindings.Rollback.execute}" text="Cancel"
-                         immediate="true" id="b5"
-                         actionListener="#{pageFlowScope.AccountingSetUpTableMBean.onAccountingEditCancel}">
-                <af:resetActionListener/>
-              </af:button>
-          </f:facet>
-          <af:panelGroupLayout id="pgl3">
-            <af:panelFormLayout id="pfl2" maxColumns="5" rows="1" labelAlignment="top">
-              <af:inputListOfValues id="siteId1Id" popupTitle="Search and Select: #{bindings.SiteId1.hints.label}"
-                                    value="#{bindings.SiteId1.inputValue}" label="#{bindings.SiteId1.hints.label}"
-                                    model="#{bindings.SiteId1.listOfValuesModel}"
-                                    required="#{bindings.SiteId1.hints.mandatory}"
-                                    columns="#{bindings.SiteId1.hints.displayWidth}"
-                                    shortDesc="#{bindings.SiteId1.hints.tooltip}">
-                <f:validator binding="#{bindings.SiteId1.validator}"/>
-              </af:inputListOfValues>
-              <af:inputListOfValues id="accountingClass1Id"
-                                    popupTitle="Search and Select: #{bindings.AccountingClass1.hints.label}"
-                                    value="#{bindings.AccountingClass1.inputValue}"
-                                    label="#{bindings.AccountingClass1.hints.label}"
-                                    model="#{bindings.AccountingClass1.listOfValuesModel}"
-                                    required="#{bindings.AccountingClass1.hints.mandatory}"
-                                    columns="#{bindings.AccountingClass1.hints.displayWidth}"
-                                    shortDesc="#{bindings.AccountingClass1.hints.tooltip}">
-                <f:validator binding="#{bindings.AccountingClass1.validator}"/>
-              </af:inputListOfValues>
-              <af:inputListOfValues id="dealClass1Id" popupTitle="Search and Select: #{bindings.DealClass1.hints.label}"
-                                    value="#{bindings.DealClass1.inputValue}" label="#{bindings.DealClass1.hints.label}"
-                                    model="#{bindings.DealClass1.listOfValuesModel}"
-                                    required="#{bindings.DealClass1.hints.mandatory}"
-                                    columns="#{bindings.DealClass1.hints.displayWidth}"
-                                    shortDesc="#{bindings.DealClass1.hints.tooltip}">
-                <f:validator binding="#{bindings.DealClass1.validator}"/>
-              </af:inputListOfValues>
-              <af:inputListOfValues id="materialCategory1Id"
-                                    popupTitle="Search and Select: #{bindings.MaterialCategory1.hints.label}"
-                                    value="#{bindings.MaterialCategory1.inputValue}"
-                                    label="#{bindings.MaterialCategory1.hints.label}"
-                                    model="#{bindings.MaterialCategory1.listOfValuesModel}"
-                                    required="#{bindings.MaterialCategory1.hints.mandatory}"
-                                    columns="#{bindings.MaterialCategory1.hints.displayWidth}"
-                                    shortDesc="#{bindings.MaterialCategory1.hints.tooltip}">
-                <f:validator binding="#{bindings.MaterialCategory1.validator}"/>
-              </af:inputListOfValues>
-              <af:inputListOfValues id="productServiceId1Id"
-                                    popupTitle="Search and Select: #{bindings.ProductServiceId1.hints.label}"
-                                    value="#{bindings.ProductServiceId1.inputValue}"
-                                    label="#{bindings.ProductServiceId1.hints.label}"
-                                    model="#{bindings.ProductServiceId1.listOfValuesModel}"
-                                    required="#{bindings.ProductServiceId1.hints.mandatory}"
-                                    columns="#{bindings.ProductServiceId1.hints.displayWidth}"
-                                    shortDesc="#{bindings.ProductServiceId1.hints.tooltip}">
-                <f:validator binding="#{bindings.ProductServiceId1.validator}"/>
-              </af:inputListOfValues>
-            </af:panelFormLayout>
-            <af:spacer width="10" height="10" id="s4"/>
-            <af:panelFormLayout id="pfl4" maxColumns="3" rows="1" labelAlignment="top">
-              <f:facet name="footer"/>
-              <af:inputListOfValues id="chargeId1Id" popupTitle="Search and Select: #{bindings.ChargeId1.hints.label}"
-                                    value="#{bindings.ChargeId1.inputValue}" label="#{bindings.ChargeId1.hints.label}"
-                                    model="#{bindings.ChargeId1.listOfValuesModel}"
-                                    required="#{bindings.ChargeId1.hints.mandatory}"
-                                    columns="#{bindings.ChargeId1.hints.displayWidth}"
-                                    shortDesc="#{bindings.ChargeId1.hints.tooltip}" autoSubmit="true">
-                <f:validator binding="#{bindings.ChargeId1.validator}"/>
-              </af:inputListOfValues>
-              <af:inputListOfValues id="statAccount1Id"
-                                    popupTitle="Search and Select: #{bindings.StatAccount1.hints.label}"
-                                    value="#{bindings.StatAccount1.inputValue}"
-                                    label="#{bindings.StatAccount1.hints.label}"
-                                    model="#{bindings.StatAccount1.listOfValuesModel}"
-                                    required="#{bindings.StatAccount1.hints.mandatory}"
-                                    columns="#{bindings.StatAccount1.hints.displayWidth}"
-                                    shortDesc="#{bindings.StatAccount1.hints.tooltip}" autoSubmit="true">
-                <f:validator binding="#{bindings.StatAccount1.validator}"/>
-              </af:inputListOfValues>
-              <af:inputListOfValues id="entryType1Id" popupTitle="Search and Select: #{bindings.EntryType1.hints.label}"
-                                    value="#{bindings.EntryType1.inputValue}" label="#{bindings.EntryType1.hints.label}"
-                                    model="#{bindings.EntryType1.listOfValuesModel}"
-                                    required="#{bindings.EntryType1.hints.mandatory}"
-                                    columns="#{bindings.EntryType1.hints.displayWidth}"
-                                    shortDesc="#{bindings.EntryType1.hints.tooltip}" autoSubmit="true">
-                <f:validator binding="#{bindings.EntryType1.validator}"/>
-              </af:inputListOfValues>
-            </af:panelFormLayout>
-          </af:panelGroupLayout>
-        </af:dialog>
-      </af:popup>
-    </af:panelHeader>
-  </af:panelGroupLayout>
+    <af:panelGroupLayout layout="vertical" id="pgl1">
+        <af:panelHeader text="Accounting Set Up" id="ph1" size="1">
+            <af:query id="qryId1" headerText="Search Accounting" disclosed="true"
+                      value="#{bindings.AccountingCriteriaQuery.queryDescriptor}"
+                      model="#{bindings.AccountingCriteriaQuery.queryModel}"
+                      queryListener="#{bindings.AccountingCriteriaQuery.processQuery}"
+                      queryOperationListener="#{pageFlowScope.AccountingSetUpTableMBean.queryOperationListener}"
+                      resultComponentId="::resId1"/>
+        </af:panelHeader>
+        <af:spacer width="10" height="10" id="s1"/>
+        <af:panelHeader text="Accounting" id="ph2" size="5">
+            <f:facet name="context"/>
+            <f:facet name="toolbar">
+                <af:toolbar id="t1">
+                    <af:button action="#{bindings.CreateInsert.execute}" text="Add"
+                               disabled="#{!bindings.CreateInsert.enabled}" id="b1"
+                               actionListener="#{pageFlowScope.AccountingSetUpTableMBean.onAccountingCreation}"/>
+                </af:toolbar>
+            </f:facet>
+            <f:facet name="menuBar"/>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+            <af:table value="#{bindings.XpeDccCfgAccountingEOVO.collectionModel}" var="row"
+                      rows="#{bindings.XpeDccCfgAccountingEOVO.rangeSize}"
+                      emptyText="#{bindings.XpeDccCfgAccountingEOVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.XpeDccCfgAccountingEOVO.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.XpeDccCfgAccountingEOVO.collectionModel.makeCurrent}"
+                      rowSelection="single" fetchSize="#{bindings.XpeDccCfgAccountingEOVO.rangeSize}" id="resId1"
+                      contentDelivery="immediate" columnStretching="last"
+                      binding="#{backingBeanScope.AccountingSetUpTableBBean.accountingSetUpTblBind}"
+                      partialTriggers="::b2 ::b3 ::b4 ::b5">
+                <af:column headerText="#{bindings.XpeDccCfgAccountingEOVO.hints.AccountId.label}" id="resId1c1"
+                           sortProperty="#{bindings.XpeDccCfgAccountingEOVO.hints.AccountId.name}" sortable="true">
+                    <af:link text="#{row.AccountId}" id="l1" partialSubmit="true"
+                             actionListener="#{pageFlowScope.AccountingSetUpTableMBean.onAccountingEdit}"/>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgAccountingEOVO.hints.DealClass.label}" id="resId1c4"
+                           sortProperty="#{bindings.XpeDccCfgAccountingEOVO.hints.DealClass.name}" sortable="true">
+                    <af:outputText value="#{row.DealClass}"
+                                   shortDesc="#{bindings.XpeDccCfgAccountingEOVO.hints.DealClass.tooltip}" id="ot4"/>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgAccountingEOVO.hints.AccountingClass.label}" id="resId1c2"
+                           sortProperty="#{bindings.XpeDccCfgAccountingEOVO.hints.AccountingClass.name}"
+                           sortable="true">
+                    <af:outputText value="#{row.AccountingClass}"
+                                   shortDesc="#{bindings.XpeDccCfgAccountingEOVO.hints.AccountingClass.tooltip}"
+                                   id="ot2"/>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgAccountingEOVO.hints.MaterialCategory.label}" id="resId1c6"
+                           sortProperty="#{bindings.XpeDccCfgAccountingEOVO.hints.MaterialCategory.name}"
+                           sortable="true">
+                    <af:outputText value="#{row.MaterialCategory}"
+                                   shortDesc="#{bindings.XpeDccCfgAccountingEOVO.hints.MaterialCategory.tooltip}"
+                                   id="ot6"/>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgAccountingEOVO.hints.ProductServiceId.label}" id="resId1c8"
+                           sortProperty="#{bindings.XpeDccCfgAccountingEOVO.hints.ProductServiceId.name}"
+                           sortable="true">
+                    <af:outputText value="#{row.ProductServiceId}"
+                                   shortDesc="#{bindings.XpeDccCfgAccountingEOVO.hints.ProductServiceId.tooltip}"
+                                   id="ot8"/>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgAccountingEOVO.hints.ChargeId.label}" id="resId1c3"
+                           sortProperty="#{bindings.XpeDccCfgAccountingEOVO.hints.ChargeId.name}" sortable="true">
+                    <af:outputText value="#{row.ChargeId}"
+                                   shortDesc="#{bindings.XpeDccCfgAccountingEOVO.hints.ChargeId.tooltip}" id="ot3"/>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgAccountingEOVO.hints.EntryType.label}" id="resId1c5"
+                           sortProperty="#{bindings.XpeDccCfgAccountingEOVO.hints.EntryType.name}" sortable="true">
+                    <af:outputText value="#{row.EntryType}"
+                                   shortDesc="#{bindings.XpeDccCfgAccountingEOVO.hints.EntryType.tooltip}" id="ot5"/>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgAccountingEOVO.hints.StatAccount.label}" id="resId1c10"
+                           sortProperty="#{bindings.XpeDccCfgAccountingEOVO.hints.StatAccount.name}" sortable="true">
+                    <af:outputText value="#{row.StatAccount}"
+                                   shortDesc="#{bindings.XpeDccCfgAccountingEOVO.hints.StatAccount.tooltip}" id="ot10"/>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgAccountingEOVO.hints.SiteId.label}" id="resId1c9"
+                           sortProperty="#{bindings.XpeDccCfgAccountingEOVO.hints.SiteId.name}" sortable="true">
+                    <af:outputText value="#{row.SiteId}"
+                                   shortDesc="#{bindings.XpeDccCfgAccountingEOVO.hints.SiteId.tooltip}" id="ot9"/>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgAccountingEOVO.hints.OperatingUnit.label}" id="resId1c7"
+                           sortProperty="#{bindings.XpeDccCfgAccountingEOVO.hints.OperatingUnit.name}" sortable="true"
+                           rendered="false">
+                    <af:outputText value="#{row.OperatingUnit}"
+                                   shortDesc="#{bindings.XpeDccCfgAccountingEOVO.hints.OperatingUnit.tooltip}"
+                                   id="ot7"/>
+                </af:column>
+            </af:table>
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p1" contentDelivery="lazyUncached"
+                      binding="#{backingBeanScope.AccountingSetUpTableBBean.accountingAddItem_popup}">
+                <af:dialog id="d1" type="none" title="Accounting Details" closeIconVisible="false">
+                    <f:facet name="buttonBar">
+                        <af:button text="Save" id="b2"
+                                   actionListener="#{pageFlowScope.AccountingSetUpTableMBean.onAccountingCreationSave}"/>
+                        <af:spacer width="10" height="10" id="s2"/>
+                        <af:button action="#{bindings.Rollback.execute}" text="Cancel"
+                                   disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b3"
+                                   actionListener="#{pageFlowScope.AccountingSetUpTableMBean.onAccountingCreationCancel}">
+                            <af:resetActionListener/>
+                        </af:button>
+                    </f:facet>
+                    <af:panelGroupLayout id="pgl2">
+                        <af:panelFormLayout id="pfl1" maxColumns="5" rows="1" labelAlignment="top">
+                            <af:inputListOfValues id="dealClassId"
+                                                  popupTitle="Search and Select: #{bindings.DealClass.hints.label}"
+                                                  value="#{bindings.DealClass.inputValue}"
+                                                  label="#{bindings.DealClass.hints.label}"
+                                                  model="#{bindings.DealClass.listOfValuesModel}"
+                                                  required="#{bindings.DealClass.hints.mandatory}"
+                                                  columns="#{bindings.DealClass.hints.displayWidth}"
+                                                  shortDesc="#{bindings.DealClass.hints.tooltip}">
+                                <f:validator binding="#{bindings.DealClass.validator}"/>
+                            </af:inputListOfValues>
+                            <af:inputListOfValues id="accountingClassId"
+                                                  popupTitle="Search and Select: #{bindings.AccountingClass.hints.label}"
+                                                  value="#{bindings.AccountingClass.inputValue}"
+                                                  label="#{bindings.AccountingClass.hints.label}"
+                                                  model="#{bindings.AccountingClass.listOfValuesModel}"
+                                                  required="#{bindings.AccountingClass.hints.mandatory}"
+                                                  columns="#{bindings.AccountingClass.hints.displayWidth}"
+                                                  shortDesc="#{bindings.AccountingClass.hints.tooltip}">
+                                <f:validator binding="#{bindings.AccountingClass.validator}"/>
+                            </af:inputListOfValues>
+                            <af:inputListOfValues id="materialCategoryId"
+                                                  popupTitle="Search and Select: #{bindings.MaterialCategory.hints.label}"
+                                                  value="#{bindings.MaterialCategory.inputValue}"
+                                                  label="#{bindings.MaterialCategory.hints.label}"
+                                                  model="#{bindings.MaterialCategory.listOfValuesModel}"
+                                                  required="#{bindings.MaterialCategory.hints.mandatory}"
+                                                  columns="#{bindings.MaterialCategory.hints.displayWidth}"
+                                                  shortDesc="#{bindings.MaterialCategory.hints.tooltip}">
+                                <f:validator binding="#{bindings.MaterialCategory.validator}"/>
+                            </af:inputListOfValues>
+                            <af:inputListOfValues id="productServiceIdId"
+                                                  popupTitle="Search and Select: #{bindings.ProductServiceId.hints.label}"
+                                                  value="#{bindings.ProductServiceId.inputValue}"
+                                                  label="#{bindings.ProductServiceId.hints.label}"
+                                                  model="#{bindings.ProductServiceId.listOfValuesModel}"
+                                                  required="#{bindings.ProductServiceId.hints.mandatory}"
+                                                  columns="#{bindings.ProductServiceId.hints.displayWidth}"
+                                                  shortDesc="#{bindings.ProductServiceId.hints.tooltip}">
+                                <f:validator binding="#{bindings.ProductServiceId.validator}"/>
+                            </af:inputListOfValues>
+                            <af:inputListOfValues id="siteIdId"
+                                                  popupTitle="Search and Select: #{bindings.SiteId.hints.label}"
+                                                  value="#{bindings.SiteId.inputValue}"
+                                                  label="#{bindings.SiteId.hints.label}"
+                                                  model="#{bindings.SiteId.listOfValuesModel}"
+                                                  required="#{bindings.SiteId.hints.mandatory}"
+                                                  columns="#{bindings.SiteId.hints.displayWidth}"
+                                                  shortDesc="#{bindings.SiteId.hints.tooltip}">
+                                <f:validator binding="#{bindings.SiteId.validator}"/>
+                            </af:inputListOfValues>
+                        </af:panelFormLayout>
+                        <af:spacer width="10" height="10" id="s5"/>
+                        <af:panelFormLayout id="pfl3" maxColumns="3" rows="1" labelAlignment="top">
+                            <f:facet name="footer"/>
+                            <af:inputListOfValues id="chargeIdId"
+                                                  popupTitle="Search and Select: #{bindings.ChargeId.hints.label}"
+                                                  value="#{bindings.ChargeId.inputValue}"
+                                                  label="#{bindings.ChargeId.hints.label}"
+                                                  model="#{bindings.ChargeId.listOfValuesModel}"
+                                                  required="#{bindings.ChargeId.hints.mandatory}"
+                                                  columns="#{bindings.ChargeId.hints.displayWidth}"
+                                                  shortDesc="#{bindings.ChargeId.hints.tooltip}" autoSubmit="true">
+                                <f:validator binding="#{bindings.ChargeId.validator}"/>
+                            </af:inputListOfValues>
+                            <af:inputListOfValues id="statAccountId"
+                                                  popupTitle="Search and Select: #{bindings.StatAccount.hints.label}"
+                                                  value="#{bindings.StatAccount.inputValue}"
+                                                  label="#{bindings.StatAccount.hints.label}"
+                                                  model="#{bindings.StatAccount.listOfValuesModel}"
+                                                  required="#{bindings.StatAccount.hints.mandatory}"
+                                                  columns="#{bindings.StatAccount.hints.displayWidth}"
+                                                  shortDesc="#{bindings.StatAccount.hints.tooltip}" autoSubmit="true">
+                                <f:validator binding="#{bindings.StatAccount.validator}"/>
+                            </af:inputListOfValues>
+                            <af:inputListOfValues id="entryTypeId"
+                                                  popupTitle="Search and Select: #{bindings.EntryType.hints.label}"
+                                                  value="#{bindings.EntryType.inputValue}"
+                                                  label="#{bindings.EntryType.hints.label}"
+                                                  model="#{bindings.EntryType.listOfValuesModel}"
+                                                  required="#{bindings.EntryType.hints.mandatory}"
+                                                  columns="#{bindings.EntryType.hints.displayWidth}"
+                                                  shortDesc="#{bindings.EntryType.hints.tooltip}" autoSubmit="true">
+                                <f:validator binding="#{bindings.EntryType.validator}"/>
+                            </af:inputListOfValues>
+                        </af:panelFormLayout>
+                    </af:panelGroupLayout>
+                </af:dialog>
+            </af:popup>
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p2" contentDelivery="lazyUncached"
+                      binding="#{backingBeanScope.AccountingSetUpTableBBean.accountingEdit_popup}">
+                <af:dialog id="d2" type="none" title="Accounting Details" closeIconVisible="false">
+                    <f:facet name="buttonBar">
+                        <af:button text="Save" id="b4"
+                                   actionListener="#{pageFlowScope.AccountingSetUpTableMBean.onAccountingEditSave}"/>
+                        <af:spacer width="10" height="10" id="s3"/>
+                        <af:button action="#{bindings.Rollback.execute}" text="Cancel" immediate="true" id="b5"
+                                   actionListener="#{pageFlowScope.AccountingSetUpTableMBean.onAccountingEditCancel}">
+                            <af:resetActionListener/>
+                        </af:button>
+                    </f:facet>
+                    <af:panelGroupLayout id="pgl3">
+                        <af:panelFormLayout id="pfl2" maxColumns="5" rows="1" labelAlignment="top">
+                            <af:inputListOfValues id="dealClass1Id"
+                                                  popupTitle="Search and Select: #{bindings.DealClass1.hints.label}"
+                                                  value="#{bindings.DealClass1.inputValue}"
+                                                  label="#{bindings.DealClass1.hints.label}"
+                                                  model="#{bindings.DealClass1.listOfValuesModel}"
+                                                  required="#{bindings.DealClass1.hints.mandatory}"
+                                                  columns="#{bindings.DealClass1.hints.displayWidth}"
+                                                  shortDesc="#{bindings.DealClass1.hints.tooltip}">
+                                <f:validator binding="#{bindings.DealClass1.validator}"/>
+                            </af:inputListOfValues>
+                            <af:inputListOfValues id="accountingClass1Id"
+                                                  popupTitle="Search and Select: #{bindings.AccountingClass1.hints.label}"
+                                                  value="#{bindings.AccountingClass1.inputValue}"
+                                                  label="#{bindings.AccountingClass1.hints.label}"
+                                                  model="#{bindings.AccountingClass1.listOfValuesModel}"
+                                                  required="#{bindings.AccountingClass1.hints.mandatory}"
+                                                  columns="#{bindings.AccountingClass1.hints.displayWidth}"
+                                                  shortDesc="#{bindings.AccountingClass1.hints.tooltip}">
+                                <f:validator binding="#{bindings.AccountingClass1.validator}"/>
+                            </af:inputListOfValues>
+                            <af:inputListOfValues id="materialCategory1Id"
+                                                  popupTitle="Search and Select: #{bindings.MaterialCategory1.hints.label}"
+                                                  value="#{bindings.MaterialCategory1.inputValue}"
+                                                  label="#{bindings.MaterialCategory1.hints.label}"
+                                                  model="#{bindings.MaterialCategory1.listOfValuesModel}"
+                                                  required="#{bindings.MaterialCategory1.hints.mandatory}"
+                                                  columns="#{bindings.MaterialCategory1.hints.displayWidth}"
+                                                  shortDesc="#{bindings.MaterialCategory1.hints.tooltip}">
+                                <f:validator binding="#{bindings.MaterialCategory1.validator}"/>
+                            </af:inputListOfValues>
+                            <af:inputListOfValues id="productServiceId1Id"
+                                                  popupTitle="Search and Select: #{bindings.ProductServiceId1.hints.label}"
+                                                  value="#{bindings.ProductServiceId1.inputValue}"
+                                                  label="#{bindings.ProductServiceId1.hints.label}"
+                                                  model="#{bindings.ProductServiceId1.listOfValuesModel}"
+                                                  required="#{bindings.ProductServiceId1.hints.mandatory}"
+                                                  columns="#{bindings.ProductServiceId1.hints.displayWidth}"
+                                                  shortDesc="#{bindings.ProductServiceId1.hints.tooltip}">
+                                <f:validator binding="#{bindings.ProductServiceId1.validator}"/>
+                            </af:inputListOfValues>
+                            <af:inputListOfValues id="siteId1Id"
+                                                  popupTitle="Search and Select: #{bindings.SiteId1.hints.label}"
+                                                  value="#{bindings.SiteId1.inputValue}"
+                                                  label="#{bindings.SiteId1.hints.label}"
+                                                  model="#{bindings.SiteId1.listOfValuesModel}"
+                                                  required="#{bindings.SiteId1.hints.mandatory}"
+                                                  columns="#{bindings.SiteId1.hints.displayWidth}"
+                                                  shortDesc="#{bindings.SiteId1.hints.tooltip}">
+                                <f:validator binding="#{bindings.SiteId1.validator}"/>
+                            </af:inputListOfValues>
+                        </af:panelFormLayout>
+                        <af:spacer width="10" height="10" id="s4"/>
+                        <af:panelFormLayout id="pfl4" maxColumns="3" rows="1" labelAlignment="top">
+                            <f:facet name="footer"/>
+                            <af:inputListOfValues id="chargeId1Id"
+                                                  popupTitle="Search and Select: #{bindings.ChargeId1.hints.label}"
+                                                  value="#{bindings.ChargeId1.inputValue}"
+                                                  label="#{bindings.ChargeId1.hints.label}"
+                                                  model="#{bindings.ChargeId1.listOfValuesModel}"
+                                                  required="#{bindings.ChargeId1.hints.mandatory}"
+                                                  columns="#{bindings.ChargeId1.hints.displayWidth}"
+                                                  shortDesc="#{bindings.ChargeId1.hints.tooltip}" autoSubmit="true">
+                                <f:validator binding="#{bindings.ChargeId1.validator}"/>
+                            </af:inputListOfValues>
+                            <af:inputListOfValues id="statAccount1Id"
+                                                  popupTitle="Search and Select: #{bindings.StatAccount1.hints.label}"
+                                                  value="#{bindings.StatAccount1.inputValue}"
+                                                  label="#{bindings.StatAccount1.hints.label}"
+                                                  model="#{bindings.StatAccount1.listOfValuesModel}"
+                                                  required="#{bindings.StatAccount1.hints.mandatory}"
+                                                  columns="#{bindings.StatAccount1.hints.displayWidth}"
+                                                  shortDesc="#{bindings.StatAccount1.hints.tooltip}" autoSubmit="true">
+                                <f:validator binding="#{bindings.StatAccount1.validator}"/>
+                            </af:inputListOfValues>
+                            <af:inputListOfValues id="entryType1Id"
+                                                  popupTitle="Search and Select: #{bindings.EntryType1.hints.label}"
+                                                  value="#{bindings.EntryType1.inputValue}"
+                                                  label="#{bindings.EntryType1.hints.label}"
+                                                  model="#{bindings.EntryType1.listOfValuesModel}"
+                                                  required="#{bindings.EntryType1.hints.mandatory}"
+                                                  columns="#{bindings.EntryType1.hints.displayWidth}"
+                                                  shortDesc="#{bindings.EntryType1.hints.tooltip}" autoSubmit="true">
+                                <f:validator binding="#{bindings.EntryType1.validator}"/>
+                            </af:inputListOfValues>
+                        </af:panelFormLayout>
+                    </af:panelGroupLayout>
+                </af:dialog>
+            </af:popup>
+        </af:panelHeader>
+    </af:panelGroupLayout>
 </ui:composition>

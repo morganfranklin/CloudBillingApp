@@ -27,7 +27,7 @@
                       shortDesc="#{bindings.Description.hints.tooltip}" id="it1">
           <f:validator binding="#{bindings.Description.validator}"/>
         </af:inputText>
-        <af:panelLabelAndMessage label="#{bindings.Inoutbound.label}" id="plam3">
+        <af:panelLabelAndMessage label="#{bindings.Inoutbound.label}" id="plam3" rendered="false">
           <af:selectOneChoice value="#{bindings.Inoutbound.inputValue}" label="#{bindings.Inoutbound.label}"
                               required="#{bindings.Inoutbound.hints.mandatory}"
                               shortDesc="#{bindings.Inoutbound.hints.tooltip}" id="soc2" simple="true">

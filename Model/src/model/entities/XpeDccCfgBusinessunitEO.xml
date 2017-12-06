@@ -51,7 +51,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_BUSINESSUNIT">
+    TableName="XPE_DCC_CFG_BUSINESSUNIT"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -63,7 +64,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_BUSINESSUNIT">
+    TableName="XPE_DCC_CFG_BUSINESSUNIT"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="45"/>
     </DesignTime>
@@ -118,7 +120,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_BUSINESSUNIT">
+    TableName="XPE_DCC_CFG_BUSINESSUNIT"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -130,7 +133,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_BUSINESSUNIT">
+    TableName="XPE_DCC_CFG_BUSINESSUNIT"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -142,7 +146,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_BUSINESSUNIT">
+    TableName="XPE_DCC_CFG_BUSINESSUNIT"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -216,7 +221,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_BUSINESSUNIT">
+    TableName="XPE_DCC_CFG_BUSINESSUNIT"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -259,7 +265,6 @@
     RetrievedOnInsert="true">
     <TransientExpression
       Name="ExpressionScript"
-      trustMode="trusted"
       CodeSourceName="XpeDccCfgBusinessunitEORow"/>
   </Attribute>
   <Key
@@ -270,6 +275,78 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.entities.XpeDccCfgBusinessunitEO.BusinessunitId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgBusinessunitBillingBusinessUnitCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"BILLING_BUSINESS_UNIT" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_BUSINESSUNIT_BILLI"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgBusinessunitEO.BillingBusinessUnit"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgBusinessunitBillingGlBusinessUnitCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"BILLING_GL_BUSINESS_UNIT" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_BUSINESSUNIT_BILLI"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgBusinessunitEO.BillingGlBusinessUnit"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgBusinessunitBusinessUnitRefCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"BUSINESS_UNIT_REF" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_BUSINESSUNIT_BUSIN"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgBusinessunitEO.BusinessUnitRef"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgBusinessunitGlBusinessUnitCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"GL_BUSINESS_UNIT" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_BUSINESSUNIT_GL_BU"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgBusinessunitEO.GlBusinessUnit"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgBusinessunitSiteDescCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"SITE_DESC" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_BUSINESSUNIT_SITE_"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgBusinessunitEO.SiteDesc"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgBusinessunitSiteIdCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"SITE_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_BUSINESSUNIT_SITE_"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgBusinessunitEO.SiteId"/>
     </AttrArray>
   </Key>
 </Entity>

@@ -300,7 +300,8 @@
     ListVOName="PsOperUnitTblROVO1"
     ListRangeSize="-1"
     NullValueFlag="none"
-    MRUCount="0">
+    MRUCount="0"
+    ComboRowCountHint="10">
     <AttrArray Name="AttrNames">
       <Item Value="BillingOperatingUnit"/>
     </AttrArray>
@@ -309,16 +310,19 @@
       <Item Value="OperatingUnit"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OperatingUnit"/>
       <Item Value="Descr"/>
     </AttrArray>
-    <DisplayCriteria/>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
   </ListBinding>
   <ListBinding
     Name="LOV_OperatingUnit"
     ListVOName="PsOperUnitTblROVO2"
     ListRangeSize="-1"
     NullValueFlag="none"
-    MRUCount="0">
+    MRUCount="0"
+    ComboRowCountHint="10">
     <AttrArray Name="AttrNames">
       <Item Value="OperatingUnit"/>
     </AttrArray>
@@ -327,9 +331,11 @@
       <Item Value="OperatingUnit"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OperatingUnit"/>
       <Item Value="Descr"/>
     </AttrArray>
-    <DisplayCriteria/>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
   </ListBinding>
   <ListBinding
     Name="LOV_BusinessUnit"
@@ -506,12 +512,12 @@
     LOVName="LOV_AccountingClass">
     <Properties>
       <SchemaBasedProperties>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.AccountingClass_LABEL"/>
         <DISPLAYWIDTH
           Value="10"/>
         <CONTROLTYPE
           Value="input_text_lov"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.AccountingClass_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -559,10 +565,10 @@
     AliasName="BUSINESS_UNIT_REF">
     <Properties>
       <SchemaBasedProperties>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.BusinessUnitRef_LABEL"/>
         <DISPLAYWIDTH
           Value="10"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.BusinessUnitRef_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -628,7 +634,7 @@
         <DISPLAYWIDTH
           Value="10"/>
         <CONTROLTYPE
-          Value="choice"/>
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -718,7 +724,7 @@
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.BillingOperatingUnit_LABEL"/>
         <CONTROLTYPE
-          Value="choice"/>
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

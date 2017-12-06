@@ -82,14 +82,6 @@
           id="BillingBusinessUnit" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_BillingBusinessUnit"
           id="BillingBusinessUnit1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
-    <list IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" StaticList="false" Uses="LOV_BillingOperatingUnit"
-          id="BillingOperatingUnit" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
-    <list IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_BillingOperatingUnit"
-          id="BillingOperatingUnit1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
-    <list IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" StaticList="false" Uses="LOV_OperatingUnit"
-          id="OperatingUnit" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
-    <list IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_OperatingUnit"
-          id="OperatingUnit1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <listOfValues IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" StaticList="false" Uses="LOV_BusinessUnit"
                   id="BusinessUnit"/>
     <listOfValues IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" StaticList="false" Uses="LOV_BillingGlBusinessUnit"
@@ -110,5 +102,13 @@
                   id="Affliate1"/>
     <listOfValues IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_GlBusinessUnit"
                   id="GlBusinessUnit1"/>
+    <listOfValues IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" StaticList="false" Uses="LOV_BillingOperatingUnit"
+                  id="BillingOperatingUnit"/>
+    <listOfValues IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" StaticList="false" Uses="LOV_OperatingUnit"
+                  id="OperatingUnit"/>
+    <listOfValues IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_BillingOperatingUnit"
+                  id="BillingOperatingUnit1"/>
+    <listOfValues IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_OperatingUnit"
+                  id="OperatingUnit1"/>
   </bindings>
 </pageDefinition>

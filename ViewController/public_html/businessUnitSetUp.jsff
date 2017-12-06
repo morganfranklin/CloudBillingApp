@@ -175,7 +175,8 @@
             <f:facet name="menuBar"/>
             <f:facet name="legend"/>
             <f:facet name="info"/>
-            <af:panelFormLayout id="pfl4" labelAlignment="top" rows="1" maxColumns="5">
+            <af:panelFormLayout id="pfl4" labelAlignment="top" rows="1" maxColumns="5" labelWidth="200px"
+                                fieldWidth="100px">
               <f:facet name="footer"/>
               <af:panelLabelAndMessage label="#{bindings.BillingBusinessUnit.label}" id="plam5">
                 <af:selectOneChoice value="#{bindings.BillingBusinessUnit.inputValue}"
@@ -215,16 +216,16 @@
                                     shortDesc="#{bindings.BillingAffiliate.hints.tooltip}" autoSubmit="true">
                 <f:validator binding="#{bindings.BillingAffiliate.validator}"/>
               </af:inputListOfValues>
-              <af:panelLabelAndMessage label="#{bindings.BillingOperatingUnit.label}" id="plam8">
-                <af:selectOneChoice value="#{bindings.BillingOperatingUnit.inputValue}"
-                                    label="#{bindings.BillingOperatingUnit.label}"
+              <af:inputListOfValues id="billingOperatingUnitId"
+                                    popupTitle="Search and Select: #{bindings.BillingOperatingUnit.hints.label}"
+                                    value="#{bindings.BillingOperatingUnit.inputValue}"
+                                    label="#{bindings.BillingOperatingUnit.hints.label}"
+                                    model="#{bindings.BillingOperatingUnit.listOfValuesModel}"
                                     required="#{bindings.BillingOperatingUnit.hints.mandatory}"
-                                    shortDesc="#{bindings.BillingOperatingUnit.hints.tooltip}" id="soc11"
-                                    autoSubmit="true" simple="true">
-                  <f:selectItems value="#{bindings.BillingOperatingUnit.items}" id="si11"/>
-                  <f:validator binding="#{bindings.BillingOperatingUnit.validator}"/>
-                </af:selectOneChoice>
-              </af:panelLabelAndMessage>
+                                    columns="#{bindings.BillingOperatingUnit.hints.displayWidth}"
+                                    shortDesc="#{bindings.BillingOperatingUnit.hints.tooltip}" autoSubmit="true">
+                <f:validator binding="#{bindings.BillingOperatingUnit.validator}"/>
+              </af:inputListOfValues>
             </af:panelFormLayout>
           </af:panelHeader>
           <af:spacer width="10" height="10" id="s4"/>
@@ -245,15 +246,16 @@
                                     shortDesc="#{bindings.GlBusinessUnit.hints.tooltip}" autoSubmit="true">
                 <f:validator binding="#{bindings.GlBusinessUnit.validator}"/>
               </af:inputListOfValues>
-              <af:panelLabelAndMessage label="#{bindings.OperatingUnit.label}" id="plam15">
-                <af:selectOneChoice value="#{bindings.OperatingUnit.inputValue}" label="#{bindings.OperatingUnit.label}"
+              <af:inputListOfValues id="operatingUnitId"
+                                    popupTitle="Search and Select: #{bindings.OperatingUnit.hints.label}"
+                                    value="#{bindings.OperatingUnit.inputValue}"
+                                    label="#{bindings.OperatingUnit.hints.label}"
+                                    model="#{bindings.OperatingUnit.listOfValuesModel}"
                                     required="#{bindings.OperatingUnit.hints.mandatory}"
-                                    shortDesc="#{bindings.OperatingUnit.hints.tooltip}" id="soc17" simple="true"
-                                    autoSubmit="true">
-                  <f:selectItems value="#{bindings.OperatingUnit.items}" id="si17"/>
-                  <f:validator binding="#{bindings.OperatingUnit.validator}"/>
-                </af:selectOneChoice>
-              </af:panelLabelAndMessage>
+                                    columns="#{bindings.OperatingUnit.hints.displayWidth}"
+                                    shortDesc="#{bindings.OperatingUnit.hints.tooltip}" autoSubmit="true">
+                <f:validator binding="#{bindings.OperatingUnit.validator}"/>
+              </af:inputListOfValues>
               <af:inputListOfValues id="affliateId" popupTitle="Search and Select: #{bindings.Affliate.hints.label}"
                                     value="#{bindings.Affliate.inputValue}" label="#{bindings.Affliate.hints.label}"
                                     model="#{bindings.Affliate.listOfValuesModel}"
@@ -286,7 +288,8 @@
             <f:facet name="menuBar"/>
             <f:facet name="legend"/>
             <f:facet name="info"/>
-            <af:panelFormLayout id="pfl5" labelAlignment="top" rows="1" maxColumns="8">
+            <af:panelFormLayout id="pfl5" labelAlignment="top" rows="1" maxColumns="8" labelWidth="150px"
+                                fieldWidth="100px">
               <f:facet name="footer"/>
               <af:inputListOfValues id="businessUnit1Id"
                                     popupTitle="Search and Select: #{bindings.BusinessUnit1.hints.label}"
@@ -363,7 +366,8 @@
             <f:facet name="menuBar"/>
             <f:facet name="legend"/>
             <f:facet name="info"/>
-            <af:panelFormLayout id="pfl6" labelAlignment="top" rows="1" maxColumns="5">
+            <af:panelFormLayout id="pfl6" labelAlignment="top" rows="1" maxColumns="5" labelWidth="200px"
+                                fieldWidth="100px">
               <f:facet name="footer"/>
               <af:panelLabelAndMessage label="#{bindings.BillingBusinessUnit1.label}" id="plam10">
                 <af:selectOneChoice value="#{bindings.BillingBusinessUnit1.inputValue}"
@@ -403,16 +407,16 @@
                                     shortDesc="#{bindings.BillingAffiliate1.hints.tooltip}" autoSubmit="true">
                 <f:validator binding="#{bindings.BillingAffiliate1.validator}"/>
               </af:inputListOfValues>
-              <af:panelLabelAndMessage label="#{bindings.BillingOperatingUnit1.label}" id="plam13">
-                <af:selectOneChoice value="#{bindings.BillingOperatingUnit1.inputValue}"
-                                    label="#{bindings.BillingOperatingUnit1.label}"
+              <af:inputListOfValues id="billingOperatingUnit1Id"
+                                    popupTitle="Search and Select: #{bindings.BillingOperatingUnit1.hints.label}"
+                                    value="#{bindings.BillingOperatingUnit1.inputValue}"
+                                    label="#{bindings.BillingOperatingUnit1.hints.label}"
+                                    model="#{bindings.BillingOperatingUnit1.listOfValuesModel}"
                                     required="#{bindings.BillingOperatingUnit1.hints.mandatory}"
-                                    shortDesc="#{bindings.BillingOperatingUnit1.hints.tooltip}" id="soc15"
-                                    simple="true" autoSubmit="true">
-                  <f:selectItems value="#{bindings.BillingOperatingUnit1.items}" id="si15"/>
-                  <f:validator binding="#{bindings.BillingOperatingUnit1.validator}"/>
-                </af:selectOneChoice>
-              </af:panelLabelAndMessage>
+                                    columns="#{bindings.BillingOperatingUnit1.hints.displayWidth}"
+                                    shortDesc="#{bindings.BillingOperatingUnit1.hints.tooltip}" autoSubmit="true">
+                <f:validator binding="#{bindings.BillingOperatingUnit1.validator}"/>
+              </af:inputListOfValues>
             </af:panelFormLayout>
           </af:panelHeader>
           <af:spacer width="10" height="10" id="s7"/>
@@ -433,16 +437,16 @@
                                     shortDesc="#{bindings.GlBusinessUnit1.hints.tooltip}" autoSubmit="true">
                 <f:validator binding="#{bindings.GlBusinessUnit1.validator}"/>
               </af:inputListOfValues>
-              <af:panelLabelAndMessage label="#{bindings.OperatingUnit1.label}" id="plam18">
-                <af:selectOneChoice value="#{bindings.OperatingUnit1.inputValue}"
-                                    label="#{bindings.OperatingUnit1.label}"
+              <af:inputListOfValues id="operatingUnit1Id"
+                                    popupTitle="Search and Select: #{bindings.OperatingUnit1.hints.label}"
+                                    value="#{bindings.OperatingUnit1.inputValue}"
+                                    label="#{bindings.OperatingUnit1.hints.label}"
+                                    model="#{bindings.OperatingUnit1.listOfValuesModel}"
                                     required="#{bindings.OperatingUnit1.hints.mandatory}"
-                                    shortDesc="#{bindings.OperatingUnit1.hints.tooltip}" id="soc20" simple="true"
-                                    autoSubmit="true">
-                  <f:selectItems value="#{bindings.OperatingUnit1.items}" id="si20"/>
-                  <f:validator binding="#{bindings.OperatingUnit1.validator}"/>
-                </af:selectOneChoice>
-              </af:panelLabelAndMessage>
+                                    columns="#{bindings.OperatingUnit1.hints.displayWidth}"
+                                    shortDesc="#{bindings.OperatingUnit1.hints.tooltip}" autoSubmit="true">
+                <f:validator binding="#{bindings.OperatingUnit1.validator}"/>
+              </af:inputListOfValues>
               <af:inputListOfValues id="affliate1Id" popupTitle="Search and Select: #{bindings.Affliate1.hints.label}"
                                     value="#{bindings.Affliate1.inputValue}" label="#{bindings.Affliate1.hints.label}"
                                     model="#{bindings.Affliate1.listOfValuesModel}"

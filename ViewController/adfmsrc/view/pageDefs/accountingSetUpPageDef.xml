@@ -15,7 +15,6 @@
     <tree IterBinding="XpeDccCfgAccountingEOVOIterator" id="XpeDccCfgAccountingEOVO">
       <nodeDefinition DefName="model.views.entitybased.XpeDccCfgAccountingEOVO" Name="XpeDccCfgAccountingEOVO0">
         <AttrNames>
-          <Item Value="AccountId"/>
           <Item Value="AccountingClass"/>
           <Item Value="ChargeId"/>
           <Item Value="DealClass"/>
@@ -25,6 +24,7 @@
           <Item Value="ProductServiceId"/>
           <Item Value="SiteId"/>
           <Item Value="StatAccount"/>
+          <Item Value="AccountId"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

@@ -276,7 +276,7 @@
                                                                     shortDesc="#{bindings.XpeDccNewContractLineView.hints.XpeProductUom.tooltip}"
                                                                     id="soc8"
                                                                     readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
-                                                                    partialTriggers="ilov5">
+                                                                    partialTriggers="ilov5" autoSubmit="true">
                                                     <f:selectItems value="#{row.bindings.XpeProductUom.items}"
                                                                    id="si8"/>
                                                     <f:validator binding="#{row.bindings.XpeProductUom.validator}"/>

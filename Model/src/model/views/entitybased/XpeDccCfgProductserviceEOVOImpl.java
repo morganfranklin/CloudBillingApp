@@ -47,22 +47,6 @@ public class XpeDccCfgProductserviceEOVOImpl extends ViewObjectImpl {
     }
 
     /**
-     * Returns the variable value for bind_InOutBound.
-     * @return variable value for bind_InOutBound
-     */
-    public String getbind_InOutBound() {
-        return (String) ensureVariableManager().getVariableValue("bind_InOutBound");
-    }
-
-    /**
-     * Sets <code>value</code> for variable bind_InOutBound.
-     * @param value value to bind as bind_InOutBound
-     */
-    public void setbind_InOutBound(String value) {
-        ensureVariableManager().setVariableValue("bind_InOutBound", value);
-    }
-
-    /**
      * Returns the variable value for bind_Category.
      * @return variable value for bind_Category
      */

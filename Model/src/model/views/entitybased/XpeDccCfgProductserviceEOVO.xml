@@ -34,10 +34,6 @@
     Kind="viewcriteria"
     Type="java.lang.String"/>
   <Variable
-    Name="bind_InOutBound"
-    Kind="viewcriteria"
-    Type="java.lang.String"/>
-  <Variable
     Name="bind_Category"
     Kind="viewcriteria"
     Type="java.lang.String"/>
@@ -560,14 +556,6 @@
         Operator="="
         Conjunction="AND"
         Value=":bind_ItemType"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="Inoutbound"
-        ViewAttribute="Inoutbound"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_InOutBound"
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem

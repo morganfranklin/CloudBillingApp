@@ -48,7 +48,8 @@
             <f:validator binding="#{row.bindings.ItemType.validator}"/>
           </af:selectOneChoice>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgProductserviceEOVO.hints.Inoutbound.label}" id="resId1c7">
+        <af:column headerText="#{bindings.XpeDccCfgProductserviceEOVO.hints.Inoutbound.label}" id="resId1c7"
+                   rendered="false">
           <af:selectOneChoice value="#{row.bindings.Inoutbound.inputValue}" label="#{row.bindings.Inoutbound.label}"
                               required="#{bindings.XpeDccCfgProductserviceEOVO.hints.Inoutbound.mandatory}"
                               shortDesc="#{bindings.XpeDccCfgProductserviceEOVO.hints.Inoutbound.tooltip}"

@@ -23,7 +23,7 @@
             <f:validator binding="#{bindings.ItemType.validator}"/>
           </af:selectOneChoice>
         </af:panelLabelAndMessage>
-        <af:panelLabelAndMessage label="#{bindings.Inoutbound.label}" id="plam2">
+        <af:panelLabelAndMessage label="#{bindings.Inoutbound.label}" id="plam2" rendered="false">
           <af:selectOneChoice value="#{bindings.Inoutbound.inputValue}" label="#{bindings.Inoutbound.label}"
                               required="#{bindings.Inoutbound.hints.mandatory}"
                               shortDesc="#{bindings.Inoutbound.hints.tooltip}" id="soc2" simple="true">

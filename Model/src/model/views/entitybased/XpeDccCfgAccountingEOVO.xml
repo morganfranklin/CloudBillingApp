@@ -299,6 +299,60 @@
     Name="XpeDccCfgAccountingEO"
     Entity="model.entities.XpeDccCfgAccountingEO"/>
   <ViewAttribute
+    Name="DealClass"
+    PrecisionRule="true"
+    EntityAttrName="DealClass"
+    EntityUsage="XpeDccCfgAccountingEO"
+    AliasName="DEAL_CLASS"
+    LOVName="LOV_DealClass">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgAccountingEOVO.DealClass_LABEL"/>
+        <DISPLAYWIDTH
+          Value="15"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AccountingClass"
+    PrecisionRule="true"
+    EntityAttrName="AccountingClass"
+    EntityUsage="XpeDccCfgAccountingEO"
+    AliasName="ACCOUNTING_CLASS"
+    LOVName="LOV_AccountingClass">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgAccountingEOVO.AccountingClass_LABEL"/>
+        <DISPLAYWIDTH
+          Value="15"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MaterialCategory"
+    PrecisionRule="true"
+    EntityAttrName="MaterialCategory"
+    EntityUsage="XpeDccCfgAccountingEO"
+    AliasName="MATERIAL_CATEGORY"
+    LOVName="LOV_MaterialCategory">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgAccountingEOVO.MaterialCategory_LABEL"/>
+        <DISPLAYWIDTH
+          Value="15"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
     Name="ProductServiceId"
     PrecisionRule="true"
     EntityAttrName="ProductServiceId"
@@ -350,24 +404,6 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="AccountingClass"
-    PrecisionRule="true"
-    EntityAttrName="AccountingClass"
-    EntityUsage="XpeDccCfgAccountingEO"
-    AliasName="ACCOUNTING_CLASS"
-    LOVName="LOV_AccountingClass">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgAccountingEOVO.AccountingClass_LABEL"/>
-        <DISPLAYWIDTH
-          Value="15"/>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
     Name="ChargeId"
     PrecisionRule="true"
     EntityAttrName="ChargeId"
@@ -386,24 +422,6 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="DealClass"
-    PrecisionRule="true"
-    EntityAttrName="DealClass"
-    EntityUsage="XpeDccCfgAccountingEO"
-    AliasName="DEAL_CLASS"
-    LOVName="LOV_DealClass">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgAccountingEOVO.DealClass_LABEL"/>
-        <DISPLAYWIDTH
-          Value="15"/>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
     Name="EntryType"
     PrecisionRule="true"
     EntityAttrName="EntryType"
@@ -414,24 +432,6 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgAccountingEOVO.EntryType_LABEL"/>
-        <DISPLAYWIDTH
-          Value="15"/>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="MaterialCategory"
-    PrecisionRule="true"
-    EntityAttrName="MaterialCategory"
-    EntityUsage="XpeDccCfgAccountingEO"
-    AliasName="MATERIAL_CATEGORY"
-    LOVName="LOV_MaterialCategory">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgAccountingEOVO.MaterialCategory_LABEL"/>
         <DISPLAYWIDTH
           Value="15"/>
         <CONTROLTYPE
