@@ -108,10 +108,20 @@
     EntityAttrName="XpeUuid"
     EntityUsage="XpeDccWfActionEO"
     AliasName="XPE_UUID"/>
+  <ViewAttribute
+    Name="XpeApproverLevel"
+    PrecisionRule="true"
+    EntityAttrName="XpeApproverLevel"
+    EntityUsage="XpeDccWfActionEO"
+    AliasName="XPE_APPROVER_LEVEL"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>
   </ResourceBundle>
+  <SortCriteria>
+    <Sort
+      Attribute="CreatedDate"/>
+  </SortCriteria>
   <SortCriteria>
     <Sort
       Attribute="CreatedDate"/>
