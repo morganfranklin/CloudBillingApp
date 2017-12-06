@@ -317,11 +317,10 @@
                                         <af:inputListOfValues label="#{row.bindings.XpeProductId.label}"
                                                               popupTitle="Search and Select: #{row.bindings.XpeProductId.label}"
                                                               id="ilov5" value="#{row.bindings.XpeProductId.inputValue}"
-                                                              required="#{bindings.XpeDccContractLineView2.hints.XpeProductId.mandatory}"
                                                               shortDesc="#{bindings.XpeDccContractLineView2.hints.XpeProductId.tooltip}"
                                                               model="#{row.bindings.XpeProductId.listOfValuesModel}"
                                                               readOnly="#{(bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }"
-                                                              autoSubmit="true">
+                                                              autoSubmit="true" required="true">
                                             <f:validator binding="#{row.bindings.XpeProductId.validator}"/>
                                         </af:inputListOfValues>
                                     </af:column>
@@ -329,10 +328,10 @@
                                                filterable="true" sortable="true" headerText="UOM" id="c4">
                                         <af:selectOneChoice value="#{row.bindings.XpeProductUom.inputValue}"
                                                             label="#{row.bindings.XpeProductUom.label}"
-                                                            required="#{bindings.XpeDccContractLineView2.hints.XpeProductUom.mandatory}"
                                                             readOnly="#{(bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }"
                                                             shortDesc="#{bindings.XpeDccContractLineView2.hints.XpeProductUom.tooltip}"
-                                                            id="soc8" partialTriggers="ilov5" autoSubmit="true">
+                                                            id="soc8" partialTriggers="ilov5" autoSubmit="true"
+                                                            required="true">
                                             <f:selectItems value="#{row.bindings.XpeProductUom.items}" id="si8"/>
                                             <f:validator binding="#{row.bindings.XpeProductUom.validator}"/>
                                         </af:selectOneChoice>

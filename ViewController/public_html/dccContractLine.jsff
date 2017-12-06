@@ -43,19 +43,19 @@
                                                                       value="#{bindings.XpeProductId.inputValue}"
                                                                       label="#{bindings.XpeProductId.hints.label}"
                                                                       model="#{bindings.XpeProductId.listOfValuesModel}"
-                                                                      required="#{bindings.XpeProductId.hints.mandatory}"
                                                                       columns="#{bindings.XpeProductId.hints.displayWidth}"
-                                                                      shortDesc="#{bindings.XpeProductId.hints.tooltip}">
+                                                                      shortDesc="#{bindings.XpeProductId.hints.tooltip}"
+                                                                      autoSubmit="true" required="true">
                                                     <f:validator binding="#{bindings.XpeProductId.validator}"/>
                                                 </af:inputListOfValues>
                                                 <af:panelLabelAndMessage label="UOM" id="plam6" showRequired="true">
                                                     <af:selectOneChoice value="#{bindings.XpeProductUom.inputValue}"
                                                                         label="UOM"
-                                                                        required="#{bindings.XpeProductUom.hints.mandatory}"
                                                                         autoSubmit="true"
                                                                         shortDesc="#{bindings.XpeProductUom.hints.tooltip}"
                                                                         id="soc3" simple="true"
-                                                                        partialTriggers="xpeProductIdId">
+                                                                        partialTriggers="xpeProductIdId"
+                                                                        required="true">
                                                         <f:selectItems value="#{bindings.XpeProductUom.items}"
                                                                        id="si3"/>
                                                         <f:validator binding="#{bindings.XpeProductUom.validator}"/>
