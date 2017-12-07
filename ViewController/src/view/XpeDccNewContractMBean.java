@@ -545,4 +545,18 @@ public class XpeDccNewContractMBean implements Serializable {
             AdfFacesContext.getCurrentInstance().addPartialTarget(this.getXpeDccNewContractBBean().getContractCustSearchROVOTblBind());
         }
     }
+
+    public String onCustomerNextAction() {
+        String customerSelection = (String) ADFUtils.evaluateEL("#{bindings.Customer_Type.inputValue}");
+        String contractType = (String) ADFUtils.evaluateEL("#{pageFlowScope.ContractType}");
+        if("NEW".equals(contractType)){
+            if (null == customerSelection) {
+                ADFUtils.showErrorMessage("You must make a selection.",
+                                          this.getXpeDccNewContractBBean().getCustomerSelection());
+                return null;
+            } else
+                return "next";   
+        }else
+            return "next";  
+    }
 }

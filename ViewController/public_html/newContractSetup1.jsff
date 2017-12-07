@@ -10,13 +10,17 @@
                         <af:gridRow marginTop="5px" height="auto" id="gr1"
                                     rendered="#{pageFlowScope.ContractType eq 'NEW'}">
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1">
-                                <af:selectOneRadio id="sor_cust" label="#{bindings.Customer_Type.label}" layout="horizontal"
-                                                   autoSubmit="true" value="#{bindings.Customer_Type.inputValue}"
-                                                   valueChangeListener="#{pageFlowScope.XpeDccNewContractMBean.onCustomerTypeValueChange}"
-                                                   required="true">
-                                    <f:selectItems value="#{bindings.Customer_Type.items}" id="si7"/>
-                                    <f:validator binding="#{bindings.Customer_Type.validator}"/>
-                                </af:selectOneRadio>
+                                <af:panelLabelAndMessage label="#{bindings.Customer_Type.label}" id="plam1"
+                                                         for="sor_cust" showRequired="true">
+                                    <af:selectOneRadio id="sor_cust" layout="horizontal"
+                                                       value="#{bindings.Customer_Type.inputValue}"
+                                                       valueChangeListener="#{pageFlowScope.XpeDccNewContractMBean.onCustomerTypeValueChange}"
+                                                       autoSubmit="true" simple="true"
+                                                       binding="#{backingBeanScope.XpeDccNewContractBBean.customerSelection}">
+                                        <f:selectItems value="#{bindings.Customer_Type.items}" id="si7"/>
+                                        <f:validator binding="#{bindings.Customer_Type.validator}"/>
+                                    </af:selectOneRadio>
+                                </af:panelLabelAndMessage>
                             </af:gridCell>
                         </af:gridRow>
                         <af:gridRow marginTop="5px" height="auto" id="gr5">
@@ -420,7 +424,7 @@
         </af:gridRow>
         <af:gridRow height="auto" id="gr4">
             <af:gridCell marginStart="5px" width="100%" id="gc6" halign="stretch" marginEnd="5px" valign="stretch">
-                <af:button text="Next" id="b2" action="next"/>
+                <af:button text="Next" id="b2" action="#{pageFlowScope.XpeDccNewContractMBean.onCustomerNextAction}"/>
             </af:gridCell>
         </af:gridRow>
     </af:panelGridLayout>
