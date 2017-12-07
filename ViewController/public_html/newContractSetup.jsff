@@ -761,7 +761,8 @@
                                                 <f:validator binding="#{bindings.XpeNoteDttm.validator}"/>
                                                 <af:convertDateTime pattern="#{bindings.XpeNoteDttm.format}"/>
                                             </af:inputDate>
-                                            <af:panelLabelAndMessage label="#{bindings.XpeNoteType.label}" id="plam9">
+                                            <af:panelLabelAndMessage label="#{bindings.XpeNoteType.label}" id="plam9"
+                                                                     rendered="false">
                                                 <af:selectOneChoice value="#{bindings.XpeNoteType.inputValue}"
                                                                     label="#{bindings.XpeNoteType.label}"
                                                                     required="#{bindings.XpeNoteType.hints.mandatory}"

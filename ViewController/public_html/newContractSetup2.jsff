@@ -286,19 +286,17 @@
                                 <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6" halign="stretch">
                                     <af:selectOneRadio value="#{bindings.Approval_Level.inputValue}"
                                                        label="#{bindings.Approval_Level.label}"
-                                                       required="#{bindings.Approval_Level.hints.mandatory}"
                                                        shortDesc="#{bindings.Approval_Level.hints.tooltip}" id="sor1"
-                                                       autoSubmit="true">
+                                                       autoSubmit="true" required="true">
                                         <f:selectItems value="#{bindings.Approval_Level.items}" id="si15"/>
                                         <f:validator binding="#{bindings.Approval_Level.validator}"/>
                                     </af:selectOneRadio>
                                     <af:inputText value="#{bindings.CustContractContactName.inputValue}"
                                                   label="#{bindings.CustContractContactName.hints.label}"
-                                                  required="#{bindings.CustContractContactName.hints.mandatory}"
                                                   columns="#{bindings.CustContractContactName.hints.displayWidth}"
                                                   maximumLength="#{bindings.CustContractContactName.hints.precision}"
                                                   shortDesc="#{bindings.CustContractContactName.hints.tooltip}"
-                                                  id="it1">
+                                                  id="it1" required="true">
                                         <f:validator binding="#{bindings.CustContractContactName.validator}"/>
                                     </af:inputText>
                                     <af:inputText value="#{bindings.CustContractApproverEmail.inputValue}"
