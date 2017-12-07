@@ -222,6 +222,16 @@
                                                     <f:validator binding="#{bindings.ProductTier.validator}"/>
                                                 </af:inputText>
                                             </af:panelFormLayout>
+                                            <af:selectOneRadio value="#{bindings.Business_Type.inputValue}"
+                                                               label="#{bindings.Business_Type.label}"
+                                                               required="#{bindings.Business_Type.hints.mandatory}"
+                                                               shortDesc="#{bindings.Business_Type.hints.tooltip}"
+                                                               id="sor3" layout="horizontal"
+                                                               visible="#{bindings.Customer_Type.inputValue ne null}"
+                                                               partialTriggers="sor_cust">
+                                                <f:selectItems value="#{bindings.Business_Type.items}" id="si2"/>
+                                                <f:validator binding="#{bindings.Business_Type.validator}"/>
+                                            </af:selectOneRadio>
                                         </f:facet>
                                         <f:facet name="EXT">
                                             <af:panelGroupLayout layout="vertical" id="pgl3">
@@ -402,20 +412,6 @@
                                         </f:facet>
                                     </af:switcher>
                                 </af:panelHeader>
-                            </af:gridCell>
-                        </af:gridRow>
-                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr6">
-                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5">
-                                <af:selectOneRadio value="#{bindings.Business_Type.inputValue}"
-                                                   label="#{bindings.Business_Type.label}"
-                                                   required="#{bindings.Business_Type.hints.mandatory}"
-                                                   shortDesc="#{bindings.Business_Type.hints.tooltip}" id="sor3"
-                                                   layout="horizontal"
-                                                   visible="#{bindings.Customer_Type.inputValue ne null}"
-                                                   partialTriggers="sor_cust">
-                                    <f:selectItems value="#{bindings.Business_Type.items}" id="si2"/>
-                                    <f:validator binding="#{bindings.Business_Type.validator}"/>
-                                </af:selectOneRadio>
                             </af:gridCell>
                         </af:gridRow>
                     </af:panelGridLayout>
