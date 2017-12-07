@@ -62,6 +62,21 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="XpeDccGeneralItemListROVO1"
+    ViewObjectName="model.views.readonly.XpeDccGeneralItemListROVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="findByItemListType"
+      FullName="model.views.readonly.XpeDccGeneralItemListROVO.findByItemListType"/>
+    <ParameterMap>
+      <PIMap Variable="bind_ItemListType">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA['PU']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LOV_Uom"
     ListVOName="XpeDccGeneralItemListROVO_UOMLOV"
@@ -121,6 +136,24 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Pcsuom"
+    ListVOName="XpeDccGeneralItemListROVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Pcsuom"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ItemId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValidValue"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -240,6 +273,22 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgUomEOVO.UomDesc_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Pcsuom"
+    PrecisionRule="true"
+    EntityAttrName="Pcsuom"
+    EntityUsage="XpeDccCfgUomEO"
+    AliasName="PCSUOM"
+    LOVName="LOV_Pcsuom">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgUomEOVO.Pcsuom_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
