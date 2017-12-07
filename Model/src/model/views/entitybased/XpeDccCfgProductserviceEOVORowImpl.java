@@ -34,7 +34,6 @@ public class XpeDccCfgProductserviceEOVORowImpl extends ViewRowImpl {
         CreatedDate,
         LastUpdatedBy,
         LastUpdatedDate,
-        Pcsuom,
         WeightClass,
         XpeDccCfgUomEOVO,
         LookupSharedAppModule_ProductServiceItemLOV,
@@ -83,7 +82,6 @@ public class XpeDccCfgProductserviceEOVORowImpl extends ViewRowImpl {
     public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
-    public static final int PCSUOM = AttributesEnum.Pcsuom.index();
     public static final int WEIGHTCLASS = AttributesEnum.WeightClass.index();
     public static final int XPEDCCCFGUOMEOVO = AttributesEnum.XpeDccCfgUomEOVO.index();
     public static final int LOOKUPSHAREDAPPMODULE_PRODUCTSERVICEITEMLOV =
@@ -322,21 +320,6 @@ public class XpeDccCfgProductserviceEOVORowImpl extends ViewRowImpl {
         setAttributeInternal(LASTUPDATEDDATE, value);
     }
 
-    /**
-     * Gets the attribute value for PCSUOM using the alias name Pcsuom.
-     * @return the PCSUOM
-     */
-    public String getPcsuom() {
-        return (String) getAttributeInternal(PCSUOM);
-    }
-
-    /**
-     * Sets <code>value</code> as attribute value for PCSUOM using the alias name Pcsuom.
-     * @param value value to set the PCSUOM
-     */
-    public void setPcsuom(String value) {
-        setAttributeInternal(PCSUOM, value);
-    }
 
     /**
      * Gets the attribute value for WEIGHT_CLASS using the alias name WeightClass.

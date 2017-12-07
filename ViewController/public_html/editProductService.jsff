@@ -43,14 +43,6 @@
                               shortDesc="#{bindings.Category.hints.tooltip}">
           <f:validator binding="#{bindings.Category.validator}"/>
         </af:inputListOfValues>
-        <af:panelLabelAndMessage label="#{bindings.Pcsuom.label}" id="plam4">
-          <af:selectOneChoice value="#{bindings.Pcsuom.inputValue}" label="#{bindings.Pcsuom.label}"
-                              required="#{bindings.Pcsuom.hints.mandatory}" shortDesc="#{bindings.Pcsuom.hints.tooltip}"
-                              id="soc9" simple="true">
-            <f:selectItems value="#{bindings.Pcsuom.items}" id="si9"/>
-            <f:validator binding="#{bindings.Pcsuom.validator}"/>
-          </af:selectOneChoice>
-        </af:panelLabelAndMessage>
       </af:panelFormLayout>
     </af:panelHeader>
     <af:spacer width="10" height="10" id="s1"/>
@@ -140,6 +132,15 @@
             <f:validator binding="#{row.bindings.FeedMethod.validator}"/>
           </af:selectOneChoice>
         </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgNewUomEOVO.hints.Pcsuom.label}" id="c7">
+          <af:selectOneChoice value="#{row.bindings.Pcsuom.inputValue}" label="#{row.bindings.Pcsuom.label}"
+                              required="#{bindings.XpeDccCfgNewUomEOVO.hints.Pcsuom.mandatory}"
+                              shortDesc="#{bindings.XpeDccCfgNewUomEOVO.hints.Pcsuom.tooltip}" id="soc9"
+                              readOnly="true">
+            <f:selectItems value="#{row.bindings.Pcsuom.items}" id="si9"/>
+            <f:validator binding="#{row.bindings.Pcsuom.validator}"/>
+          </af:selectOneChoice>
+        </af:column>
         <af:column headerText="#{bindings.XpeDccCfgNewUomEOVO.hints.Inactive.label}" id="c5">
           <af:outputText value="#{row.Inactive}" shortDesc="#{bindings.XpeDccCfgNewUomEOVO.hints.Inactive.tooltip}"
                          id="ot5"/>
@@ -195,6 +196,14 @@
               <f:validator binding="#{bindings.FeedMethod.validator}"/>
             </af:selectOneChoice>
           </af:panelLabelAndMessage>
+          <af:panelLabelAndMessage label="#{bindings.Pcsuom.label}" id="plam4">
+            <af:selectOneChoice value="#{bindings.Pcsuom.inputValue}" label="#{bindings.Pcsuom.label}"
+                                required="#{bindings.Pcsuom.hints.mandatory}"
+                                shortDesc="#{bindings.Pcsuom.hints.tooltip}" id="soc10" simple="true" autoSubmit="true">
+              <f:selectItems value="#{bindings.Pcsuom.items}" id="si10"/>
+              <f:validator binding="#{bindings.Pcsuom.validator}"/>
+            </af:selectOneChoice>
+          </af:panelLabelAndMessage>
         </af:panelFormLayout>
       </af:dialog>
     </af:popup>
@@ -231,6 +240,14 @@
                                 shortDesc="#{bindings.FeedMethod.hints.tooltip}" id="soc7" simple="true">
               <f:selectItems value="#{bindings.FeedMethod.items}" id="si7"/>
               <f:validator binding="#{bindings.FeedMethod.validator}"/>
+            </af:selectOneChoice>
+          </af:panelLabelAndMessage>
+          <af:panelLabelAndMessage label="#{bindings.Pcsuom.label}" id="plam10">
+            <af:selectOneChoice value="#{bindings.Pcsuom.inputValue}" label="#{bindings.Pcsuom.label}"
+                                required="#{bindings.Pcsuom.hints.mandatory}"
+                                shortDesc="#{bindings.Pcsuom.hints.tooltip}" id="soc11" simple="true" autoSubmit="true">
+              <f:selectItems value="#{bindings.Pcsuom.items}" id="si11"/>
+              <f:validator binding="#{bindings.Pcsuom.validator}"/>
             </af:selectOneChoice>
           </af:panelLabelAndMessage>
           <af:panelLabelAndMessage label="#{bindings.Inactive1.label}" id="plam9">

@@ -12,6 +12,8 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class XpeDccCfgUomEOVORowImpl extends ViewRowImpl {
+
+
     public static final int ENTITY_XPEDCCCFGUOMEO = 0;
 
     /**
@@ -28,10 +30,13 @@ public class XpeDccCfgUomEOVORowImpl extends ViewRowImpl {
         LastUpdatedDate,
         Uom,
         UomDesc,
+        Pcsuom,
         XpeDccGeneralItemListROVO_UOMLOV,
         LookupSharedAppModule_FeedMethodLOV,
-        LookupSharedAppModule_XpeDccDicNewContractSetupROVO1;
-        private static AttributesEnum[] vals = null;
+        LookupSharedAppModule_XpeDccDicNewContractSetupROVO1,
+        XpeDccGeneralItemListROVO1;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -53,6 +58,8 @@ public class XpeDccCfgUomEOVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
+
     public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
     public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
     public static final int FEEDMETHOD = AttributesEnum.FeedMethod.index();
@@ -63,11 +70,13 @@ public class XpeDccCfgUomEOVORowImpl extends ViewRowImpl {
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int UOM = AttributesEnum.Uom.index();
     public static final int UOMDESC = AttributesEnum.UomDesc.index();
+    public static final int PCSUOM = AttributesEnum.Pcsuom.index();
     public static final int XPEDCCGENERALITEMLISTROVO_UOMLOV = AttributesEnum.XpeDccGeneralItemListROVO_UOMLOV.index();
     public static final int LOOKUPSHAREDAPPMODULE_FEEDMETHODLOV =
         AttributesEnum.LookupSharedAppModule_FeedMethodLOV.index();
     public static final int LOOKUPSHAREDAPPMODULE_XPEDCCDICNEWCONTRACTSETUPROVO1 =
         AttributesEnum.LookupSharedAppModule_XpeDccDicNewContractSetupROVO1.index();
+    public static final int XPEDCCGENERALITEMLISTROVO1 = AttributesEnum.XpeDccGeneralItemListROVO1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -236,6 +245,22 @@ public class XpeDccCfgUomEOVORowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for PCSUOM using the alias name Pcsuom.
+     * @return the PCSUOM
+     */
+    public String getPcsuom() {
+        return (String) getAttributeInternal(PCSUOM);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for PCSUOM using the alias name Pcsuom.
+     * @param value value to set the PCSUOM
+     */
+    public void setPcsuom(String value) {
+        setAttributeInternal(PCSUOM, value);
+    }
+
+    /**
      * Gets the view accessor <code>RowSet</code> XpeDccGeneralItemListROVO_UOMLOV.
      */
     public RowSet getXpeDccGeneralItemListROVO_UOMLOV() {
@@ -254,6 +279,13 @@ public class XpeDccCfgUomEOVORowImpl extends ViewRowImpl {
      */
     public RowSet getLookupSharedAppModule_XpeDccDicNewContractSetupROVO1() {
         return (RowSet) getAttributeInternal(LOOKUPSHAREDAPPMODULE_XPEDCCDICNEWCONTRACTSETUPROVO1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> XpeDccGeneralItemListROVO1.
+     */
+    public RowSet getXpeDccGeneralItemListROVO1() {
+        return (RowSet) getAttributeInternal(XPEDCCGENERALITEMLISTROVO1);
     }
 }
 

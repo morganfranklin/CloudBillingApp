@@ -278,25 +278,6 @@
     <DisplayCriteria/>
   </ListBinding>
   <ListBinding
-    Name="LOV_Pcsuom"
-    ListVOName="XpeDccGeneralItemListROVO1"
-    ListRangeSize="-1"
-    NullValueFlag="start"
-    MRUCount="0"
-    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}">
-    <AttrArray Name="AttrNames">
-      <Item Value="Pcsuom"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="ItemId"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="ValidValue"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
-  <ListBinding
     Name="LOV_WeightClass"
     ListVOName="XpeDccGeneralItemListROVO2"
     ListRangeSize="-1"
@@ -484,22 +465,6 @@
     EntityAttrName="LastUpdatedDate"
     EntityUsage="XpeDccCfgProductserviceEO"
     AliasName="LAST_UPDATED_DATE"/>
-  <ViewAttribute
-    Name="Pcsuom"
-    PrecisionRule="true"
-    EntityAttrName="Pcsuom"
-    EntityUsage="XpeDccCfgProductserviceEO"
-    AliasName="PCSUOM"
-    LOVName="LOV_Pcsuom">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgProductserviceEOVO.Pcsuom_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
   <ViewAttribute
     Name="WeightClass"
     PrecisionRule="true"

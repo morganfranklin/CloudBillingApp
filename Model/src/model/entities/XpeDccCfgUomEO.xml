@@ -122,6 +122,18 @@
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
     TableName="XPE_DCC_CFG_UOM"/>
+  <Attribute
+    Name="Pcsuom"
+    Precision="15"
+    ColumnName="PCSUOM"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_UOM">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="XpeDccCfgProductserviceEO"
     Association="model.entities.associations.XpeDccCfgProductserviceFkAssoc"

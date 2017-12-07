@@ -30,6 +30,7 @@
           <Item Value="FeedMethod"/>
           <Item Value="Inactive"/>
           <Item Value="InactiveDate"/>
+          <Item Value="Pcsuom"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -60,10 +61,10 @@
     <listOfValues IterBinding="XpeDccCfgNewProductserviceEOVOIterator" StaticList="false" Uses="LOV_ClassId"
                   id="ClassId"/>
     <listOfValues IterBinding="XpeDccCfgNewUomEOVOIterator" StaticList="false" Uses="LOV_Uom" id="Uom1"/>
-    <list IterBinding="XpeDccCfgNewProductserviceEOVOIterator" StaticList="false" Uses="LOV_Pcsuom" id="Pcsuom"
-          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="XpeDccCfgNewProductserviceEOVOIterator" StaticList="false" Uses="LOV_WeightClass"
           id="WeightClass" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <list IterBinding="XpeDccCfgNewUomEOVOIterator" StaticList="false" Uses="LOV_Pcsuom" id="Pcsuom"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>
