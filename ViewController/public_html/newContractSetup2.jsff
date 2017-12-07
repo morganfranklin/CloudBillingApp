@@ -99,7 +99,7 @@
                                                                     label="#{bindings.XpeNoteType.label}"
                                                                     required="#{bindings.XpeNoteType.hints.mandatory}"
                                                                     shortDesc="#{bindings.XpeNoteType.hints.tooltip}"
-                                                                    id="soc15" readOnly="true">
+                                                                    id="soc15" readOnly="true" rendered="false">
                                                     <f:selectItems value="#{bindings.XpeNoteType.items}" id="si16"/>
                                                     <f:validator binding="#{bindings.XpeNoteType.validator}"/>
                                                 </af:selectOneChoice>
