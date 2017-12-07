@@ -5,15 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.el.ELContext;
-
 import javax.el.ExpressionFactory;
-
 import javax.el.MethodExpression;
-
 import javax.el.ValueExpression;
 
 import javax.faces.application.Application;
 import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 
@@ -28,13 +26,10 @@ import oracle.binding.AttributeBinding;
 import oracle.binding.BindingContainer;
 import oracle.binding.ControlBinding;
 
-
 import oracle.jbo.ApplicationModule;
 import oracle.jbo.Key;
 import oracle.jbo.Row;
 import oracle.jbo.ViewObject;
-
-import oracle.xdo.batch.object.Email;
 
 
 /**
@@ -91,6 +86,14 @@ public class ADFUtils {
         FacesMessage fm = new FacesMessage(FacesMessage.SEVERITY_ERROR, messageText, null);
         FacesContext fc = FacesContext.getCurrentInstance();
         fc.addMessage(null, fm);
+    }
+    
+    public static String showErrorMessage(String messageText, UIComponent comp) {
+        FacesMessage fm = new FacesMessage(messageText);
+        fm.setSeverity(FacesMessage.SEVERITY_ERROR);
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage(comp.getClientId(FacesContext.getCurrentInstance()), fm);
+        return null;
     }
 
     /**

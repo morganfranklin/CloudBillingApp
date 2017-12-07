@@ -2,6 +2,8 @@ package model.views.entitybased;
 
 import java.sql.Timestamp;
 
+import model.entities.XpeDccWfActionEOImpl;
+
 import oracle.jbo.server.EntityImpl;
 import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
@@ -11,6 +13,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class XpeDccWfActionEOVORowImpl extends ViewRowImpl {
+
     public static final int ENTITY_XPEDCCWFACTIONEO = 0;
 
     /**
@@ -27,8 +30,10 @@ public class XpeDccWfActionEOVORowImpl extends ViewRowImpl {
         XpeContractId,
         XpeContractVersion,
         XpeEventNumber,
-        XpeUuid;
-        private static AttributesEnum[] vals = null;
+        XpeUuid,
+        XpeApproverLevel;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -50,6 +55,7 @@ public class XpeDccWfActionEOVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
     public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
     public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
@@ -61,6 +67,7 @@ public class XpeDccWfActionEOVORowImpl extends ViewRowImpl {
     public static final int XPECONTRACTVERSION = AttributesEnum.XpeContractVersion.index();
     public static final int XPEEVENTNUMBER = AttributesEnum.XpeEventNumber.index();
     public static final int XPEUUID = AttributesEnum.XpeUuid.index();
+    public static final int XPEAPPROVERLEVEL = AttributesEnum.XpeApproverLevel.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -72,8 +79,8 @@ public class XpeDccWfActionEOVORowImpl extends ViewRowImpl {
      * Gets XpeDccWfActionEO entity object.
      * @return the XpeDccWfActionEO
      */
-    public EntityImpl getXpeDccWfActionEO() {
-        return (EntityImpl) getEntity(ENTITY_XPEDCCWFACTIONEO);
+    public XpeDccWfActionEOImpl getXpeDccWfActionEO() {
+        return (XpeDccWfActionEOImpl) getEntity(ENTITY_XPEDCCWFACTIONEO);
     }
 
     /**
@@ -218,6 +225,22 @@ public class XpeDccWfActionEOVORowImpl extends ViewRowImpl {
      */
     public void setXpeUuid(String value) {
         setAttributeInternal(XPEUUID, value);
+    }
+
+    /**
+     * Gets the attribute value for XPE_APPROVER_LEVEL using the alias name XpeApproverLevel.
+     * @return the XPE_APPROVER_LEVEL
+     */
+    public String getXpeApproverLevel() {
+        return (String) getAttributeInternal(XPEAPPROVERLEVEL);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for XPE_APPROVER_LEVEL using the alias name XpeApproverLevel.
+     * @param value value to set the XPE_APPROVER_LEVEL
+     */
+    public void setXpeApproverLevel(String value) {
+        setAttributeInternal(XPEAPPROVERLEVEL, value);
     }
 }
 

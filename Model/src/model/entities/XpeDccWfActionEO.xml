@@ -156,6 +156,18 @@
     ColumnType="TIMESTAMP"
     TableName="XPE_DCC_WF_ACTION"
     HistoryColumn="DateHistory"/>
+  <Attribute
+    Name="XpeApproverLevel"
+    Precision="20"
+    ColumnName="XPE_APPROVER_LEVEL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_WF_ACTION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="XpeDccWfEventEO"
     Association="model.entities.associations.XpeDccWfActionFk1Assoc"

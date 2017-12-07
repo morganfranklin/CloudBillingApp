@@ -1,14 +1,15 @@
 package view;
 
 import oracle.adf.view.rich.component.rich.RichPopup;
-import oracle.adf.view.rich.component.rich.RichQuery;
 import oracle.adf.view.rich.component.rich.data.RichTable;
+import oracle.adf.view.rich.component.rich.input.RichSelectOneRadio;
 import oracle.adf.view.rich.component.rich.input.RichTextEditor;
 
 
 public class XpeDccNewContractBBean {
     private RichTable contractSearchROVOTblBind;
     private RichTable contractCustSearchROVOTblBind;
+    private RichSelectOneRadio customerSelection;
 
     public XpeDccNewContractBBean() {
         super();
@@ -47,5 +48,13 @@ public class XpeDccNewContractBBean {
 
     public RichTable getContractCustSearchROVOTblBind() {
         return contractCustSearchROVOTblBind;
+    }
+
+    public void setCustomerSelection(RichSelectOneRadio customerSelection) {
+        this.customerSelection = customerSelection;
+    }
+
+    public RichSelectOneRadio getCustomerSelection() {
+        return customerSelection;
     }
 }

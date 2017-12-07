@@ -11,6 +11,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
@@ -22,6 +23,7 @@ import model.common.AppModule;
 
 import model.utils.EmailUtils;
 
+import model.views.entitybased.NEUCloudBillingConstants;
 import model.views.entitybased.XpeDccCfgBusinessunitEOVOImpl;
 import model.views.entitybased.XpeDccCfgCarriersEOVOImpl;
 import model.views.entitybased.XpeDccCfgCmtmntFacilityEOVOImpl;
@@ -1676,7 +1678,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     private void createApprovalEventAction(String contractId, String contractVersion, String submissionType) {
 
         try {
-            Map<Integer, String> approvalEmails = new HashMap<Integer, String>();
+            Map<String, String> approvalEmails = new HashMap<String, String>();
 
             Key key = new Key(new Object[] { contractId, contractVersion });
             Row[] rows = getXpeDccNewContractVersionView().findByKey(key, 1);
@@ -1703,10 +1705,10 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                     XpeDccCfgMetalsFacilityEOVORowImpl xpeDccCfgMetalsFacilityEOVORow =
                         (XpeDccCfgMetalsFacilityEOVORowImpl) xpeDccCfgMetalsFacilityEOVO.first();
                     if (null != xpeDccCfgMetalsFacilityEOVORow) {
-                        approvalEmails.put(1, xpeDccCfgMetalsFacilityEOVORow.getCustomerCareReview());
-                        approvalEmails.put(2, xpeDccCfgMetalsFacilityEOVORow.getLegalReview());
-                        approvalEmails.put(3, xpeDccCfgMetalsFacilityEOVORow.getFinancialReview());
-                        approvalEmails.put(4, xpeDccCfgMetalsFacilityEOVORow.getSvpReview());
+                        approvalEmails.put(NEUCloudBillingConstants.CUSTOMER_CARE, xpeDccCfgMetalsFacilityEOVORow.getCustomerCareReview());
+                        approvalEmails.put(NEUCloudBillingConstants.LEGAL, xpeDccCfgMetalsFacilityEOVORow.getLegalReview());
+                        approvalEmails.put(NEUCloudBillingConstants.FINANCIAL, xpeDccCfgMetalsFacilityEOVORow.getFinancialReview());
+                        approvalEmails.put(NEUCloudBillingConstants.SVP, xpeDccCfgMetalsFacilityEOVORow.getSvpReview());
                     }
                 }
                 if (null != wasteType && null != contractSubType) {
@@ -1720,9 +1722,9 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                         XpeDccCfgMswFacilityEOVORowImpl xpeDccCfgMswFacilityEOVORow =
                             (XpeDccCfgMswFacilityEOVORowImpl) xpeDccCfgMswFacilityEOVO.first();
                         if (null != xpeDccCfgMswFacilityEOVORow) {
-                            approvalEmails.put(1, xpeDccCfgMswFacilityEOVORow.getCustomerCareReview());
-                            approvalEmails.put(2, xpeDccCfgMswFacilityEOVORow.getLegalReview());
-                            approvalEmails.put(3, xpeDccCfgMswFacilityEOVORow.getGeneralManagerReview());
+                            approvalEmails.put(NEUCloudBillingConstants.CUSTOMER_CARE, xpeDccCfgMswFacilityEOVORow.getCustomerCareReview());
+                            approvalEmails.put(NEUCloudBillingConstants.LEGAL, xpeDccCfgMswFacilityEOVORow.getLegalReview());
+                            approvalEmails.put(NEUCloudBillingConstants.GENERAL_MANAGER, xpeDccCfgMswFacilityEOVORow.getGeneralManagerReview());
                         }
                     } else if ("MSW".equals(wasteType) &&
                                ("FLY".equals(contractSubType) ||
@@ -1736,24 +1738,24 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                             (XpeDccCfgCmtmntFacilityEOVORowImpl) xpeDccCfgCmtmntFacilityEOVO.first();
                         if (null != xpeDccCfgCmtmntFacilityEOVORow && null != newContractSetupRow.getApproval_Level()) {
                             if ("EVP".equals(newContractSetupRow.getApproval_Level())) {
-                                approvalEmails.put(1, xpeDccCfgCmtmntFacilityEOVORow.getCustomerCareReview());
-                                approvalEmails.put(2, xpeDccCfgCmtmntFacilityEOVORow.getLegalReview());
-                                approvalEmails.put(3, xpeDccCfgCmtmntFacilityEOVORow.getFinancialReview());
-                                approvalEmails.put(4, xpeDccCfgCmtmntFacilityEOVORow.getGeneralManagerReview());
-                                approvalEmails.put(5, xpeDccCfgCmtmntFacilityEOVORow.getSustSolReview());
+                                approvalEmails.put(NEUCloudBillingConstants.CUSTOMER_CARE, xpeDccCfgCmtmntFacilityEOVORow.getCustomerCareReview());
+                                approvalEmails.put(NEUCloudBillingConstants.LEGAL, xpeDccCfgCmtmntFacilityEOVORow.getLegalReview());
+                                approvalEmails.put(NEUCloudBillingConstants.FINANCIAL, xpeDccCfgCmtmntFacilityEOVORow.getFinancialReview());
+                                approvalEmails.put(NEUCloudBillingConstants.GENERAL_MANAGER, xpeDccCfgCmtmntFacilityEOVORow.getGeneralManagerReview());
+                                approvalEmails.put(NEUCloudBillingConstants.EVP, xpeDccCfgCmtmntFacilityEOVORow.getSustSolReview());
                             } else if ("CEO".equals(newContractSetupRow.getApproval_Level())) {
-                                approvalEmails.put(1, xpeDccCfgCmtmntFacilityEOVORow.getCustomerCareReview());
-                                approvalEmails.put(2, xpeDccCfgCmtmntFacilityEOVORow.getLegalReview());
-                                approvalEmails.put(3, xpeDccCfgCmtmntFacilityEOVORow.getFinancialReview());
-                                approvalEmails.put(4, xpeDccCfgCmtmntFacilityEOVORow.getGeneralManagerReview());
-                                approvalEmails.put(5, xpeDccCfgCmtmntFacilityEOVORow.getSustSolReview());
-                                approvalEmails.put(6, xpeDccCfgCmtmntFacilityEOVORow.getCfoReview());
-                                approvalEmails.put(7, xpeDccCfgCmtmntFacilityEOVORow.getCeoReview());
+                                approvalEmails.put(NEUCloudBillingConstants.CUSTOMER_CARE, xpeDccCfgCmtmntFacilityEOVORow.getCustomerCareReview());
+                                approvalEmails.put(NEUCloudBillingConstants.LEGAL, xpeDccCfgCmtmntFacilityEOVORow.getLegalReview());
+                                approvalEmails.put(NEUCloudBillingConstants.FINANCIAL, xpeDccCfgCmtmntFacilityEOVORow.getFinancialReview());
+                                approvalEmails.put(NEUCloudBillingConstants.GENERAL_MANAGER, xpeDccCfgCmtmntFacilityEOVORow.getGeneralManagerReview());
+                                approvalEmails.put(NEUCloudBillingConstants.EVP, xpeDccCfgCmtmntFacilityEOVORow.getSustSolReview());
+                                approvalEmails.put(NEUCloudBillingConstants.CFO, xpeDccCfgCmtmntFacilityEOVORow.getCfoReview());
+                                approvalEmails.put(NEUCloudBillingConstants.CEO, xpeDccCfgCmtmntFacilityEOVORow.getCeoReview());
                             } else if ("NA".equals(newContractSetupRow.getApproval_Level())) {
-                                approvalEmails.put(1, xpeDccCfgCmtmntFacilityEOVORow.getCustomerCareReview());
-                                approvalEmails.put(2, xpeDccCfgCmtmntFacilityEOVORow.getLegalReview());
-                                approvalEmails.put(3, xpeDccCfgCmtmntFacilityEOVORow.getFinancialReview());
-                                approvalEmails.put(4, xpeDccCfgCmtmntFacilityEOVORow.getGeneralManagerReview());
+                                approvalEmails.put(NEUCloudBillingConstants.CUSTOMER_CARE, xpeDccCfgCmtmntFacilityEOVORow.getCustomerCareReview());
+                                approvalEmails.put(NEUCloudBillingConstants.LEGAL, xpeDccCfgCmtmntFacilityEOVORow.getLegalReview());
+                                approvalEmails.put(NEUCloudBillingConstants.FINANCIAL, xpeDccCfgCmtmntFacilityEOVORow.getFinancialReview());
+                                approvalEmails.put(NEUCloudBillingConstants.GENERAL_MANAGER, xpeDccCfgCmtmntFacilityEOVORow.getGeneralManagerReview());
                             }
                         }
                     }
@@ -1773,7 +1775,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
 
                 if (null != approvalWFEventRow && null != approvalWFEventRow.getXpeEventNumber()) {
                     //creating Approval Work Flow Action
-                    for (Map.Entry<Integer, String> approvalEmail : approvalEmails.entrySet()) {
+                    for (Map.Entry<String, String> approvalEmail : approvalEmails.entrySet()) {
 
                         XpeDccWfActionEOVORowImpl xpeDccWfActionEOVORow =
                             (XpeDccWfActionEOVORowImpl) approvalWFEventRow.getXpeDccWfActionEOVO().createRow();
@@ -1781,6 +1783,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                         xpeDccWfActionEOVORow.setXpeContractVersion(contractVersionViewRow.getXpeContractVersion());
                         xpeDccWfActionEOVORow.setXpeUuid(UUID.randomUUID().toString());
                         xpeDccWfActionEOVORow.setXpeApproverEmail(approvalEmail.getValue());
+                        xpeDccWfActionEOVORow.setXpeApproverLevel(approvalEmail.getKey());
                         xpeDccWfActionEOVORow.setXpeActionStatus("W");
                         approvalWFEventRow.getXpeDccWfActionEOVO().insertRow(xpeDccWfActionEOVORow);
                     }
@@ -1796,7 +1799,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                                      String contractVersion,String userType) {
 
         if (EmailUtils.sendEmail(xpeDccWfActionEOVORow.getXpeApproverEmail(),
-                                 buildEmailBody(xpeDccWfActionEOVORow.getXpeUuid(), contractId, contractVersion,userType,xpeDccWfActionEOVORow.getXpeApproverEmail()),
+                                 buildEmailBody(xpeDccWfActionEOVORow, contractId, contractVersion,userType),
                                  bytes)) {
             xpeDccWfActionEOVORow.setXpeActionStatus("P");//P - Pending
         }else
@@ -1817,8 +1820,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                 XpeDccWfActionEOVORowImpl xpeDccWfActionEOVORow =
                     (XpeDccWfActionEOVORowImpl) approvalWFEventRow.getXpeDccWfActionEOVO().first();
                 if (EmailUtils.sendEmail(xpeDccWfActionEOVORow.getXpeApproverEmail(),
-                                         buildEmailBody(xpeDccWfActionEOVORow.getXpeUuid(), contractId,
-                                                        contractVersion,"I",xpeDccWfActionEOVORow.getXpeApproverEmail()), bytes)) {
+                                         buildEmailBody(xpeDccWfActionEOVORow, contractId, contractVersion, "I"),
+                                         bytes)) {
                     if (null != approvalWFEventRow.getXpeEventStatus() &&
                         "DRA".equals(approvalWFEventRow.getXpeEventStatus()))
                         approvalWFEventRow.setXpeEventStatus("IWF");
@@ -1833,7 +1836,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         return emailStatus;
     }
     
-    private String buildEmailBody(String uuId, String contractId, String contractVersion, String userType, String approverEmail){
+    private String buildEmailBody(XpeDccWfActionEOVORowImpl xpeDccWfActionEOVORow, String contractId, String contractVersion, String userType){
         String customerName=null,contractStartDate=null,contractEndDate=null,salesPerson=null,termAgreement=null,valTrans=null,varBudget=null,
             paymentHist=null,paymentMethod=null,estDisposalVol=null,extCustomer=null,justification=null,creditLimit=null;
         XpeDccNewContractsEOVOImpl contractView = this.getXpeDccNewContractsEOVO1();
@@ -1899,7 +1902,10 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                                                                                contractEndDate : "").append("<br><br>");
         html.append("<b>Sales Person:</b>").append("&nbsp;&nbsp;").append(null != salesPerson ? salesPerson :
                                                                           "").append("<br><br>");
-        //Need to add check
+        
+        String approverLevel = xpeDccWfActionEOVORow.getXpeApproverLevel();
+        List<String> gmAndApproverList = new ArrayList<String>(Arrays.asList("GM","SVP","EVP","CFO","CEO"));
+        if(gmAndApproverList.contains(approverLevel)){
         html.append("<u><b>Contract Detail</b></u>").append("<br><br>");
         html.append("<b>Term of Agreement:</b>").append("&nbsp;&nbsp;").append(null != termAgreement ? termAgreement :
                                                                            "").append("<br><br>");
@@ -1922,17 +1928,17 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                                                                           "").append("<br><br>");
         html.append("<b>Credit Limit:</b>").append("&nbsp;&nbsp;").append(null != creditLimit ? creditLimit :
                                                                           "").append("<br><br>");
-        
+        }
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_27/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("&").append("uuid=").append(uuId).append("&").append("action=").append("ACCEPT").append("&").append("user=").append(userType);
+        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_29/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("&").append("uuid=").append(xpeDccWfActionEOVORow.getXpeUuid()).append("&").append("action=").append("ACCEPT").append("&").append("user=").append(userType);
         html.append("\"><b>Accept</b></a>");
         html.append("&nbsp;&nbsp;&nbsp;");
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_27/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("&").append("uuid=").append(uuId).append("&").append("action=").append("REJECT").append("&").append("user=").append(userType);
+        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_29/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("&").append("uuid=").append(xpeDccWfActionEOVORow.getXpeUuid()).append("&").append("action=").append("REJECT").append("&").append("user=").append(userType);
         html.append("\"><b>Reject</b></a>");
         html.append("</p>");
 

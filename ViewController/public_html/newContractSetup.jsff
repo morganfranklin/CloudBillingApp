@@ -64,7 +64,8 @@
                                                                     label="#{bindings.XpeContractDirection.label}"
                                                                     required="#{bindings.XpeContractDirection.hints.mandatory}"
                                                                     shortDesc="#{bindings.XpeContractDirection.hints.tooltip}"
-                                                                    id="soc29" simple="true">
+                                                                    id="soc29" simple="true" autoSubmit="true"
+                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
                                                     <f:selectItems value="#{bindings.XpeContractDirection.items}"
                                                                    id="si22"/>
                                                     <f:validator binding="#{bindings.XpeContractDirection.validator}"/>
@@ -137,7 +138,8 @@
                                                                   required="#{bindings.XpeEndDate.hints.mandatory}"
                                                                   columns="#{bindings.XpeEndDate.hints.displayWidth}"
                                                                   shortDesc="#{bindings.XpeEndDate.hints.tooltip}"
-                                                                  id="id3">
+                                                                  id="id3" autoSubmit="true"
+                                                                  readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
                                                         <f:validator binding="#{bindings.XpeEndDate.validator}"/>
                                                         <af:convertDateTime pattern="yyyy-MM-dd HH:mm:ss"/>
                                                     </af:inputDate>
