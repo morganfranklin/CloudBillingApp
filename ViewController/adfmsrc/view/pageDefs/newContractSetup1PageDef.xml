@@ -121,6 +121,7 @@
           <Item Value="City"/>
           <Item Value="State"/>
           <Item Value="Postal"/>
+          <Item Value="AddressSeqNum"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

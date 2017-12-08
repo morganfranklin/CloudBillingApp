@@ -484,7 +484,7 @@
                                                   selectionListener="#{bindings.XpeDccNewContractPricingOverView.collectionModel.makeCurrent}"
                                                   rowSelection="single"
                                                   fetchSize="#{bindings.XpeDccNewContractPricingOverView.rangeSize}"
-                                                  id="t8" partialTriggers="::b7 ::b8">
+                                                  id="t8" partialTriggers="::b7 ::b8" columnStretching="last">
                                             <af:column headerText="#{bindings.XpeDccNewContractPricingOverView.hints.XpeContractOverNbr.label}"
                                                        id="c28">
                                                 <af:inputText value="#{row.bindings.XpeContractOverNbr.inputValue}"
@@ -508,7 +508,7 @@
                                                                     required="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverType.mandatory}"
                                                                     shortDesc="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverType.tooltip}"
                                                                     id="soc19"
-                                                                    readOnly="#{bindings.CarryForwardedPricingOver.inputValue eq 'Y'}">
+                                                                    readOnly="#{(bindings.CarryForwardedPricingOver.inputValue eq 'Y') or (pageFlowScope.ContractType eq 'BLS' )}">
                                                     <f:selectItems value="#{row.bindings.XpeOverType.items}" id="si12"/>
                                                     <f:validator binding="#{row.bindings.XpeOverType.validator}"/>
                                                 </af:selectOneChoice>
@@ -540,7 +540,7 @@
                                                 </af:inputDate>
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractPricingOverView.hints.XpeSourceFld.label}"
-                                                       id="c34">
+                                                       id="c34" rendered="false">
                                                 <af:selectOneChoice value="#{row.bindings.XpeSourceFld.inputValue}"
                                                                     label="#{row.bindings.XpeSourceFld.label}"
                                                                     required="#{bindings.XpeDccNewContractPricingOverView.hints.XpeSourceFld.mandatory}"
@@ -553,7 +553,7 @@
                                                 </af:selectOneChoice>
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractPricingOverView.hints.XpeCondition.label}"
-                                                       id="c35">
+                                                       id="c35" rendered="false">
                                                 <af:selectOneChoice value="#{row.bindings.XpeCondition.inputValue}"
                                                                     label="#{row.bindings.XpeCondition.label}"
                                                                     required="#{bindings.XpeDccNewContractPricingOverView.hints.XpeCondition.mandatory}"
@@ -579,7 +579,7 @@
                                                 </af:inputText>
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractPricingOverView.hints.XpeTargetFld.label}"
-                                                       id="c37">
+                                                       id="c37" rendered="false">
                                                 <af:selectOneChoice value="#{row.bindings.XpeTargetFld.inputValue}"
                                                                     label="#{row.bindings.XpeTargetFld.label}"
                                                                     required="#{bindings.XpeDccNewContractPricingOverView.hints.XpeTargetFld.mandatory}"
@@ -592,7 +592,7 @@
                                                 </af:selectOneChoice>
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverMsg.label}"
-                                                       id="c38">
+                                                       id="c38" rendered="false">
                                                 <af:inputText value="#{row.bindings.XpeOverMsg.inputValue}"
                                                               label="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverMsg.label}"
                                                               required="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverMsg.mandatory}"
@@ -605,7 +605,7 @@
                                                 </af:inputText>
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverDesc.label}"
-                                                       id="c40">
+                                                       id="c40" rendered="false">
                                                 <af:inputText value="#{row.bindings.XpeOverDesc.inputValue}"
                                                               label="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverDesc.label}"
                                                               required="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverDesc.mandatory}"

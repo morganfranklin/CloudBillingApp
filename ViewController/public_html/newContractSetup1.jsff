@@ -5,7 +5,8 @@
         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
             <af:gridCell marginStart="5px" width="100%" id="gc4" halign="stretch" valign="stretch" marginEnd="5px">
                 <af:panelBox id="pb1"
-                             text="#{pageFlowScope.ContractType eq 'NEW' ? 'Customer Details' : 'Search and Select Existing Contract'}" styleClass="AFStretchWidth">
+                             text="#{pageFlowScope.ContractType eq 'NEW' ? 'Customer Details' : 'Search and Select Existing Contract'}"
+                             styleClass="AFStretchWidth">
                     <af:panelGridLayout id="pgl1">
                         <af:gridRow marginTop="5px" height="auto" id="gr1"
                                     rendered="#{pageFlowScope.ContractType eq 'NEW'}">
@@ -217,8 +218,8 @@
                                                               required="#{bindings.ProductTier.hints.mandatory}"
                                                               columns="#{bindings.ProductTier.hints.displayWidth}"
                                                               maximumLength="#{bindings.ProductTier.hints.precision}"
-                                                              shortDesc="#{bindings.ProductTier.hints.tooltip}"
-                                                              id="it2" autoSubmit="true">
+                                                              shortDesc="#{bindings.ProductTier.hints.tooltip}" id="it2"
+                                                              autoSubmit="true">
                                                     <f:validator binding="#{bindings.ProductTier.validator}"/>
                                                 </af:inputText>
                                             </af:panelFormLayout>
@@ -255,8 +256,7 @@
                                                           binding="#{backingBeanScope.XpeDccNewContractBBean.contractCustSearchROVOTblBind}">
                                                     <af:column headerText="#{bindings.XpeDccNewContractCustomerSearchROVO.hints.CustId.label}"
                                                                id="resId1c1">
-                                                        <af:link text="#{row.CustId}" id="l1"
-                                                                 action="next"/>
+                                                        <af:link text="#{row.CustId}" id="l1" action="next"/>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.XpeDccNewContractCustomerSearchROVO.hints.Name1.label}"
                                                                id="resId1c2">
@@ -294,6 +294,15 @@
                                                                        shortDesc="#{bindings.XpeDccNewContractCustomerSearchROVO.hints.Postal.tooltip}"
                                                                        id="ot7"/>
                                                     </af:column>
+                                                    <af:column headerText="#{bindings.XpeDccNewContractCustomerSearchROVO.hints.AddressSeqNum.label}"
+                                                               id="c2">
+                                                        <af:outputText value="#{row.AddressSeqNum}"
+                                                                       shortDesc="#{bindings.XpeDccNewContractCustomerSearchROVO.hints.AddressSeqNum.tooltip}"
+                                                                       id="ot1">
+                                                            <af:convertNumber groupingUsed="false"
+                                                                              pattern="#{bindings.XpeDccNewContractCustomerSearchROVO.hints.AddressSeqNum.format}"/>
+                                                        </af:outputText>
+                                                    </af:column>
                                                 </af:table>
                                             </af:panelGroupLayout>
                                         </f:facet>
@@ -320,9 +329,8 @@
                                                     <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.XpeContractId.label}"
                                                                id="resId2c1" width="98">
                                                         <af:link text="#{row.XpeContractId}" id="l2"
-                                                                 partialSubmit="true"
-                                                                 action="next"/>
-                                                     </af:column>
+                                                                 partialSubmit="true" action="next"/>
+                                                    </af:column>
                                                     <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.XpeContractVersion.label}"
                                                                id="resId2c2" headerNoWrap="true" width="122">
                                                         <af:outputText value="#{row.XpeContractVersion}"

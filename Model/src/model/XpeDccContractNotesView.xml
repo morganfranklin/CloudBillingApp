@@ -60,7 +60,6 @@
         AliasName="XPE_CONTRACT_VERSION"/>
     <ViewAttribute
         Name="XpeNoteDttm"
-        IsNotNull="true"
         PrecisionRule="true"
         EntityAttrName="XpeNoteDttm"
         EntityUsage="XpeDccContractNotes"
@@ -87,7 +86,6 @@
         AliasName="XPE_NOTE_LONG"/>
     <ViewAttribute
         Name="XpeNoteType"
-        IsNotNull="true"
         PrecisionRule="true"
         EntityAttrName="XpeNoteType"
         EntityUsage="XpeDccContractNotes"

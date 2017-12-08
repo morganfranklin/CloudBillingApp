@@ -90,6 +90,12 @@
     EntityAttrName="CustContractContactName"
     EntityUsage="XpeDccContracts"
     AliasName="CUST_CONTRACT_CONTACT_NAME"/>
+  <ViewAttribute
+    Name="AddressSeqNum"
+    PrecisionRule="true"
+    EntityAttrName="AddressSeqNum"
+    EntityUsage="XpeDccContracts"
+    AliasName="ADDRESS_SEQ_NUM"/>
   <ViewCriteria
     Name="NewContractsEmptyCriteria"
     ViewObjectName="model.views.entitybased.XpeDccNewContractsEOVO"

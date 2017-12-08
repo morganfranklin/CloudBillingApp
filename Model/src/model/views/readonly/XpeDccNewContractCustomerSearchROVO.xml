@@ -50,14 +50,18 @@
     Name="bind_Postal"
     Kind="viewcriteria"
     Type="java.lang.String"/>
-  <SQLQuery><![CDATA[SELECT A.SETID, A.CUST_ID, A.NAME1, B.DESCR, C.COUNTRY, C.ADDRESS1, C.ADDRESS2,            
-C.CITY,C.STATE,C.POSTAL  
-FROM PS_CUSTOMER A, PS_CUST_ADDR_SEQ B,            
-PS_CUST_ADDRESS C  
-WHERE A.CUST_ID=B.CUST_ID            
-AND B.BILL_TO_ADDR='Y'            
-AND B.CUST_ID=C.CUST_ID            
-AND B.ADDRESS_SEQ_NUM=C.ADDRESS_SEQ_NUM            
+  <Variable
+    Name="bind_AddrSeqNum"
+    Kind="viewcriteria"
+    Type="java.math.BigInteger"/>
+  <SQLQuery><![CDATA[SELECT A.SETID, A.CUST_ID, A.NAME1, B.DESCR, C.COUNTRY, C.ADDRESS1, C.ADDRESS2,             
+C.CITY,C.STATE,C.POSTAL,B.ADDRESS_SEQ_NUM 
+FROM PS_CUSTOMER A, PS_CUST_ADDR_SEQ B,             
+PS_CUST_ADDRESS C   
+WHERE A.CUST_ID=B.CUST_ID             
+AND B.BILL_TO_ADDR='Y'             
+AND B.CUST_ID=C.CUST_ID             
+AND B.ADDRESS_SEQ_NUM=C.ADDRESS_SEQ_NUM             
 AND C.LANGUAGE_CD='ENG']]></SQLQuery>
   <ViewAttribute
     Name="Setid"
@@ -251,6 +255,25 @@ AND C.LANGUAGE_CD='ENG']]></SQLQuery>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="AddressSeqNum"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="38"
+    Scale="0"
+    Type="java.math.BigInteger"
+    ColumnType="NUMBER"
+    AliasName="ADDRESS_SEQ_NUM"
+    Expression="ADDRESS_SEQ_NUM"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccNewContractCustomerSearchROVO.AddressSeqNum_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="NewContractCustomerSearch"
     ViewObjectName="model.views.readonly.XpeDccNewContractCustomerSearchROVO"
@@ -338,6 +361,14 @@ AND C.LANGUAGE_CD='ENG']]></SQLQuery>
         Conjunction="AND"
         Value=":bind_Postal"
         UpperColumns="0"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="AddressSeqNum"
+        ViewAttribute="AddressSeqNum"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_AddrSeqNum"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

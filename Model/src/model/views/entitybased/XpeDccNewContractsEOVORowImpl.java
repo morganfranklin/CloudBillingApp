@@ -1,5 +1,7 @@
 package model.views.entitybased;
 
+import java.math.BigInteger;
+
 import model.XpeDccContractsImpl;
 
 import oracle.jbo.RowIterator;
@@ -28,6 +30,7 @@ public class XpeDccNewContractsEOVORowImpl extends ViewRowImpl {
         XpeDccPcsname,
         CustContractApproverEmail,
         CustContractContactName,
+        AddressSeqNum,
         XpeDccContractVersionView;
         static AttributesEnum[] vals = null;
         ;
@@ -63,6 +66,7 @@ public class XpeDccNewContractsEOVORowImpl extends ViewRowImpl {
     public static final int XPEDCCPCSNAME = AttributesEnum.XpeDccPcsname.index();
     public static final int CUSTCONTRACTAPPROVEREMAIL = AttributesEnum.CustContractApproverEmail.index();
     public static final int CUSTCONTRACTCONTACTNAME = AttributesEnum.CustContractContactName.index();
+    public static final int ADDRESSSEQNUM = AttributesEnum.AddressSeqNum.index();
     public static final int XPEDCCCONTRACTVERSIONVIEW = AttributesEnum.XpeDccContractVersionView.index();
 
     /**
@@ -221,6 +225,22 @@ public class XpeDccNewContractsEOVORowImpl extends ViewRowImpl {
      */
     public void setCustContractContactName(String value) {
         setAttributeInternal(CUSTCONTRACTCONTACTNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for ADDRESS_SEQ_NUM using the alias name AddressSeqNum.
+     * @return the ADDRESS_SEQ_NUM
+     */
+    public BigInteger getAddressSeqNum() {
+        return (BigInteger) getAttributeInternal(ADDRESSSEQNUM);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for ADDRESS_SEQ_NUM using the alias name AddressSeqNum.
+     * @param value value to set the ADDRESS_SEQ_NUM
+     */
+    public void setAddressSeqNum(BigInteger value) {
+        setAttributeInternal(ADDRESSSEQNUM, value);
     }
 
     /**

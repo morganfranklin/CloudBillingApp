@@ -24,6 +24,7 @@ public class XpeDccContractsImpl extends EntityImpl {
         XpeDccPcsname,
         CustContractContactName,
         CustContractApproverEmail,
+        AddressSeqNum,
         XpeDccContractParty,
         XpeDccContractVersion,
         XpeDccPlatformEvent;
@@ -60,6 +61,7 @@ public class XpeDccContractsImpl extends EntityImpl {
     public static final int XPEDCCPCSNAME = AttributesEnum.XpeDccPcsname.index();
     public static final int CUSTCONTRACTCONTACTNAME = AttributesEnum.CustContractContactName.index();
     public static final int CUSTCONTRACTAPPROVEREMAIL = AttributesEnum.CustContractApproverEmail.index();
+    public static final int ADDRESSSEQNUM = AttributesEnum.AddressSeqNum.index();
     public static final int XPEDCCCONTRACTPARTY = AttributesEnum.XpeDccContractParty.index();
     public static final int XPEDCCCONTRACTVERSION = AttributesEnum.XpeDccContractVersion.index();
     public static final int XPEDCCPLATFORMEVENT = AttributesEnum.XpeDccPlatformEvent.index();

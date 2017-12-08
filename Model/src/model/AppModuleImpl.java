@@ -2600,7 +2600,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                 XpeDccContractPricingOverViewRowImpl targetPricingOverRow =
                     (XpeDccContractPricingOverViewRowImpl) priceOverTargetRowSet.createAndInitRow(null);
                 targetPricingOverRow.setXpeContractOverNbr(sourcePricingOverRow.getXpeContractOverNbr());
-                targetPricingOverRow.setXpeOverType(sourcePricingOverRow.getXpeOverType());
+                targetPricingOverRow.setXpeOverType("sourcePricingOverRow.getXpeOverType()");
                 targetPricingOverRow.setXpeOverStart(sourcePricingOverRow.getXpeOverStart());
                 targetPricingOverRow.setXpeOverEnd(sourcePricingOverRow.getXpeOverEnd());
                 targetPricingOverRow.setXpeSourceFld(sourcePricingOverRow.getXpeSourceFld());

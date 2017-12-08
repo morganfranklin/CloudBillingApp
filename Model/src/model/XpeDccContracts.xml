@@ -141,6 +141,15 @@
             </SchemaBasedProperties>
         </Properties>
     </Attribute>
+    <Attribute
+        Name="AddressSeqNum"
+        Precision="38"
+        Scale="0"
+        ColumnName="ADDRESS_SEQ_NUM"
+        SQLType="NUMERIC"
+        Type="java.math.BigInteger"
+        ColumnType="NUMBER"
+        TableName="XPE_DCC_CONTRACTS"/>
     <AccessorAttribute
       Name="XpeDccContractParty"
       Association="model.XpeDccContractPartyFk1Assoc"

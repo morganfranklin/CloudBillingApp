@@ -151,7 +151,8 @@
         EntityAttrName="XpeOverType"
         EntityUsage="XpeDccContractPricingOver"
         AliasName="XPE_OVER_TYPE"
-        LOVName="LOV_XpeOverType">
+        LOVName="LOV_XpeOverType"
+        DefaultValue="RTE">
         <Properties>
             <SchemaBasedProperties>
                 <CONTROLTYPE

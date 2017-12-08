@@ -100,6 +100,7 @@ public class XpeDccNewContractMBean implements Serializable {
                         XpeDccNewContractCustomerSearchROVORowImpl existCustomerRow =
                             (XpeDccNewContractCustomerSearchROVORowImpl) existCustomerVo.getCurrentRow();
                         contractRow.setCustId(existCustomerRow.getCustId());
+                        contractRow.setAddressSeqNum(existCustomerRow.getAddressSeqNum());
                     }
                     XpeDccContractVersionViewRowImpl versionRow =
                         (XpeDccContractVersionViewRowImpl) contractRow.getXpeDccContractVersionView().createRow();
