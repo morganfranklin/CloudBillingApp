@@ -21,9 +21,10 @@ import java.util.UUID;
 
 import model.common.AppModule;
 
+import model.constants.NEUCloudBillingConstants;
+
 import model.utils.EmailUtils;
 
-import model.views.entitybased.NEUCloudBillingConstants;
 import model.views.entitybased.XpeDccCfgBusinessunitEOVOImpl;
 import model.views.entitybased.XpeDccCfgCarriersEOVOImpl;
 import model.views.entitybased.XpeDccCfgCmtmntFacilityEOVOImpl;
@@ -1931,13 +1932,13 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         }
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_29/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_31/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(xpeDccWfActionEOVORow.getXpeUuid()).append("&").append("action=").append("ACCEPT").append("&").append("user=").append(userType);
         html.append("\"><b>Accept</b></a>");
         html.append("&nbsp;&nbsp;&nbsp;");
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_29/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_31/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(xpeDccWfActionEOVORow.getXpeUuid()).append("&").append("action=").append("REJECT").append("&").append("user=").append(userType);
         html.append("\"><b>Reject</b></a>");
         html.append("</p>");
@@ -2186,10 +2187,16 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                     xmlBuilder.append("<CITY>").append(checkIfNull(xpeDccNewContractCustomerSearchROVORow.getCity())).append("</CITY>");
                     xmlBuilder.append("<STATE>").append(checkIfNull(xpeDccNewContractCustomerSearchROVORow.getState())).append("</STATE>");
                     xmlBuilder.append("<POSTAL_CODE>").append(checkIfNull(xpeDccNewContractCustomerSearchROVORow.getPostal())).append("</POSTAL_CODE>");
+                    
+                    xmlBuilder.append("<BILLING_ADDRESS1>").append(checkIfNull(xpeDccNewContractCustomerSearchROVORow.getAddress1())).append("</BILLING_ADDRESS1>");
+                    xmlBuilder.append("<BILLING_CITY>").append(checkIfNull(xpeDccNewContractCustomerSearchROVORow.getCity())).append("</BILLING_CITY>");
+                    xmlBuilder.append("<BILLING_STATE>").append(checkIfNull(xpeDccNewContractCustomerSearchROVORow.getState())).append("</BILLING_STATE>");
+                    xmlBuilder.append("<BILLING_POSTAL_CODE>").append(checkIfNull(xpeDccNewContractCustomerSearchROVORow.getPostal())).append("</BILLING_POSTAL_CODE>");
+                    
                     xmlBuilder.append("<CUSTOMER_ID>").append(checkIfNull(xpeDccNewContractCustomerSearchROVORow.getCustId())).append("</CUSTOMER_ID>");
                 }else{
                     Row customerRow = null;
-                    Key newCustKey = new Key(new Object[] { contractId });
+                    Key newCustKey = new Key(new Object[] {xpeDccNewContractsEOVORow.getCustId()});
                     Row[] newCustRows = this.getXpeDmsCustomerEOVO().findByKey(newCustKey, 1);
                     if (null != newCustRows && newCustRows.length>0) 
                      customerRow = newCustRows[0];
@@ -2200,6 +2207,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                         xpeDmsCustomerROVO.setbind_CustId(xpeDccNewContractsEOVORow.getCustId());
                         xpeDmsCustomerROVO.executeQuery();
                         customerRow = xpeDmsCustomerROVO.first();
+                    }
                         if(null!=customerRow){
                             customerName = checkIfNull((String)customerRow.getAttribute("CompanyName"));
                             xmlBuilder.append("<CUSTOMER_ID>").append("NEW").append("</CUSTOMER_ID>");
@@ -2222,7 +2230,6 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                             xmlBuilder.append("<BILLING_POSTAL_CODE>").append(checkIfNull((String)customerRow.getAttribute("Postal"))).append("</BILLING_POSTAL_CODE>");
                             xmlBuilder.append("<BUSINESS_TYPE>").append(checkIfNull((String)customerRow.getAttribute("BusinessType"))).append("</BUSINESS_TYPE>");
                         }
-                     }
                 }
                 
                 Key key = new Key(new Object[] { contractId, contractVersion });

@@ -1,4 +1,4 @@
-package model.views.entitybased;
+package model.constants;
 
 
 public class NEUCloudBillingConstants {
