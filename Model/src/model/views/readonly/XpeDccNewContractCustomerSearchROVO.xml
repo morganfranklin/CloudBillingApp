@@ -54,14 +54,15 @@
     Name="bind_AddrSeqNum"
     Kind="viewcriteria"
     Type="java.math.BigInteger"/>
-  <SQLQuery><![CDATA[SELECT A.SETID, A.CUST_ID, A.NAME1, B.DESCR, C.COUNTRY, C.ADDRESS1, C.ADDRESS2,             
-C.CITY,C.STATE,C.POSTAL,B.ADDRESS_SEQ_NUM 
-FROM PS_CUSTOMER A, PS_CUST_ADDR_SEQ B,             
-PS_CUST_ADDRESS C   
-WHERE A.CUST_ID=B.CUST_ID             
-AND B.BILL_TO_ADDR='Y'             
-AND B.CUST_ID=C.CUST_ID             
-AND B.ADDRESS_SEQ_NUM=C.ADDRESS_SEQ_NUM             
+  <SQLQuery><![CDATA[SELECT A.SETID, A.CUST_ID, A.NAME1, B.DESCR, C.COUNTRY, C.ADDRESS1, C.ADDRESS2,              
+C.CITY,C.STATE,C.POSTAL,B.ADDRESS_SEQ_NUM  
+FROM PS_CUSTOMER A, PS_CUST_ADDR_SEQ B,              
+PS_CUST_ADDRESS C    
+WHERE A.SETID='SHARE'  
+AND A.CUST_ID=B.CUST_ID              
+AND B.BILL_TO_ADDR='Y'              
+AND B.CUST_ID=C.CUST_ID              
+AND B.ADDRESS_SEQ_NUM=C.ADDRESS_SEQ_NUM              
 AND C.LANGUAGE_CD='ENG']]></SQLQuery>
   <ViewAttribute
     Name="Setid"
