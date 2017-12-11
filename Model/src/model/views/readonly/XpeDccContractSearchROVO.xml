@@ -24,25 +24,25 @@
         ResId="model.views.readonly.XpeDccContractSearchROVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <SQLQuery><![CDATA[SELECT D.XPE_CONTRACT_ID, D.XPE_CONTRACT_DESC,                    
-A.SETID, A.CUST_ID, A.NAME1, B.DESCR, C.COUNTRY, C.ADDRESS1, C.ADDRESS2,                        
-C.CITY,C.STATE,C.POSTAL,E.XPE_SW_APPR_NBR,F.XPE_CONTRACT_VERSION, F.SALES_PERSON            
-FROM PS_CUSTOMER A, PS_CUST_ADDR_SEQ B,                        
-PS_CUST_ADDRESS C, XPE_DCC_CONTRACTS D,XPE_DCC_CONTRACT_LINE E ,XPE_DCC_CONTRACT_VERSION F              
-WHERE A.SETID='SHARE'   
-AND A.SETID=B.SETID                        
-AND A.CUST_ID=B.CUST_ID                        
-AND B.BILL_TO_ADDR='Y'                        
-AND B.SETID=C.SETID                        
-AND B.CUST_ID=C.CUST_ID                        
-AND B.ADDRESS_SEQ_NUM=C.ADDRESS_SEQ_NUM                        
-AND C.LANGUAGE_CD='ENG'                   
---AND D.SETID=A.SETID                   
-AND A.CUST_ID=D.CUST_ID               
-AND D.XPE_CONTRACT_ID=F.XPE_CONTRACT_ID 
-AND F.XPE_CONTRACT_ID=E.XPE_CONTRACT_ID               
-AND F.XPE_CONTRACT_VERSION=E.XPE_CONTRACT_VERSION            
-AND F.XPE_CONTRACT_STATUS = 'APR'            
+  <SQLQuery><![CDATA[SELECT D.XPE_CONTRACT_ID, D.XPE_CONTRACT_DESC,                     
+A.SETID, A.CUST_ID, A.NAME1, B.DESCR, C.COUNTRY, C.ADDRESS1, C.ADDRESS2,                         
+C.CITY,C.STATE,C.POSTAL,E.XPE_SW_APPR_NBR,F.XPE_CONTRACT_VERSION, F.SALES_PERSON             
+FROM PS_CUSTOMER A, PS_CUST_ADDR_SEQ B,                         
+PS_CUST_ADDRESS C, XPE_DCC_CONTRACTS D,XPE_DCC_CONTRACT_LINE E ,XPE_DCC_CONTRACT_VERSION F               
+WHERE A.SETID='SHARE'    
+AND A.SETID=B.SETID                         
+AND A.CUST_ID=B.CUST_ID                         
+AND B.BILL_TO_ADDR='Y'                         
+AND B.SETID=C.SETID                         
+AND B.CUST_ID=C.CUST_ID                         
+AND B.ADDRESS_SEQ_NUM=C.ADDRESS_SEQ_NUM                         
+AND C.LANGUAGE_CD='ENG'                    
+--AND A.SETID=D.SETID                    
+AND A.CUST_ID=D.CUST_ID                
+AND D.XPE_CONTRACT_ID=F.XPE_CONTRACT_ID  
+AND F.XPE_CONTRACT_ID=E.XPE_CONTRACT_ID                
+AND F.XPE_CONTRACT_VERSION=E.XPE_CONTRACT_VERSION             
+AND F.XPE_CONTRACT_STATUS = 'APR'             
 ORDER BY D.XPE_CONTRACT_ID DESC]]></SQLQuery>
   <ViewAttribute
     Name="XpeContractId"
