@@ -406,6 +406,32 @@
     EntityAttrName="InactiveDate"
     EntityUsage="XpeDccCfgGeneralCnvEO"
     AliasName="INACTIVE_DATE"/>
+  <ViewAttribute
+    Name="TohBusinessType"
+    PrecisionRule="true"
+    EntityAttrName="TohBusinessType"
+    EntityUsage="XpeDccCfgGeneralCnvEO"
+    AliasName="TOH_BUSINESS_TYPE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgGeneralCnvEOVO.TohBusinessType_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TohPayType"
+    PrecisionRule="true"
+    EntityAttrName="TohPayType"
+    EntityUsage="XpeDccCfgGeneralCnvEO"
+    AliasName="TOH_PAY_TYPE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgGeneralCnvEOVO.TohPayType_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="GeneralConversionCriteria"
     ViewObjectName="model.views.entitybased.XpeDccCfgGeneralCnvEOVO"

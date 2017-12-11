@@ -13,6 +13,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class XpeDccCfgGeneralCnvEOVORowImpl extends ViewRowImpl {
+
     public static final int ENTITY_XPEDCCCFGGENERALCNVEO = 0;
 
     /**
@@ -33,6 +34,8 @@ public class XpeDccCfgGeneralCnvEOVORowImpl extends ViewRowImpl {
         LastUpdatedDate,
         Inactive,
         InactiveDate,
+        TohBusinessType,
+        TohPayType,
         XpeDccCfgCarriers_LOV,
         XpeDccCfgOrigins_LOV,
         XpeDccCfgDestinations_LOV,
@@ -40,7 +43,8 @@ public class XpeDccCfgGeneralCnvEOVORowImpl extends ViewRowImpl {
         XpeDccCfgPCSShortNames_LOV,
         LookupSharedAppModule_TranslationConsumerLOV,
         LookupSharedAppModule_XpeDccDicNewContractSetupROVO1;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -62,6 +66,7 @@ public class XpeDccCfgGeneralCnvEOVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
     public static final int GENERALCNVID = AttributesEnum.GeneralCnvId.index();
     public static final int CARRIERID = AttributesEnum.CarrierId.index();
     public static final int DESTINATIONID = AttributesEnum.DestinationId.index();
@@ -76,6 +81,8 @@ public class XpeDccCfgGeneralCnvEOVORowImpl extends ViewRowImpl {
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int INACTIVE = AttributesEnum.Inactive.index();
     public static final int INACTIVEDATE = AttributesEnum.InactiveDate.index();
+    public static final int TOHBUSINESSTYPE = AttributesEnum.TohBusinessType.index();
+    public static final int TOHPAYTYPE = AttributesEnum.TohPayType.index();
     public static final int XPEDCCCFGCARRIERS_LOV = AttributesEnum.XpeDccCfgCarriers_LOV.index();
     public static final int XPEDCCCFGORIGINS_LOV = AttributesEnum.XpeDccCfgOrigins_LOV.index();
     public static final int XPEDCCCFGDESTINATIONS_LOV = AttributesEnum.XpeDccCfgDestinations_LOV.index();
@@ -322,6 +329,38 @@ public class XpeDccCfgGeneralCnvEOVORowImpl extends ViewRowImpl {
      */
     public void setInactiveDate(Timestamp value) {
         setAttributeInternal(INACTIVEDATE, value);
+    }
+
+    /**
+     * Gets the attribute value for TOH_BUSINESS_TYPE using the alias name TohBusinessType.
+     * @return the TOH_BUSINESS_TYPE
+     */
+    public String getTohBusinessType() {
+        return (String) getAttributeInternal(TOHBUSINESSTYPE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for TOH_BUSINESS_TYPE using the alias name TohBusinessType.
+     * @param value value to set the TOH_BUSINESS_TYPE
+     */
+    public void setTohBusinessType(String value) {
+        setAttributeInternal(TOHBUSINESSTYPE, value);
+    }
+
+    /**
+     * Gets the attribute value for TOH_PAY_TYPE using the alias name TohPayType.
+     * @return the TOH_PAY_TYPE
+     */
+    public String getTohPayType() {
+        return (String) getAttributeInternal(TOHPAYTYPE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for TOH_PAY_TYPE using the alias name TohPayType.
+     * @param value value to set the TOH_PAY_TYPE
+     */
+    public void setTohPayType(String value) {
+        setAttributeInternal(TOHPAYTYPE, value);
     }
 
     /**

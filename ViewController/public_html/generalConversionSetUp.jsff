@@ -70,6 +70,14 @@
           <af:outputText value="#{row.ConversionValue}"
                          shortDesc="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.ConversionValue.tooltip}" id="ot7"/>
         </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.TohBusinessType.label}" id="c6">
+          <af:outputText value="#{row.TohBusinessType}"
+                         shortDesc="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.TohBusinessType.tooltip}" id="ot9"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.TohPayType.label}" id="c7">
+          <af:outputText value="#{row.TohPayType}"
+                         shortDesc="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.TohPayType.tooltip}" id="ot10"/>
+        </af:column>
       </af:table>
       <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
                 binding="#{backingBeanScope.GeneralConversionSetUpTableBBean.generalConversionAddItem_popup}"
@@ -150,6 +158,20 @@
                           maximumLength="#{bindings.ConversionValue.hints.precision}"
                           shortDesc="#{bindings.ConversionValue.hints.tooltip}" id="it1">
               <f:validator binding="#{bindings.ConversionValue.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.TohBusinessType.inputValue}" label="#{bindings.TohBusinessType.hints.label}"
+                          required="#{bindings.TohBusinessType.hints.mandatory}"
+                          columns="#{bindings.TohBusinessType.hints.displayWidth}"
+                          maximumLength="#{bindings.TohBusinessType.hints.precision}"
+                          shortDesc="#{bindings.TohBusinessType.hints.tooltip}" id="it3">
+              <f:validator binding="#{bindings.TohBusinessType.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.TohPayType.inputValue}" label="#{bindings.TohPayType.hints.label}"
+                          required="#{bindings.TohPayType.hints.mandatory}"
+                          columns="#{bindings.TohPayType.hints.displayWidth}"
+                          maximumLength="#{bindings.TohPayType.hints.precision}"
+                          shortDesc="#{bindings.TohPayType.hints.tooltip}" id="it4">
+              <f:validator binding="#{bindings.TohPayType.validator}"/>
             </af:inputText>
           </af:panelFormLayout>
         </af:dialog>
@@ -234,6 +256,21 @@
                           maximumLength="#{bindings.ConversionValue1.hints.precision}"
                           shortDesc="#{bindings.ConversionValue1.hints.tooltip}" id="it2">
               <f:validator binding="#{bindings.ConversionValue1.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.TohBusinessType1.inputValue}"
+                          label="#{bindings.TohBusinessType1.hints.label}"
+                          required="#{bindings.TohBusinessType1.hints.mandatory}"
+                          columns="#{bindings.TohBusinessType1.hints.displayWidth}"
+                          maximumLength="#{bindings.TohBusinessType1.hints.precision}"
+                          shortDesc="#{bindings.TohBusinessType1.hints.tooltip}" id="it5">
+              <f:validator binding="#{bindings.TohBusinessType1.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.TohPayType1.inputValue}" label="#{bindings.TohPayType1.hints.label}"
+                          required="#{bindings.TohPayType1.hints.mandatory}"
+                          columns="#{bindings.TohPayType1.hints.displayWidth}"
+                          maximumLength="#{bindings.TohPayType1.hints.precision}"
+                          shortDesc="#{bindings.TohPayType1.hints.tooltip}" id="it6">
+              <f:validator binding="#{bindings.TohPayType1.validator}"/>
             </af:inputText>
             <af:panelLabelAndMessage label="#{bindings.Inactive.label}" id="plam5">
               <af:selectOneChoice value="#{bindings.Inactive.inputValue}" label="#{bindings.Inactive.label}"

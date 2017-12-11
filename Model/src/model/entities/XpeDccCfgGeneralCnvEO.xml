@@ -174,6 +174,30 @@
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
     TableName="XPE_DCC_CFG_GENERAL_CNV"/>
+  <Attribute
+    Name="TohBusinessType"
+    Precision="30"
+    ColumnName="TOH_BUSINESS_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_GENERAL_CNV">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TohPayType"
+    Precision="30"
+    ColumnName="TOH_PAY_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_GENERAL_CNV">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
   <Key
     Name="XpeDccCfgGeneralCnvPk"
     PrimaryKey="true">

@@ -23,6 +23,8 @@
           <Item Value="PcsShortNameId" Binds="PcsShortNameId2"/>
           <Item Value="TranslationConsumer"/>
           <Item Value="ConversionValue"/>
+          <Item Value="TohBusinessType"/>
+          <Item Value="TohPayType"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -88,6 +90,26 @@
     <attributeValues IterBinding="XpeDccCfgGeneralCnvEOVOIterator" id="InactiveDate">
       <AttrNames>
         <Item Value="InactiveDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewGeneralCnvEOVOIterator" id="TohBusinessType">
+      <AttrNames>
+        <Item Value="TohBusinessType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewGeneralCnvEOVOIterator" id="TohPayType">
+      <AttrNames>
+        <Item Value="TohPayType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgGeneralCnvEOVOIterator" id="TohBusinessType1">
+      <AttrNames>
+        <Item Value="TohBusinessType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgGeneralCnvEOVOIterator" id="TohPayType1">
+      <AttrNames>
+        <Item Value="TohPayType"/>
       </AttrNames>
     </attributeValues>
   </bindings>
