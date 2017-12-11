@@ -83,6 +83,8 @@ import model.views.readonly.XpeDccCfgTerminalsSearchROVOImpl;
 import model.views.readonly.XpeDccCfgTerminalsSearchROVORowImpl;
 import model.views.readonly.XpeDccContractSearchROVOImpl;
 import model.views.readonly.XpeDccContractSearchROVORowImpl;
+import model.views.readonly.XpeDccCustContractShortNameROVOImpl;
+import model.views.readonly.XpeDccCustContractShortNameROVORowImpl;
 import model.views.readonly.XpeDccNewContractCustomerSearchROVOImpl;
 import model.views.readonly.XpeDccNewContractCustomerSearchROVORowImpl;
 import model.views.readonly.XpeDccNewContractSetupROVOImpl;
@@ -2180,20 +2182,33 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                 xpeDccNewContractCustomerSearchROVO.executeQuery();
                 XpeDccNewContractCustomerSearchROVORowImpl xpeDccNewContractCustomerSearchROVORow = (XpeDccNewContractCustomerSearchROVORowImpl)xpeDccNewContractCustomerSearchROVO.first();
                 if(null!=xpeDccNewContractCustomerSearchROVORow){
+                    xmlBuilder.append("<CUSTOMER_ID>").append(checkIfNull(xpeDccNewContractCustomerSearchROVORow.getCustId())).append("</CUSTOMER_ID>");
                     customerName = checkIfNull(xpeDccNewContractCustomerSearchROVORow.getName1());
                     xmlBuilder.append("<CUSTOMER_NAME>").append(checkIfNull(xpeDccNewContractCustomerSearchROVORow.getName1())).append("</CUSTOMER_NAME>");
                     //xmlBuilder.append("<CONTACT_NAME>").append(ADFUtils.getValueFrmExpression("#{bindings.ContactName.inputValue}")).append("</CONTACT_NAME>");
                     xmlBuilder.append("<CUSTOMER_ADDRESS>").append(checkIfNull(xpeDccNewContractCustomerSearchROVORow.getAddress1())).append("</CUSTOMER_ADDRESS>");
+                    xmlBuilder.append("<CUSTOMER_ADDRESS1>").append(checkIfNull(xpeDccNewContractCustomerSearchROVORow.getAddress2())).append("</CUSTOMER_ADDRESS1>");
                     xmlBuilder.append("<CITY>").append(checkIfNull(xpeDccNewContractCustomerSearchROVORow.getCity())).append("</CITY>");
                     xmlBuilder.append("<STATE>").append(checkIfNull(xpeDccNewContractCustomerSearchROVORow.getState())).append("</STATE>");
                     xmlBuilder.append("<POSTAL_CODE>").append(checkIfNull(xpeDccNewContractCustomerSearchROVORow.getPostal())).append("</POSTAL_CODE>");
                     
-                    xmlBuilder.append("<BILLING_ADDRESS1>").append(checkIfNull(xpeDccNewContractCustomerSearchROVORow.getAddress1())).append("</BILLING_ADDRESS1>");
-                    xmlBuilder.append("<BILLING_CITY>").append(checkIfNull(xpeDccNewContractCustomerSearchROVORow.getCity())).append("</BILLING_CITY>");
-                    xmlBuilder.append("<BILLING_STATE>").append(checkIfNull(xpeDccNewContractCustomerSearchROVORow.getState())).append("</BILLING_STATE>");
-                    xmlBuilder.append("<BILLING_POSTAL_CODE>").append(checkIfNull(xpeDccNewContractCustomerSearchROVORow.getPostal())).append("</BILLING_POSTAL_CODE>");
-                    
-                    xmlBuilder.append("<CUSTOMER_ID>").append(checkIfNull(xpeDccNewContractCustomerSearchROVORow.getCustId())).append("</CUSTOMER_ID>");
+                    XpeDccCustContractShortNameROVOImpl xpeDccCustContractShortNameROVO = this.getXpeDccCustContractShortNameROVO();
+                    xpeDccCustContractShortNameROVO.setbind_ContractId(xpeDccNewContractsEOVORow.getXpeContractId());
+                    xpeDccCustContractShortNameROVO.executeQuery();
+                    XpeDccCustContractShortNameROVORowImpl xpeDccCustContractShortNameROVORow = (XpeDccCustContractShortNameROVORowImpl)xpeDccCustContractShortNameROVO.first();
+                    if(null!=xpeDccCustContractShortNameROVORow && null!=xpeDccCustContractShortNameROVORow.getXpeDccPcsname()){
+                        xmlBuilder.append("<BILLING_ADDRESS1>").append(checkIfNull(xpeDccCustContractShortNameROVORow.getAddress1())).append("</BILLING_ADDRESS1>");
+                        xmlBuilder.append("<BILLING_ADDRESS2>").append(checkIfNull(xpeDccCustContractShortNameROVORow.getAddress2())).append("</BILLING_ADDRESS2>");
+                        xmlBuilder.append("<BILLING_CITY>").append(checkIfNull(xpeDccCustContractShortNameROVORow.getCity())).append("</BILLING_CITY>");
+                        xmlBuilder.append("<BILLING_STATE>").append(checkIfNull(xpeDccCustContractShortNameROVORow.getState())).append("</BILLING_STATE>");
+                        xmlBuilder.append("<BILLING_POSTAL_CODE>").append(checkIfNull(xpeDccCustContractShortNameROVORow.getPostal())).append("</BILLING_POSTAL_CODE>");
+                    }else{
+                        xmlBuilder.append("<BILLING_ADDRESS1>").append(checkIfNull(xpeDccNewContractCustomerSearchROVORow.getAddress1())).append("</BILLING_ADDRESS1>");
+                        xmlBuilder.append("<BILLING_ADDRESS2>").append(checkIfNull(xpeDccNewContractCustomerSearchROVORow.getAddress2())).append("</BILLING_ADDRESS2>");
+                        xmlBuilder.append("<BILLING_CITY>").append(checkIfNull(xpeDccNewContractCustomerSearchROVORow.getCity())).append("</BILLING_CITY>");
+                        xmlBuilder.append("<BILLING_STATE>").append(checkIfNull(xpeDccNewContractCustomerSearchROVORow.getState())).append("</BILLING_STATE>");
+                        xmlBuilder.append("<BILLING_POSTAL_CODE>").append(checkIfNull(xpeDccNewContractCustomerSearchROVORow.getPostal())).append("</BILLING_POSTAL_CODE>");   
+                    }      
                 }else{
                     Row customerRow = null;
                     Key newCustKey = new Key(new Object[] {xpeDccNewContractsEOVORow.getCustId()});
@@ -3577,6 +3592,14 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public XpeDccCfgPcsAddressROVOImpl getXpeDccCfgPcsAddressROVO() {
         return (XpeDccCfgPcsAddressROVOImpl) findViewObject("XpeDccCfgPcsAddressROVO");
+    }
+
+    /**
+     * Container's getter for XpeDCCCustContractShortNameROVO.
+     * @return XpeDccCustContractShortNameROVO1
+     */
+    public XpeDccCustContractShortNameROVOImpl getXpeDccCustContractShortNameROVO() {
+        return (XpeDccCustContractShortNameROVOImpl) findViewObject("XpeDccCustContractShortNameROVO");
     }
 }
 
