@@ -128,7 +128,6 @@
                     <Item Value="Name"/>
                     <Item Value="XpeContractId"/>
                     <Item Value="XpeContractVersion"/>
-                    <Item Value="RowID"/>
                 </AttrNames>
             </nodeDefinition>
         </tree>
@@ -184,5 +183,15 @@
         </methodAction>
         <list IterBinding="XpeDccContractVersionView2Iterator" StaticList="false" Uses="LOV_XpeContractDirection"
               id="XpeContractDirection" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+        <methodAction id="buildXML" RequiresUpdateModel="true" Action="invokeMethod" MethodName="buildXML"
+                      IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                      InstanceName="data.AppModuleDataControl.dataProvider"
+                      ReturnName="data.AppModuleDataControl.methodResults.buildXML_AppModuleDataControl_dataProvider_buildXML_result">
+            <NamedData NDName="contractId" NDValue="#{bindings.XpeContractId.inputValue}" NDType="java.lang.String"/>
+            <NamedData NDName="contractVersion" NDValue="#{bindings.XpeContractVersion.inputValue}"
+                       NDType="java.lang.String"/>
+            <NamedData NDName="inContractFlow" NDValue="N" NDType="java.lang.String"/>
+            <NamedData NDName="uuId" NDType="java.lang.String"/>
+        </methodAction>
     </bindings>
 </pageDefinition>

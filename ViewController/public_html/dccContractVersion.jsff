@@ -173,6 +173,12 @@
                                 <af:spacer width="10" height="10" id="s9"/>
                                 <af:button text="Route For Approval" id="b11"
                                            actionListener="#{backingBeanScope.XpeDccMainBean.onRouteForApproval}"/>
+                                <af:spacer width="10" height="10" id="s10"/>
+                                <af:button text="Download Contract PDF" id="b12">
+                                    <af:fileDownloadActionListener method="#{backingBeanScope.XpeDccMainBean.downloadPDF}"
+                                                                   contentType="application/pdf"
+                                                                   filename="Template.pdf"/>
+                                </af:button>
                             </af:gridCell>
                         </af:gridRow>
                     </af:panelGridLayout>

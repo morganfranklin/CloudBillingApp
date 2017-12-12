@@ -13,7 +13,10 @@
       Name="XpeDccContractVersion"
       Cardinality="1"
       Source="true"
-      Owner="model.XpeDccContractVersion">
+      Owner="model.XpeDccContractVersion"
+        CascadeDelete="true"
+        LockLevel="NONE"
+        CascadeUpdate="true">
         <DesignTime>
             <Attr Name="_isUpdateable" Value="true"/>
             <Attr Name="_aggregation" Value="0"/>
@@ -28,7 +31,8 @@
     <AssociationEnd
       Name="XpeDccContractsAttachments"
       Cardinality="-1"
-      Owner="model.XpeDccContractsAttachments">
+      Owner="model.XpeDccContractsAttachments"
+        HasOwner="true">
         <DesignTime>
             <Attr Name="_isUpdateable" Value="true"/>
             <Attr Name="_aggregation" Value="0"/>

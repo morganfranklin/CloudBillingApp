@@ -1,7 +1,11 @@
 package view;
 
+import java.io.ByteArrayInputStream;
+import java.io.OutputStream;
+
 import java.util.Map;
 
+import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 import model.XpeDccContractLineViewImpl;
@@ -17,6 +21,8 @@ import oracle.adf.view.rich.event.PopupCanceledEvent;
 
 import oracle.binding.BindingContainer;
 import oracle.binding.OperationBinding;
+
+import org.apache.commons.io.IOUtils;
 
 import view.utils.ADFUtils;
 import view.utils.JSFUtils;
@@ -160,6 +166,26 @@ public class XpeDccMainBean {
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+    
+    public void downloadPDF(FacesContext facesContext, OutputStream outputStream) {
+        try {
+            BindingContext bc = BindingContext.getCurrent();
+            BindingContainer bindings = bc.getCurrentBindingsEntry();
+            OperationBinding operationBinding = bindings.getOperationBinding("buildXML");
+            if (null != operationBinding) {
+                Map pdf = (Map) operationBinding.execute();
+                if (null != pdf && pdf.size() > 1) {
+                    IOUtils.copy(new ByteArrayInputStream(FileOperations.genPdfRep(String.valueOf(pdf.get("XML")).getBytes(),
+                                                                          FileOperations.getRTFAsInputStream(String.valueOf(pdf.get("TEMPLATE_NAME"))))), outputStream);
+                    // flush the outout stream
+                    outputStream.flush();
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            ADFUtils.showErrorMessage("Error while downloading PDF.");
         }
     }
 
