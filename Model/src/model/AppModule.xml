@@ -640,6 +640,12 @@
     <ViewUsage
         Name="XpeDccCustContractShortNameROVO"
         ViewObjectName="model.views.readonly.XpeDccCustContractShortNameROVO"/>
+    <ViewUsage
+        Name="XpeDccCfgNycDosTermCustEOVO"
+        ViewObjectName="model.views.entitybased.XpeDccCfgNycDosTermCustEOVO"/>
+    <ViewUsage
+        Name="XpeDccCfgNewNycDosTermCustEOVO"
+        ViewObjectName="model.views.entitybased.XpeDccCfgNycDosTermCustEOVO"/>
     <ViewLinkUsage
         Name="NeuRuleTblFk1Link1"
         ViewLinkObjectName="model.NeuRuleTblFk1Link"
@@ -927,6 +933,18 @@
         ViewLinkObjectName="model.XpeDccContractPricingFk2Link"
         SrcViewUsageName="model.AppModule.XpeDccContractLineView1"
         DstViewUsageName="model.AppModule.XpeDccContractPricingOverView2"
+        Reversed="false"/>
+    <ViewLinkUsage
+        Name="XpeDccCfgNycDosTermCustFKVL1"
+        ViewLinkObjectName="model.views.entitybased.XpeDccCfgNycDosTermCustFKVL"
+        SrcViewUsageName="model.AppModule.XpeDccCfgOgnAssTerminalsEOVO"
+        DstViewUsageName="model.AppModule.XpeDccCfgNycDosTermCustEOVO"
+        Reversed="false"/>
+    <ViewLinkUsage
+        Name="XpeDccCfgNycDosTermCustFKVL2"
+        ViewLinkObjectName="model.views.entitybased.XpeDccCfgNycDosTermCustFKVL"
+        SrcViewUsageName="model.AppModule.XpeDccCfgNewOgnAssTerminalsEOVO"
+        DstViewUsageName="model.AppModule.XpeDccCfgNewNycDosTermCustEOVO"
         Reversed="false"/>
     <ClientInterface
         Name="__clientInterface">

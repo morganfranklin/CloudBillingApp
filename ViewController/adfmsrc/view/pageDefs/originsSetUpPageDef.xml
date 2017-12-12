@@ -12,6 +12,8 @@
               id="XpeDccCfgOgnAssTerminalsEOVOIterator"/>
     <iterator Binds="XpeDccCfgNewOriginsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccCfgNewOriginsEOVOIterator"/>
+    <iterator Binds="XpeDccCfgNycDosTermCustEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNycDosTermCustEOVOIterator"/>
   </executables>
   <bindings>
     <tree IterBinding="XpeDccCfgOriginsEOVOIterator" id="XpeDccCfgOriginsEOVO">
@@ -45,5 +47,16 @@
     </attributeValues>
     <action IterBinding="XpeDccCfgNewOriginsEOVOIterator" id="CreateInsert" RequiresUpdateModel="true"
             Action="createInsertRow"/>
+    <tree IterBinding="XpeDccCfgNycDosTermCustEOVOIterator" id="XpeDccCfgNycDosTermCustEOVO">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccCfgNycDosTermCustEOVO" Name="XpeDccCfgNycDosTermCustEOVO0">
+        <AttrNames>
+          <Item Value="OriginId"/>
+          <Item Value="TerminalId"/>
+          <Item Value="PcsshortnameId"/>
+          <Item Value="Inactive"/>
+          <Item Value="InactiveDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

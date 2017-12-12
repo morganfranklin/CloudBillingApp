@@ -3601,5 +3601,45 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     public XpeDccCustContractShortNameROVOImpl getXpeDccCustContractShortNameROVO() {
         return (XpeDccCustContractShortNameROVOImpl) findViewObject("XpeDccCustContractShortNameROVO");
     }
+
+    /**
+     * Container's getter for XpeDccCfgNycDosTermCustEOVO1.
+     * @return XpeDccCfgNycDosTermCustEOVO1
+     */
+    public ViewObjectImpl getXpeDccCfgNycDosTermCustEOVO() {
+        return (ViewObjectImpl) findViewObject("XpeDccCfgNycDosTermCustEOVO");
+    }
+
+    /**
+     * Container's getter for XpeDccCfgNycDosTermCustFKVL1.
+     * @return XpeDccCfgNycDosTermCustFKVL1
+     */
+    public ViewLinkImpl getNew() {
+        return (ViewLinkImpl) findViewLink("New");
+    }
+
+    /**
+     * Container's getter for XpeDccCfgNycDosTermCustFKVL1.
+     * @return XpeDccCfgNycDosTermCustFKVL1
+     */
+    public ViewLinkImpl getXpeDccCfgNycDosTermCustFKVL1() {
+        return (ViewLinkImpl) findViewLink("XpeDccCfgNycDosTermCustFKVL1");
+    }
+
+    /**
+     * Container's getter for XpeDccCfgNycDosTermCustEOVO1.
+     * @return XpeDccCfgNycDosTermCustEOVO1
+     */
+    public ViewObjectImpl getXpeDccCfgNewNycDosTermCustEOVO() {
+        return (ViewObjectImpl) findViewObject("XpeDccCfgNewNycDosTermCustEOVO");
+    }
+
+    /**
+     * Container's getter for XpeDccCfgNycDosTermCustFKVL2.
+     * @return XpeDccCfgNycDosTermCustFKVL2
+     */
+    public ViewLinkImpl getXpeDccCfgNycDosTermCustFKVL2() {
+        return (ViewLinkImpl) findViewLink("XpeDccCfgNycDosTermCustFKVL2");
+    }
 }
 

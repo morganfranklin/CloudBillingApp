@@ -161,6 +161,11 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewLinkAccessor
+    Name="XpeDccCfgNycDosTermCustEOVO"
+    ViewLink="model.views.entitybased.XpeDccCfgNycDosTermCustFKVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

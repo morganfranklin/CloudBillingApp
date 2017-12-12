@@ -125,6 +125,13 @@
     AssociationOtherEnd="model.entities.associations.XpeDccCfgOriginsFkAssoc.XpeDccCfgOgnAssTerminalsEO"
     Type="model.entities.XpeDccCfgOriginsEOImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="XpeDccCfgNycDosTermCustEO"
+    Association="model.entities.associations.XpeDccCfgNycDosTermCustFKAssoc"
+    AssociationEnd="model.entities.associations.XpeDccCfgNycDosTermCustFKAssoc.XpeDccCfgNycDosTermCustEO"
+    AssociationOtherEnd="model.entities.associations.XpeDccCfgNycDosTermCustFKAssoc.XpeDccCfgOgnAssTerminalsEO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="XpeDccCfgOgnAssTmsPk"
     PrimaryKey="true">

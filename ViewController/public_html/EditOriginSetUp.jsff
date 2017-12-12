@@ -116,6 +116,58 @@
       </af:table>
       <af:spacer width="10" height="10" id="s2"/>
     </af:panelHeader>
+    <af:panelHeader text="Nyc Dos Terminal Cust" id="ph3" size="5">
+      <f:facet name="context"/>
+      <f:facet name="toolbar">
+        <af:toolbar id="t4">
+          <af:button action="#{bindings.CreateInsert.execute}" text="Add"
+                     id="b8" actionListener="#{pageFlowScope.OriginsSetUpTableMBean.onNycDosTermCreation}"/>
+        </af:toolbar>
+      </f:facet>
+      <f:facet name="menuBar"/>
+      <f:facet name="legend"/>
+      <f:facet name="info"/>
+      <af:table value="#{bindings.XpeDccCfgNewNycDosTermCustEOVO.collectionModel}" var="row"
+                rows="#{bindings.XpeDccCfgNewNycDosTermCustEOVO.rangeSize}"
+                emptyText="#{bindings.XpeDccCfgNewNycDosTermCustEOVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                rowBandingInterval="0"
+                selectedRowKeys="#{bindings.XpeDccCfgNewNycDosTermCustEOVO.collectionModel.selectedRow}"
+                selectionListener="#{bindings.XpeDccCfgNewNycDosTermCustEOVO.collectionModel.makeCurrent}"
+                rowSelection="single" fetchSize="#{bindings.XpeDccCfgNewNycDosTermCustEOVO.rangeSize}" id="t3"
+                columnStretching="last" contentDelivery="immediate" partialTriggers="::b8">
+        <af:column headerText="#{bindings.XpeDccCfgNewNycDosTermCustEOVO.hints.OriginId.label}" id="c3">
+          <af:link text="#{row.OriginId}" id="l2"
+                   actionListener="#{pageFlowScope.OriginsSetUpTableMBean.onNycDosTermCustEdit}" partialSubmit="true"/>
+          <!--<af:outputText value="#{row.OriginId}"
+                         shortDesc="#{bindings.XpeDccCfgNewNycDosTermCustEOVO.hints.OriginId.tooltip}" id="ot4"/>-->
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgNewNycDosTermCustEOVO.hints.TerminalId.label}" id="c6">
+          <af:outputText value="#{row.TerminalId}"
+                         shortDesc="#{bindings.XpeDccCfgNewNycDosTermCustEOVO.hints.TerminalId.tooltip}" id="ot6"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgNewNycDosTermCustEOVO.hints.PcsshortnameId.label}" id="c7"
+                   width="140">
+          <af:outputText value="#{row.PcsshortnameId}"
+                         shortDesc="#{bindings.XpeDccCfgNewNycDosTermCustEOVO.hints.PcsshortnameId.tooltip}" id="ot7"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgNewNycDosTermCustEOVO.hints.Inactive.label}" id="c8">
+          <af:selectOneChoice value="#{row.bindings.Inactive.inputValue}" label="#{row.bindings.Inactive.label}"
+                              required="#{bindings.XpeDccCfgNewNycDosTermCustEOVO.hints.Inactive.mandatory}"
+                              shortDesc="#{bindings.XpeDccCfgNewNycDosTermCustEOVO.hints.Inactive.tooltip}"
+                              readOnly="true" id="soc6">
+            <f:selectItems value="#{row.bindings.Inactive.items}" id="si6"/>
+            <f:validator binding="#{row.bindings.Inactive.validator}"/>
+          </af:selectOneChoice>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgNewNycDosTermCustEOVO.hints.InactiveDate.label}" id="c9">
+          <af:outputText value="#{row.InactiveDate}"
+                         shortDesc="#{bindings.XpeDccCfgNewNycDosTermCustEOVO.hints.InactiveDate.tooltip}" id="ot8">
+            <af:convertDateTime pattern="#{bindings.XpeDccCfgNewNycDosTermCustEOVO.hints.InactiveDate.format}"/>
+          </af:outputText>
+        </af:column>
+      </af:table>
+      <af:spacer width="10" height="10" id="s5"/>
+    </af:panelHeader>
     <af:panelGroupLayout id="pgl2" layout="horizontal">
       <af:button actionListener="#{pageFlowScope.OriginsSetUpTableMBean.originSetUpSaveActnLstnr}" text="Save" id="b1"/>
       <af:spacer width="10" height="10" id="s1"/>
@@ -177,6 +229,87 @@
                         partialTriggers="soc4">
             <f:validator binding="#{bindings.InactiveDate1.validator}"/>
             <af:convertDateTime pattern="#{bindings.InactiveDate1.format}"/>
+          </af:inputDate>
+        </af:panelFormLayout>
+      </af:dialog>
+    </af:popup>
+    <af:popup childCreation="deferred" autoCancel="disabled" id="p3" contentDelivery="lazyUncached"
+              binding="#{backingBeanScope.OriginSetUpTableBBean.nycDosTermCustCreation_popup}">
+      <af:dialog id="d3" type="none" title="Nyc Dos Terminal Cust Details" closeIconVisible="false">
+        <f:facet name="buttonBar">
+            <af:button text="Ok" id="b9"
+                       actionListener="#{pageFlowScope.OriginsSetUpTableMBean.nycDosTermCustCreationSaveOrCancel}"/>
+            <af:spacer width="10" height="10" id="s6"/>
+            <af:button text="Cancel" id="b10"
+                       actionListener="#{pageFlowScope.OriginsSetUpTableMBean.nycDosTermCustCreationSaveOrCancel}"
+                       immediate="true"/>
+        </f:facet>
+        <af:panelFormLayout id="pfl3">
+          <af:panelLabelAndMessage label="#{bindings.OriginId1.hints.label}" id="plam7">
+            <af:outputText value="#{bindings.OriginId1.inputValue}" shortDesc="#{bindings.OriginId1.hints.tooltip}"
+                           id="ot9"/>
+          </af:panelLabelAndMessage>
+          <af:panelLabelAndMessage label="#{bindings.TerminalId1.hints.label}" id="plam8">
+            <af:outputText value="#{bindings.TerminalId1.inputValue}" shortDesc="#{bindings.TerminalId1.hints.tooltip}"
+                           id="ot10"/>
+          </af:panelLabelAndMessage>
+          <af:inputListOfValues id="pcsshortnameIdId"
+                                popupTitle="Search and Select: #{bindings.PcsshortnameId.hints.label}"
+                                value="#{bindings.PcsshortnameId.inputValue}"
+                                label="#{bindings.PcsshortnameId.hints.label}"
+                                model="#{bindings.PcsshortnameId.listOfValuesModel}"
+                                required="#{bindings.PcsshortnameId.hints.mandatory}"
+                                columns="#{bindings.PcsshortnameId.hints.displayWidth}"
+                                shortDesc="#{bindings.PcsshortnameId.hints.tooltip}">
+            <f:validator binding="#{bindings.PcsshortnameId.validator}"/>
+          </af:inputListOfValues>
+        </af:panelFormLayout>
+      </af:dialog>
+    </af:popup>
+    <af:popup childCreation="deferred" autoCancel="disabled" id="p4" contentDelivery="lazyUncached"
+              binding="#{backingBeanScope.OriginSetUpTableBBean.nycDosTerminalCustEdit_popup}">
+      <af:dialog id="d4" type="none" title="Nyc Dos Terminal Cust Details" closeIconVisible="false">
+        <f:facet name="buttonBar">
+          <af:button text="Ok" id="b11"
+                     actionListener="#{pageFlowScope.OriginsSetUpTableMBean.nycDosTermCustEditSaveOrCancel}"/>
+          <af:spacer width="10" height="10" id="s7"/>
+          <af:button text="Cancel" id="b12"
+                     actionListener="#{pageFlowScope.OriginsSetUpTableMBean.nycDosTermCustEditSaveOrCancel}"
+                     immediate="true"/>
+        </f:facet>
+        <af:panelFormLayout id="pfl4">
+          <af:panelLabelAndMessage label="#{bindings.OriginId1.hints.label}" id="plam9">
+            <af:outputText value="#{bindings.OriginId1.inputValue}" shortDesc="#{bindings.OriginId1.hints.tooltip}"
+                           id="ot11"/>
+          </af:panelLabelAndMessage>
+          <af:panelLabelAndMessage label="#{bindings.TerminalId1.hints.label}" id="plam10">
+            <af:outputText value="#{bindings.TerminalId1.inputValue}" shortDesc="#{bindings.TerminalId1.hints.tooltip}"
+                           id="ot12"/>
+          </af:panelLabelAndMessage>
+          <af:inputListOfValues id="ilov1" popupTitle="Search and Select: #{bindings.PcsshortnameId.hints.label}"
+                                value="#{bindings.PcsshortnameId.inputValue}"
+                                label="#{bindings.PcsshortnameId.hints.label}"
+                                model="#{bindings.PcsshortnameId.listOfValuesModel}"
+                                required="#{bindings.PcsshortnameId.hints.mandatory}"
+                                columns="#{bindings.PcsshortnameId.hints.displayWidth}"
+                                shortDesc="#{bindings.PcsshortnameId.hints.tooltip}" autoSubmit="true">
+            <f:validator binding="#{bindings.PcsshortnameId.validator}"/>
+          </af:inputListOfValues>
+          <af:panelLabelAndMessage label="#{bindings.Inactive2.label}" id="plam11">
+            <af:selectOneChoice value="#{bindings.Inactive2.inputValue}" label="#{bindings.Inactive2.label}"
+                                required="#{bindings.Inactive2.hints.mandatory}"
+                                shortDesc="#{bindings.Inactive2.hints.tooltip}" id="soc7" autoSubmit="true"
+                                simple="true">
+              <f:selectItems value="#{bindings.Inactive2.items}" id="si7"/>
+              <f:validator binding="#{bindings.Inactive2.validator}"/>
+            </af:selectOneChoice>
+          </af:panelLabelAndMessage>
+          <af:inputDate value="#{bindings.InactiveDate2.inputValue}" label="#{bindings.InactiveDate2.hints.label}"
+                        required="#{bindings.InactiveDate2.hints.mandatory}"
+                        columns="#{bindings.InactiveDate2.hints.displayWidth}"
+                        shortDesc="#{bindings.InactiveDate2.hints.tooltip}" id="id3" partialTriggers="soc7">
+            <f:validator binding="#{bindings.InactiveDate2.validator}"/>
+            <af:convertDateTime pattern="#{bindings.InactiveDate2.format}"/>
           </af:inputDate>
         </af:panelFormLayout>
       </af:dialog>

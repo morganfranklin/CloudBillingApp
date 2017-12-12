@@ -10,6 +10,8 @@
               xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
     <iterator Binds="XpeDccCfgNewOriginsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccCfgNewOriginsEOVOIterator"/>
+    <iterator Binds="XpeDccCfgNewNycDosTermCustEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewNycDosTermCustEOVOIterator"/>
   </executables>
   <bindings>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
@@ -73,5 +75,38 @@
     <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
     <list IterBinding="XpeDccCfgNewOriginsEOVOIterator" StaticList="false" Uses="LOV_Country" id="Country"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <tree IterBinding="XpeDccCfgNewNycDosTermCustEOVOIterator" id="XpeDccCfgNewNycDosTermCustEOVO">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccCfgNycDosTermCustEOVO"
+                      Name="XpeDccCfgNewNycDosTermCustEOVO0">
+        <AttrNames>
+          <Item Value="OriginId"/>
+          <Item Value="TerminalId"/>
+          <Item Value="PcsshortnameId"/>
+          <Item Value="Inactive"/>
+          <Item Value="InactiveDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="XpeDccCfgNewNycDosTermCustEOVOIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <attributeValues IterBinding="XpeDccCfgNewNycDosTermCustEOVOIterator" id="OriginId1">
+      <AttrNames>
+        <Item Value="OriginId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewNycDosTermCustEOVOIterator" id="TerminalId1">
+      <AttrNames>
+        <Item Value="TerminalId"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="XpeDccCfgNewNycDosTermCustEOVOIterator" StaticList="false" Uses="LOV_PcsshortnameId"
+                  id="PcsshortnameId"/>
+    <list IterBinding="XpeDccCfgNewNycDosTermCustEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive2"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgNewNycDosTermCustEOVOIterator" id="InactiveDate2">
+      <AttrNames>
+        <Item Value="InactiveDate"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

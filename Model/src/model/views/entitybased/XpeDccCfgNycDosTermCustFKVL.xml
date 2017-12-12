@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XpeDccCfgNycDosTermCustFKVL"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  EntityAssociation="model.entities.associations.XpeDccCfgNycDosTermCustFKAssoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.views.entitybased.XpeDccCfgNycDosTermCustFKVL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="XpeDccCfgOgnAssTerminalsEOVO"
+    Cardinality="1"
+    Source="true"
+    Owner="model.views.entitybased.XpeDccCfgOgnAssTerminalsEOVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="XpeDccCfgOgnAssTerminalsEOVO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.views.entitybased.XpeDccCfgOgnAssTerminalsEOVO.TerminalId"/>
+      <Item Value="model.views.entitybased.XpeDccCfgOgnAssTerminalsEOVO.OriginId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="XpeDccCfgNycDosTermCustEOVO"
+    Cardinality="-1"
+    Owner="model.views.entitybased.XpeDccCfgNycDosTermCustEOVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="XpeDccCfgNycDosTermCustEOVO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.views.entitybased.XpeDccCfgNycDosTermCustEOVO.OriginId"/>
+      <Item Value="model.views.entitybased.XpeDccCfgNycDosTermCustEOVO.TerminalId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

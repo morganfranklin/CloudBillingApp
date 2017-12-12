@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XpeDccCfgNycDosTermCustEO"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="XPE_DCC_CFG_NYC_DOS_TERM_CUST"
+  AliasName="XpeDccCfgNycDosTermCustEO"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="OriginId"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="ORIGIN_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_NYC_DOS_TERM_CUST"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TerminalId"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="TERMINAL_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_NYC_DOS_TERM_CUST"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PcsshortnameId"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="PCSSHORTNAME_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_NYC_DOS_TERM_CUST"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Inactive"
+    Precision="1"
+    ColumnName="INACTIVE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_NYC_DOS_TERM_CUST">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="InactiveDate"
+    ColumnName="INACTIVE_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XPE_DCC_CFG_NYC_DOS_TERM_CUST"/>
+  <Attribute
+    Name="CreatedBy"
+    Precision="20"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_NYC_DOS_TERM_CUST">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedDate"
+    ColumnName="CREATED_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XPE_DCC_CFG_NYC_DOS_TERM_CUST"/>
+  <Attribute
+    Name="LastUpdatedBy"
+    Precision="20"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_NYC_DOS_TERM_CUST">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedDate"
+    ColumnName="LAST_UPDATED_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XPE_DCC_CFG_NYC_DOS_TERM_CUST"/>
+  <AccessorAttribute
+    Name="XpeDccCfgOgnAssTerminalsEO"
+    Association="model.entities.associations.XpeDccCfgNycDosTermCustFKAssoc"
+    AssociationEnd="model.entities.associations.XpeDccCfgNycDosTermCustFKAssoc.XpeDccCfgOgnAssTerminalsEO"
+    AssociationOtherEnd="model.entities.associations.XpeDccCfgNycDosTermCustFKAssoc.XpeDccCfgNycDosTermCustEO"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="XpeDccCfgNycDosTrCstPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_NYC_DOS_TR_CST_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgNycDosTermCustEO.OriginId"/>
+      <Item Value="model.entities.XpeDccCfgNycDosTermCustEO.TerminalId"/>
+      <Item Value="model.entities.XpeDccCfgNycDosTermCustEO.PcsshortnameId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_XpeDccCfgNycDosTermCustEO">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="XPE_DCC_CFG_OGN_ASS_TMS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_XPE_DCC_CFG_NYC_DOS_TERM_CU"/>
+      <Attr Name="_isCascadeDelete" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgNycDosTermCustEO.OriginId"/>
+      <Item Value="model.entities.XpeDccCfgNycDosTermCustEO.TerminalId"/>
+    </AttrArray>
+  </Key>
+</Entity>

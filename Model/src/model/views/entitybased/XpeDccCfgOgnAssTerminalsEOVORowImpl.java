@@ -2,6 +2,7 @@ package model.views.entitybased;
 
 import java.sql.Timestamp;
 
+import oracle.jbo.RowIterator;
 import oracle.jbo.RowSet;
 import oracle.jbo.server.EntityImpl;
 import oracle.jbo.server.ViewRowImpl;
@@ -29,6 +30,7 @@ public class XpeDccCfgOgnAssTerminalsEOVORowImpl extends ViewRowImpl {
         OriginId,
         TerminalDesc,
         TerminalId,
+        XpeDccCfgNycDosTermCustEOVO,
         LookupSharedAppModule_YONLOV,
         XpeDccCfgPCSShortNamesROVO1;
         static AttributesEnum[] vals = null;
@@ -65,6 +67,7 @@ public class XpeDccCfgOgnAssTerminalsEOVORowImpl extends ViewRowImpl {
     public static final int ORIGINID = AttributesEnum.OriginId.index();
     public static final int TERMINALDESC = AttributesEnum.TerminalDesc.index();
     public static final int TERMINALID = AttributesEnum.TerminalId.index();
+    public static final int XPEDCCCFGNYCDOSTERMCUSTEOVO = AttributesEnum.XpeDccCfgNycDosTermCustEOVO.index();
     public static final int LOOKUPSHAREDAPPMODULE_YONLOV = AttributesEnum.LookupSharedAppModule_YONLOV.index();
     public static final int XPEDCCCFGPCSSHORTNAMESROVO1 = AttributesEnum.XpeDccCfgPCSShortNamesROVO1.index();
 
@@ -226,6 +229,13 @@ public class XpeDccCfgOgnAssTerminalsEOVORowImpl extends ViewRowImpl {
         setAttributeInternal(TERMINALID, value);
     }
 
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link XpeDccCfgNycDosTermCustEOVO.
+     */
+    public RowIterator getXpeDccCfgNycDosTermCustEOVO() {
+        return (RowIterator) getAttributeInternal(XPEDCCCFGNYCDOSTERMCUSTEOVO);
+    }
 
     /**
      * Gets the view accessor <code>RowSet</code> LookupSharedAppModule_YONLOV.

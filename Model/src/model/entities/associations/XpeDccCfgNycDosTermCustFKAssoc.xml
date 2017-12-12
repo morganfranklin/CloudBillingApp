@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XpeDccCfgNycDosTermCustFKAssoc"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="XpeDccCfgOgnAssTerminalsEO"
+    Cardinality="1"
+    Source="true"
+    Owner="model.entities.XpeDccCfgOgnAssTerminalsEO"
+    LockLevel="NONE"
+    CascadeDelete="true"
+    CascadeUpdate="true">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="XpeDccCfgOgnAssTerminalsEO"/>
+      <Attr Name="_foreignKey" Value="model.entities.XpeDccCfgOgnAssTerminalsEO.XpeDccCfgOgnAssTmsPk"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgOgnAssTerminalsEO.TerminalId"/>
+      <Item Value="model.entities.XpeDccCfgOgnAssTerminalsEO.OriginId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="XpeDccCfgNycDosTermCustEO"
+    Cardinality="-1"
+    Owner="model.entities.XpeDccCfgNycDosTermCustEO"
+    HasOwner="true">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="XpeDccCfgNycDosTermCustEO"/>
+      <Attr Name="_foreignKey" Value="model.entities.XpeDccCfgNycDosTermCustEO.fk_XpeDccCfgNycDosTermCustEO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgNycDosTermCustEO.OriginId"/>
+      <Item Value="model.entities.XpeDccCfgNycDosTermCustEO.TerminalId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

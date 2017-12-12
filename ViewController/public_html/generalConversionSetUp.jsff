@@ -56,12 +56,12 @@
           <af:outputText value="#{row.PcsShortNameId}"
                          shortDesc="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.PcsShortNameId.tooltip}" id="ot6"/>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.TranslationConsumer.label}" id="resId1c7">
+        <af:column headerText="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.TranslationConsumer.label}" id="c8">
           <af:selectOneChoice value="#{row.bindings.TranslationConsumer.inputValue}"
                               label="#{row.bindings.TranslationConsumer.label}"
                               required="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.TranslationConsumer.mandatory}"
                               shortDesc="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.TranslationConsumer.tooltip}"
-                              readOnly="true" id="soc1">
+                              id="soc1" readOnly="true">
             <f:selectItems value="#{row.bindings.TranslationConsumer.items}" id="si1"/>
             <f:validator binding="#{row.bindings.TranslationConsumer.validator}"/>
           </af:selectOneChoice>

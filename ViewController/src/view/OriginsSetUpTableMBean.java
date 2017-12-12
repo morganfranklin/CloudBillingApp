@@ -139,4 +139,22 @@ public class OriginsSetUpTableMBean implements Serializable {
             JSFUtils.addFacesErrorMessage("Please Associate atleast one terminal to the Origin.");
         }
     }
+
+    public void onNycDosTermCreation(ActionEvent actionEvent) {
+        RichPopup.PopupHints hints = new RichPopup.PopupHints();
+        this.getOriginSetUpTableBBean().getNycDosTermCustCreation_popup().show(hints);
+    }
+
+    public void onNycDosTermCustEdit(ActionEvent actionEvent) {
+        RichPopup.PopupHints hints = new RichPopup.PopupHints();
+        this.getOriginSetUpTableBBean().getNycDosTerminalCustEdit_popup().show(hints);
+    }
+
+    public void nycDosTermCustCreationSaveOrCancel(ActionEvent actionEvent) {
+        this.getOriginSetUpTableBBean().getNycDosTermCustCreation_popup().hide();
+    }
+
+    public void nycDosTermCustEditSaveOrCancel(ActionEvent actionEvent) {
+        this.getOriginSetUpTableBBean().getNycDosTerminalCustEdit_popup().hide();
+    }
 }

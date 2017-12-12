@@ -125,5 +125,53 @@
                 </af:column>
             </af:table>
         </af:panelHeader>
+        <af:panelHeader text="Nyc Dos Terminal Cust" id="ph4" size="5">
+            <f:facet name="context"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+            <af:table value="#{bindings.XpeDccCfgNycDosTermCustEOVO.collectionModel}" var="row"
+                      rows="#{bindings.XpeDccCfgNycDosTermCustEOVO.rangeSize}"
+                      emptyText="#{bindings.XpeDccCfgNycDosTermCustEOVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.XpeDccCfgNycDosTermCustEOVO.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.XpeDccCfgNycDosTermCustEOVO.collectionModel.makeCurrent}"
+                      rowSelection="single" fetchSize="#{bindings.XpeDccCfgNycDosTermCustEOVO.rangeSize}" id="t2"
+                      contentDelivery="immediate" columnStretching="last">
+                <af:column headerText="#{bindings.XpeDccCfgNycDosTermCustEOVO.hints.OriginId.label}" id="c6">
+                    <af:outputText value="#{row.OriginId}"
+                                   shortDesc="#{bindings.XpeDccCfgNycDosTermCustEOVO.hints.OriginId.tooltip}" id="ot1"/>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgNycDosTermCustEOVO.hints.TerminalId.label}" id="c7">
+                    <af:outputText value="#{row.TerminalId}"
+                                   shortDesc="#{bindings.XpeDccCfgNycDosTermCustEOVO.hints.TerminalId.tooltip}"
+                                   id="ot7"/>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgNycDosTermCustEOVO.hints.PcsshortnameId.label}" id="c8"
+                           width="140">
+                    <af:outputText value="#{row.PcsshortnameId}"
+                                   shortDesc="#{bindings.XpeDccCfgNycDosTermCustEOVO.hints.PcsshortnameId.tooltip}"
+                                   id="ot9"/>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgNycDosTermCustEOVO.hints.Inactive.label}" id="c9">
+                    <af:selectOneChoice value="#{row.bindings.Inactive.inputValue}"
+                                        label="#{row.bindings.Inactive.label}"
+                                        required="#{bindings.XpeDccCfgNycDosTermCustEOVO.hints.Inactive.mandatory}"
+                                        shortDesc="#{bindings.XpeDccCfgNycDosTermCustEOVO.hints.Inactive.tooltip}"
+                                        readOnly="true" id="soc5">
+                        <f:selectItems value="#{row.bindings.Inactive.items}" id="si5"/>
+                        <f:validator binding="#{row.bindings.Inactive.validator}"/>
+                    </af:selectOneChoice>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgNycDosTermCustEOVO.hints.InactiveDate.label}" id="c10">
+                    <af:outputText value="#{row.InactiveDate}"
+                                   shortDesc="#{bindings.XpeDccCfgNycDosTermCustEOVO.hints.InactiveDate.tooltip}"
+                                   id="ot10">
+                        <af:convertDateTime pattern="#{bindings.XpeDccCfgNycDosTermCustEOVO.hints.InactiveDate.format}"/>
+                    </af:outputText>
+                </af:column>
+            </af:table>
+        </af:panelHeader>
     </af:panelGroupLayout>
 </ui:composition>

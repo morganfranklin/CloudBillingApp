@@ -9,6 +9,8 @@ public class OriginSetUpTableBBean {
     private RichPopup orgAssTerminalCreation_popup;
     private RichPopup orgAssTerminalEdit_popup;
     private RichTable originsSetUpTblBind;
+    private RichPopup nycDosTermCustCreation_popup;
+    private RichPopup nycDosTerminalCustEdit_popup;
 
     public OriginSetUpTableBBean() {
     }
@@ -51,5 +53,21 @@ public class OriginSetUpTableBBean {
 
     public RichTable getOriginsSetUpTblBind() {
         return originsSetUpTblBind;
+    }
+
+    public void setNycDosTermCustCreation_popup(RichPopup nycDosTermCustCreation_popup) {
+        this.nycDosTermCustCreation_popup = nycDosTermCustCreation_popup;
+    }
+
+    public RichPopup getNycDosTermCustCreation_popup() {
+        return nycDosTermCustCreation_popup;
+    }
+
+    public void setNycDosTerminalCustEdit_popup(RichPopup nycDosTerminalCustEdit_popup) {
+        this.nycDosTerminalCustEdit_popup = nycDosTerminalCustEdit_popup;
+    }
+
+    public RichPopup getNycDosTerminalCustEdit_popup() {
+        return nycDosTerminalCustEdit_popup;
     }
 }

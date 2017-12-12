@@ -47,7 +47,7 @@
                   id="MaterialId"/>
     <listOfValues IterBinding="XpeDccCfgNewGeneralCnvEOVOIterator" StaticList="false" Uses="LOV_PcsShortNameId"
                   id="PcsShortNameId"/>
-    <list IterBinding="XpeDccCfgNewGeneralCnvEOVOIterator" StaticList="false" Uses="LOV_TranslationConsumer"
+    <list IterBinding="XpeDccCfgGeneralCnvEOVOIterator" StaticList="false" Uses="LOV_TranslationConsumer"
           id="TranslationConsumer" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <attributeValues IterBinding="XpeDccCfgNewGeneralCnvEOVOIterator" id="ConversionValue">
       <AttrNames>
