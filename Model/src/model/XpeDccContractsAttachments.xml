@@ -64,7 +64,13 @@
         Type="java.math.BigDecimal"
         ColumnType="NUMBER"
         TableName="XPE_DCC_CONTRACTS_ATTACHMENTS"
-        PrimaryKey="true"/>
+        PrimaryKey="true"
+        IsUpdateable="while_insert">
+        <TransientExpression
+            Name="ExpressionScript"
+            trustMode="untrusted"
+            CodeSourceName="XpeDccContractsAttachmentsRow"/>
+    </Attribute>
     <Attribute
         Name="CreatedBy"
         IsNotNull="true"
