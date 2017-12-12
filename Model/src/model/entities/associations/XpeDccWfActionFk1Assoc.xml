@@ -13,7 +13,10 @@
     Name="XpeDccWfEventEO"
     Cardinality="1"
     Source="true"
-    Owner="model.entities.XpeDccWfEventEO">
+    Owner="model.entities.XpeDccWfEventEO"
+    CascadeDelete="true"
+    LockLevel="NONE"
+    CascadeUpdate="true">
     <DesignTime>
       <Attr Name="_isUpdateable" Value="true"/>
       <Attr Name="_minCardinality" Value="1"/>
@@ -28,7 +31,8 @@
   <AssociationEnd
     Name="XpeDccWfActionEO"
     Cardinality="-1"
-    Owner="model.entities.XpeDccWfActionEO">
+    Owner="model.entities.XpeDccWfActionEO"
+    HasOwner="true">
     <DesignTime>
       <Attr Name="_isUpdateable" Value="true"/>
       <Attr Name="_aggregation" Value="0"/>

@@ -17,6 +17,33 @@
       Name="XpeDccContractsAttachments"
       Entity="model.XpeDccContractsAttachments"/>
     <ViewAttribute
+        Name="AttachmentId"
+        IsNotNull="true"
+        PrecisionRule="true"
+        EntityAttrName="AttachmentId"
+        EntityUsage="XpeDccContractsAttachments"
+        AliasName="ATTACHMENT_ID"/>
+    <ViewAttribute
+        Name="XpeContractId"
+        IsNotNull="true"
+        PrecisionRule="true"
+        EntityAttrName="XpeContractId"
+        EntityUsage="XpeDccContractsAttachments"
+        AliasName="XPE_CONTRACT_ID"/>
+    <ViewAttribute
+        Name="XpeContractVersion"
+        IsNotNull="true"
+        PrecisionRule="true"
+        EntityAttrName="XpeContractVersion"
+        EntityUsage="XpeDccContractsAttachments"
+        AliasName="XPE_CONTRACT_VERSION"/>
+    <ViewAttribute
+        Name="Name"
+        PrecisionRule="true"
+        EntityAttrName="Name"
+        EntityUsage="XpeDccContractsAttachments"
+        AliasName="NAME"/>
+    <ViewAttribute
       Name="UploadFile"
       IsQueriable="false"
       PrecisionRule="true"
@@ -24,28 +51,31 @@
       EntityUsage="XpeDccContractsAttachments"
       AliasName="UPLOAD_FILE"/>
     <ViewAttribute
-      Name="Name"
-      PrecisionRule="true"
-      EntityAttrName="Name"
-      EntityUsage="XpeDccContractsAttachments"
-      AliasName="NAME"/>
+        Name="CreatedBy"
+        IsNotNull="true"
+        PrecisionRule="true"
+        EntityAttrName="CreatedBy"
+        EntityUsage="XpeDccContractsAttachments"
+        AliasName="CREATED_BY"/>
     <ViewAttribute
-      Name="XpeContractId"
-      PrecisionRule="true"
-      EntityAttrName="XpeContractId"
-      EntityUsage="XpeDccContractsAttachments"
-      AliasName="XPE_CONTRACT_ID"/>
+        Name="CreatedOn"
+        IsNotNull="true"
+        PrecisionRule="true"
+        EntityAttrName="CreatedOn"
+        EntityUsage="XpeDccContractsAttachments"
+        AliasName="CREATED_ON"/>
     <ViewAttribute
-      Name="XpeContractVersion"
-      PrecisionRule="true"
-      EntityAttrName="XpeContractVersion"
-      EntityUsage="XpeDccContractsAttachments"
-      AliasName="XPE_CONTRACT_VERSION"/>
+        Name="LastUpdatedBy"
+        IsNotNull="true"
+        PrecisionRule="true"
+        EntityAttrName="LastUpdatedBy"
+        EntityUsage="XpeDccContractsAttachments"
+        AliasName="LAST_UPDATED_BY"/>
     <ViewAttribute
-      Name="RowID"
-      IsUpdateable="false"
-      PrecisionRule="true"
-      EntityAttrName="RowID"
-      EntityUsage="XpeDccContractsAttachments"
-      AliasName="ROWID"/>
+        Name="LastUpdatedOn"
+        IsNotNull="true"
+        PrecisionRule="true"
+        EntityAttrName="LastUpdatedOn"
+        EntityUsage="XpeDccContractsAttachments"
+        AliasName="LAST_UPDATED_ON"/>
 </ViewObject>
