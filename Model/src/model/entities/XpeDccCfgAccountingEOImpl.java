@@ -28,7 +28,9 @@ public class XpeDccCfgAccountingEOImpl extends EntityImpl {
         CreatedBy,
         CreatedDate,
         LastUpdatedBy,
-        LastUpdatedDate;
+        LastUpdatedDate,
+        Inactive,
+        InactiveDate;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -52,6 +54,7 @@ public class XpeDccCfgAccountingEOImpl extends EntityImpl {
         }
     }
 
+
     public static final int SITEID = AttributesEnum.SiteId.index();
     public static final int ACCOUNTINGCLASS = AttributesEnum.AccountingClass.index();
     public static final int DEALCLASS = AttributesEnum.DealClass.index();
@@ -66,6 +69,8 @@ public class XpeDccCfgAccountingEOImpl extends EntityImpl {
     public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
+    public static final int INACTIVE = AttributesEnum.Inactive.index();
+    public static final int INACTIVEDATE = AttributesEnum.InactiveDate.index();
 
     /**
      * This is the default constructor (do not remove).
