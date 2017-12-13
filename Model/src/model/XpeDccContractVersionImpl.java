@@ -51,9 +51,9 @@ public class XpeDccContractVersionImpl extends EntityImpl {
         XpeDccContractLine,
         XpeDccContracts,
         XpeDccContractsAttachments,
-        XpeDccTermsContractEO;
-        static AttributesEnum[] vals = null;
-        ;
+        XpeDccTermsContractEO,
+        XpeDccWfEventEO;
+        private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -110,6 +110,7 @@ public class XpeDccContractVersionImpl extends EntityImpl {
     public static final int XPEDCCCONTRACTS = AttributesEnum.XpeDccContracts.index();
     public static final int XPEDCCCONTRACTSATTACHMENTS = AttributesEnum.XpeDccContractsAttachments.index();
     public static final int XPEDCCTERMSCONTRACTEO = AttributesEnum.XpeDccTermsContractEO.index();
+    public static final int XPEDCCWFEVENTEO = AttributesEnum.XpeDccWfEventEO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -615,6 +616,14 @@ public class XpeDccContractVersionImpl extends EntityImpl {
      */
     public RowIterator getXpeDccTermsContractEO() {
         return (RowIterator) getAttributeInternal(XPEDCCTERMSCONTRACTEO);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getXpeDccWfEventEO() {
+        return (RowIterator) getAttributeInternal(XPEDCCWFEVENTEO);
     }
 
 

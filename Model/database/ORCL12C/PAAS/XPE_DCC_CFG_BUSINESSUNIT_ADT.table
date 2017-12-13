@@ -670,6 +670,40 @@
         </entry>
       </properties>
     </column>
+    <column>
+      <name>BUSINESSUNIT_ID</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">20</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>BUSINESSUNIT_ID</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_DCC_CFG_BUSINESSUNIT_ADT</name>
+              <identifier class="java.math.BigDecimal">128322</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
   </columns>
   <properties>
     <entry>

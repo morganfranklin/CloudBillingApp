@@ -22,6 +22,10 @@
                   id="XpeDccContractsView2Iterator"/>
         <iterator Binds="XpeDccContractsView1" RangeSize="10" DataControl="AppModuleDataControl"
                   id="XpeDccContractsView1Iterator"/>
+        <iterator Binds="XpeDccWfEventEOVO2" RangeSize="25" DataControl="AppModuleDataControl"
+                  id="XpeDccWfEventEOVO2Iterator"/>
+        <iterator Binds="XpeDccWfActionEOVO2" RangeSize="25" DataControl="AppModuleDataControl"
+                  id="XpeDccWfActionEOVO2Iterator"/>
     </executables>
     <bindings>
         <attributeValues IterBinding="XpeDccContractVersionView2Iterator" id="XpeContractId">
@@ -178,5 +182,38 @@
             <NamedData NDName="inContractFlow" NDValue="N" NDType="java.lang.String"/>
             <NamedData NDName="uuId" NDType="java.lang.String"/>
         </methodAction>
+        <tree IterBinding="XpeDccWfEventEOVO2Iterator" id="XpeDccWfEventEOVO2">
+            <nodeDefinition DefName="model.views.entitybased.XpeDccWfEventEOVO" Name="XpeDccWfEventEOVO20">
+                <AttrNames>
+                    <Item Value="CreatedBy"/>
+                    <Item Value="CreatedDate"/>
+                    <Item Value="LastUpdatedBy"/>
+                    <Item Value="LastUpdatedDate"/>
+                    <Item Value="XpeContractId"/>
+                    <Item Value="XpeContractVersion"/>
+                    <Item Value="XpeEventNumber"/>
+                    <Item Value="XpeEventStatus"/>
+                    <Item Value="XpeEventType"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <tree IterBinding="XpeDccWfActionEOVO2Iterator" id="XpeDccWfActionEOVO2">
+            <nodeDefinition DefName="model.views.entitybased.XpeDccWfActionEOVO" Name="XpeDccWfActionEOVO20">
+                <AttrNames>
+                    <Item Value="CreatedBy"/>
+                    <Item Value="CreatedDate"/>
+                    <Item Value="LastUpdatedBy"/>
+                    <Item Value="LastUpdatedDate"/>
+                    <Item Value="XpeActionStatus"/>
+                    <Item Value="XpeApproverEmail"/>
+                    <Item Value="XpeApproverSequence"/>
+                    <Item Value="XpeContractId"/>
+                    <Item Value="XpeContractVersion"/>
+                    <Item Value="XpeEventNumber"/>
+                    <Item Value="XpeUuid"/>
+                    <Item Value="XpeApproverLevel"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
     </bindings>
 </pageDefinition>

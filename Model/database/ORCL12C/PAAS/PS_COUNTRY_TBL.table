@@ -1,111 +1,9 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
-  <name>PS_BUS_UNIT_TBL_BI</name>
+  <name>PS_COUNTRY_TBL</name>
   <columns>
     <column>
-      <name>BUSINESS_UNIT</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">5</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>BUSINESS_UNIT</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>BUSINESS_UNIT_AR</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">5</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>BUSINESS_UNIT_AR</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>BUSINESS_UNIT_GL</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">5</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>BUSINESS_UNIT_GL</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>BASE_CURRENCY</name>
+      <name>COUNTRY</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -114,7 +12,7 @@
           </entry>
           <entry>
             <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
+            <value class="java.lang.String">BYTE</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
@@ -126,10 +24,10 @@
         <entry>
           <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
           <value class="oracle.javatools.db.ReferenceID">
-            <name>BASE_CURRENCY</name>
+            <name>COUNTRY</name>
             <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
               <schemaName>PAAS</schemaName>
               <type>TABLE</type>
             </parent>
@@ -139,1057 +37,7 @@
       </properties>
     </column>
     <column>
-      <name>BI_CURRENCY_CD</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">3</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>BI_CURRENCY_CD</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>LOCATION</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">10</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>LOCATION</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>IVC_NUM_ID</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">8</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>IVC_NUM_ID</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>BI_PNLSERIES_ID</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">8</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>BI_PNLSERIES_ID</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>GL_LVL</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">1</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>GL_LVL</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>AR_LVL</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">1</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>AR_LVL</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>AR_DST_OPT</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">1</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>AR_DST_OPT</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>ENTRY_TYPE_DB</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">5</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>ENTRY_TYPE_DB</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>ENTRY_REASON_DB</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">5</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>ENTRY_REASON_DB</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>ENTRY_TYPE_CR</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">5</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>ENTRY_TYPE_CR</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>ENTRY_REASON_CR</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">5</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>ENTRY_REASON_CR</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>ENABLE_DFR_REV_FLG</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">1</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>ENABLE_DFR_REV_FLG</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>DFR_ACCTG_DT_CD</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">1</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>DFR_ACCTG_DT_CD</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>DFR_REV_PRORATION</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">1</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>DFR_REV_PRORATION</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>DFR_MID_PERIOD_DAY</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>scale</key>
-            <value class="java.lang.Long">0</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>NUMBER</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>DFR_MID_PERIOD_DAY</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>ENABLE_ACCRUED_FLG</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">1</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>ENABLE_ACCRUED_FLG</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>APPL_JRNL_ID_RVRSL</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">10</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>APPL_JRNL_ID_RVRSL</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>DST_ID_UAR</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">10</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>DST_ID_UAR</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>ACCRUE_UNBILLED</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">1</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>ACCRUE_UNBILLED</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>APPL_JRNL_ID</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">10</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>APPL_JRNL_ID</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>GROUP_ID_SEQ_NUM</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>precision</key>
-            <value class="java.lang.String">15</value>
-          </entry>
-          <entry>
-            <key>scale</key>
-            <value class="java.lang.Long">0</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>NUMBER</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>GROUP_ID_SEQ_NUM</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>TAX_VENDOR</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">1</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>TAX_VENDOR</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>TAX_COMPANY</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">5</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>TAX_COMPANY</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>TAX_DIVISION</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">5</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>TAX_DIVISION</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>TAX_DEPARTMENT</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">5</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>TAX_DEPARTMENT</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>ORD_ACCEPT_LOC</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">10</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>ORD_ACCEPT_LOC</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>ORD_ORIGIN_LOC</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">10</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>ORD_ORIGIN_LOC</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>DST_ID_SUT</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">10</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>DST_ID_SUT</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>DST_ID_GST</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">10</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>DST_ID_GST</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>ORIGIN_AP</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">3</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>ORIGIN_AP</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>VAT_ENTITY</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">20</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>VAT_ENTITY</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>TEMPLATE_ID</name>
+      <name>DESCRIPTION</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -1198,245 +46,11 @@
           </entry>
           <entry>
             <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
+            <value class="java.lang.String">BYTE</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>TEMPLATE_ID</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>ENTRY_EVENT</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">10</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>ENTRY_EVENT</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>PHYSICAL_NATURE</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">1</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>PHYSICAL_NATURE</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>VAT_SVC_PERFRM_FLG</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">1</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>VAT_SVC_PERFRM_FLG</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>AG_CONTRACT</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">1</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>AG_CONTRACT</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>ATT_IVC_IMG_OPT</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">1</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>ATT_IVC_IMG_OPT</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>BILL_TEMPLATE_ID</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">30</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>BILL_TEMPLATE_ID</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>ADD_DTTM</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>scale</key>
-            <value class="java.lang.Long">6</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>TIMESTAMP</typeName>
         </dataTypeID>
       </dataTypeUsage>
       <notNull>false</notNull>
@@ -1444,10 +58,10 @@
         <entry>
           <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
           <value class="oracle.javatools.db.ReferenceID">
-            <name>ADD_DTTM</name>
+            <name>DESCRIPTION</name>
             <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
               <schemaName>PAAS</schemaName>
               <type>TABLE</type>
             </parent>
@@ -1457,16 +71,20 @@
       </properties>
     </column>
     <column>
-      <name>LAST_UPDATE_DTTM</name>
+      <name>DESCRSHORT</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
-            <key>scale</key>
-            <value class="java.lang.Long">6</value>
+            <key>size</key>
+            <value class="java.lang.Long">10</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>TIMESTAMP</typeName>
+          <typeName>VARCHAR2</typeName>
         </dataTypeID>
       </dataTypeUsage>
       <notNull>false</notNull>
@@ -1474,10 +92,10 @@
         <entry>
           <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
           <value class="oracle.javatools.db.ReferenceID">
-            <name>LAST_UPDATE_DTTM</name>
+            <name>DESCRSHORT</name>
             <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
               <schemaName>PAAS</schemaName>
               <type>TABLE</type>
             </parent>
@@ -1487,31 +105,31 @@
       </properties>
     </column>
     <column>
-      <name>LAST_MAINT_OPRID</name>
+      <name>COUNTRY_CODE</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
             <key>size</key>
-            <value class="java.lang.Long">30</value>
+            <value class="java.lang.Long">2</value>
           </entry>
           <entry>
             <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
+            <value class="java.lang.String">BYTE</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>VARCHAR2</typeName>
         </dataTypeID>
       </dataTypeUsage>
-      <notNull>true</notNull>
+      <notNull>false</notNull>
       <properties>
         <entry>
           <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
           <value class="oracle.javatools.db.ReferenceID">
-            <name>LAST_MAINT_OPRID</name>
+            <name>COUNTRY_CODE</name>
             <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
               <schemaName>PAAS</schemaName>
               <type>TABLE</type>
             </parent>
@@ -1521,41 +139,7 @@
       </properties>
     </column>
     <column>
-      <name>BU_FSS_FLG</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">1</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>BU_FSS_FLG</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>BI_APPROVAL_FLG</name>
+      <name>EU_MEMBER_STATE</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -1564,22 +148,22 @@
           </entry>
           <entry>
             <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
+            <value class="java.lang.String">BYTE</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>VARCHAR2</typeName>
         </dataTypeID>
       </dataTypeUsage>
-      <notNull>true</notNull>
+      <notNull>false</notNull>
       <properties>
         <entry>
           <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
           <value class="oracle.javatools.db.ReferenceID">
-            <name>BI_APPROVAL_FLG</name>
+            <name>EU_MEMBER_STATE</name>
             <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
               <schemaName>PAAS</schemaName>
               <type>TABLE</type>
             </parent>
@@ -1589,211 +173,7 @@
       </properties>
     </column>
     <column>
-      <name>ONLY_APPR_CREDITS</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">1</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>ONLY_APPR_CREDITS</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>ACCRUE_USE_TAX</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">1</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>ACCRUE_USE_TAX</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>DST_ID_UT_OFFSET</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">10</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>DST_ID_UT_OFFSET</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>DST_ID_USETAX</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">10</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>DST_ID_USETAX</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>EOAWPRCS_ID</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">30</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>EOAWPRCS_ID</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>BI_AP_LVL</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">1</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>BI_AP_LVL</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>SCM_CCI_GROUP</name>
+      <name>ADDRESS1</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -1802,22 +182,22 @@
           </entry>
           <entry>
             <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
+            <value class="java.lang.String">BYTE</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>VARCHAR2</typeName>
         </dataTypeID>
       </dataTypeUsage>
-      <notNull>true</notNull>
+      <notNull>false</notNull>
       <properties>
         <entry>
           <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
           <value class="oracle.javatools.db.ReferenceID">
-            <name>SCM_CCI_GROUP</name>
+            <name>ADDRESS1</name>
             <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
               <schemaName>PAAS</schemaName>
               <type>TABLE</type>
             </parent>
@@ -1827,7 +207,7 @@
       </properties>
     </column>
     <column>
-      <name>CC_TYPE_SELECT</name>
+      <name>ADDRESS1_AVAIL</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -1836,22 +216,1164 @@
           </entry>
           <entry>
             <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
+            <value class="java.lang.String">BYTE</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>VARCHAR2</typeName>
         </dataTypeID>
       </dataTypeUsage>
-      <notNull>true</notNull>
+      <notNull>false</notNull>
       <properties>
         <entry>
           <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
           <value class="oracle.javatools.db.ReferenceID">
-            <name>CC_TYPE_SELECT</name>
+            <name>ADDRESS1_AVAIL</name>
             <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>ADDRESS2</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">15</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>ADDRESS2</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>ADDRESS2_AVAIL</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">1</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>ADDRESS2_AVAIL</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>ADDRESS3</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">15</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>ADDRESS3</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>ADDRESS3_AVAIL</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">1</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>ADDRESS3_AVAIL</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>ADDRESS4</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">15</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>ADDRESS4</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>ADDRESS4_AVAIL</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">1</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>ADDRESS4_AVAIL</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>CITY</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">15</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>CITY</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>CITY_AVAIL</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">1</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>CITY_AVAIL</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>NUM1_LBL</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">15</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>NUM1_LBL</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>NUM2_LBL</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">15</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>NUM2_LBL</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>NUM2_AVAIL</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">1</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>NUM2_AVAIL</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>HOUSE_TYPE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">15</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>HOUSE_TYPE</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>HOUSE_TYPE_AVAIL</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">1</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>HOUSE_TYPE_AVAIL</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>ADDR_FIELD1_LBL</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">15</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>ADDR_FIELD1_LBL</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>ADDR_FIELD1_AVAIL</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">1</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>ADDR_FIELD1_AVAIL</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>ADDR_FIELD2_LBL</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">15</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>ADDR_FIELD2_LBL</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>ADDR_FIELD2_AVAIL</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">1</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>ADDR_FIELD2_AVAIL</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>ADDR_FIELD3_LBL</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">15</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>ADDR_FIELD3_LBL</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>ADDR_FIELD3_AVAIL</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">1</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>ADDR_FIELD3_AVAIL</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>COUNTY</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">15</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>COUNTY</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>COUNTY_AVAIL</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">1</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>COUNTY_AVAIL</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>STATE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">15</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>STATE</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>STATE_AVAIL</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">1</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>STATE_AVAIL</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>POSTAL</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">15</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>POSTAL</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>POSTAL_AVAIL</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">1</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>POSTAL_AVAIL</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>IN_CITY_LIMIT</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">15</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>IN_CITY_LIMIT</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>IN_CITY_LIMIT_AVAIL</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">1</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>IN_CITY_LIMIT_AVAIL</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>GEO_CODE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">15</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>GEO_CODE</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>GEO_CODE_LBL</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">1</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>GEO_CODE_LBL</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>POST_SRCH_AVAIL</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">1</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>POST_SRCH_AVAIL</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>GBSYS_NRPATH_UK</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">254</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>GBSYS_NRPATH_UK</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>GBSYS_CFGPATH_UK</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">254</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>GBSYS_CFGPATH_UK</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>SYNCID</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>SYNCID</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>SYNCDTTM</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">6</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>TIMESTAMP</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>SYNCDTTM</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
               <schemaName>PAAS</schemaName>
               <type>TABLE</type>
             </parent>
@@ -1861,24 +1383,71 @@
       </properties>
     </column>
   </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <name>COUNTRY_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>COUNTRY</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>PS_COUNTRY_TBL</name>
+            <schemaName>PAAS</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>PAAS</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <indexID class="oracle.javatools.db.NameBasedID">
+        <name>COUNTRY_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>PS_COUNTRY_TBL</name>
+          <schemaName>PAAS</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>PAAS</schemaName>
+        <type>INDEX</type>
+      </indexID>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>COUNTRY_PK</name>
+            <childObjectNames>
+              <childObjectName>COUNTRY</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>PKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+    </constraint>
+  </constraints>
   <indexes>
     <index>
-      <name>PS_BUS_UNIT_TBL_BI</name>
+      <name>COUNTRY_PK</name>
       <columnExpressions>
         <columnExpression>
-          <expressionSource>BUSINESS_UNIT</expressionSource>
+          <expressionSource>COUNTRY</expressionSource>
           <orderType>ASC</orderType>
           <properties>
             <entry>
               <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
               <value class="oracle.javatools.db.ReferenceID">
-                <name>BUSINESS_UNIT</name>
+                <name>COUNTRY</name>
                 <parent class="oracle.javatools.db.ReferenceID">
-                  <name>PS_BUS_UNIT_TBL_BI</name>
-                  <identifier class="java.math.BigDecimal">127585</identifier>
+                  <name>COUNTRY_PK</name>
+                  <identifier class="java.math.BigDecimal">129684</identifier>
                   <parent class="oracle.javatools.db.ReferenceID">
-                    <name>PS_BUS_UNIT_TBL_BI</name>
-                    <identifier class="java.math.BigDecimal">127577</identifier>
+                    <name>PS_COUNTRY_TBL</name>
+                    <identifier class="java.math.BigDecimal">129683</identifier>
                     <schemaName>PAAS</schemaName>
                     <type>TABLE</type>
                   </parent>
@@ -1897,11 +1466,11 @@
         <entry>
           <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
           <value class="oracle.javatools.db.ReferenceID">
-            <name>PS_BUS_UNIT_TBL_BI</name>
-            <identifier class="java.math.BigDecimal">127585</identifier>
+            <name>COUNTRY_PK</name>
+            <identifier class="java.math.BigDecimal">129684</identifier>
             <parent class="oracle.javatools.db.ReferenceID">
-              <name>PS_BUS_UNIT_TBL_BI</name>
-              <identifier class="java.math.BigDecimal">127577</identifier>
+              <name>PS_COUNTRY_TBL</name>
+              <identifier class="java.math.BigDecimal">129683</identifier>
               <schemaName>PAAS</schemaName>
               <type>TABLE</type>
             </parent>
@@ -1931,7 +1500,7 @@
       <schema>
         <name>PAAS</name>
       </schema>
-      <systemGenerated>false</systemGenerated>
+      <systemGenerated>true</systemGenerated>
     </index>
   </indexes>
   <properties>
@@ -1942,8 +1511,8 @@
     <entry>
       <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
       <value class="oracle.javatools.db.ReferenceID">
-        <name>PS_BUS_UNIT_TBL_BI</name>
-        <identifier class="java.math.BigDecimal">127577</identifier>
+        <name>PS_COUNTRY_TBL</name>
+        <identifier class="java.math.BigDecimal">129683</identifier>
         <schemaName>PAAS</schemaName>
         <type>TABLE</type>
       </value>

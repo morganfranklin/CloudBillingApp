@@ -377,7 +377,16 @@
               </properties>
               <retention>false</retention>
               <storage>
+                <bufferMode>DEFAULT</bufferMode>
+                <initialExtent>106496</initialExtent>
                 <logging>true</logging>
+                <maxExtent>0</maxExtent>
+                <minExtent>1</minExtent>
+                <nextExtent>1048576</nextExtent>
+                <tablespaceID class="oracle.javatools.db.ReferenceID">
+                  <name>USERS</name>
+                  <type>TABLESPACE</type>
+                </tablespaceID>
               </storage>
               <storageInRow>true</storageInRow>
             </LOBProperties>
@@ -513,8 +522,12 @@
           <key>OracleStorageProperties</key>
           <value class="oracle.javatools.db.ora.OracleStorageProperties">
             <bufferMode>DEFAULT</bufferMode>
+            <initialExtent>65536</initialExtent>
             <initrans>2</initrans>
             <logging>true</logging>
+            <maxExtent>0</maxExtent>
+            <minExtent>1</minExtent>
+            <nextExtent>1048576</nextExtent>
             <percentFree>10</percentFree>
             <tablespaceID class="oracle.javatools.db.ReferenceID">
               <name>USERS</name>
@@ -580,8 +593,12 @@
           <key>OracleStorageProperties</key>
           <value class="oracle.javatools.db.ora.OracleStorageProperties">
             <bufferMode>DEFAULT</bufferMode>
+            <initialExtent>65536</initialExtent>
             <initrans>2</initrans>
             <logging>true</logging>
+            <maxExtent>0</maxExtent>
+            <minExtent>1</minExtent>
+            <nextExtent>1048576</nextExtent>
             <percentFree>10</percentFree>
             <tablespaceID class="oracle.javatools.db.ReferenceID">
               <name>USERS</name>
@@ -697,8 +714,12 @@
           <key>OracleStorageProperties</key>
           <value class="oracle.javatools.db.ora.OracleStorageProperties">
             <bufferMode>DEFAULT</bufferMode>
+            <initialExtent>65536</initialExtent>
             <initrans>2</initrans>
             <logging>true</logging>
+            <maxExtent>0</maxExtent>
+            <minExtent>1</minExtent>
+            <nextExtent>1048576</nextExtent>
             <percentFree>10</percentFree>
             <tablespaceID class="oracle.javatools.db.ReferenceID">
               <name>USERS</name>
@@ -738,8 +759,12 @@
       <key>OracleStorageProperties</key>
       <value class="oracle.javatools.db.ora.OracleStorageProperties">
         <bufferMode>DEFAULT</bufferMode>
+        <initialExtent>65536</initialExtent>
         <initrans>1</initrans>
         <logging>true</logging>
+        <maxExtent>0</maxExtent>
+        <minExtent>1</minExtent>
+        <nextExtent>1048576</nextExtent>
         <percentFree>10</percentFree>
         <tablespaceID class="oracle.javatools.db.ReferenceID">
           <name>USERS</name>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XpeDccWfEventFKVL"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  EntityAssociation="model.entities.associations.XpeDccWfEventFK1Assoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.views.entitybased.XpeDccWfEventFKVL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="XpeDccContractVersionView"
+    Cardinality="1"
+    Source="true"
+    Owner="model.XpeDccContractVersionView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="XpeDccContractVersionView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.XpeDccContractVersionView.XpeContractId"/>
+      <Item Value="model.XpeDccContractVersionView.XpeContractVersion"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="XpeDccWfEventEOVO"
+    Cardinality="-1"
+    Owner="model.views.entitybased.XpeDccWfEventEOVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="XpeDccWfEventEOVO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.views.entitybased.XpeDccWfEventEOVO.XpeContractId"/>
+      <Item Value="model.views.entitybased.XpeDccWfEventEOVO.XpeContractVersion"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

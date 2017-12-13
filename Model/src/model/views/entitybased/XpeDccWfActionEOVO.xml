@@ -43,7 +43,14 @@
     EntityAttrName="CreatedDate"
     EntityUsage="XpeDccWfActionEO"
     AliasName="CREATED_DATE"
-    IsUpdateable="false"/>
+    IsUpdateable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccWfActionEOVO.CreatedDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="LastUpdatedBy"
     IsNotNull="true"
@@ -59,19 +66,40 @@
     EntityAttrName="LastUpdatedDate"
     EntityUsage="XpeDccWfActionEO"
     AliasName="LAST_UPDATED_DATE"
-    IsUpdateable="false"/>
+    IsUpdateable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccWfActionEOVO.LastUpdatedDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeActionStatus"
     PrecisionRule="true"
     EntityAttrName="XpeActionStatus"
     EntityUsage="XpeDccWfActionEO"
-    AliasName="XPE_ACTION_STATUS"/>
+    AliasName="XPE_ACTION_STATUS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccWfActionEOVO.XpeActionStatus_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeApproverEmail"
     PrecisionRule="true"
     EntityAttrName="XpeApproverEmail"
     EntityUsage="XpeDccWfActionEO"
-    AliasName="XPE_APPROVER_EMAIL"/>
+    AliasName="XPE_APPROVER_EMAIL">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccWfActionEOVO.XpeApproverEmail_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeApproverSequence"
     IsUpdateable="while_insert"
@@ -79,7 +107,14 @@
     PrecisionRule="true"
     EntityAttrName="XpeApproverSequence"
     EntityUsage="XpeDccWfActionEO"
-    AliasName="XPE_APPROVER_SEQUENCE"/>
+    AliasName="XPE_APPROVER_SEQUENCE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccWfActionEOVO.XpeApproverSequence_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeContractId"
     IsNotNull="true"
@@ -113,7 +148,14 @@
     PrecisionRule="true"
     EntityAttrName="XpeApproverLevel"
     EntityUsage="XpeDccWfActionEO"
-    AliasName="XPE_APPROVER_LEVEL"/>
+    AliasName="XPE_APPROVER_LEVEL">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccWfActionEOVO.XpeApproverLevel_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

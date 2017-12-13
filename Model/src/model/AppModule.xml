@@ -640,6 +640,18 @@
     <ViewUsage
         Name="XpeDccCfgNewNycDosTermCustEOVO"
         ViewObjectName="model.views.entitybased.XpeDccCfgNycDosTermCustEOVO"/>
+    <ViewUsage
+        Name="XpeDccWfEventEOVO1"
+        ViewObjectName="model.views.entitybased.XpeDccWfEventEOVO"/>
+    <ViewUsage
+        Name="XpeDccWfActionEOVO1"
+        ViewObjectName="model.views.entitybased.XpeDccWfActionEOVO"/>
+    <ViewUsage
+        Name="XpeDccWfEventEOVO2"
+        ViewObjectName="model.views.entitybased.XpeDccWfEventEOVO"/>
+    <ViewUsage
+        Name="XpeDccWfActionEOVO2"
+        ViewObjectName="model.views.entitybased.XpeDccWfActionEOVO"/>
     <ViewLinkUsage
         Name="NeuRuleTblFk1Link1"
         ViewLinkObjectName="model.NeuRuleTblFk1Link"
@@ -933,6 +945,30 @@
         ViewLinkObjectName="model.views.entitybased.XpeDccCfgNycDosTermCustFKVL"
         SrcViewUsageName="model.AppModule.XpeDccCfgNewOgnAssTerminalsEOVO"
         DstViewUsageName="model.AppModule.XpeDccCfgNewNycDosTermCustEOVO"
+        Reversed="false"/>
+    <ViewLinkUsage
+        Name="XpeDccWfEventFKVL1"
+        ViewLinkObjectName="model.views.entitybased.XpeDccWfEventFKVL"
+        SrcViewUsageName="model.AppModule.XpeDccNewContractVersionView"
+        DstViewUsageName="model.AppModule.XpeDccWfEventEOVO1"
+        Reversed="false"/>
+    <ViewLinkUsage
+        Name="XpeDccWfActionFKVL2"
+        ViewLinkObjectName="model.views.entitybased.XpeDccWfActionFKVL"
+        SrcViewUsageName="model.AppModule.XpeDccWfEventEOVO1"
+        DstViewUsageName="model.AppModule.XpeDccWfActionEOVO1"
+        Reversed="false"/>
+    <ViewLinkUsage
+        Name="XpeDccWfEventFKVL2"
+        ViewLinkObjectName="model.views.entitybased.XpeDccWfEventFKVL"
+        SrcViewUsageName="model.AppModule.XpeDccContractVersionView1"
+        DstViewUsageName="model.AppModule.XpeDccWfEventEOVO2"
+        Reversed="false"/>
+    <ViewLinkUsage
+        Name="XpeDccWfActionFKVL3"
+        ViewLinkObjectName="model.views.entitybased.XpeDccWfActionFKVL"
+        SrcViewUsageName="model.AppModule.XpeDccWfEventEOVO2"
+        DstViewUsageName="model.AppModule.XpeDccWfActionEOVO2"
         Reversed="false"/>
     <ClientInterface
         Name="__clientInterface">

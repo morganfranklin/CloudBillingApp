@@ -838,6 +838,11 @@
         ViewLink="model.views.entitybased.XpeDccTermsContractFKVL"
         Type="oracle.jbo.RowIterator"
         IsUpdateable="false"/>
+    <ViewLinkAccessor
+        Name="XpeDccWfEventEOVO"
+        ViewLink="model.views.entitybased.XpeDccWfEventFKVL"
+        Type="oracle.jbo.RowIterator"
+        IsUpdateable="false"/>
     <ResourceBundle>
         <PropertiesBundle
             PropertiesFile="model.ModelBundle"/>

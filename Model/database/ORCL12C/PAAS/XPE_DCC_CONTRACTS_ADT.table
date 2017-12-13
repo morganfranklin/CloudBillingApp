@@ -308,6 +308,40 @@
         </entry>
       </properties>
     </column>
+    <column>
+      <name>ADDRESS_SEQ_NUM</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">38</value>
+          </entry>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">0</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>ADDRESS_SEQ_NUM</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_DCC_CONTRACTS_ADT</name>
+              <identifier class="java.math.BigDecimal">129221</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
   </columns>
   <properties>
     <entry>
@@ -333,8 +367,12 @@
       <key>OracleStorageProperties</key>
       <value class="oracle.javatools.db.ora.OracleStorageProperties">
         <bufferMode>DEFAULT</bufferMode>
+        <initialExtent>65536</initialExtent>
         <initrans>1</initrans>
         <logging>true</logging>
+        <maxExtent>0</maxExtent>
+        <minExtent>1</minExtent>
+        <nextExtent>1048576</nextExtent>
         <percentFree>10</percentFree>
         <tablespaceID class="oracle.javatools.db.ReferenceID">
           <name>USERS</name>

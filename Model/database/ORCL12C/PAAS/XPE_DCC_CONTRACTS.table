@@ -261,7 +261,7 @@
           <typeName>VARCHAR2</typeName>
         </dataTypeID>
       </dataTypeUsage>
-      <notNull>false</notNull>
+      <notNull>true</notNull>
       <properties>
         <entry>
           <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
@@ -301,6 +301,40 @@
           <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
           <value class="oracle.javatools.db.ReferenceID">
             <name>CUST_CONTRACT_APPROVER_EMAIL</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_DCC_CONTRACTS</name>
+              <identifier class="java.math.BigDecimal">112936</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>ADDRESS_SEQ_NUM</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">38</value>
+          </entry>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">0</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>ADDRESS_SEQ_NUM</name>
             <parent class="oracle.javatools.db.ReferenceID">
               <name>XPE_DCC_CONTRACTS</name>
               <identifier class="java.math.BigDecimal">112936</identifier>

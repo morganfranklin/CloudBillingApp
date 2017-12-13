@@ -55,7 +55,14 @@
     EntityAttrName="CreatedDate"
     EntityUsage="XpeDccWfEventEO"
     AliasName="CREATED_DATE"
-    IsUpdateable="false"/>
+    IsUpdateable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccWfEventEOVO.CreatedDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="LastUpdatedBy"
     IsNotNull="true"
@@ -71,7 +78,14 @@
     EntityAttrName="LastUpdatedDate"
     EntityUsage="XpeDccWfEventEO"
     AliasName="LAST_UPDATED_DATE"
-    IsUpdateable="false"/>
+    IsUpdateable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccWfEventEOVO.LastUpdatedDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeContractId"
     IsNotNull="true"
@@ -93,19 +107,40 @@
     PrecisionRule="true"
     EntityAttrName="XpeEventNumber"
     EntityUsage="XpeDccWfEventEO"
-    AliasName="XPE_EVENT_NUMBER"/>
+    AliasName="XPE_EVENT_NUMBER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccWfEventEOVO.XpeEventNumber_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeEventStatus"
     PrecisionRule="true"
     EntityAttrName="XpeEventStatus"
     EntityUsage="XpeDccWfEventEO"
-    AliasName="XPE_EVENT_STATUS"/>
+    AliasName="XPE_EVENT_STATUS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccWfEventEOVO.XpeEventStatus_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeEventType"
     PrecisionRule="true"
     EntityAttrName="XpeEventType"
     EntityUsage="XpeDccWfEventEO"
-    AliasName="XPE_EVENT_TYPE"/>
+    AliasName="XPE_EVENT_TYPE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccWfEventEOVO.XpeEventType_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="XpeDccWfEventEOVOCriteria"
     ViewObjectName="model.views.entitybased.XpeDccWfEventEOVO"

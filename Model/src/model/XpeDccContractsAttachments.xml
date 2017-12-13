@@ -68,7 +68,6 @@
         IsUpdateable="while_insert">
         <TransientExpression
             Name="ExpressionScript"
-            trustMode="untrusted"
             CodeSourceName="XpeDccContractsAttachmentsRow"/>
     </Attribute>
     <Attribute

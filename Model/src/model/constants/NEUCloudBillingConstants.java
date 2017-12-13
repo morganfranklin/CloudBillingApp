@@ -14,4 +14,5 @@ public class NEUCloudBillingConstants {
     public static final String EVP="EVP";
     public static final String CFO="CFO";
     public static final String CEO="CEO";
+    public static final String CUSTOMER="CUSTOMER";
 }

@@ -1,11 +1,11 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <sequence xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
-  <name>XPE_DCC_WF_EVENT_SEQ</name>
+  <name>XPE_DCC_CONTRACTS_ATTACH_SEQ</name>
   <cacheFlag>true</cacheFlag>
   <cacheSize>20</cacheSize>
   <cycleFlag>false</cycleFlag>
   <incrementBy>1</incrementBy>
-  <lastNumber>421</lastNumber>
+  <lastNumber>1</lastNumber>
   <maxValue>9999999999</maxValue>
   <minValue>1</minValue>
   <orderFlag>false</orderFlag>
@@ -17,8 +17,8 @@
     <entry>
       <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
       <value class="oracle.javatools.db.ReferenceID">
-        <name>XPE_DCC_WF_EVENT_SEQ</name>
-        <identifier class="java.math.BigDecimal">123557</identifier>
+        <name>XPE_DCC_CONTRACTS_ATTACH_SEQ</name>
+        <identifier class="java.math.BigDecimal">131441</identifier>
         <schemaName>PAAS</schemaName>
         <type>SEQUENCE</type>
       </value>

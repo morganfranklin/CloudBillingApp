@@ -472,7 +472,118 @@
                                 </af:table>
                             </af:panelHeader>
                         </af:showDetailItem>
-                        <af:showDetailItem id="tab3" text="Contract Release Workflow"/>
+                        <af:showDetailItem id="tab3" text="Contract Release Workflow">
+                            <af:panelGroupLayout id="pgl4" layout="vertical">
+                                <af:panelHeader text="Workflow Event" id="ph3">
+                                    <af:table id="md1" rows="#{bindings.XpeDccWfEventEOVO2.rangeSize}"
+                                              fetchSize="#{bindings.XpeDccWfEventEOVO2.rangeSize}"
+                                              emptyText="#{bindings.XpeDccWfEventEOVO2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              var="row" value="#{bindings.XpeDccWfEventEOVO2.collectionModel}"
+                                              rowBandingInterval="0"
+                                              selectedRowKeys="#{bindings.XpeDccWfEventEOVO2.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.XpeDccWfEventEOVO2.collectionModel.makeCurrent}"
+                                              rowSelection="single" contentDelivery="immediate" columnStretching="last">
+                                        <af:column headerText="#{bindings.XpeDccWfEventEOVO2.hints.XpeEventNumber.label}"
+                                                   sortProperty="#{bindings.XpeDccWfEventEOVO2.hints.XpeEventNumber.name}"
+                                                   sortable="false" id="c21">
+                                            <af:outputText value="#{row.XpeEventNumber}"
+                                                           shortDesc="#{bindings.XpeDccWfEventEOVO2.hints.XpeEventNumber.tooltip}"
+                                                           id="ot11"/>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.XpeDccWfEventEOVO2.hints.XpeEventType.label}"
+                                                   sortProperty="#{bindings.XpeDccWfEventEOVO2.hints.XpeEventType.name}"
+                                                   sortable="false" id="c23">
+                                            <af:outputText value="#{row.XpeEventType}"
+                                                           shortDesc="#{bindings.XpeDccWfEventEOVO2.hints.XpeEventType.tooltip}"
+                                                           id="ot13"/>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.XpeDccWfEventEOVO2.hints.XpeEventStatus.label}"
+                                                   sortProperty="#{bindings.XpeDccWfEventEOVO2.hints.XpeEventStatus.name}"
+                                                   sortable="false" id="c22">
+                                            <af:outputText value="#{row.XpeEventStatus}"
+                                                           shortDesc="#{bindings.XpeDccWfEventEOVO2.hints.XpeEventStatus.tooltip}"
+                                                           id="ot12"/>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.XpeDccWfEventEOVO2.hints.CreatedDate.label}"
+                                                   sortProperty="#{bindings.XpeDccWfEventEOVO2.hints.CreatedDate.name}"
+                                                   sortable="false" id="c13">
+                                            <af:outputText value="#{row.CreatedDate}"
+                                                           shortDesc="#{bindings.XpeDccWfEventEOVO2.hints.CreatedDate.tooltip}"
+                                                           id="ot6">
+                                                <af:convertDateTime pattern="#{bindings.XpeDccWfEventEOVO2.hints.CreatedDate.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.XpeDccWfEventEOVO2.hints.LastUpdatedDate.label}"
+                                                   sortProperty="#{bindings.XpeDccWfEventEOVO2.hints.LastUpdatedDate.name}"
+                                                   sortable="false" id="c15">
+                                            <af:outputText value="#{row.LastUpdatedDate}"
+                                                           shortDesc="#{bindings.XpeDccWfEventEOVO2.hints.LastUpdatedDate.tooltip}"
+                                                           id="ot8">
+                                                <af:convertDateTime pattern="#{bindings.XpeDccWfEventEOVO2.hints.LastUpdatedDate.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                    </af:table>
+                                </af:panelHeader>
+                                <af:panelHeader text="Workflow Action" id="ph4">
+                                    <af:table rows="#{bindings.XpeDccWfActionEOVO2.rangeSize}"
+                                              fetchSize="#{bindings.XpeDccWfActionEOVO2.rangeSize}"
+                                              emptyText="#{bindings.XpeDccWfActionEOVO2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              var="row" value="#{bindings.XpeDccWfActionEOVO2.collectionModel}"
+                                              rowBandingInterval="0"
+                                              selectedRowKeys="#{bindings.XpeDccWfActionEOVO2.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.XpeDccWfActionEOVO2.collectionModel.makeCurrent}"
+                                              rowSelection="single" id="t3" contentDelivery="immediate"
+                                              columnStretching="last">
+                                        <af:column headerText="#{bindings.XpeDccWfActionEOVO2.hints.XpeApproverSequence.label}"
+                                                   sortProperty="#{bindings.XpeDccWfActionEOVO2.hints.XpeApproverSequence.name}"
+                                                   sortable="false" id="c30" width="150">
+                                            <af:outputText value="#{row.XpeApproverSequence}"
+                                                           shortDesc="#{bindings.XpeDccWfActionEOVO2.hints.XpeApproverSequence.tooltip}"
+                                                           id="ot20"/>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.XpeDccWfActionEOVO2.hints.XpeApproverLevel.label}"
+                                                   sortProperty="#{bindings.XpeDccWfActionEOVO2.hints.XpeApproverLevel.name}"
+                                                   sortable="false" id="c35">
+                                            <af:outputText value="#{row.XpeApproverLevel}"
+                                                           shortDesc="#{bindings.XpeDccWfActionEOVO2.hints.XpeApproverLevel.tooltip}"
+                                                           id="ot25"/>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.XpeDccWfActionEOVO2.hints.XpeApproverEmail.label}"
+                                                   sortProperty="#{bindings.XpeDccWfActionEOVO2.hints.XpeApproverEmail.name}"
+                                                   sortable="false" id="c29">
+                                            <af:outputText value="#{row.XpeApproverEmail}"
+                                                           shortDesc="#{bindings.XpeDccWfActionEOVO2.hints.XpeApproverEmail.tooltip}"
+                                                           id="ot19"/>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.XpeDccWfActionEOVO2.hints.XpeActionStatus.label}"
+                                                   sortProperty="#{bindings.XpeDccWfActionEOVO2.hints.XpeActionStatus.name}"
+                                                   sortable="false" id="c28">
+                                            <af:outputText value="#{row.XpeActionStatus}"
+                                                           shortDesc="#{bindings.XpeDccWfActionEOVO2.hints.XpeActionStatus.tooltip}"
+                                                           id="ot18"/>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.XpeDccWfActionEOVO2.hints.CreatedDate.label}"
+                                                   sortProperty="#{bindings.XpeDccWfActionEOVO2.hints.CreatedDate.name}"
+                                                   sortable="false" id="c25">
+                                            <af:outputText value="#{row.CreatedDate}"
+                                                           shortDesc="#{bindings.XpeDccWfActionEOVO2.hints.CreatedDate.tooltip}"
+                                                           id="ot15">
+                                                <af:convertDateTime pattern="#{bindings.XpeDccWfActionEOVO2.hints.CreatedDate.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.XpeDccWfActionEOVO2.hints.LastUpdatedDate.label}"
+                                                   sortProperty="#{bindings.XpeDccWfActionEOVO2.hints.LastUpdatedDate.name}"
+                                                   sortable="false" id="c27">
+                                            <af:outputText value="#{row.LastUpdatedDate}"
+                                                           shortDesc="#{bindings.XpeDccWfActionEOVO2.hints.LastUpdatedDate.tooltip}"
+                                                           id="ot17">
+                                                <af:convertDateTime pattern="#{bindings.XpeDccWfActionEOVO2.hints.LastUpdatedDate.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                    </af:table>
+                                </af:panelHeader>
+                            </af:panelGroupLayout>
+                        </af:showDetailItem>
                         <af:showDetailItem text="Terms and Conditions" id="sdi1"/>
                         <af:showDetailItem text="Attachments">
                             <af:inputFile label="Upload File" id="if1" partialTriggers="cb1"

@@ -2,6 +2,8 @@ package model.views.entitybased;
 
 import java.sql.Timestamp;
 
+import model.entities.XpeDccWfEventEOImpl;
+
 import oracle.jbo.RowIterator;
 import oracle.jbo.server.EntityImpl;
 import oracle.jbo.server.ViewRowImpl;
@@ -12,6 +14,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class XpeDccWfEventEOVORowImpl extends ViewRowImpl {
+
     public static final int ENTITY_XPEDCCWFEVENTEO = 0;
 
     /**
@@ -28,7 +31,8 @@ public class XpeDccWfEventEOVORowImpl extends ViewRowImpl {
         XpeEventStatus,
         XpeEventType,
         XpeDccWfActionEOVO;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -50,6 +54,7 @@ public class XpeDccWfEventEOVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
     public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
     public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
@@ -71,8 +76,8 @@ public class XpeDccWfEventEOVORowImpl extends ViewRowImpl {
      * Gets XpeDccWfEventEO entity object.
      * @return the XpeDccWfEventEO
      */
-    public EntityImpl getXpeDccWfEventEO() {
-        return (EntityImpl) getEntity(ENTITY_XPEDCCWFEVENTEO);
+    public XpeDccWfEventEOImpl getXpeDccWfEventEO() {
+        return (XpeDccWfEventEOImpl) getEntity(ENTITY_XPEDCCWFEVENTEO);
     }
 
     /**

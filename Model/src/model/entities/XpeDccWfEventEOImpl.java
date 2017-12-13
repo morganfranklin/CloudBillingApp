@@ -24,7 +24,8 @@ public class XpeDccWfEventEOImpl extends EntityImpl {
         CreatedDate,
         LastUpdatedBy,
         LastUpdatedDate,
-        XpeDccWfActionEO;
+        XpeDccWfActionEO,
+        XpeDccContractVersion;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -47,6 +48,8 @@ public class XpeDccWfEventEOImpl extends EntityImpl {
             return vals;
         }
     }
+
+
     public static final int XPECONTRACTID = AttributesEnum.XpeContractId.index();
     public static final int XPECONTRACTVERSION = AttributesEnum.XpeContractVersion.index();
     public static final int XPEEVENTNUMBER = AttributesEnum.XpeEventNumber.index();
@@ -57,6 +60,7 @@ public class XpeDccWfEventEOImpl extends EntityImpl {
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int XPEDCCWFACTIONEO = AttributesEnum.XpeDccWfActionEO.index();
+    public static final int XPEDCCCONTRACTVERSION = AttributesEnum.XpeDccContractVersion.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -79,7 +83,8 @@ public class XpeDccWfEventEOImpl extends EntityImpl {
     public static synchronized EntityDefImpl getDefinitionObject() {
         return EntityDefImpl.findDefObject("model.entities.XpeDccWfEventEO");
     }
-    
+
+
     protected String nextVal(String sequenceName) {
         SequenceImpl s = new SequenceImpl(sequenceName, getDBTransaction());
         return s.getSequenceNumber().toString();
