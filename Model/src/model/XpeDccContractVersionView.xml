@@ -829,11 +829,6 @@
         Type="oracle.jbo.RowIterator"
         IsUpdateable="false"/>
     <ViewLinkAccessor
-        Name="XpeDccWorkflowView"
-        ViewLink="model.XpeDccWorkflowFk1Link"
-        Type="oracle.jbo.RowIterator"
-        IsUpdateable="false"/>
-    <ViewLinkAccessor
         Name="XpeDccContractsAttachmentsView"
         ViewLink="model.XpeDccContractsAttachmFk2Link"
         Type="oracle.jbo.RowIterator"

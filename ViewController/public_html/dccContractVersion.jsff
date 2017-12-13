@@ -472,60 +472,7 @@
                                 </af:table>
                             </af:panelHeader>
                         </af:showDetailItem>
-                        <af:showDetailItem id="tab3" text="Contract Release Workflow">
-                            <af:table value="#{bindings.XpeDccWorkflowView2.collectionModel}" var="row"
-                                      rows="#{bindings.XpeDccWorkflowView2.rangeSize}"
-                                      emptyText="#{bindings.XpeDccWorkflowView2.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                      rowBandingInterval="0" columnStretching="last"
-                                      selectedRowKeys="#{bindings.XpeDccWorkflowView2.collectionModel.selectedRow}"
-                                      selectionListener="#{bindings.XpeDccWorkflowView2.collectionModel.makeCurrent}"
-                                      rowSelection="single" fetchSize="#{bindings.XpeDccWorkflowView2.rangeSize}"
-                                      filterModel="#{bindings.XpeDccWorkflowView2Query.queryDescriptor}"
-                                      filterVisible="true"
-                                      queryListener="#{bindings.XpeDccWorkflowView2Query.processQuery}" varStatus="vs"
-                                      id="t3">
-                                <af:column sortProperty="#{bindings.XpeDccWorkflowView2.hints.XpeWfNbr.name}"
-                                           filterable="true" sortable="true" headerText="Event number" id="c12"
-                                           width="100">
-                                    <af:outputText value="#{row.XpeWfNbr}"
-                                                   shortDesc="#{bindings.XpeDccWorkflowView2.hints.XpeWfNbr.tooltip}"
-                                                   id="ot6"/>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.XpeDccWorkflowView2.hints.XpeWfType.name}"
-                                           filterable="true" sortable="true" headerText="Event type" id="c13"
-                                           width="100">
-                                    <af:outputText value="#{row.XpeWfType}"
-                                                   shortDesc="#{bindings.XpeDccWorkflowView2.hints.XpeWfType.tooltip}"
-                                                   id="ot7"/>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.XpeDccWorkflowView2.hints.XpeWfDttm.name}"
-                                           filterable="true" sortable="true" headerText="Date" id="c14" width="100">
-                                    <f:facet name="filter">
-                                        <af:inputDate value="#{bindings.XpeDccWorkflowView2Query.queryDescriptor.filterConjunctionCriterion.criterionMap.XpeWfDttm.value}"
-                                                      id="id5">
-                                            <af:convertDateTime pattern="#{bindings.XpeDccWorkflowView2.hints.XpeWfDttm.format}"/>
-                                        </af:inputDate>
-                                    </f:facet>
-                                    <af:outputText value="#{row.XpeWfDttm}"
-                                                   shortDesc="#{bindings.XpeDccWorkflowView2.hints.XpeWfDttm.tooltip}"
-                                                   id="ot8">
-                                        <af:convertDateTime pattern="#{bindings.XpeDccWorkflowView2.hints.XpeWfDttm.format}"/>
-                                    </af:outputText>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.XpeDccWorkflowView2.hints.XpeWfUser.name}"
-                                           filterable="true" sortable="true" headerText="User" id="c15" width="100">
-                                    <af:outputText value="#{row.XpeWfUser}"
-                                                   shortDesc="#{bindings.XpeDccWorkflowView2.hints.XpeWfUser.tooltip}"
-                                                   id="ot9"/>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.XpeDccWorkflowView2.hints.XpeWfComment.name}"
-                                           filterable="true" sortable="true" headerText="Comment" id="c16" width="237">
-                                    <af:outputText value="#{row.XpeWfComment}"
-                                                   shortDesc="#{bindings.XpeDccWorkflowView2.hints.XpeWfComment.tooltip}"
-                                                   id="ot10"/>
-                                </af:column>
-                            </af:table>
-                        </af:showDetailItem>
+                        <af:showDetailItem id="tab3" text="Contract Release Workflow"/>
                         <af:showDetailItem text="Terms and Conditions" id="sdi1"/>
                         <af:showDetailItem text="Attachments">
                             <af:inputFile label="Upload File" id="if1" partialTriggers="cb1"

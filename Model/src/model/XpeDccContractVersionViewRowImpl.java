@@ -51,7 +51,6 @@ public class XpeDccContractVersionViewRowImpl extends ViewRowImpl {
         XpeCreditLimit,
         XpeDccContractNotesView,
         XpeDccContractLineView,
-        XpeDccWorkflowView,
         XpeDccContractsAttachmentsView,
         XpeDccTermsContractEOVO,
         XpeDccDicContractStatus1,
@@ -125,7 +124,6 @@ public class XpeDccContractVersionViewRowImpl extends ViewRowImpl {
     public static final int XPECREDITLIMIT = AttributesEnum.XpeCreditLimit.index();
     public static final int XPEDCCCONTRACTNOTESVIEW = AttributesEnum.XpeDccContractNotesView.index();
     public static final int XPEDCCCONTRACTLINEVIEW = AttributesEnum.XpeDccContractLineView.index();
-    public static final int XPEDCCWORKFLOWVIEW = AttributesEnum.XpeDccWorkflowView.index();
     public static final int XPEDCCCONTRACTSATTACHMENTSVIEW = AttributesEnum.XpeDccContractsAttachmentsView.index();
     public static final int XPEDCCTERMSCONTRACTEOVO = AttributesEnum.XpeDccTermsContractEOVO.index();
     public static final int XPEDCCDICCONTRACTSTATUS1 = AttributesEnum.XpeDccDicContractStatus1.index();
@@ -642,12 +640,6 @@ public class XpeDccContractVersionViewRowImpl extends ViewRowImpl {
         return (RowIterator) getAttributeInternal(XPEDCCCONTRACTLINEVIEW);
     }
 
-    /**
-     * Gets the associated <code>RowIterator</code> using master-detail link XpeDccWorkflowView.
-     */
-    public RowIterator getXpeDccWorkflowView() {
-        return (RowIterator) getAttributeInternal(XPEDCCWORKFLOWVIEW);
-    }
 
     /**
      * Gets the associated <code>RowIterator</code> using master-detail link XpeDccContractsAttachmentsView.

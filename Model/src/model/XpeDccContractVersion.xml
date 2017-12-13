@@ -363,13 +363,6 @@
         Type="oracle.jbo.server.EntityImpl"
         IsUpdateable="true"/>
     <AccessorAttribute
-        Name="XpeDccWorkflow"
-        Association="model.XpeDccWorkflowFk1Assoc"
-        AssociationEnd="model.XpeDccWorkflowFk1Assoc.XpeDccWorkflow"
-        AssociationOtherEnd="model.XpeDccWorkflowFk1Assoc.XpeDccContractVersion"
-        Type="oracle.jbo.RowIterator"
-        IsUpdateable="false"/>
-    <AccessorAttribute
         Name="XpeDccContractsAttachments"
         Association="model.XpeDccContractsAttachmFk2Assoc"
         AssociationEnd="model.XpeDccContractsAttachmFk2Assoc.XpeDccContractsAttachments"

@@ -798,13 +798,6 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         return (ViewObjectImpl) findViewObject("XpeDccPlatformEventView1");
     }
 
-    /**
-     * Container's getter for XpeDccWorkflowView1.
-     * @return XpeDccWorkflowView1
-     */
-    public ViewObjectImpl getXpeDccWorkflowView1() {
-        return (ViewObjectImpl) findViewObject("XpeDccWorkflowView1");
-    }
 
     /**
      * Container's getter for XpeDccDicPartyType1.
@@ -1039,13 +1032,6 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         return (XpeDccContractNotesViewImpl) findViewObject("XpeDccContractNotesView1");
     }
 
-    /**
-     * Container's getter for XpeDccWorkflowView2.
-     * @return XpeDccWorkflowView2
-     */
-    public ViewObjectImpl getXpeDccWorkflowView2() {
-        return (ViewObjectImpl) findViewObject("XpeDccWorkflowView2");
-    }
 
     /**
      * Container's getter for XpeDccContractsView1.
@@ -1225,13 +1211,6 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         return (ViewLinkImpl) findViewLink("XpeDccContractNotesFk1Link1");
     }
 
-    /**
-     * Container's getter for XpeDccWorkflowFk1Link1.
-     * @return XpeDccWorkflowFk1Link1
-     */
-    public ViewLinkImpl getXpeDccWorkflowFk1Link1() {
-        return (ViewLinkImpl) findViewLink("XpeDccWorkflowFk1Link1");
-    }
 
     /**
      * Container's getter for XpeDccContractsAttachmFk2Link1.
@@ -1771,6 +1750,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                 //setting contract version status
                 contractVersionViewRow.setXpeContractStatus(submissionType);
 
+                
                 //creating Internal Approval Work Flow Event
                 XpeDccWfEventEOVORowImpl approvalWFEventRow =
                     (XpeDccWfEventEOVORowImpl) this.getXpeDccWfEventEOVO().createRow();

@@ -1,0 +1,12 @@
+//Groovy Scripts for model.XpeDccContractsAttachments
+
+package model
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="AttachmentId")
+def AttachmentId_ExpressionScript_Expression()
+{
+(new oracle.jbo.server.SequenceImpl("XPE_DCC_CONTRACTS_ATTACH_SEQ",adf.object.getDBTransaction())).getSequenceNumber()
+}
+

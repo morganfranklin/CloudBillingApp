@@ -50,10 +50,10 @@ public class XpeDccContractVersionImpl extends EntityImpl {
         XpeDccContractNotes,
         XpeDccContractLine,
         XpeDccContracts,
-        XpeDccWorkflow,
         XpeDccContractsAttachments,
         XpeDccTermsContractEO;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -108,7 +108,6 @@ public class XpeDccContractVersionImpl extends EntityImpl {
     public static final int XPEDCCCONTRACTNOTES = AttributesEnum.XpeDccContractNotes.index();
     public static final int XPEDCCCONTRACTLINE = AttributesEnum.XpeDccContractLine.index();
     public static final int XPEDCCCONTRACTS = AttributesEnum.XpeDccContracts.index();
-    public static final int XPEDCCWORKFLOW = AttributesEnum.XpeDccWorkflow.index();
     public static final int XPEDCCCONTRACTSATTACHMENTS = AttributesEnum.XpeDccContractsAttachments.index();
     public static final int XPEDCCTERMSCONTRACTEO = AttributesEnum.XpeDccTermsContractEO.index();
 
@@ -602,12 +601,6 @@ public class XpeDccContractVersionImpl extends EntityImpl {
         setAttributeInternal(XPEDCCCONTRACTS, value);
     }
 
-    /**
-     * @return the associated entity oracle.jbo.RowIterator.
-     */
-    public RowIterator getXpeDccWorkflow() {
-        return (RowIterator) getAttributeInternal(XPEDCCWORKFLOW);
-    }
 
     /**
      * @return the associated entity oracle.jbo.RowIterator.

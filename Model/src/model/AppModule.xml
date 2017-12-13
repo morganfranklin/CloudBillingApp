@@ -267,9 +267,6 @@
         Name="XpeDccPlatformEventView1"
         ViewObjectName="model.XpeDccPlatformEventView"/>
     <ViewUsage
-        Name="XpeDccWorkflowView1"
-        ViewObjectName="model.XpeDccWorkflowView"/>
-    <ViewUsage
         Name="XpeDccDicPartyType1"
         ViewObjectName="model.XpeDccDicPartyType"/>
     <ViewUsage
@@ -356,9 +353,6 @@
     <ViewUsage
         Name="XpeDccContractNotesView1"
         ViewObjectName="model.XpeDccContractNotesView"/>
-    <ViewUsage
-        Name="XpeDccWorkflowView2"
-        ViewObjectName="model.XpeDccWorkflowView"/>
     <ViewUsage
         Name="XpeDccContractsView1"
         ViewObjectName="model.XpeDccContractsView"/>
@@ -765,12 +759,6 @@
         ViewLinkObjectName="model.XpeDccContractNotesFk1Link"
         SrcViewUsageName="model.AppModule.XpeDccContractVersionView1"
         DstViewUsageName="model.AppModule.XpeDccContractNotesView1"
-        Reversed="false"/>
-    <ViewLinkUsage
-        Name="XpeDccWorkflowFk1Link1"
-        ViewLinkObjectName="model.XpeDccWorkflowFk1Link"
-        SrcViewUsageName="model.AppModule.XpeDccContractVersionView1"
-        DstViewUsageName="model.AppModule.XpeDccWorkflowView2"
         Reversed="false"/>
     <ViewLinkUsage
         Name="XpeDccContractsAttachmFk2Link1"
