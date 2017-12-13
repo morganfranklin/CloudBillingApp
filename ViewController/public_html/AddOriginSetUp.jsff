@@ -279,7 +279,8 @@
             <af:selectOneChoice value="#{bindings.Inactive1.inputValue}" label="#{bindings.Inactive1.label}"
                                 required="#{bindings.Inactive1.hints.mandatory}"
                                 shortDesc="#{bindings.Inactive1.hints.tooltip}" id="soc6" simple="true"
-                                autoSubmit="true">
+                                autoSubmit="true"
+                                valueChangeListener="#{pageFlowScope.OriginsSetUpTableMBean.nycDosInactiveValChgLstnr}">
               <f:selectItems value="#{bindings.Inactive1.items}" id="si6"/>
               <f:validator binding="#{bindings.Inactive1.validator}"/>
             </af:selectOneChoice>

@@ -12,7 +12,13 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="model.views.entitybased.XpeDccCfgNycDosTermCustEOVORowImpl"
+  ComponentClass="model.views.entitybased.XpeDccCfgNycDosTermCustEOVOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <ViewAccessor
     Name="XpeDccCfgPCSShortNamesROVO1"
     ViewObjectName="model.views.readonly.XpeDccCfgPCSShortNamesROVO"

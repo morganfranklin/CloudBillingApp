@@ -28,6 +28,7 @@ import model.constants.NEUCloudBillingConstants;
 
 import model.utils.EmailUtils;
 
+import model.views.entitybased.XpeDccCfgAccountingEOVOImpl;
 import model.views.entitybased.XpeDccCfgBusinessunitEOVOImpl;
 import model.views.entitybased.XpeDccCfgCarriersEOVOImpl;
 import model.views.entitybased.XpeDccCfgCmtmntFacilityEOVOImpl;
@@ -45,6 +46,7 @@ import model.views.entitybased.XpeDccCfgMswFacilityEOVOImpl;
 import model.views.entitybased.XpeDccCfgMswFacilityEOVORowImpl;
 import model.views.entitybased.XpeDccCfgNotifGroupsEOVOImpl;
 import model.views.entitybased.XpeDccCfgNotificationEOVOImpl;
+import model.views.entitybased.XpeDccCfgNycDosTermCustEOVOImpl;
 import model.views.entitybased.XpeDccCfgOgnAssTerminalsEOVOImpl;
 import model.views.entitybased.XpeDccCfgOgnAssTerminalsEOVORowImpl;
 import model.views.entitybased.XpeDccCfgOriginsEOVOImpl;
@@ -2922,8 +2924,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      * Container's getter for XpeDccCfgAccountingEOVO1.
      * @return XpeDccCfgAccountingEOVO1
      */
-    public ViewObjectImpl getXpeDccCfgAccountingEOVO() {
-        return (ViewObjectImpl) findViewObject("XpeDccCfgAccountingEOVO");
+    public XpeDccCfgAccountingEOVOImpl getXpeDccCfgAccountingEOVO() {
+        return (XpeDccCfgAccountingEOVOImpl) findViewObject("XpeDccCfgAccountingEOVO");
     }
 
     /**
@@ -3320,8 +3322,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      * Container's getter for XpeDccCfgAccountingEOVO1.
      * @return XpeDccCfgAccountingEOVO1
      */
-    public ViewObjectImpl getXpeDccCfgNewAccountingEOVO() {
-        return (ViewObjectImpl) findViewObject("XpeDccCfgNewAccountingEOVO");
+    public XpeDccCfgAccountingEOVOImpl getXpeDccCfgNewAccountingEOVO() {
+        return (XpeDccCfgAccountingEOVOImpl) findViewObject("XpeDccCfgNewAccountingEOVO");
     }
 
     /**
@@ -3624,8 +3626,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      * Container's getter for XpeDccCfgNycDosTermCustEOVO1.
      * @return XpeDccCfgNycDosTermCustEOVO1
      */
-    public ViewObjectImpl getXpeDccCfgNycDosTermCustEOVO() {
-        return (ViewObjectImpl) findViewObject("XpeDccCfgNycDosTermCustEOVO");
+    public XpeDccCfgNycDosTermCustEOVOImpl getXpeDccCfgNycDosTermCustEOVO() {
+        return (XpeDccCfgNycDosTermCustEOVOImpl) findViewObject("XpeDccCfgNycDosTermCustEOVO");
     }
 
     /**
@@ -3648,8 +3650,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      * Container's getter for XpeDccCfgNycDosTermCustEOVO1.
      * @return XpeDccCfgNycDosTermCustEOVO1
      */
-    public ViewObjectImpl getXpeDccCfgNewNycDosTermCustEOVO() {
-        return (ViewObjectImpl) findViewObject("XpeDccCfgNewNycDosTermCustEOVO");
+    public XpeDccCfgNycDosTermCustEOVOImpl getXpeDccCfgNewNycDosTermCustEOVO() {
+        return (XpeDccCfgNycDosTermCustEOVOImpl) findViewObject("XpeDccCfgNewNycDosTermCustEOVO");
     }
 
     /**

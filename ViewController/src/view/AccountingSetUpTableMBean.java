@@ -1,11 +1,18 @@
 package view;
 
+import java.sql.Timestamp;
+
 import javax.el.ELContext;
 import javax.el.ExpressionFactory;
 import javax.el.MethodExpression;
 
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+
+import javax.faces.event.ValueChangeEvent;
+
+import model.views.entitybased.XpeDccCfgAccountingEOVORowImpl;
+import model.views.entitybased.XpeDccCfgBusinessunitEOVORowImpl;
 
 import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.view.rich.component.rich.RichPopup;
@@ -86,6 +93,16 @@ public class AccountingSetUpTableMBean {
             JSFUtils.addFacesInformationMessage("Data Saved Successfully.");
         }else{
             JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
+        }
+    }
+
+    public void accountingSetUpTblValChgLstnr(ValueChangeEvent valueChangeEvent) {
+        DCIteratorBinding accountingUnitIter = ADFUtils.findIterator("XpeDccCfgAccountingEOVOIterator");
+        XpeDccCfgAccountingEOVORowImpl accountingUnitRow = (XpeDccCfgAccountingEOVORowImpl) accountingUnitIter.getCurrentRow();
+        if (null != valueChangeEvent.getNewValue() && valueChangeEvent.getNewValue().equals("Y")) {
+            accountingUnitRow.setInactiveDate(new Timestamp(System.currentTimeMillis()));
+        } else {
+            accountingUnitRow.setInactiveDate(null);
         }
     }
 }

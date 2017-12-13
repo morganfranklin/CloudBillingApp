@@ -61,5 +61,12 @@
                   id="StatAccount1"/>
     <listOfValues IterBinding="XpeDccCfgAccountingEOVOIterator" StaticList="false" Uses="LOV_EntryType"
                   id="EntryType1"/>
+    <list IterBinding="XpeDccCfgAccountingEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgAccountingEOVOIterator" id="InactiveDate">
+      <AttrNames>
+        <Item Value="InactiveDate"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

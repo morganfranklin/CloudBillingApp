@@ -13,6 +13,7 @@ import javax.faces.event.ActionEvent;
 
 import javax.faces.event.ValueChangeEvent;
 
+import model.views.entitybased.XpeDccCfgNycDosTermCustEOVORowImpl;
 import model.views.entitybased.XpeDccCfgOgnAssTerminalsEOVORowImpl;
 import model.views.entitybased.XpeDccCfgOriginsEOVOImpl;
 
@@ -156,5 +157,16 @@ public class OriginsSetUpTableMBean implements Serializable {
 
     public void nycDosTermCustEditSaveOrCancel(ActionEvent actionEvent) {
         this.getOriginSetUpTableBBean().getNycDosTerminalCustEdit_popup().hide();
+    }
+
+    public void nycDosInactiveValChgLstnr(ValueChangeEvent valueChangeEvent) {
+        DCIteratorBinding nycDosTermIter = ADFUtils.findIterator("XpeDccCfgNewNycDosTermCustEOVOIterator");
+        XpeDccCfgNycDosTermCustEOVORowImpl nycDosTermRow =
+            (XpeDccCfgNycDosTermCustEOVORowImpl) nycDosTermIter.getCurrentRow();
+        if (null != valueChangeEvent.getNewValue() && valueChangeEvent.getNewValue().equals("Y")) {
+            nycDosTermRow.setInactiveDate(new Timestamp(System.currentTimeMillis()));
+        } else {
+            nycDosTermRow.setInactiveDate(null);
+        }
     }
 }
