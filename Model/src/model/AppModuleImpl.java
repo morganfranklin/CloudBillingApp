@@ -1711,7 +1711,10 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                             (XpeDccCfgMswFacilityEOVORowImpl) xpeDccCfgMswFacilityEOVO.first();
                         if (null != xpeDccCfgMswFacilityEOVORow) {
                             approvalEmails.put(NEUCloudBillingConstants.CUSTOMER_CARE, xpeDccCfgMswFacilityEOVORow.getCustomerCareReview());
-                            approvalEmails.put(NEUCloudBillingConstants.LEGAL, xpeDccCfgMswFacilityEOVORow.getLegalReview());
+                            //If Terms and Conditions modified then send email to Legal Reviewer
+                            if (null != newContractSetupRow && null!= newContractSetupRow.getTerms_Modifier_Check() && "Y".equals(newContractSetupRow.getTerms_Modifier_Check())){
+                                approvalEmails.put(NEUCloudBillingConstants.LEGAL, xpeDccCfgMswFacilityEOVORow.getLegalReview());
+                            }
                             approvalEmails.put(NEUCloudBillingConstants.GENERAL_MANAGER, xpeDccCfgMswFacilityEOVORow.getGeneralManagerReview());
                         }
                     } else if ("MSW".equals(wasteType) &&
@@ -2340,23 +2343,23 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
 
                             String wasteType = contractVersionViewRow.getXpeWasteType();
                             String contractSubType = contractVersionViewRow.getXpeContractSubType();
+                            String agreementType = contractVersionViewRow.getXpeAgreementType();
 
                             if (null != wasteType && null != contractSubType && "MSW".equals(wasteType) &&
-                                "SPT".equals(contractSubType)) {
+                                ("SPT".equals(contractSubType) || ("PMM".equals(contractSubType) && null != agreementType && "PNC".equals(agreementType)))) {
                                 XpeDccCfgMswFacilityEOVOImpl xpeDccCfgMswFacilityEOVO = this.getXpeDccCfgMswFacilityEOVO1();
                                 xpeDccCfgMswFacilityEOVO.executeEmptyRowSet();
                                 xpeDccCfgMswFacilityEOVO.setApplyViewCriteriaName("findByFacilityId");
                                 xpeDccCfgMswFacilityEOVO.setbind_FacilityId(xpeDccContractLineViewRow.getXpeFacility());
                                 xpeDccCfgMswFacilityEOVO.executeQuery();
-                                XpeDccCfgMswFacilityEOVORowImpl xpeDccCfgMswFacilityEOVORow =
-                                    (XpeDccCfgMswFacilityEOVORowImpl) xpeDccCfgMswFacilityEOVO.first();
+                                XpeDccCfgMswFacilityEOVORowImpl xpeDccCfgMswFacilityEOVORow = (XpeDccCfgMswFacilityEOVORowImpl) xpeDccCfgMswFacilityEOVO.first();
                                 if (null != xpeDccCfgMswFacilityEOVORow) {
                                     //(assuming you have a ResultSet named RS)
                                     BlobDomain signatureBlob = xpeDccCfgMswFacilityEOVORow.getGeneralManagerSignature();
                                     if (null != signatureBlob && (int) signatureBlob.getLength() > 0) {
-                                        byte[] signatureBlobAsEncodedBytes = Base64.encodeBase64(signatureBlob.getBytes(1, (int)signatureBlob.getLength()));
+                                        byte[] signatureBlobAsEncodedBytes = Base64.encodeBase64(signatureBlob.getBytes(1,(int) signatureBlob.getLength()));
                                         xmlBuilder.append("<IMAGE_ELEMENT>").append(signatureBlobAsEncodedBytes).append("</IMAGE_ELEMENT>");
-                                    } 
+                                    }
                                 }
                             }
                         }
@@ -2680,7 +2683,11 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     
     public void clearNewContract(){
         this.getXpeDccNewContractSetupROVO().clearCache();
-        //this.getXpeDccNewContractLPCROVO().clearCache();
+        this.getXpeDccNewContractSetupROVO().executeQuery();
+        XpeDccNewContractSetupROVORowImpl newContractSetupRow =
+            (XpeDccNewContractSetupROVORowImpl) this.getXpeDccNewContractSetupROVO().first();
+        if (null != newContractSetupRow)
+            newContractSetupRow.setTerms_Modifier_Check("N");
         this.getXpeDmsCustomerEOVO().setApplyViewCriteriaName("XpeDmsCustomerEmptyEOVOCriteria");
         this.getXpeDmsCustomerEOVO().executeQuery();
         this.getXpeDccNewContractCustomerSearchROVO().executeEmptyRowSet();

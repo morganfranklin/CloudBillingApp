@@ -204,5 +204,7 @@
     </attributeValues>
     <list IterBinding="XpeDccNewContractVersionViewIterator" StaticList="false" Uses="LOV_XpeExistingCustomer"
           id="XpeExistingCustomer" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccNewContractSetupROVOIterator" StaticList="false" Uses="LOV_Terms_Modifier_Check"
+          id="Terms_Modifier_Check" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>
