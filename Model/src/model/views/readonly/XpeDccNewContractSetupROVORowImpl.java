@@ -21,6 +21,7 @@ public class XpeDccNewContractSetupROVORowImpl extends ViewRowImpl {
         MailBillAddress,
         RFF_TAG,
         Approval_Level,
+        Terms_Modifier_Check,
         LookupSharedAppModule_XpeDccDicCustomerTypeLOV,
         LookupSharedAppModule_XpeDccDicBusinessTypeLOV,
         LookupSharedAppModule_XpeDccDicYORNLOV,
@@ -56,6 +57,7 @@ public class XpeDccNewContractSetupROVORowImpl extends ViewRowImpl {
     public static final int MAILBILLADDRESS = AttributesEnum.MailBillAddress.index();
     public static final int RFF_TAG = AttributesEnum.RFF_TAG.index();
     public static final int APPROVAL_LEVEL = AttributesEnum.Approval_Level.index();
+    public static final int TERMS_MODIFIER_CHECK = AttributesEnum.Terms_Modifier_Check.index();
     public static final int LOOKUPSHAREDAPPMODULE_XPEDCCDICCUSTOMERTYPELOV =
         AttributesEnum.LookupSharedAppModule_XpeDccDicCustomerTypeLOV.index();
     public static final int LOOKUPSHAREDAPPMODULE_XPEDCCDICBUSINESSTYPELOV =
@@ -158,6 +160,22 @@ public class XpeDccNewContractSetupROVORowImpl extends ViewRowImpl {
      */
     public void setApproval_Level(String value) {
         setAttributeInternal(APPROVAL_LEVEL, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute Terms_Modifier_Check.
+     * @return the Terms_Modifier_Check
+     */
+    public String getTerms_Modifier_Check() {
+        return (String) getAttributeInternal(TERMS_MODIFIER_CHECK);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute Terms_Modifier_Check.
+     * @param value value to set the  Terms_Modifier_Check
+     */
+    public void setTerms_Modifier_Check(String value) {
+        setAttributeInternal(TERMS_MODIFIER_CHECK, value);
     }
 
     /**

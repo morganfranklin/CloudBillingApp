@@ -148,20 +148,31 @@
                             </af:gridRow>
                             <af:gridRow marginTop="5px" height="auto" id="gr12">
                                 <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc13" halign="stretch">
-                                    <af:selectOneChoice value="#{bindings.XpeTermId.inputValue}"
-                                                        label="#{bindings.XpeTermId.label}"
-                                                        shortDesc="#{bindings.XpeTermId.hints.tooltip}" id="soc13"
-                                                        autoSubmit="true"
-                                                        valueChangeListener="#{pageFlowScope.XpeDccNewContractMBean.onTermIdValueChange}">
-                                        <f:selectItems value="#{bindings.XpeTermId.items}" id="si13"/>
-                                        <f:validator binding="#{bindings.XpeTermId.validator}"/>
-                                    </af:selectOneChoice>
+                                    <af:panelGroupLayout id="pgl13" layout="horizontal">
+                                        <af:selectOneChoice value="#{bindings.XpeTermId.inputValue}"
+                                                            label="#{bindings.XpeTermId.label}"
+                                                            shortDesc="#{bindings.XpeTermId.hints.tooltip}" id="soc13"
+                                                            autoSubmit="true"
+                                                            valueChangeListener="#{pageFlowScope.XpeDccNewContractMBean.onTermIdValueChange}">
+                                            <f:selectItems value="#{bindings.XpeTermId.items}" id="si13"/>
+                                            <f:validator binding="#{bindings.XpeTermId.validator}"/>
+                                        </af:selectOneChoice>
+                                        <af:spacer width="10" id="s6"/>
+                                        <af:selectOneRadio value="#{bindings.Terms_Modifier_Check.inputValue}"
+                                                           label="#{bindings.Terms_Modifier_Check.label}"
+                                                           required="#{bindings.Terms_Modifier_Check.hints.mandatory}"
+                                                           shortDesc="#{bindings.Terms_Modifier_Check.hints.tooltip}"
+                                                           id="sor2" layout="horizontal" autoSubmit="true">
+                                            <f:selectItems value="#{bindings.Terms_Modifier_Check.items}" id="si6"/>
+                                            <f:validator binding="#{bindings.Terms_Modifier_Check.validator}"/>
+                                        </af:selectOneRadio>
+                                    </af:panelGroupLayout>
                                 </af:gridCell>
                             </af:gridRow>
                             <af:gridRow id="gr5" marginTop="5px">
                              <af:gridCell id="gc31" halign="stretch" width="100%">
                                     <af:panelGroupLayout id="pgl8" layout="horizontal"
-                                                         partialTriggers="soc13 b_cre b_del" valign="top">
+                                                         partialTriggers="soc13 b_cre b_del sor2" valign="top">
                                         <af:panelGroupLayout id="pgl7" layout="vertical" partialTriggers="it5">
                                             <af:iterator id="i1"
                                                          value="#{bindings.XpeDccTermsContractEOVO.collectionModel}"
@@ -181,7 +192,8 @@
                                                           columns="#{bindings.XpeDccClause.hints.displayWidth}"
                                                           maximumLength="#{bindings.XpeDccClause.hints.precision}"
                                                           shortDesc="#{bindings.XpeDccClause.hints.tooltip}" id="it5"
-                                                          autoSubmit="true">
+                                                          autoSubmit="true"
+                                                          disabled="#{bindings.Terms_Modifier_Check.inputValue eq 'N'}">
                                                 <f:validator binding="#{bindings.XpeDccClause.validator}"/>
                                             </af:inputText>
                                             <af:inputText value="#{bindings.XpeDccSeq.inputValue}"
@@ -190,7 +202,8 @@
                                                           columns="#{bindings.XpeDccSeq.hints.displayWidth}"
                                                           maximumLength="#{bindings.XpeDccSeq.hints.precision}"
                                                           shortDesc="#{bindings.XpeDccSeq.hints.tooltip}" id="it6"
-                                                          autoSubmit="true">
+                                                          autoSubmit="true"
+                                                          disabled="#{bindings.Terms_Modifier_Check.inputValue eq 'N'}">
                                                 <f:validator binding="#{bindings.XpeDccSeq.validator}"/>
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.XpeDccSeq.format}"/>
@@ -200,7 +213,8 @@
                                                                label="#{bindings.XpeDccTermTemplate.hints.label}"
                                                                rows="8" converter="oracle.genericDomain"
                                                                autoSubmit="true"
-                                                               binding="#{backingBeanScope.XpeDccNewContractBBean.termTemplateRTE}">
+                                                               binding="#{backingBeanScope.XpeDccNewContractBBean.termTemplateRTE}"
+                                                               disabled="#{bindings.Terms_Modifier_Check.inputValue eq 'N'}">
                                                 <f:facet name="footer">
                                                     <af:panelGroupLayout id="pgl5" layout="horizontal">
                                                         <af:selectOneChoice value="#{bindings.RFF_TAG.inputValue}"
@@ -208,7 +222,8 @@
                                                                             required="#{bindings.RFF_TAG.hints.mandatory}"
                                                                             shortDesc="#{bindings.RFF_TAG.hints.tooltip}"
                                                                             id="soc14" autoSubmit="true"
-                                                                            valueChangeListener="#{pageFlowScope.XpeDccNewContractMBean.onDescSelValueChange}">
+                                                                            valueChangeListener="#{pageFlowScope.XpeDccNewContractMBean.onDescSelValueChange}"
+                                                                            visible="#{bindings.Terms_Modifier_Check.inputValue eq 'Y'}">
                                                             <f:selectItems value="#{bindings.RFF_TAG.items}" id="si14"/>
                                                             <f:validator binding="#{bindings.RFF_TAG.validator}"/>
                                                         </af:selectOneChoice>
@@ -219,7 +234,8 @@
                                                 </f:facet>
                                             </af:richTextEditor>
                                             <f:facet name="footer">
-                                                <af:panelGroupLayout layout="horizontal" id="pgl4">
+                                                <af:panelGroupLayout layout="horizontal" id="pgl4"
+                                                                     visible="#{bindings.Terms_Modifier_Check.inputValue eq 'Y'}">
                                                     <af:button text="Create Clause" id="b_cre"
                                                                actionListener="#{bindings.createTermContractRow.execute}"/>
                                                     <af:button actionListener="#{bindings.Delete.execute}"
@@ -296,7 +312,7 @@
                                                   columns="#{bindings.CustContractContactName.hints.displayWidth}"
                                                   maximumLength="#{bindings.CustContractContactName.hints.precision}"
                                                   shortDesc="#{bindings.CustContractContactName.hints.tooltip}"
-                                                  id="it1" required="true">
+                                                  id="it1" required="true" autoSubmit="true">
                                         <f:validator binding="#{bindings.CustContractContactName.validator}"/>
                                     </af:inputText>
                                     <af:inputText value="#{bindings.CustContractApproverEmail.inputValue}"
@@ -304,7 +320,7 @@
                                                   columns="#{bindings.CustContractApproverEmail.hints.displayWidth}"
                                                   maximumLength="#{bindings.CustContractApproverEmail.hints.precision}"
                                                   shortDesc="#{bindings.CustContractApproverEmail.hints.tooltip}"
-                                                  id="it4" required="true">
+                                                  id="it4" required="true" autoSubmit="true">
                                         <f:validator binding="#{bindings.CustContractApproverEmail.validator}"/>
                                     </af:inputText>
                                     <af:panelHeader text="Contract Detail" id="ph1">

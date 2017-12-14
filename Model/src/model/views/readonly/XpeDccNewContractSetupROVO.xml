@@ -184,6 +184,24 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LOV_Terms_Modifier_Check"
+    ListVOName="LookupSharedAppModule_XpeDccDicYORNLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Terms_Modifier_Check"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <SQLQuery><![CDATA[SELECT 1 ID FROM DUAL]]></SQLQuery>
   <ViewAttribute
     Name="Id"
@@ -286,6 +304,24 @@
           Value="radio"/>
         <LABEL
           ResId="model.views.readonly.XpeDccNewContractSetupROVO.Approval_Level_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Terms_Modifier_Check"
+    IsSelected="false"
+    IsPersistent="false"
+    Type="java.lang.String"
+    ColumnType="$none$"
+    AliasName="Terms_Modifier_Check"
+    SQLType="VARCHAR"
+    LOVName="LOV_Terms_Modifier_Check">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="radio"/>
+        <LABEL
+          ResId="model.views.readonly.XpeDccNewContractSetupROVO.Terms_Modifier_Check_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
