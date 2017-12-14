@@ -446,7 +446,7 @@
                                     </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccContractNotesView2.hints.XpeNoteType.name}"
                                                filterable="true" sortable="true" headerText="Note Type" id="c9"
-                                               width="100">
+                                               width="100" rendered="false">
                                         <af:selectOneChoice value="#{row.bindings.XpeNoteType.inputValue}"
                                                             label="#{row.bindings.XpeNoteType.label}"
                                                             required="#{bindings.XpeDccContractNotesView2.hints.XpeNoteType.mandatory}"
@@ -457,8 +457,8 @@
                                         </af:selectOneChoice>
                                     </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccContractNotesView2.hints.XpeNote.name}"
-                                               filterable="true" sortable="true" headerText="Note " id="c10"
-                                               width="335">
+                                               filterable="true" sortable="true" headerText="Note for Customer" id="c10"
+                                               width="250">
                                         <af:inputText value="#{row.bindings.XpeNote.inputValue}"
                                                       label="#{bindings.XpeDccContractNotesView2.hints.XpeNote.label}"
                                                       required="#{bindings.XpeDccContractNotesView2.hints.XpeNote.mandatory}"
@@ -467,6 +467,18 @@
                                                       shortDesc="#{bindings.XpeDccContractNotesView2.hints.XpeNote.tooltip}"
                                                       id="it7">
                                             <f:validator binding="#{row.bindings.XpeNote.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="Note for Covanta(Internal Use Only)" sortProperty="#{bindings.XpeDccContractNotesView2.hints.XpeNote.name}"
+                                               filterable="true" sortable="true" id="c12">
+                                        <af:inputText value="#{row.bindings.XpeNoteLong.inputValue}"
+                                                      label="#{bindings.XpeDccContractNotesView2.hints.XpeNoteLong.label}"
+                                                      required="#{bindings.XpeDccContractNotesView2.hints.XpeNoteLong.mandatory}"
+                                                      columns="#{bindings.XpeDccContractNotesView2.hints.XpeNoteLong.displayWidth}"
+                                                      maximumLength="#{bindings.XpeDccContractNotesView2.hints.XpeNoteLong.precision}"
+                                                      shortDesc="#{bindings.XpeDccContractNotesView2.hints.XpeNoteLong.tooltip}"
+                                                      id="it6">
+                                            <f:validator binding="#{row.bindings.XpeNoteLong.validator}"/>
                                         </af:inputText>
                                     </af:column>
                                 </af:table>

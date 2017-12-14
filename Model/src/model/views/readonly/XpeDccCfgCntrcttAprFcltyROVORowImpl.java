@@ -23,7 +23,8 @@ public class XpeDccCfgCntrcttAprFcltyROVORowImpl extends ViewRowImpl {
         LookupSharedAppModule_XpeDccDicAgreementType,
         LookupSharedAppModule_XpeDccDicContractSubType,
         LookupSharedAppModule_XpeDccDicWasteType,
-        XpeDccDicFacilities1;
+        XpeDccDicFacilities1,
+        XpeDccCfgPcsROVO1;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -60,6 +61,7 @@ public class XpeDccCfgCntrcttAprFcltyROVORowImpl extends ViewRowImpl {
     public static final int LOOKUPSHAREDAPPMODULE_XPEDCCDICWASTETYPE =
         AttributesEnum.LookupSharedAppModule_XpeDccDicWasteType.index();
     public static final int XPEDCCDICFACILITIES1 = AttributesEnum.XpeDccDicFacilities1.index();
+    public static final int XPEDCCCFGPCSROVO1 = AttributesEnum.XpeDccCfgPcsROVO1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -165,6 +167,13 @@ public class XpeDccCfgCntrcttAprFcltyROVORowImpl extends ViewRowImpl {
      */
     public RowSet getXpeDccDicFacilities1() {
         return (RowSet) getAttributeInternal(XPEDCCDICFACILITIES1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> XpeDccCfgPcsROVO1.
+     */
+    public RowSet getXpeDccCfgPcsROVO1() {
+        return (RowSet) getAttributeInternal(XPEDCCCFGPCSROVO1);
     }
 }
 
