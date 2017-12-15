@@ -10,6 +10,7 @@ import javax.faces.event.ValueChangeEvent;
 import model.views.entitybased.XpeDccCfgCmtmntFacilityEOVORowImpl;
 import model.views.entitybased.XpeDccCfgMetalsFacilityEOVORowImpl;
 import model.views.entitybased.XpeDccCfgMswFacilityEOVORowImpl;
+import model.views.entitybased.XpeDccCfgSpclWasteFcltyEOVORowImpl;
 import model.views.readonly.XpeDccCfgCntrcttAprFcltyROVORowImpl;
 
 import oracle.adf.model.binding.DCIteratorBinding;
@@ -274,6 +275,8 @@ public class ContractApprovalFacilitySetUpMBean implements Serializable{
             }
         } else if (null != wasteType && "MTL".equals(wasteType)) {
             ADFContext.getCurrent().getRequestScope().put("type", "MTL");
+        } else if (null != wasteType && "SW".equals(wasteType)){
+            ADFContext.getCurrent().getRequestScope().put("type", "SW");
         }
         ADFUtils.findOperation("searchCntrctAprFcltySetUp").execute();
     }
@@ -306,5 +309,97 @@ public class ContractApprovalFacilitySetUpMBean implements Serializable{
         }else{
             metalsRow.setInactiveDate(null);
         }
+    }
+    
+    public void spclWstInactiveValChgLstnr(ValueChangeEvent valueChangeEvent) {
+        DCIteratorBinding metalsIter = ADFUtils.findIterator("XpeDccCfgMetalsFacilityEOVO1Iterator");
+        XpeDccCfgMetalsFacilityEOVORowImpl metalsRow = (XpeDccCfgMetalsFacilityEOVORowImpl) metalsIter.getCurrentRow();
+        if (null != valueChangeEvent.getNewValue() && valueChangeEvent.getNewValue().equals("Y")){
+            metalsRow.setInactiveDate(new Timestamp(System.currentTimeMillis()));
+        }else{
+            metalsRow.setInactiveDate(null);
+        }
+    }
+
+    public void onSpclWasteFacilityCreation(ActionEvent actionEvent) {
+        RichPopup.PopupHints hints = new RichPopup.PopupHints();
+        this.getContractApprovalFacilitySetUpBBean().getSpclWasteFacilityAdd_popup().show(hints);
+    }
+
+    public void onSpclWasteFacilityEdit(ActionEvent actionEvent) {
+        RichPopup.PopupHints hints = new RichPopup.PopupHints();
+        this.getContractApprovalFacilitySetUpBBean().getSpclWasteFacilityEdit_popup().show(hints);
+    }
+
+    public void spclWasteFacilityInactiveValChgLstnr(ValueChangeEvent valueChangeEvent) {
+        DCIteratorBinding spclWasteFcltyIter = ADFUtils.findIterator("XpeDccCfgSpclWasteFcltyEOVO1Iterator");
+        XpeDccCfgSpclWasteFcltyEOVORowImpl spclWasteFcltyRow = (XpeDccCfgSpclWasteFcltyEOVORowImpl) spclWasteFcltyIter.getCurrentRow();
+        if (null != valueChangeEvent.getNewValue() && valueChangeEvent.getNewValue().equals("Y")){
+            spclWasteFcltyRow.setInactiveDate(new Timestamp(System.currentTimeMillis()));
+        }else{
+            spclWasteFcltyRow.setInactiveDate(null);
+        }
+    }
+
+    public void spclWasteFcltyAddSaveActnLstnr(ActionEvent actionEvent) {
+        BlobDomain blobDomain = (BlobDomain)ADFUtils.evaluateEL("#{sessionScope.SIGNATURE}");
+        if (null != blobDomain) {
+            //Get current row of viewObject using iterator
+            DCIteratorBinding iterator = ADFUtils.findIterator("XpeDccCfgNewSpclWasteFcltyEOVOIterator");
+            ViewObject viewObject = iterator.getViewObject();
+            XpeDccCfgSpclWasteFcltyEOVORowImpl currentRow = (XpeDccCfgSpclWasteFcltyEOVORowImpl) viewObject.getCurrentRow();
+            try {
+                //Save image in Blob column in database
+                if(null!=currentRow)
+                    currentRow.setCustomerCareSignature(blobDomain);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }finally{
+                ADFUtils.setvalueToExpression("#{sessionScope.SIGNATURE}", null);
+            }
+        }
+        OperationBinding opb = ADFUtils.findOperation("Commit");
+        opb.execute();
+        if (opb.getErrors().isEmpty()) {
+            this.getContractApprovalFacilitySetUpBBean().getSpclWasteFacilityAdd_popup().hide();
+            JSFUtils.addFacesInformationMessage("Data Saved Successfully.");
+        } else {
+            JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
+        }
+    }
+
+    public void spclWasteFcltyAddCancelActnLstnr(ActionEvent actionEvent) {
+        this.getContractApprovalFacilitySetUpBBean().getSpclWasteFacilityAdd_popup().hide();
+    }
+
+    public void spclWasteFcltyEditSaveActnLstnr(ActionEvent actionEvent) {
+        BlobDomain blobDomain = (BlobDomain)ADFUtils.evaluateEL("#{sessionScope.SIGNATURE}");
+        if (null != blobDomain) {
+            //Get current row of viewObject using iterator
+            DCIteratorBinding iterator = ADFUtils.findIterator("XpeDccCfgSpclWasteFcltyEOVO1Iterator");
+            ViewObject viewObject = iterator.getViewObject();
+            XpeDccCfgSpclWasteFcltyEOVORowImpl currentRow = (XpeDccCfgSpclWasteFcltyEOVORowImpl) viewObject.getCurrentRow();
+            try {
+                //Save image in Blob column in database
+                if(null!=currentRow)
+                    currentRow.setCustomerCareSignature(blobDomain);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }finally{
+                ADFUtils.setvalueToExpression("#{sessionScope.SIGNATURE}", null);
+            }
+        }
+        OperationBinding opb = ADFUtils.findOperation("Commit");
+        opb.execute();
+        if (opb.getErrors().isEmpty()) {
+            this.getContractApprovalFacilitySetUpBBean().getSpclWasteFacilityEdit_popup().hide();
+            JSFUtils.addFacesInformationMessage("Data Saved Successfully.");
+        } else {
+            JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
+        }
+    }
+
+    public void spclWasteFcltyEditCancelActnLstnr(ActionEvent actionEvent) {
+        this.getContractApprovalFacilitySetUpBBean().getSpclWasteFacilityEdit_popup().hide();
     }
 }

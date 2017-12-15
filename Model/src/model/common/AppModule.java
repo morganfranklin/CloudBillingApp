@@ -51,7 +51,6 @@ public interface AppModule extends ApplicationModule {
 
     Map routeForApproval(String contractId, String contractVersion);
 
-    String pushEmailForApproval(byte[] bytes, String contractId, String contractVersion);
 
     void accrualandRevenueGenerationProcesses();
 

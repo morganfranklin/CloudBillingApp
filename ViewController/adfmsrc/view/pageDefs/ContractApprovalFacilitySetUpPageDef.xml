@@ -30,6 +30,14 @@
               xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
     <taskFlow id="fileUploadFlow6" taskFlowId="/WEB-INF/fileUploadFlow.xml#fileUploadFlow" activation="deferred"
               xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <iterator Binds="XpeDccCfgSpclWasteFcltyEOVO1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgSpclWasteFcltyEOVO1Iterator"/>
+    <iterator Binds="XpeDccCfgNewSpclWasteFcltyEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewSpclWasteFcltyEOVOIterator"/>
+    <taskFlow id="fileUploadFlow7" taskFlowId="/WEB-INF/fileUploadFlow.xml#fileUploadFlow" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="fileUploadFlow8" taskFlowId="/WEB-INF/fileUploadFlow.xml#fileUploadFlow" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
   </executables>
   <bindings>
     <list IterBinding="XpeDccCfgCntrcttAprFcltyROVO1Iterator" StaticList="false" Uses="LOV_XpeWasteType"
@@ -266,5 +274,39 @@
                   InstanceName="data.AppModuleDataControl.dataProvider">
       <NamedData NDName="type" NDValue="#{requestScope.type}" NDType="java.lang.String"/>
     </methodAction>
+    <tree IterBinding="XpeDccCfgSpclWasteFcltyEOVO1Iterator" id="XpeDccCfgSpclWasteFcltyEOVO1">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccCfgSpclWasteFcltyEOVO"
+                      Name="XpeDccCfgSpclWasteFcltyEOVO10">
+        <AttrNames>
+          <Item Value="XpeFacilityId"/>
+          <Item Value="CustomerCareReview"/>
+          <Item Value="Inactive"/>
+          <Item Value="InactiveDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <list IterBinding="XpeDccCfgSpclWasteFcltyEOVO1Iterator" StaticList="false" Uses="LOV_XpeFacilityId"
+          id="XpeFacilityId7" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgSpclWasteFcltyEOVO1Iterator" id="CustomerCareReview6">
+      <AttrNames>
+        <Item Value="CustomerCareReview"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgSpclWasteFcltyEOVO1Iterator" StaticList="false" Uses="LOV_Inactive" id="Inactive2"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgSpclWasteFcltyEOVO1Iterator" id="InactiveDate2">
+      <AttrNames>
+        <Item Value="InactiveDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgNewSpclWasteFcltyEOVOIterator" StaticList="false" Uses="LOV_XpeFacilityId"
+          id="XpeFacilityId8" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgNewSpclWasteFcltyEOVOIterator" id="CustomerCareReview7">
+      <AttrNames>
+        <Item Value="CustomerCareReview"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="XpeDccCfgNewSpclWasteFcltyEOVOIterator" id="CreateInsert4" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
   </bindings>
 </pageDefinition>

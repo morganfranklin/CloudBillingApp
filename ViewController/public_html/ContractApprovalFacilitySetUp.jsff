@@ -661,6 +661,150 @@
           </af:dialog>
         </af:popup>
       </af:panelHeader>
+      <af:panelHeader text="Facility Lookup" id="ph6" size="5" visible="#{requestScope.type eq 'SW'}">
+        <f:facet name="context"/>
+        <f:facet name="toolbar">
+          <af:toolbar id="t9">
+            <af:button action="#{bindings.CreateInsert4.execute}" text="Add"
+                       id="b27"
+                       actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.onSpclWasteFacilityCreation}"/>
+            <af:spacer width="10" height="10" id="s12"/>
+            <af:button text="Edit" id="b22"
+                       actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.onSpclWasteFacilityEdit}"/>
+          </af:toolbar>
+        </f:facet>
+        <f:facet name="menuBar"/>
+        <f:facet name="legend"/>
+        <f:facet name="info"/>
+        <af:table value="#{bindings.XpeDccCfgSpclWasteFcltyEOVO1.collectionModel}" var="row"
+                  rows="#{bindings.XpeDccCfgSpclWasteFcltyEOVO1.rangeSize}"
+                  emptyText="#{bindings.XpeDccCfgSpclWasteFcltyEOVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  rowBandingInterval="0"
+                  selectedRowKeys="#{bindings.XpeDccCfgSpclWasteFcltyEOVO1.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.XpeDccCfgSpclWasteFcltyEOVO1.collectionModel.makeCurrent}"
+                  rowSelection="single" fetchSize="#{bindings.XpeDccCfgSpclWasteFcltyEOVO1.rangeSize}" id="t8"
+                  columnStretching="last" contentDelivery="immediate" styleClass="AFStretchWidth"
+                  partialTriggers="::b27">
+          <af:column headerText="#{bindings.XpeDccCfgSpclWasteFcltyEOVO1.hints.XpeFacilityId.label}" id="c18">
+            <af:selectOneChoice value="#{row.bindings.XpeFacilityId.inputValue}"
+                                label="#{row.bindings.XpeFacilityId.label}"
+                                required="#{bindings.XpeDccCfgSpclWasteFcltyEOVO1.hints.XpeFacilityId.mandatory}"
+                                shortDesc="#{bindings.XpeDccCfgSpclWasteFcltyEOVO1.hints.XpeFacilityId.tooltip}"
+                                readOnly="true" id="soc14">
+              <f:selectItems value="#{row.bindings.XpeFacilityId.items}" id="si14"/>
+              <f:validator binding="#{row.bindings.XpeFacilityId.validator}"/>
+            </af:selectOneChoice>
+          </af:column>
+          <af:column headerText="#{bindings.XpeDccCfgSpclWasteFcltyEOVO1.hints.CustomerCareReview.label}" id="c19"
+                     width="300">
+            <af:outputText value="#{row.CustomerCareReview}"
+                           shortDesc="#{bindings.XpeDccCfgSpclWasteFcltyEOVO1.hints.CustomerCareReview.tooltip}"
+                           id="ot15"/>
+          </af:column>
+          <af:column headerText="#{bindings.XpeDccCfgSpclWasteFcltyEOVO1.hints.Inactive.label}" id="c20">
+            <af:selectOneChoice value="#{row.bindings.Inactive.inputValue}" label="#{row.bindings.Inactive.label}"
+                                required="#{bindings.XpeDccCfgSpclWasteFcltyEOVO1.hints.Inactive.mandatory}"
+                                shortDesc="#{bindings.XpeDccCfgSpclWasteFcltyEOVO1.hints.Inactive.tooltip}"
+                                readOnly="true" id="soc18">
+              <f:selectItems value="#{row.bindings.Inactive.items}" id="si18"/>
+              <f:validator binding="#{row.bindings.Inactive.validator}"/>
+            </af:selectOneChoice>
+          </af:column>
+          <af:column headerText="#{bindings.XpeDccCfgSpclWasteFcltyEOVO1.hints.InactiveDate.label}" id="c21">
+            <af:outputText value="#{row.InactiveDate}"
+                           shortDesc="#{bindings.XpeDccCfgSpclWasteFcltyEOVO1.hints.InactiveDate.tooltip}" id="ot16">
+              <af:convertDateTime pattern="#{bindings.XpeDccCfgSpclWasteFcltyEOVO1.hints.InactiveDate.format}"/>
+            </af:outputText>
+          </af:column>
+        </af:table>
+        <af:popup childCreation="deferred" autoCancel="disabled" id="p7"
+                  binding="#{backingBeanScope.ContractApprovalFacilitySetUpBBean.spclWasteFacilityAdd_popup}"
+                  contentDelivery="lazyUncached">
+          <af:dialog id="d7" type="none" title="Add Facility" closeIconVisible="false">
+            <f:facet name="buttonBar">
+              <af:button text="Save" id="b23"
+                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.spclWasteFcltyAddSaveActnLstnr}"/>
+              <af:spacer width="10" height="10" id="s14"/>
+              <af:button text="Cancel" id="b24"
+                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.spclWasteFcltyAddCancelActnLstnr}"
+                         action="#{bindings.Rollback.execute}" immediate="true"/>
+            </f:facet>
+            <af:panelFormLayout id="pfl9">
+              <af:panelLabelAndMessage label="#{bindings.XpeFacilityId8.label}" id="plam16">
+                <af:selectOneChoice value="#{bindings.XpeFacilityId8.inputValue}"
+                                    label="#{bindings.XpeFacilityId8.label}"
+                                    required="#{bindings.XpeFacilityId8.hints.mandatory}"
+                                    shortDesc="#{bindings.XpeFacilityId8.hints.tooltip}" id="soc21" autoSubmit="true"
+                                    simple="true">
+                  <f:selectItems value="#{bindings.XpeFacilityId8.items}" id="si21"/>
+                  <f:validator binding="#{bindings.XpeFacilityId8.validator}"/>
+                </af:selectOneChoice>
+              </af:panelLabelAndMessage>
+              <af:inputText value="#{bindings.CustomerCareReview7.inputValue}"
+                            label="#{bindings.CustomerCareReview7.hints.label}"
+                            required="#{bindings.CustomerCareReview7.hints.mandatory}"
+                            columns="#{bindings.CustomerCareReview7.hints.displayWidth}"
+                            maximumLength="#{bindings.CustomerCareReview7.hints.precision}"
+                            shortDesc="#{bindings.CustomerCareReview7.hints.tooltip}" id="it30">
+                <f:validator binding="#{bindings.CustomerCareReview7.validator}"/>
+              </af:inputText>
+              <af:region value="#{bindings.fileUploadFlow7.regionModel}" id="r7"/>
+            </af:panelFormLayout>
+          </af:dialog>
+        </af:popup>
+        <af:popup childCreation="deferred" autoCancel="disabled" id="p8"
+                  binding="#{backingBeanScope.ContractApprovalFacilitySetUpBBean.spclWasteFacilityEdit_popup}"
+                  contentDelivery="lazyUncached">
+          <af:dialog id="d8" type="none" title="Edit Facility" closeIconVisible="false">
+            <f:facet name="buttonBar">
+              <af:button text="Save" id="b25"
+                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.spclWasteFcltyEditSaveActnLstnr}"/>
+              <af:spacer width="10" height="10" id="s13"/>
+              <af:button text="Cancel" id="b26"
+                         actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.spclWasteFcltyEditCancelActnLstnr}"
+                         action="#{bindings.Rollback.execute}" immediate="true"/>
+            </f:facet>
+            <af:panelFormLayout id="pfl8">
+              <af:panelLabelAndMessage label="#{bindings.XpeFacilityId7.label}" id="plam12">
+                <af:selectOneChoice value="#{bindings.XpeFacilityId7.inputValue}"
+                                    label="#{bindings.XpeFacilityId7.label}"
+                                    required="#{bindings.XpeFacilityId7.hints.mandatory}"
+                                    shortDesc="#{bindings.XpeFacilityId7.hints.tooltip}" id="soc19" simple="true"
+                                    autoSubmit="true" readOnly="true">
+                  <f:selectItems value="#{bindings.XpeFacilityId7.items}" id="si19"/>
+                  <f:validator binding="#{bindings.XpeFacilityId7.validator}"/>
+                </af:selectOneChoice>
+              </af:panelLabelAndMessage>
+              <af:inputText value="#{bindings.CustomerCareReview6.inputValue}"
+                            label="#{bindings.CustomerCareReview6.hints.label}"
+                            required="#{bindings.CustomerCareReview6.hints.mandatory}"
+                            columns="#{bindings.CustomerCareReview6.hints.displayWidth}"
+                            maximumLength="#{bindings.CustomerCareReview6.hints.precision}"
+                            shortDesc="#{bindings.CustomerCareReview6.hints.tooltip}" id="it29">
+                <f:validator binding="#{bindings.CustomerCareReview6.validator}"/>
+              </af:inputText>
+              <af:panelLabelAndMessage label="#{bindings.Inactive2.label}" id="plam15">
+                <af:selectOneChoice value="#{bindings.Inactive2.inputValue}" label="#{bindings.Inactive2.label}"
+                                    required="#{bindings.Inactive2.hints.mandatory}"
+                                    shortDesc="#{bindings.Inactive2.hints.tooltip}" id="soc20" simple="true"
+                                    autoSubmit="true"
+                                    valueChangeListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.spclWasteFacilityInactiveValChgLstnr}">
+                  <f:selectItems value="#{bindings.Inactive2.items}" id="si20"/>
+                  <f:validator binding="#{bindings.Inactive2.validator}"/>
+                </af:selectOneChoice>
+              </af:panelLabelAndMessage>
+              <af:inputDate value="#{bindings.InactiveDate2.inputValue}" label="#{bindings.InactiveDate2.hints.label}"
+                            required="#{bindings.InactiveDate2.hints.mandatory}"
+                            columns="#{bindings.InactiveDate2.hints.displayWidth}"
+                            shortDesc="#{bindings.InactiveDate2.hints.tooltip}" id="id3" partialTriggers="soc20">
+                <f:validator binding="#{bindings.InactiveDate2.validator}"/>
+                <af:convertDateTime pattern="#{bindings.InactiveDate2.format}"/>
+              </af:inputDate>
+              <af:region value="#{bindings.fileUploadFlow8.regionModel}" id="r8"/>
+            </af:panelFormLayout>
+          </af:dialog>
+        </af:popup>
+      </af:panelHeader>
     </af:panelGroupLayout>
   </af:panelGroupLayout>
 </ui:composition>

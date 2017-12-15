@@ -9,6 +9,8 @@ public class ContractApprovalFacilitySetUpBBean {
     private RichPopup cmtmntFacilityEdit_popup;
     private RichPopup metalsFacilityAdd_popup;
     private RichPopup metalsFacilityEdit_popup;
+    private RichPopup spclWasteFacilityAdd_popup;
+    private RichPopup spclWasteFacilityEdit_popup;
 
     public ContractApprovalFacilitySetUpBBean() {
     }
@@ -59,5 +61,21 @@ public class ContractApprovalFacilitySetUpBBean {
 
     public RichPopup getMetalsFacilityEdit_popup() {
         return metalsFacilityEdit_popup;
+    }
+
+    public void setSpclWasteFacilityAdd_popup(RichPopup spclWasteFacilityAdd_popup) {
+        this.spclWasteFacilityAdd_popup = spclWasteFacilityAdd_popup;
+    }
+
+    public RichPopup getSpclWasteFacilityAdd_popup() {
+        return spclWasteFacilityAdd_popup;
+    }
+
+    public void setSpclWasteFacilityEdit_popup(RichPopup spclWasteFacilityEdit_popup) {
+        this.spclWasteFacilityEdit_popup = spclWasteFacilityEdit_popup;
+    }
+
+    public RichPopup getSpclWasteFacilityEdit_popup() {
+        return spclWasteFacilityEdit_popup;
     }
 }
