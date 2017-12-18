@@ -15,4 +15,7 @@ public class NEUCloudBillingConstants {
     public static final String CFO="CFO";
     public static final String CEO="CEO";
     public static final String CUSTOMER="CUSTOMER";
+    public static final String RTF_TEMPLATE1="Covanta - Spot-Premium Contract Template v2";
+    public static final String RTF_TEMPLATE2="OGI - Ferrous Purchase Sale Agreement spot v12-21-14";
+    public static final String RTF_TEMPLATE3="OGI - Non-Ferrous Purchase Sale Agreement spot v12-21-14";
 }

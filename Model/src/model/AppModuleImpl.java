@@ -1685,24 +1685,26 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                 String contractSubType = contractVersionViewRow.getXpeContractSubType();
                 String agreementType = contractVersionViewRow.getXpeAgreementType();
 
-                if (null != wasteType && "MTL".equals(wasteType)) {
-                    xpeDccCfgMetalsFacilityEOVO.executeEmptyRowSet();
-                    xpeDccCfgMetalsFacilityEOVO.setApplyViewCriteriaName("findByFacilityId");
-                    xpeDccCfgMetalsFacilityEOVO.setbind_FacilityId(xpeDccContractLineViewRow.getXpeFacility());
-                    xpeDccCfgMetalsFacilityEOVO.executeQuery();
-                    XpeDccCfgMetalsFacilityEOVORowImpl xpeDccCfgMetalsFacilityEOVORow =
-                        (XpeDccCfgMetalsFacilityEOVORowImpl) xpeDccCfgMetalsFacilityEOVO.first();
-                    if (null != xpeDccCfgMetalsFacilityEOVORow) {
-                        approvalEmails.put(NEUCloudBillingConstants.CUSTOMER_CARE, xpeDccCfgMetalsFacilityEOVORow.getCustomerCareReview());
-                        approvalEmails.put(NEUCloudBillingConstants.LEGAL, xpeDccCfgMetalsFacilityEOVORow.getLegalReview());
-                        approvalEmails.put(NEUCloudBillingConstants.FINANCIAL, xpeDccCfgMetalsFacilityEOVORow.getFinancialReview());
-                        approvalEmails.put(NEUCloudBillingConstants.SVP, xpeDccCfgMetalsFacilityEOVORow.getSvpReview());
+                if (null != wasteType) {
+                    if ("MTL".equals(wasteType)) {
+                        xpeDccCfgMetalsFacilityEOVO.executeEmptyRowSet();
+                        xpeDccCfgMetalsFacilityEOVO.setApplyViewCriteriaName("findByFacilityId");
+                        xpeDccCfgMetalsFacilityEOVO.setbind_FacilityId(xpeDccContractLineViewRow.getXpeFacility());
+                        xpeDccCfgMetalsFacilityEOVO.executeQuery();
+                        XpeDccCfgMetalsFacilityEOVORowImpl xpeDccCfgMetalsFacilityEOVORow =
+                            (XpeDccCfgMetalsFacilityEOVORowImpl) xpeDccCfgMetalsFacilityEOVO.first();
+                        if (null != xpeDccCfgMetalsFacilityEOVORow) {
+                            approvalEmails.put(NEUCloudBillingConstants.CUSTOMER_CARE,
+                                               xpeDccCfgMetalsFacilityEOVORow.getCustomerCareReview());
+                            approvalEmails.put(NEUCloudBillingConstants.LEGAL,
+                                               xpeDccCfgMetalsFacilityEOVORow.getLegalReview());
+                            approvalEmails.put(NEUCloudBillingConstants.FINANCIAL,
+                                               xpeDccCfgMetalsFacilityEOVORow.getFinancialReview());
+                            approvalEmails.put(NEUCloudBillingConstants.SVP,
+                                               xpeDccCfgMetalsFacilityEOVORow.getSvpReview());
+                        }
                     }
-                }
-                if (null != wasteType && null != contractSubType) {
-                    if ("MSW".equals(wasteType) &&
-                        ("SPT".equals(contractSubType) ||
-                         ("PMM".equals(contractSubType) && null != agreementType && "PNC".equals(agreementType)))) {
+                    if ("SW".equals(wasteType)) {
                         xpeDccCfgMswFacilityEOVO.executeEmptyRowSet();
                         xpeDccCfgMswFacilityEOVO.setApplyViewCriteriaName("findByFacilityId");
                         xpeDccCfgMswFacilityEOVO.setbind_FacilityId(xpeDccContractLineViewRow.getXpeFacility());
@@ -1710,43 +1712,82 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                         XpeDccCfgMswFacilityEOVORowImpl xpeDccCfgMswFacilityEOVORow =
                             (XpeDccCfgMswFacilityEOVORowImpl) xpeDccCfgMswFacilityEOVO.first();
                         if (null != xpeDccCfgMswFacilityEOVORow) {
-                            approvalEmails.put(NEUCloudBillingConstants.CUSTOMER_CARE, xpeDccCfgMswFacilityEOVORow.getCustomerCareReview());
-                            //If Terms and Conditions modified then send email to Legal Reviewer
-                            if (null != newContractSetupRow && null!= newContractSetupRow.getTerms_Modifier_Check() && "Y".equals(newContractSetupRow.getTerms_Modifier_Check())){
-                                approvalEmails.put(NEUCloudBillingConstants.LEGAL, xpeDccCfgMswFacilityEOVORow.getLegalReview());
-                            }
-                            approvalEmails.put(NEUCloudBillingConstants.GENERAL_MANAGER, xpeDccCfgMswFacilityEOVORow.getGeneralManagerReview());
+                            approvalEmails.put(NEUCloudBillingConstants.CUSTOMER_CARE,
+                                               xpeDccCfgMswFacilityEOVORow.getCustomerCareReview());
                         }
-                    } else if ("MSW".equals(wasteType) &&
-                               ("FLY".equals(contractSubType) ||
-                                ("PMM".equals(contractSubType) && null != agreementType &&
-                                 "PC".equals(agreementType)))) {
-                        xpeDccCfgCmtmntFacilityEOVO.executeEmptyRowSet();
-                        xpeDccCfgCmtmntFacilityEOVO.setApplyViewCriteriaName("findByFacilityId");
-                        xpeDccCfgCmtmntFacilityEOVO.setbind_FacilityId(xpeDccContractLineViewRow.getXpeFacility());
-                        xpeDccCfgCmtmntFacilityEOVO.executeQuery();
-                        XpeDccCfgCmtmntFacilityEOVORowImpl xpeDccCfgCmtmntFacilityEOVORow =
-                            (XpeDccCfgCmtmntFacilityEOVORowImpl) xpeDccCfgCmtmntFacilityEOVO.first();
-                        if (null != xpeDccCfgCmtmntFacilityEOVORow && null != newContractSetupRow.getApproval_Level()) {
-                            if ("EVP".equals(newContractSetupRow.getApproval_Level())) {
-                                approvalEmails.put(NEUCloudBillingConstants.CUSTOMER_CARE, xpeDccCfgCmtmntFacilityEOVORow.getCustomerCareReview());
-                                approvalEmails.put(NEUCloudBillingConstants.LEGAL, xpeDccCfgCmtmntFacilityEOVORow.getLegalReview());
-                                approvalEmails.put(NEUCloudBillingConstants.FINANCIAL, xpeDccCfgCmtmntFacilityEOVORow.getFinancialReview());
-                                approvalEmails.put(NEUCloudBillingConstants.GENERAL_MANAGER, xpeDccCfgCmtmntFacilityEOVORow.getGeneralManagerReview());
-                                approvalEmails.put(NEUCloudBillingConstants.EVP, xpeDccCfgCmtmntFacilityEOVORow.getSustSolReview());
-                            } else if ("CEO".equals(newContractSetupRow.getApproval_Level())) {
-                                approvalEmails.put(NEUCloudBillingConstants.CUSTOMER_CARE, xpeDccCfgCmtmntFacilityEOVORow.getCustomerCareReview());
-                                approvalEmails.put(NEUCloudBillingConstants.LEGAL, xpeDccCfgCmtmntFacilityEOVORow.getLegalReview());
-                                approvalEmails.put(NEUCloudBillingConstants.FINANCIAL, xpeDccCfgCmtmntFacilityEOVORow.getFinancialReview());
-                                approvalEmails.put(NEUCloudBillingConstants.GENERAL_MANAGER, xpeDccCfgCmtmntFacilityEOVORow.getGeneralManagerReview());
-                                approvalEmails.put(NEUCloudBillingConstants.EVP, xpeDccCfgCmtmntFacilityEOVORow.getSustSolReview());
-                                approvalEmails.put(NEUCloudBillingConstants.CFO, xpeDccCfgCmtmntFacilityEOVORow.getCfoReview());
-                                approvalEmails.put(NEUCloudBillingConstants.CEO, xpeDccCfgCmtmntFacilityEOVORow.getCeoReview());
-                            } else if ("NA".equals(newContractSetupRow.getApproval_Level())) {
-                                approvalEmails.put(NEUCloudBillingConstants.CUSTOMER_CARE, xpeDccCfgCmtmntFacilityEOVORow.getCustomerCareReview());
-                                approvalEmails.put(NEUCloudBillingConstants.LEGAL, xpeDccCfgCmtmntFacilityEOVORow.getLegalReview());
-                                approvalEmails.put(NEUCloudBillingConstants.FINANCIAL, xpeDccCfgCmtmntFacilityEOVORow.getFinancialReview());
-                                approvalEmails.put(NEUCloudBillingConstants.GENERAL_MANAGER, xpeDccCfgCmtmntFacilityEOVORow.getGeneralManagerReview());
+                    }
+                    if (null != contractSubType) {
+                        if ("MSW".equals(wasteType)) {
+                            if ("SPT".equals(contractSubType) ||
+                                 ("PMM".equals(contractSubType) && null != agreementType &&
+                                  "PNC".equals(agreementType))) {
+                                xpeDccCfgMswFacilityEOVO.executeEmptyRowSet();
+                                xpeDccCfgMswFacilityEOVO.setApplyViewCriteriaName("findByFacilityId");
+                                xpeDccCfgMswFacilityEOVO.setbind_FacilityId(xpeDccContractLineViewRow.getXpeFacility());
+                                xpeDccCfgMswFacilityEOVO.executeQuery();
+                                XpeDccCfgMswFacilityEOVORowImpl xpeDccCfgMswFacilityEOVORow =
+                                    (XpeDccCfgMswFacilityEOVORowImpl) xpeDccCfgMswFacilityEOVO.first();
+                                if (null != xpeDccCfgMswFacilityEOVORow) {
+                                    approvalEmails.put(NEUCloudBillingConstants.CUSTOMER_CARE,
+                                                       xpeDccCfgMswFacilityEOVORow.getCustomerCareReview());
+                                    //If Terms and Conditions modified then send email to Legal Reviewer
+                                    if (null != newContractSetupRow &&
+                                        null != newContractSetupRow.getTerms_Modifier_Check() &&
+                                        "Y".equals(newContractSetupRow.getTerms_Modifier_Check())) {
+                                        approvalEmails.put(NEUCloudBillingConstants.LEGAL,
+                                                           xpeDccCfgMswFacilityEOVORow.getLegalReview());
+                                    }
+                                    approvalEmails.put(NEUCloudBillingConstants.GENERAL_MANAGER,
+                                                       xpeDccCfgMswFacilityEOVORow.getGeneralManagerReview());
+                                }
+                            } else if ("FLY".equals(contractSubType) ||
+                                        ("PMM".equals(contractSubType) && null != agreementType &&
+                                         "PC".equals(agreementType))) {
+                                xpeDccCfgCmtmntFacilityEOVO.executeEmptyRowSet();
+                                xpeDccCfgCmtmntFacilityEOVO.setApplyViewCriteriaName("findByFacilityId");
+                                xpeDccCfgCmtmntFacilityEOVO.setbind_FacilityId(xpeDccContractLineViewRow.getXpeFacility());
+                                xpeDccCfgCmtmntFacilityEOVO.executeQuery();
+                                XpeDccCfgCmtmntFacilityEOVORowImpl xpeDccCfgCmtmntFacilityEOVORow =
+                                    (XpeDccCfgCmtmntFacilityEOVORowImpl) xpeDccCfgCmtmntFacilityEOVO.first();
+                                if (null != xpeDccCfgCmtmntFacilityEOVORow &&
+                                    null != newContractSetupRow.getApproval_Level()) {
+                                    if ("EVP".equals(newContractSetupRow.getApproval_Level())) {
+                                        approvalEmails.put(NEUCloudBillingConstants.CUSTOMER_CARE,
+                                                           xpeDccCfgCmtmntFacilityEOVORow.getCustomerCareReview());
+                                        approvalEmails.put(NEUCloudBillingConstants.LEGAL,
+                                                           xpeDccCfgCmtmntFacilityEOVORow.getLegalReview());
+                                        approvalEmails.put(NEUCloudBillingConstants.FINANCIAL,
+                                                           xpeDccCfgCmtmntFacilityEOVORow.getFinancialReview());
+                                        approvalEmails.put(NEUCloudBillingConstants.GENERAL_MANAGER,
+                                                           xpeDccCfgCmtmntFacilityEOVORow.getGeneralManagerReview());
+                                        approvalEmails.put(NEUCloudBillingConstants.EVP,
+                                                           xpeDccCfgCmtmntFacilityEOVORow.getSustSolReview());
+                                    } else if ("CEO".equals(newContractSetupRow.getApproval_Level())) {
+                                        approvalEmails.put(NEUCloudBillingConstants.CUSTOMER_CARE,
+                                                           xpeDccCfgCmtmntFacilityEOVORow.getCustomerCareReview());
+                                        approvalEmails.put(NEUCloudBillingConstants.LEGAL,
+                                                           xpeDccCfgCmtmntFacilityEOVORow.getLegalReview());
+                                        approvalEmails.put(NEUCloudBillingConstants.FINANCIAL,
+                                                           xpeDccCfgCmtmntFacilityEOVORow.getFinancialReview());
+                                        approvalEmails.put(NEUCloudBillingConstants.GENERAL_MANAGER,
+                                                           xpeDccCfgCmtmntFacilityEOVORow.getGeneralManagerReview());
+                                        approvalEmails.put(NEUCloudBillingConstants.EVP,
+                                                           xpeDccCfgCmtmntFacilityEOVORow.getSustSolReview());
+                                        approvalEmails.put(NEUCloudBillingConstants.CFO,
+                                                           xpeDccCfgCmtmntFacilityEOVORow.getCfoReview());
+                                        approvalEmails.put(NEUCloudBillingConstants.CEO,
+                                                           xpeDccCfgCmtmntFacilityEOVORow.getCeoReview());
+                                    } else if ("NA".equals(newContractSetupRow.getApproval_Level())) {
+                                        approvalEmails.put(NEUCloudBillingConstants.CUSTOMER_CARE,
+                                                           xpeDccCfgCmtmntFacilityEOVORow.getCustomerCareReview());
+                                        approvalEmails.put(NEUCloudBillingConstants.LEGAL,
+                                                           xpeDccCfgCmtmntFacilityEOVORow.getLegalReview());
+                                        approvalEmails.put(NEUCloudBillingConstants.FINANCIAL,
+                                                           xpeDccCfgCmtmntFacilityEOVORow.getFinancialReview());
+                                        approvalEmails.put(NEUCloudBillingConstants.GENERAL_MANAGER,
+                                                           xpeDccCfgCmtmntFacilityEOVORow.getGeneralManagerReview());
+                                    }
+                                }
                             }
                         }
                     }
@@ -2343,10 +2384,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
 
                             String wasteType = contractVersionViewRow.getXpeWasteType();
                             String contractSubType = contractVersionViewRow.getXpeContractSubType();
-                            String agreementType = contractVersionViewRow.getXpeAgreementType();
 
-                            if (null != wasteType && null != contractSubType && "MSW".equals(wasteType) &&
-                                ("SPT".equals(contractSubType) || ("PMM".equals(contractSubType) && null != agreementType && "PNC".equals(agreementType)))) {
+                            if (null != wasteType && null != contractSubType && "MSW".equals(wasteType) && "SPT".equals(contractSubType)) {
                                 XpeDccCfgMswFacilityEOVOImpl xpeDccCfgMswFacilityEOVO = this.getXpeDccCfgMswFacilityEOVO1();
                                 xpeDccCfgMswFacilityEOVO.executeEmptyRowSet();
                                 xpeDccCfgMswFacilityEOVO.setApplyViewCriteriaName("findByFacilityId");
@@ -2442,21 +2481,25 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         return htmlString;
     }
     private String getTemplateName(XpeDccContractVersionViewRowImpl contractVersionViewRow) {
-        String templateName = null;
         String wasteType = contractVersionViewRow.getXpeWasteType();
         String contractSubType = contractVersionViewRow.getXpeContractSubType();
         String agreementType = contractVersionViewRow.getXpeAgreementType();
-        if (null != wasteType && null != contractSubType) {
-            if ("MTL".equals(wasteType) && "FRS".equals(contractSubType)) 
-                templateName = "OGI - Ferrous Purchase Sale Agreement spot v12-21-14";
-            else if ("MTL".equals(wasteType) && "NFR".equals(contractSubType)) 
-                templateName = "OGI - Non-Ferrous Purchase Sale Agreement spot v12-21-14";
-            else if ("MSW".equals(wasteType) && "PMM".equals(contractSubType) && null!=agreementType && ("PC".equals(agreementType) || "PNC".equals(agreementType)))
-                templateName = "Covanta - Spot-Premium Contract Template v2";
-            else if ("MSW".equals(wasteType) && "SPT".equals(contractSubType))
-                templateName = "Covanta - Spot-Premium Contract Template v2";
+        if (null != wasteType) {
+            if ("SW".equals(wasteType))
+                return NEUCloudBillingConstants.RTF_TEMPLATE1;
+            if (null != contractSubType) {
+                if ("MTL".equals(wasteType) && "FRS".equals(contractSubType))
+                    return NEUCloudBillingConstants.RTF_TEMPLATE2;
+                else if ("MTL".equals(wasteType) && "NFR".equals(contractSubType))
+                    return NEUCloudBillingConstants.RTF_TEMPLATE3;
+                else if ("MSW".equals(wasteType) && "PMM".equals(contractSubType) && null != agreementType &&
+                         ("PC".equals(agreementType) || "PNC".equals(agreementType))) {
+                    return NEUCloudBillingConstants.RTF_TEMPLATE1;
+                } else if ("MSW".equals(wasteType) && "SPT".equals(contractSubType))
+                    return NEUCloudBillingConstants.RTF_TEMPLATE1;
+            }
         }
-        return templateName;
+        return null;
     }
     
     public String createNewContractVersion(String contractType){
