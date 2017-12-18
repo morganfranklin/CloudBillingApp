@@ -129,4 +129,8 @@ public class ContractApprovalFacilitySetUpBean {
     public void metalsFacilityEditSaveorCancel(ActionEvent actionEvent) {
         this.getMetalsFacilityEdit_popup().hide();
     }
+
+    public void onSpclWasteFacilityCreation(ActionEvent actionEvent) {
+        // Add event code here...
+    }
 }

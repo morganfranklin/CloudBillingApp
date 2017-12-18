@@ -120,7 +120,7 @@
     </Attribute>
     <Attribute
         Name="XpeAcctgOptionsSet"
-        Precision="10"
+        Precision="40"
         ColumnName="XPE_ACCTG_OPTIONS_SET"
         SQLType="VARCHAR"
         Type="java.lang.String"

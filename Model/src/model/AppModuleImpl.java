@@ -57,6 +57,7 @@ import model.views.entitybased.XpeDccCfgPcsEOVOImpl;
 import model.views.entitybased.XpeDccCfgPcsEOVORowImpl;
 import model.views.entitybased.XpeDccCfgPcsshortnamesEOVOImpl;
 import model.views.entitybased.XpeDccCfgProductserviceEOVOImpl;
+import model.views.entitybased.XpeDccCfgSpclWasteFcltyEOVOImpl;
 import model.views.entitybased.XpeDccCfgTerminalsEOVOImpl;
 import model.views.entitybased.XpeDccCfgUomEOVOImpl;
 import model.views.entitybased.XpeDccCfgVehiclesEOVOImpl;
@@ -3464,6 +3465,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             XpeDccCfgMswFacilityEOVOImpl mswFacilityVo = this.getXpeDccCfgMswFacilityEOVO1();
             XpeDccCfgCmtmntFacilityEOVOImpl cmtmntFacilityVo = this.getXpeDccCfgCmtmntFacilityEOVO1();
             XpeDccCfgMetalsFacilityEOVOImpl metalsFacilityVo = this.getXpeDccCfgMetalsFacilityEOVO1();
+            XpeDccCfgSpclWasteFcltyEOVOImpl spclWstFcltyVo =  this.getXpeDccCfgSpclWasteFcltyEOVO1();
             if (null != type && "MSW".equals(type) && null != cntrctAprFcltyVORow.getXpeFacilityId()) {
                 mswFacilityVo.setApplyViewCriteriaName("findByFacilityId", false);
                 mswFacilityVo.setNamedWhereClauseParam("bind_FacilityId", cntrctAprFcltyVORow.getXpeFacilityId());
@@ -3487,6 +3489,14 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             } else if (null != type && "MTL".equals(type)) {
                 metalsFacilityVo.setApplyViewCriteriaName(null);
                 metalsFacilityVo.executeQuery();
+            }
+            if(null != type && "SW".equals(type) && null != cntrctAprFcltyVORow.getXpeFacilityId()){
+                spclWstFcltyVo.setApplyViewCriteriaName("findByFacilityId", false);
+                spclWstFcltyVo.setNamedWhereClauseParam("bind_facilityId", cntrctAprFcltyVORow.getXpeFacilityId());
+                spclWstFcltyVo.executeQuery();
+            } else if (null != type && "SW".equals(type)){
+                spclWstFcltyVo.setApplyViewCriteriaName(null);
+                spclWstFcltyVo.executeQuery();
             }
         }
     }
@@ -3752,6 +3762,22 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public ViewLinkImpl getXpeDccWfActionFKVL3() {
         return (ViewLinkImpl) findViewLink("XpeDccWfActionFKVL3");
+    }
+
+    /**
+     * Container's getter for XpeDccCfgSpclWasteFcltyEOVO1.
+     * @return XpeDccCfgSpclWasteFcltyEOVO1
+     */
+    public XpeDccCfgSpclWasteFcltyEOVOImpl getXpeDccCfgSpclWasteFcltyEOVO1() {
+        return (XpeDccCfgSpclWasteFcltyEOVOImpl) findViewObject("XpeDccCfgSpclWasteFcltyEOVO1");
+    }
+
+    /**
+     * Container's getter for XpeDccCfgSpclWasteFcltyEOVO2.
+     * @return XpeDccCfgSpclWasteFcltyEOVO2
+     */
+    public XpeDccCfgSpclWasteFcltyEOVOImpl getXpeDccCfgNewSpclWasteFcltyEOVO() {
+        return (XpeDccCfgSpclWasteFcltyEOVOImpl) findViewObject("XpeDccCfgNewSpclWasteFcltyEOVO");
     }
 }
 

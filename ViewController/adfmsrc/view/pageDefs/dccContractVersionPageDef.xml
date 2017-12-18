@@ -100,6 +100,7 @@
                     <Item Value="XpeNoteType"/>
                     <Item Value="XpeNote"/>
                     <Item Value="XpeUser"/>
+                    <Item Value="XpeNoteLong"/>
                 </AttrNames>
             </nodeDefinition>
         </tree>
