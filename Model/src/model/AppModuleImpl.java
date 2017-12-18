@@ -58,6 +58,7 @@ import model.views.entitybased.XpeDccCfgPcsEOVORowImpl;
 import model.views.entitybased.XpeDccCfgPcsshortnamesEOVOImpl;
 import model.views.entitybased.XpeDccCfgProductserviceEOVOImpl;
 import model.views.entitybased.XpeDccCfgSpclWasteFcltyEOVOImpl;
+import model.views.entitybased.XpeDccCfgSpclWasteFcltyEOVORowImpl;
 import model.views.entitybased.XpeDccCfgTerminalsEOVOImpl;
 import model.views.entitybased.XpeDccCfgUomEOVOImpl;
 import model.views.entitybased.XpeDccCfgVehiclesEOVOImpl;
@@ -1681,6 +1682,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                 XpeDccCfgMswFacilityEOVOImpl xpeDccCfgMswFacilityEOVO = this.getXpeDccCfgMswFacilityEOVO1();
                 XpeDccCfgMetalsFacilityEOVOImpl xpeDccCfgMetalsFacilityEOVO = this.getXpeDccCfgMetalsFacilityEOVO1();
                 XpeDccCfgCmtmntFacilityEOVOImpl xpeDccCfgCmtmntFacilityEOVO = this.getXpeDccCfgCmtmntFacilityEOVO1();
+                XpeDccCfgSpclWasteFcltyEOVOImpl xpeDccCfgSpclWasteFcltyEOVO =  this.getXpeDccCfgSpclWasteFcltyEOVO1();
 
                 String wasteType = contractVersionViewRow.getXpeWasteType();
                 String contractSubType = contractVersionViewRow.getXpeContractSubType();
@@ -1706,16 +1708,14 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                         }
                     }
                     if ("SW".equals(wasteType)) {
-                        xpeDccCfgMswFacilityEOVO.executeEmptyRowSet();
-                        xpeDccCfgMswFacilityEOVO.setApplyViewCriteriaName("findByFacilityId");
-                        xpeDccCfgMswFacilityEOVO.setbind_FacilityId(xpeDccContractLineViewRow.getXpeFacility());
-                        xpeDccCfgMswFacilityEOVO.executeQuery();
-                        XpeDccCfgMswFacilityEOVORowImpl xpeDccCfgMswFacilityEOVORow =
-                            (XpeDccCfgMswFacilityEOVORowImpl) xpeDccCfgMswFacilityEOVO.first();
-                        if (null != xpeDccCfgMswFacilityEOVORow) {
-                            approvalEmails.put(NEUCloudBillingConstants.CUSTOMER_CARE,
-                                               xpeDccCfgMswFacilityEOVORow.getCustomerCareReview());
-                        }
+                        xpeDccCfgSpclWasteFcltyEOVO.executeEmptyRowSet();
+                        xpeDccCfgSpclWasteFcltyEOVO.setApplyViewCriteriaName("findByFacilityId");
+                        xpeDccCfgSpclWasteFcltyEOVO.setbind_facilityId(xpeDccContractLineViewRow.getXpeFacility());
+                        xpeDccCfgSpclWasteFcltyEOVO.executeQuery();
+                        XpeDccCfgSpclWasteFcltyEOVORowImpl xpeDccCfgSpclWasteFcltyEOVORow =
+                            (XpeDccCfgSpclWasteFcltyEOVORowImpl) xpeDccCfgSpclWasteFcltyEOVO.first();
+                        if (null != xpeDccCfgSpclWasteFcltyEOVORow)
+                            approvalEmails.put(NEUCloudBillingConstants.CUSTOMER_CARE,xpeDccCfgSpclWasteFcltyEOVORow.getCustomerCareReview());
                     }
                     if (null != contractSubType) {
                         if ("MSW".equals(wasteType)) {
