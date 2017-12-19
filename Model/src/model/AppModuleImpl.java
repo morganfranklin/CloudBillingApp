@@ -1883,7 +1883,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             xpeDccNewContractCustomerSearchROVO.executeQuery();
             XpeDccNewContractCustomerSearchROVORowImpl xpeDccNewContractCustomerSearchROVORow = (XpeDccNewContractCustomerSearchROVORowImpl)xpeDccNewContractCustomerSearchROVO.first();
             if (null != xpeDccNewContractCustomerSearchROVORow)
-                customerName = checkIfNull(xpeDccNewContractCustomerSearchROVORow.getName1());
+                customerName = xpeDccNewContractCustomerSearchROVORow.getName1();
             else {
                 Row customerRow = null;
                 Key newCustKey = new Key(new Object[] { xpeDccWfActionEOVORow.getXpeContractId() });
@@ -1898,7 +1898,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                     xpeDmsCustomerROVO.executeQuery();
                     customerRow = xpeDmsCustomerROVO.first();
                     if (null != customerRow)
-                        customerName = checkIfNull((String) customerRow.getAttribute("CompanyName"));
+                        customerName = (String) customerRow.getAttribute("CompanyName");
                 }
             }
             
@@ -1923,41 +1923,25 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             
         StringBuilder html = new StringBuilder();
         html.append("<p>");
-        html.append("<b>Customer Name:</b>").append("&nbsp;&nbsp;").append(null != customerName ? customerName :
-                                                                           "").append("<br><br>");
-        html.append("<b>Contract Start Date:</b>").append("&nbsp;&nbsp;").append(null != contractStartDate ?
-                                                                                 contractStartDate :
-                                                                                 "").append("<br><br>");
-        html.append("<b>Contract End Date:</b>").append("&nbsp;&nbsp;").append(null != contractEndDate ?
-                                                                               contractEndDate : "").append("<br><br>");
-        html.append("<b>Sales Person:</b>").append("&nbsp;&nbsp;").append(null != salesPerson ? salesPerson :
-                                                                          "").append("<br><br>");
+        html.append("<b>Customer Name:</b>").append("&nbsp;&nbsp;").append(checkIfNull(customerName)).append("<br><br>");
+        html.append("<b>Contract Start Date:</b>").append("&nbsp;&nbsp;").append(checkIfNull(contractStartDate)).append("<br><br>");
+        html.append("<b>Contract End Date:</b>").append("&nbsp;&nbsp;").append(checkIfNull(contractEndDate)).append("<br><br>");
+        html.append("<b>Sales Person:</b>").append("&nbsp;&nbsp;").append(checkIfNull(salesPerson)).append("<br><br>");
         
         String approverLevel = xpeDccWfActionEOVORow.getXpeApproverLevel();
         List<String> gmAndApproverList = new ArrayList<String>(Arrays.asList("GM","SVP","EVP","CFO","CEO"));
         if(gmAndApproverList.contains(approverLevel)){
         html.append("<u><b>Contract Detail</b></u>").append("<br><br>");
-        html.append("<b>Term of Agreement:</b>").append("&nbsp;&nbsp;").append(null != termAgreement ? termAgreement :
-                                                                           "").append("<br><br>");
-        html.append("<b>Variance to Budget:</b>").append("&nbsp;&nbsp;").append(null != varBudget ?
-                                                                                 varBudget :
-                                                                                 "").append("<br><br>");
-        html.append("<b>Estimated Disposal Volume:</b>").append("&nbsp;&nbsp;").append(null != estDisposalVol ?
-                                                                               estDisposalVol : "").append("<br><br>");
-        html.append("<b>Value of Transaction:</b>").append("&nbsp;&nbsp;").append(null != valTrans ? valTrans :
-                                                                          "").append("<br><br>");
-        html.append("<b>Justification/Circumstances:</b>").append("&nbsp;&nbsp;").append(null != justification ? justification :
-                                                                           "").append("<br><br>");
+        html.append("<b>Term of Agreement:</b>").append("&nbsp;&nbsp;").append(checkIfNull(termAgreement)).append("<br><br>");
+        html.append("<b>Variance to Budget:</b>").append("&nbsp;&nbsp;").append(checkIfNull(varBudget)).append("<br><br>");
+        html.append("<b>Estimated Disposal Volume:</b>").append("&nbsp;&nbsp;").append(checkIfNull(estDisposalVol)).append("<br><br>");
+        html.append("<b>Value of Transaction:</b>").append("&nbsp;&nbsp;").append(checkIfNull(valTrans)).append("<br><br>");
+        html.append("<b>Justification/Circumstances:</b>").append("&nbsp;&nbsp;").append(checkIfNull(justification)).append("<br><br>");
         html.append("<u><b>Credit Analysis</b></u>").append("<br><br>");
-        html.append("<b>Existing Customer:</b>").append("&nbsp;&nbsp;").append(null != extCustomer ?
-                                                                                 extCustomer :
-                                                                                 "").append("<br><br>");
-        html.append("<b>Payment Method:</b>").append("&nbsp;&nbsp;").append(null != paymentMethod ?
-                                                                               paymentMethod : "").append("<br><br>");
-        html.append("<b>Payment History:</b>").append("&nbsp;&nbsp;").append(null != paymentHist ? paymentHist :
-                                                                          "").append("<br><br>");
-        html.append("<b>Credit Limit:</b>").append("&nbsp;&nbsp;").append(null != creditLimit ? creditLimit :
-                                                                          "").append("<br><br>");
+        html.append("<b>Existing Customer:</b>").append("&nbsp;&nbsp;").append(checkIfNull(extCustomer)).append("<br><br>");
+        html.append("<b>Payment Method:</b>").append("&nbsp;&nbsp;").append(checkIfNull(paymentMethod)).append("<br><br>");
+        html.append("<b>Payment History:</b>").append("&nbsp;&nbsp;").append(checkIfNull(paymentHist)).append("<br><br>");
+        html.append("<b>Credit Limit:</b>").append("&nbsp;&nbsp;").append(checkIfNull(creditLimit)).append("<br><br>");
         }
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
@@ -2276,7 +2260,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                             xmlBuilder.append("<STATE>").append(checkIfNull((String)customerRow.getAttribute("MailingState"))).append("</STATE>");
                             xmlBuilder.append("<POSTAL_CODE>").append(checkIfNull((String)customerRow.getAttribute("MailingPostal"))).append("</POSTAL_CODE>");
                             
-                            xmlBuilder.append("<CONTACT_NAME>").append(checkIfNull((String)customerRow.getAttribute("ContactName"))).append("</CONTACT_NAME>");
+                            xmlBuilder.append("<CONTACT_PERSON>").append(checkIfNull((String)customerRow.getAttribute("ContactName"))).append("</CONTACT_PERSON>");
                             xmlBuilder.append("<CONTACT_TITLE>").append(checkIfNull((String)customerRow.getAttribute("Title"))).append("</CONTACT_TITLE>");
                             xmlBuilder.append("<CONTACT_PHONE>").append(checkIfNull((String)customerRow.getAttribute("PhoneNum"))).append("</CONTACT_PHONE>");
                             xmlBuilder.append("<CONTACT_EMAIL>").append(checkIfNull((String)customerRow.getAttribute("Email"))).append("</CONTACT_EMAIL>");
@@ -2467,7 +2451,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         if(null==val || val.trim().length()==0)
           return "";
         else
-         return val;
+          return val;
     }
     
     private String replaceHtml(XpeDccContractVersionViewRowImpl contractVersionViewRow,String htmlString,String customerName) {
