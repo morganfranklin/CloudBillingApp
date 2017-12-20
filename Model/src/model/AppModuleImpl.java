@@ -1945,13 +1945,13 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         }
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_34/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_35/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(xpeDccWfActionEOVORow.getXpeUuid()).append("&").append("action=").append("ACCEPT").append("&").append("user=").append(userType);
         html.append("\"><b>Accept</b></a>");
         html.append("&nbsp;&nbsp;&nbsp;");
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_34/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_35/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(xpeDccWfActionEOVORow.getXpeUuid()).append("&").append("action=").append("REJECT").append("&").append("user=").append(userType);
         html.append("\"><b>Reject</b></a>");
         html.append("</p>");
@@ -2336,6 +2336,14 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                                     }
                                 }
                             }
+                            
+                            RowIterator pricingOverRowSet = contractLineRow.getXpeDccContractPricingOverView();
+                            while (pricingOverRowSet.hasNext()) {
+                                XpeDccContractPricingOverViewRowImpl pricingOverRow =(XpeDccContractPricingOverViewRowImpl) pricingOverRowSet.next();
+                                if(null!=pricingOverRow){
+                                    //Need to add XML logic
+                                }
+                            }
                             xmlBuilder.append("</FACILITIES_ROW>");
                         }   
                     }
@@ -2466,12 +2474,32 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         return htmlString;
     }
     private String getTemplateName(XpeDccContractVersionViewRowImpl contractVersionViewRow) {
+        int blsCount = 0;
         String wasteType = contractVersionViewRow.getXpeWasteType();
         String contractSubType = contractVersionViewRow.getXpeContractSubType();
         String agreementType = contractVersionViewRow.getXpeAgreementType();
+        
+        //Getting Blue Light Special Count
+        RowIterator contractLineRowSet = contractVersionViewRow.getXpeDccContractLineView();
+        while (contractLineRowSet.hasNext()) {
+            XpeDccContractLineViewRowImpl contractLineRow = (XpeDccContractLineViewRowImpl) contractLineRowSet.next();
+            if(null!=contractLineRow){
+                RowIterator pricingOverRowSet = contractLineRow.getXpeDccContractPricingOverView();
+                if(null!=pricingOverRowSet && pricingOverRowSet.getRowCountInRange()>0){
+                    blsCount = pricingOverRowSet.getRowCountInRange();
+                    break;
+                }
+            }
+        }
+        
+        
         if (null != wasteType) {
-            if ("SW".equals(wasteType))
-                return NEUCloudBillingConstants.RTF_TEMPLATE1;
+            if ("SW".equals(wasteType)){
+                if(blsCount>0)
+                    return NEUCloudBillingConstants.BLS_RTF_TEMPLATE1;
+                else
+                    return NEUCloudBillingConstants.RTF_TEMPLATE1;
+            }
             if (null != contractSubType) {
                 if ("MTL".equals(wasteType) && "FRS".equals(contractSubType))
                     return NEUCloudBillingConstants.RTF_TEMPLATE2;
@@ -2479,9 +2507,16 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                     return NEUCloudBillingConstants.RTF_TEMPLATE3;
                 else if ("MSW".equals(wasteType) && "PMM".equals(contractSubType) && null != agreementType &&
                          ("PC".equals(agreementType) || "PNC".equals(agreementType))) {
-                    return NEUCloudBillingConstants.RTF_TEMPLATE1;
-                } else if ("MSW".equals(wasteType) && "SPT".equals(contractSubType))
-                    return NEUCloudBillingConstants.RTF_TEMPLATE1;
+                    if(blsCount>0)
+                        return NEUCloudBillingConstants.BLS_RTF_TEMPLATE1;
+                    else
+                        return NEUCloudBillingConstants.RTF_TEMPLATE1;
+                } else if ("MSW".equals(wasteType) && "SPT".equals(contractSubType)){
+                    if(blsCount>0)
+                        return NEUCloudBillingConstants.BLS_RTF_TEMPLATE1;
+                    else
+                        return NEUCloudBillingConstants.RTF_TEMPLATE1;
+                }
             }
         }
         return null;
