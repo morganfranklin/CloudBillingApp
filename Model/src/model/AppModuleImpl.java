@@ -2277,6 +2277,9 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                 Key key = new Key(new Object[] { contractId, contractVersion });
                 Row[] rows = xpeDccNewContractsEOVORow.getXpeDccContractVersionView().findByKey(key, 1);
                 if (null != rows && rows.length > 0) {
+                    //Material Types
+                    List<String> materialTypeList = new ArrayList<String>(Arrays.asList("TIR","FEE","RTE","PLE"));
+                    
                     XpeDccContractVersionViewRowImpl contractVersionViewRow = (XpeDccContractVersionViewRowImpl) rows[0];
                     xmlBuilder.append("<AS_OF_DATE>").append(formatDate(String.valueOf(contractVersionViewRow.getXpeAsOfDate()))).append("</AS_OF_DATE>");
                     xmlBuilder.append("<FROM_DATE>").append(formatDate(String.valueOf(contractVersionViewRow.getXpeStartDate()))).append("</FROM_DATE>");
@@ -2306,8 +2309,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                             while (pricingTermRowSet.hasNext()) {
                                 XpeDccContractPricingTermViewRowImpl pricingTermRow = (XpeDccContractPricingTermViewRowImpl) pricingTermRowSet.next();
                                 if(null!=pricingTermRow){
-                                    if(null!=pricingTermRow.getXpePricingTermType()){
-                                        if (!"FEE".equalsIgnoreCase(pricingTermRow.getXpePricingTermType())) {
+                                        if (materialTypeList.contains(pricingTermRow.getXpePricingTermType())) {
                                             xmlBuilder.append("<PRICING_ROW>");
                                             xmlBuilder.append("<MATERIAL_WASTE_TYPE>").append(getLookupDescription(contractLineRow.getXpeDccDicProducts1(),contractLineRow.getXpeProductId(), "XpeLookupDesc")).append("</MATERIAL_WASTE_TYPE>");
                                             xmlBuilder.append("<PRICING_TYPE>").append(getLookupDescription(pricingTermRow.getXpeDccDicRateTypes1(),pricingTermRow.getXpePricingTermType(), "XpeLookupDesc")).append("</PRICING_TYPE>");
@@ -2333,7 +2335,6 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                                             xmlBuilder.append("<RESET_PERIOD>").append(getLookupDescription(pricingTermRow.getXpeDccDicPeriods1(),pricingTermRow.getXpePeriodType(), "XpeLookupDesc")).append("</RESET_PERIOD>");
                                             xmlBuilder.append("</PRICING_FEE_ROW>");
                                         }
-                                    }
                                 }
                             }
                             
@@ -2341,7 +2342,26 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                             while (pricingOverRowSet.hasNext()) {
                                 XpeDccContractPricingOverViewRowImpl pricingOverRow =(XpeDccContractPricingOverViewRowImpl) pricingOverRowSet.next();
                                 if(null!=pricingOverRow){
-                                    //Need to add XML logic
+                                    xmlBuilder.append("<BLS_ROW>");
+                                    xmlBuilder.append("<MATERIAL_WASTE_TYPE>").append(getLookupDescription(contractLineRow.getXpeDccDicProducts1(),contractLineRow.getXpeProductId(), "XpeLookupDesc")).append("</MATERIAL_WASTE_TYPE>");
+                                    xmlBuilder.append("<PRICING_TYPE>").append(getLookupDescription(pricingOverRow.getXpeDccDicOverrideType1(),pricingOverRow.getXpeOverType(), "XpeLookupDesc")).append("</PRICING_TYPE>");
+                                    xmlBuilder.append("<DISPOSAL_PRICE>").append(pricingOverRow.getXpeCheck()).append("</DISPOSAL_PRICE>");
+                                    xmlBuilder.append("</BLS_ROW>");
+                                }
+                            }
+                            
+                            if(null!=pricingOverRowSet && pricingOverRowSet.getRowCountInRange()>0){
+                                while (pricingTermRowSet.hasNext()) {
+                                    XpeDccContractPricingTermViewRowImpl pricingTermRow = (XpeDccContractPricingTermViewRowImpl) pricingTermRowSet.next();
+                                    if(null!=pricingTermRow && !materialTypeList.contains(pricingTermRow.getXpePricingTermType())){
+                                        xmlBuilder.append("<BLS_FEE_ROW>");
+                                        xmlBuilder.append("<MATERIAL_WASTE_TYPE>").append(getLookupDescription(pricingTermRow.getXpeDccDicRateTypes1(),pricingTermRow.getXpePricingTermType(), "XpeLookupDesc")).append("</MATERIAL_WASTE_TYPE>");
+                                        xmlBuilder.append("<DISPOSAL_PRICE>").append(pricingTermRow.getXpeRate()).append("</DISPOSAL_PRICE>");
+                                        if (null != pricingTermRow.getXpePeriodType() && "EVE".equals(pricingTermRow.getXpePeriodType()))
+                                            xmlBuilder.append("<CHARGE_SHIPMENT>").append(pricingTermRow.getXpeRate()).append("</CHARGE_SHIPMENT>");
+                                        xmlBuilder.append("<RESET_PERIOD>").append(getLookupDescription(pricingTermRow.getXpeDccDicPeriods1(),pricingTermRow.getXpePeriodType(), "XpeLookupDesc")).append("</RESET_PERIOD>");
+                                        xmlBuilder.append("</BLS_FEE_ROW>");
+                                    }
                                 }
                             }
                             xmlBuilder.append("</FACILITIES_ROW>");
