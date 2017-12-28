@@ -45,6 +45,10 @@
     Name="bind_PcsShortNameId"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="bind_TranslationConsumer"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="XpeDccCfgCarriers_LOV"
     ViewObjectName="model.views.readonly.XpeDccCfgCarriersROVO"
@@ -354,10 +358,10 @@
     LOVName="LOV_TranslationConsumer">
     <Properties>
       <SchemaBasedProperties>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgGeneralCnvEOVO.TranslationConsumer_LABEL"/>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgGeneralCnvEOVO.TranslationConsumer_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -496,6 +500,14 @@
         Operator="="
         Conjunction="AND"
         Value=":bind_PcsShortNameId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="TranslationConsumer"
+        ViewAttribute="TranslationConsumer"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_TranslationConsumer"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

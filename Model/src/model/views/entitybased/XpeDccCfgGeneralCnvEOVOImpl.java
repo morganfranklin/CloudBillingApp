@@ -93,5 +93,21 @@ public class XpeDccCfgGeneralCnvEOVOImpl extends ViewObjectImpl {
     public void setbind_PcsShortNameId(String value) {
         ensureVariableManager().setVariableValue("bind_PcsShortNameId", value);
     }
+
+    /**
+     * Returns the variable value for bind_TranslationConsumer.
+     * @return variable value for bind_TranslationConsumer
+     */
+    public String getbind_TranslationConsumer() {
+        return (String) ensureVariableManager().getVariableValue("bind_TranslationConsumer");
+    }
+
+    /**
+     * Sets <code>value</code> for variable bind_TranslationConsumer.
+     * @param value value to bind as bind_TranslationConsumer
+     */
+    public void setbind_TranslationConsumer(String value) {
+        ensureVariableManager().setVariableValue("bind_TranslationConsumer", value);
+    }
 }
 

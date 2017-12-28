@@ -32,31 +32,38 @@
                 contentDelivery="immediate" columnStretching="last"
                 binding="#{backingBeanScope.GeneralConversionSetUpTableBBean.generalConversionSetUpTblBind}"
                 partialTriggers="::b2 ::b3 ::b4 ::b5">
-        <af:column headerText="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.GeneralCnvId.label}" id="resId1c1">
+        <af:column headerText="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.GeneralCnvId.label}" id="resId1c1"
+                   sortable="true" sortProperty="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.GeneralCnvId.name}">
           <af:link text="#{row.GeneralCnvId}" id="l1" partialSubmit="true"
                    actionListener="#{pageFlowScope.GeneralConversionSetUpTableMBean.onGeneralConversionEdit}"/>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.CarrierId.label}" id="c1">
+        <af:column headerText="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.CarrierId.label}" id="c1"
+                   sortProperty="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.CarrierId.name}" sortable="true">
           <af:outputText value="#{row.CarrierId}"
                          shortDesc="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.CarrierId.tooltip}" id="ot2"/>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.OriginId.label}" id="c2">
+        <af:column headerText="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.OriginId.label}" id="c2"
+                   sortProperty="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.OriginId.name}" sortable="true">
           <af:outputText value="#{row.OriginId}" shortDesc="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.OriginId.tooltip}"
                          id="ot3"/>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.DestinationId.label}" id="c3">
+        <af:column headerText="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.DestinationId.label}" id="c3"
+                   sortProperty="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.DestinationId.name}" sortable="true">
           <af:outputText value="#{row.DestinationId}"
                          shortDesc="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.DestinationId.tooltip}" id="ot4"/>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.MaterialId.label}" id="c4">
+        <af:column headerText="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.MaterialId.label}" id="c4"
+                   sortProperty="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.MaterialId.name}" sortable="true">
           <af:outputText value="#{row.MaterialId}"
                          shortDesc="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.MaterialId.tooltip}" id="ot5"/>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.PcsShortNameId.label}" id="c5">
+        <af:column headerText="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.PcsShortNameId.label}" id="c5"
+                   sortProperty="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.PcsShortNameId.name}" sortable="true">
           <af:outputText value="#{row.PcsShortNameId}"
                          shortDesc="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.PcsShortNameId.tooltip}" id="ot6"/>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.TranslationConsumer.label}" id="c8">
+        <af:column headerText="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.TranslationConsumer.label}" id="c8"
+                   sortProperty="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.TranslationConsumer.name}" sortable="true">
           <af:selectOneChoice value="#{row.bindings.TranslationConsumer.inputValue}"
                               label="#{row.bindings.TranslationConsumer.label}"
                               required="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.TranslationConsumer.mandatory}"
@@ -66,15 +73,18 @@
             <f:validator binding="#{row.bindings.TranslationConsumer.validator}"/>
           </af:selectOneChoice>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.ConversionValue.label}" id="resId1c8">
+        <af:column headerText="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.ConversionValue.label}" id="resId1c8"
+                   sortProperty="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.ConversionValue.name}" sortable="true">
           <af:outputText value="#{row.ConversionValue}"
                          shortDesc="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.ConversionValue.tooltip}" id="ot7"/>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.TohBusinessType.label}" id="c6">
+        <af:column headerText="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.TohBusinessType.label}" id="c6"
+                   sortProperty="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.TohBusinessType.name}" sortable="true">
           <af:outputText value="#{row.TohBusinessType}"
                          shortDesc="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.TohBusinessType.tooltip}" id="ot9"/>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.TohPayType.label}" id="c7">
+        <af:column headerText="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.TohPayType.label}" id="c7"
+                   sortProperty="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.TohPayType.name}" sortable="true">
           <af:outputText value="#{row.TohPayType}"
                          shortDesc="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.TohPayType.tooltip}" id="ot10"/>
         </af:column>
