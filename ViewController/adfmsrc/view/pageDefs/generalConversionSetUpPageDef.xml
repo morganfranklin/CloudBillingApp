@@ -15,16 +15,16 @@
     <tree IterBinding="XpeDccCfgGeneralCnvEOVOIterator" id="XpeDccCfgGeneralCnvEOVO">
       <nodeDefinition DefName="model.views.entitybased.XpeDccCfgGeneralCnvEOVO" Name="XpeDccCfgGeneralCnvEOVO0">
         <AttrNames>
-          <Item Value="GeneralCnvId"/>
-          <Item Value="CarrierId" Binds="CarrierId2"/>
-          <Item Value="OriginId" Binds="OriginId2"/>
-          <Item Value="DestinationId" Binds="DestinationId2"/>
-          <Item Value="MaterialId" Binds="MaterialId2"/>
-          <Item Value="PcsShortNameId" Binds="PcsShortNameId2"/>
+          <Item Value="CarrierId"/>
+          <Item Value="OriginId"/>
+          <Item Value="DestinationId"/>
+          <Item Value="MaterialId"/>
+          <Item Value="PcsShortNameId"/>
           <Item Value="TranslationConsumer"/>
           <Item Value="ConversionValue"/>
           <Item Value="TohBusinessType"/>
           <Item Value="TohPayType"/>
+          <Item Value="GeneralCnvId"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

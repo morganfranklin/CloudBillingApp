@@ -14,6 +14,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
 public class XpeDccCfgGeneralCnvEOVORowImpl extends ViewRowImpl {
 
+
     public static final int ENTITY_XPEDCCCFGGENERALCNVEO = 0;
 
     /**
@@ -66,6 +67,7 @@ public class XpeDccCfgGeneralCnvEOVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
 
     public static final int GENERALCNVID = AttributesEnum.GeneralCnvId.index();
     public static final int CARRIERID = AttributesEnum.CarrierId.index();

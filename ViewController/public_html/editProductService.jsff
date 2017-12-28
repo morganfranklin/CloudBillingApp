@@ -15,7 +15,8 @@
         <af:panelLabelAndMessage label="#{bindings.ItemType.label}" id="plam2">
           <af:selectOneChoice value="#{bindings.ItemType.inputValue}" label="#{bindings.ItemType.label}"
                               required="#{bindings.ItemType.hints.mandatory}"
-                              shortDesc="#{bindings.ItemType.hints.tooltip}" id="soc1" simple="true">
+                              shortDesc="#{bindings.ItemType.hints.tooltip}" id="soc1" simple="true" autoSubmit="true"
+                              immediate="true">
             <f:selectItems value="#{bindings.ItemType.items}" id="si1"/>
             <f:validator binding="#{bindings.ItemType.validator}"/>
           </af:selectOneChoice>
@@ -40,7 +41,8 @@
                               model="#{bindings.Category.listOfValuesModel}"
                               required="#{bindings.Category.hints.mandatory}"
                               columns="#{bindings.Category.hints.displayWidth}"
-                              shortDesc="#{bindings.Category.hints.tooltip}">
+                              shortDesc="#{bindings.Category.hints.tooltip}"
+                              disabled="#{bindings.ItemType.inputValue eq 'FEE'}" partialTriggers="soc1">
           <f:validator binding="#{bindings.Category.validator}"/>
         </af:inputListOfValues>
       </af:panelFormLayout>
@@ -57,7 +59,8 @@
         <af:panelLabelAndMessage label="#{bindings.ClassType.label}" id="plam5">
           <af:selectOneChoice value="#{bindings.ClassType.inputValue}" label="#{bindings.ClassType.label}"
                               required="#{bindings.ClassType.hints.mandatory}"
-                              shortDesc="#{bindings.ClassType.hints.tooltip}" id="soc3" autoSubmit="true" simple="true">
+                              shortDesc="#{bindings.ClassType.hints.tooltip}" id="soc3" autoSubmit="true" simple="true"
+                              disabled="#{bindings.ItemType.inputValue eq 'FEE'}" partialTriggers="soc1">
             <f:selectItems value="#{bindings.ClassType.items}" id="si3"/>
             <f:validator binding="#{bindings.ClassType.validator}"/>
           </af:selectOneChoice>
@@ -68,9 +71,16 @@
                               required="#{bindings.ClassId.hints.mandatory}"
                               columns="#{bindings.ClassId.hints.displayWidth}"
                               shortDesc="#{bindings.ClassId.hints.tooltip}"
-                              disabled="#{bindings.ClassType.inputValue eq 'DC'}" partialTriggers="soc3">
+                              disabled="#{bindings.ClassType.inputValue eq 'DC' or bindings.ItemType.inputValue eq 'FEE'}" partialTriggers="soc3">
           <f:validator binding="#{bindings.ClassId.validator}"/>
         </af:inputListOfValues>
+        <af:selectOneChoice value="#{bindings.WeightClass.inputValue}" label="#{bindings.WeightClass.label}"
+                            required="#{bindings.WeightClass.hints.mandatory}"
+                            shortDesc="#{bindings.WeightClass.hints.tooltip}" id="soc12"
+                            disabled="#{bindings.ItemType.inputValue eq 'FEE'}" partialTriggers="soc1">
+          <f:selectItems value="#{bindings.WeightClass.items}" id="si12"/>
+          <f:validator binding="#{bindings.WeightClass.validator}"/>
+        </af:selectOneChoice>
         <af:panelLabelAndMessage label="#{bindings.Inactive.label}" id="plam6">
           <af:selectOneChoice value="#{bindings.Inactive.inputValue}" label="#{bindings.Inactive.label}"
                               required="#{bindings.Inactive.hints.mandatory}"
