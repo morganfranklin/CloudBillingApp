@@ -11,6 +11,8 @@
                   InstanceName="data.AppModuleDataControl.dataProvider"
                   ReturnName="data.AppModuleDataControl.methodResults.fetchPDFXML_AppModuleDataControl_dataProvider_fetchPDFXML_result">
       <NamedData NDName="uuId" NDValue="#{pageFlowScope.uuid}" NDType="java.lang.String"/>
+      <NamedData NDName="userType" NDValue="#{pageFlowScope.user}" NDType="java.lang.String"/>
+      <NamedData NDName="action" NDValue="#{pageFlowScope.action}" NDType="java.lang.String"/>
     </methodAction>
   </bindings>
 </pageDefinition>

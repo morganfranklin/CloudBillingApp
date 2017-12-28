@@ -1426,11 +1426,186 @@
                 Type="java.lang.String"/>
         </Method>
         <Method
-            Name="fetchPDFXML"
-            MethodName="fetchPDFXML">
+            Name="uploadFiletoDB"
+            MethodName="uploadFiletoDB">
+            <Return
+                Name="_return_type_"
+                Type="java.lang.Boolean"/>
+            <Parameter
+                Name="filename"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="blob"
+                Type="oracle.jbo.domain.BlobDomain"/>
+        </Method>
+        <Method
+            Name="copyContractRow"
+            MethodName="copyContractRow">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+        </Method>
+        <Method
+            Name="clearNewContract"
+            MethodName="clearNewContract">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+        </Method>
+        <Method
+            Name="clearTermMaster"
+            MethodName="clearTermMaster">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+        </Method>
+        <Method
+            Name="fetchClauseForMasterTerm"
+            MethodName="fetchClauseForMasterTerm">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+        </Method>
+        <Method
+            Name="createTermContractRow"
+            MethodName="createTermContractRow">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+            <Parameter
+                Name="termId"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="addAssTerminalToDestination"
+            MethodName="addAssTerminalToDestination">
+            <Return
+                Name="_return_type_"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="addAssTerminalToOrigin"
+            MethodName="addAssTerminalToOrigin">
+            <Return
+                Name="_return_type_"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="createNewContractVersion"
+            MethodName="createNewContractVersion">
+            <Return
+                Name="_return_type_"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="contractType"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="billAndAccountingProcess"
+            MethodName="billAndAccountingProcess">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+        </Method>
+        <Method
+            Name="initBillAccountProcess"
+            MethodName="initBillAccountProcess">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+        </Method>
+        <Method
+            Name="initCntrctAprFcltySetUp"
+            MethodName="initCntrctAprFcltySetUp">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+        </Method>
+        <Method
+            Name="resetCntrctAprFcltySetUp"
+            MethodName="resetCntrctAprFcltySetUp">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+        </Method>
+        <Method
+            Name="searchCntrctAprFcltySetUp"
+            MethodName="searchCntrctAprFcltySetUp">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+            <Parameter
+                Name="type"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="addAssTerminalToPCS"
+            MethodName="addAssTerminalToPCS">
+            <Return
+                Name="_return_type_"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="newContractCreation"
+            MethodName="newContractCreation">
+            <Return
+                Name="_return_type_"
+                Type="boolean"/>
+            <Parameter
+                Name="bytes"
+                Type="byte[]"/>
+            <Parameter
+                Name="contractId"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="contractVersion"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="submissionType"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="routeForApproval"
+            MethodName="routeForApproval">
             <Return
                 Name="_return_type_"
                 Type="java.util.Map"/>
+            <Parameter
+                Name="contractId"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="contractVersion"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="accrualandRevenueGenerationProcesses"
+            MethodName="accrualandRevenueGenerationProcesses">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+        </Method>
+        <Method
+            Name="initAccrualRevenueGeneration"
+            MethodName="initAccrualRevenueGeneration">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+        </Method>
+        <Method
+            Name="buildXML"
+            MethodName="buildXML">
+            <Return
+                Name="_return_type_"
+                Type="java.util.Map"/>
+            <Parameter
+                Name="contractId"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="contractVersion"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="inContractFlow"
+                Type="java.lang.String"/>
             <Parameter
                 Name="uuId"
                 Type="java.lang.String"/>
@@ -1602,25 +1777,6 @@
                 Type="void"/>
         </Method>
         <Method
-            Name="updateContractApprovalStatus"
-            MethodName="updateContractApprovalStatus">
-            <Return
-                Name="_return_type_"
-                Type="void"/>
-            <Parameter
-                Name="uuId"
-                Type="java.lang.String"/>
-            <Parameter
-                Name="action"
-                Type="java.lang.String"/>
-            <Parameter
-                Name="bytes"
-                Type="byte[]"/>
-            <Parameter
-                Name="userType"
-                Type="java.lang.String"/>
-        </Method>
-        <Method
             Name="buildXML"
             MethodName="buildXML">
             <Return
@@ -1637,126 +1793,6 @@
                 Type="java.lang.String"/>
             <Parameter
                 Name="uuId"
-                Type="java.lang.String"/>
-        </Method>
-        <Method
-            Name="uploadFiletoDB"
-            MethodName="uploadFiletoDB">
-            <Return
-                Name="_return_type_"
-                Type="java.lang.Boolean"/>
-            <Parameter
-                Name="filename"
-                Type="java.lang.String"/>
-            <Parameter
-                Name="blob"
-                Type="oracle.jbo.domain.BlobDomain"/>
-        </Method>
-        <Method
-            Name="copyContractRow"
-            MethodName="copyContractRow">
-            <Return
-                Name="_return_type_"
-                Type="void"/>
-        </Method>
-        <Method
-            Name="clearNewContract"
-            MethodName="clearNewContract">
-            <Return
-                Name="_return_type_"
-                Type="void"/>
-        </Method>
-        <Method
-            Name="clearTermMaster"
-            MethodName="clearTermMaster">
-            <Return
-                Name="_return_type_"
-                Type="void"/>
-        </Method>
-        <Method
-            Name="fetchClauseForMasterTerm"
-            MethodName="fetchClauseForMasterTerm">
-            <Return
-                Name="_return_type_"
-                Type="void"/>
-        </Method>
-        <Method
-            Name="createTermContractRow"
-            MethodName="createTermContractRow">
-            <Return
-                Name="_return_type_"
-                Type="void"/>
-            <Parameter
-                Name="termId"
-                Type="java.lang.String"/>
-        </Method>
-        <Method
-            Name="addAssTerminalToDestination"
-            MethodName="addAssTerminalToDestination">
-            <Return
-                Name="_return_type_"
-                Type="java.lang.String"/>
-        </Method>
-        <Method
-            Name="addAssTerminalToOrigin"
-            MethodName="addAssTerminalToOrigin">
-            <Return
-                Name="_return_type_"
-                Type="java.lang.String"/>
-        </Method>
-        <Method
-            Name="createNewContractVersion"
-            MethodName="createNewContractVersion">
-            <Return
-                Name="_return_type_"
-                Type="java.lang.String"/>
-            <Parameter
-                Name="contractType"
-                Type="java.lang.String"/>
-        </Method>
-        <Method
-            Name="billAndAccountingProcess"
-            MethodName="billAndAccountingProcess">
-            <Return
-                Name="_return_type_"
-                Type="void"/>
-        </Method>
-        <Method
-            Name="initBillAccountProcess"
-            MethodName="initBillAccountProcess">
-            <Return
-                Name="_return_type_"
-                Type="void"/>
-        </Method>
-        <Method
-            Name="initCntrctAprFcltySetUp"
-            MethodName="initCntrctAprFcltySetUp">
-            <Return
-                Name="_return_type_"
-                Type="void"/>
-        </Method>
-        <Method
-            Name="resetCntrctAprFcltySetUp"
-            MethodName="resetCntrctAprFcltySetUp">
-            <Return
-                Name="_return_type_"
-                Type="void"/>
-        </Method>
-        <Method
-            Name="searchCntrctAprFcltySetUp"
-            MethodName="searchCntrctAprFcltySetUp">
-            <Return
-                Name="_return_type_"
-                Type="void"/>
-            <Parameter
-                Name="type"
-                Type="java.lang.String"/>
-        </Method>
-        <Method
-            Name="addAssTerminalToPCS"
-            MethodName="addAssTerminalToPCS">
-            <Return
-                Name="_return_type_"
                 Type="java.lang.String"/>
         </Method>
         <Method
@@ -1768,52 +1804,12 @@
             <Parameter
                 Name="uuId"
                 Type="java.lang.String"/>
-        </Method>
-        <Method
-            Name="newContractCreation"
-            MethodName="newContractCreation">
-            <Return
-                Name="_return_type_"
-                Type="boolean"/>
             <Parameter
-                Name="bytes"
-                Type="byte[]"/>
-            <Parameter
-                Name="contractId"
+                Name="userType"
                 Type="java.lang.String"/>
             <Parameter
-                Name="contractVersion"
+                Name="action"
                 Type="java.lang.String"/>
-            <Parameter
-                Name="submissionType"
-                Type="java.lang.String"/>
-        </Method>
-        <Method
-            Name="routeForApproval"
-            MethodName="routeForApproval">
-            <Return
-                Name="_return_type_"
-                Type="java.util.Map"/>
-            <Parameter
-                Name="contractId"
-                Type="java.lang.String"/>
-            <Parameter
-                Name="contractVersion"
-                Type="java.lang.String"/>
-        </Method>
-        <Method
-            Name="accrualandRevenueGenerationProcesses"
-            MethodName="accrualandRevenueGenerationProcesses">
-            <Return
-                Name="_return_type_"
-                Type="void"/>
-        </Method>
-        <Method
-            Name="initAccrualRevenueGeneration"
-            MethodName="initAccrualRevenueGeneration">
-            <Return
-                Name="_return_type_"
-                Type="void"/>
         </Method>
         <Method
             Name="updateContractApprovalStatus"
@@ -1833,25 +1829,9 @@
             <Parameter
                 Name="userType"
                 Type="java.lang.String"/>
-        </Method>
-        <Method
-            Name="buildXML"
-            MethodName="buildXML">
-            <Return
-                Name="_return_type_"
-                Type="java.util.Map"/>
             <Parameter
-                Name="contractId"
-                Type="java.lang.String"/>
-            <Parameter
-                Name="contractVersion"
-                Type="java.lang.String"/>
-            <Parameter
-                Name="inContractFlow"
-                Type="java.lang.String"/>
-            <Parameter
-                Name="uuId"
-                Type="java.lang.String"/>
+                Name="coverSheetBytes"
+                Type="byte[]"/>
         </Method>
     </ClientInterface>
 </AppModule>

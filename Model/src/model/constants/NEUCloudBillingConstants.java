@@ -19,5 +19,10 @@ public class NEUCloudBillingConstants {
     public static final String BLS_RTF_TEMPLATE1="Covanta - Spot-Premium Contract Template v2 - BLS";
     public static final String RTF_TEMPLATE2="OGI - Ferrous Purchase Sale Agreement spot v12-21-14";
     public static final String RTF_TEMPLATE3="OGI - Non-Ferrous Purchase Sale Agreement spot v12-21-14";
+    public static final String RTF_TEMPLATE_COVER_SHEET="Covanta Contract Coversheet Form Final";
     public static final String NOT_APPLICABLE="N/A";
+    public static final String INTERRUPTIBLE="INTERRUPTIBLE";
+    public static final String COMMITMENT="COMMITMENT";
+    public static final String DISPOSAL = "Disposal";
+    public static final String PRODUCT_SALE = "Product Sale";
 }

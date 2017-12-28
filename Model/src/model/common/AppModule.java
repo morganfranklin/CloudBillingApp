@@ -44,9 +44,6 @@ public interface AppModule extends ApplicationModule {
     String addAssTerminalToPCS();
 
 
-    Map fetchPDFXML(String uuId);
-
-
     boolean newContractCreation(byte[] bytes, String contractId, String contractVersion, String submissionType);
 
     Map routeForApproval(String contractId, String contractVersion);
@@ -56,8 +53,12 @@ public interface AppModule extends ApplicationModule {
 
     void initAccrualRevenueGeneration();
 
-    void updateContractApprovalStatus(String uuId, String action, byte[] bytes, String userType);
 
     Map buildXML(String contractId, String contractVersion, String inContractFlow, String uuId);
+
+    Map fetchPDFXML(String uuId, String userType, String action);
+
+    void updateContractApprovalStatus(String uuId, String action, byte[] bytes, String userType,
+                                      byte[] coverSheetBytes);
 }
 

@@ -12,6 +12,7 @@
       <NamedData NDName="action" NDValue="#{pageFlowScope.action}" NDType="java.lang.String"/>
       <NamedData NDName="bytes" NDValue="#{pageFlowScope.PDF}" NDType="[B"/>
       <NamedData NDName="userType" NDValue="#{pageFlowScope.user}" NDType="java.lang.String"/>
+      <NamedData NDName="coverSheetBytes" NDValue="#{pageFlowScope.COVER_SHEET_PDF}" NDType="[B"/>
     </methodAction>
   </bindings>
 </pageDefinition>
