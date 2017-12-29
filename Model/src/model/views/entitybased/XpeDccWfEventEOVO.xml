@@ -37,6 +37,10 @@
     Name="bind_contractVersion"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="bind_eventType"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="XpeDccWfEventEO"
     Entity="model.entities.XpeDccWfEventEO"/>
@@ -219,6 +223,61 @@
         Operator="="
         Conjunction="AND"
         Value=":bind_contractVersion"
+        UpperColumns="0"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="WfEventContractVersionEventEOVOCriteria"
+    ViewObjectName="model.views.entitybased.XpeDccWfEventEOVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="XpeDccWfEventEOVOCriteria1_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="XpeContractId"
+        ViewAttribute="XpeContractId"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_contractId"
+        UpperColumns="0"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="XpeContractVersion"
+        ViewAttribute="XpeContractVersion"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_contractVersion"
+        UpperColumns="0"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="XpeEventType"
+        ViewAttribute="XpeEventType"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_eventType"
         UpperColumns="0"
         IsBindVarValue="true"
         Required="Optional"/>

@@ -61,5 +61,21 @@ public class XpeDccWfEventEOVOImpl extends ViewObjectImpl {
     public void setbind_contractVersion(String value) {
         ensureVariableManager().setVariableValue("bind_contractVersion", value);
     }
+
+    /**
+     * Returns the variable value for bind_eventType.
+     * @return variable value for bind_eventType
+     */
+    public String getbind_eventType() {
+        return (String) ensureVariableManager().getVariableValue("bind_eventType");
+    }
+
+    /**
+     * Sets <code>value</code> for variable bind_eventType.
+     * @param value value to bind as bind_eventType
+     */
+    public void setbind_eventType(String value) {
+        ensureVariableManager().setVariableValue("bind_eventType", value);
+    }
 }
 
