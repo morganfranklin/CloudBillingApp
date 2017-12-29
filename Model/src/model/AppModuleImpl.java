@@ -1944,13 +1944,13 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         }
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_36/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_37/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(xpeDccWfActionEOVORow.getXpeUuid()).append("&").append("action=").append("ACCEPT").append("&").append("user=").append(userType);
         html.append("\"><b>Accept</b></a>");
         html.append("&nbsp;&nbsp;&nbsp;");
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_36/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_37/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(xpeDccWfActionEOVORow.getXpeUuid()).append("&").append("action=").append("REJECT").append("&").append("user=").append(userType);
         html.append("\"><b>Reject</b></a>");
         html.append("</p>");
@@ -2139,9 +2139,9 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                                 } else if (NEUCloudBillingConstants.FINANCIAL.equals(xpeDccWfActionEOVORow.getXpeApproverLevel())) {
                                     xmlBuilder.append("<RFD>").append(checkIfNull(xpeDccWfActionEOVORow.getXpeApproverEmail())).append("</RFD>");
                                     xmlBuilder.append("<RFD_DATE>").append(formatDate(String.valueOf(xpeDccWfActionEOVORow.getLastUpdatedDate()))).append("</RFD_DATE>");
-                                } else if (NEUCloudBillingConstants.GENERAL_MANAGER.equals(xpeDccWfActionEOVORow.getXpeApproverLevel())) {
-                                    xmlBuilder.append("<GM>").append(checkIfNull(xpeDccWfActionEOVORow.getXpeApproverEmail())).append("</GM>");
-                                    xmlBuilder.append("<GM_DATE>").append(formatDate(String.valueOf(xpeDccWfActionEOVORow.getLastUpdatedDate()))).append("</GM_DATE>");
+                                } else if (NEUCloudBillingConstants.GENERAL_MANAGER.equals(xpeDccWfActionEOVORow.getXpeApproverLevel()) || NEUCloudBillingConstants.SVP.equals(xpeDccWfActionEOVORow.getXpeApproverLevel())) {
+                                    xmlBuilder.append("<GMSVP>").append(checkIfNull(xpeDccWfActionEOVORow.getXpeApproverEmail())).append("</GMSVP>");
+                                    xmlBuilder.append("<GMSVP_DATE>").append(formatDate(String.valueOf(xpeDccWfActionEOVORow.getLastUpdatedDate()))).append("</GMSVP_DATE>");
                                 } else if (NEUCloudBillingConstants.EVP.equals(xpeDccWfActionEOVORow.getXpeApproverLevel())) {
                                     xmlBuilder.append("<EVP>").append(checkIfNull(xpeDccWfActionEOVORow.getXpeApproverEmail())).append("</EVP>");
                                     xmlBuilder.append("<EVP_DATE>").append(formatDate(String.valueOf(xpeDccWfActionEOVORow.getLastUpdatedDate()))).append("</EVP_DATE>");
