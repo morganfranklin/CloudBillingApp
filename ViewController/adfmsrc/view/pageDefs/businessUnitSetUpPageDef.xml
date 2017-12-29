@@ -15,19 +15,20 @@
     <tree IterBinding="XpeDccCfgBusinessunitEOVOIterator" id="XpeDccCfgBusinessunitEOVO">
       <nodeDefinition DefName="model.views.entitybased.XpeDccCfgBusinessunitEOVO" Name="XpeDccCfgBusinessunitEOVO0">
         <AttrNames>
-          <Item Value="SiteId"/>
           <Item Value="TerminalId"/>
-          <Item Value="BusinessUnit"/>
+          <Item Value="SiteId"/>
           <Item Value="AccountingClass"/>
-          <Item Value="Affliate"/>
           <Item Value="BillingBusinessUnit"/>
           <Item Value="BusinessUnitRef"/>
+          <Item Value="BillingGlBusinessUnit"/>
+          <Item Value="BillingOperatingUnit"/>
+          <Item Value="BillingAffiliate"/>
           <Item Value="GlBusinessUnit"/>
           <Item Value="OperatingUnit"/>
-          <Item Value="SiteDesc"/>
-          <Item Value="StatsOnly"/>
+          <Item Value="Affliate"/>
           <Item Value="Inactive"/>
           <Item Value="InactiveDate"/>
+          <Item Value="BusinessUnit"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

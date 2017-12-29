@@ -66,19 +66,19 @@
                             </af:outputText>
                         </af:column>
                         <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.CisTargetCustid1.name}"
-                                   filterable="true" sortable="true" headerText="Client Id" id="c5">
+                                   filterable="true" sortable="true" headerText="Customer Id" id="c5">
                             <af:outputText value="#{row.CisTargetCustid1}"
                                            shortDesc="#{bindings.PsCisXpeImportView1.hints.CisTargetCustid1.tooltip}"
                                            id="ot5"/>
                         </af:column>
                         <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.CisTargtcust1det1.name}"
-                                   filterable="true" sortable="true" headerText="Client Name" id="c6">
+                                   filterable="true" sortable="true" headerText="Customer Name" id="c6">
                             <af:outputText value="#{row.CisTargtcust1det1}"
                                            shortDesc="#{bindings.PsCisXpeImportView1.hints.CisTargtcust1det1.tooltip}"
                                            id="ot6"/>
                         </af:column>
                         <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.CisTargtcust1det2.name}"
-                                   filterable="true" sortable="true" headerText="Context" id="c7">
+                                   filterable="true" sortable="true" headerText="Billing" id="c7">
                             <af:outputText value="#{row.CisTargtcust1det2}"
                                            shortDesc="#{bindings.PsCisXpeImportView1.hints.CisTargtcust1det2.tooltip}"
                                            id="ot7"/>
@@ -90,7 +90,7 @@
                                            id="ot8"/>
                         </af:column>
                         <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.CisTargetVendor1.name}"
-                                   filterable="true" sortable="true" headerText="Vendor Id" id="c9">
+                                   filterable="true" sortable="true" headerText="Vendor Id" id="c9" rendered="false">
                             <af:outputText value="#{row.CisTargetVendor1}"
                                            shortDesc="#{bindings.PsCisXpeImportView1.hints.CisTargetVendor1.tooltip}"
                                            id="ot9"/>

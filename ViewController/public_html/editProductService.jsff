@@ -16,7 +16,7 @@
           <af:selectOneChoice value="#{bindings.ItemType.inputValue}" label="#{bindings.ItemType.label}"
                               required="#{bindings.ItemType.hints.mandatory}"
                               shortDesc="#{bindings.ItemType.hints.tooltip}" id="soc1" simple="true" autoSubmit="true"
-                              immediate="true">
+                              valueChangeListener="#{pageFlowScope.ProductServiceSetUpTableMBean.itemTypeValChgLstnr}">
             <f:selectItems value="#{bindings.ItemType.items}" id="si1"/>
             <f:validator binding="#{bindings.ItemType.validator}"/>
           </af:selectOneChoice>
@@ -42,7 +42,8 @@
                               required="#{bindings.Category.hints.mandatory}"
                               columns="#{bindings.Category.hints.displayWidth}"
                               shortDesc="#{bindings.Category.hints.tooltip}"
-                              disabled="#{bindings.ItemType.inputValue eq 'FEE'}" partialTriggers="soc1">
+                              disabled="#{bindings.ItemType.inputValue eq 'FEE'}" partialTriggers="soc1"
+                              binding="#{backingBeanScope.ProductServiceSetUpTableBBean.categoryIdBind}">
           <f:validator binding="#{bindings.Category.validator}"/>
         </af:inputListOfValues>
       </af:panelFormLayout>
