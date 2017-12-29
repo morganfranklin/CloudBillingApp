@@ -2,7 +2,7 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
   <af:panelGroupLayout layout="vertical" id="pgl1">
-    <af:panelHeader text="Business Unit Set Up" id="ph1">
+    <af:panelHeader text="Business Unit Set Up" id="ph1" size="1">
       <af:query id="qryId1" headerText="Search Business Units" disclosed="true"
                 value="#{bindings.BusinessUnitCriteriaQuery.queryDescriptor}"
                 model="#{bindings.BusinessUnitCriteriaQuery.queryModel}"
@@ -32,57 +32,71 @@
                 rowSelection="single" fetchSize="#{bindings.XpeDccCfgBusinessunitEOVO.rangeSize}" id="resId1"
                 contentDelivery="immediate" columnStretching="last"
                 binding="#{backingBeanScope.BusinessUnitSetUpTableBBean.businessUnitSetUpTblBind}">
-        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.BusinessUnit.label}" id="resId1c3">
+        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.BusinessUnit.label}" id="resId1c3"
+                   sortable="true" sortProperty="#{bindings.XpeDccCfgBusinessunitEOVO.hints.BusinessUnit.name}">
           <af:link text="#{row.BusinessUnit}" id="l1"
                    actionListener="#{pageFlowScope.BusinessUnitSetUpTableMBean.onBusinessUnitEdit}"
                    partialSubmit="true"/>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.TerminalId.label}" id="resId1c2">
+        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.TerminalId.label}" id="resId1c2"
+                   sortProperty="#{bindings.XpeDccCfgBusinessunitEOVO.hints.TerminalId.name}" sortable="true">
           <af:outputText value="#{row.TerminalId}"
                          shortDesc="#{bindings.XpeDccCfgBusinessunitEOVO.hints.TerminalId.tooltip}" id="ot2"/>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.SiteId.label}" id="resId1c1">
+        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.SiteId.label}" id="resId1c1"
+                   sortProperty="#{bindings.XpeDccCfgBusinessunitEOVO.hints.SiteId.name}" sortable="true">
           <af:outputText value="#{row.SiteId}" shortDesc="#{bindings.XpeDccCfgBusinessunitEOVO.hints.SiteId.tooltip}"
                          id="ot1"/>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.AccountingClass.label}" id="resId1c4">
+        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.AccountingClass.label}" id="resId1c4"
+                   sortProperty="#{bindings.XpeDccCfgBusinessunitEOVO.hints.AccountingClass.name}" sortable="true">
           <af:outputText value="#{row.AccountingClass}"
                          shortDesc="#{bindings.XpeDccCfgBusinessunitEOVO.hints.AccountingClass.tooltip}" id="ot4"/>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.Affliate.label}" id="resId1c5">
-          <af:outputText value="#{row.Affliate}"
-                         shortDesc="#{bindings.XpeDccCfgBusinessunitEOVO.hints.Affliate.tooltip}" id="ot5"/>
-        </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.BillingBusinessUnit.label}" id="resId1c6">
+        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.BillingBusinessUnit.label}" id="resId1c6"
+                   sortProperty="#{bindings.XpeDccCfgBusinessunitEOVO.hints.BillingBusinessUnit.name}" sortable="true">
           <af:outputText value="#{row.BillingBusinessUnit}"
                          shortDesc="#{bindings.XpeDccCfgBusinessunitEOVO.hints.BillingBusinessUnit.tooltip}" id="ot6"/>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.BusinessUnitRef.label}" id="resId1c7">
+        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.BusinessUnitRef.label}" id="resId1c7"
+                   sortProperty="#{bindings.XpeDccCfgBusinessunitEOVO.hints.BusinessUnitRef.name}" sortable="true">
           <af:outputText value="#{row.BusinessUnitRef}"
                          shortDesc="#{bindings.XpeDccCfgBusinessunitEOVO.hints.BusinessUnitRef.tooltip}" id="ot7"/>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.GlBusinessUnit.label}" id="resId1c8">
+        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.BillingGlBusinessUnit.label}" id="c1"
+                   sortProperty="#{bindings.XpeDccCfgBusinessunitEOVO.hints.BillingGlBusinessUnit.name}"
+                   sortable="true">
+          <af:outputText value="#{row.BillingGlBusinessUnit}"
+                         shortDesc="#{bindings.XpeDccCfgBusinessunitEOVO.hints.BillingGlBusinessUnit.tooltip}"
+                         id="ot3"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.BillingOperatingUnit.label}" id="c3"
+                   sortProperty="#{bindings.XpeDccCfgBusinessunitEOVO.hints.BillingOperatingUnit.name}" sortable="true">
+          <af:outputText value="#{row.BillingOperatingUnit}"
+                         shortDesc="#{bindings.XpeDccCfgBusinessunitEOVO.hints.BillingOperatingUnit.tooltip}" id="ot9"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.BillingAffiliate.label}" id="c2"
+                   sortProperty="#{bindings.XpeDccCfgBusinessunitEOVO.hints.BillingAffiliate.name}" sortable="true">
+          <af:outputText value="#{row.BillingAffiliate}"
+                         shortDesc="#{bindings.XpeDccCfgBusinessunitEOVO.hints.BillingAffiliate.tooltip}" id="ot12"/>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.GlBusinessUnit.label}" id="resId1c8"
+                   sortProperty="#{bindings.XpeDccCfgBusinessunitEOVO.hints.GlBusinessUnit.name}" sortable="true">
           <af:outputText value="#{row.GlBusinessUnit}"
                          shortDesc="#{bindings.XpeDccCfgBusinessunitEOVO.hints.GlBusinessUnit.tooltip}" id="ot8"/>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.OperatingUnit.label}" id="resId1c9">
+        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.OperatingUnit.label}" id="c4"
+                   sortProperty="#{bindings.XpeDccCfgBusinessunitEOVO.hints.OperatingUnit.name}" sortable="true">
           <af:outputText value="#{row.OperatingUnit}"
-                         shortDesc="#{bindings.XpeDccCfgBusinessunitEOVO.hints.OperatingUnit.tooltip}" id="ot9"/>
+                         shortDesc="#{bindings.XpeDccCfgBusinessunitEOVO.hints.OperatingUnit.tooltip}" id="ot10"/>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.SiteDesc.label}" id="resId1c10">
-          <af:outputText value="#{row.SiteDesc}"
-                         shortDesc="#{bindings.XpeDccCfgBusinessunitEOVO.hints.SiteDesc.tooltip}" id="ot10"/>
+        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.Affliate.label}" id="resId1c5"
+                   sortProperty="#{bindings.XpeDccCfgBusinessunitEOVO.hints.Affliate.name}" sortable="true">
+          <af:outputText value="#{row.Affliate}"
+                         shortDesc="#{bindings.XpeDccCfgBusinessunitEOVO.hints.Affliate.tooltip}" id="ot5"/>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.StatsOnly.label}" id="resId1c11">
-          <af:selectOneChoice value="#{row.bindings.StatsOnly.inputValue}" label="#{row.bindings.StatsOnly.label}"
-                              required="#{bindings.XpeDccCfgBusinessunitEOVO.hints.StatsOnly.mandatory}"
-                              shortDesc="#{bindings.XpeDccCfgBusinessunitEOVO.hints.StatsOnly.tooltip}" readOnly="true"
-                              id="soc1">
-            <f:selectItems value="#{row.bindings.StatsOnly.items}" id="si1"/>
-            <f:validator binding="#{row.bindings.StatsOnly.validator}"/>
-          </af:selectOneChoice>
-        </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.Inactive.label}" id="resId1c12">
+        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.Inactive.label}" id="resId1c12"
+                   sortProperty="#{bindings.XpeDccCfgBusinessunitEOVO.hints.Inactive.name}" sortable="true">
           <af:selectOneChoice value="#{row.bindings.Inactive.inputValue}" label="#{row.bindings.Inactive.label}"
                               required="#{bindings.XpeDccCfgBusinessunitEOVO.hints.Inactive.mandatory}"
                               shortDesc="#{bindings.XpeDccCfgBusinessunitEOVO.hints.Inactive.tooltip}" readOnly="true"
@@ -91,7 +105,8 @@
             <f:validator binding="#{row.bindings.Inactive.validator}"/>
           </af:selectOneChoice>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.InactiveDate.label}" id="resId1c13">
+        <af:column headerText="#{bindings.XpeDccCfgBusinessunitEOVO.hints.InactiveDate.label}" id="resId1c13"
+                   sortProperty="#{bindings.XpeDccCfgBusinessunitEOVO.hints.InactiveDate.name}" sortable="true">
           <af:outputText value="#{row.InactiveDate}"
                          shortDesc="#{bindings.XpeDccCfgBusinessunitEOVO.hints.InactiveDate.tooltip}" id="ot11">
             <af:convertDateTime pattern="#{bindings.XpeDccCfgBusinessunitEOVO.hints.InactiveDate.format}"/>
@@ -288,8 +303,8 @@
             <f:facet name="menuBar"/>
             <f:facet name="legend"/>
             <f:facet name="info"/>
-            <af:panelFormLayout id="pfl5" labelAlignment="top" rows="1" maxColumns="8" labelWidth="150px"
-                                fieldWidth="100px">
+            <af:panelFormLayout id="pfl5" labelAlignment="top" rows="1" maxColumns="8" labelWidth="100px"
+                                fieldWidth="75px">
               <f:facet name="footer"/>
               <af:inputListOfValues id="businessUnit1Id"
                                     popupTitle="Search and Select: #{bindings.BusinessUnit1.hints.label}"

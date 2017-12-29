@@ -6,6 +6,7 @@ import javax.el.ELContext;
 import javax.el.ExpressionFactory;
 import javax.el.MethodExpression;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
@@ -119,5 +120,15 @@ public class ProductServiceSetUpTableMBean {
         } else {
             JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
         }
+    }
+
+    public void itemTypeValChgLstnr(ValueChangeEvent valueChangeEvent) {
+        if(null != valueChangeEvent.getNewValue() && valueChangeEvent.getNewValue().equals("MAT")){
+            FacesMessage fm = new FacesMessage("Category is Required for Material Type");
+            fm.setSeverity(FacesMessage.SEVERITY_ERROR);
+                    FacesContext context = FacesContext.getCurrentInstance();
+                    context.addMessage(getProductServiceSetUpTableBBean().getCategoryIdBind().getClientId(context), fm);
+        }
+        AdfFacesContext.getCurrentInstance().addPartialTarget(getProductServiceSetUpTableBBean().getCategoryIdBind());
     }
 }
