@@ -186,7 +186,9 @@
                                       maximumLength="#{bindings.XpeRate.hints.precision}"
                                       shortDesc="#{bindings.XpeRate.hints.tooltip}" id="it11">
                             <f:validator binding="#{bindings.XpeRate.validator}"/>
-                            <af:convertNumber groupingUsed="false" pattern="#{bindings.XpeRate.format}"/>
+                           <af:convertNumber pattern="###.00000" groupingUsed="false"
+                                                                      maxFractionDigits="5"
+                                                                      messageDetailConvertPattern="{0} with {1} has invalid precision/scale."/>
                         </af:inputText>
                         <af:selectOneChoice value="#{bindings.XpePeriodType.inputValue}"
                                             label="#{bindings.XpePeriodType.label}"

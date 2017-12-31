@@ -222,9 +222,9 @@
                                                       shortDesc="#{bindings.XpeDccContractPricingTermView2.hints.XpeRate.tooltip}"
                                                       id="it5">
                                             <f:validator binding="#{row.bindings.XpeRate.validator}"/>
-                                            <af:convertNumber groupingUsed="true"
-                                                              pattern="#{bindings.XpeDccContractPricingTermView2.hints.XpeRate.format}"
-                                                              maxFractionDigits="5"/>
+                                            <af:convertNumber pattern="###.00000" groupingUsed="false"
+                                                                      maxFractionDigits="5"
+                                                                      messageDetailConvertPattern="{0} with {1} has invalid precision/scale."/>
                                         </af:inputText>
                                     </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccContractPricingTermView2.hints.XpeChargeOverMin.name}"

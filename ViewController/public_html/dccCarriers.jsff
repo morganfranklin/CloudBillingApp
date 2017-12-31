@@ -71,7 +71,9 @@
                                                   maximumLength="#{bindings.XpeRate.hints.precision}"
                                                   shortDesc="#{bindings.XpeRate.hints.tooltip}" id="it6">
                                         <f:validator binding="#{bindings.XpeRate.validator}"/>
-                                        <af:convertNumber groupingUsed="false" pattern="#{bindings.XpeRate.format}"/>
+                                        <af:convertNumber pattern="###.00000" groupingUsed="false"
+                                                                      maxFractionDigits="5"
+                                                                      messageDetailConvertPattern="{0} with {1} has invalid precision/scale."/>
                                     </af:inputText>
                                     <af:inputText value="#{bindings.XpeChargeOverMin.inputValue}" label="Overcharge Min"
                                                   autoSubmit="true"

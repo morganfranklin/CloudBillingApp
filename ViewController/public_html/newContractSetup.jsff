@@ -418,9 +418,9 @@
                                                               id="it2"
                                                               readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
                                                     <f:validator binding="#{row.bindings.XpeRate.validator}"/>
-                                                    <af:convertNumber groupingUsed="true"
-                                                                      pattern="#{bindings.XpeDccNewContractPricingTermView.hints.XpeRate.format}"
-                                                                      maxFractionDigits="5"/>
+                                                    <af:convertNumber pattern="###.00000" groupingUsed="false"
+                                                                      maxFractionDigits="5"
+                                                                      messageDetailConvertPattern="{0} with {1} has invalid precision/scale."/>
                                                 </af:inputText>
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractPricingTermView.hints.XpePeriodType.label}"
