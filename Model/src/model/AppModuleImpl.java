@@ -2133,7 +2133,10 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                         while (rowIterator.hasNext()) {
                             XpeDccWfActionEOVORowImpl xpeDccWfActionEOVORow = (XpeDccWfActionEOVORowImpl) rowIterator.next();
                             if (null != xpeDccWfActionEOVORow.getXpeApproverLevel()) {
-                                if (NEUCloudBillingConstants.LEGAL.equals(xpeDccWfActionEOVORow.getXpeApproverLevel())) {
+                                if (NEUCloudBillingConstants.CUSTOMER_CARE.equals(xpeDccWfActionEOVORow.getXpeApproverLevel())) {
+                                    xmlBuilder.append("<CC>").append(checkIfNull(xpeDccWfActionEOVORow.getXpeApproverEmail())).append("</CC>");
+                                    xmlBuilder.append("<CC_DATE>").append(formatDate(String.valueOf(xpeDccWfActionEOVORow.getLastUpdatedDate()))).append("</CC_DATE>");
+                                }else if (NEUCloudBillingConstants.LEGAL.equals(xpeDccWfActionEOVORow.getXpeApproverLevel())) {
                                     xmlBuilder.append("<LEGAL>").append(checkIfNull(xpeDccWfActionEOVORow.getXpeApproverEmail())).append("</LEGAL>");
                                     xmlBuilder.append("<LEGAL_DATE>").append(formatDate(String.valueOf(xpeDccWfActionEOVORow.getLastUpdatedDate()))).append("</LEGAL_DATE>");
                                 } else if (NEUCloudBillingConstants.FINANCIAL.equals(xpeDccWfActionEOVORow.getXpeApproverLevel())) {
