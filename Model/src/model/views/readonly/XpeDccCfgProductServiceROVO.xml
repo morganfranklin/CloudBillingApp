@@ -51,7 +51,7 @@ FROM
     IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
-    Precision="45"
+    Precision="50"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     AliasName="DESCRIPTION"
