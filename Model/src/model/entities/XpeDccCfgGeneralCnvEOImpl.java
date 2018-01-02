@@ -30,7 +30,8 @@ public class XpeDccCfgGeneralCnvEOImpl extends EntityImpl {
         Inactive,
         InactiveDate,
         TohBusinessType,
-        TohPayType;
+        TohPayType,
+        Country;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -71,6 +72,7 @@ public class XpeDccCfgGeneralCnvEOImpl extends EntityImpl {
     public static final int INACTIVEDATE = AttributesEnum.InactiveDate.index();
     public static final int TOHBUSINESSTYPE = AttributesEnum.TohBusinessType.index();
     public static final int TOHPAYTYPE = AttributesEnum.TohPayType.index();
+    public static final int COUNTRY = AttributesEnum.Country.index();
 
     /**
      * This is the default constructor (do not remove).

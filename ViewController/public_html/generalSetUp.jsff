@@ -87,6 +87,14 @@
                         shortDesc="#{bindings.ValidValue.hints.tooltip}" id="it2" autoSubmit="true">
             <f:validator binding="#{bindings.ValidValue.validator}"/>
           </af:inputText>
+          <af:panelLabelAndMessage label="#{bindings.SwAcctClass.label}" id="plam5">
+            <af:selectOneChoice value="#{bindings.SwAcctClass.inputValue}" label="#{bindings.SwAcctClass.label}"
+                                required="#{bindings.SwAcctClass.hints.mandatory}"
+                                shortDesc="#{bindings.SwAcctClass.hints.tooltip}" id="soc5" simple="true">
+              <f:selectItems value="#{bindings.SwAcctClass.items}" id="si5"/>
+              <f:validator binding="#{bindings.SwAcctClass.validator}"/>
+            </af:selectOneChoice>
+          </af:panelLabelAndMessage>
         </af:panelFormLayout>
       </af:dialog>
     </af:popup>
@@ -124,6 +132,14 @@
                         shortDesc="#{bindings.ValidValue1.hints.tooltip}" id="it3">
             <f:validator binding="#{bindings.ValidValue1.validator}"/>
           </af:inputText>
+          <af:panelLabelAndMessage label="#{bindings.SwAcctClass1.label}" id="plam6">
+            <af:selectOneChoice value="#{bindings.SwAcctClass1.inputValue}" label="#{bindings.SwAcctClass1.label}"
+                                required="#{bindings.SwAcctClass1.hints.mandatory}"
+                                shortDesc="#{bindings.SwAcctClass1.hints.tooltip}" id="soc6" simple="true">
+              <f:selectItems value="#{bindings.SwAcctClass1.items}" id="si6"/>
+              <f:validator binding="#{bindings.SwAcctClass1.validator}"/>
+            </af:selectOneChoice>
+          </af:panelLabelAndMessage>
           <af:panelLabelAndMessage label="#{bindings.Inactive.label}" id="plam4">
             <af:selectOneChoice value="#{bindings.Inactive.inputValue}" label="#{bindings.Inactive.label}"
                                 required="#{bindings.Inactive.hints.mandatory}"

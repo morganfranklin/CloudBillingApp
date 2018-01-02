@@ -36,7 +36,8 @@
             <f:validator binding="#{row.bindings.XpeFacilityId.validator}"/>
           </af:inputText>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgBillingandAccountingROVO1.hints.XpeBillCycleId.label}" id="c2">
+        <af:column headerText="#{bindings.XpeDccCfgBillingandAccountingROVO1.hints.XpeBillCycleId.label}" id="c2"
+                   rendered="false">
           <af:inputText value="#{row.bindings.XpeBillCycleId.inputValue}"
                         label="#{bindings.XpeDccCfgBillingandAccountingROVO1.hints.XpeBillCycleId.label}"
                         required="#{bindings.XpeDccCfgBillingandAccountingROVO1.hints.XpeBillCycleId.mandatory}"
@@ -47,7 +48,8 @@
             <f:validator binding="#{row.bindings.XpeBillCycleId.validator}"/>
           </af:inputText>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgBillingandAccountingROVO1.hints.XpeBillDate.label}" id="c3">
+        <af:column headerText="#{bindings.XpeDccCfgBillingandAccountingROVO1.hints.XpeBillDate.label}" id="c3"
+                   rendered="false">
           <af:inputDate value="#{row.bindings.XpeBillDate.inputValue}"
                         label="#{bindings.XpeDccCfgBillingandAccountingROVO1.hints.XpeBillDate.label}"
                         required="#{bindings.XpeDccCfgBillingandAccountingROVO1.hints.XpeBillDate.mandatory}"

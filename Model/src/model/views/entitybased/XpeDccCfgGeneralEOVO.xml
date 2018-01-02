@@ -101,6 +101,24 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LOV_SwAcctClass"
+    ListVOName="LookupSharedAppModule_XpeDccDicNewContractSetupROVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SwAcctClass"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="XpeDccCfgGeneralEO"
     Entity="model.entities.XpeDccCfgGeneralEO"/>
@@ -195,6 +213,22 @@
     EntityAttrName="InactiveDate"
     EntityUsage="XpeDccCfgGeneralEO"
     AliasName="INACTIVE_DATE"/>
+  <ViewAttribute
+    Name="SwAcctClass"
+    PrecisionRule="true"
+    EntityAttrName="SwAcctClass"
+    EntityUsage="XpeDccCfgGeneralEO"
+    AliasName="SW_ACCT_CLASS"
+    LOVName="LOV_SwAcctClass">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgGeneralEOVO.SwAcctClass_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="GeneralCriteria"
     ViewObjectName="model.views.entitybased.XpeDccCfgGeneralEOVO"

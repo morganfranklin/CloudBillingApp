@@ -3964,5 +3964,21 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     public XpeDccCfgSpclWasteFcltyEOVOImpl getXpeDccCfgNewSpclWasteFcltyEOVO() {
         return (XpeDccCfgSpclWasteFcltyEOVOImpl) findViewObject("XpeDccCfgNewSpclWasteFcltyEOVO");
     }
+
+    /**
+     * Container's getter for XpeDccCfgPcsAddressEOVO1.
+     * @return XpeDccCfgPcsAddressEOVO1
+     */
+    public ViewObjectImpl getXpeDccCfgNewPcsAddressEOVO() {
+        return (ViewObjectImpl) findViewObject("XpeDccCfgNewPcsAddressEOVO");
+    }
+
+    /**
+     * Container's getter for XpeDccCfgPcsAddressFkLink1.
+     * @return XpeDccCfgPcsAddressFkLink1
+     */
+    public ViewLinkImpl getXpeDccCfgPcsAddressFkLink1() {
+        return (ViewLinkImpl) findViewLink("XpeDccCfgPcsAddressFkLink1");
+    }
 }
 

@@ -111,6 +111,18 @@
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
     TableName="XPE_DCC_CFG_GENERAL"/>
+  <Attribute
+    Name="SwAcctClass"
+    Precision="1"
+    ColumnName="SW_ACCT_CLASS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_GENERAL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
   <Key
     Name="XpeDccCfgGeneralPk"
     PrimaryKey="true">

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XpeDccCfgPcsAddressEO"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="XPE_DCC_CFG_PCS_ADDRESS"
+  AliasName="XpeDccCfgPcsAddressEO"
+  BindingStyle="OracleName"
+  RowClass="model.entities.XpeDccCfgPcsAddressEOImpl">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="SiteId"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="SITE_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_PCS_ADDRESS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SiteAddress1"
+    Precision="55"
+    ColumnName="SITE_ADDRESS1"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_PCS_ADDRESS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="55"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SiteAddress2"
+    Precision="55"
+    ColumnName="SITE_ADDRESS2"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_PCS_ADDRESS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="55"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SiteCity"
+    Precision="30"
+    ColumnName="SITE_CITY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_PCS_ADDRESS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SiteState"
+    Precision="10"
+    ColumnName="SITE_STATE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_PCS_ADDRESS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SitePostal"
+    Precision="15"
+    ColumnName="SITE_POSTAL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_PCS_ADDRESS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SiteOperatingHours"
+    Precision="500"
+    ColumnName="SITE_OPERATING_HOURS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_PCS_ADDRESS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SiteAddressId"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="SITE_ADDRESS_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_PCS_ADDRESS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+    <TransientExpression
+      Name="ExpressionScript"
+      CodeSourceName="XpeDccCfgPcsAddressEORow"/>
+  </Attribute>
+  <AccessorAttribute
+    Name="XpeDccCfgPcsEO"
+    Association="model.entities.associations.XpeDccCfgPcsAddressFkAssoc"
+    AssociationEnd="model.entities.associations.XpeDccCfgPcsAddressFkAssoc.XpeDccCfgPcsEO"
+    AssociationOtherEnd="model.entities.associations.XpeDccCfgPcsAddressFkAssoc.XpeDccCfgPcsAddressEO"
+    Type="model.entities.XpeDccCfgPcsEOImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="XpeDccCfgAddressPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_ADDRESS_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgPcsAddressEO.SiteId"/>
+      <Item Value="model.entities.XpeDccCfgPcsAddressEO.SiteAddressId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgPcsAddressFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="XPE_DCC_CFG_PCS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_PCS_ADDRESS_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgPcsAddressEO.SiteId"/>
+    </AttrArray>
+  </Key>
+</Entity>

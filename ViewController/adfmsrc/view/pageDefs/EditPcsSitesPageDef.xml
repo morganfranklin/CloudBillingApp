@@ -10,6 +10,8 @@
               id="XpeDccCfgNewPcsAssTerminalsEOVOIterator"/>
     <taskFlow id="terminalSearch1" taskFlowId="/WEB-INF/terminalSearch.xml#terminalSearch" activation="deferred"
               xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <iterator Binds="XpeDccCfgNewPcsAddressEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewPcsAddressEOVOIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="XpeDccCfgNewPcsEOVOIterator" id="SiteId">
@@ -85,5 +87,50 @@
                   InstanceName="data.AppModuleDataControl.dataProvider"
                   ReturnName="data.AppModuleDataControl.methodResults.addAssTerminalToPCS_AppModuleDataControl_dataProvider_addAssTerminalToPCS_result"/>
     <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="XpeDccCfgNewPcsAddressEOVOIterator" id="SiteAddress1">
+      <AttrNames>
+        <Item Value="SiteAddress1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewPcsAddressEOVOIterator" id="SiteAddress2">
+      <AttrNames>
+        <Item Value="SiteAddress2"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewPcsAddressEOVOIterator" id="SiteCity">
+      <AttrNames>
+        <Item Value="SiteCity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewPcsAddressEOVOIterator" id="SitePostal">
+      <AttrNames>
+        <Item Value="SitePostal"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewPcsAddressEOVOIterator" id="SiteOperatingHours">
+      <AttrNames>
+        <Item Value="SiteOperatingHours"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="XpeDccCfgNewPcsAddressEOVOIterator" id="XpeDccCfgNewPcsAddressEOVO">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccCfgPcsAddressEOVO" Name="XpeDccCfgNewPcsAddressEOVO0">
+        <AttrNames>
+          <Item Value="SiteAddressId"/>
+          <Item Value="SiteAddress1"/>
+          <Item Value="SiteAddress2"/>
+          <Item Value="SiteCity"/>
+          <Item Value="SiteState"/>
+          <Item Value="SitePostal"/>
+          <Item Value="SiteOperatingHours"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="XpeDccCfgNewPcsAddressEOVOIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <list IterBinding="XpeDccCfgNewPcsAddressEOVOIterator" StaticList="false" Uses="LOV_SiteState" id="SiteState"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <action IterBinding="XpeDccCfgNewPcsAddressEOVOIterator" id="Delete"
+            InstanceName="AppModuleDataControl.XpeDccCfgNewPcsAddressEOVO" DataControl="AppModuleDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

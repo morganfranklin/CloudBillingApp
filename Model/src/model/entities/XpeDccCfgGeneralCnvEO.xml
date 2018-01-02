@@ -95,7 +95,7 @@
   </Attribute>
   <Attribute
     Name="TranslationConsumer"
-    Precision="3"
+    Precision="10"
     ColumnName="TRANSLATION_CONSUMER"
     SQLType="VARCHAR"
     Type="java.lang.String"
@@ -196,6 +196,18 @@
     TableName="XPE_DCC_CFG_GENERAL_CNV">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Country"
+    Precision="3"
+    ColumnName="COUNTRY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_GENERAL_CNV">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
     </DesignTime>
   </Attribute>
   <Key

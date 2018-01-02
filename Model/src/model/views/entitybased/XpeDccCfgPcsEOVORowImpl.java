@@ -37,6 +37,7 @@ public class XpeDccCfgPcsEOVORowImpl extends ViewRowImpl {
         LastUpdatedBy,
         LastUpdatedDate,
         XpeDccCfgPcsAssTerminalsEOVO,
+        XpeDccCfgPcsAddressEOVO,
         LookupSharedAppModule_YONLOV;
         static AttributesEnum[] vals = null;
         ;
@@ -78,6 +79,7 @@ public class XpeDccCfgPcsEOVORowImpl extends ViewRowImpl {
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int XPEDCCCFGPCSASSTERMINALSEOVO = AttributesEnum.XpeDccCfgPcsAssTerminalsEOVO.index();
+    public static final int XPEDCCCFGPCSADDRESSEOVO = AttributesEnum.XpeDccCfgPcsAddressEOVO.index();
     public static final int LOOKUPSHAREDAPPMODULE_YONLOV = AttributesEnum.LookupSharedAppModule_YONLOV.index();
 
     /**
@@ -323,6 +325,13 @@ public class XpeDccCfgPcsEOVORowImpl extends ViewRowImpl {
      */
     public RowIterator getXpeDccCfgPcsAssTerminalsEOVO() {
         return (RowIterator) getAttributeInternal(XPEDCCCFGPCSASSTERMINALSEOVO);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link XpeDccCfgPcsAddressEOVO.
+     */
+    public RowIterator getXpeDccCfgPcsAddressEOVO() {
+        return (RowIterator) getAttributeInternal(XPEDCCCFGPCSADDRESSEOVO);
     }
 
     /**

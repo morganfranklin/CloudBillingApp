@@ -49,6 +49,10 @@
     Name="bind_TranslationConsumer"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="bind_Country"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="XpeDccCfgCarriers_LOV"
     ViewObjectName="model.views.readonly.XpeDccCfgCarriersROVO"
@@ -97,6 +101,10 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="PsCountryTblROVO1"
+    ViewObjectName="model.views.readonly.PsCountryTblROVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_CarrierId"
     ListVOName="XpeDccCfgCarriers_LOV"
@@ -235,6 +243,24 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Country"
+    ListVOName="PsCountryTblROVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Country"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Country"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -436,6 +462,20 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="Country"
+    PrecisionRule="true"
+    EntityAttrName="Country"
+    EntityUsage="XpeDccCfgGeneralCnvEO"
+    AliasName="COUNTRY"
+    LOVName="LOV_Country">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="GeneralConversionCriteria"
     ViewObjectName="model.views.entitybased.XpeDccCfgGeneralCnvEOVO"
@@ -508,6 +548,14 @@
         Operator="="
         Conjunction="AND"
         Value=":bind_TranslationConsumer"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Country"
+        ViewAttribute="Country"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_Country"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

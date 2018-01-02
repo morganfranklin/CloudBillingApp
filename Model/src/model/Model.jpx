@@ -68,6 +68,14 @@
             <Attr Name="_VO" Value="true"/>
         </DesignTime>
     </Containee>
+    <Containee
+        Name="Views"
+        PackageName="model.Views"
+        ObjectType="JboPackage">
+        <DesignTime>
+            <Attr Name="_VO" Value="true"/>
+        </DesignTime>
+    </Containee>
     <AppModuleUsage
         Name="LookupSharedAppModule"
         FullName="model.appmodule.LookupSharedAppModule"

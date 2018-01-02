@@ -178,6 +178,13 @@
     AssociationOtherEnd="model.entities.associations.XpeDccCfgPcsFkAssoc.XpeDccCfgPcsEO"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="XpeDccCfgPcsAddressEO"
+    Association="model.entities.associations.XpeDccCfgPcsAddressFkAssoc"
+    AssociationEnd="model.entities.associations.XpeDccCfgPcsAddressFkAssoc.XpeDccCfgPcsAddressEO"
+    AssociationOtherEnd="model.entities.associations.XpeDccCfgPcsAddressFkAssoc.XpeDccCfgPcsEO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="XpeDccCfgPcsPk"
     PrimaryKey="true">

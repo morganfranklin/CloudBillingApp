@@ -150,6 +150,62 @@
             </af:table>
             <af:spacer width="10" height="10" id="s5"/>
         </af:panelHeader>
+        <af:panelHeader text="PCS Address" id="ph4" size="5">
+            <f:facet name="context"/>
+            <f:facet name="toolbar">
+                <af:toolbar id="t4">
+                    <af:button action="#{bindings.CreateInsert.execute}" text="Add"
+                               disabled="#{!bindings.CreateInsert.enabled}" id="b12"
+                               actionListener="#{pageFlowScope.PcsInstallationSetUpTableMBean.onPcsAddressAdd}"/>
+                </af:toolbar>
+            </f:facet>
+            <f:facet name="menuBar"/>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+            <af:table value="#{bindings.XpeDccCfgNewPcsAddressEOVO.collectionModel}" var="row"
+                      rows="#{bindings.XpeDccCfgNewPcsAddressEOVO.rangeSize}"
+                      emptyText="#{bindings.XpeDccCfgNewPcsAddressEOVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.XpeDccCfgNewPcsAddressEOVO.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.XpeDccCfgNewPcsAddressEOVO.collectionModel.makeCurrent}"
+                      rowSelection="single" fetchSize="#{bindings.XpeDccCfgNewPcsAddressEOVO.rangeSize}" id="t3"
+                      contentDelivery="immediate" columnStretching="last" partialTriggers="::b12 ::b9">
+                <af:column headerText="#{bindings.XpeDccCfgNewPcsAddressEOVO.hints.SiteAddressId.label}" id="c6">
+                    <af:link text="#{row.SiteAddressId}" id="l2" partialSubmit="true"
+                             actionListener="#{pageFlowScope.PcsInstallationSetUpTableMBean.onPcsAddressEdit}"/>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgNewPcsAddressEOVO.hints.SiteAddress1.label}" id="c7">
+                    <af:outputText value="#{row.SiteAddress1}"
+                                   shortDesc="#{bindings.XpeDccCfgNewPcsAddressEOVO.hints.SiteAddress1.tooltip}"
+                                   id="ot9"/>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgNewPcsAddressEOVO.hints.SiteAddress2.label}" id="c8">
+                    <af:outputText value="#{row.SiteAddress2}"
+                                   shortDesc="#{bindings.XpeDccCfgNewPcsAddressEOVO.hints.SiteAddress2.tooltip}"
+                                   id="ot10"/>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgNewPcsAddressEOVO.hints.SiteCity.label}" id="c9">
+                    <af:outputText value="#{row.SiteCity}"
+                                   shortDesc="#{bindings.XpeDccCfgNewPcsAddressEOVO.hints.SiteCity.tooltip}" id="ot11"/>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgNewPcsAddressEOVO.hints.SiteState.label}" id="c10">
+                    <af:outputText value="#{row.SiteState}"
+                                   shortDesc="#{bindings.XpeDccCfgNewPcsAddressEOVO.hints.SiteState.tooltip}"
+                                   id="ot12"/>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgNewPcsAddressEOVO.hints.SitePostal.label}" id="c11">
+                    <af:outputText value="#{row.SitePostal}"
+                                   shortDesc="#{bindings.XpeDccCfgNewPcsAddressEOVO.hints.SitePostal.tooltip}"
+                                   id="ot13"/>
+                </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgNewPcsAddressEOVO.hints.SiteOperatingHours.label}" id="c12">
+                    <af:outputText value="#{row.SiteOperatingHours}"
+                                   shortDesc="#{bindings.XpeDccCfgNewPcsAddressEOVO.hints.SiteOperatingHours.tooltip}"
+                                   id="ot14"/>
+                </af:column>
+            </af:table>
+            <af:spacer width="10" height="10" id="s8"/>
+        </af:panelHeader>
         <af:panelGroupLayout id="pgl3">
             <af:button actionListener="#{pageFlowScope.PcsInstallationSetUpTableMBean.pcsSitesSaveActnLstnr}" text="Save" id="b1"/>
             <af:spacer width="10" height="10" id="s3"/>
@@ -213,6 +269,127 @@
                         <f:validator binding="#{bindings.InactiveDate1.validator}"/>
                         <af:convertDateTime pattern="#{bindings.InactiveDate1.format}"/>
                     </af:inputDate>
+                </af:panelFormLayout>
+            </af:dialog>
+        </af:popup>
+        <af:popup childCreation="deferred" autoCancel="disabled" id="p3" contentDelivery="lazyUncached"
+                  binding="#{backingBeanScope.PcsInstallationSetUpTableBBean.pcsAddressAdd_popup}">
+            <af:dialog id="d3" type="none" closeIconVisible="false" title="Add Pcs Address">
+                <f:facet name="buttonBar">
+                    <af:button text="Ok" id="b8"
+                               actionListener="#{pageFlowScope.PcsInstallationSetUpTableMBean.saveOrCancelPcsAddressAddActnLstnr}"/>
+                    <af:spacer width="10" height="10" id="s9"/>
+                    <af:button text="Cancel" id="b9"
+                               actionListener="#{pageFlowScope.PcsInstallationSetUpTableMBean.saveOrCancelPcsAddressAddActnLstnr}"
+                               action="#{bindings.Delete.execute}"/>
+                </f:facet>
+                <af:panelFormLayout id="pfl4">
+                    <af:inputText value="#{bindings.SiteAddress1.inputValue}"
+                                  label="#{bindings.SiteAddress1.hints.label}"
+                                  required="#{bindings.SiteAddress1.hints.mandatory}"
+                                  columns="#{bindings.SiteAddress1.hints.displayWidth}"
+                                  maximumLength="#{bindings.SiteAddress1.hints.precision}"
+                                  shortDesc="#{bindings.SiteAddress1.hints.tooltip}" id="it2">
+                        <f:validator binding="#{bindings.SiteAddress1.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.SiteAddress2.inputValue}"
+                                  label="#{bindings.SiteAddress2.hints.label}"
+                                  required="#{bindings.SiteAddress2.hints.mandatory}"
+                                  columns="#{bindings.SiteAddress2.hints.displayWidth}"
+                                  maximumLength="#{bindings.SiteAddress2.hints.precision}"
+                                  shortDesc="#{bindings.SiteAddress2.hints.tooltip}" id="it5">
+                        <f:validator binding="#{bindings.SiteAddress2.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.SiteCity.inputValue}" label="#{bindings.SiteCity.hints.label}"
+                                  required="#{bindings.SiteCity.hints.mandatory}"
+                                  columns="#{bindings.SiteCity.hints.displayWidth}"
+                                  maximumLength="#{bindings.SiteCity.hints.precision}"
+                                  shortDesc="#{bindings.SiteCity.hints.tooltip}" id="it6">
+                        <f:validator binding="#{bindings.SiteCity.validator}"/>
+                    </af:inputText>
+                    <af:panelLabelAndMessage label="#{bindings.SiteState.label}" id="plam11">
+                        <af:selectOneChoice value="#{bindings.SiteState.inputValue}" label="#{bindings.SiteState.label}"
+                                            required="#{bindings.SiteState.hints.mandatory}"
+                                            shortDesc="#{bindings.SiteState.hints.tooltip}" id="soc7" simple="true">
+                            <f:selectItems value="#{bindings.SiteState.items}" id="si7"/>
+                            <f:validator binding="#{bindings.SiteState.validator}"/>
+                        </af:selectOneChoice>
+                    </af:panelLabelAndMessage>
+                    <af:inputText value="#{bindings.SitePostal.inputValue}" label="#{bindings.SitePostal.hints.label}"
+                                  required="#{bindings.SitePostal.hints.mandatory}"
+                                  columns="#{bindings.SitePostal.hints.displayWidth}"
+                                  maximumLength="#{bindings.SitePostal.hints.precision}"
+                                  shortDesc="#{bindings.SitePostal.hints.tooltip}" id="it8">
+                        <f:validator binding="#{bindings.SitePostal.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.SiteOperatingHours.inputValue}"
+                                  label="#{bindings.SiteOperatingHours.hints.label}"
+                                  required="#{bindings.SiteOperatingHours.hints.mandatory}"
+                                  columns="#{bindings.SiteOperatingHours.hints.displayWidth}"
+                                  maximumLength="#{bindings.SiteOperatingHours.hints.precision}"
+                                  shortDesc="#{bindings.SiteOperatingHours.hints.tooltip}" id="it9">
+                        <f:validator binding="#{bindings.SiteOperatingHours.validator}"/>
+                    </af:inputText>
+                </af:panelFormLayout>
+            </af:dialog>
+        </af:popup>
+        <af:popup childCreation="deferred" autoCancel="disabled" id="p4"
+                  binding="#{backingBeanScope.PcsInstallationSetUpTableBBean.pcsAddressEdit_popup}">
+            <af:dialog id="d4" type="none" closeIconVisible="false" title="Edit Pcs Address">
+                <f:facet name="buttonBar">
+                    <af:button text="Ok" id="b10"
+                               actionListener="#{pageFlowScope.PcsInstallationSetUpTableMBean.saveOrCancelPcsAddressEditActnLstnr}"/>
+                    <af:spacer width="10" height="10" id="s10"/>
+                    <af:button text="Cancel" id="b11"
+                               actionListener="#{pageFlowScope.PcsInstallationSetUpTableMBean.saveOrCancelPcsAddressEditActnLstnr}"/>
+                </f:facet>
+                <af:panelFormLayout id="pfl5">
+                    <af:inputText value="#{bindings.SiteAddress1.inputValue}"
+                                  label="#{bindings.SiteAddress1.hints.label}"
+                                  required="#{bindings.SiteAddress1.hints.mandatory}"
+                                  columns="#{bindings.SiteAddress1.hints.displayWidth}"
+                                  maximumLength="#{bindings.SiteAddress1.hints.precision}"
+                                  shortDesc="#{bindings.SiteAddress1.hints.tooltip}" id="it10">
+                        <f:validator binding="#{bindings.SiteAddress1.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.SiteAddress2.inputValue}"
+                                  label="#{bindings.SiteAddress2.hints.label}"
+                                  required="#{bindings.SiteAddress2.hints.mandatory}"
+                                  columns="#{bindings.SiteAddress2.hints.displayWidth}"
+                                  maximumLength="#{bindings.SiteAddress2.hints.precision}"
+                                  shortDesc="#{bindings.SiteAddress2.hints.tooltip}" id="it11">
+                        <f:validator binding="#{bindings.SiteAddress2.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.SiteCity.inputValue}" label="#{bindings.SiteCity.hints.label}"
+                                  required="#{bindings.SiteCity.hints.mandatory}"
+                                  columns="#{bindings.SiteCity.hints.displayWidth}"
+                                  maximumLength="#{bindings.SiteCity.hints.precision}"
+                                  shortDesc="#{bindings.SiteCity.hints.tooltip}" id="it12">
+                        <f:validator binding="#{bindings.SiteCity.validator}"/>
+                    </af:inputText>
+                    <af:panelLabelAndMessage label="#{bindings.SiteState.label}" id="plam10">
+                        <af:selectOneChoice value="#{bindings.SiteState.inputValue}" label="#{bindings.SiteState.label}"
+                                            required="#{bindings.SiteState.hints.mandatory}"
+                                            shortDesc="#{bindings.SiteState.hints.tooltip}" id="soc8" simple="true">
+                            <f:selectItems value="#{bindings.SiteState.items}" id="si8"/>
+                            <f:validator binding="#{bindings.SiteState.validator}"/>
+                        </af:selectOneChoice>
+                    </af:panelLabelAndMessage>
+                    <af:inputText value="#{bindings.SitePostal.inputValue}" label="#{bindings.SitePostal.hints.label}"
+                                  required="#{bindings.SitePostal.hints.mandatory}"
+                                  columns="#{bindings.SitePostal.hints.displayWidth}"
+                                  maximumLength="#{bindings.SitePostal.hints.precision}"
+                                  shortDesc="#{bindings.SitePostal.hints.tooltip}" id="it14">
+                        <f:validator binding="#{bindings.SitePostal.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.SiteOperatingHours.inputValue}"
+                                  label="#{bindings.SiteOperatingHours.hints.label}"
+                                  required="#{bindings.SiteOperatingHours.hints.mandatory}"
+                                  columns="#{bindings.SiteOperatingHours.hints.displayWidth}"
+                                  maximumLength="#{bindings.SiteOperatingHours.hints.precision}"
+                                  shortDesc="#{bindings.SiteOperatingHours.hints.tooltip}" id="it15">
+                        <f:validator binding="#{bindings.SiteOperatingHours.validator}"/>
+                    </af:inputText>
                 </af:panelFormLayout>
             </af:dialog>
         </af:popup>

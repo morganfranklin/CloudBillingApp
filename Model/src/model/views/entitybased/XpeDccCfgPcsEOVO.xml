@@ -364,6 +364,11 @@
     ViewLink="model.views.entitybased.XpeDccCfgSitesFKVL"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="XpeDccCfgPcsAddressEOVO"
+    ViewLink="model.views.entitybased.XpeDccCfgPcsAddressFkLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

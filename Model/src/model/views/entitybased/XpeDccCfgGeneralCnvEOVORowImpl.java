@@ -37,13 +37,15 @@ public class XpeDccCfgGeneralCnvEOVORowImpl extends ViewRowImpl {
         InactiveDate,
         TohBusinessType,
         TohPayType,
+        Country,
         XpeDccCfgCarriers_LOV,
         XpeDccCfgOrigins_LOV,
         XpeDccCfgDestinations_LOV,
         XpeDccCfgProductService_LOV,
         XpeDccCfgPCSShortNames_LOV,
         LookupSharedAppModule_TranslationConsumerLOV,
-        LookupSharedAppModule_XpeDccDicNewContractSetupROVO1;
+        LookupSharedAppModule_XpeDccDicNewContractSetupROVO1,
+        PsCountryTblROVO1;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -85,6 +87,7 @@ public class XpeDccCfgGeneralCnvEOVORowImpl extends ViewRowImpl {
     public static final int INACTIVEDATE = AttributesEnum.InactiveDate.index();
     public static final int TOHBUSINESSTYPE = AttributesEnum.TohBusinessType.index();
     public static final int TOHPAYTYPE = AttributesEnum.TohPayType.index();
+    public static final int COUNTRY = AttributesEnum.Country.index();
     public static final int XPEDCCCFGCARRIERS_LOV = AttributesEnum.XpeDccCfgCarriers_LOV.index();
     public static final int XPEDCCCFGORIGINS_LOV = AttributesEnum.XpeDccCfgOrigins_LOV.index();
     public static final int XPEDCCCFGDESTINATIONS_LOV = AttributesEnum.XpeDccCfgDestinations_LOV.index();
@@ -94,6 +97,7 @@ public class XpeDccCfgGeneralCnvEOVORowImpl extends ViewRowImpl {
         AttributesEnum.LookupSharedAppModule_TranslationConsumerLOV.index();
     public static final int LOOKUPSHAREDAPPMODULE_XPEDCCDICNEWCONTRACTSETUPROVO1 =
         AttributesEnum.LookupSharedAppModule_XpeDccDicNewContractSetupROVO1.index();
+    public static final int PSCOUNTRYTBLROVO1 = AttributesEnum.PsCountryTblROVO1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -366,6 +370,22 @@ public class XpeDccCfgGeneralCnvEOVORowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for COUNTRY using the alias name Country.
+     * @return the COUNTRY
+     */
+    public String getCountry() {
+        return (String) getAttributeInternal(COUNTRY);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for COUNTRY using the alias name Country.
+     * @param value value to set the COUNTRY
+     */
+    public void setCountry(String value) {
+        setAttributeInternal(COUNTRY, value);
+    }
+
+    /**
      * Gets the view accessor <code>RowSet</code> XpeDccCfgCarriers_LOV.
      */
     public RowSet getXpeDccCfgCarriers_LOV() {
@@ -412,6 +432,13 @@ public class XpeDccCfgGeneralCnvEOVORowImpl extends ViewRowImpl {
      */
     public RowSet getLookupSharedAppModule_XpeDccDicNewContractSetupROVO1() {
         return (RowSet) getAttributeInternal(LOOKUPSHAREDAPPMODULE_XPEDCCDICNEWCONTRACTSETUPROVO1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> PsCountryTblROVO1.
+     */
+    public RowSet getPsCountryTblROVO1() {
+        return (RowSet) getAttributeInternal(PSCOUNTRYTBLROVO1);
     }
 }
 

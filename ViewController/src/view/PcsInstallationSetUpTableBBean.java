@@ -7,6 +7,8 @@ public class PcsInstallationSetUpTableBBean {
     private RichPopup pcsTerminalAddItem_popup;
     private RichPopup pcsTerminalEditItem_popup;
     private RichTable pcsInstallationSetUpTblBind;
+    private RichPopup pcsAddressAdd_popup;
+    private RichPopup pcsAddressEdit_popup;
 
     public PcsInstallationSetUpTableBBean() {
     }
@@ -33,5 +35,21 @@ public class PcsInstallationSetUpTableBBean {
 
     public RichTable getPcsInstallationSetUpTblBind() {
         return pcsInstallationSetUpTblBind;
+    }
+
+    public void setPcsAddressAdd_popup(RichPopup pcsAddressAdd_popup) {
+        this.pcsAddressAdd_popup = pcsAddressAdd_popup;
+    }
+
+    public RichPopup getPcsAddressAdd_popup() {
+        return pcsAddressAdd_popup;
+    }
+
+    public void setPcsAddressEdit_popup(RichPopup pcsAddressEdit_popup) {
+        this.pcsAddressEdit_popup = pcsAddressEdit_popup;
+    }
+
+    public RichPopup getPcsAddressEdit_popup() {
+        return pcsAddressEdit_popup;
     }
 }

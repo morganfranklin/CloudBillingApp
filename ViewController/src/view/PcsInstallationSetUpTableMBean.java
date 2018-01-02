@@ -122,4 +122,22 @@ public class PcsInstallationSetUpTableMBean {
             JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
         }
     }
+
+    public void onPcsAddressEdit(ActionEvent actionEvent) {
+        RichPopup.PopupHints hints = new RichPopup.PopupHints();
+        this.getPcsInstallationSetUpTableBBean().getPcsAddressEdit_popup().show(hints);
+    }
+
+    public void onPcsAddressAdd(ActionEvent actionEvent) {
+        RichPopup.PopupHints hints = new RichPopup.PopupHints();
+        this.getPcsInstallationSetUpTableBBean().getPcsAddressAdd_popup().show(hints);
+    }
+
+    public void saveOrCancelPcsAddressAddActnLstnr(ActionEvent actionEvent) {
+        this.getPcsInstallationSetUpTableBBean().getPcsAddressAdd_popup().cancel();
+    }
+
+    public void saveOrCancelPcsAddressEditActnLstnr(ActionEvent actionEvent) {
+        this.getPcsInstallationSetUpTableBBean().getPcsAddressEdit_popup().cancel();
+    }
 }

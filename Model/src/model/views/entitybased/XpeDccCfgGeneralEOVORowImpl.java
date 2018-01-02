@@ -12,6 +12,8 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class XpeDccCfgGeneralEOVORowImpl extends ViewRowImpl {
+
+
     public static final int ENTITY_XPEDCCCFGGENERALEO = 0;
 
     /**
@@ -27,9 +29,11 @@ public class XpeDccCfgGeneralEOVORowImpl extends ViewRowImpl {
         LastUpdatedDate,
         Inactive,
         InactiveDate,
+        SwAcctClass,
         LookupSharedAppModule_GeneralItemListLOV,
         LookupSharedAppModule_XpeDccDicNewContractSetupROVO1;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -51,6 +55,8 @@ public class XpeDccCfgGeneralEOVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
+
     public static final int ITEMID = AttributesEnum.ItemId.index();
     public static final int ITEMLISTTYPE = AttributesEnum.ItemListType.index();
     public static final int VALIDVALUE = AttributesEnum.ValidValue.index();
@@ -60,6 +66,7 @@ public class XpeDccCfgGeneralEOVORowImpl extends ViewRowImpl {
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int INACTIVE = AttributesEnum.Inactive.index();
     public static final int INACTIVEDATE = AttributesEnum.InactiveDate.index();
+    public static final int SWACCTCLASS = AttributesEnum.SwAcctClass.index();
     public static final int LOOKUPSHAREDAPPMODULE_GENERALITEMLISTLOV =
         AttributesEnum.LookupSharedAppModule_GeneralItemListLOV.index();
     public static final int LOOKUPSHAREDAPPMODULE_XPEDCCDICNEWCONTRACTSETUPROVO1 =
@@ -221,6 +228,22 @@ public class XpeDccCfgGeneralEOVORowImpl extends ViewRowImpl {
      */
     public void setInactiveDate(Timestamp value) {
         setAttributeInternal(INACTIVEDATE, value);
+    }
+
+    /**
+     * Gets the attribute value for SW_ACCT_CLASS using the alias name SwAcctClass.
+     * @return the SW_ACCT_CLASS
+     */
+    public String getSwAcctClass() {
+        return (String) getAttributeInternal(SWACCTCLASS);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for SW_ACCT_CLASS using the alias name SwAcctClass.
+     * @param value value to set the SW_ACCT_CLASS
+     */
+    public void setSwAcctClass(String value) {
+        setAttributeInternal(SWACCTCLASS, value);
     }
 
     /**

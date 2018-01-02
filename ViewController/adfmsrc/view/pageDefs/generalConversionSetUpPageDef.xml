@@ -25,6 +25,7 @@
           <Item Value="TohBusinessType"/>
           <Item Value="TohPayType"/>
           <Item Value="GeneralCnvId"/>
+          <Item Value="Country"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -112,5 +113,9 @@
         <Item Value="TohPayType"/>
       </AttrNames>
     </attributeValues>
+    <list IterBinding="XpeDccCfgNewGeneralCnvEOVOIterator" StaticList="false" Uses="LOV_Country" id="Country"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgGeneralCnvEOVOIterator" StaticList="false" Uses="LOV_Country" id="Country1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

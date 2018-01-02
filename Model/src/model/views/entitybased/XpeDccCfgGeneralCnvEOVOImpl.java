@@ -109,5 +109,21 @@ public class XpeDccCfgGeneralCnvEOVOImpl extends ViewObjectImpl {
     public void setbind_TranslationConsumer(String value) {
         ensureVariableManager().setVariableValue("bind_TranslationConsumer", value);
     }
+
+    /**
+     * Returns the variable value for bind_Country.
+     * @return variable value for bind_Country
+     */
+    public String getbind_Country() {
+        return (String) ensureVariableManager().getVariableValue("bind_Country");
+    }
+
+    /**
+     * Sets <code>value</code> for variable bind_Country.
+     * @param value value to bind as bind_Country
+     */
+    public void setbind_Country(String value) {
+        ensureVariableManager().setVariableValue("bind_Country", value);
+    }
 }
 
