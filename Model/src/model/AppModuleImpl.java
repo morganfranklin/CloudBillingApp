@@ -1848,7 +1848,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             if (null != approvalWFEventRow) {
                 XpeDccWfActionEOVORowImpl xpeDccWfActionEOVORow =
                     (XpeDccWfActionEOVORowImpl) approvalWFEventRow.getXpeDccWfActionEOVO().first();
-                if (EmailUtils.sendEmail(xpeDccWfActionEOVORow.getXpeApproverEmail(),
+                if (null!=xpeDccWfActionEOVORow && EmailUtils.sendEmail(xpeDccWfActionEOVORow.getXpeApproverEmail(),
                                          buildEmailBody(xpeDccWfActionEOVORow, "I"),
                                          bytes)) {
                     if (null != approvalWFEventRow.getXpeEventStatus() &&
@@ -1865,8 +1865,9 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         return emailStatus;
     }
     
-    private String buildEmailBody(XpeDccWfActionEOVORowImpl xpeDccWfActionEOVORow, String userType){
-        String customerName=null,contractStartDate=null,contractEndDate=null,salesPerson=null,termAgreement=null,valTrans=null,varBudget=null,
+    private Map<String,String>  buildEmailBody(XpeDccWfActionEOVORowImpl xpeDccWfActionEOVORow, String userType){
+        Map<String,String>  email = new HashMap<String,String>();
+        String customerName=null,contractId= null,contractStartDate=null,contractEndDate=null,salesPerson=null,termAgreement=null,valTrans=null,varBudget=null,
             paymentHist=null,paymentMethod=null,estDisposalVol=null,extCustomer=null,justification=null,creditLimit=null;
         XpeDccNewContractsEOVOImpl contractView = this.getXpeDccNewContractsEOVO1();
         contractView.executeEmptyRowSet();
@@ -1875,6 +1876,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         contractView.executeQuery();
         XpeDccNewContractsEOVORowImpl xpeDccNewContractsEOVORow = (XpeDccNewContractsEOVORowImpl) contractView.first();
         if(null!=xpeDccNewContractsEOVORow){
+            contractId = xpeDccNewContractsEOVORow.getXpeContractId();
             XpeDccNewContractCustomerSearchROVOImpl xpeDccNewContractCustomerSearchROVO = this.getXpeDccNewContractCustomerSearchROVO1();
             xpeDccNewContractCustomerSearchROVO.executeEmptyRowSet();
             xpeDccNewContractCustomerSearchROVO.setApplyViewCriteriaName("NewContractCustomerSearch");
@@ -1944,18 +1946,22 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         }
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_37/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_40/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(xpeDccWfActionEOVORow.getXpeUuid()).append("&").append("action=").append("ACCEPT").append("&").append("user=").append(userType);
         html.append("\"><b>Accept</b></a>");
         html.append("&nbsp;&nbsp;&nbsp;");
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_37/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_40/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(xpeDccWfActionEOVORow.getXpeUuid()).append("&").append("action=").append("REJECT").append("&").append("user=").append(userType);
         html.append("\"><b>Reject</b></a>");
         html.append("</p>");
+        
+        email.put("EMAIL_SUBJECT", "Contract Approval – "+customerName);
+        email.put("EMAIL_ATTACHMENT_NAME", customerName+" – Contract – "+contractId);
+        email.put("EMAIL_BODY", html.toString());
 
-        return html.toString();
+        return email;
     }
     
     private String formatDate(String dateInString) {

@@ -1,9 +1,6 @@
 package model.utils;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
@@ -23,15 +20,13 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.mail.util.ByteArrayDataSource;
 
-import javax.swing.text.html.HTML;
-
 public class EmailUtils {
     public EmailUtils() {
         super();
     }
     
-    public static boolean sendEmail(String recepient, String emailBody, byte[] bytes) {
-        String host = "smtp.gmail.com",port = "587",sender="morgan.franklin.test@gmail.com",subject="Contract Approval - Customer Name";
+    public static boolean sendEmail(String recepient, Map<String,String> email, byte[] bytes) {
+        String host = "smtp.gmail.com",port = "587",sender="morgan.franklin.test@gmail.com";
         
         MimeMessage message = null;
         Transport transport = null;
@@ -40,19 +35,19 @@ public class EmailUtils {
                 Session session = getMailSession(host, port, sender);
                 message = new MimeMessage(session);
                 message.setFrom(new InternetAddress(sender));
-                message.setSubject(subject);
+                message.setSubject(checkIfNull(email.get("EMAIL_SUBJECT")));
                 message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recepient));
                 
                 Multipart mp = new MimeMultipart();
                 MimeBodyPart mbp1 = new MimeBodyPart();
-                mbp1.setContent(emailBody, "text/html; charset=utf-8");
+                mbp1.setContent(checkIfNull(email.get("EMAIL_BODY")), "text/html; charset=utf-8");
                 mp.addBodyPart(mbp1);
                 
                 if (null != bytes) {
                     MimeBodyPart mbp2 = new MimeBodyPart();
                     ByteArrayDataSource bds = new ByteArrayDataSource(bytes, "application/octet-stream");
                     mbp2.setDataHandler(new DataHandler(bds));
-                    mbp2.setFileName("Template.PDF");
+                    mbp2.setFileName(checkIfNull(email.get("EMAIL_ATTACHMENT_NAME")));
                     mp.addBodyPart(mbp2);
                 }
                 
@@ -98,6 +93,13 @@ public class EmailUtils {
         return session;
     }
     
+    private static String checkIfNull(String val){ 
+        if(null==val || val.trim().length()==0)
+          return "";
+        else
+          return val;
+    }
+    
     public static void main(String[] args) {
         StringBuilder html = new StringBuilder();
         String cust = null;
@@ -118,6 +120,6 @@ public class EmailUtils {
         html.append("\"><b>Reject</b></a>");
         html.append("</p>");
         //"<p><a href="https://www.w3schools.com/html/default.asp">HTML tutorial</a></p>";
-        EmailUtils.sendEmail("nkoneru@morganfranklin.com",html.toString(),null);
+        EmailUtils.sendEmail("nkoneru@morganfranklin.com",new HashMap<String,String>(),null);
     }
 }
