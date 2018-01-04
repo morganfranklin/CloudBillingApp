@@ -12,7 +12,13 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+    RowClass="model.XpeDccContractsAttachmentsViewRowImpl"
+    ComponentClass="model.XpeDccContractsAttachmentsViewImpl">
+    <DesignTime>
+        <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+        <Attr Name="_isCodegen" Value="true"/>
+    </DesignTime>
     <EntityUsage
       Name="XpeDccContractsAttachments"
       Entity="model.XpeDccContractsAttachments"/>
@@ -22,7 +28,8 @@
         PrecisionRule="true"
         EntityAttrName="AttachmentId"
         EntityUsage="XpeDccContractsAttachments"
-        AliasName="ATTACHMENT_ID"/>
+        AliasName="ATTACHMENT_ID"
+        IsUpdateable="while_insert"/>
     <ViewAttribute
         Name="XpeContractId"
         IsNotNull="true"

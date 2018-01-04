@@ -1049,8 +1049,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      * Container's getter for XpeDccContractsAttachmentsView1.
      * @return XpeDccContractsAttachmentsView1
      */
-    public ViewObjectImpl getXpeDccContractsAttachmentsView1() {
-        return (ViewObjectImpl) findViewObject("XpeDccContractsAttachmentsView1");
+    public XpeDccContractsAttachmentsViewImpl getXpeDccContractsAttachmentsView1() {
+        return (XpeDccContractsAttachmentsViewImpl) findViewObject("XpeDccContractsAttachmentsView1");
     }
 
     /**
@@ -1883,9 +1883,9 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             xpeDccNewContractCustomerSearchROVO.setbind_CustomerId(xpeDccNewContractsEOVORow.getCustId());
             xpeDccNewContractCustomerSearchROVO.executeQuery();
             XpeDccNewContractCustomerSearchROVORowImpl xpeDccNewContractCustomerSearchROVORow = (XpeDccNewContractCustomerSearchROVORowImpl)xpeDccNewContractCustomerSearchROVO.first();
-            if (null != xpeDccNewContractCustomerSearchROVORow)
+            if (null != xpeDccNewContractCustomerSearchROVORow){
                 customerName = xpeDccNewContractCustomerSearchROVORow.getName1();
-            else {
+            }else {
                 Row customerRow = null;
                 Key newCustKey = new Key(new Object[] { xpeDccWfActionEOVORow.getXpeContractId() });
                 Row[] newCustRows = this.getXpeDmsCustomerEOVO().findByKey(newCustKey, 1);
@@ -1945,14 +1945,14 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         html.append("<b>Credit Limit:</b>").append("&nbsp;&nbsp;").append(checkIfNull(creditLimit)).append("<br><br>");
         }
         html.append("<a href=\"");
-        //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_40/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        //html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(xpeDccWfActionEOVORow.getXpeUuid()).append("&").append("action=").append("ACCEPT").append("&").append("user=").append(userType);
         html.append("\"><b>Accept</b></a>");
         html.append("&nbsp;&nbsp;&nbsp;");
         html.append("<a href=\"");
-        //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_40/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        //html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(xpeDccWfActionEOVORow.getXpeUuid()).append("&").append("action=").append("REJECT").append("&").append("user=").append(userType);
         html.append("\"><b>Reject</b></a>");
         html.append("</p>");
@@ -2260,65 +2260,71 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     }
     
     private void pushEmailForExternalUser(String userType,String contractId,String contractVersion, byte[] bytes, byte[] coverSheetBytes){
-        if (null != userType) {
-            if ("I".equals(userType)) { //I - Internal User(Last Approver)
-                //creating External Approval Work Flow Event
-                XpeDccNewContractsEOVOImpl contractView = this.getXpeDccNewContractsEOVO();
-                contractView.executeEmptyRowSet();
-                contractView.setApplyViewCriteriaName("FetchExtContractCriteria");
-                contractView.setbind_ContractId(contractId);
-                contractView.executeQuery();
-                XpeDccNewContractsEOVORowImpl xpeDccNewContractsEOVORow = (XpeDccNewContractsEOVORowImpl) contractView.first();
-                if (null != xpeDccNewContractsEOVORow) {
-                    RowIterator contractVersionRowIterator = xpeDccNewContractsEOVORow.getXpeDccContractVersionView();
-                    Key key = new Key(new Object[] { contractId, contractVersion });
-                    Row[] rows = contractVersionRowIterator.findByKey(key, 1);
-                    if (null != rows && rows.length > 0) {
-                        XpeDccContractVersionViewRowImpl contractVersionViewRow =
-                            (XpeDccContractVersionViewRowImpl) rows[0];
+            XpeDccNewContractsEOVOImpl contractView = this.getXpeDccNewContractsEOVO();
+            contractView.executeEmptyRowSet();
+            contractView.setApplyViewCriteriaName("FetchExtContractCriteria");
+            contractView.setbind_ContractId(contractId);
+            contractView.executeQuery();
+            XpeDccNewContractsEOVORowImpl xpeDccNewContractsEOVORow =
+                (XpeDccNewContractsEOVORowImpl) contractView.first();
+            if (null != xpeDccNewContractsEOVORow) {
+                RowIterator contractVersionRowIterator = xpeDccNewContractsEOVORow.getXpeDccContractVersionView();
+                Key key = new Key(new Object[] { contractId, contractVersion });
+                Row[] rows = contractVersionRowIterator.findByKey(key, 1);
+                if (null != rows && rows.length > 0 && null!=userType) {
+                    XpeDccContractVersionViewRowImpl contractVersionViewRow =
+                        (XpeDccContractVersionViewRowImpl) rows[0];
+                    if ("I".equals(userType)) { //I - Internal User(Last Approver)
+                        //creating External Approval Work Flow Event
                         XpeDccWfEventEOVORowImpl approvalWFEventExternalRow =
                             (XpeDccWfEventEOVORowImpl) contractVersionViewRow.getXpeDccWfEventEOVO().createRow();
                         approvalWFEventExternalRow.setXpeEventStatus("IWF");
                         approvalWFEventExternalRow.setXpeEventType("E"); //E - External User
                         contractVersionViewRow.getXpeDccWfEventEOVO().insertRow(approvalWFEventExternalRow);
-                        if (null != approvalWFEventExternalRow) {
+                        if (null !=
+                            approvalWFEventExternalRow) {
                             //creating External Approval Work Flow Action
                             XpeDccWfActionEOVORowImpl xpeDccWfActionEOVORow =
-                                                              (XpeDccWfActionEOVORowImpl) approvalWFEventExternalRow.getXpeDccWfActionEOVO().createRow();
+                        (XpeDccWfActionEOVORowImpl) approvalWFEventExternalRow.getXpeDccWfActionEOVO().createRow();
                             xpeDccWfActionEOVORow.setXpeContractId(approvalWFEventExternalRow.getXpeContractId());
                             xpeDccWfActionEOVORow.setXpeContractVersion(approvalWFEventExternalRow.getXpeContractVersion());
                             xpeDccWfActionEOVORow.setXpeUuid(UUID.randomUUID().toString());
                             //setting customer email Id to push email notification
                             xpeDccWfActionEOVORow.setXpeApproverEmail(xpeDccNewContractsEOVORow.getCustContractApproverEmail());
                             xpeDccWfActionEOVORow.setXpeApproverLevel(NEUCloudBillingConstants.CUSTOMER);
-                            xpeDccWfActionEOVORow.setXpeActionStatus("W");//W-Waiting
+                            xpeDccWfActionEOVORow.setXpeActionStatus("W"); //W-Waiting
                             approvalWFEventExternalRow.getXpeDccWfActionEOVO().insertRow(xpeDccWfActionEOVORow);
-                            this.pushEmailForApproval(xpeDccWfActionEOVORow, bytes,"E"); //E - External User
+                            this.pushEmailForApproval(xpeDccWfActionEOVORow, bytes, "E"); //E - External User
+                        }
+                    } else if ("E".equals(userType)) { //E - External User
+                        updateContractVersionStatus(contractId, contractVersion, "APR");
+                        try {
+                            BlobDomain blobDomain = new BlobDomain();
+                            OutputStream out = blobDomain.getBinaryOutputStream();
+                            IOUtils.copy(new ByteArrayInputStream(bytes), out);
+                            this.uploadPDFtoDB("Contract_Template.pdf", blobDomain,contractVersionViewRow);
+
+                            BlobDomain blobDomain1 = new BlobDomain();
+                            OutputStream out1 = blobDomain1.getBinaryOutputStream();
+                            IOUtils.copy(new ByteArrayInputStream(coverSheetBytes), out1);
+                            this.uploadPDFtoDB("Contract_Cover_Sheet.pdf", blobDomain1,contractVersionViewRow);
+                        } catch (SQLException sqle) {
+                            // TODO: Add catch code
+                            sqle.printStackTrace();
+                        } catch (IOException ioe) {
+                            // TODO: Add catch code
+                            ioe.printStackTrace();
                         }
                     }
                 }
-            } else if ("E".equals(userType)) { //E - External User
-                updateContractVersionStatus(contractId,contractVersion, "APR");
-
-                try {
-                    BlobDomain blobDomain = new BlobDomain();
-                    OutputStream out = blobDomain.getBinaryOutputStream();
-                    IOUtils.copy(new ByteArrayInputStream(bytes), out);
-                    this.uploadFiletoDB("Contract_Template.pdf", blobDomain);
-                    
-                    BlobDomain blobDomain1 = new BlobDomain();
-                    OutputStream out1 = blobDomain1.getBinaryOutputStream();
-                    IOUtils.copy(new ByteArrayInputStream(coverSheetBytes), out1);
-                    this.uploadFiletoDB("Contract_Cover_Sheet.pdf", blobDomain1);
-                } catch (SQLException sqle) {
-                    // TODO: Add catch code
-                    sqle.printStackTrace();
-                } catch (IOException ioe) {
-                    // TODO: Add catch code
-                    ioe.printStackTrace();
-                }
             }
-        }
+    }
+    
+    private void uploadPDFtoDB(String filename, BlobDomain blob, XpeDccContractVersionViewRowImpl contractVersionViewRow) {
+        XpeDccContractsAttachmentsViewRowImpl xpeDccContractsAttachmentsViewRow = (XpeDccContractsAttachmentsViewRowImpl)contractVersionViewRow.getXpeDccContractsAttachmentsView().createRow();
+        xpeDccContractsAttachmentsViewRow.setName(filename);
+        xpeDccContractsAttachmentsViewRow.setUploadFile(blob);
+        contractVersionViewRow.getXpeDccContractsAttachmentsView().insertRow(xpeDccContractsAttachmentsViewRow);
     }
     
     
