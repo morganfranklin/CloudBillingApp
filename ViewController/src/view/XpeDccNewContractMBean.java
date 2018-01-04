@@ -85,7 +85,7 @@ public class XpeDccNewContractMBean implements Serializable {
                     XpeDccNewContractsEOVORowImpl contractRow =
                         (XpeDccNewContractsEOVORowImpl) contractVo.createAndInitRow(null);
                     System.out.println("contract Id-" + contractRow.getXpeContractId());
-                    contractRow.setSetid("MODEL");
+                    contractRow.setSetid("MASTR");
                     String customerType = ADFUtils.getValueFrmExpression("#{bindings.Customer_Type.attributeValue}");
                     System.err.println("customerType: " + customerType);
                     if ("NEW".equals(customerType)) {
