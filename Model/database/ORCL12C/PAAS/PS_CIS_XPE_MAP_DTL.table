@@ -110,7 +110,7 @@
         <attributeValues>
           <entry>
             <key>size</key>
-            <value class="java.lang.Long">40</value>
+            <value class="java.lang.Long">250</value>
           </entry>
           <entry>
             <key>unit</key>

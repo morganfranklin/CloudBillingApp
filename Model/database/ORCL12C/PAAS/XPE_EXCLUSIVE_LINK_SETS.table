@@ -1,111 +1,9 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
-  <name>XPE_DCC_CFG_PCS_ADDRESS</name>
+  <name>XPE_EXCLUSIVE_LINK_SETS</name>
   <columns>
     <column>
-      <name>SITE_ID</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">20</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">BYTE</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>SITE_ID</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>XPE_DCC_CFG_PCS_ADDRESS</name>
-              <identifier class="java.math.BigDecimal">128463</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>SITE_ADDRESS1</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">55</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">BYTE</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>SITE_ADDRESS1</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>XPE_DCC_CFG_PCS_ADDRESS</name>
-              <identifier class="java.math.BigDecimal">128463</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>SITE_ADDRESS2</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">55</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">BYTE</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>SITE_ADDRESS2</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>XPE_DCC_CFG_PCS_ADDRESS</name>
-              <identifier class="java.math.BigDecimal">128463</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>SITE_CITY</name>
+      <name>EXCLUSIVE_SET_NAME</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -121,15 +19,15 @@
           <typeName>VARCHAR2</typeName>
         </dataTypeID>
       </dataTypeUsage>
-      <notNull>false</notNull>
+      <notNull>true</notNull>
       <properties>
         <entry>
           <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
           <value class="oracle.javatools.db.ReferenceID">
-            <name>SITE_CITY</name>
+            <name>EXCLUSIVE_SET_NAME</name>
             <parent class="oracle.javatools.db.ReferenceID">
-              <name>XPE_DCC_CFG_PCS_ADDRESS</name>
-              <identifier class="java.math.BigDecimal">128463</identifier>
+              <name>XPE_EXCLUSIVE_LINK_SETS</name>
+              <identifier class="java.math.BigDecimal">133708</identifier>
               <schemaName>PAAS</schemaName>
               <type>TABLE</type>
             </parent>
@@ -139,20 +37,40 @@
       </properties>
     </column>
     <column>
-      <name>SITE_STATE</name>
+      <name>XPE_CONTRACT_ID</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>XPE_CONTRACT_ID</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_EXCLUSIVE_LINK_SETS</name>
+              <identifier class="java.math.BigDecimal">133708</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>CREATION_DATE</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
-            <key>size</key>
-            <value class="java.lang.Long">10</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">BYTE</value>
+            <key>scale</key>
+            <value class="java.lang.Long">6</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
+          <typeName>TIMESTAMP</typeName>
         </dataTypeID>
       </dataTypeUsage>
       <notNull>false</notNull>
@@ -160,10 +78,10 @@
         <entry>
           <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
           <value class="oracle.javatools.db.ReferenceID">
-            <name>SITE_STATE</name>
+            <name>CREATION_DATE</name>
             <parent class="oracle.javatools.db.ReferenceID">
-              <name>XPE_DCC_CFG_PCS_ADDRESS</name>
-              <identifier class="java.math.BigDecimal">128463</identifier>
+              <name>XPE_EXCLUSIVE_LINK_SETS</name>
+              <identifier class="java.math.BigDecimal">133708</identifier>
               <schemaName>PAAS</schemaName>
               <type>TABLE</type>
             </parent>
@@ -173,75 +91,7 @@
       </properties>
     </column>
     <column>
-      <name>SITE_POSTAL</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">15</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">BYTE</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>SITE_POSTAL</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>XPE_DCC_CFG_PCS_ADDRESS</name>
-              <identifier class="java.math.BigDecimal">128463</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>SITE_OPERATING_HOURS</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">500</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">BYTE</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>SITE_OPERATING_HOURS</name>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>XPE_DCC_CFG_PCS_ADDRESS</name>
-              <identifier class="java.math.BigDecimal">128463</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <type>COLUMN</type>
-          </value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>SITE_ADDRESS_ID</name>
+      <name>CREATED_BY</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -257,15 +107,79 @@
           <typeName>VARCHAR2</typeName>
         </dataTypeID>
       </dataTypeUsage>
-      <notNull>true</notNull>
+      <notNull>false</notNull>
       <properties>
         <entry>
           <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
           <value class="oracle.javatools.db.ReferenceID">
-            <name>SITE_ADDRESS_ID</name>
+            <name>CREATED_BY</name>
             <parent class="oracle.javatools.db.ReferenceID">
-              <name>XPE_DCC_CFG_PCS_ADDRESS</name>
-              <identifier class="java.math.BigDecimal">128463</identifier>
+              <name>XPE_EXCLUSIVE_LINK_SETS</name>
+              <identifier class="java.math.BigDecimal">133708</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>LAST_UPDATED_DATE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">6</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>TIMESTAMP</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>LAST_UPDATED_DATE</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_EXCLUSIVE_LINK_SETS</name>
+              <identifier class="java.math.BigDecimal">133708</identifier>
+              <schemaName>PAAS</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>LAST_UPDATED_BY</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">20</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>LAST_UPDATED_BY</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_EXCLUSIVE_LINK_SETS</name>
+              <identifier class="java.math.BigDecimal">133708</identifier>
               <schemaName>PAAS</schemaName>
               <type>TABLE</type>
             </parent>
@@ -276,59 +190,13 @@
     </column>
   </columns>
   <constraints>
-    <constraint class="oracle.javatools.db.FKConstraint">
-      <name>XPE_DCC_CFG_PCS_ADDRESS_FK</name>
-      <columnIDs>
-        <columnID class="oracle.javatools.db.NameBasedID">
-          <name>SITE_ID</name>
-          <parent class="oracle.javatools.db.NameBasedID">
-            <name>XPE_DCC_CFG_PCS_ADDRESS</name>
-            <schemaName>PAAS</schemaName>
-            <type>TABLE</type>
-          </parent>
-          <schemaName>PAAS</schemaName>
-          <type>COLUMN</type>
-        </columnID>
-      </columnIDs>
-      <enabled>true</enabled>
-      <onDeleteAction>NO_ACTION</onDeleteAction>
-      <properties>
-        <entry>
-          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
-          <value class="oracle.javatools.db.ReferenceID">
-            <name>XPE_DCC_CFG_PCS_ADDRESS_FK</name>
-            <childObjectNames>
-              <childObjectName>SITE_ID</childObjectName>
-            </childObjectNames>
-            <parent class="oracle.javatools.db.ReferenceID">
-              <name>XPE_DCC_CFG_PCS_ADDRESS</name>
-              <identifier class="java.math.BigDecimal">128463</identifier>
-              <schemaName>PAAS</schemaName>
-              <type>TABLE</type>
-            </parent>
-            <subType>FKConstraint</subType>
-            <type>CONSTRAINT</type>
-          </value>
-        </entry>
-      </properties>
-      <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>XPE_DCC_CFG_PCS_PK</name>
-        <parent class="oracle.javatools.db.NameBasedID">
-          <name>XPE_DCC_CFG_PCS</name>
-          <schemaName>PAAS</schemaName>
-          <type>TABLE</type>
-        </parent>
-        <schemaName>PAAS</schemaName>
-        <type>CONSTRAINT</type>
-      </referenceID>
-    </constraint>
     <constraint class="oracle.javatools.db.PKConstraint">
-      <name>XPE_DCC_CFG_ADDRESS_PK</name>
+      <name>XPE_EXCLUSIVE_LINK_SETS_PK</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>SITE_ID</name>
+          <name>EXCLUSIVE_SET_NAME</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>XPE_DCC_CFG_PCS_ADDRESS</name>
+            <name>XPE_EXCLUSIVE_LINK_SETS</name>
             <schemaName>PAAS</schemaName>
             <type>TABLE</type>
           </parent>
@@ -336,9 +204,9 @@
           <type>COLUMN</type>
         </columnID>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>SITE_ADDRESS_ID</name>
+          <name>XPE_CONTRACT_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>XPE_DCC_CFG_PCS_ADDRESS</name>
+            <name>XPE_EXCLUSIVE_LINK_SETS</name>
             <schemaName>PAAS</schemaName>
             <type>TABLE</type>
           </parent>
@@ -348,9 +216,9 @@
       </columnIDs>
       <enabled>true</enabled>
       <indexID class="oracle.javatools.db.NameBasedID">
-        <name>XPE_DCC_CFG_ADDRESS_PK</name>
+        <name>XPE_EXCLUSIVE_LINK_SETS_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>XPE_DCC_CFG_PCS_ADDRESS</name>
+          <name>XPE_EXCLUSIVE_LINK_SETS</name>
           <schemaName>PAAS</schemaName>
           <type>TABLE</type>
         </parent>
@@ -361,14 +229,14 @@
         <entry>
           <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
           <value class="oracle.javatools.db.ReferenceID">
-            <name>XPE_DCC_CFG_ADDRESS_PK</name>
+            <name>XPE_EXCLUSIVE_LINK_SETS_PK</name>
             <childObjectNames>
-              <childObjectName>SITE_ID</childObjectName>
-              <childObjectName>SITE_ADDRESS_ID</childObjectName>
+              <childObjectName>EXCLUSIVE_SET_NAME</childObjectName>
+              <childObjectName>XPE_CONTRACT_ID</childObjectName>
             </childObjectNames>
             <parent class="oracle.javatools.db.ReferenceID">
-              <name>XPE_DCC_CFG_PCS_ADDRESS</name>
-              <identifier class="java.math.BigDecimal">128463</identifier>
+              <name>XPE_EXCLUSIVE_LINK_SETS</name>
+              <identifier class="java.math.BigDecimal">133708</identifier>
               <schemaName>PAAS</schemaName>
               <type>TABLE</type>
             </parent>
@@ -381,22 +249,22 @@
   </constraints>
   <indexes>
     <index>
-      <name>XPE_DCC_CFG_ADDRESS_PK</name>
+      <name>XPE_EXCLUSIVE_LINK_SETS_PK</name>
       <columnExpressions>
         <columnExpression>
-          <expressionSource>SITE_ID</expressionSource>
+          <expressionSource>EXCLUSIVE_SET_NAME</expressionSource>
           <orderType>ASC</orderType>
           <properties>
             <entry>
               <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
               <value class="oracle.javatools.db.ReferenceID">
-                <name>SITE_ID</name>
+                <name>EXCLUSIVE_SET_NAME</name>
                 <parent class="oracle.javatools.db.ReferenceID">
-                  <name>XPE_DCC_CFG_ADDRESS_PK</name>
-                  <identifier class="java.math.BigDecimal">134293</identifier>
+                  <name>XPE_EXCLUSIVE_LINK_SETS_PK</name>
+                  <identifier class="java.math.BigDecimal">133709</identifier>
                   <parent class="oracle.javatools.db.ReferenceID">
-                    <name>XPE_DCC_CFG_PCS_ADDRESS</name>
-                    <identifier class="java.math.BigDecimal">128463</identifier>
+                    <name>XPE_EXCLUSIVE_LINK_SETS</name>
+                    <identifier class="java.math.BigDecimal">133708</identifier>
                     <schemaName>PAAS</schemaName>
                     <type>TABLE</type>
                   </parent>
@@ -409,19 +277,19 @@
           </properties>
         </columnExpression>
         <columnExpression>
-          <expressionSource>SITE_ADDRESS_ID</expressionSource>
+          <expressionSource>XPE_CONTRACT_ID</expressionSource>
           <orderType>ASC</orderType>
           <properties>
             <entry>
               <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
               <value class="oracle.javatools.db.ReferenceID">
-                <name>SITE_ADDRESS_ID</name>
+                <name>XPE_CONTRACT_ID</name>
                 <parent class="oracle.javatools.db.ReferenceID">
-                  <name>XPE_DCC_CFG_ADDRESS_PK</name>
-                  <identifier class="java.math.BigDecimal">134293</identifier>
+                  <name>XPE_EXCLUSIVE_LINK_SETS_PK</name>
+                  <identifier class="java.math.BigDecimal">133709</identifier>
                   <parent class="oracle.javatools.db.ReferenceID">
-                    <name>XPE_DCC_CFG_PCS_ADDRESS</name>
-                    <identifier class="java.math.BigDecimal">128463</identifier>
+                    <name>XPE_EXCLUSIVE_LINK_SETS</name>
+                    <identifier class="java.math.BigDecimal">133708</identifier>
                     <schemaName>PAAS</schemaName>
                     <type>TABLE</type>
                   </parent>
@@ -440,11 +308,11 @@
         <entry>
           <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
           <value class="oracle.javatools.db.ReferenceID">
-            <name>XPE_DCC_CFG_ADDRESS_PK</name>
-            <identifier class="java.math.BigDecimal">134293</identifier>
+            <name>XPE_EXCLUSIVE_LINK_SETS_PK</name>
+            <identifier class="java.math.BigDecimal">133709</identifier>
             <parent class="oracle.javatools.db.ReferenceID">
-              <name>XPE_DCC_CFG_PCS_ADDRESS</name>
-              <identifier class="java.math.BigDecimal">128463</identifier>
+              <name>XPE_EXCLUSIVE_LINK_SETS</name>
+              <identifier class="java.math.BigDecimal">133708</identifier>
               <schemaName>PAAS</schemaName>
               <type>TABLE</type>
             </parent>
@@ -485,8 +353,8 @@
     <entry>
       <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
       <value class="oracle.javatools.db.ReferenceID">
-        <name>XPE_DCC_CFG_PCS_ADDRESS</name>
-        <identifier class="java.math.BigDecimal">128463</identifier>
+        <name>XPE_EXCLUSIVE_LINK_SETS</name>
+        <identifier class="java.math.BigDecimal">133708</identifier>
         <schemaName>PAAS</schemaName>
         <type>TABLE</type>
       </value>
