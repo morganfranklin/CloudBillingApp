@@ -23,7 +23,8 @@ public class XpeDccApprovalWF {
                 Map pdf = (Map)operationBinding.execute();
                 if(null!=pdf && pdf.size()>1){
                     ADFUtils.setvalueToExpression("#{pageFlowScope.PDF}", FileOperations.genPdfRep(String.valueOf(pdf.get("XML")).getBytes(), FileOperations.getRTFAsInputStream(String.valueOf(pdf.get("TEMPLATE_NAME")))));
-                    ADFUtils.setvalueToExpression("#{pageFlowScope.COVER_SHEET_PDF}", FileOperations.genPdfRep(String.valueOf(pdf.get("COVER_SHEET_XML")).getBytes(), FileOperations.getRTFAsInputStream(String.valueOf(pdf.get("COVER_SHEET_TEMPLATE_NAME")))));
+                    if(pdf.size()==4)
+                        ADFUtils.setvalueToExpression("#{pageFlowScope.COVER_SHEET_PDF}", FileOperations.genPdfRep(String.valueOf(pdf.get("COVER_SHEET_XML")).getBytes(), FileOperations.getRTFAsInputStream(String.valueOf(pdf.get("COVER_SHEET_TEMPLATE_NAME")))));
                 }
             }
         } catch (Exception e) {

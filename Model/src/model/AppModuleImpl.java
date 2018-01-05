@@ -1945,14 +1945,14 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         html.append("<b>Credit Limit:</b>").append("&nbsp;&nbsp;").append(checkIfNull(creditLimit)).append("<br><br>");
         }
         html.append("<a href=\"");
-        html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        //html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(xpeDccWfActionEOVORow.getXpeUuid()).append("&").append("action=").append("ACCEPT").append("&").append("user=").append(userType);
         html.append("\"><b>Accept</b></a>");
         html.append("&nbsp;&nbsp;&nbsp;");
         html.append("<a href=\"");
-        html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        //html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(xpeDccWfActionEOVORow.getXpeUuid()).append("&").append("action=").append("REJECT").append("&").append("user=").append(userType);
         html.append("\"><b>Reject</b></a>");
         html.append("</p>");
@@ -2032,7 +2032,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                                      xpeDccWfActionROVORow.getXpeContractVersion(),"N",uuId));
                 
                 //build contract cover sheet XML
-                if(null!= userType && null!= action && "E".equals(userType) && "A".equals(action))
+                if(null!= userType && null!= action && "E".equals(userType) && "ACCEPT".equals(action))
                  pdfXMLMap.putAll(contractCoverSheetXML(xpeDccWfActionROVORow.getXpeContractId(),xpeDccWfActionROVORow.getXpeContractVersion()));
             }
         } catch (Exception e) {
