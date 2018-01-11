@@ -64,7 +64,7 @@
   </Attribute>
   <Attribute
     Name="ProductServiceId"
-    Precision="20"
+    Precision="30"
     ColumnName="PRODUCT_SERVICE_ID"
     SQLType="VARCHAR"
     Type="java.lang.String"

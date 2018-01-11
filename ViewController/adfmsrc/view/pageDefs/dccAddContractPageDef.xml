@@ -121,8 +121,6 @@
         <Item Value="XpeSubNbr"/>
       </AttrNames>
     </attributeValues>
-    <list IterBinding="XpeDccContractCarrierView2Iterator" StaticList="false" Uses="LOV_XpeCarrierId"
-          id="XpeCarrierId" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="XpeDccContractLineView2Iterator" StaticList="false" Uses="LOV_CurrencyCd" id="CurrencyCd"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <list IterBinding="XpeDccContractLineView2Iterator" StaticList="false" Uses="LOV_XpeFacility" id="XpeFacility1"
@@ -157,5 +155,7 @@
         <Item Value="CustContractApproverEmail"/>
       </AttrNames>
     </attributeValues>
+    <listOfValues IterBinding="XpeDccContractCarrierView2Iterator" StaticList="false" Uses="LOV_XpeCarrierId"
+                  id="XpeCarrierId"/>
   </bindings>
 </pageDefinition>

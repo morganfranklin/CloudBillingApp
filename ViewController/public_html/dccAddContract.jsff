@@ -204,13 +204,16 @@
                     <af:panelFormLayout>
                         <af:button actionListener="#{bindings.CreateInsert2.execute}" text="Add Carrier Details"
                                    disabled="#{!bindings.CreateInsert2.enabled}" id="b6"/>
-                        <af:selectOneChoice value="#{bindings.XpeCarrierId.inputValue}"
-                                            label="#{bindings.XpeCarrierId.label}"
-                                            required="#{bindings.XpeCarrierId.hints.mandatory}"
-                                            shortDesc="#{bindings.XpeCarrierId.hints.tooltip}" id="soc4">
-                            <f:selectItems value="#{bindings.XpeCarrierId.items}" id="si4"/>
+                        <af:inputListOfValues id="xpeCarrierIdId"
+                                              popupTitle="Search and Select: #{bindings.XpeCarrierId.hints.label}"
+                                              value="#{bindings.XpeCarrierId.inputValue}"
+                                              label="#{bindings.XpeCarrierId.hints.label}"
+                                              model="#{bindings.XpeCarrierId.listOfValuesModel}"
+                                              required="#{bindings.XpeCarrierId.hints.mandatory}"
+                                              columns="#{bindings.XpeCarrierId.hints.displayWidth}"
+                                              shortDesc="#{bindings.XpeCarrierId.hints.tooltip}">
                             <f:validator binding="#{bindings.XpeCarrierId.validator}"/>
-                        </af:selectOneChoice>
+                        </af:inputListOfValues>
                         <af:selectOneChoice value="#{bindings.XpeVehicleType.inputValue}"
                                             label="#{bindings.XpeVehicleType.label}"
                                             required="#{bindings.XpeVehicleType.hints.mandatory}"

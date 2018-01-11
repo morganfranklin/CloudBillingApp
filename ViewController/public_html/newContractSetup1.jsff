@@ -237,9 +237,9 @@
                                         <f:facet name="EXT">
                                             <af:panelGroupLayout layout="vertical" id="pgl3">
                                                 <af:query id="qryId1" headerText="Search" disclosed="true"
-                                                          value="#{bindings.NewContractCustomerSearchQuery.queryDescriptor}"
-                                                          model="#{bindings.NewContractCustomerSearchQuery.queryModel}"
-                                                          queryListener="#{bindings.NewContractCustomerSearchQuery.processQuery}"
+                                                          value="#{bindings.ImplicitViewCriteriaQuery1.queryDescriptor}"
+                                                          model="#{bindings.ImplicitViewCriteriaQuery1.queryModel}"
+                                                          queryListener="#{bindings.ImplicitViewCriteriaQuery1.processQuery}"
                                                           queryOperationListener="#{pageFlowScope.XpeDccNewContractMBean.contractCustQueryOperationListener}"
                                                           resultComponentId="::resId1"/>
                                                 <af:table value="#{bindings.XpeDccNewContractCustomerSearchROVO.collectionModel}"

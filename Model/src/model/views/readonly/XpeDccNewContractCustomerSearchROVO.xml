@@ -74,7 +74,8 @@ AND C.LANGUAGE_CD='ENG']]></SQLQuery>
     ColumnType="VARCHAR2"
     AliasName="SETID"
     Expression="SETID"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    IsQueriable="false">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="5"/>
     </DesignTime>
@@ -131,7 +132,8 @@ AND C.LANGUAGE_CD='ENG']]></SQLQuery>
     ColumnType="VARCHAR2"
     AliasName="DESCR"
     Expression="DESCR"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    IsQueriable="false">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
@@ -188,7 +190,8 @@ AND C.LANGUAGE_CD='ENG']]></SQLQuery>
     ColumnType="VARCHAR2"
     AliasName="ADDRESS2"
     Expression="ADDRESS2"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    IsQueriable="false">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="55"/>
     </DesignTime>

@@ -10,12 +10,12 @@
               id="XpeDmsCustomerEOVOIterator" ChangeEventPolicy="none"/>
     <iterator Binds="XpeDccNewContractCustomerSearchROVO" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccNewContractCustomerSearchROVOIterator" ChangeEventPolicy="none"/>
-    <searchRegion Criteria="NewContractCustomerSearch" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
-                  Binds="XpeDccNewContractCustomerSearchROVOIterator" id="NewContractCustomerSearchQuery"/>
     <iterator Binds="XpeDccContractSearchROVO" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccContractSearchROVOIterator" ChangeEventPolicy="none"/>
     <searchRegion Criteria="__ImplicitViewCriteria__" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="XpeDccContractSearchROVOIterator" id="ImplicitViewCriteriaQuery"/>
+    <searchRegion Criteria="__ImplicitViewCriteria__" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="XpeDccNewContractCustomerSearchROVOIterator" id="ImplicitViewCriteriaQuery1"/>
   </executables>
   <bindings>
     <list IterBinding="XpeDccNewContractSetupROVOIterator" StaticList="false" Uses="LOV_Customer_Type"

@@ -71,9 +71,8 @@
                                                   maximumLength="#{bindings.XpeRate.hints.precision}"
                                                   shortDesc="#{bindings.XpeRate.hints.tooltip}" id="it6">
                                         <f:validator binding="#{bindings.XpeRate.validator}"/>
-                                        <af:convertNumber pattern="###.00000" groupingUsed="false"
-                                                                      maxFractionDigits="5"
-                                                                      messageDetailConvertPattern="{0} with {1} has invalid precision/scale."/>
+                                        <af:convertNumber pattern="###.00000" groupingUsed="false" maxFractionDigits="5"
+                                                          messageDetailConvertPattern="{0} with {1} has invalid precision/scale."/>
                                     </af:inputText>
                                     <af:inputText value="#{bindings.XpeChargeOverMin.inputValue}" label="Overcharge Min"
                                                   autoSubmit="true"
@@ -117,8 +116,8 @@
                                         <af:selectOneChoice value="#{bindings.XpeResetType.inputValue}"
                                                             label="Reset Type" autoSubmit="true"
                                                             required="#{bindings.XpeResetType.hints.mandatory}"
-                                                            shortDesc="#{bindings.XpeResetType.hints.tooltip}"
-                                                            id="soc3" simple="true">
+                                                            shortDesc="#{bindings.XpeResetType.hints.tooltip}" id="soc3"
+                                                            simple="true">
                                             <f:selectItems value="#{bindings.XpeResetType.items}" id="si3"/>
                                             <f:validator binding="#{bindings.XpeResetType.validator}"/>
                                         </af:selectOneChoice>
@@ -185,15 +184,16 @@
                                   rowSelection="single" fetchSize="#{bindings.XpeDccContractCarrierView3.rangeSize}"
                                   id="t1" partialTriggers="::b4">
                             <af:column sortProperty="#{bindings.XpeDccContractCarrierView3.hints.XpeCarrierId.name}"
-                                       sortable="true" headerText="Carrier" id="c5">
-                                <af:selectOneChoice value="#{row.bindings.XpeCarrierId.inputValue}"
-                                                    label="#{row.bindings.XpeCarrierId.label}"
-                                                    required="#{bindings.XpeDccContractCarrierView3.hints.XpeCarrierId.mandatory}"
-                                                    shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeCarrierId.tooltip}"
-                                                    id="soc5">
-                                    <f:selectItems value="#{row.bindings.XpeCarrierId.items}" id="si5"/>
+                                       sortable="true" headerText="Carrier" id="c5" width="250">
+                                <af:inputListOfValues value="#{row.bindings.XpeCarrierId.inputValue}"
+                                                      popupTitle="Search and Select: #{row.bindings.XpeCarrierId.label}"
+                                                      model="#{row.bindings.XpeCarrierId.listOfValuesModel}"
+                                                      label="#{row.bindings.XpeCarrierId.label}"
+                                                      required="#{bindings.XpeDccContractCarrierView3.hints.XpeCarrierId.mandatory}"
+                                                      shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeCarrierId.tooltip}"
+                                                      id="ilov5" autoSubmit="true">
                                     <f:validator binding="#{row.bindings.XpeCarrierId.validator}"/>
-                                </af:selectOneChoice>
+                                </af:inputListOfValues>
                             </af:column>
                             <af:column sortProperty="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleType.name}"
                                        sortable="true" headerText="Vehicle Type" id="c6">

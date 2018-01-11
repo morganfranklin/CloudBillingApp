@@ -63,7 +63,7 @@
         PrimaryKey="true"/>
     <Attribute
         Name="XpePricingTermType"
-        Precision="20"
+        Precision="30"
         ColumnName="XPE_PRICING_TERM_TYPE"
         SQLType="VARCHAR"
         Type="java.lang.String"

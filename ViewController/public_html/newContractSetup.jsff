@@ -642,18 +642,18 @@
                                                   columnStretching="last" contentDelivery="immediate"
                                                   styleClass="AFStretchWidth" partialTriggers="::b6 ::b5">
                                             <af:column headerText="#{bindings.XpeDccNewContractCarrierView.hints.XpeCarrierId.label}"
-                                                       id="c53">
-                                                <af:selectOneChoice value="#{row.bindings.XpeCarrierId.inputValue}"
-                                                                    label="#{row.bindings.XpeCarrierId.label}"
-                                                                    required="#{bindings.XpeDccNewContractCarrierView.hints.XpeCarrierId.mandatory}"
-                                                                    shortDesc="#{bindings.XpeDccNewContractCarrierView.hints.XpeCarrierId.tooltip}"
-                                                                    id="soc24"
-                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
-                                                                    autoSubmit="true">
-                                                    <f:selectItems value="#{row.bindings.XpeCarrierId.items}"
-                                                                   id="si17"/>
+                                                       id="c53" width="250">
+                                                <af:inputListOfValues value="#{row.bindings.XpeCarrierId.inputValue}"
+                                                                      popupTitle="Search and Select: #{row.bindings.XpeCarrierId.label}"
+                                                                      model="#{row.bindings.XpeCarrierId.listOfValuesModel}"
+                                                                      label="#{row.bindings.XpeCarrierId.label}"
+                                                                      required="#{bindings.XpeDccNewContractCarrierView.hints.XpeCarrierId.mandatory}"
+                                                                      shortDesc="#{bindings.XpeDccNewContractCarrierView.hints.XpeCarrierId.tooltip}"
+                                                                      id="ilov7"
+                                                                      readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                                      autoSubmit="true">
                                                     <f:validator binding="#{row.bindings.XpeCarrierId.validator}"/>
-                                                </af:selectOneChoice>
+                                                </af:inputListOfValues>
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractCarrierView.hints.XpeVehicleType.label}"
                                                        id="c54">
@@ -670,7 +670,7 @@
                                                 </af:selectOneChoice>
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractCarrierView.hints.XpeVehicleNbr.label}"
-                                                       id="c56">
+                                                       id="c56" rendered="false">
                                                 <af:inputText value="#{row.bindings.XpeVehicleNbr.inputValue}"
                                                               label="#{bindings.XpeDccNewContractCarrierView.hints.XpeVehicleNbr.label}"
                                                               required="#{bindings.XpeDccNewContractCarrierView.hints.XpeVehicleNbr.mandatory}"
@@ -683,7 +683,7 @@
                                                 </af:inputText>
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractCarrierView.hints.XpeRateOverride.label}"
-                                                       id="c27">
+                                                       id="c27" rendered="false">
                                                 <af:inputText value="#{row.bindings.XpeRateOverride.inputValue}"
                                                               label="#{bindings.XpeDccNewContractCarrierView.hints.XpeRateOverride.label}"
                                                               required="#{bindings.XpeDccNewContractCarrierView.hints.XpeRateOverride.mandatory}"
@@ -696,7 +696,7 @@
                                                 </af:inputText>
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractCarrierView.hints.XpeSubNbr.label}"
-                                                       id="c16">
+                                                       id="c16" rendered="false">
                                                 <af:inputText value="#{row.bindings.XpeSubNbr.inputValue}"
                                                               label="#{bindings.XpeDccNewContractCarrierView.hints.XpeSubNbr.label}"
                                                               required="#{bindings.XpeDccNewContractCarrierView.hints.XpeSubNbr.mandatory}"
@@ -709,7 +709,7 @@
                                                 </af:inputText>
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractCarrierView.hints.XpeSurcharge.label}"
-                                                       id="c25">
+                                                       id="c25" rendered="false">
                                                 <af:inputText value="#{row.bindings.XpeSurcharge.inputValue}"
                                                               label="#{bindings.XpeDccNewContractCarrierView.hints.XpeSurcharge.label}"
                                                               required="#{bindings.XpeDccNewContractCarrierView.hints.XpeSurcharge.mandatory}"
