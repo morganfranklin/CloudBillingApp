@@ -210,7 +210,7 @@
                                                               columns="#{bindings.CustomerTier.hints.displayWidth}"
                                                               maximumLength="#{bindings.CustomerTier.hints.precision}"
                                                               shortDesc="#{bindings.CustomerTier.hints.tooltip}"
-                                                              id="it1" autoSubmit="true">
+                                                              id="it1" autoSubmit="true" rendered="false">
                                                     <f:validator binding="#{bindings.CustomerTier.validator}"/>
                                                 </af:inputText>
                                                 <af:inputText value="#{bindings.ProductTier.inputValue}"
@@ -219,7 +219,7 @@
                                                               columns="#{bindings.ProductTier.hints.displayWidth}"
                                                               maximumLength="#{bindings.ProductTier.hints.precision}"
                                                               shortDesc="#{bindings.ProductTier.hints.tooltip}" id="it2"
-                                                              autoSubmit="true">
+                                                              autoSubmit="true" rendered="false">
                                                     <f:validator binding="#{bindings.ProductTier.validator}"/>
                                                 </af:inputText>
                                             </af:panelFormLayout>

@@ -560,4 +560,13 @@ public class XpeDccNewContractMBean implements Serializable {
         }else
             return "next";  
     }
+
+    public void onWasteTypeValueChange(ValueChangeEvent valueChangeEvent) {
+        AdfFacesContext.getCurrentInstance().addPartialTarget(this.getXpeDccNewContractBBean().getContractSubTypeRIT());
+        AdfFacesContext.getCurrentInstance().addPartialTarget(this.getXpeDccNewContractBBean().getAgreementRIT());
+    }
+
+    public void onContractSubtypeValueChange(ValueChangeEvent valueChangeEvent) {
+        AdfFacesContext.getCurrentInstance().addPartialTarget(this.getXpeDccNewContractBBean().getAgreementRIT());
+    }
 }

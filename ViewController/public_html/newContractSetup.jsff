@@ -26,46 +26,48 @@
                                                                     shortDesc="#{bindings.XpeWasteType.hints.tooltip}"
                                                                     id="soc2" simple="true" autoSubmit="true"
                                                                     required="true"
-                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                                    valueChangeListener="#{pageFlowScope.XpeDccNewContractMBean.onWasteTypeValueChange}">
                                                     <f:selectItems value="#{bindings.XpeWasteType.items}" id="si2"/>
                                                     <f:validator binding="#{bindings.XpeWasteType.validator}"/>
                                                 </af:selectOneChoice>
                                             </af:panelLabelAndMessage>
                                             <af:panelLabelAndMessage label="#{bindings.XpeContractSubType.label}"
-                                                                     id="plam2">
+                                                                     id="plam2" showRequired="true">
                                                 <af:selectOneChoice value="#{bindings.XpeContractSubType.inputValue}"
                                                                     label="#{bindings.XpeContractSubType.label}"
-                                                                    required="#{bindings.XpeContractSubType.hints.mandatory}"
                                                                     shortDesc="#{bindings.XpeContractSubType.hints.tooltip}"
                                                                     id="soc3" simple="true" autoSubmit="true"
-                                                                    partialTriggers="soc2"
-                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                                    required="true"
+                                                                    binding="#{backingBeanScope.XpeDccNewContractBBean.contractSubTypeRIT}"
+                                                                    valueChangeListener="#{pageFlowScope.XpeDccNewContractMBean.onContractSubtypeValueChange}">
                                                     <f:selectItems value="#{bindings.XpeContractSubType.items}"
                                                                    id="si3"/>
                                                     <f:validator binding="#{bindings.XpeContractSubType.validator}"/>
                                                 </af:selectOneChoice>
                                             </af:panelLabelAndMessage>
                                             <af:panelLabelAndMessage label="#{bindings.XpeAgreementType.label}"
-                                                                     id="plam3">
+                                                                     id="plam3" showRequired="true">
                                                 <af:selectOneChoice value="#{bindings.XpeAgreementType.inputValue}"
                                                                     label="#{bindings.XpeAgreementType.label}"
-                                                                    required="#{bindings.XpeAgreementType.hints.mandatory}"
                                                                     shortDesc="#{bindings.XpeAgreementType.hints.tooltip}"
                                                                     id="soc1" simple="true" autoSubmit="true"
-                                                                    partialTriggers="soc2 soc3"
-                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                                    required="true"
+                                                                    binding="#{backingBeanScope.XpeDccNewContractBBean.agreementRIT}">
                                                     <f:selectItems value="#{bindings.XpeAgreementType.items}" id="si1"/>
                                                     <f:validator binding="#{bindings.XpeAgreementType.validator}"/>
                                                 </af:selectOneChoice>
                                             </af:panelLabelAndMessage>
                                             <af:panelLabelAndMessage label="#{bindings.XpeContractDirection.label}"
-                                                                     id="plam5">
+                                                                     id="plam5" showRequired="true">
                                                 <af:selectOneChoice value="#{bindings.XpeContractDirection.inputValue}"
                                                                     label="#{bindings.XpeContractDirection.label}"
-                                                                    required="#{bindings.XpeContractDirection.hints.mandatory}"
                                                                     shortDesc="#{bindings.XpeContractDirection.hints.tooltip}"
                                                                     id="soc29" simple="true" autoSubmit="true"
-                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                                    required="true">
                                                     <f:selectItems value="#{bindings.XpeContractDirection.items}"
                                                                    id="si22"/>
                                                     <f:validator binding="#{bindings.XpeContractDirection.validator}"/>
@@ -328,7 +330,7 @@
                                                 </af:selectOneChoice>
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractLineView.hints.XpeSwApprNbr.label}"
-                                                       id="c15">
+                                                       id="c15" rendered="false">
                                                 <af:inputText value="#{row.bindings.XpeSwApprNbr.inputValue}"
                                                               label="#{bindings.XpeDccNewContractLineView.hints.XpeSwApprNbr.label}"
                                                               required="#{bindings.XpeDccNewContractLineView.hints.XpeSwApprNbr.mandatory}"
@@ -388,7 +390,8 @@
                                                                       required="#{bindings.XpeDccNewContractPricingTermView.hints.XpePricingTermType.mandatory}"
                                                                       shortDesc="#{bindings.XpeDccNewContractPricingTermView.hints.XpePricingTermType.tooltip}"
                                                                       model="#{row.bindings.XpePricingTermType.listOfValuesModel}"
-                                                                      readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                                      readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                                      autoSubmit="true">
                                                     <f:validator binding="#{row.bindings.XpePricingTermType.validator}"/>
                                                 </af:inputListOfValues>
                                             </af:column>
@@ -401,7 +404,8 @@
                                                               maximumLength="#{bindings.XpeDccNewContractPricingTermView.hints.XpeQtyMax.precision}"
                                                               shortDesc="#{bindings.XpeDccNewContractPricingTermView.hints.XpeQtyMax.tooltip}"
                                                               id="it11"
-                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                              autoSubmit="true">
                                                     <f:validator binding="#{row.bindings.XpeQtyMax.validator}"/>
                                                     <af:convertNumber groupingUsed="false"
                                                                       pattern="#{bindings.XpeDccNewContractPricingTermView.hints.XpeQtyMax.format}"/>
@@ -416,7 +420,8 @@
                                                               maximumLength="#{bindings.XpeDccNewContractPricingTermView.hints.XpeRate.precision}"
                                                               shortDesc="#{bindings.XpeDccNewContractPricingTermView.hints.XpeRate.tooltip}"
                                                               id="it2"
-                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                              autoSubmit="true">
                                                     <f:validator binding="#{row.bindings.XpeRate.validator}"/>
                                                     <af:convertNumber pattern="###.00000" groupingUsed="false"
                                                                       maxFractionDigits="5"
@@ -430,7 +435,8 @@
                                                                     required="#{bindings.XpeDccNewContractPricingTermView.hints.XpePeriodType.mandatory}"
                                                                     shortDesc="#{bindings.XpeDccNewContractPricingTermView.hints.XpePeriodType.tooltip}"
                                                                     id="soc21"
-                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                                    autoSubmit="true">
                                                     <f:selectItems value="#{row.bindings.XpePeriodType.items}"
                                                                    id="si14"/>
                                                     <f:validator binding="#{row.bindings.XpePeriodType.validator}"/>
@@ -445,7 +451,8 @@
                                                               maximumLength="#{bindings.XpeDccNewContractPricingTermView.hints.XpePeriodNbr.precision}"
                                                               shortDesc="#{bindings.XpeDccNewContractPricingTermView.hints.XpePeriodNbr.tooltip}"
                                                               id="it24"
-                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                              autoSubmit="true">
                                                     <f:validator binding="#{row.bindings.XpePeriodNbr.validator}"/>
                                                     <af:convertNumber groupingUsed="false"
                                                                       pattern="#{bindings.XpeDccNewContractPricingTermView.hints.XpePeriodNbr.format}"/>
@@ -484,7 +491,7 @@
                                                   selectionListener="#{bindings.XpeDccNewContractPricingOverView.collectionModel.makeCurrent}"
                                                   rowSelection="single"
                                                   fetchSize="#{bindings.XpeDccNewContractPricingOverView.rangeSize}"
-                                                  id="t8" partialTriggers="::b7 ::b8" columnStretching="last">
+                                                  id="t8" partialTriggers="::b7 ::b8" columnStretching="last" contentDelivery="immediate">
                                             <af:column headerText="#{bindings.XpeDccNewContractPricingOverView.hints.XpeContractOverNbr.label}"
                                                        id="c28">
                                                 <af:inputText value="#{row.bindings.XpeContractOverNbr.inputValue}"
@@ -508,7 +515,8 @@
                                                                     required="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverType.mandatory}"
                                                                     shortDesc="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverType.tooltip}"
                                                                     id="soc19"
-                                                                    readOnly="#{(bindings.CarryForwardedPricingOver.inputValue eq 'Y') or (pageFlowScope.ContractType eq 'BLS' )}">
+                                                                    readOnly="#{(bindings.CarryForwardedPricingOver.inputValue eq 'Y') or (pageFlowScope.ContractType eq 'BLS' )}"
+                                                                    autoSubmit="true">
                                                     <f:selectItems value="#{row.bindings.XpeOverType.items}" id="si12"/>
                                                     <f:validator binding="#{row.bindings.XpeOverType.validator}"/>
                                                 </af:selectOneChoice>
@@ -521,7 +529,8 @@
                                                               columns="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverStart.displayWidth}"
                                                               shortDesc="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverStart.tooltip}"
                                                               id="id5"
-                                                              readOnly="#{bindings.CarryForwardedPricingOver.inputValue eq 'Y'}">
+                                                              readOnly="#{bindings.CarryForwardedPricingOver.inputValue eq 'Y'}"
+                                                              autoSubmit="true">
                                                     <f:validator binding="#{row.bindings.XpeOverStart.validator}"/>
                                                     <af:convertDateTime pattern="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverStart.format}"/>
                                                 </af:inputDate>
@@ -534,36 +543,11 @@
                                                               columns="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverEnd.displayWidth}"
                                                               shortDesc="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverEnd.tooltip}"
                                                               id="id6"
-                                                              readOnly="#{bindings.CarryForwardedPricingOver.inputValue eq 'Y'}">
+                                                              readOnly="#{bindings.CarryForwardedPricingOver.inputValue eq 'Y'}"
+                                                              autoSubmit="true">
                                                     <f:validator binding="#{row.bindings.XpeOverEnd.validator}"/>
                                                     <af:convertDateTime pattern="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverEnd.format}"/>
                                                 </af:inputDate>
-                                            </af:column>
-                                            <af:column headerText="#{bindings.XpeDccNewContractPricingOverView.hints.XpeSourceFld.label}"
-                                                       id="c34" rendered="false">
-                                                <af:selectOneChoice value="#{row.bindings.XpeSourceFld.inputValue}"
-                                                                    label="#{row.bindings.XpeSourceFld.label}"
-                                                                    required="#{bindings.XpeDccNewContractPricingOverView.hints.XpeSourceFld.mandatory}"
-                                                                    shortDesc="#{bindings.XpeDccNewContractPricingOverView.hints.XpeSourceFld.tooltip}"
-                                                                    id="soc20"
-                                                                    readOnly="#{bindings.CarryForwardedPricingOver.inputValue eq 'Y'}">
-                                                    <f:selectItems value="#{row.bindings.XpeSourceFld.items}"
-                                                                   id="si13"/>
-                                                    <f:validator binding="#{row.bindings.XpeSourceFld.validator}"/>
-                                                </af:selectOneChoice>
-                                            </af:column>
-                                            <af:column headerText="#{bindings.XpeDccNewContractPricingOverView.hints.XpeCondition.label}"
-                                                       id="c35" rendered="false">
-                                                <af:selectOneChoice value="#{row.bindings.XpeCondition.inputValue}"
-                                                                    label="#{row.bindings.XpeCondition.label}"
-                                                                    required="#{bindings.XpeDccNewContractPricingOverView.hints.XpeCondition.mandatory}"
-                                                                    shortDesc="#{bindings.XpeDccNewContractPricingOverView.hints.XpeCondition.tooltip}"
-                                                                    id="soc22"
-                                                                    readOnly="#{bindings.CarryForwardedPricingOver.inputValue eq 'Y'}">
-                                                    <f:selectItems value="#{row.bindings.XpeCondition.items}"
-                                                                   id="si15"/>
-                                                    <f:validator binding="#{row.bindings.XpeCondition.validator}"/>
-                                                </af:selectOneChoice>
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractPricingOverView.hints.XpeCheck.label}"
                                                        id="c36">
@@ -574,47 +558,9 @@
                                                               maximumLength="#{bindings.XpeDccNewContractPricingOverView.hints.XpeCheck.precision}"
                                                               shortDesc="#{bindings.XpeDccNewContractPricingOverView.hints.XpeCheck.tooltip}"
                                                               id="it21"
-                                                              readOnly="#{bindings.CarryForwardedPricingOver.inputValue eq 'Y'}">
+                                                              readOnly="#{bindings.CarryForwardedPricingOver.inputValue eq 'Y'}"
+                                                              autoSubmit="true">
                                                     <f:validator binding="#{row.bindings.XpeCheck.validator}"/>
-                                                </af:inputText>
-                                            </af:column>
-                                            <af:column headerText="#{bindings.XpeDccNewContractPricingOverView.hints.XpeTargetFld.label}"
-                                                       id="c37" rendered="false">
-                                                <af:selectOneChoice value="#{row.bindings.XpeTargetFld.inputValue}"
-                                                                    label="#{row.bindings.XpeTargetFld.label}"
-                                                                    required="#{bindings.XpeDccNewContractPricingOverView.hints.XpeTargetFld.mandatory}"
-                                                                    shortDesc="#{bindings.XpeDccNewContractPricingOverView.hints.XpeTargetFld.tooltip}"
-                                                                    id="soc23"
-                                                                    readOnly="#{bindings.CarryForwardedPricingOver.inputValue eq 'Y'}">
-                                                    <f:selectItems value="#{row.bindings.XpeTargetFld.items}"
-                                                                   id="si16"/>
-                                                    <f:validator binding="#{row.bindings.XpeTargetFld.validator}"/>
-                                                </af:selectOneChoice>
-                                            </af:column>
-                                            <af:column headerText="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverMsg.label}"
-                                                       id="c38" rendered="false">
-                                                <af:inputText value="#{row.bindings.XpeOverMsg.inputValue}"
-                                                              label="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverMsg.label}"
-                                                              required="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverMsg.mandatory}"
-                                                              columns="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverMsg.displayWidth}"
-                                                              maximumLength="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverMsg.precision}"
-                                                              shortDesc="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverMsg.tooltip}"
-                                                              id="it22"
-                                                              readOnly="#{bindings.CarryForwardedPricingOver.inputValue eq 'Y'}">
-                                                    <f:validator binding="#{row.bindings.XpeOverMsg.validator}"/>
-                                                </af:inputText>
-                                            </af:column>
-                                            <af:column headerText="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverDesc.label}"
-                                                       id="c40" rendered="false">
-                                                <af:inputText value="#{row.bindings.XpeOverDesc.inputValue}"
-                                                              label="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverDesc.label}"
-                                                              required="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverDesc.mandatory}"
-                                                              columns="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverDesc.displayWidth}"
-                                                              maximumLength="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverDesc.precision}"
-                                                              shortDesc="#{bindings.XpeDccNewContractPricingOverView.hints.XpeOverDesc.tooltip}"
-                                                              id="it23"
-                                                              readOnly="#{bindings.CarryForwardedPricingOver.inputValue eq 'Y'}">
-                                                    <f:validator binding="#{row.bindings.XpeOverDesc.validator}"/>
                                                 </af:inputText>
                                             </af:column>
                                         </af:table>
@@ -647,7 +593,6 @@
                                                                       popupTitle="Search and Select: #{row.bindings.XpeCarrierId.label}"
                                                                       model="#{row.bindings.XpeCarrierId.listOfValuesModel}"
                                                                       label="#{row.bindings.XpeCarrierId.label}"
-                                                                      required="#{bindings.XpeDccNewContractCarrierView.hints.XpeCarrierId.mandatory}"
                                                                       shortDesc="#{bindings.XpeDccNewContractCarrierView.hints.XpeCarrierId.tooltip}"
                                                                       id="ilov7"
                                                                       readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
@@ -659,7 +604,6 @@
                                                        id="c54">
                                                 <af:selectOneChoice value="#{row.bindings.XpeVehicleType.inputValue}"
                                                                     label="#{row.bindings.XpeVehicleType.label}"
-                                                                    required="#{bindings.XpeDccNewContractCarrierView.hints.XpeVehicleType.mandatory}"
                                                                     shortDesc="#{bindings.XpeDccNewContractCarrierView.hints.XpeVehicleType.tooltip}"
                                                                     id="soc25"
                                                                     readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
@@ -668,60 +612,6 @@
                                                                    id="si18"/>
                                                     <f:validator binding="#{row.bindings.XpeVehicleType.validator}"/>
                                                 </af:selectOneChoice>
-                                            </af:column>
-                                            <af:column headerText="#{bindings.XpeDccNewContractCarrierView.hints.XpeVehicleNbr.label}"
-                                                       id="c56" rendered="false">
-                                                <af:inputText value="#{row.bindings.XpeVehicleNbr.inputValue}"
-                                                              label="#{bindings.XpeDccNewContractCarrierView.hints.XpeVehicleNbr.label}"
-                                                              required="#{bindings.XpeDccNewContractCarrierView.hints.XpeVehicleNbr.mandatory}"
-                                                              columns="#{bindings.XpeDccNewContractCarrierView.hints.XpeVehicleNbr.displayWidth}"
-                                                              maximumLength="#{bindings.XpeDccNewContractCarrierView.hints.XpeVehicleNbr.precision}"
-                                                              shortDesc="#{bindings.XpeDccNewContractCarrierView.hints.XpeVehicleNbr.tooltip}"
-                                                              id="it14"
-                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
-                                                    <f:validator binding="#{row.bindings.XpeVehicleNbr.validator}"/>
-                                                </af:inputText>
-                                            </af:column>
-                                            <af:column headerText="#{bindings.XpeDccNewContractCarrierView.hints.XpeRateOverride.label}"
-                                                       id="c27" rendered="false">
-                                                <af:inputText value="#{row.bindings.XpeRateOverride.inputValue}"
-                                                              label="#{bindings.XpeDccNewContractCarrierView.hints.XpeRateOverride.label}"
-                                                              required="#{bindings.XpeDccNewContractCarrierView.hints.XpeRateOverride.mandatory}"
-                                                              columns="#{bindings.XpeDccNewContractCarrierView.hints.XpeRateOverride.displayWidth}"
-                                                              maximumLength="#{bindings.XpeDccNewContractCarrierView.hints.XpeRateOverride.precision}"
-                                                              shortDesc="#{bindings.XpeDccNewContractCarrierView.hints.XpeRateOverride.tooltip}"
-                                                              id="it18"
-                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
-                                                    <f:validator binding="#{row.bindings.XpeRateOverride.validator}"/>
-                                                </af:inputText>
-                                            </af:column>
-                                            <af:column headerText="#{bindings.XpeDccNewContractCarrierView.hints.XpeSubNbr.label}"
-                                                       id="c16" rendered="false">
-                                                <af:inputText value="#{row.bindings.XpeSubNbr.inputValue}"
-                                                              label="#{bindings.XpeDccNewContractCarrierView.hints.XpeSubNbr.label}"
-                                                              required="#{bindings.XpeDccNewContractCarrierView.hints.XpeSubNbr.mandatory}"
-                                                              columns="#{bindings.XpeDccNewContractCarrierView.hints.XpeSubNbr.displayWidth}"
-                                                              maximumLength="#{bindings.XpeDccNewContractCarrierView.hints.XpeSubNbr.precision}"
-                                                              shortDesc="#{bindings.XpeDccNewContractCarrierView.hints.XpeSubNbr.tooltip}"
-                                                              id="it1"
-                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
-                                                    <f:validator binding="#{row.bindings.XpeSubNbr.validator}"/>
-                                                </af:inputText>
-                                            </af:column>
-                                            <af:column headerText="#{bindings.XpeDccNewContractCarrierView.hints.XpeSurcharge.label}"
-                                                       id="c25" rendered="false">
-                                                <af:inputText value="#{row.bindings.XpeSurcharge.inputValue}"
-                                                              label="#{bindings.XpeDccNewContractCarrierView.hints.XpeSurcharge.label}"
-                                                              required="#{bindings.XpeDccNewContractCarrierView.hints.XpeSurcharge.mandatory}"
-                                                              columns="#{bindings.XpeDccNewContractCarrierView.hints.XpeSurcharge.displayWidth}"
-                                                              maximumLength="#{bindings.XpeDccNewContractCarrierView.hints.XpeSurcharge.precision}"
-                                                              shortDesc="#{bindings.XpeDccNewContractCarrierView.hints.XpeSurcharge.tooltip}"
-                                                              id="it19"
-                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
-                                                    <f:validator binding="#{row.bindings.XpeSurcharge.validator}"/>
-                                                    <af:convertNumber groupingUsed="false"
-                                                                      pattern="#{bindings.XpeDccNewContractCarrierView.hints.XpeSurcharge.format}"/>
-                                                </af:inputText>
                                             </af:column>
                                         </af:table>
                                     </af:panelBox>
