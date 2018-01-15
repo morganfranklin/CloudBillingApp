@@ -3,12 +3,8 @@ package view;
 
 import java.sql.Date;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-
 import javax.el.ELContext;
 import javax.el.ExpressionFactory;
-
 import javax.el.ValueExpression;
 
 import javax.faces.application.Application;
@@ -63,7 +59,11 @@ public class PlanLauncher {
         // userCfgFile = "/psft/wl12adf/user_projects/domains/tnsuat/config/xpe_uat_cfg.properties";
 
         //unix BREAK FIX
-        userCfgFile = "/psft/wl12adf/user_projects/domains/tnsuat/config/xpe_breakfix_cfg.properties";
+        // userCfgFile = "/psft/wl12adf/user_projects/domains/tnsuat/config/xpe_breakfix_cfg.properties";
+        
+        // 
+        userCfgFile = "/dcva3t/local/xpe_batch/xpe_aws.properties";
+        
 
 
         String selectedExecutionPlan = resolvEl("#{bindings.CisExecPlanCode.inputValue}");

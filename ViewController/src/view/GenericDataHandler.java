@@ -1,30 +1,27 @@
 package view;
-
 //Version 2.0 10/07/2016 : 09:00am
 //Change history maintained in accompanying track6
 
-import java.io.File;
 import java.io.FileInputStream;
-
-import java.sql.*;
-
-import java.lang.*;
-
-import java.net.URL;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Properties;
 
 import javax.xml.bind.DatatypeConverter;
 
-import oracle.sql.DATE;
+// import oracle.sql.DATE;
 
 
 public class GenericDataHandler implements Runnable {
@@ -44,7 +41,12 @@ public class GenericDataHandler implements Runnable {
     private static String ps_config_url = "";
     private static String ps_config_driver = "";
 
-
+    // EX2G begin
+    private ArrayList<ArrayList<String>> changesAuditLog = new ArrayList<ArrayList<String>>();
+    private int connectionsInSet = 0;
+	ArrayList<ExternalMappingDetails> mapping = new ArrayList<ExternalMappingDetails>();
+    // EX2G end
+    
     public void setExecutionParameters(String userPlanId, Date userDateFrom, Date userDateTo) {
 
         execPlanId = userPlanId;
@@ -228,24 +230,30 @@ public class GenericDataHandler implements Runnable {
         return conndb;
     }
 
+    
+    /* EX2G BEGIN */
+    
     public Connection connectSourceDb(Connection configdb, String platform_id) {
         Connection sourcedb = null;
 
+        ResultSet myResultSet = null;
+        Statement sqlStatement = null;
+        
         try {
-            Statement sqlStatement = configdb.createStatement();
+            sqlStatement = configdb.createStatement();
             String readRecordSQL =
-                "select db_name, url, user_name, password, driver " + " from PS_CIS_XPE_CONN where platform_id = " +
+                "select dbname, connectstring, userid, cur_connect_pwd, cis_connect_driver " + " from PS_CIS_XPE_CONN where in_platform = " +
                 "'" + platform_id + "'";
 
             //         System.out.println("readRecordSQL : " + readRecordSQL);
 
-            ResultSet myResultSet = sqlStatement.executeQuery(readRecordSQL);
+            myResultSet = sqlStatement.executeQuery(readRecordSQL);
             while (myResultSet.next()) {
-                String db_name = myResultSet.getString("db_name");
-                String url = myResultSet.getString("url");
-                String user_name = myResultSet.getString("user_name");
-                String password = myResultSet.getString("password");
-                String driver = myResultSet.getString("driver");
+                String db_name = myResultSet.getString("dbname");
+                String url = myResultSet.getString("connectstring");
+                String user_name = myResultSet.getString("userid");
+                String password = myResultSet.getString("cur_connect_pwd");
+                String driver = myResultSet.getString("cis_connect_driver");
 
                 //              System.out.println("Record values : " +  db_name + "--" +  url + "--" +  user_name + "--" +  password + "--" +  driver);
 
@@ -257,13 +265,869 @@ public class GenericDataHandler implements Runnable {
             }
             myResultSet.close();
 
+            
+            
         } catch (Exception e) {
             System.out.println(e);
+        } finally {
+        	try { myResultSet.close(); } catch (Exception ignore) { }
+        	try { sqlStatement.close(); } catch (Exception ignore) { }
         }
+        
         return sourcedb;
+        
     }
 
+    
+    protected class ExternalMappingDetails {
+    	
+    	protected String sourceField, targetField, isKey, whereClause, auditTable;
+    	
+    	protected void printDescriptionToBuffer() {
+    		System.out.println("sourceField:"+sourceField);
+    		System.out.println("targetField:"+targetField);
+    		System.out.println("isKey:"+isKey);
+    		System.out.println("whereClause:"+whereClause);
+    		System.out.println("whereClause:"+auditTable);
+    		
+    	}
+    	
+    }
+    
+    private int getNumberOfKeys(ArrayList<ExternalMappingDetails> mapping) {
+    	
+    	int foundKeys = 0;
 
+    	ExternalMappingDetails mappingElement=null;
+    	
+    	for (int mappingCounter=0; mappingCounter<mapping.size(); mappingCounter++) {
+    		
+    		mappingElement = mapping.get(mappingCounter);
+    		
+    		if (mappingElement.isKey.equalsIgnoreCase("Y")) {
+    			
+    			foundKeys++;
+    			
+    		}
+    		
+    	}
+    	
+    	return foundKeys;
+    	
+    }
+    
+    private ArrayList<String> getTargetData(Connection targetDbConnection,
+    		ArrayList<ExternalMappingDetails> mapping, ArrayList<String> keySet,
+    		String targetTableName) {
+    	
+    	ArrayList<String> targetDataBuffer = new ArrayList<String>();
+    	PreparedStatement extractorStatement = null;
+    	ResultSet extractedData = null;
+    	int resultSetCounter=0;
+    	String extractorSQL=this.getDataTargetCurrentExtractSQL(mapping, keySet, targetTableName);
+    	
+    	System.out.println("current target data extractor sql: "+extractorSQL);
+    	
+    	try {
+			
+    		extractorStatement = targetDbConnection.
+    				prepareStatement(extractorSQL);
+    		
+    		extractedData = extractorStatement.executeQuery();
+    		
+    		if (extractedData.next()) {
+    			
+    			for (resultSetCounter=0; resultSetCounter<mapping.size(); resultSetCounter++) {
+    				extractorSQL=extractedData.getString(resultSetCounter+1);
+    				// System.out.println("extracted field: "+extractorSQL);
+    				targetDataBuffer.add(extractorSQL);
+    			}
+    			
+    		}
+    		
+    		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+	    	try { extractedData.close(); } catch (Exception ignore) { }
+	    	try { extractorStatement.close(); } catch (Exception ignore) { }
+	    }
+    	
+		for (resultSetCounter=0; resultSetCounter<targetDataBuffer.size(); resultSetCounter++) {
+			System.out.println("targetDataBuffer("+resultSetCounter+"):"+targetDataBuffer.get(resultSetCounter));
+		}
+    	
+    	return targetDataBuffer;
+    	
+    }
+    
+    private ArrayList<String> getSourceData(Connection sourceDbConnection, 
+    		ArrayList<ExternalMappingDetails> mapping, ArrayList<String> keySet) {
+    	
+    	ArrayList<String> sourceDataBuffer = new ArrayList<String>();
+    	PreparedStatement extractorStatement = null;
+    	ResultSet extractedData = null;
+    	int resultSetCounter=0;
+    	String extractorSQL=this.getDataSourceExtractSQL(mapping, keySet);
+    	
+    	System.out.println("extractor sql: "+extractorSQL);
+    	
+    	try {
+			
+    		extractorStatement = sourceDbConnection.
+    				prepareStatement(extractorSQL);
+    		
+    		extractedData = extractorStatement.executeQuery();
+    		
+    		if (extractedData.next()) {
+    			
+    			for (resultSetCounter=0; resultSetCounter<mapping.size(); resultSetCounter++) {
+    				extractorSQL=extractedData.getString(resultSetCounter+1);
+    				// System.out.println("extracted field: "+extractorSQL);
+    				sourceDataBuffer.add(extractorSQL);
+    			}
+    			
+    		}
+    		
+    		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+	    	try { extractedData.close(); } catch (Exception ignore) { }
+	    	try { extractorStatement.close(); } catch (Exception ignore) { }
+	    }
+    	
+		for (resultSetCounter=0; resultSetCounter<sourceDataBuffer.size(); resultSetCounter++) {
+			System.out.println("sourceDataBuffer("+resultSetCounter+"):"+sourceDataBuffer.get(resultSetCounter));
+		}
+    	
+    	return sourceDataBuffer;
+    	
+    }
+    
+    private String getDataSourceExtractSQL(ArrayList<ExternalMappingDetails> mapping, ArrayList<String> keySet) {
+    
+    	String extractorSQL = "select ";
+    	ExternalMappingDetails mappingElement=null;
+    	
+    	for (int mappingCounter=0; mappingCounter<mapping.size(); mappingCounter++) {
+    		
+    		mappingElement = mapping.get(mappingCounter);
+    		
+    		extractorSQL = extractorSQL + mappingElement.sourceField;
+    		
+    		if (mappingCounter<mapping.size()-1) {
+    			if (mappingElement.whereClause==null) {
+        			extractorSQL = extractorSQL + " , ";
+    			} else {
+        			extractorSQL = extractorSQL + mappingElement.whereClause + " , ";
+    			}
+    		}
+    		
+    	}
+    	
+    	extractorSQL = extractorSQL + " " + mappingElement.whereClause + this.getSourceExtractorLimiterSQL(mapping, keySet, returnLinkSegment(mappingElement.whereClause));
+    	
+    	return extractorSQL;
+    }
+    
+    private boolean compareSourceAndTarget(ArrayList<String> sourceData, ArrayList<String> targetData,
+    		ArrayList<ExternalMappingDetails> mapping) {
+    	
+    	boolean foundDifference = false;
+    	
+    	for (int keyCounter=0; keyCounter<sourceData.size() 
+    			&& keyCounter<targetData.size()
+    			&& foundDifference==false; keyCounter++) {
+    		
+    		if (sourceData.get(keyCounter)==null || sourceData.get(keyCounter)==null) {
+    			
+    			if (sourceData.get(keyCounter)!=null || sourceData.get(keyCounter)!=null) {
+    				System.out.println("found difference at ("+keyCounter+"): one is null other not");
+        			foundDifference = true;    				
+    			}
+    			
+    		} else {
+    			
+    			if (mapping.get(keyCounter).isKey.equalsIgnoreCase("T")) {
+    				
+    				if (sourceData.get(keyCounter).substring(0, 18).
+    						equals(targetData.get(keyCounter).substring(0, 18))==false) {
+            			System.out.println("found difference at ("+keyCounter+"): source:"
+            					+sourceData.get(keyCounter)+" != target:"
+            					+targetData.get(keyCounter));
+            			foundDifference = true;
+            		}
+    				
+    			} else {
+
+    				if (sourceData.get(keyCounter).equals(targetData.get(keyCounter))==false) {
+            			System.out.println("found difference at ("+keyCounter+"): source:"
+            					+sourceData.get(keyCounter)+" != target:"
+            					+targetData.get(keyCounter));
+            			foundDifference = true;
+            		}
+    				
+    			}
+    			
+
+    		}
+    		
+    	}
+    	
+    	return foundDifference;
+    }
+
+    private String getDataTargetCurrentExtractSQL(ArrayList<ExternalMappingDetails> mapping, ArrayList<String> keySet,
+    		String targetTableName) {
+
+    	String extractorSQL = "select ";
+    	ExternalMappingDetails mappingElement=null;
+    	
+    	for (int mappingCounter=0; mappingCounter<mapping.size(); mappingCounter++) {
+    		
+    		mappingElement = mapping.get(mappingCounter);
+    		
+    		extractorSQL = extractorSQL + mappingElement.targetField;
+    		
+    		if (mappingCounter<mapping.size()-1) {
+        		extractorSQL = extractorSQL + " , ";
+    		}
+    		
+    	}
+    	
+    	extractorSQL = extractorSQL + " from " + targetTableName + this.getTargetExtractorLimiterSQL(mapping, keySet);
+    	
+    	return extractorSQL;
+    }
+    
+    private int getNumberOfMatchingTargets(Connection targetDatabase, 
+    		ArrayList<ExternalMappingDetails> mapping, ArrayList<String> keySet,
+    		String targetTableName) {
+    	
+    	int foundTargets = 0;
+    	String seekerSQL = this.getTargetExistsCheckerSQL(mapping, keySet, targetTableName);
+    	
+    	System.out.println("seeker sql:"+seekerSQL);
+    	
+    	PreparedStatement sqlStatement = null;
+    	ResultSet foundKeySet = null;
+
+    	try {
+			
+    		sqlStatement = targetDatabase.prepareStatement(seekerSQL);
+			
+    		foundKeySet = sqlStatement.executeQuery();
+    		
+    		if (foundKeySet.next()) {
+    			foundTargets = foundKeySet.getInt(1);
+    		}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+	    	try { foundKeySet.close(); } catch (Exception ignore) { }
+	    	try { sqlStatement.close(); } catch (Exception ignore) { }
+	    }
+    	
+    	return foundTargets;
+    	
+    }
+    
+    private int updateTarget(Connection dbTargetConnection, ArrayList<ExternalMappingDetails> mapping,
+    		String targetTableName, ArrayList<String> sourceData, ArrayList<String> keySet,
+    		int keySize) {
+    	
+    	String updateSQL = "update "+targetTableName+" set ";
+    	int fieldCounter = 0, updatedRows = 0;
+    	PreparedStatement updateStatement = null;
+    	
+    	for (fieldCounter = keySize; fieldCounter<mapping.size(); fieldCounter++) {
+    		
+    		if (sourceData.get(fieldCounter)==null) {
+    			
+    			updateSQL = updateSQL + mapping.get(fieldCounter).targetField + " = nUlL "; 
+    			
+    		} else {
+    			
+        		if (mapping.get(fieldCounter).isKey.equalsIgnoreCase("T")) {
+            		
+        			updateSQL = updateSQL + mapping.get(fieldCounter).targetField + " = TO_TIMESTAMP('"
+            				+ sourceData.get(fieldCounter) + "' , 'YYYY-MM-DD HH24:MI:SS.FF') ";
+
+        		} else {
+        			
+            		updateSQL = updateSQL + mapping.get(fieldCounter).targetField + " = '"
+            				+ sourceData.get(fieldCounter) + "' ";
+
+        		}
+
+    		}
+    		
+    		if (fieldCounter<mapping.size()-1) {
+    			updateSQL = updateSQL + " , ";
+    		}
+    		
+    	}
+    	
+    	updateSQL = updateSQL + this.getTargetExtractorLimiterSQL(mapping, keySet);
+    	
+    	System.out.println("target data update sql: "+updateSQL);
+    	
+    	try {
+    		
+			updateStatement = dbTargetConnection.prepareStatement(updateSQL);
+			updatedRows = updateStatement.executeUpdate();
+			
+			System.out.println("updated rows: "+updatedRows );
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+	    	try { updateStatement.close(); } catch (Exception ignore) { }
+	    }
+    	
+    	return updatedRows;
+
+    }
+    
+    private int insertIntoTarget(Connection dbTargetConnection, ArrayList<ExternalMappingDetails> mapping,
+    		String targetTableName, ArrayList<String> sourceData) {
+    	
+    	String insertSQL = "insert into "+targetTableName+" ( ";
+    	int fieldCounter = 0, insertedRows = 0;
+    	PreparedStatement insertStatement = null;
+    	
+    	for (fieldCounter = 0; fieldCounter<mapping.size(); fieldCounter++) {
+    		
+    		insertSQL = insertSQL + mapping.get(fieldCounter).targetField;
+    	
+    		if (fieldCounter<mapping.size()-1) {
+    			insertSQL = insertSQL + " , ";
+    		}
+    		
+    	}
+    	
+    	insertSQL = insertSQL + " ) values ( ";
+
+    	for (fieldCounter = 0; fieldCounter<sourceData.size(); fieldCounter++) {
+
+    		if (sourceData.get(fieldCounter)==null) {
+    			insertSQL = insertSQL + " NuLL ";
+    		} else {
+    			
+        		if (mapping.get(fieldCounter).isKey.equalsIgnoreCase("T")) {
+            		insertSQL = insertSQL + " TO_TIMESTAMP('" + sourceData.get(fieldCounter) + "' , 'YYYY-MM-DD HH24:MI:SS.FF') ";
+        		} else {
+            		insertSQL = insertSQL + " '" + sourceData.get(fieldCounter) + "' ";
+        		}
+        		
+    		}
+    			
+    		if (fieldCounter<sourceData.size()-1) {
+    			insertSQL = insertSQL + " , ";
+    		}
+    		
+    	}
+    	
+    	insertSQL = insertSQL + " ) ";
+
+    	System.out.println("insert statement: "+insertSQL);
+    	
+    	try {
+			insertStatement = dbTargetConnection.prepareStatement(insertSQL);
+			insertedRows = insertStatement.executeUpdate();
+			System.out.println("inserted rows: "+insertedRows);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+	    	try { insertStatement.close(); } catch (Exception ignore) { }
+	    }
+    	
+    	return insertedRows;
+    	
+    }
+    
+    private boolean isAuditRequired() {
+    	
+    	boolean localResult = false;
+    	
+    	if (mapping.size()>=1) {
+    		if (mapping.get(mapping.size()-1).auditTable!=null) {
+        		localResult=mapping.get(mapping.size()-1).auditTable.isEmpty()==false;
+    		}
+    	}
+    	
+    	return localResult;
+    	
+    }
+    
+    private void iterateBasedOnMapping(Connection dbSourceConnection, 
+    		Connection dbTargetConnection, ArrayList<ExternalMappingDetails> mapping,
+    		String targetTableName, String insertUpdateMode, int maxRowsParameter) {
+    	
+    	PreparedStatement sqlStatement;
+    	ResultSet foundKeySet;
+    	int numOfKeys=this.getNumberOfKeys(mapping), numberOfMatchingRecordsAtTarget=0, maxRows=Integer.MAX_VALUE,
+    			rowsCounter=0, changedRows = 0, keyElementsCounter=0;
+    	ArrayList<String> singleKeyEntry = new ArrayList<String>(), sourceData = null, targetData = null;
+    	boolean needsAudit = isAuditRequired();
+    	
+    	if (maxRowsParameter>=0) {
+    		maxRows=maxRowsParameter;
+    	}
+    	
+    	try {
+			
+    		sqlStatement = dbSourceConnection.prepareStatement(this.getKeyIterationSQL(mapping));
+    		foundKeySet = sqlStatement.executeQuery();
+    		
+    		while (foundKeySet.next() && rowsCounter<maxRows) {
+    			
+    			rowsCounter++;
+    			changedRows = 0;
+    			
+    			singleKeyEntry.clear();
+    			
+    			for (keyElementsCounter=0; keyElementsCounter<numOfKeys; keyElementsCounter++) {
+    				singleKeyEntry.add(foundKeySet.getString(keyElementsCounter+1));
+    				System.out.println("singleKeyEntry:"+singleKeyEntry.get(singleKeyEntry.size()-1));
+    			}
+
+    			numberOfMatchingRecordsAtTarget = getNumberOfMatchingTargets(dbTargetConnection, mapping, singleKeyEntry, targetTableName); 
+				// System.out.println("number of matching target records: "+numberOfMatchingRecordsAtTarget);
+				
+				if (numberOfMatchingRecordsAtTarget<=0 
+						|| insertUpdateMode.equalsIgnoreCase("U")
+						|| insertUpdateMode.equalsIgnoreCase("A")) {
+					System.out.println("number of matching target records: "+numberOfMatchingRecordsAtTarget
+							+" or insertUpdateMode=" + insertUpdateMode 
+							+ " therefore source data extract needed...");
+					sourceData = this.getSourceData(dbSourceConnection, mapping, singleKeyEntry);
+
+					if (numberOfMatchingRecordsAtTarget<=0) {
+						
+						changedRows = this.insertIntoTarget(dbTargetConnection, mapping, targetTableName, sourceData);
+						
+					} else {
+						
+						// System.out.println("data will be extracted using sql: "+this.getDataTargetCurrentExtractSQL(mapping, singleKeyEntry, targetTableName));
+						System.out.println("extracting current target data...");
+						targetData = this.getTargetData(dbTargetConnection, mapping, singleKeyEntry, targetTableName);
+						
+						System.out.println("comparing source and target data...");
+						
+						if (compareSourceAndTarget(sourceData, targetData, mapping)==true) {
+							
+							changedRows = this.updateTarget(dbTargetConnection, mapping, targetTableName, sourceData, singleKeyEntry, numOfKeys);
+							
+						}
+						
+					}
+
+				}
+				
+				if (changedRows != -1 && needsAudit) {
+					// System.out.println("attempting to update the audit table");
+					changesAuditLog.add(singleKeyEntry);
+					singleKeyEntry = new ArrayList<String>();
+					
+				}
+
+    		}
+    		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    }
+    
+    private int foundOtherOccurences(ArrayList<String> currentKey, int currentPosition) {
+    	
+    	int foundOtherKeys = 1, currentSearch, keyCounter;
+    	boolean isTheSame;
+    	
+    	for (currentSearch=changesAuditLog.size()-1; currentSearch>currentPosition; currentSearch--) {
+    		
+    		isTheSame=true;
+    		
+    		for (keyCounter=0; keyCounter<changesAuditLog.get(currentSearch).size(); keyCounter++) {
+    			
+    			if (changesAuditLog.get(currentSearch).get(keyCounter).
+    					equalsIgnoreCase(currentKey.get(keyCounter))==false) {
+    				isTheSame = false;
+    			}
+    			
+    		}
+    		
+    		if (isTheSame) {
+    			foundOtherKeys++;
+    			changesAuditLog.remove(currentSearch);
+    		}
+    		
+    	}
+    	
+    	return foundOtherKeys;
+    	
+    }
+    
+    /* 
+     * This method writes all key entries accumulates in changesAuditLog into log table indicated in app_tbl_name
+     * field in the last row of mapping (along with where clause).  Since it is executed after the loop of all
+     * connections finding connection patter the assumption / limitation is that either all tables looped
+     * have the same key structure, log table name. Since connection pattern is declared at action detail level,
+     * recommendation is to declare to mapping entries underneath, both with the same key structure and 
+     * audit table, but possibly different mapping (if differences exists, e.g. need for declaring table schema)
+     */
+	private void writeAudit(Connection dbSourceConnection) {
+
+		int rowsCounter, keyElementsCounter, foundOthersCount;
+		String auditLogUpdate, newStatus;
+		ArrayList<String> currentKeySet;
+
+		if (isAuditRequired() && changesAuditLog.size()>0) {
+
+			System.out.println("----> audit log write begin, changes logged against " + connectionsInSet + " targets");
+
+			for (rowsCounter = 0; rowsCounter < changesAuditLog.size(); rowsCounter++) {
+
+				currentKeySet = changesAuditLog.get(rowsCounter);
+				foundOthersCount = foundOtherOccurences(currentKeySet, rowsCounter);
+				PreparedStatement updateStatement = null;
+
+				if (foundOthersCount == connectionsInSet) {
+					newStatus = "D";
+				} else {
+					newStatus = "P";
+				}
+
+				auditLogUpdate = "UPDATE " + mapping.get(mapping.size() - 1).auditTable + " SET SYNCDONE='" + newStatus
+						+ "', SYNCDONEAT=SYSDATE WHERE ";
+
+				for (keyElementsCounter = 0; keyElementsCounter < changesAuditLog.get(rowsCounter)
+						.size(); keyElementsCounter++) {
+
+					System.out.println("log element(" + rowsCounter + "." + keyElementsCounter + ")="
+							+ changesAuditLog.get(rowsCounter).get(keyElementsCounter));
+
+					auditLogUpdate = auditLogUpdate + mapping.get(keyElementsCounter).sourceField + "='"
+							+ changesAuditLog.get(rowsCounter).get(keyElementsCounter) + "' ";
+
+				}
+
+				System.out.println("total other key occurences found: " + foundOthersCount);
+				auditLogUpdate = auditLogUpdate + " AND SYNCDONE IN ('N','E','P') ";
+				System.out.println("auditLogUpdate sql: " + auditLogUpdate);
+
+				try {
+					updateStatement = dbSourceConnection.prepareStatement(auditLogUpdate);
+					System.out.println("updated logs count:" + updateStatement.executeUpdate());
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} finally {
+					try {
+						updateStatement.close();
+					} catch (Exception ignore) {
+					}
+				}
+
+			}
+
+			changesAuditLog.clear();
+			// mapping.clear();
+			System.out.println("<---- audit log write end");
+
+		} else {
+			System.out.println("...no audit write needed");
+		}
+		
+	}
+        
+    private String getTargetExtractorLimiterSQL(ArrayList<ExternalMappingDetails> mapping, ArrayList<String> keySet) {
+    	
+    	String sqlStatement = " where ";
+    	ExternalMappingDetails mappingElement=null;
+    	
+    	for (int mappingCounter=0; mappingCounter<mapping.size(); mappingCounter++) {
+    		
+    		mappingElement = mapping.get(mappingCounter);
+    		
+    		if (mappingElement.isKey.equalsIgnoreCase("Y")) {
+    			
+    			sqlStatement = sqlStatement + mappingElement.targetField + " = '"
+    					+ keySet.get(mappingCounter)
+    					+ "' AND ";
+    			
+    		}
+    		
+    	}
+    	
+    	sqlStatement = sqlStatement + " 1974=1974 ";
+    	
+    	return sqlStatement;
+
+    }
+    
+    private String returnLinkSegment(String givenSelection) {
+    
+    	String currentLink = " where ";
+    	
+    	if (givenSelection.contains("where") || givenSelection.contains("WHERE")) {
+    		currentLink = " and ";
+    	}
+    	
+    	return currentLink;
+    	
+    }
+    
+    private String getSourceExtractorLimiterSQL(ArrayList<ExternalMappingDetails> mapping, ArrayList<String> keySet, String linkSegment) {
+
+    	String sqlStatement = linkSegment ;
+    	ExternalMappingDetails mappingElement=null;
+    	
+    	for (int mappingCounter=0; mappingCounter<mapping.size(); mappingCounter++) {
+    		
+    		mappingElement = mapping.get(mappingCounter);
+    		
+    		if (mappingElement.isKey.equalsIgnoreCase("Y")) {
+    			
+    			sqlStatement = sqlStatement + mappingElement.sourceField + " = '"
+    					+ keySet.get(mappingCounter)
+    					+ "' AND ";
+    			
+    		}
+    		
+    	}
+    	
+    	sqlStatement = sqlStatement + " 1978=1978 ";
+    	
+    	return sqlStatement;
+    	
+    }
+    
+    private String getTargetExistsCheckerSQL(ArrayList<ExternalMappingDetails> mapping, ArrayList<String> keySet,
+    		String targetTableName) {
+    	
+    	String sqlStatement = "select count(*) from " + targetTableName + " where ";
+    	ExternalMappingDetails mappingElement=null;
+    	
+    	for (int mappingCounter=0; mappingCounter<mapping.size(); mappingCounter++) {
+    		
+    		mappingElement = mapping.get(mappingCounter);
+    		
+    		if (mappingElement.isKey.equalsIgnoreCase("Y")) {
+    			
+    			sqlStatement = sqlStatement + mappingElement.targetField + " = '"
+    					+ keySet.get(mappingCounter)
+    					+ "' AND ";
+    			
+    		}
+    		
+    	}
+    	
+    	sqlStatement = sqlStatement + " 2011=2011 ";
+    	
+    	return sqlStatement;
+    	
+    }
+    
+    private String getKeyIterationSQL(ArrayList<ExternalMappingDetails> mapping) {
+    	
+    	String sqlStatement = "select ";
+    	ExternalMappingDetails mappingElement=null;
+    	
+    	for (int mappingCounter=0; mappingCounter<mapping.size(); mappingCounter++) {
+    		
+    		mappingElement = mapping.get(mappingCounter);
+    		
+    		if (mappingElement.isKey.equalsIgnoreCase("Y")) {
+    			
+    			sqlStatement = sqlStatement + mappingElement.sourceField + ", ";
+    			
+    		}
+    		
+    	}
+    	
+		sqlStatement = sqlStatement + " 0 " + mappingElement.whereClause;
+    	return sqlStatement;
+    	
+    }
+    
+    private void externalExecuteMapping(Connection givenSource, Connection givenTarget,
+    		String insertUpdateMode, String directionMode, int maxRows, String actionCode, String detailCode) {
+    	
+    	String currentTableName = "";
+    	PreparedStatement sqlStatement, sqlStatement2;
+    	ResultSet myResultSet, myResultSet2; 
+    	ExternalMappingDetails currentMappingEntry = null;
+    	int numberOfKeys = 0;
+    	
+    	System.out.println("----- > entering externalExecuteMapping");
+    	System.out.println("givenSource:"+givenSource.toString());
+    	System.out.println("givenTarget:"+givenTarget.toString());
+    	System.out.println("actionCode:"+actionCode);
+    	System.out.println("detailCode:"+detailCode);
+    	
+    	mapping.clear();//180114
+    	
+		String sqlStatementBody = "select tablename from ps_cis_xpe_mapping where cis_action_code = ? ";
+		
+		try {
+			
+			sqlStatement = givenTarget.prepareStatement(sqlStatementBody);
+			// 180114 sqlStatement.setString(1, actionCode);
+			sqlStatement.setString(1, detailCode);
+
+			myResultSet = sqlStatement.executeQuery();
+
+			while (myResultSet.next()) {
+				
+				currentTableName = myResultSet.getString(1);
+				System.out.println("currentTableName:"+currentTableName);
+				System.out.println("actionCode:"+actionCode);
+				
+				sqlStatementBody = "select generic_field, cis_native_field, is_key, where_clause1, app_tbl_name from ps_cis_xpe_map_dtl where tablename = ? and cis_action_code = ? order by seqno";
+				
+				sqlStatement2 = givenTarget.prepareStatement(sqlStatementBody);
+				sqlStatement2.setString(1, currentTableName);
+				// 180114 sqlStatement2.setString(2, actionCode);
+				sqlStatement2.setString(2, detailCode);
+				
+				myResultSet2 = sqlStatement2.executeQuery();
+				
+				while (myResultSet2.next()) {
+					
+					currentMappingEntry = new ExternalMappingDetails();
+					
+					currentMappingEntry.sourceField = myResultSet2.getString(1);
+					currentMappingEntry.targetField = myResultSet2.getString(2);
+					currentMappingEntry.isKey = myResultSet2.getString(3);
+					currentMappingEntry.whereClause = myResultSet2.getString(4);
+					currentMappingEntry.auditTable= myResultSet2.getString(5);
+					// currentMappingEntry.printDescriptionToBuffer();
+					mapping.add(currentMappingEntry);
+					
+				}
+				
+		    	for (int mappingCounter=0; mappingCounter<mapping.size(); mappingCounter++) {
+		        	System.out.println("... mapping details("+mappingCounter+")");
+		        	mapping.get(mappingCounter).printDescriptionToBuffer();
+		    	}
+		    	
+		    	System.out.println("iterator sql:"+this.getKeyIterationSQL(mapping));
+		    	System.out.println("num of keys:"+this.getNumberOfKeys(mapping));
+		    	
+		    	// 180112 begin
+		    	if (directionMode.contentEquals("O")) {
+			    	iterateBasedOnMapping(givenTarget, givenSource, mapping, currentTableName, insertUpdateMode,
+			    			maxRows);
+		    	} else {
+			    	// 180112 original
+			    	iterateBasedOnMapping(givenSource, givenTarget, mapping, currentTableName, insertUpdateMode,
+			    			maxRows);
+		    	}
+		    	// 180112 end
+				
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+    	System.out.println("< ----- exiting externalExecuteMapping");
+
+    }
+
+    public int external2Generic(ProjectVariable projShare, String actionCode) {
+    	
+    	int resultCode=0, maximumRows = -1;
+    	PreparedStatement sqlStatement = null, sqlStatement2 = null;
+    	Connection commonConfigdb = null, externalConfigdb = null;
+    	String sqlStatementBody = "", connectionPattern = "", connectionName = "", insertUpdateMode="A", directionMode="O",
+    			detailCode="unknown/ignored from the original XPE mainline";
+    	ResultSet myResultSet = null, myResultSet2 = null;
+    	
+        System.out.println("---- > entering external2Generic for " + actionCode + ":" + detailCode);
+        
+        commonConfigdb = projShare.getconfigDb();
+        
+        try {
+        
+			// multiple details now allowed sqlStatementBody = "select cis_operator1, cis_operator2, parm_1, parm_2 from ps_cis_xpe_act_dtl where cis_action_code = ? and cis_detail_code = ? and parm_1!=0 order by dtl_seq_nbr";
+        	sqlStatementBody = "select cis_operator1, cis_operator2, parm_1, parm_2, cis_detail_code from ps_cis_xpe_act_dtl where cis_action_code = ? and parm_1!=0 order by dtl_seq_nbr";
+			sqlStatement = commonConfigdb.prepareStatement(sqlStatementBody);
+			
+			sqlStatement.setString(1, actionCode);
+			
+			myResultSet = sqlStatement.executeQuery();
+
+			System.out.println("... executing " + sqlStatementBody);
+			
+			while (myResultSet.next()) {
+				
+				connectionPattern = myResultSet.getString(1);
+				insertUpdateMode =  myResultSet.getString(2);
+				maximumRows = myResultSet.getInt(3);
+				directionMode = myResultSet.getString(4);
+				detailCode = myResultSet.getString(5); //180114
+				
+				System.out.println("connectionPattern:"+connectionPattern );
+				System.out.println("insertUpdateMode:"+insertUpdateMode );
+				System.out.println("maximumRows:"+maximumRows );
+				System.out.println("directionMode:"+directionMode );
+				System.out.println("detailCode:"+detailCode );
+				
+				sqlStatementBody = "select in_platform from ps_cis_xpe_conn where in_platform like ?";
+				sqlStatement2 = commonConfigdb.prepareStatement(sqlStatementBody); 
+				
+				sqlStatement2.setString(1, connectionPattern);
+				
+				myResultSet2 = sqlStatement2.executeQuery();
+				
+				while (myResultSet2.next()) {
+					
+					connectionName = myResultSet2.getString(1);
+
+					System.out.println("found connection definition:"+connectionName);
+					connectionsInSet++;
+
+					externalConfigdb = connectSourceDb(commonConfigdb, connectionName);
+					
+					// externalExecuteMapping(externalConfigdb, commonConfigdb, insertUpdateMode, 
+					// 			directionMode, maximumRows, detailCode);
+					externalExecuteMapping(externalConfigdb, commonConfigdb, insertUpdateMode, 
+								directionMode, maximumRows, actionCode, detailCode);
+					
+				}
+				
+				// mapping.clear();
+			
+			}
+			
+			this.writeAudit(commonConfigdb);
+
+        } catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+        System.out.println("< ---- exiting external2Generic");
+        
+    	return resultCode;
+    	
+    }
+    
+    /* E2G END */
+    
     public int source2generic_ver3(ProjectVariable projShare, String action_code, String detailCode) {
 
         String module = "source2generic";
@@ -342,8 +1206,7 @@ public class GenericDataHandler implements Runnable {
 
             //conect to config
             Statement sqlStatement = configdb.createStatement();
-
-
+            
             // for getting count
             String readRecordSQLcount =
                 "select count(1) as cnt " + " from PS_CIS_XPE_MAP_DTL where" + " cis_action_code =" + "'" +
@@ -406,16 +1269,16 @@ public class GenericDataHandler implements Runnable {
                 nativeArray[recordCounter] = mapp_detail_native_field;
                 whereArray[recordCounter] = mapp_detail_where_field;
                 constantArray[recordCounter] = mapp_detail_constant_field;
-                //             targetFieldArray[recordCounter] = mapp_detail_where_field;
+                //            targetFieldArray[recordCounter] = mapp_detail_where_field;
                 targetFieldArray[recordCounter] = mapp_detail_target_field;
                 aggArray[recordCounter] = mapp_detail_agg;
 
-                //                    System.out.println("Generic : "  +  mapp_detail_generic_field );
-                //                   System.out.println("Native array : " +    mapp_detail_native_field );
-                //                System.out.println("Target table : "  +  mapp_detail_target_table );
-                //                 System.out.println("Target field : "  +  mapp_detail_target_field );
-                //                 System.out.println("Aggregate : "  +  mapp_detail_agg );
-                //                                    System.out.println("=========1 : " +  readRecordSQL );
+                                    System.out.println("Generic : "  +  mapp_detail_generic_field );
+                                   System.out.println("Native array : " +    mapp_detail_native_field );
+                                System.out.println("Target table : "  +  mapp_detail_target_table );
+                                 System.out.println("Target field : "  +  mapp_detail_target_field );
+                                 System.out.println("Aggregate : "  +  mapp_detail_agg );
+                                                    System.out.println("=========1 : " +  readRecordSQL );
 
                 hasNext = myResultSet.next();
                 recordCounter++;
@@ -484,6 +1347,7 @@ public class GenericDataHandler implements Runnable {
                 stmt2.close();
                 break;
             default:
+            	billing_cylcle_id = "09/30/2017";
                 break;
             } //switch
 
@@ -691,7 +1555,9 @@ public class GenericDataHandler implements Runnable {
                 "select count(1) as cnt from PS_CIS_CUS_XWLK where  start_dt between trunc( ? ,'MONTH') AND LAST_DAY( ?) ";
 
             SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy"); //
+            System.out.println("billing_cylcle_id: "+billing_cylcle_id);
             Date convertedBillCycleDate = dateFormat.parse(billing_cylcle_id);
+            System.out.println("out of <---- bill cycle id parse  "+convertedBillCycleDate );
             java.util.Date utilDate = convertedBillCycleDate;
             final String stringDate = dateFormat1.format(utilDate);
             final java.sql.Date sqlDate = java.sql.Date.valueOf(stringDate);
@@ -707,13 +1573,16 @@ public class GenericDataHandler implements Runnable {
             preparedStatement_cnt.setDate(1, sqlDate);
             preparedStatement_cnt.setDate(2, sqlDate);
 
+            /* neustar retire tz 170912
             ResultSet myResultSetcnt1 = preparedStatement_cnt.executeQuery();
             while (myResultSetcnt1.next()) {
                 prepared1cnt = myResultSetcnt1.getInt("cnt");
                 System.out.println("Multiple opcs  - prepared1cnt : " + prepared1cnt);
 
             }
-            myResultSetcnt1.close();
+            myResultSetcnt1.close(); /* neustar retire end */
+            
+            prepared1cnt = 0;
 
             if (prepared1cnt > 0) {
                 String[] custArray = new String[prepared1cnt];
@@ -744,6 +1613,8 @@ public class GenericDataHandler implements Runnable {
                 insertStmt = insertSql + " " + "(" + insertGenericFields + "," + otherFields + ")" + insertSql_2 //select
                     + insertGenericFieldsSumMonth + whereUpdatedIn + insertSql_3 //group by
                     + insertAgg_for_monthUpdate;
+                
+                
 
                 preparedStatement_insert = configdb.prepareStatement(insertStmt);
                 preparedStatement_insert.setDate(1, sqlDate);
@@ -760,6 +1631,8 @@ public class GenericDataHandler implements Runnable {
                 insertStmt = insertSql + " " + "(" + insertGenericFields + "," + otherFields + ")" + insertSql_2 //select
                     + insertGenericFieldsSumMonth + whereCombined + insertSql_3 //group by
                     + insertAgg_for_monthUpdate;
+                
+                
                 System.out.println("Complete insert with no OPC dupes:  " + insertStmt);
 
                 result = sqlStatement.executeUpdate(insertStmt); //PROD #3
@@ -2302,7 +3175,7 @@ public class GenericDataHandler implements Runnable {
         String execPlanStep;
         int execSeq;
         String ruleSetCode;
-        String status;
+        String status = "A";
         String billing_cycle_id = "";
         String userId = projShare.getuserId();
         int return_status = 1;
@@ -2392,7 +3265,7 @@ public class GenericDataHandler implements Runnable {
                 final java.sql.Date sql_execToDate = java.sql.Date.valueOf(stringDt_execTo);
                 System.out.println("sql_execToDate :  " + sql_execToDate);
                 logMsg =
-                    "execFromDate " + execFromDate + "  execToDate " + execToDate + " sql from " + sql_execFromDate +
+                    "execFromDate 170830a " + execFromDate + "  execToDate " + execToDate + " sql from " + sql_execFromDate +
                     " sql to " + sql_execToDate;
                 System.out.println("logMsg : " + logMsg);
 
@@ -2400,15 +3273,7 @@ public class GenericDataHandler implements Runnable {
                 descr = "Starting Execution Plan : " + execPlanCode;
                 insertProcess(projShare, descr, " ");
 
-                switch (status) {
-                case "A":
                     return_status = processRuleInRuleSet(projShare, ruleSetCode);
-                    break;
-                case "N":
-                    break;
-                default:
-                    break;
-                } //switch
 
                 // If process fails quit
                 if (return_status == -1) {
@@ -2615,6 +3480,9 @@ public class GenericDataHandler implements Runnable {
                 case "CPROC":
                     return_status = custom_proc(projShare, actionCode, detailCode);
                     break;
+                case "EX2G": 
+                	return_status = external2Generic(projShare, actionCode);
+                	break;
                 default:
                     break;
 
@@ -2654,7 +3522,7 @@ public class GenericDataHandler implements Runnable {
 
             if (rs != null && rs.next()) {
                 process_id_seq = rs.getInt(1);
-                //        System.out.println("Writing process_id_seq  => " + process_id_seq);
+                System.out.println("Writing process_id_seq  => " + process_id_seq);
                 rs.close();
             }
             stmt.close();
@@ -2665,8 +3533,8 @@ public class GenericDataHandler implements Runnable {
         String insertSql =
             "insert into PS_CIS_XPE_PROCESS ( PROCESSID, CIS_EXEC_PLAN_CODE , CIS_EXEC_PLAN_STEP, CIS_EXECUTION_SEQ , STATUS_MSG, DESCR100, ACTUAL_START_DT, USERID " +
             " )" + "values (?,?,?,?,?,?,sysdate, ?)";
-        //TO_DEL        String descr = ruleName;
-        System.out.println("Rule Name  => " + ruleName);
+        String descr = ruleName;
+        // DEV System.out.println("Rule Name  => " + ruleName);
 
         try {
             PreparedStatement pstmt = configdb.prepareStatement(insertSql);
@@ -2688,6 +3556,7 @@ public class GenericDataHandler implements Runnable {
             System.out.println(e);
         } //catch
 
+System.out.println(" 170830a exiting process status insert ");
     }
 
     public void updateProcess(ProjectVariable projShare, int return_status, String descr) {
@@ -4537,7 +5406,7 @@ public class GenericDataHandler implements Runnable {
             System.out.println("cfgFile : " + cfgFile);
 
             overrideFromFile(cfgFile);
-            ps_config_passwd = decryptPassword(ps_config_passwd);
+            // DEV ps_config_passwd = decryptPassword(ps_config_passwd);
 
             ps_db_uat = connectConfigDb(ps_config_url, ps_config_driver, ps_config_user, ps_config_passwd);
             //execute the plan
