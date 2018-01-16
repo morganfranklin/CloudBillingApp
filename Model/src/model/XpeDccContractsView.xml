@@ -9,6 +9,8 @@
     BindingStyle="OracleName"
     CustomQuery="false"
     PageIterMode="Full"
+    RowClass="model.XpeDccContractsViewRowImpl"
+    ComponentClass="model.XpeDccContractsViewImpl"
     SelectList="XpeDccContracts.XPE_CONTRACT_ID, 
        XpeDccContracts.XPE_CONTRACT_DESC, 
        XpeDccContracts.SETID, 
@@ -21,8 +23,7 @@
        XpeDccContracts.CUST_CONTRACT_APPROVER_EMAIL, 
        XpeDccContracts.CUST_CONTRACT_CONTACT_NAME"
     FromList="XPE_DCC_CONTRACTS XpeDccContracts, PS_CUSTOMER PsCustomer"
-    RowClass="model.XpeDccContractsViewRowImpl"
-    ComponentClass="model.XpeDccContractsViewImpl">
+    Where="PsCustomer.CUST_ID=XpeDccContracts.CUST_ID">
     <DesignTime>
         <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
         <Attr Name="_isCodegen" Value="true"/>
@@ -73,8 +74,12 @@
             <Item Value="CustId"/>
         </AttrArray>
         <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="DerivedAttrNames">
+            <Item Value="Name1"/>
+        </AttrArray>
         <AttrArray Name="ListAttrNames">
             <Item Value="CustId"/>
+            <Item Value="Name1"/>
         </AttrArray>
         <AttrArray Name="ListDisplayAttrNames">
             <Item Value="CustId"/>
@@ -107,7 +112,6 @@
     <EntityUsage
         Name="PsCustomer"
         Entity="model.PsCustomer"
-        ReadOnly="true"
         DeleteParticipant="false">
         <DesignTime>
             <Attr Name="_customjoin" Value="true"/>

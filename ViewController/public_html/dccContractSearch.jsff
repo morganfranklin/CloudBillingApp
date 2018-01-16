@@ -14,7 +14,8 @@
                        text="Add Contract"></af:button>-->
             <af:button action="addContract" text="Add Contract Wizard" rendered="false"></af:button>
             <af:popup contentDelivery="lazyUncached" id="p1" autoCancel="disabled"
-                      popupCanceledListener="#{backingBeanScope.XpeDccMainBean.contractPopupCancelListener}">
+                      popupCanceledListener="#{backingBeanScope.XpeDccMainBean.contractPopupCancelListener}"
+                      rendered="false">
                 <af:panelWindow modal="true" closeIconVisible="true">
                     <af:panelGroupLayout layout="horizontal">
                         <af:panelFormLayout labelAlignment="start" id="pfl2">

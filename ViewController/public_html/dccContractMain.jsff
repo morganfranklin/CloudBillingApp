@@ -40,13 +40,14 @@
                                                                       model="#{bindings.CustId.listOfValuesModel}"
                                                                       required="#{bindings.CustId.hints.mandatory}"
                                                                       columns="#{bindings.CustId.hints.displayWidth}"
-                                                                      shortDesc="#{bindings.CustId.hints.tooltip}">
+                                                                      shortDesc="#{bindings.CustId.hints.tooltip}"
+                                                                      autoSubmit="true">
                                                     <f:validator binding="#{bindings.CustId.validator}"/>
                                                 </af:inputListOfValues>
                                                 <af:panelLabelAndMessage label="Customer Name" id="plam31">
                                                     <af:outputText value="#{bindings.Name1.inputValue}"
                                                                    shortDesc="#{bindings.Name1.hints.tooltip}"
-                                                                   id="ot31"/>
+                                                                   id="ot31" partialTriggers="custIdId"/>
                                                 </af:panelLabelAndMessage>
                                                 <af:panelLabelAndMessage label="Created By" id="plam3">
                                                     <af:outputText value="#{bindings.CreatedBy.inputValue}"

@@ -10,7 +10,7 @@
                       Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                       Binds="XpeDccCustomerSearch1Iterator" id="ImplicitViewCriteriaQuery"/>
         <iterator Binds="XpeDccContractsView1" RangeSize="25" DataControl="AppModuleDataControl"
-                  id="XpeDccContractsView1Iterator"/>
+                  id="XpeDccContractsView1Iterator" ChangeEventPolicy="none"/>
     </executables>
     <bindings>
         <tree IterBinding="XpeDccCustomerSearch1Iterator" id="XpeDccCustomerSearch1">

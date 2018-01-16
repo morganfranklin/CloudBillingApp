@@ -5,13 +5,13 @@
     <executables>
         <variableIterator id="variables"/>
         <iterator Binds="XpeDccContractsView2" RangeSize="25" DataControl="AppModuleDataControl"
-                  id="XpeDccContractsView1Iterator"/>
+                  id="XpeDccContractsView1Iterator" ChangeEventPolicy="none"/>
         <iterator Binds="XpeDccContractVersionView1" RangeSize="25" DataControl="AppModuleDataControl"
-                  id="XpeDccContractVersionView2Iterator"/>
+                  id="XpeDccContractVersionView2Iterator" ChangeEventPolicy="none"/>
         <iterator Binds="XpeDccContractPartyView1" RangeSize="25" DataControl="AppModuleDataControl"
-                  id="XpeDccContractPartyView2Iterator"/>
+                  id="XpeDccContractPartyView2Iterator" ChangeEventPolicy="none"/>
         <iterator Binds="XpeDccPlatformEventView3" RangeSize="25" DataControl="AppModuleDataControl"
-                  id="XpeDccPlatformEventView2Iterator"/>
+                  id="XpeDccPlatformEventView2Iterator" ChangeEventPolicy="none"/>
         <searchRegion Binds="XpeDccPlatformEventView2Iterator" Criteria=""
                       Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                       id="XpeDccPlatformEventView2Query"/>
