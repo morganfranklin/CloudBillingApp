@@ -18,7 +18,7 @@
         ResId="model.views.readonly.PsCountryTblROVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <SQLQuery><![CDATA[SELECT COUNTRY, DESCRIPTION, COUNTRY_CODE FROM PS_COUNTRY_TBL]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT COUNTRY, DESCR AS DESCRIPTION, COUNTRY_2CHAR AS COUNTRY_CODE FROM PS_COUNTRY_TBL]]></SQLQuery>
   <ViewAttribute
     Name="Country"
     IsUpdateable="false"
