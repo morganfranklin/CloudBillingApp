@@ -4,13 +4,13 @@
       <AppModuleConfig DeployPlatform="LOCAL" name="LookupSharedAppModuleLocal" ApplicationName="model.appmodule.LookupSharedAppModule" jbo.project="model.Model">
          <Database jbo.TypeMapEntries="OracleApps"/>
          <Security AppModuleJndiName="model.appmodule.LookupSharedAppModule"/>
-         <Custom ns0:ns0="http://xmlns.oracle.com/bc4j/configuration" ns0:JDBCDataSource="jdbc/CloudBillingAppNonXADS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+         <Custom ns0:ns0="http://xmlns.oracle.com/bc4j/configuration" ns0:JDBCDataSource="jdbc/CovCustomerPortalDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
       </AppModuleConfig>
       <AppModuleConfig jbo.project="model.Model" ApplicationName="model.appmodule.LookupSharedAppModule" DeployPlatform="LOCAL" name="LookupSharedAppModuleShared">
          <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.resetnontransactionalstate="false" jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
          <Database jbo.TypeMapEntries="OracleApps"/>
          <Security AppModuleJndiName="model.appmodule.LookupSharedAppModule"/>
-         <Custom ns0:JDBCDataSource="jdbc/CloudBillingAppNonXADS" ns0:ns0="http://xmlns.oracle.com/bc4j/configuration" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+         <Custom ns0:JDBCDataSource="jdbc/CovCustomerPortalDS" ns0:ns0="http://xmlns.oracle.com/bc4j/configuration" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
       </AppModuleConfig>
    </AppModuleConfigBag>
 </BC4JConfig>

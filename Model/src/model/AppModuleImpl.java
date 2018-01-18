@@ -28,6 +28,10 @@ import model.constants.NEUCloudBillingConstants;
 
 import model.utils.EmailUtils;
 
+import model.views.entitybased.XpeDccAccrualRevenueEOVOImpl;
+import model.views.entitybased.XpeDccAccrualRevenueEOVORowImpl;
+import model.views.entitybased.XpeDccBillingAccountingEOVOImpl;
+import model.views.entitybased.XpeDccBillingAccountingEOVORowImpl;
 import model.views.entitybased.XpeDccCfgAccountingEOVOImpl;
 import model.views.entitybased.XpeDccCfgBusinessunitEOVOImpl;
 import model.views.entitybased.XpeDccCfgCarriersEOVOImpl;
@@ -72,10 +76,6 @@ import model.views.entitybased.XpeDccWfEventEOVOImpl;
 import model.views.entitybased.XpeDccWfEventEOVORowImpl;
 import model.views.entitybased.XpeDmsCustomerEOVOImpl;
 import model.views.entitybased.XpeDmsCustomerEOVORowImpl;
-import model.views.readonly.XpeDccCfgAccrualandRevenueGenerationROVOImpl;
-import model.views.readonly.XpeDccCfgAccrualandRevenueGenerationROVORowImpl;
-import model.views.readonly.XpeDccCfgBillingandAccountingROVOImpl;
-import model.views.readonly.XpeDccCfgBillingandAccountingROVORowImpl;
 import model.views.readonly.XpeDccCfgCntrcttAprFcltyROVOImpl;
 import model.views.readonly.XpeDccCfgCntrcttAprFcltyROVORowImpl;
 import model.views.readonly.XpeDccCfgDstAssTerminalsROVOImpl;
@@ -1946,13 +1946,13 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         }
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_45/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_46/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(xpeDccWfActionEOVORow.getXpeUuid()).append("&").append("action=").append("ACCEPT").append("&").append("user=").append(userType);
         html.append("\"><b>Accept</b></a>");
         html.append("&nbsp;&nbsp;&nbsp;");
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_45/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_46/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(xpeDccWfActionEOVORow.getXpeUuid()).append("&").append("action=").append("REJECT").append("&").append("user=").append(userType);
         html.append("\"><b>Reject</b></a>");
         html.append("</p>");
@@ -3552,50 +3552,45 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         return (XpeDccCfgAccountingEOVOImpl) findViewObject("XpeDccCfgNewAccountingEOVO");
     }
 
-    /**
-     * Container's getter for XpeDccCfgBillingandAccountingROVO1.
-     * @return XpeDccCfgBillingandAccountingROVO1
-     */
-    public XpeDccCfgBillingandAccountingROVOImpl getXpeDccCfgBillingandAccountingROVO1() {
-        return (XpeDccCfgBillingandAccountingROVOImpl) findViewObject("XpeDccCfgBillingandAccountingROVO1");
-    }
-    
+
     public void initBillAccountProcess(){
-        XpeDccCfgBillingandAccountingROVOImpl billAccountVO = this.getXpeDccCfgBillingandAccountingROVO1();
+        XpeDccBillingAccountingEOVOImpl billAccountVO = this.getXpeDccBillingAccountingEOVO();
         billAccountVO.executeEmptyRowSet();
-        XpeDccCfgBillingandAccountingROVORowImpl billAccountVORow =
-            (XpeDccCfgBillingandAccountingROVORowImpl) billAccountVO.createRow();
-        billAccountVO.insertRow(billAccountVORow);
+        XpeDccBillingAccountingEOVORowImpl billAccountVORow =
+            (XpeDccBillingAccountingEOVORowImpl) billAccountVO.createRow();
+        if(null!=billAccountVORow)
+            billAccountVO.insertRow(billAccountVORow);
     }
     
     public void billAndAccountingProcess(){
-        XpeDccCfgBillingandAccountingROVOImpl billAccountVO = this.getXpeDccCfgBillingandAccountingROVO1();
-        RowSetIterator billAccountRSet = billAccountVO.createRowSetIterator(null);
-        billAccountRSet.reset();
-        while(billAccountRSet.hasNext()){
-            XpeDccCfgBillingandAccountingROVORowImpl billAccountVORow =
-                (XpeDccCfgBillingandAccountingROVORowImpl) billAccountRSet.next();
-        }
-        this.initBillAccountProcess();
+//        XpeDccCfgBillingandAccountingROVOImpl billAccountVO = this.getXpeDccCfgBillingandAccountingROVO1();
+//        RowSetIterator billAccountRSet = billAccountVO.createRowSetIterator(null);
+//        billAccountRSet.reset();
+//        while(billAccountRSet.hasNext()){
+//            XpeDccCfgBillingandAccountingROVORowImpl billAccountVORow =
+//                (XpeDccCfgBillingandAccountingROVORowImpl) billAccountRSet.next();
+//        }
+//        this.initBillAccountProcess();
     }
     
     public void initAccrualRevenueGeneration(){
-        XpeDccCfgAccrualandRevenueGenerationROVOImpl accrualRevenueVO = this.getXpeDccCfgAccrualandRevenueGenerationROVO1();
+        XpeDccAccrualRevenueEOVOImpl accrualRevenueVO = this.getXpeDccAccrualRevenueEOVO();
         accrualRevenueVO.executeEmptyRowSet();
-        XpeDccCfgAccrualandRevenueGenerationROVORowImpl accrualRevenueVORow =
-            (XpeDccCfgAccrualandRevenueGenerationROVORowImpl) accrualRevenueVO.createRow();
-        accrualRevenueVO.insertRow(accrualRevenueVORow);
+        XpeDccAccrualRevenueEOVORowImpl accrualRevenueVORow =
+            (XpeDccAccrualRevenueEOVORowImpl) accrualRevenueVO.createRow();
+        if(null!=accrualRevenueVORow)
+            accrualRevenueVO.insertRow(accrualRevenueVORow);
     }
     
     public void accrualandRevenueGenerationProcesses(){
-        XpeDccCfgAccrualandRevenueGenerationROVOImpl accrualRevenueVO = this.getXpeDccCfgAccrualandRevenueGenerationROVO1();
-        RowSetIterator AccrualRevenueRSetIter =  accrualRevenueVO.createRowSetIterator(null);
-        AccrualRevenueRSetIter.reset();
-        while(AccrualRevenueRSetIter.hasNext()){
-        XpeDccCfgAccrualandRevenueGenerationROVORowImpl accrualRevenueVORow =
-                (XpeDccCfgAccrualandRevenueGenerationROVORowImpl) AccrualRevenueRSetIter.next();
-        }
-        this.initAccrualRevenueGeneration();
+//        XpeDccCfgAccrualandRevenueGenerationROVOImpl accrualRevenueVO = this.getXpeDccCfgAccrualandRevenueGenerationROVO1();
+//        RowSetIterator AccrualRevenueRSetIter =  accrualRevenueVO.createRowSetIterator(null);
+//        AccrualRevenueRSetIter.reset();
+//        while(AccrualRevenueRSetIter.hasNext()){
+//        XpeDccCfgAccrualandRevenueGenerationROVORowImpl accrualRevenueVORow =
+//                (XpeDccCfgAccrualandRevenueGenerationROVORowImpl) AccrualRevenueRSetIter.next();
+//        }
+//        this.initAccrualRevenueGeneration();
     }
 
     /**
@@ -3817,13 +3812,6 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         return (ViewLinkImpl) findViewLink("XpeDccContractVersionFKVL1");
     }
 
-    /**
-     * Container's getter for XpeDccCfgAccrualandRevenueGenerationROVO1.
-     * @return XpeDccCfgAccrualandRevenueGenerationROVO1
-     */
-    public XpeDccCfgAccrualandRevenueGenerationROVOImpl getXpeDccCfgAccrualandRevenueGenerationROVO1() {
-        return (XpeDccCfgAccrualandRevenueGenerationROVOImpl) findViewObject("XpeDccCfgAccrualandRevenueGenerationROVO1");
-    }
 
     /**
      * Container's getter for XpeDccContractPricingOverView2.
@@ -3991,6 +3979,22 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public ViewLinkImpl getXpeDccCfgPcsAddressFkLink1() {
         return (ViewLinkImpl) findViewLink("XpeDccCfgPcsAddressFkLink1");
+    }
+
+    /**
+     * Container's getter for XpeDccBillingAccountingEOVO1.
+     * @return XpeDccBillingAccountingEOVO1
+     */
+    public XpeDccBillingAccountingEOVOImpl getXpeDccBillingAccountingEOVO() {
+        return (XpeDccBillingAccountingEOVOImpl) findViewObject("XpeDccBillingAccountingEOVO");
+    }
+
+    /**
+     * Container's getter for XpeDccAccrualRevenueEOVO1.
+     * @return XpeDccAccrualRevenueEOVO1
+     */
+    public XpeDccAccrualRevenueEOVOImpl getXpeDccAccrualRevenueEOVO() {
+        return (XpeDccAccrualRevenueEOVOImpl) findViewObject("XpeDccAccrualRevenueEOVO");
     }
 }
 

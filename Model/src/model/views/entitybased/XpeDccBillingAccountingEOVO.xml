@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XpeDccBillingAccountingEOVO"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full"
+  RowClass="model.views.entitybased.XpeDccBillingAccountingEOVORowImpl"
+  ComponentClass="model.views.entitybased.XpeDccBillingAccountingEOVOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.views.entitybased.XpeDccBillingAccountingEOVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="XpeDccCfgPcsROVO_LOV"
+    ViewObjectName="model.views.readonly.XpeDccCfgPcsROVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_XpeFacilityId"
+    ListVOName="XpeDccCfgPcsROVO_LOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="XpeFacilityId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="SiteId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="SiteDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="XpeDccBillingAccountingEO"
+    Entity="model.entities.XpeDccBillingAccountingEO"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="XpeDccBillingAccountingEO"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="CreationDate"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="XpeDccBillingAccountingEO"
+    AliasName="CREATION_DATE"/>
+  <ViewAttribute
+    Name="LastUpdateDate"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateDate"
+    EntityUsage="XpeDccBillingAccountingEO"
+    AliasName="LAST_UPDATE_DATE"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="XpeDccBillingAccountingEO"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="XpeBillCycleId"
+    PrecisionRule="true"
+    EntityAttrName="XpeBillCycleId"
+    EntityUsage="XpeDccBillingAccountingEO"
+    AliasName="XPE_BILL_CYCLE_ID"/>
+  <ViewAttribute
+    Name="XpeBillDate"
+    PrecisionRule="true"
+    EntityAttrName="XpeBillDate"
+    EntityUsage="XpeDccBillingAccountingEO"
+    AliasName="XPE_BILL_DATE"/>
+  <ViewAttribute
+    Name="XpeBillingAccountingId"
+    IsUpdateable="while_insert"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="XpeBillingAccountingId"
+    EntityUsage="XpeDccBillingAccountingEO"
+    AliasName="XPE_BILLING_ACCOUNTING_ID"/>
+  <ViewAttribute
+    Name="XpeFacilityId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="XpeFacilityId"
+    EntityUsage="XpeDccBillingAccountingEO"
+    AliasName="XPE_FACILITY_ID"
+    LOVName="LOV_XpeFacilityId">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccBillingAccountingEOVO.XpeFacilityId_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XpeDccBillingAccountingEO"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="XPE_DCC_BILLING_ACCOUNTING"
+  AliasName="XpeDccBillingAccountingEO"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="XpeBillingAccountingId"
+    IsNotNull="true"
+    ColumnName="XPE_BILLING_ACCOUNTING_ID"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="XPE_DCC_BILLING_ACCOUNTING"
+    PrimaryKey="true"
+    IsUpdateable="while_insert">
+    <TransientExpression
+      Name="ExpressionScript"
+      CodeSourceName="XpeDccBillingAccountingEORow"/>
+  </Attribute>
+  <Attribute
+    Name="XpeFacilityId"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="XPE_FACILITY_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_BILLING_ACCOUNTING">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="XpeBillCycleId"
+    Precision="20"
+    ColumnName="XPE_BILL_CYCLE_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_BILLING_ACCOUNTING">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="XpeBillDate"
+    ColumnName="XPE_BILL_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="XPE_DCC_BILLING_ACCOUNTING"/>
+  <Attribute
+    Name="CreatedBy"
+    Precision="20"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_BILLING_ACCOUNTING"
+    IsUpdateable="while_insert"
+    HistoryColumn="UserHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreationDate"
+    ColumnName="CREATION_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XPE_DCC_BILLING_ACCOUNTING"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory"/>
+  <Attribute
+    Name="LastUpdatedBy"
+    Precision="20"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_BILLING_ACCOUNTING"
+    HistoryColumn="UserHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdateDate"
+    ColumnName="LAST_UPDATE_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XPE_DCC_BILLING_ACCOUNTING"
+    HistoryColumn="DateHistory"/>
+  <Key
+    Name="XpeDccBillingAccountingPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_BILLING_ACCOUNTING_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccBillingAccountingEO.XpeBillingAccountingId"/>
+    </AttrArray>
+  </Key>
+</Entity>

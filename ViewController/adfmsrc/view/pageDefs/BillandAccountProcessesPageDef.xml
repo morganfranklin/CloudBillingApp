@@ -4,26 +4,26 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="XpeDccCfgBillingandAccountingROVO1" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgBillingandAccountingROVO1Iterator"/>
+    <iterator Binds="XpeDccBillingAccountingEOVO" RangeSize="10" DataControl="AppModuleDataControl"
+              id="XpeDccBillingAccountingEOVOIterator" ChangeEventPolicy="none"/>
   </executables>
   <bindings>
-    <tree IterBinding="XpeDccCfgBillingandAccountingROVO1Iterator" id="XpeDccCfgBillingandAccountingROVO1">
-      <nodeDefinition DefName="model.views.readonly.XpeDccCfgBillingandAccountingROVO"
-                      Name="XpeDccCfgBillingandAccountingROVO10">
-        <AttrNames>
-          <Item Value="XpeFacilityId"/>
-          <Item Value="XpeBillCycleId"/>
-          <Item Value="XpeBillDate"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
     <methodAction id="billAndAccountingProcess" RequiresUpdateModel="true" Action="invokeMethod"
                   MethodName="billAndAccountingProcess" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
                   InstanceName="data.AppModuleDataControl.dataProvider"/>
-    <action IterBinding="XpeDccCfgBillingandAccountingROVO1Iterator" id="CreateInsert" RequiresUpdateModel="true"
-            Action="createInsertRow"/>
-    <action IterBinding="XpeDccCfgBillingandAccountingROVO1Iterator" id="Delete" RequiresUpdateModel="false"
-            Action="removeCurrentRow"/>
+    <action IterBinding="XpeDccBillingAccountingEOVOIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow" InstanceName="AppModuleDataControl.XpeDccBillingAccountingEOVO"
+            DataControl="AppModuleDataControl"/>
+    <action IterBinding="XpeDccBillingAccountingEOVOIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow" InstanceName="AppModuleDataControl.XpeDccBillingAccountingEOVO"
+            DataControl="AppModuleDataControl"/>
+    <tree IterBinding="XpeDccBillingAccountingEOVOIterator" id="XpeDccBillingAccountingEOVO" ChangeEventPolicy="none">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccBillingAccountingEOVO" Name="XpeDccBillingAccountingEOVO0">
+        <AttrNames>
+          <Item Value="XpeFacilityId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
   </bindings>
 </pageDefinition>

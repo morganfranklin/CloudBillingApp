@@ -4,14 +4,18 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="XpeDccCfgAccrualandRevenueGenerationROVO1" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgAccrualandRevenueGenerationROVO1Iterator"/>
+    <iterator Binds="XpeDccAccrualRevenueEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccAccrualRevenueEOVOIterator" ChangeEventPolicy="none"/>
   </executables>
   <bindings>
-    <tree IterBinding="XpeDccCfgAccrualandRevenueGenerationROVO1Iterator"
-          id="XpeDccCfgAccrualandRevenueGenerationROVO1">
-      <nodeDefinition DefName="model.views.readonly.XpeDccCfgAccrualandRevenueGenerationROVO"
-                      Name="XpeDccCfgAccrualandRevenueGenerationROVO10">
+    <action IterBinding="XpeDccAccrualRevenueEOVOIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow" InstanceName="AppModuleDataControl.XpeDccAccrualRevenueEOVO"
+            DataControl="AppModuleDataControl"/>
+    <action IterBinding="XpeDccAccrualRevenueEOVOIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow" InstanceName="AppModuleDataControl.XpeDccAccrualRevenueEOVO"
+            DataControl="AppModuleDataControl"/>
+    <tree IterBinding="XpeDccAccrualRevenueEOVOIterator" id="XpeDccAccrualRevenueEOVO" ChangeEventPolicy="none">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccAccrualRevenueEOVO" Name="XpeDccAccrualRevenueEOVO0">
         <AttrNames>
           <Item Value="XpeFacilityId"/>
           <Item Value="XpeJournalGeneratorTemplate"/>
@@ -19,12 +23,6 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action IterBinding="XpeDccCfgAccrualandRevenueGenerationROVO1Iterator" id="CreateInsert" RequiresUpdateModel="true"
-            Action="createInsertRow"/>
-    <action IterBinding="XpeDccCfgAccrualandRevenueGenerationROVO1Iterator" id="Delete" RequiresUpdateModel="false"
-            Action="removeCurrentRow"/>
-    <methodAction id="accrualandRevenueGenerationProcesses" RequiresUpdateModel="true" Action="invokeMethod"
-                  MethodName="accrualandRevenueGenerationProcesses" IsViewObjectMethod="false"
-                  DataControl="AppModuleDataControl" InstanceName="data.AppModuleDataControl.dataProvider"/>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
   </bindings>
 </pageDefinition>

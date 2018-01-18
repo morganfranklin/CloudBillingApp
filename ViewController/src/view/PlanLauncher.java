@@ -16,6 +16,8 @@ public class PlanLauncher {
     private Date selectedFromDate = new Date(System.currentTimeMillis());
     private Date selectedToDate = new Date(System.currentTimeMillis());
     private boolean selectedTestRun;
+    
+    private String planOverride = null;
 
     public String resolvEl(String data) {
         FacesContext fc = FacesContext.getCurrentInstance();
@@ -64,9 +66,14 @@ public class PlanLauncher {
         // 
         userCfgFile = "/dcva3t/local/xpe_batch/xpe_aws.properties";
         
-
-
-        String selectedExecutionPlan = resolvEl("#{bindings.CisExecPlanCode.inputValue}");
+        String selectedExecutionPlan ;
+        
+        if (planOverride==null) {
+                selectedExecutionPlan = resolvEl("#{bindings.CisExecPlanCode.inputValue}");
+        } else {
+            selectedExecutionPlan = planOverride;
+        }
+        
 
         System.out.println("INFO executing " + selectedExecutionPlan + " " + selectedFromDate.toString() + " " +
                            selectedToDate.toString());
@@ -110,5 +117,13 @@ public class PlanLauncher {
 
     public boolean getSelectedTestRun() {
         return selectedTestRun;
+    }
+
+    public void setPlanOverride(String planOverride) {
+        this.planOverride = planOverride;
+    }
+
+    public String getPlanOverride() {
+        return planOverride;
     }
 }

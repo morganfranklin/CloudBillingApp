@@ -568,9 +568,6 @@
         Name="XpeDccCfgNewAccountingEOVO"
         ViewObjectName="model.views.entitybased.XpeDccCfgAccountingEOVO"/>
     <ViewUsage
-        Name="XpeDccCfgBillingandAccountingROVO1"
-        ViewObjectName="model.views.readonly.XpeDccCfgBillingandAccountingROVO"/>
-    <ViewUsage
         Name="XpeDccCfgMswFacilityEOVO1"
         ViewObjectName="model.views.entitybased.XpeDccCfgMswFacilityEOVO"/>
     <ViewUsage
@@ -623,9 +620,6 @@
         Name="XpeDccContractVersionView3"
         ViewObjectName="model.XpeDccContractVersionView"/>
     <ViewUsage
-        Name="XpeDccCfgAccrualandRevenueGenerationROVO1"
-        ViewObjectName="model.views.readonly.XpeDccCfgAccrualandRevenueGenerationROVO"/>
-    <ViewUsage
         Name="XpeDccContractPricingOverView2"
         ViewObjectName="model.XpeDccContractPricingOverView"/>
     <ViewUsage
@@ -661,6 +655,12 @@
     <ViewUsage
         Name="XpeDccCfgNewPcsAddressEOVO"
         ViewObjectName="model.views.entitybased.XpeDccCfgPcsAddressEOVO"/>
+    <ViewUsage
+        Name="XpeDccBillingAccountingEOVO"
+        ViewObjectName="model.views.entitybased.XpeDccBillingAccountingEOVO"/>
+    <ViewUsage
+        Name="XpeDccAccrualRevenueEOVO"
+        ViewObjectName="model.views.entitybased.XpeDccAccrualRevenueEOVO"/>
     <ViewLinkUsage
         Name="NeuRuleTblFk1Link1"
         ViewLinkObjectName="model.NeuRuleTblFk1Link"

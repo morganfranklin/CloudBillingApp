@@ -7,17 +7,7 @@
     </data-control-scope>
     <managed-bean id="__1">
       <managed-bean-name>BillandAccountProcessesMBean</managed-bean-name>
-      <managed-bean-class>view.BillingandAccountingProcessesMBean</managed-bean-class>
-      <managed-bean-scope>pageFlow</managed-bean-scope>
-    </managed-bean>
-    <managed-bean id="__2">
-      <managed-bean-name>BillandAccountProcessesBBean</managed-bean-name>
-      <managed-bean-class>view.BillandAccountProcessesBBean</managed-bean-class>
-      <managed-bean-scope>backingBean</managed-bean-scope>
-    </managed-bean>
-    <managed-bean id="__5">
-      <managed-bean-name>BillandAccountProcessesBean</managed-bean-name>
-      <managed-bean-class>view.BillandAccountProcessesBean</managed-bean-class>
+      <managed-bean-class>view.PlanLauncher</managed-bean-class>
       <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     <view id="BillandAccountProcesses">

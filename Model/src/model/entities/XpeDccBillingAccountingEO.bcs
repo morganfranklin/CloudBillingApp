@@ -1,0 +1,12 @@
+//Groovy Scripts for model.entities.XpeDccBillingAccountingEO
+
+package model.entities
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="XpeBillingAccountingId")
+def XpeBillingAccountingId_ExpressionScript_Expression()
+{
+(new oracle.jbo.server.SequenceImpl("XPE_DCC_BILLING_ACCOUNTING_SEQ",adf.object.getDBTransaction())).getSequenceNumber()
+}
+
