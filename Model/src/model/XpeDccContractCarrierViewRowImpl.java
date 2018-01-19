@@ -31,7 +31,7 @@ public class XpeDccContractCarrierViewRowImpl extends ViewRowImpl {
         XpeVehicleNbr,
         XpeRateOverride,
         XpeSurcharge,
-        XpeDccContractCarrierOverView,
+        XpeContractCarrierId,
         XpeDccDicVehicleTypes1,
         XpeDccCfgCarriersROVO1;
         static AttributesEnum[] vals = null;
@@ -69,7 +69,7 @@ public class XpeDccContractCarrierViewRowImpl extends ViewRowImpl {
     public static final int XPEVEHICLENBR = AttributesEnum.XpeVehicleNbr.index();
     public static final int XPERATEOVERRIDE = AttributesEnum.XpeRateOverride.index();
     public static final int XPESURCHARGE = AttributesEnum.XpeSurcharge.index();
-    public static final int XPEDCCCONTRACTCARRIEROVERVIEW = AttributesEnum.XpeDccContractCarrierOverView.index();
+    public static final int XPECONTRACTCARRIERID = AttributesEnum.XpeContractCarrierId.index();
     public static final int XPEDCCDICVEHICLETYPES1 = AttributesEnum.XpeDccDicVehicleTypes1.index();
     public static final int XPEDCCCFGCARRIERSROVO1 = AttributesEnum.XpeDccCfgCarriersROVO1.index();
 
@@ -249,10 +249,19 @@ public class XpeDccContractCarrierViewRowImpl extends ViewRowImpl {
 
 
     /**
-     * Gets the associated <code>RowIterator</code> using master-detail link XpeDccContractCarrierOverView.
+     * Gets the attribute value for XPE_CONTRACT_CARRIER_ID using the alias name XpeContractCarrierId.
+     * @return the XPE_CONTRACT_CARRIER_ID
      */
-    public RowIterator getXpeDccContractCarrierOverView() {
-        return (RowIterator) getAttributeInternal(XPEDCCCONTRACTCARRIEROVERVIEW);
+    public BigDecimal getXpeContractCarrierId() {
+        return (BigDecimal) getAttributeInternal(XPECONTRACTCARRIERID);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for XPE_CONTRACT_CARRIER_ID using the alias name XpeContractCarrierId.
+     * @param value value to set the XPE_CONTRACT_CARRIER_ID
+     */
+    public void setXpeContractCarrierId(BigDecimal value) {
+        setAttributeInternal(XPECONTRACTCARRIERID, value);
     }
 
     /**

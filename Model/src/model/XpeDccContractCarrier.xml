@@ -18,8 +18,7 @@
         SQLType="VARCHAR"
         Type="java.lang.String"
         ColumnType="VARCHAR2"
-        TableName="XPE_DCC_CONTRACT_CARRIER"
-        PrimaryKey="true">
+        TableName="XPE_DCC_CONTRACT_CARRIER">
         <DesignTime>
             <Attr Name="_DisplaySize" Value="20"/>
         </DesignTime>
@@ -31,8 +30,7 @@
         SQLType="NUMERIC"
         Type="java.math.BigDecimal"
         ColumnType="NUMBER"
-        TableName="XPE_DCC_CONTRACT_CARRIER"
-        PrimaryKey="true"/>
+        TableName="XPE_DCC_CONTRACT_CARRIER"/>
     <Attribute
         Name="XpeContractLine"
         IsNotNull="true"
@@ -41,8 +39,7 @@
         SQLType="VARCHAR"
         Type="java.lang.String"
         ColumnType="VARCHAR2"
-        TableName="XPE_DCC_CONTRACT_CARRIER"
-        PrimaryKey="true">
+        TableName="XPE_DCC_CONTRACT_CARRIER">
         <DesignTime>
             <Attr Name="_DisplaySize" Value="20"/>
         </DesignTime>
@@ -55,8 +52,7 @@
         SQLType="VARCHAR"
         Type="java.lang.String"
         ColumnType="VARCHAR2"
-        TableName="XPE_DCC_CONTRACT_CARRIER"
-        PrimaryKey="true">
+        TableName="XPE_DCC_CONTRACT_CARRIER">
         <DesignTime>
             <Attr Name="_DisplaySize" Value="20"/>
         </DesignTime>
@@ -69,8 +65,7 @@
         SQLType="VARCHAR"
         Type="java.lang.String"
         ColumnType="VARCHAR2"
-        TableName="XPE_DCC_CONTRACT_CARRIER"
-        PrimaryKey="true">
+        TableName="XPE_DCC_CONTRACT_CARRIER">
         <DesignTime>
             <Attr Name="_DisplaySize" Value="20"/>
         </DesignTime>
@@ -83,8 +78,7 @@
         SQLType="VARCHAR"
         Type="java.lang.String"
         ColumnType="VARCHAR2"
-        TableName="XPE_DCC_CONTRACT_CARRIER"
-        PrimaryKey="true">
+        TableName="XPE_DCC_CONTRACT_CARRIER">
         <DesignTime>
             <Attr Name="_DisplaySize" Value="3"/>
         </DesignTime>
@@ -128,6 +122,20 @@
         Type="java.math.BigDecimal"
         ColumnType="NUMBER"
         TableName="XPE_DCC_CONTRACT_CARRIER"/>
+    <Attribute
+        Name="XpeContractCarrierId"
+        IsNotNull="true"
+        ColumnName="XPE_CONTRACT_CARRIER_ID"
+        SQLType="NUMERIC"
+        Type="java.math.BigDecimal"
+        ColumnType="NUMBER"
+        TableName="XPE_DCC_CONTRACT_CARRIER"
+        PrimaryKey="true"
+        IsUpdateable="while_insert">
+        <TransientExpression
+            Name="ExpressionScript"
+            CodeSourceName="XpeDccContractCarrierRow"/>
+    </Attribute>
     <AccessorAttribute
         Name="XpeDccContractPricingTerm"
         Association="model.XpeDccContractCarrierFk1Assoc"
@@ -135,27 +143,13 @@
         AssociationOtherEnd="model.XpeDccContractCarrierFk1Assoc.XpeDccContractCarrier"
         Type="oracle.jbo.server.EntityImpl"
         IsUpdateable="true"/>
-    <AccessorAttribute
-        Name="XpeDccContractCarrierOver1"
-        Association="model.XpeDccContractCarrierFkAssoc"
-        AssociationEnd="model.XpeDccContractCarrierFkAssoc.XpeDccContractCarrierOver1"
-        AssociationOtherEnd="model.XpeDccContractCarrierFkAssoc.XpeDccContractCarrier1"
-        Type="oracle.jbo.RowIterator"
-        IsUpdateable="false"/>
     <Key
         Name="XpeDccContractCarrierPk"
         PrimaryKey="true">
         <DesignTime>
             <Attr Name="_DBObjectName" Value="XPE_DCC_CONTRACT_CARRIER_PK"/>
         </DesignTime>
-        <AttrArray Name="Attributes">
-            <Item Value="model.XpeDccContractCarrier.XpeContractId"/>
-            <Item Value="model.XpeDccContractCarrier.XpePricingTermLine"/>
-            <Item Value="model.XpeDccContractCarrier.XpeContractLine"/>
-            <Item Value="model.XpeDccContractCarrier.XpeContractVersion"/>
-            <Item Value="model.XpeDccContractCarrier.XpeCarrierId"/>
-            <Item Value="model.XpeDccContractCarrier.XpeVehicleType"/>
-        </AttrArray>
+        <AttrArray Name="Attributes"/>
     </Key>
     <Key
         Name="XpeDccContractCarrierFk1">

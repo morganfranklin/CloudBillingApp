@@ -201,7 +201,7 @@
                                                     label="#{row.bindings.XpeVehicleType.label}"
                                                     required="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleType.mandatory}"
                                                     shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleType.tooltip}"
-                                                    id="soc6">
+                                                    id="soc6" autoSubmit="true">
                                     <f:selectItems value="#{row.bindings.XpeVehicleType.items}" id="si6"/>
                                     <f:validator binding="#{row.bindings.XpeVehicleType.validator}"/>
                                 </af:selectOneChoice>
@@ -214,7 +214,7 @@
                                               columns="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleNbr.displayWidth}"
                                               maximumLength="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleNbr.precision}"
                                               shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleNbr.tooltip}"
-                                              id="it16">
+                                              id="it16" autoSubmit="true">
                                     <f:validator binding="#{row.bindings.XpeVehicleNbr.validator}"/>
                                 </af:inputText>
                             </af:column>
@@ -225,7 +225,7 @@
                                               required="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.mandatory}"
                                               columns="15"
                                               shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.tooltip}"
-                                              id="it17">
+                                              id="it17" autoSubmit="true">
                                     <f:validator binding="#{row.bindings.XpeRateOverride.validator}"/>
                                     <af:convertNumber groupingUsed="false"
                                                       pattern="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.format}"/>
@@ -239,7 +239,7 @@
                                               columns="10"
                                               maximumLength="#{bindings.XpeDccContractCarrierView3.hints.XpeSubNbr.precision}"
                                               shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeSubNbr.tooltip}"
-                                              id="it11">
+                                              id="it11" autoSubmit="true">
                                     <f:validator binding="#{row.bindings.XpeSubNbr.validator}"/>
                                     <af:convertNumber groupingUsed="false"
                                                       pattern="#{bindings.XpeDccContractCarrierView3.hints.XpeSubNbr.format}"/>
@@ -252,7 +252,7 @@
                                               required="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.mandatory}"
                                               columns="15"
                                               shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.tooltip}"
-                                              id="it18">
+                                              id="it18" autoSubmit="true">
                                     <f:validator binding="#{row.bindings.XpeSurcharge.validator}"/>
                                     <af:convertNumber groupingUsed="false"
                                                       pattern="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.format}"/>

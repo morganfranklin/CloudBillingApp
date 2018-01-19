@@ -137,12 +137,10 @@
     </ViewAttribute>
     <ViewAttribute
         Name="XpeSubNbr"
-        IsNotNull="true"
         PrecisionRule="true"
         EntityAttrName="XpeSubNbr"
         EntityUsage="XpeDccContractCarrier"
-        AliasName="XPE_SUB_NBR"
-        PrimaryKey="true">
+        AliasName="XPE_SUB_NBR">
         <Properties>
             <SchemaBasedProperties>
                 <LABEL
@@ -152,12 +150,10 @@
     </ViewAttribute>
     <ViewAttribute
         Name="XpeVehicleNbr"
-        IsNotNull="true"
         PrecisionRule="true"
         EntityAttrName="XpeVehicleNbr"
         EntityUsage="XpeDccContractCarrier"
-        AliasName="XPE_VEHICLE_NBR"
-        PrimaryKey="true">
+        AliasName="XPE_VEHICLE_NBR">
         <Properties>
             <SchemaBasedProperties>
                 <LABEL
@@ -191,21 +187,13 @@
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>
-    <AttrArray Name="KeyAttributes">
-        <Item Value="XpeContractId"/>
-        <Item Value="XpePricingTermLine"/>
-        <Item Value="XpeContractLine"/>
-        <Item Value="XpeContractVersion"/>
-        <Item Value="XpeCarrierId"/>
-        <Item Value="XpeVehicleType"/>
-        <Item Value="XpeSubNbr"/>
-        <Item Value="XpeVehicleNbr"/>
-    </AttrArray>
-    <ViewLinkAccessor
-        Name="XpeDccContractCarrierOverView"
-        ViewLink="model.XpeDccContractCarrierFkLink"
-        Type="oracle.jbo.RowIterator"
-        IsUpdateable="false"/>
+    <ViewAttribute
+        Name="XpeContractCarrierId"
+        IsNotNull="true"
+        PrecisionRule="true"
+        EntityAttrName="XpeContractCarrierId"
+        EntityUsage="XpeDccContractCarrier"
+        AliasName="XPE_CONTRACT_CARRIER_ID"/>
     <ResourceBundle>
         <PropertiesBundle
             PropertiesFile="model.ModelBundle"/>
