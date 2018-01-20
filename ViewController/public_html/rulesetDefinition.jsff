@@ -4,7 +4,7 @@
     <af:panelGridLayout id="pgl1">
         <af:gridRow marginTop="5px" height="110px" id="gr1">
             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1" halign="stretch" valign="stretch">
-                <af:panelBox text="Rules in this ruleset" id="pb1" showDisclosure="false" background="light">
+                <af:panelBox text="Rules in this ruleset:" id="pb1" showDisclosure="false" background="light">
                     <f:facet name="toolbar"/>
                     <af:panelGridLayout id="pgl2">
                         <af:gridRow id="gr4">
