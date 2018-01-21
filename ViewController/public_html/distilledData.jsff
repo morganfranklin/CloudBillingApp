@@ -95,12 +95,6 @@
                                            shortDesc="#{bindings.PsCisXpeImportView1.hints.CisTargetVendor1.tooltip}"
                                            id="ot9"/>
                         </af:column>
-                        <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.AttrValue3.name}"
-                                   filterable="true" sortable="true" headerText="UOM" id="c10">
-                            <af:outputText value="#{row.AttrValue3}"
-                                           shortDesc="#{bindings.PsCisXpeImportView1.hints.AttrValue3.tooltip}"
-                                           id="ot10"/>
-                        </af:column>
                         <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.AttrValue4.name}"
                                    filterable="true" sortable="true" headerText="Origin Id" id="c11">
                             <af:outputText value="#{row.AttrValue4}"
@@ -135,6 +129,14 @@
                                            shortDesc="#{bindings.PsCisXpeImportView1.hints.Qty3.tooltip}" id="ot15">
                                 <af:convertNumber groupingUsed="false"
                                                   pattern="#{bindings.PsCisXpeImportView1.hints.Qty3.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.Qty5.name}" sortable="true"
+                                   headerText="Tonnage" id="c10">
+                            <af:outputText value="#{row.Qty5}"
+                                           shortDesc="#{bindings.PsCisXpeImportView1.hints.Qty5.tooltip}" id="ot10">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.PsCisXpeImportView1.hints.Qty5.format}"/>
                             </af:outputText>
                         </af:column>
                         <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.CisTransAggQty1.name}"
