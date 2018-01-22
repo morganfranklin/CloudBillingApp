@@ -54,7 +54,7 @@
             <f:validator binding="#{row.bindings.RequireTrailer.validator}"/>
           </af:selectOneChoice>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgVehiclesEOVO.hints.Inactive.label}" id="resId1c5">
+        <af:column headerText="#{bindings.XpeDccCfgVehiclesEOVO.hints.Inactive.label}" id="resId1c5" rendered="false">
           <af:selectOneChoice value="#{row.bindings.Inactive.inputValue}" label="#{row.bindings.Inactive.label}"
                               required="#{bindings.XpeDccCfgVehiclesEOVO.hints.Inactive.mandatory}"
                               shortDesc="#{bindings.XpeDccCfgVehiclesEOVO.hints.Inactive.tooltip}" readOnly="true"
@@ -63,7 +63,8 @@
             <f:validator binding="#{row.bindings.Inactive.validator}"/>
           </af:selectOneChoice>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgVehiclesEOVO.hints.InactiveDate.label}" id="resId1c6">
+        <af:column headerText="#{bindings.XpeDccCfgVehiclesEOVO.hints.InactiveDate.label}" id="resId1c6"
+                   rendered="false">
           <af:outputText value="#{row.InactiveDate}"
                          shortDesc="#{bindings.XpeDccCfgVehiclesEOVO.hints.InactiveDate.tooltip}" id="ot4">
             <af:convertDateTime pattern="#{bindings.XpeDccCfgVehiclesEOVO.hints.InactiveDate.format}"/>
@@ -161,7 +162,7 @@
                 <f:validator binding="#{bindings.RequireTrailer1.validator}"/>
               </af:selectOneChoice>
             </af:panelLabelAndMessage>
-            <af:panelLabelAndMessage label="#{bindings.Inactive1.label}" id="plam5">
+            <af:panelLabelAndMessage label="#{bindings.Inactive1.label}" id="plam5" rendered="false">
               <af:selectOneChoice value="#{bindings.Inactive1.inputValue}" label="#{bindings.Inactive1.label}"
                                   required="#{bindings.Inactive1.hints.mandatory}"
                                   shortDesc="#{bindings.Inactive1.hints.tooltip}" id="soc5"
@@ -175,7 +176,7 @@
                           required="#{bindings.InactiveDate.hints.mandatory}"
                           columns="#{bindings.InactiveDate.hints.displayWidth}"
                           shortDesc="#{bindings.InactiveDate.hints.tooltip}" id="id1" autoSubmit="true"
-                          partialTriggers="soc5">
+                          partialTriggers="soc5" rendered="false">
               <f:validator binding="#{bindings.InactiveDate.validator}"/>
               <af:convertDateTime pattern="#{bindings.InactiveDate.format}"/>
             </af:inputDate>

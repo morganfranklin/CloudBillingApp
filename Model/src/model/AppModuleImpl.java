@@ -3996,5 +3996,13 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     public XpeDccAccrualRevenueEOVOImpl getXpeDccAccrualRevenueEOVO() {
         return (XpeDccAccrualRevenueEOVOImpl) findViewObject("XpeDccAccrualRevenueEOVO");
     }
+
+    /**
+     * Container's getter for XpeDccCfgScalesSiteROVO1.
+     * @return XpeDccCfgScalesSiteROVO1
+     */
+    public ViewObjectImpl getXpeDccCfgScalesSiteROVO() {
+        return (ViewObjectImpl) findViewObject("XpeDccCfgScalesSiteROVO");
+    }
 }
 

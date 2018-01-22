@@ -12,6 +12,8 @@
                   id="PsCisXpeImpContrVwView1Iterator"/>
         <searchRegion Criteria="Standard" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                       Binds="PsCisXpeImpContrVwView1Iterator" id="PsCisXpeImpContrVwViewCriteriaQuery"/>
+        <iterator Binds="XpeDccCfgScalesSiteROVO" RangeSize="-1" DataControl="AppModuleDataControl"
+                  id="XpeDccCfgScalesSiteROVOIterator"/>
     </executables>
     <bindings>
         <tree IterBinding="PsCisXpeImportView1Iterator" id="PsCisXpeImportView1">
@@ -189,5 +191,12 @@
         </tree>
         <action IterBinding="PsCisXpeImportView1Iterator" id="Execute" RequiresUpdateModel="true"
                 Action="iteratorExecute"/>
+        <tree IterBinding="XpeDccCfgScalesSiteROVOIterator" id="XpeDccCfgScalesSiteROVO">
+            <nodeDefinition DefName="model.views.readonly.XpeDccCfgScalesSiteROVO" Name="XpeDccCfgScalesSiteROVO0">
+                <AttrNames>
+                    <Item Value="ScalesSite"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
     </bindings>
 </pageDefinition>

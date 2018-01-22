@@ -36,6 +36,14 @@
                                    sortable="true" headerText="Scales Site" id="c1">
                             <af:outputText value="#{row.Key1}"
                                            shortDesc="#{bindings.PsCisXpeImportView1.hints.Key1.tooltip}" id="ot1"/>
+                            <f:facet name="filter">
+                                <af:selectOneChoice id="soc1" value="#{vs.filterCriteria.Key1}" autoSubmit="true">
+                                    <af:forEach var="listrow" items="#{bindings.XpeDccCfgScalesSiteROVO.rangeSet}">
+                                        <f:selectItem id="si1" itemValue="#{listrow.ScalesSite}"
+                                                      itemLabel="#{listrow.ScalesSite}"/>
+                                    </af:forEach>
+                                </af:selectOneChoice>
+                            </f:facet>
                         </af:column>
                         <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.Key2.name}" filterable="true"
                                    sortable="true" headerText="Ticket Number" id="c2">

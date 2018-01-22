@@ -661,6 +661,9 @@
     <ViewUsage
         Name="XpeDccAccrualRevenueEOVO"
         ViewObjectName="model.views.entitybased.XpeDccAccrualRevenueEOVO"/>
+    <ViewUsage
+        Name="XpeDccCfgScalesSiteROVO"
+        ViewObjectName="model.views.readonly.XpeDccCfgScalesSiteROVO"/>
     <ViewLinkUsage
         Name="NeuRuleTblFk1Link1"
         ViewLinkObjectName="model.NeuRuleTblFk1Link"
