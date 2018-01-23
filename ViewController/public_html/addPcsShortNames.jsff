@@ -63,7 +63,7 @@
     </af:panelHeader>
     <af:spacer width="10" height="10" id="s4"/>
     <af:panelGroupLayout id="pgl2" layout="horizontal">
-      <af:panelHeader text="Sold To : Address Seen on Scale Syatem" id="ph3" size="5">
+      <af:panelHeader text="Sold To : Address Seen on Scale System" id="ph3" size="5">
         <f:facet name="context"/>
         <f:facet name="toolbar"/>
         <f:facet name="menuBar"/>

@@ -18,7 +18,7 @@
         ResId="model.views.readonly.PsBiChargeROVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <SQLQuery><![CDATA[SELECT CHARGE_ID, DESCRIPTION FROM PS_BI_CHARGE]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT CHARGE_ID, DESCR DESCRIPTION FROM PS_BI_CHARGE]]></SQLQuery>
   <ViewAttribute
     Name="ChargeId"
     IsUpdateable="false"

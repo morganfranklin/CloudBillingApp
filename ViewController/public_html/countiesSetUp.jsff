@@ -106,7 +106,8 @@
                                       contentStyle="text-transform:uppercase;">
                             <f:validator binding="#{bindings.CountyName.validator}"/>
                         </af:inputText>
-                        <af:panelLabelAndMessage label="#{bindings.State.label}" id="plam3" showRequired="true">
+                        <af:panelLabelAndMessage label="#{bindings.State.label}" id="plam3" showRequired="true"
+                                                 for="soc3">
                             <af:selectOneChoice value="#{bindings.State.inputValue}" label="#{bindings.State.label}"
                                                 required="#{bindings.State.hints.mandatory}"
                                                 shortDesc="#{bindings.State.hints.tooltip}" id="soc3" simple="true">
@@ -114,7 +115,8 @@
                                 <f:validator binding="#{bindings.State.validator}"/>
                             </af:selectOneChoice>
                         </af:panelLabelAndMessage>
-                        <af:panelLabelAndMessage label="#{bindings.Country.label}" id="plam5" showRequired="true">
+                        <af:panelLabelAndMessage label="#{bindings.Country.label}" id="plam5" showRequired="true"
+                                                 for="soc6">
                             <af:selectOneChoice value="#{bindings.Country.inputValue}" label="#{bindings.Country.label}"
                                                 required="#{bindings.Country.hints.mandatory}"
                                                 shortDesc="#{bindings.Country.hints.tooltip}" id="soc6" simple="true"
