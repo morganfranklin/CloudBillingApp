@@ -4004,5 +4004,13 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     public ViewObjectImpl getXpeDccCfgScalesSiteROVO() {
         return (ViewObjectImpl) findViewObject("XpeDccCfgScalesSiteROVO");
     }
+
+    /**
+     * Container's getter for XpeDccMatchEsummVw1.
+     * @return XpeDccMatchEsummVw1
+     */
+    public ViewObjectImpl getXpeDccMatchEsummVw1() {
+        return (ViewObjectImpl) findViewObject("XpeDccMatchEsummVw1");
+    }
 }
 

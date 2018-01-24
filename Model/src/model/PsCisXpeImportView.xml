@@ -803,4 +803,24 @@
         EntityAttrName="ErrorMessage"
         EntityUsage="PsCisXpeImport"
         AliasName="ERROR_MESSAGE"/>
+    <DeclarativeWhereClause
+        Name="DeclarativeWhereClause">
+        <ViewCriteria
+            Name="PsCisXpeImportViewWhereCriteria"
+            ViewObjectName="model.PsCisXpeImportView"
+            Conjunction="AND"
+            Mode="3">
+            <ViewCriteriaRow
+                Name="PsCisXpeImportViewWhereCriteria_row_0"
+                UpperColumns="1">
+                <ViewCriteriaItem
+                    Name="CisStatus"
+                    ViewAttribute="CisStatus"
+                    Operator="="
+                    Conjunction="AND"
+                    Value="E"
+                    Required="Optional"/>
+            </ViewCriteriaRow>
+        </ViewCriteria>
+    </DeclarativeWhereClause>
 </ViewObject>

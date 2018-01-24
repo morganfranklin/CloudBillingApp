@@ -4,7 +4,7 @@
 <AppModule
     xmlns="http://xmlns.oracle.com/bc4j"
     Name="AppModule"
-    Version="12.2.1.11.57"
+    Version="12.2.1.0.31"
     InheritPersonalization="merge"
     ClearCacheOnRollback="true"
     ComponentClass="model.AppModuleImpl"
@@ -664,6 +664,9 @@
     <ViewUsage
         Name="XpeDccCfgScalesSiteROVO"
         ViewObjectName="model.views.readonly.XpeDccCfgScalesSiteROVO"/>
+    <ViewUsage
+        Name="XpeDccMatchEsummVw1"
+        ViewObjectName="model.XpeDccMatchEsummVw"/>
     <ViewLinkUsage
         Name="NeuRuleTblFk1Link1"
         ViewLinkObjectName="model.NeuRuleTblFk1Link"
