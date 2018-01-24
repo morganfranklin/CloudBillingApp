@@ -39,11 +39,6 @@
                   id="TerminalId"/>
     <listOfValues IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" StaticList="false" Uses="LOV_AccountingClass"
                   id="AccountingClass"/>
-    <attributeValues IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" id="BusinessUnitRef">
-      <AttrNames>
-        <Item Value="BusinessUnitRef"/>
-      </AttrNames>
-    </attributeValues>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
     <listOfValues IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_SiteId" id="SiteId1"/>
@@ -51,11 +46,6 @@
                   id="TerminalId1"/>
     <listOfValues IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_AccountingClass"
                   id="AccountingClass1"/>
-    <attributeValues IterBinding="XpeDccCfgBusinessunitEOVOIterator" id="BusinessUnitRef1">
-      <AttrNames>
-        <Item Value="BusinessUnitRef"/>
-      </AttrNames>
-    </attributeValues>
     <list IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_Inactive" id="Inactive"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <attributeValues IterBinding="XpeDccCfgBusinessunitEOVOIterator" id="InactiveDate">
@@ -111,5 +101,9 @@
                   id="BillingOperatingUnit1"/>
     <listOfValues IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_OperatingUnit"
                   id="OperatingUnit1"/>
+    <listOfValues IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" StaticList="false" Uses="LOV_BusinessUnitRef"
+                  id="BusinessUnitRef"/>
+    <listOfValues IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_BusinessUnitRef"
+                  id="BusinessUnitRef1"/>
   </bindings>
 </pageDefinition>

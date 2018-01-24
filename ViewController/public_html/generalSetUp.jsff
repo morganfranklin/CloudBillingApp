@@ -48,6 +48,21 @@
           <af:outputText value="#{row.ValidValue}" shortDesc="#{bindings.XpeDccCfgGeneralEOVO.hints.ValidValue.tooltip}"
                          id="ot2"/>
         </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgGeneralEOVO.hints.Inactive.label}" id="c1">
+          <af:selectOneChoice value="#{row.bindings.Inactive.inputValue}" label="#{row.bindings.Inactive.label}"
+                              required="#{bindings.XpeDccCfgGeneralEOVO.hints.Inactive.mandatory}"
+                              shortDesc="#{bindings.XpeDccCfgGeneralEOVO.hints.Inactive.tooltip}" readOnly="true"
+                              id="soc7">
+            <f:selectItems value="#{row.bindings.Inactive.items}" id="si7"/>
+            <f:validator binding="#{row.bindings.Inactive.validator}"/>
+          </af:selectOneChoice>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgGeneralEOVO.hints.InactiveDate.label}" id="c2">
+          <af:outputText value="#{row.InactiveDate}"
+                         shortDesc="#{bindings.XpeDccCfgGeneralEOVO.hints.InactiveDate.tooltip}" id="ot4">
+            <af:convertDateTime pattern="#{bindings.XpeDccCfgGeneralEOVO.hints.InactiveDate.format}"/>
+          </af:outputText>
+        </af:column>
       </af:table>
     </af:panelHeader>
     <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
