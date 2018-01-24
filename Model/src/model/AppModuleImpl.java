@@ -1283,7 +1283,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                 (XpeDccContractLineViewRowImpl) lineTargetRowSet.createAndInitRow(null);
             lineTargetRow.setXpeContractId(contractId);
             lineTargetRow.setXpeContractVersion(versionId);
-            lineTargetRow.setXpeContractLine(lineSourceRow.getXpeContractLine());
+            //lineTargetRow.setXpeContractLine(lineSourceRow.getXpeContractLine());
             lineTargetRow.setXpeFacility(lineSourceRow.getXpeFacility());
             lineTargetRow.setXpePeriodType(lineSourceRow.getXpePeriodType());
             lineTargetRow.setXpeProductId(lineSourceRow.getXpeProductId());
@@ -1313,11 +1313,11 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             targetPricingTermRow.setXpeChargeDesc(sourcePricingTermRow.getXpeChargeDesc());
             targetPricingTermRow.setXpeChargeOverMax(sourcePricingTermRow.getXpeChargeOverMax());
             targetPricingTermRow.setXpeChargeOverMin(sourcePricingTermRow.getXpeChargeOverMin());
-            targetPricingTermRow.setXpeContractLine(sourcePricingTermRow.getXpeContractLine());
+            //targetPricingTermRow.setXpeContractLine(sourcePricingTermRow.getXpeContractLine());
             targetPricingTermRow.setXpeContractVersion("V1");
             targetPricingTermRow.setXpePeriodNbr(sourcePricingTermRow.getXpePeriodNbr());
             targetPricingTermRow.setXpePeriodType(sourcePricingTermRow.getXpePeriodType());
-            targetPricingTermRow.setXpePricingTermLine(sourcePricingTermRow.getXpePricingTermLine());
+            //targetPricingTermRow.setXpePricingTermLine(sourcePricingTermRow.getXpePricingTermLine());
             targetPricingTermRow.setXpePricingTermType(sourcePricingTermRow.getXpePricingTermType());
             targetPricingTermRow.setXpeQtyMax(sourcePricingTermRow.getXpeQtyMax());
             targetPricingTermRow.setXpeRate(sourcePricingTermRow.getXpeQtyMax());
@@ -1343,9 +1343,9 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                 (XpeDccContractCarrierViewRowImpl) carrierDetailsTarget.createAndInitRow(null);
             targetCarrierDetailRow.setXpeCarrierId(sourceCarrierDetailRow.getXpeCarrierId());
             //   targetCarrierDetailRow.setXpeContractId(sourceCarrierDetailRow.getXpeContractId());
-            targetCarrierDetailRow.setXpeContractLine(sourceCarrierDetailRow.getXpeContractLine());
+            //targetCarrierDetailRow.setXpeContractLine(sourceCarrierDetailRow.getXpeContractLine());
             targetCarrierDetailRow.setXpeContractVersion("V1");
-            targetCarrierDetailRow.setXpePricingTermLine(sourceCarrierDetailRow.getXpePricingTermLine());
+            //targetCarrierDetailRow.setXpePricingTermLine(sourceCarrierDetailRow.getXpePricingTermLine());
             targetCarrierDetailRow.setXpeRateOverride(sourceCarrierDetailRow.getXpeRateOverride());
             targetCarrierDetailRow.setXpeSubNbr(sourceCarrierDetailRow.getXpeSubNbr());
             targetCarrierDetailRow.setXpeSurcharge(sourceCarrierDetailRow.getXpeSurcharge());
@@ -1946,13 +1946,13 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         }
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_46/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://vmohscvae014.oracleoutsourcing.com:5021/neuCloudBilling1010_34/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(xpeDccWfActionEOVORow.getXpeUuid()).append("&").append("action=").append("ACCEPT").append("&").append("user=").append(userType);
         html.append("\"><b>Accept</b></a>");
         html.append("&nbsp;&nbsp;&nbsp;");
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_46/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://vmohscvae014.oracleoutsourcing.com:5021/neuCloudBilling1010_34/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(xpeDccWfActionEOVORow.getXpeUuid()).append("&").append("action=").append("REJECT").append("&").append("user=").append(userType);
         html.append("\"><b>Reject</b></a>");
         html.append("</p>");
@@ -2803,7 +2803,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                 (XpeDccContractLineViewRowImpl) lineTargetRowSet.createAndInitRow(null);
             //lineTargetRow.setXpeContractId(contractId);
             //lineTargetRow.setXpeContractVersion(versionId);
-            lineTargetRow.setXpeContractLine(lineSourceRow.getXpeContractLine());
+            //lineTargetRow.setXpeContractLine(lineSourceRow.getXpeContractLine());
             lineTargetRow.setBusinessUnitGl(lineSourceRow.getBusinessUnitGl());
             lineTargetRow.setXpeFacility(lineSourceRow.getXpeFacility());
             lineTargetRow.setXpePeriodType(lineSourceRow.getXpePeriodType());
@@ -2837,11 +2837,11 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             targetPricingTermRow.setXpeChargeDesc(sourcePricingTermRow.getXpeChargeDesc());
             targetPricingTermRow.setXpeChargeOverMax(sourcePricingTermRow.getXpeChargeOverMax());
             targetPricingTermRow.setXpeChargeOverMin(sourcePricingTermRow.getXpeChargeOverMin());
-            targetPricingTermRow.setXpeContractLine(sourcePricingTermRow.getXpeContractLine());
+            //targetPricingTermRow.setXpeContractLine(sourcePricingTermRow.getXpeContractLine());
             //targetPricingTermRow.setXpeContractVersion("V1");
             targetPricingTermRow.setXpePeriodNbr(sourcePricingTermRow.getXpePeriodNbr());
             targetPricingTermRow.setXpePeriodType(sourcePricingTermRow.getXpePeriodType());
-            targetPricingTermRow.setXpePricingTermLine(sourcePricingTermRow.getXpePricingTermLine());
+            //targetPricingTermRow.setXpePricingTermLine(sourcePricingTermRow.getXpePricingTermLine());
             targetPricingTermRow.setXpePricingTermType(sourcePricingTermRow.getXpePricingTermType());
             targetPricingTermRow.setXpeQtyMax(sourcePricingTermRow.getXpeQtyMax());
             targetPricingTermRow.setXpeRate(sourcePricingTermRow.getXpeRate());
@@ -2863,8 +2863,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             if(currentDate.compareTo(sourcePricingOverRow.getXpeOverStart()) > 0 && currentDate.compareTo(sourcePricingOverRow.getXpeOverEnd()) < 0){
                 XpeDccContractPricingOverViewRowImpl targetPricingOverRow =
                     (XpeDccContractPricingOverViewRowImpl) priceOverTargetRowSet.createAndInitRow(null);
-                targetPricingOverRow.setXpeContractOverNbr(sourcePricingOverRow.getXpeContractOverNbr());
-                targetPricingOverRow.setXpeOverType("sourcePricingOverRow.getXpeOverType()");
+                //targetPricingOverRow.setXpeContractOverNbr(sourcePricingOverRow.getXpeContractOverNbr());
+                targetPricingOverRow.setXpeOverType(sourcePricingOverRow.getXpeOverType());
                 targetPricingOverRow.setXpeOverStart(sourcePricingOverRow.getXpeOverStart());
                 targetPricingOverRow.setXpeOverEnd(sourcePricingOverRow.getXpeOverEnd());
                 targetPricingOverRow.setXpeSourceFld(sourcePricingOverRow.getXpeSourceFld());
@@ -2893,9 +2893,9 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                 (XpeDccContractCarrierViewRowImpl) carrierDetailsTarget.createAndInitRow(null);
             targetCarrierDetailRow.setXpeCarrierId(sourceCarrierDetailRow.getXpeCarrierId());
             //   targetCarrierDetailRow.setXpeContractId(sourceCarrierDetailRow.getXpeContractId());
-            targetCarrierDetailRow.setXpeContractLine(sourceCarrierDetailRow.getXpeContractLine());
+            //targetCarrierDetailRow.setXpeContractLine(sourceCarrierDetailRow.getXpeContractLine());
             //targetCarrierDetailRow.setXpeContractVersion("V1");
-            targetCarrierDetailRow.setXpePricingTermLine(sourceCarrierDetailRow.getXpePricingTermLine());
+            //targetCarrierDetailRow.setXpePricingTermLine(sourceCarrierDetailRow.getXpePricingTermLine());
             targetCarrierDetailRow.setXpeRateOverride(sourceCarrierDetailRow.getXpeRateOverride());
             targetCarrierDetailRow.setXpeSubNbr(sourceCarrierDetailRow.getXpeSubNbr());
             targetCarrierDetailRow.setXpeSurcharge(sourceCarrierDetailRow.getXpeSurcharge());

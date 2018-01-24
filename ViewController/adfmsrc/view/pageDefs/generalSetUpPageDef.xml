@@ -15,9 +15,10 @@
     <tree IterBinding="XpeDccCfgGeneralEOVOIterator" id="XpeDccCfgGeneralEOVO">
       <nodeDefinition DefName="model.views.entitybased.XpeDccCfgGeneralEOVO" Name="XpeDccCfgGeneralEOVO0">
         <AttrNames>
-          <Item Value="ItemId"/>
           <Item Value="ItemListType"/>
           <Item Value="ValidValue"/>
+          <Item Value="Inactive"/>
+          <Item Value="InactiveDate"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

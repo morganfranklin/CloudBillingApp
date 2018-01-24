@@ -149,7 +149,9 @@
         <DesignTime>
             <Attr Name="_DBObjectName" Value="XPE_DCC_CONTRACT_CARRIER_PK"/>
         </DesignTime>
-        <AttrArray Name="Attributes"/>
+        <AttrArray Name="Attributes">
+            <Item Value="model.XpeDccContractCarrier.XpeContractCarrierId"/>
+        </AttrArray>
     </Key>
     <Key
         Name="XpeDccContractCarrierFk1">

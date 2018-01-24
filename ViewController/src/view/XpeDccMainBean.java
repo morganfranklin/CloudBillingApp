@@ -110,18 +110,18 @@ public class XpeDccMainBean {
 
     public void addLineDetailsActionListener(ActionEvent actionEvent) {
         // Add event code here...
-        String currentLine = "0";
+        //String currentLine = "0";
         XpeDccContractLineViewImpl lineVO =
             (XpeDccContractLineViewImpl) ADFUtils.findViewObjectFromIteratorName("XpeDccContractLineView2Iterator");
-        XpeDccContractLineViewRowImpl lineRow =
+        /*XpeDccContractLineViewRowImpl lineRow =
             (XpeDccContractLineViewRowImpl) ADFUtils.findIterator("XpeDccContractLineView2Iterator").getCurrentRow();
         if (lineRow != null) {
             currentLine = lineRow.getXpeContractLine();
 
-        }
+        }*/
         XpeDccContractLineViewRowImpl newLineRow = (XpeDccContractLineViewRowImpl) lineVO.createRow();
-        Integer newLineNumber = Integer.parseInt(currentLine) + 1;
-        newLineRow.setXpeContractLine(newLineNumber.toString());
+        //Integer newLineNumber = Integer.parseInt(currentLine) + 1;
+        //newLineRow.setXpeContractLine(newLineNumber.toString());
         lineVO.next();
         lineVO.insertRow(newLineRow);
     }

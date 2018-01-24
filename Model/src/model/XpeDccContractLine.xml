@@ -47,10 +47,14 @@
         Type="java.lang.String"
         ColumnType="VARCHAR2"
         TableName="XPE_DCC_CONTRACT_LINE"
-        PrimaryKey="true">
+        PrimaryKey="true"
+        IsUpdateable="while_insert">
         <DesignTime>
             <Attr Name="_DisplaySize" Value="20"/>
         </DesignTime>
+        <TransientExpression
+            Name="ExpressionScript"
+            CodeSourceName="XpeDccContractLineRow"/>
     </Attribute>
     <Attribute
         Name="XpeFacility"

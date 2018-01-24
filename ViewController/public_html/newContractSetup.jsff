@@ -228,8 +228,8 @@
                                                               columns="#{bindings.XpeDccNewContractLineView.hints.XpeContractLine.displayWidth}"
                                                               maximumLength="#{bindings.XpeDccNewContractLineView.hints.XpeContractLine.precision}"
                                                               shortDesc="#{bindings.XpeDccNewContractLineView.hints.XpeContractLine.tooltip}"
-                                                              id="it6" readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
-                                                              autoSubmit="true">
+                                                              id="it6"
+                                                              autoSubmit="true" readOnly="true">
                                                     <f:validator binding="#{row.bindings.XpeContractLine.validator}"/>
                                                 </af:inputText>
                                             </af:column>
@@ -376,8 +376,7 @@
                                                               maximumLength="#{bindings.XpeDccNewContractPricingTermView.hints.XpePricingTermLine.precision}"
                                                               shortDesc="#{bindings.XpeDccNewContractPricingTermView.hints.XpePricingTermLine.tooltip}"
                                                               id="it12"
-                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
-                                                              autoSubmit="true">
+                                                              autoSubmit="true" readOnly="true">
                                                     <f:validator binding="#{row.bindings.XpePricingTermLine.validator}"/>
                                                 </af:inputText>
                                             </af:column>
@@ -501,8 +500,7 @@
                                                               maximumLength="#{bindings.XpeDccNewContractPricingOverView.hints.XpeContractOverNbr.precision}"
                                                               shortDesc="#{bindings.XpeDccNewContractPricingOverView.hints.XpeContractOverNbr.tooltip}"
                                                               id="it20"
-                                                              readOnly="#{bindings.CarryForwardedPricingOver.inputValue eq 'Y'}"
-                                                              autoSubmit="true">
+                                                              autoSubmit="true" readOnly="true">
                                                     <f:validator binding="#{row.bindings.XpeContractOverNbr.validator}"/>
                                                     <af:convertNumber groupingUsed="false"
                                                                       pattern="#{bindings.XpeDccNewContractPricingOverView.hints.XpeContractOverNbr.format}"/>
