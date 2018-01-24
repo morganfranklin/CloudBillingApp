@@ -60,7 +60,12 @@
         Type="java.math.BigDecimal"
         ColumnType="NUMBER"
         TableName="XPE_DCC_CONTRACT_PRICING_OVER"
-        PrimaryKey="true"/>
+        PrimaryKey="true"
+        IsUpdateable="while_insert">
+        <TransientExpression
+            Name="ExpressionScript"
+            CodeSourceName="XpeDccContractPricingOverRow"/>
+    </Attribute>
     <Attribute
         Name="XpeOverType"
         Precision="3"

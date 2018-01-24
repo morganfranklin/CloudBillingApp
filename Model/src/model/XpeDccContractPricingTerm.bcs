@@ -1,0 +1,12 @@
+//Groovy Scripts for model.XpeDccContractPricingTerm
+
+package model
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="XpePricingTermLine")
+def XpePricingTermLine_ExpressionScript_Expression()
+{
+(new oracle.jbo.server.SequenceImpl("XPE_DCC_CNTRCT_PRICE_TERM_SEQ",adf.object.getDBTransaction())).getSequenceNumber()
+}
+

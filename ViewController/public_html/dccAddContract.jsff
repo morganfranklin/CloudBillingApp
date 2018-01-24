@@ -110,7 +110,7 @@
                                       required="#{bindings.XpeContractLine.hints.mandatory}"
                                       columns="#{bindings.XpeContractLine.hints.displayWidth}"
                                       maximumLength="#{bindings.XpeContractLine.hints.precision}"
-                                      shortDesc="#{bindings.XpeContractLine.hints.tooltip}" id="it18">
+                                      shortDesc="#{bindings.XpeContractLine.hints.tooltip}" id="it18" readOnly="true">
                             <f:validator binding="#{bindings.XpeContractLine.validator}"/>
                         </af:inputText>
                         <af:selectOneChoice value="#{bindings.XpeFacility1.inputValue}"
@@ -169,7 +169,8 @@
                                       required="#{bindings.XpePricingTermLine.hints.mandatory}"
                                       columns="#{bindings.XpePricingTermLine.hints.displayWidth}"
                                       maximumLength="#{bindings.XpePricingTermLine.hints.precision}"
-                                      shortDesc="#{bindings.XpePricingTermLine.hints.tooltip}" id="it10">
+                                      shortDesc="#{bindings.XpePricingTermLine.hints.tooltip}" id="it10"
+                                      readOnly="true">
                             <f:validator binding="#{bindings.XpePricingTermLine.validator}"/>
                             <af:convertNumber groupingUsed="false" pattern="#{bindings.XpePricingTermLine.format}"/>
                         </af:inputText>

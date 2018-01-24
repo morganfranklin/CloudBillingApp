@@ -172,15 +172,13 @@
                                     <af:column sortProperty="#{bindings.XpeDccContractPricingTermView2.hints.XpePricingTermLine.name}"
                                                sortable="true" headerText="Pricing Term Line" id="c1">
                                         <af:link text="#{row.bindings.XpePricingTermLine.inputValue}" id="l1"
-                                                 rendered="#{row.row.entities[0].entityState==0? 'false':'true'}"
-                                                 action="toTermDetails"/>
+                                                 action="toTermDetails" rendered="true"/>
                                         <af:inputText value="#{row.bindings.XpePricingTermLine.inputValue}"
                                                       required="#{bindings.XpeDccContractPricingTermView2.hints.XpePricingTermLine.mandatory}"
                                                       columns="#{bindings.XpeDccContractPricingTermView2.hints.XpePricingTermLine.displayWidth}"
                                                       maximumLength="#{bindings.XpeDccContractPricingTermView2.hints.XpePricingTermLine.precision}"
-                                                      rendered="#{row.row.entities[0].entityState==0? 'true':'false'}"
                                                       shortDesc="#{bindings.XpeDccContractPricingTermView2.hints.XpePricingTermLine.tooltip}"
-                                                      id="it3">
+                                                      id="it3" rendered="false">
                                             <f:validator binding="#{row.bindings.XpePricingTermLine.validator}"/>
                                             <af:convertNumber groupingUsed="false"
                                                               pattern="#{bindings.XpeDccContractPricingTermView2.hints.XpePricingTermLine.format}"/>
