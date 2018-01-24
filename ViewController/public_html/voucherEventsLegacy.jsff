@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGridLayout id="pgl1">
+        <af:gridRow marginTop="5px" height="85px" id="gr1">
+            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1" halign="stretch" valign="stretch">
+                <af:panelBox text="Mass Processing Monitor" id="pb1" showDisclosure="false" background="light">
+                    <f:facet name="toolbar"/>
+                    <af:panelGridLayout id="pgl2">
+                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3" halign="stretch"
+                                         valign="stretch">
+                                <af:button actionListener="#{bindings.Execute.execute}" text="Refresh"
+                                           disabled="#{!bindings.Execute.enabled}" id="b2"/>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </af:panelBox>
+            </af:gridCell>
+        </af:gridRow>
+        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
+            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" halign="stretch" valign="stretch">
+                <af:panelBox text="Launched Processes" id="pb2" showDisclosure="false">
+                    <f:facet name="toolbar"/>
+                    <af:table value="#{bindings.PsCisXpeProcessView1.collectionModel}" var="row"
+                              rows="#{bindings.PsCisXpeProcessView1.rangeSize}"
+                              emptyText="#{bindings.PsCisXpeProcessView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.PsCisXpeProcessView1.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.PsCisXpeProcessView1.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.PsCisXpeProcessView1.rangeSize}"
+                              filterModel="#{bindings.PsCisXpeProcessView1Query.queryDescriptor}" filterVisible="true"
+                              queryListener="#{bindings.PsCisXpeProcessView1Query.processQuery}" varStatus="vs" id="t1"
+                              partialTriggers="::b2">
+                        <af:column sortProperty="#{bindings.PsCisXpeProcessView1.hints.Processid.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.PsCisXpeProcessView1.hints.Processid.label}" id="c1">
+                            <af:outputText value="#{row.Processid}"
+                                           shortDesc="#{bindings.PsCisXpeProcessView1.hints.Processid.tooltip}"
+                                           id="ot1">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.PsCisXpeProcessView1.hints.Processid.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.PsCisXpeProcessView1.hints.CisExecPlanCode.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.PsCisXpeProcessView1.hints.CisExecPlanCode.label}" id="c2">
+                            <af:outputText value="#{row.CisExecPlanCode}"
+                                           shortDesc="#{bindings.PsCisXpeProcessView1.hints.CisExecPlanCode.tooltip}"
+                                           id="ot2"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.PsCisXpeProcessView1.hints.CisExecPlanStep.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.PsCisXpeProcessView1.hints.CisExecPlanStep.label}" id="c3">
+                            <af:outputText value="#{row.CisExecPlanStep}"
+                                           shortDesc="#{bindings.PsCisXpeProcessView1.hints.CisExecPlanStep.tooltip}"
+                                           id="ot3"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.PsCisXpeProcessView1.hints.CisExecutionSeq.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.PsCisXpeProcessView1.hints.CisExecutionSeq.label}" id="c4">
+                            <af:outputText value="#{row.CisExecutionSeq}"
+                                           shortDesc="#{bindings.PsCisXpeProcessView1.hints.CisExecutionSeq.tooltip}"
+                                           id="ot4">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.PsCisXpeProcessView1.hints.CisExecutionSeq.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.PsCisXpeProcessView1.hints.StatusMsg.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.PsCisXpeProcessView1.hints.StatusMsg.label}" id="c5">
+                            <af:outputText value="#{row.StatusMsg}"
+                                           shortDesc="#{bindings.PsCisXpeProcessView1.hints.StatusMsg.tooltip}"
+                                           id="ot5"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.PsCisXpeProcessView1.hints.ActualStartDt.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.PsCisXpeProcessView1.hints.ActualStartDt.label}" id="c6">
+                            <f:facet name="filter">
+                                <af:inputDate value="#{bindings.PsCisXpeProcessView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.ActualStartDt.value}"
+                                              id="id1">
+                                    <af:convertDateTime pattern="#{bindings.PsCisXpeProcessView1.hints.ActualStartDt.format}"/>
+                                </af:inputDate>
+                            </f:facet>
+                            <af:outputText value="#{row.ActualStartDt}"
+                                           shortDesc="#{bindings.PsCisXpeProcessView1.hints.ActualStartDt.tooltip}"
+                                           id="ot6">
+                                <af:convertDateTime pattern="#{bindings.PsCisXpeProcessView1.hints.ActualStartDt.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.PsCisXpeProcessView1.hints.ActualFinishDt.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.PsCisXpeProcessView1.hints.ActualFinishDt.label}" id="c7">
+                            <f:facet name="filter">
+                                <af:inputDate value="#{bindings.PsCisXpeProcessView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.ActualFinishDt.value}"
+                                              id="id2">
+                                    <af:convertDateTime pattern="#{bindings.PsCisXpeProcessView1.hints.ActualFinishDt.format}"/>
+                                </af:inputDate>
+                            </f:facet>
+                            <af:outputText value="#{row.ActualFinishDt}"
+                                           shortDesc="#{bindings.PsCisXpeProcessView1.hints.ActualFinishDt.tooltip}"
+                                           id="ot7">
+                                <af:convertDateTime pattern="#{bindings.PsCisXpeProcessView1.hints.ActualFinishDt.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.PsCisXpeProcessView1.hints.LastUpdateDate.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.PsCisXpeProcessView1.hints.LastUpdateDate.label}" id="c8">
+                            <f:facet name="filter">
+                                <af:inputDate value="#{bindings.PsCisXpeProcessView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.LastUpdateDate.value}"
+                                              id="id3">
+                                    <af:convertDateTime pattern="#{bindings.PsCisXpeProcessView1.hints.LastUpdateDate.format}"/>
+                                </af:inputDate>
+                            </f:facet>
+                            <af:outputText value="#{row.LastUpdateDate}"
+                                           shortDesc="#{bindings.PsCisXpeProcessView1.hints.LastUpdateDate.tooltip}"
+                                           id="ot8">
+                                <af:convertDateTime pattern="#{bindings.PsCisXpeProcessView1.hints.LastUpdateDate.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.PsCisXpeProcessView1.hints.Descr100.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.PsCisXpeProcessView1.hints.Descr100.label}"
+                                   id="c9">
+                            <af:outputText value="#{row.Descr100}"
+                                           shortDesc="#{bindings.PsCisXpeProcessView1.hints.Descr100.tooltip}"
+                                           id="ot9"/>
+                        </af:column>
+                    </af:table>
+                </af:panelBox>
+            </af:gridCell>
+        </af:gridRow>
+    </af:panelGridLayout>
+</ui:composition>

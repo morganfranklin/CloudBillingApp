@@ -2,26 +2,26 @@ package view;
 //Version 2.0 10/07/2016 : 09:00am
 //Change history maintained in accompanying track6
 
+//Update 2.1 1/23/2018: 5:33pm EX2G and CSCR routines 
+
+import java.io.File;
 import java.io.FileInputStream;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
+import java.lang.*;
+
+import java.net.URL;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Properties;
 
 import javax.xml.bind.DatatypeConverter;
 
-// import oracle.sql.DATE;
+ // import oracle.sql.DATE;
 
 
 public class GenericDataHandler implements Runnable {
@@ -777,6 +777,42 @@ public class GenericDataHandler implements Runnable {
     	
     }
     
+    private String cleanKeyForAudit(String keyValue) {
+    	
+    	String localKey = keyValue;
+    	
+    	// System.out.println("in: "+localKey);
+    	
+    	if (localKey.indexOf("||")>=0) {
+        	localKey = localKey.substring(0, localKey.indexOf("||"));
+    	}
+    	
+    	if (localKey.indexOf(".")>=0) {
+        	localKey = localKey.substring(localKey.indexOf(".")+1, localKey.length());
+    	}
+    	
+    	// System.out.println("out: "+localKey);
+    	
+    	return localKey;
+    	
+    }
+    
+    private String cleanValueForAudit(String keyValue, String auditTable) {
+    	
+    	String localKey = keyValue;
+    	
+    	// System.out.println("audit table: "+auditTable);
+    	
+    	if (auditTable.contentEquals("XPE_DCC_CFG_PCSSHTNAMES_ADT")) {
+    	
+    		localKey = keyValue.substring(0, keyValue.length()-1);
+    		
+    	}
+    	
+    	return localKey;
+    	
+    }
+    
     /* 
      * This method writes all key entries accumulates in changesAuditLog into log table indicated in app_tbl_name
      * field in the last row of mapping (along with where clause).  Since it is executed after the loop of all
@@ -816,8 +852,9 @@ public class GenericDataHandler implements Runnable {
 					System.out.println("log element(" + rowsCounter + "." + keyElementsCounter + ")="
 							+ changesAuditLog.get(rowsCounter).get(keyElementsCounter));
 
-					auditLogUpdate = auditLogUpdate + mapping.get(keyElementsCounter).sourceField + "='"
-							+ changesAuditLog.get(rowsCounter).get(keyElementsCounter) + "' ";
+					auditLogUpdate = auditLogUpdate + cleanKeyForAudit(mapping.get(keyElementsCounter).sourceField) + "='"
+							+ cleanValueForAudit(changesAuditLog.get(rowsCounter).get(keyElementsCounter), 
+									mapping.get(mapping.size() - 1).auditTable ) + "' ";
 
 				}
 
@@ -984,6 +1021,7 @@ public class GenericDataHandler implements Runnable {
 			sqlStatement = givenTarget.prepareStatement(sqlStatementBody);
 			// 180114 sqlStatement.setString(1, actionCode);
 			sqlStatement.setString(1, detailCode);
+			System.out.println("searched mapping for action code = "+detailCode);
 
 			myResultSet = sqlStatement.executeQuery();
 
@@ -1045,6 +1083,51 @@ public class GenericDataHandler implements Runnable {
     	System.out.println("< ----- exiting externalExecuteMapping");
 
     }
+    
+    public int executeScript(ProjectVariable projShare, String actionCode) {
+
+    	Connection commonConfigdb = projShare.getconfigDb();
+    	String sqlStatementBody = "", connectionPattern = "";
+    	ResultSet myResultSet = null;
+    	PreparedStatement sqlStatement = null;
+    			
+    	System.out.println("----> entering executeScript");
+    	
+    	try {
+    		
+        	sqlStatementBody = "select cis_custom_sql from ps_cis_xpe_act_dtl where cis_action_code = ? order by dtl_seq_nbr";
+			sqlStatement = commonConfigdb.prepareStatement(sqlStatementBody);
+			
+			sqlStatement.setString(1, actionCode);
+			
+			myResultSet = sqlStatement.executeQuery();
+
+			System.out.println("... executing " + sqlStatementBody);
+			
+			while (myResultSet.next()) {
+				
+				connectionPattern = myResultSet.getString(1);
+
+				System.out.println("----> entering pl/sql " + connectionPattern );
+		    			
+				CallableStatement cstmt = commonConfigdb.prepareCall("{CALL "+connectionPattern+"}");
+				cstmt.executeUpdate();
+
+				System.out.println("<---- exiting pl/sql ");
+
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+    	System.out.println("<---- exiting executeScript");
+    	
+    	return 0;
+    }
+    
+
 
     public int external2Generic(ProjectVariable projShare, String actionCode) {
     	
@@ -1113,6 +1196,7 @@ public class GenericDataHandler implements Runnable {
 			}
 			
 			this.writeAudit(commonConfigdb);
+			connectionsInSet=0;
 
         } catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -3483,6 +3567,8 @@ public class GenericDataHandler implements Runnable {
                 case "EX2G": 
                 	return_status = external2Generic(projShare, actionCode);
                 	break;
+                case "CSCR":
+                	return_status = executeScript(projShare, actionCode);
                 default:
                     break;
 
