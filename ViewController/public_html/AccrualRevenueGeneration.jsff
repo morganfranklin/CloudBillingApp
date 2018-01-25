@@ -37,15 +37,14 @@
         </af:column>
         <af:column headerText="#{bindings.XpeDccAccrualRevenueEOVO.hints.XpeJournalGeneratorTemplate.label}" id="c2"
                    width="250">
-          <af:inputText value="#{row.bindings.XpeJournalGeneratorTemplate.inputValue}"
-                        label="#{bindings.XpeDccAccrualRevenueEOVO.hints.XpeJournalGeneratorTemplate.label}"
-                        required="#{bindings.XpeDccAccrualRevenueEOVO.hints.XpeJournalGeneratorTemplate.mandatory}"
-                        columns="#{bindings.XpeDccAccrualRevenueEOVO.hints.XpeJournalGeneratorTemplate.displayWidth}"
-                        maximumLength="#{bindings.XpeDccAccrualRevenueEOVO.hints.XpeJournalGeneratorTemplate.precision}"
-                        shortDesc="#{bindings.XpeDccAccrualRevenueEOVO.hints.XpeJournalGeneratorTemplate.tooltip}"
-                        id="it1" autoSubmit="true">
+          <af:selectOneChoice value="#{row.bindings.XpeJournalGeneratorTemplate.inputValue}"
+                              label="#{row.bindings.XpeJournalGeneratorTemplate.label}"
+                              required="#{bindings.XpeDccAccrualRevenueEOVO.hints.XpeJournalGeneratorTemplate.mandatory}"
+                              shortDesc="#{bindings.XpeDccAccrualRevenueEOVO.hints.XpeJournalGeneratorTemplate.tooltip}"
+                              id="soc2" autoSubmit="true">
+            <f:selectItems value="#{row.bindings.XpeJournalGeneratorTemplate.items}" id="si2"/>
             <f:validator binding="#{row.bindings.XpeJournalGeneratorTemplate.validator}"/>
-          </af:inputText>
+          </af:selectOneChoice>
         </af:column>
         <af:column headerText="#{bindings.XpeDccAccrualRevenueEOVO.hints.XpeAccountingDate.label}" id="c3">
           <af:inputDate value="#{row.bindings.XpeAccountingDate.inputValue}"
