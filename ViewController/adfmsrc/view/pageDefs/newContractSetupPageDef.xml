@@ -146,11 +146,21 @@
                   MethodName="contractPricingTermLineAdd" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
                   InstanceName="data.AppModuleDataControl.dataProvider">
       <NamedData NDName="creationPlace" NDValue="CONTRACT_TRAIN" NDType="java.lang.String"/>
+      <NamedData NDName="nextPricingTermLineNbr" NDType="java.lang.Integer"/>
     </methodAction>
     <methodAction id="contractPricingOverLineAdd" RequiresUpdateModel="true" Action="invokeMethod"
                   MethodName="contractPricingOverLineAdd" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
                   InstanceName="data.AppModuleDataControl.dataProvider">
       <NamedData NDName="creationPlace" NDValue="CONTRACT_TRAIN" NDType="java.lang.String"/>
     </methodAction>
+    <methodAction id="nextContractPricingTermNumber" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="nextContractPricingTermNumber" IsViewObjectMethod="false"
+                  DataControl="AppModuleDataControl" InstanceName="data.AppModuleDataControl.dataProvider"
+                  ReturnName="data.AppModuleDataControl.methodResults.nextContractPricingTermNumber_AppModuleDataControl_dataProvider_nextContractPricingTermNumber_result">
+      <NamedData NDName="creationPlace" NDValue="CONTRACT_TRAIN" NDType="java.lang.String"/>
+    </methodAction>
+    <action IterBinding="XpeDccNewContractPricingTermViewIterator" id="CreateInsert"
+            InstanceName="AppModuleDataControl.XpeDccNewContractPricingTermView" DataControl="AppModuleDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
   </bindings>
 </pageDefinition>

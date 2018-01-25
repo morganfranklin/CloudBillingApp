@@ -92,10 +92,20 @@
                       MethodName="contractPricingTermLineAdd" IsViewObjectMethod="false"
                       DataControl="AppModuleDataControl" InstanceName="data.AppModuleDataControl.dataProvider">
             <NamedData NDName="creationPlace" NDValue="CONTRACT_MAINTENANCE" NDType="java.lang.String"/>
+            <NamedData NDName="nextPricingTermLineNbr" NDType="java.lang.Integer"/>
         </methodAction>
         <methodAction id="contractPricingOverLineAdd" RequiresUpdateModel="true" Action="invokeMethod"
                       MethodName="contractPricingOverLineAdd" IsViewObjectMethod="false"
                       DataControl="AppModuleDataControl" InstanceName="data.AppModuleDataControl.dataProvider">
+            <NamedData NDName="creationPlace" NDValue="CONTRACT_MAINTENANCE" NDType="java.lang.String"/>
+        </methodAction>
+        <action IterBinding="XpeDccContractPricingTermView3Iterator" id="CreateInsert"
+                InstanceName="AppModuleDataControl.XpeDccContractPricingTermView1" DataControl="AppModuleDataControl"
+                RequiresUpdateModel="true" Action="createInsertRow"/>
+        <methodAction id="nextContractPricingTermNumber" RequiresUpdateModel="true" Action="invokeMethod"
+                      MethodName="nextContractPricingTermNumber" IsViewObjectMethod="false"
+                      DataControl="AppModuleDataControl" InstanceName="data.AppModuleDataControl.dataProvider"
+                      ReturnName="data.AppModuleDataControl.methodResults.nextContractPricingTermNumber_AppModuleDataControl_dataProvider_nextContractPricingTermNumber_result">
             <NamedData NDName="creationPlace" NDValue="CONTRACT_MAINTENANCE" NDType="java.lang.String"/>
         </methodAction>
     </bindings>

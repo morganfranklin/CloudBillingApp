@@ -66,6 +66,9 @@ public interface AppModule extends ApplicationModule {
 
     void contractPricingOverLineAdd(String creationPlace);
 
-    void contractPricingTermLineAdd(String creationPlace);
+
+    Integer nextContractPricingTermNumber(String creationPlace);
+
+    void contractPricingTermLineAdd(String creationPlace, Integer nextPricingTermLineNbr);
 }
 

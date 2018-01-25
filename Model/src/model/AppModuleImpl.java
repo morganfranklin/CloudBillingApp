@@ -3715,7 +3715,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         }
     }
 
-    public void contractPricingTermLineAdd(String creationPlace) {
+    public void contractPricingTermLineAdd(String creationPlace, Integer nextPricingTermLineNbr) {
         XpeDccContractPricingTermViewImpl pricingTermVO = null;
         try {
             if (null != creationPlace) {
@@ -3723,12 +3723,10 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                     pricingTermVO = this.getXpeDccNewContractPricingTermView();
                 else if ("CONTRACT_MAINTENANCE".equals(creationPlace))
                     pricingTermVO = this.getXpeDccContractPricingTermView1();
-                BigDecimal nextPricingTermLine = new BigDecimal(nextContractPricingTermNumber(creationPlace));
                 XpeDccContractPricingTermViewRowImpl pricingTermVORow =
-                    (XpeDccContractPricingTermViewRowImpl) pricingTermVO.createRow();
+                    (XpeDccContractPricingTermViewRowImpl) pricingTermVO.getCurrentRow();
                 if (null != pricingTermVORow) {
-                    pricingTermVORow.setXpePricingTermLine(nextPricingTermLine);
-                    pricingTermVO.insertRow(pricingTermVORow);
+                    pricingTermVORow.setXpePricingTermLine(new BigDecimal(nextPricingTermLineNbr));
                     pricingTermVO.setCurrentRow(pricingTermVORow);
                 }
             }
@@ -3793,7 +3791,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         return nextLineNumber;
     }
     
-    private Integer nextContractPricingTermNumber(String creationPlace){
+    public Integer nextContractPricingTermNumber(String creationPlace){
         ArrayList<Integer> arrayList = new ArrayList<Integer>();
         Integer nextLineNumber = 1;
         XpeDccContractLineViewImpl lineVO = null;

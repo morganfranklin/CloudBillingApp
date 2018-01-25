@@ -4,7 +4,7 @@
 <AppModule
     xmlns="http://xmlns.oracle.com/bc4j"
     Name="AppModule"
-    Version="12.2.1.0.31"
+    Version="12.2.1.11.57"
     InheritPersonalization="merge"
     ClearCacheOnRollback="true"
     ComponentClass="model.AppModuleImpl"
@@ -1869,6 +1869,16 @@
                 Type="java.lang.String"/>
         </Method>
         <Method
+            Name="nextContractPricingTermNumber"
+            MethodName="nextContractPricingTermNumber">
+            <Return
+                Name="_return_type_"
+                Type="java.lang.Integer"/>
+            <Parameter
+                Name="creationPlace"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
             Name="contractPricingTermLineAdd"
             MethodName="contractPricingTermLineAdd">
             <Return
@@ -1877,6 +1887,9 @@
             <Parameter
                 Name="creationPlace"
                 Type="java.lang.String"/>
+            <Parameter
+                Name="nextPricingTermLineNbr"
+                Type="java.lang.Integer"/>
         </Method>
     </ClientInterface>
 </AppModule>

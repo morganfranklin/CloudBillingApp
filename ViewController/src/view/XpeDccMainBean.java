@@ -208,9 +208,18 @@ public class XpeDccMainBean {
         // Add event code here...
         try {
             DCBindingContainer bindings = (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
-            OperationBinding operationBinding = bindings.getOperationBinding("contractPricingTermLineAdd");
-            if (null != operationBinding)
-                operationBinding.execute();
+            OperationBinding operationBinding = bindings.getOperationBinding("nextContractPricingTermNumber");
+            if (null != operationBinding){
+                Integer nextContractPricingTermLineNbr = (Integer)operationBinding.execute();
+                if(null!=nextContractPricingTermLineNbr){
+                    ADFUtils.invokeEL("#{bindings.CreateInsert.execute}");
+                    OperationBinding operationBinding1 = bindings.getOperationBinding("contractPricingTermLineAdd");
+                    if (null != operationBinding1){
+                        operationBinding1.getParamsMap().put("nextPricingTermLineNbr", nextContractPricingTermLineNbr);
+                        operationBinding1.execute();
+                    }
+                }
+            }
         } catch (Exception e) {
             // TODO: Add catch code
             e.printStackTrace();
