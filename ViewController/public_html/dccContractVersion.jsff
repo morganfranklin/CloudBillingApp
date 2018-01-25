@@ -254,11 +254,13 @@
                             <af:panelHeader text="" id="ph1">
                                 <f:facet name="context">
                                     <af:toolbar id="t5">
-                                        <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add"
+                                        <af:button actionListener="#{backingBeanScope.XpeDccMainBean.onContractLineAdd}" text="Add"
                                                    id="b3"/>
                                         <af:spacer width="10" height="10" id="s5"/>
                                         <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
-                                                   disabled="#{!bindings.Delete.enabled}" id="b9" immediate="true"/>
+                                                   disabled="#{!bindings.Delete.enabled}" id="b9" immediate="true">
+                                            <af:resetActionListener/>
+                                        </af:button>
                                     </af:toolbar>
                                 </f:facet>
                                 <f:facet name="toolbar"/>
@@ -277,7 +279,8 @@
                                           filterModel="#{bindings.XpeDccContractLineView2Query.queryDescriptor}"
                                           filterVisible="true"
                                           queryListener="#{bindings.XpeDccContractLineView2Query.processQuery}"
-                                          varStatus="vs" id="t1" partialTriggers="::b3 ::b9">
+                                          varStatus="vs" id="t1" partialTriggers="::b3 ::b9"
+                                          contentDelivery="immediate">
                                     <af:column sortProperty="#{bindings.XpeDccContractLineView2.hints.XpeContractLine.name}"
                                                filterable="true" sortable="true" headerText="Contract line" id="c1">
                                         <af:inputText value="#{row.bindings.XpeContractLine.inputValue}"

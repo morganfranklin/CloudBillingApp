@@ -1845,5 +1845,35 @@
                 Name="coverSheetBytes"
                 Type="byte[]"/>
         </Method>
+        <Method
+            Name="contractLineAdd"
+            MethodName="contractLineAdd">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+            <Parameter
+                Name="creationPlace"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="contractPricingOverLineAdd"
+            MethodName="contractPricingOverLineAdd">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+            <Parameter
+                Name="creationPlace"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="contractPricingTermLineAdd"
+            MethodName="contractPricingTermLineAdd">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+            <Parameter
+                Name="creationPlace"
+                Type="java.lang.String"/>
+        </Method>
     </ClientInterface>
 </AppModule>

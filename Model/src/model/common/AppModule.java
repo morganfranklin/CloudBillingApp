@@ -60,5 +60,12 @@ public interface AppModule extends ApplicationModule {
 
     void updateContractApprovalStatus(String uuId, String action, byte[] bytes, String userType,
                                       byte[] coverSheetBytes);
+
+
+    void contractLineAdd(String creationPlace);
+
+    void contractPricingOverLineAdd(String creationPlace);
+
+    void contractPricingTermLineAdd(String creationPlace);
 }
 

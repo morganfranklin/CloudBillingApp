@@ -15,6 +15,7 @@ import model.XpeDccContractsViewImpl;
 import model.XpeDccContractsViewRowImpl;
 
 import oracle.adf.model.BindingContext;
+import oracle.adf.model.binding.DCBindingContainer;
 import oracle.adf.view.rich.component.rich.data.RichTable;
 import oracle.adf.view.rich.context.AdfFacesContext;
 import oracle.adf.view.rich.event.PopupCanceledEvent;
@@ -110,18 +111,18 @@ public class XpeDccMainBean {
 
     public void addLineDetailsActionListener(ActionEvent actionEvent) {
         // Add event code here...
-        //String currentLine = "0";
+        String currentLine = "0";
         XpeDccContractLineViewImpl lineVO =
             (XpeDccContractLineViewImpl) ADFUtils.findViewObjectFromIteratorName("XpeDccContractLineView2Iterator");
-        /*XpeDccContractLineViewRowImpl lineRow =
+        XpeDccContractLineViewRowImpl lineRow =
             (XpeDccContractLineViewRowImpl) ADFUtils.findIterator("XpeDccContractLineView2Iterator").getCurrentRow();
         if (lineRow != null) {
             currentLine = lineRow.getXpeContractLine();
 
-        }*/
+        }
         XpeDccContractLineViewRowImpl newLineRow = (XpeDccContractLineViewRowImpl) lineVO.createRow();
-        //Integer newLineNumber = Integer.parseInt(currentLine) + 1;
-        //newLineRow.setXpeContractLine(newLineNumber.toString());
+        Integer newLineNumber = Integer.parseInt(currentLine) + 1;
+        newLineRow.setXpeContractLine(newLineNumber.toString());
         lineVO.next();
         lineVO.insertRow(newLineRow);
     }
@@ -186,6 +187,46 @@ public class XpeDccMainBean {
         } catch (Exception e) {
             e.printStackTrace();
             ADFUtils.showErrorMessage("Error while downloading PDF.");
+        }
+    }
+    
+    
+    public void onContractLineAdd(ActionEvent actionEvent) {
+        // Add event code here...
+        try {
+            DCBindingContainer bindings = (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
+            OperationBinding operationBinding = bindings.getOperationBinding("contractLineAdd");
+            if (null != operationBinding)
+                operationBinding.execute();
+        } catch (Exception e) {
+            // TODO: Add catch code
+            e.printStackTrace();
+        }
+    }
+    
+    public void onContractPricingTermLineAdd(ActionEvent actionEvent) {
+        // Add event code here...
+        try {
+            DCBindingContainer bindings = (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
+            OperationBinding operationBinding = bindings.getOperationBinding("contractPricingTermLineAdd");
+            if (null != operationBinding)
+                operationBinding.execute();
+        } catch (Exception e) {
+            // TODO: Add catch code
+            e.printStackTrace();
+        }
+    }
+    
+    public void onContractPricingOverLineAdd(ActionEvent actionEvent) {
+        // Add event code here...
+        try {
+            DCBindingContainer bindings = (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
+            OperationBinding operationBinding = bindings.getOperationBinding("contractPricingOverLineAdd");
+            if (null != operationBinding)
+                operationBinding.execute();
+        } catch (Exception e) {
+            // TODO: Add catch code
+            e.printStackTrace();
         }
     }
 

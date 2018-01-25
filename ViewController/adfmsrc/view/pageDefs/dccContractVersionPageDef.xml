@@ -105,8 +105,6 @@
             </nodeDefinition>
         </tree>
         <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
-        <action IterBinding="XpeDccContractLineView3Iterator" id="CreateInsert" RequiresUpdateModel="true"
-                Action="createInsertRow"/>
         <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
                 DataControl="AppModuleDataControl"/>
         <action IterBinding="XpeDccContractNotesView3Iterator" id="CreateInsert1" RequiresUpdateModel="true"
@@ -216,5 +214,10 @@
                 </AttrNames>
             </nodeDefinition>
         </tree>
+        <methodAction id="contractLineAdd" RequiresUpdateModel="true" Action="invokeMethod" MethodName="contractLineAdd"
+                      IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                      InstanceName="data.AppModuleDataControl.dataProvider">
+            <NamedData NDName="creationPlace" NDValue="CONTRACT_MAINTENANCE" NDType="java.lang.String"/>
+        </methodAction>
     </bindings>
 </pageDefinition>
