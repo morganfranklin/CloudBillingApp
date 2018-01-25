@@ -260,7 +260,7 @@
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
       <value n="j2eeWebAppName" v="neuCloudBilling1010-ViewController-webapp"/>
-      <value n="j2eeWebContextRoot" v="neuCloudBilling1010_34"/>
+      <value n="j2eeWebContextRoot" v="neuCloudBilling1010"/>
    </hash>
    <hash n="oracle.jdeveloper.runner.RunConfigurations">
       <hash n="runConfigurationDefinitions">

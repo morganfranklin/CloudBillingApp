@@ -20,7 +20,7 @@
   </Properties>
   <SQLQuery><![CDATA[SELECT CUST_ID,NAME1 AS CUSTOMER_NAME 
 FROM PS_CUSTOMER           
-WHERE SETID='SHARE']]></SQLQuery>
+WHERE SETID='MASTR']]></SQLQuery>
   <ViewAttribute
     Name="CustId"
     IsPersistent="false"
