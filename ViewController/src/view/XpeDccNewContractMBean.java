@@ -127,6 +127,7 @@ public class XpeDccNewContractMBean implements Serializable {
                         XpeDccNewContractCustomerSearchROVORowImpl existCustomerRow =
                             (XpeDccNewContractCustomerSearchROVORowImpl) existCustomerVo.getCurrentRow();
                         contractRow.setCustId(existCustomerRow.getCustId());
+                        contractRow.setAddressSeqNum(existCustomerRow.getAddressSeqNum());
                     }
                 }
             } else if ("UPDATE".equals(contractType) || "BLS".equals(contractType)) {

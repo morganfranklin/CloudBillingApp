@@ -330,7 +330,7 @@
                                                 </af:selectOneChoice>
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractLineView.hints.XpeSwApprNbr.label}"
-                                                       id="c15" rendered="false">
+                                                       id="c15">
                                                 <af:inputText value="#{row.bindings.XpeSwApprNbr.inputValue}"
                                                               label="#{bindings.XpeDccNewContractLineView.hints.XpeSwApprNbr.label}"
                                                               required="#{bindings.XpeDccNewContractLineView.hints.XpeSwApprNbr.mandatory}"
