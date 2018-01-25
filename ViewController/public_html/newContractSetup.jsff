@@ -346,12 +346,14 @@
                                         </af:table>
                                         <f:facet name="toolbar">
                                             <af:group id="g2">
-                                                <af:button actionListener="#{bindings.CreateInsert1.execute}" text="Add"
+                                                <af:button actionListener="#{pageFlowScope.XpeDccNewContractMBean.onContractLineAdd}" text="Add"
                                                            id="b1" disabled="#{pageFlowScope.ContractType eq 'BLS'}"/>
                                                 <af:spacer width="10" height="10" id="s7"/>
                                                 <af:button actionListener="#{bindings.Delete1.execute}" text="Delete"
                                                            id="b2" immediate="true"
-                                                           disabled="#{bindings.XpeDccNewContractLineViewIterator.estimatedRowCount&lt;=1 or pageFlowScope.ContractType eq 'BLS'}"/>
+                                                           disabled="#{bindings.XpeDccNewContractLineViewIterator.estimatedRowCount&lt;=1 or pageFlowScope.ContractType eq 'BLS'}">
+                                                    <af:resetActionListener/>
+                                                </af:button>
                                             </af:group>
                                         </f:facet>
                                     </af:panelBox>
@@ -460,12 +462,14 @@
                                         </af:table>
                                         <f:facet name="toolbar">
                                             <af:group id="g3">
-                                                <af:button actionListener="#{bindings.CreateInsert2.execute}" text="Add"
+                                                <af:button actionListener="#{pageFlowScope.XpeDccNewContractMBean.onContractPricingTermLineAdd}" text="Add"
                                                            id="b3" disabled="#{pageFlowScope.ContractType eq 'BLS'}"/>
                                                 <af:spacer width="10" height="10" id="s6"/>
                                                 <af:button actionListener="#{bindings.Delete2.execute}" text="Delete"
                                                            id="b4" immediate="true"
-                                                           disabled="#{pageFlowScope.ContractType eq 'BLS' or bindings.XpeDccNewContractPricingTermViewIterator.estimatedRowCount lt 1}"/>
+                                                           disabled="#{pageFlowScope.ContractType eq 'BLS' or bindings.XpeDccNewContractPricingTermViewIterator.estimatedRowCount lt 1}">
+                                                    <af:resetActionListener/>
+                                                </af:button>
                                             </af:group>
                                         </f:facet>
                                     </af:panelBox>
@@ -473,12 +477,14 @@
                                                  rendered="#{pageFlowScope.ContractType eq 'BLS'}">
                                         <f:facet name="toolbar">
                                             <af:group id="g5">
-                                                <af:button actionListener="#{bindings.CreateInsert4.execute}" text="Add"
+                                                <af:button actionListener="#{pageFlowScope.XpeDccNewContractMBean.onContractPricingOverLineAdd}" text="Add"
                                                            id="b7"/>
                                                 <af:spacer width="10" height="10" id="s3"/>
                                                 <af:button actionListener="#{bindings.Delete4.execute}" text="Delete"
                                                            id="b8" immediate="true"
-                                                           disabled="#{bindings.CarryForwardedPricingOver.inputValue eq 'Y' or bindings.XpeDccNewContractPricingOverViewIterator.estimatedRowCount lt 1}"/>
+                                                           disabled="#{bindings.CarryForwardedPricingOver.inputValue eq 'Y' or bindings.XpeDccNewContractPricingOverViewIterator.estimatedRowCount lt 1}">
+                                                    <af:resetActionListener/>
+                                                </af:button>
                                             </af:group>
                                         </f:facet>
                                         <af:table value="#{bindings.XpeDccNewContractPricingOverView.collectionModel}"

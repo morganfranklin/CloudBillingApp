@@ -569,4 +569,44 @@ public class XpeDccNewContractMBean implements Serializable {
     public void onContractSubtypeValueChange(ValueChangeEvent valueChangeEvent) {
         AdfFacesContext.getCurrentInstance().addPartialTarget(this.getXpeDccNewContractBBean().getAgreementRIT());
     }
+
+    public void onContractLineAdd(ActionEvent actionEvent) {
+        // Add event code here...
+        try {
+            DCBindingContainer bindings = (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
+            OperationBinding operationBinding = bindings.getOperationBinding("contractLineAdd");
+            if (null != operationBinding)
+                operationBinding.execute();
+        } catch (Exception e) {
+            // TODO: Add catch code
+            e.printStackTrace();
+        }
+    }
+    
+    public void onContractPricingTermLineAdd(ActionEvent actionEvent) {
+        // Add event code here...
+        try {
+            DCBindingContainer bindings = (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
+            OperationBinding operationBinding = bindings.getOperationBinding("contractPricingTermLineAdd");
+            if (null != operationBinding)
+                operationBinding.execute();
+        } catch (Exception e) {
+            // TODO: Add catch code
+            e.printStackTrace();
+        }
+    }
+    
+    public void onContractPricingOverLineAdd(ActionEvent actionEvent) {
+        // Add event code here...
+        try {
+            DCBindingContainer bindings = (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
+            OperationBinding operationBinding = bindings.getOperationBinding("contractPricingOverLineAdd");
+            if (null != operationBinding)
+                operationBinding.execute();
+        } catch (Exception e) {
+            // TODO: Add catch code
+            e.printStackTrace();
+        }
+    }
+    
 }

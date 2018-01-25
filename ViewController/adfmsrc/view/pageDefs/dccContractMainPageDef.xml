@@ -115,8 +115,6 @@
                 <Item Value="SalesPerson"/>
             </AttrNames>
         </attributeValues>
-        <list IterBinding="XpeDccContractsView1Iterator" StaticList="false" Uses="LOV_XpeDccPcsname"
-              id="XpeDccPcsname" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
         <attributeValues IterBinding="XpeDccContractsView1Iterator" id="CustContractContactName">
             <AttrNames>
                 <Item Value="CustContractContactName"/>
@@ -127,5 +125,7 @@
                 <Item Value="CustContractApproverEmail"/>
             </AttrNames>
         </attributeValues>
+        <listOfValues IterBinding="XpeDccContractsView1Iterator" StaticList="false" Uses="LOV_XpeDccPcsname"
+                      id="XpeDccPcsname"/>
     </bindings>
 </pageDefinition>

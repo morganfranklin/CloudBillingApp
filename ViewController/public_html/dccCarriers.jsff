@@ -182,7 +182,7 @@
                                   selectedRowKeys="#{bindings.XpeDccContractCarrierView3.collectionModel.selectedRow}"
                                   selectionListener="#{bindings.XpeDccContractCarrierView3.collectionModel.makeCurrent}"
                                   rowSelection="single" fetchSize="#{bindings.XpeDccContractCarrierView3.rangeSize}"
-                                  id="t1" partialTriggers="::b4">
+                                  id="t1" partialTriggers="::b4" contentDelivery="immediate">
                             <af:column sortProperty="#{bindings.XpeDccContractCarrierView3.hints.XpeCarrierId.name}"
                                        sortable="true" headerText="Carrier" id="c5" width="250">
                                 <af:inputListOfValues value="#{row.bindings.XpeCarrierId.inputValue}"

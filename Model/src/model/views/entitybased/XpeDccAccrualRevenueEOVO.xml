@@ -29,6 +29,10 @@
     Name="XpeDccCfgPcsROVO_LOV"
     ViewObjectName="model.views.readonly.XpeDccCfgPcsROVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="PsJrnlGenApplIdROVO_LOV"
+    ViewObjectName="model.views.readonly.PsJrnlGenApplIdROVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_XpeFacilityId"
     ListVOName="XpeDccCfgPcsROVO_LOV"
@@ -44,6 +48,24 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="SiteDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_XpeJournalGeneratorTemplate"
+    ListVOName="PsJrnlGenApplIdROVO_LOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="XpeJournalGeneratorTemplate"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ApplJrnlId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -121,11 +143,14 @@
     PrecisionRule="true"
     EntityAttrName="XpeJournalGeneratorTemplate"
     EntityUsage="XpeDccAccrualRevenueEO"
-    AliasName="XPE_JOURNAL_GENERATOR_TEMPLATE">
+    AliasName="XPE_JOURNAL_GENERATOR_TEMPLATE"
+    LOVName="LOV_XpeJournalGeneratorTemplate">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.entitybased.XpeDccAccrualRevenueEOVO.XpeJournalGeneratorTemplate_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

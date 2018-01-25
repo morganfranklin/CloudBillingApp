@@ -81,7 +81,8 @@
         ListVOName="XpeDccCfgPCSShortNamesROVO1"
         ListRangeSize="-1"
         NullValueFlag="none"
-        MRUCount="0">
+        MRUCount="0"
+        ComboRowCountHint="10">
         <AttrArray Name="AttrNames">
             <Item Value="XpeDccPcsname"/>
         </AttrArray>
@@ -90,9 +91,11 @@
             <Item Value="PcsshortnameId"/>
         </AttrArray>
         <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="PcsshortnameId"/>
             <Item Value="PcsshortName"/>
         </AttrArray>
-        <DisplayCriteria/>
+        <DisplayCriteria
+            Hint="showAndExecute"/>
     </ListBinding>
     <SQLQuery><![CDATA[SELECT XpeDccContracts.XPE_CONTRACT_ID,   
        XpeDccContracts.XPE_CONTRACT_DESC,   
@@ -237,7 +240,7 @@ WHERE TempCustomer.CUST_ID=XpeDccContracts.CUST_ID]]></SQLQuery>
                 <LABEL
                     ResId="model.XpeDccContractsView.XpeDccPcsname_LABEL"/>
                 <CONTROLTYPE
-                    Value="choice"/>
+                    Value="input_text_lov"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>

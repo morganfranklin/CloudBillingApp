@@ -58,8 +58,6 @@
             </nodeDefinition>
         </tree>
         <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
-        <action IterBinding="XpeDccContractPricingTermView3Iterator" id="CreateInsert" RequiresUpdateModel="true"
-                Action="createInsertRow"/>
         <attributeValues IterBinding="XpeDccContractLineView3Iterator" id="XpeSwApprNbr">
             <AttrNames>
                 <Item Value="XpeSwApprNbr"/>
@@ -86,11 +84,19 @@
                 Action="rollbackTransaction"/>
         <action IterBinding="XpeDccContractPricingTermView3Iterator" id="Delete" RequiresUpdateModel="false"
                 Action="removeCurrentRow"/>
-        <action IterBinding="XpeDccContractPricingOverView1Iterator" id="CreateInsert1" RequiresUpdateModel="true"
-                Action="createInsertRow"/>
         <action IterBinding="XpeDccContractPricingOverView1Iterator" id="Delete1" RequiresUpdateModel="false"
                 Action="removeCurrentRow"/>
         <listOfValues IterBinding="XpeDccContractLineView3Iterator" StaticList="false" Uses="LOV_XpeProductId"
                       id="XpeProductId"/>
+        <methodAction id="contractPricingTermLineAdd" RequiresUpdateModel="true" Action="invokeMethod"
+                      MethodName="contractPricingTermLineAdd" IsViewObjectMethod="false"
+                      DataControl="AppModuleDataControl" InstanceName="data.AppModuleDataControl.dataProvider">
+            <NamedData NDName="creationPlace" NDValue="CONTRACT_MAINTENANCE" NDType="java.lang.String"/>
+        </methodAction>
+        <methodAction id="contractPricingOverLineAdd" RequiresUpdateModel="true" Action="invokeMethod"
+                      MethodName="contractPricingOverLineAdd" IsViewObjectMethod="false"
+                      DataControl="AppModuleDataControl" InstanceName="data.AppModuleDataControl.dataProvider">
+            <NamedData NDName="creationPlace" NDValue="CONTRACT_MAINTENANCE" NDType="java.lang.String"/>
+        </methodAction>
     </bindings>
 </pageDefinition>

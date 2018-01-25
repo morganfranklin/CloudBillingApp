@@ -14,6 +14,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class XpeDccAccrualRevenueEOVORowImpl extends ViewRowImpl {
+
     public static final int ENTITY_XPEDCCACCRUALREVENUEEO = 0;
 
     /**
@@ -28,8 +29,10 @@ public class XpeDccAccrualRevenueEOVORowImpl extends ViewRowImpl {
         XpeAccrualRevenueId,
         XpeFacilityId,
         XpeJournalGeneratorTemplate,
-        XpeDccCfgPcsROVO_LOV;
-        private static AttributesEnum[] vals = null;
+        XpeDccCfgPcsROVO_LOV,
+        PsJrnlGenApplIdROVO_LOV;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -51,6 +54,7 @@ public class XpeDccAccrualRevenueEOVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
     public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
     public static final int CREATIONDATE = AttributesEnum.CreationDate.index();
     public static final int LASTUPDATEDATE = AttributesEnum.LastUpdateDate.index();
@@ -60,6 +64,7 @@ public class XpeDccAccrualRevenueEOVORowImpl extends ViewRowImpl {
     public static final int XPEFACILITYID = AttributesEnum.XpeFacilityId.index();
     public static final int XPEJOURNALGENERATORTEMPLATE = AttributesEnum.XpeJournalGeneratorTemplate.index();
     public static final int XPEDCCCFGPCSROVO_LOV = AttributesEnum.XpeDccCfgPcsROVO_LOV.index();
+    public static final int PSJRNLGENAPPLIDROVO_LOV = AttributesEnum.PsJrnlGenApplIdROVO_LOV.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -176,6 +181,13 @@ public class XpeDccAccrualRevenueEOVORowImpl extends ViewRowImpl {
      */
     public RowSet getXpeDccCfgPcsROVO_LOV() {
         return (RowSet) getAttributeInternal(XPEDCCCFGPCSROVO_LOV);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> PsJrnlGenApplIdROVO_LOV.
+     */
+    public RowSet getPsJrnlGenApplIdROVO_LOV() {
+        return (RowSet) getAttributeInternal(PSJRNLGENAPPLIDROVO_LOV);
     }
 }
 

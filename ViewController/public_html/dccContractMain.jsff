@@ -55,15 +55,16 @@
                                                                    id="ot3"/>
                                                 </af:panelLabelAndMessage>
                                                 <af:panelLabelAndMessage label="#{bindings.XpeDccPcsname.label}" id="plam4">
-                                                    <af:selectOneChoice value="#{bindings.XpeDccPcsname.inputValue}"
-                                                                        label="#{bindings.XpeDccPcsname.label}"
-                                                                        required="#{bindings.XpeDccPcsname.hints.mandatory}"
-                                                                        shortDesc="#{bindings.XpeDccPcsname.hints.tooltip}"
-                                                                        id="soc1" simple="true">
-                                                        <f:selectItems value="#{bindings.XpeDccPcsname.items}"
-                                                                       id="si1"/>
+                                                    <af:inputListOfValues id="xpeDccPcsnameId"
+                                                                          popupTitle="Search and Select: #{bindings.XpeDccPcsname.hints.label}"
+                                                                          value="#{bindings.XpeDccPcsname.inputValue}"
+                                                                          model="#{bindings.XpeDccPcsname.listOfValuesModel}"
+                                                                          required="#{bindings.XpeDccPcsname.hints.mandatory}"
+                                                                          columns="#{bindings.XpeDccPcsname.hints.displayWidth}"
+                                                                          shortDesc="#{bindings.XpeDccPcsname.hints.tooltip}"
+                                                                          simple="true" autoSubmit="true">
                                                         <f:validator binding="#{bindings.XpeDccPcsname.validator}"/>
-                                                    </af:selectOneChoice>
+                                                    </af:inputListOfValues>
                                                 </af:panelLabelAndMessage>
                                                 <af:inputText value="#{bindings.CustContractContactName.inputValue}"
                                                               label="#{bindings.CustContractContactName.hints.label}"

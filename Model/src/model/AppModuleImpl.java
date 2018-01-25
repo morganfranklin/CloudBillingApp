@@ -1283,7 +1283,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                 (XpeDccContractLineViewRowImpl) lineTargetRowSet.createAndInitRow(null);
             lineTargetRow.setXpeContractId(contractId);
             lineTargetRow.setXpeContractVersion(versionId);
-            //lineTargetRow.setXpeContractLine(lineSourceRow.getXpeContractLine());
+            lineTargetRow.setXpeContractLine(lineSourceRow.getXpeContractLine());
             lineTargetRow.setXpeFacility(lineSourceRow.getXpeFacility());
             lineTargetRow.setXpePeriodType(lineSourceRow.getXpePeriodType());
             lineTargetRow.setXpeProductId(lineSourceRow.getXpeProductId());
@@ -1317,7 +1317,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             targetPricingTermRow.setXpeContractVersion("V1");
             targetPricingTermRow.setXpePeriodNbr(sourcePricingTermRow.getXpePeriodNbr());
             targetPricingTermRow.setXpePeriodType(sourcePricingTermRow.getXpePeriodType());
-            //targetPricingTermRow.setXpePricingTermLine(sourcePricingTermRow.getXpePricingTermLine());
+            targetPricingTermRow.setXpePricingTermLine(sourcePricingTermRow.getXpePricingTermLine());
             targetPricingTermRow.setXpePricingTermType(sourcePricingTermRow.getXpePricingTermType());
             targetPricingTermRow.setXpeQtyMax(sourcePricingTermRow.getXpeQtyMax());
             targetPricingTermRow.setXpeRate(sourcePricingTermRow.getXpeQtyMax());
@@ -1946,13 +1946,13 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         }
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://vmohscvae014.oracleoutsourcing.com:5021/neuCloudBilling1010_34/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_51/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(xpeDccWfActionEOVORow.getXpeUuid()).append("&").append("action=").append("ACCEPT").append("&").append("user=").append(userType);
         html.append("\"><b>Accept</b></a>");
         html.append("&nbsp;&nbsp;&nbsp;");
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://vmohscvae014.oracleoutsourcing.com:5021/neuCloudBilling1010_34/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://morganfranklinlabs.us:7101/neuCloudBilling1010_51/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(xpeDccWfActionEOVORow.getXpeUuid()).append("&").append("action=").append("REJECT").append("&").append("user=").append(userType);
         html.append("\"><b>Reject</b></a>");
         html.append("</p>");
@@ -2803,7 +2803,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                 (XpeDccContractLineViewRowImpl) lineTargetRowSet.createAndInitRow(null);
             //lineTargetRow.setXpeContractId(contractId);
             //lineTargetRow.setXpeContractVersion(versionId);
-            //lineTargetRow.setXpeContractLine(lineSourceRow.getXpeContractLine());
+            lineTargetRow.setXpeContractLine(lineSourceRow.getXpeContractLine());
             lineTargetRow.setBusinessUnitGl(lineSourceRow.getBusinessUnitGl());
             lineTargetRow.setXpeFacility(lineSourceRow.getXpeFacility());
             lineTargetRow.setXpePeriodType(lineSourceRow.getXpePeriodType());
@@ -2841,7 +2841,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             //targetPricingTermRow.setXpeContractVersion("V1");
             targetPricingTermRow.setXpePeriodNbr(sourcePricingTermRow.getXpePeriodNbr());
             targetPricingTermRow.setXpePeriodType(sourcePricingTermRow.getXpePeriodType());
-            //targetPricingTermRow.setXpePricingTermLine(sourcePricingTermRow.getXpePricingTermLine());
+            targetPricingTermRow.setXpePricingTermLine(sourcePricingTermRow.getXpePricingTermLine());
             targetPricingTermRow.setXpePricingTermType(sourcePricingTermRow.getXpePricingTermType());
             targetPricingTermRow.setXpeQtyMax(sourcePricingTermRow.getXpeQtyMax());
             targetPricingTermRow.setXpeRate(sourcePricingTermRow.getXpeRate());
@@ -2863,7 +2863,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             if(currentDate.compareTo(sourcePricingOverRow.getXpeOverStart()) > 0 && currentDate.compareTo(sourcePricingOverRow.getXpeOverEnd()) < 0){
                 XpeDccContractPricingOverViewRowImpl targetPricingOverRow =
                     (XpeDccContractPricingOverViewRowImpl) priceOverTargetRowSet.createAndInitRow(null);
-                //targetPricingOverRow.setXpeContractOverNbr(sourcePricingOverRow.getXpeContractOverNbr());
+                targetPricingOverRow.setXpeContractOverNbr(sourcePricingOverRow.getXpeContractOverNbr());
                 targetPricingOverRow.setXpeOverType(sourcePricingOverRow.getXpeOverType());
                 targetPricingOverRow.setXpeOverStart(sourcePricingOverRow.getXpeOverStart());
                 targetPricingOverRow.setXpeOverEnd(sourcePricingOverRow.getXpeOverEnd());
@@ -3691,6 +3691,172 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                 spclWstFcltyVo.executeQuery();
             }
         }
+    }
+    
+    public void contractLineAdd(String creationPlace) {
+        XpeDccContractLineViewImpl lineVO = null;
+        try {
+            if (null != creationPlace) {
+                if ("CONTRACT_TRAIN".equals(creationPlace))
+                    lineVO = this.getXpeDccNewContractLineView();
+                else if ("CONTRACT_MAINTENANCE".equals(creationPlace))
+                    lineVO = this.getXpeDccContractLineView1();
+                String nextLineNumber = String.valueOf(nextContractLineNumber(creationPlace));
+                XpeDccContractLineViewRowImpl newLineRow = (XpeDccContractLineViewRowImpl) lineVO.createRow();
+                if (null != newLineRow) {
+                    newLineRow.setXpeContractLine(nextLineNumber);
+                    lineVO.insertRow(newLineRow);
+                    lineVO.setCurrentRow(newLineRow);
+                }
+            }
+        } catch (Exception e) {
+            // TODO: Add catch code
+            e.printStackTrace();
+        }
+    }
+
+    public void contractPricingTermLineAdd(String creationPlace) {
+        XpeDccContractPricingTermViewImpl pricingTermVO = null;
+        try {
+            if (null != creationPlace) {
+                if ("CONTRACT_TRAIN".equals(creationPlace))
+                    pricingTermVO = this.getXpeDccNewContractPricingTermView();
+                else if ("CONTRACT_MAINTENANCE".equals(creationPlace))
+                    pricingTermVO = this.getXpeDccContractPricingTermView1();
+                BigDecimal nextPricingTermLine = new BigDecimal(nextContractPricingTermNumber(creationPlace));
+                XpeDccContractPricingTermViewRowImpl pricingTermVORow =
+                    (XpeDccContractPricingTermViewRowImpl) pricingTermVO.createRow();
+                if (null != pricingTermVORow) {
+                    pricingTermVORow.setXpePricingTermLine(nextPricingTermLine);
+                    pricingTermVO.insertRow(pricingTermVORow);
+                    pricingTermVO.setCurrentRow(pricingTermVORow);
+                }
+            }
+        } catch (Exception e) {
+            // TODO: Add catch code
+            e.printStackTrace();
+        }
+    }
+
+    public void contractPricingOverLineAdd(String creationPlace) {
+        XpeDccContractPricingOverViewImpl pricingOverVO = null;
+        try {
+            if (null != creationPlace) {
+                if ("CONTRACT_TRAIN".equals(creationPlace))
+                    pricingOverVO = this.getXpeDccNewContractPricingOverView();
+                else if ("CONTRACT_MAINTENANCE".equals(creationPlace))
+                    pricingOverVO = this.getXpeDccContractPricingOverView2();
+                BigDecimal nextPricingOverLine = new BigDecimal(nextContractPricingOverNumber(creationPlace));
+                XpeDccContractPricingOverViewRowImpl pricingOverVORow =
+                    (XpeDccContractPricingOverViewRowImpl) pricingOverVO.createRow();
+                if (null != pricingOverVORow) {
+                    pricingOverVORow.setXpeContractOverNbr(nextPricingOverLine);
+                    pricingOverVO.insertRow(pricingOverVORow);
+                    pricingOverVO.setCurrentRow(pricingOverVORow);
+                }
+            }
+        } catch (Exception e) {
+            // TODO: Add catch code
+            e.printStackTrace();
+        }
+    }
+    
+    
+    private Integer nextContractLineNumber(String creationPlace){
+        ArrayList<Integer> arrayList = new ArrayList<Integer>();
+        Integer nextLineNumber = 1;
+        RowSetIterator rowSetIterator = null;
+        try {
+            if (null != creationPlace) {
+                if ("CONTRACT_TRAIN".equals(creationPlace))
+                    rowSetIterator = this.getXpeDccNewContractLineView().createRowSetIterator(null);
+                else if ("CONTRACT_MAINTENANCE".equals(creationPlace))
+                    rowSetIterator = this.getXpeDccContractLineView1().createRowSetIterator(null);
+
+                while (rowSetIterator.hasNext()) {
+                    XpeDccContractLineViewRowImpl xpeDccContractLineViewRow =
+                        (XpeDccContractLineViewRowImpl) rowSetIterator.next();
+                    arrayList.add(Integer.valueOf(xpeDccContractLineViewRow.getXpeContractLine()));
+                }
+                rowSetIterator.closeRowSetIterator();
+                if (arrayList.size() > 0){
+                    Integer maxContractLineNumber = Integer.parseInt(String.valueOf(Collections.max(arrayList)));
+                    nextLineNumber = maxContractLineNumber + 1;
+                    System.out.println("maxContractLineNumber: "+maxContractLineNumber);
+                }
+            }
+        } catch (Exception ex) {
+            // TODO: Add catch code
+            ex.printStackTrace();
+        }
+        System.out.println("nextLineNumber: "+nextLineNumber);
+        return nextLineNumber;
+    }
+    
+    private Integer nextContractPricingTermNumber(String creationPlace){
+        ArrayList<Integer> arrayList = new ArrayList<Integer>();
+        Integer nextLineNumber = 1;
+        XpeDccContractLineViewImpl lineVO = null;
+        try {
+            if (null != creationPlace) {
+                if ("CONTRACT_TRAIN".equals(creationPlace))
+                    lineVO = this.getXpeDccNewContractLineView();
+                else if ("CONTRACT_MAINTENANCE".equals(creationPlace))
+                    lineVO = this.getXpeDccContractLineView1();
+                XpeDccContractLineViewRowImpl lineVOCurrentRow = (XpeDccContractLineViewRowImpl) lineVO.getCurrentRow();
+                if (null != lineVOCurrentRow) {
+                    RowIterator pricingTermVORowIterator = lineVOCurrentRow.getXpeDccContractPricingTermView();
+                    while (pricingTermVORowIterator.hasNext()) {
+                        XpeDccContractPricingTermViewRowImpl pricingTermVORow =
+                            (XpeDccContractPricingTermViewRowImpl) pricingTermVORowIterator.next();
+                        arrayList.add(pricingTermVORow.getXpePricingTermLine().intValue());
+                    }
+                }
+                if (arrayList.size() > 0){
+                    Integer maxContractPricingTermNumber = Integer.parseInt(String.valueOf(Collections.max(arrayList)));
+                    nextLineNumber = maxContractPricingTermNumber + 1;
+                    System.out.println("maxContractPricingTermNumber: "+maxContractPricingTermNumber);
+                }
+            }
+        } catch (Exception ex) {
+            // TODO: Add catch code
+            ex.printStackTrace();
+        }
+        System.out.println("nextLineNumber: "+nextLineNumber);
+        return nextLineNumber;
+    }
+    
+    private Integer nextContractPricingOverNumber(String creationPlace){
+        ArrayList<Integer> arrayList = new ArrayList<Integer>();
+        Integer nextLineNumber = 1;
+        XpeDccContractLineViewImpl lineVO = null;
+        try {
+            if (null != creationPlace) {
+                if ("CONTRACT_TRAIN".equals(creationPlace))
+                    lineVO = this.getXpeDccNewContractLineView();
+                else if ("CONTRACT_MAINTENANCE".equals(creationPlace))
+                    lineVO = this.getXpeDccContractLineView1();
+                XpeDccContractLineViewRowImpl lineVOCurrentRow = (XpeDccContractLineViewRowImpl) lineVO.getCurrentRow();
+                if (null != lineVOCurrentRow) {
+                    RowIterator pricingOverVORowIterator = lineVOCurrentRow.getXpeDccContractPricingOverView();
+                    while (pricingOverVORowIterator.hasNext()) {
+                        XpeDccContractPricingOverViewRowImpl pricingOverVORow =
+                            (XpeDccContractPricingOverViewRowImpl) pricingOverVORowIterator.next();
+                        arrayList.add(pricingOverVORow.getXpeContractOverNbr().intValue());
+                    }
+                }
+                if (arrayList.size() > 0){
+                    Integer maxContractPricingOverNumber = Integer.parseInt(String.valueOf(Collections.max(arrayList)));
+                    nextLineNumber = maxContractPricingOverNumber + 1;
+                    System.out.println("maxContractPricingOverNumber: "+maxContractPricingOverNumber);
+                }
+            }
+        } catch (Exception ex) {
+            // TODO: Add catch code
+            ex.printStackTrace();
+        }
+        System.out.println("nextLineNumber: "+nextLineNumber);
+        return nextLineNumber;
     }
 
     /**

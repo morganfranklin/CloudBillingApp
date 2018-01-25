@@ -96,12 +96,8 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action IterBinding="XpeDccNewContractLineViewIterator" id="CreateInsert1" RequiresUpdateModel="true"
-            Action="createInsertRow"/>
     <action IterBinding="XpeDccNewContractLineViewIterator" id="Delete1" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
-    <action IterBinding="XpeDccNewContractPricingTermViewIterator" id="CreateInsert2" RequiresUpdateModel="true"
-            Action="createInsertRow"/>
     <action IterBinding="XpeDccNewContractPricingTermViewIterator" id="Delete2" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
     <action IterBinding="XpeDccNewContractCarrierViewIterator" id="CreateInsert3" RequiresUpdateModel="true"
@@ -124,8 +120,6 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action IterBinding="XpeDccNewContractPricingOverViewIterator" id="CreateInsert4" RequiresUpdateModel="true"
-            Action="createInsertRow"/>
     <action IterBinding="XpeDccNewContractPricingOverViewIterator" id="Delete4" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
     <attributeValues IterBinding="XpeDccNewContractPricingOverViewIterator" id="CarryForwardedPricingOver">
@@ -143,5 +137,20 @@
           id="XpeContractDirection" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="XpeDccNewContractVersionViewIterator" StaticList="false" Uses="LOV_SalesPerson"
           id="SalesPerson" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <methodAction id="contractLineAdd" RequiresUpdateModel="true" Action="invokeMethod" MethodName="contractLineAdd"
+                  IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="data.AppModuleDataControl.dataProvider">
+      <NamedData NDName="creationPlace" NDValue="CONTRACT_TRAIN" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="contractPricingTermLineAdd" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="contractPricingTermLineAdd" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="data.AppModuleDataControl.dataProvider">
+      <NamedData NDName="creationPlace" NDValue="CONTRACT_TRAIN" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="contractPricingOverLineAdd" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="contractPricingOverLineAdd" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="data.AppModuleDataControl.dataProvider">
+      <NamedData NDName="creationPlace" NDValue="CONTRACT_TRAIN" NDType="java.lang.String"/>
+    </methodAction>
   </bindings>
 </pageDefinition>

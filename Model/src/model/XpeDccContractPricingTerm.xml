@@ -60,12 +60,7 @@
         Type="java.math.BigDecimal"
         ColumnType="NUMBER"
         TableName="XPE_DCC_CONTRACT_PRICING_TERM"
-        PrimaryKey="true"
-        IsUpdateable="while_insert">
-        <TransientExpression
-            Name="ExpressionScript"
-            CodeSourceName="XpeDccContractPricingTermRow"/>
-    </Attribute>
+        PrimaryKey="true"/>
     <Attribute
         Name="XpePricingTermType"
         Precision="30"
