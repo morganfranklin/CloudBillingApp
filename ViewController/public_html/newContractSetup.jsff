@@ -388,11 +388,10 @@
                                                                       popupTitle="Search and Select: #{row.bindings.XpePricingTermType.label}"
                                                                       id="ilov1"
                                                                       value="#{row.bindings.XpePricingTermType.inputValue}"
-                                                                      required="#{bindings.XpeDccNewContractPricingTermView.hints.XpePricingTermType.mandatory}"
                                                                       shortDesc="#{bindings.XpeDccNewContractPricingTermView.hints.XpePricingTermType.tooltip}"
                                                                       model="#{row.bindings.XpePricingTermType.listOfValuesModel}"
                                                                       readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
-                                                                      autoSubmit="true">
+                                                                      autoSubmit="true" required="true">
                                                     <f:validator binding="#{row.bindings.XpePricingTermType.validator}"/>
                                                 </af:inputListOfValues>
                                             </af:column>
@@ -416,13 +415,12 @@
                                                        id="c33">
                                                 <af:inputText value="#{row.bindings.XpeRate.inputValue}"
                                                               label="#{bindings.XpeDccNewContractPricingTermView.hints.XpeRate.label}"
-                                                              required="#{bindings.XpeDccNewContractPricingTermView.hints.XpeRate.mandatory}"
                                                               columns="#{bindings.XpeDccNewContractPricingTermView.hints.XpeRate.displayWidth}"
                                                               maximumLength="#{bindings.XpeDccNewContractPricingTermView.hints.XpeRate.precision}"
                                                               shortDesc="#{bindings.XpeDccNewContractPricingTermView.hints.XpeRate.tooltip}"
                                                               id="it2"
                                                               readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
-                                                              autoSubmit="true">
+                                                              autoSubmit="true" required="true">
                                                     <f:validator binding="#{row.bindings.XpeRate.validator}"/>
                                                     <af:convertNumber pattern="###.00000" groupingUsed="false"
                                                                       maxFractionDigits="5"

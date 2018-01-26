@@ -192,9 +192,9 @@
                                                               popupTitle="Search and Select: #{row.bindings.XpePricingTermType.label}"
                                                               id="ilov1"
                                                               value="#{row.bindings.XpePricingTermType.inputValue}"
-                                                              required="#{bindings.XpeDccContractPricingTermView2.hints.XpePricingTermType.mandatory}"
                                                               shortDesc="#{bindings.XpeDccContractPricingTermView2.hints.XpePricingTermType.tooltip}"
-                                                              model="#{row.bindings.XpePricingTermType.listOfValuesModel}">
+                                                              model="#{row.bindings.XpePricingTermType.listOfValuesModel}"
+                                                              required="true">
                                             <f:validator binding="#{row.bindings.XpePricingTermType.validator}"/>
                                         </af:inputListOfValues>
                                     </af:column>
@@ -216,11 +216,10 @@
                                                sortable="true" headerText="Rate" id="c4">
                                         <af:inputText value="#{row.bindings.XpeRate.inputValue}"
                                                       label="#{bindings.XpeDccContractPricingTermView2.hints.XpeRate.label}"
-                                                      required="#{bindings.XpeDccContractPricingTermView2.hints.XpeRate.mandatory}"
                                                       columns="#{bindings.XpeDccContractPricingTermView2.hints.XpeRate.displayWidth}"
                                                       maximumLength="#{bindings.XpeDccContractPricingTermView2.hints.XpeRate.precision}"
                                                       shortDesc="#{bindings.XpeDccContractPricingTermView2.hints.XpeRate.tooltip}"
-                                                      id="it5">
+                                                      id="it5" required="true">
                                             <f:validator binding="#{row.bindings.XpeRate.validator}"/>
                                             <af:convertNumber pattern="###.00000" groupingUsed="false"
                                                                       maxFractionDigits="5"
