@@ -18,34 +18,15 @@
         ResId="model.views.readonly.PsBiTypeROVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <Variable
-    Name="bindSetId"
-    Kind="viewcriteria"
-    Type="java.lang.String"/>
-  <SQLQuery><![CDATA[SELECT SETID, BILL_TYPE_ID, DESCRIPTION FROM PS_BI_TYPE]]></SQLQuery>
-  <ViewAttribute
-    Name="Setid"
-    IsUpdateable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Precision="5"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="SETID"
-    Expression="SETID"
-    SQLType="VARCHAR">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="5"/>
-    </DesignTime>
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.views.readonly.PsBiTypeROVO.Setid_LABEL"/>
-        <DISPLAYWIDTH
-          Value="10"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
+  <SQLQuery><![CDATA[SELECT A.BILL_TYPE_ID, A.DESCR DESCRIPTION 
+  FROM PS_BI_TYPE A  
+  WHERE ( A.EFFDT =  
+        (SELECT MAX(A_ED.EFFDT) FROM PS_BI_TYPE A_ED  
+        WHERE A.SETID = A_ED.SETID  
+          AND A.BILL_TYPE_ID = A_ED.BILL_TYPE_ID  
+          AND A_ED.EFFDT <= SYSDATE)  
+     AND A.SETID = 'MASTR'  
+     AND A.EFF_STATUS = 'A')]]></SQLQuery>
   <ViewAttribute
     Name="BillTypeId"
     IsUpdateable="false"
@@ -92,42 +73,6 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
-  <ViewCriteria
-    Name="findBySetId"
-    ViewObjectName="model.views.readonly.PsBiTypeROVO"
-    Conjunction="AND">
-    <Properties Name="_Props">
-      <CustomProperties>
-        <Property
-          Name="autoExecute"
-          Value="false"/>
-        <Property
-          Name="mode"
-          Value="Basic"/>
-        <Property
-          Name="allowConjunctionOverride"
-          Value="true"/>
-        <Property
-          Name="showInList"
-          Value="true"/>
-        <Property
-          Name="displayOperators"
-          Value="InAdvancedMode"/>
-      </CustomProperties>
-    </Properties>
-    <ViewCriteriaRow
-      Name="PsBiTypeROVOCriteria_row_0"
-      UpperColumns="1">
-      <ViewCriteriaItem
-        Name="Setid"
-        ViewAttribute="Setid"
-        Operator="="
-        Conjunction="AND"
-        Value=":bindSetId"
-        IsBindVarValue="true"
-        Required="Optional"/>
-    </ViewCriteriaRow>
-  </ViewCriteria>
   <AttrArray Name="KeyAttributes">
     <Item Value="BillTypeId"/>
   </AttrArray>
