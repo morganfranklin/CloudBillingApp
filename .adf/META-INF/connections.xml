@@ -7,20 +7,20 @@
         <Contents>thin</Contents>
       </StringRefAddr>
       <StringRefAddr addrType="hostname">
-        <Contents>morganfranklinlabs.us</Contents>
+        <Contents>vmpodcvae013.oracleoutsourcing.com</Contents>
       </StringRefAddr>
       <SecureRefAddr addrType="password"/>
       <StringRefAddr addrType="subtype">
         <Contents>oraJDBC</Contents>
       </StringRefAddr>
       <StringRefAddr addrType="port">
-        <Contents>1521</Contents>
+        <Contents>5010</Contents>
       </StringRefAddr>
       <StringRefAddr addrType="serviceName">
-        <Contents>orcl</Contents>
+        <Contents>DCVAEK</Contents>
       </StringRefAddr>
       <StringRefAddr addrType="user">
-        <Contents>paas</Contents>
+        <Contents>XPESOFT</Contents>
       </StringRefAddr>
     </RefAddresses>
   </Reference>
