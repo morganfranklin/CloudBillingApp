@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XpeDccCfgCountiesAdt"
+  Version="12.2.1.0.31"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="XPE_DCC_CFG_COUNTIES_ADT"
+  AliasName="XpeDccCfgCountiesAdt"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="CountyId"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="COUNTY_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_COUNTIES_ADT"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CountyName"
+    IsNotNull="true"
+    Precision="45"
+    ColumnName="COUNTY_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_COUNTIES_ADT"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="45"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="State"
+    IsNotNull="true"
+    Precision="5"
+    ColumnName="STATE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_COUNTIES_ADT"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Inactive"
+    Precision="1"
+    ColumnName="INACTIVE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_COUNTIES_ADT"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="InactiveDate"
+    ColumnName="INACTIVE_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XPE_DCC_CFG_COUNTIES_ADT"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="CreatedBy"
+    Precision="20"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_COUNTIES_ADT"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedDate"
+    ColumnName="CREATED_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XPE_DCC_CFG_COUNTIES_ADT"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="LastUpdatedBy"
+    Precision="20"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_COUNTIES_ADT"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedDate"
+    ColumnName="LAST_UPDATED_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XPE_DCC_CFG_COUNTIES_ADT"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="Country"
+    IsNotNull="true"
+    Precision="3"
+    ColumnName="COUNTRY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_COUNTIES_ADT"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Doneby"
+    Precision="125"
+    ColumnName="DONEBY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_COUNTIES_ADT"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="125"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Syncdone"
+    Precision="1"
+    ColumnName="SYNCDONE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_COUNTIES_ADT"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Syncdoneat"
+    ColumnName="SYNCDONEAT"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XPE_DCC_CFG_COUNTIES_ADT"
+    PrimaryKey="true"/>
+  <Key
+    Name="XpedcccfgcountiesadtPrimaryKey"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="XPEDCCCFGCOUNTIESADT_PRIMARY_K"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.auditlog.XpeDccCfgCountiesAdt.CountyId"/>
+      <Item Value="model.auditlog.XpeDccCfgCountiesAdt.CountyName"/>
+      <Item Value="model.auditlog.XpeDccCfgCountiesAdt.State"/>
+      <Item Value="model.auditlog.XpeDccCfgCountiesAdt.Inactive"/>
+      <Item Value="model.auditlog.XpeDccCfgCountiesAdt.InactiveDate"/>
+      <Item Value="model.auditlog.XpeDccCfgCountiesAdt.CreatedBy"/>
+      <Item Value="model.auditlog.XpeDccCfgCountiesAdt.CreatedDate"/>
+      <Item Value="model.auditlog.XpeDccCfgCountiesAdt.LastUpdatedBy"/>
+      <Item Value="model.auditlog.XpeDccCfgCountiesAdt.LastUpdatedDate"/>
+      <Item Value="model.auditlog.XpeDccCfgCountiesAdt.Country"/>
+      <Item Value="model.auditlog.XpeDccCfgCountiesAdt.Doneby"/>
+      <Item Value="model.auditlog.XpeDccCfgCountiesAdt.Syncdone"/>
+      <Item Value="model.auditlog.XpeDccCfgCountiesAdt.Syncdoneat"/>
+    </AttrArray>
+  </Key>
+</Entity>

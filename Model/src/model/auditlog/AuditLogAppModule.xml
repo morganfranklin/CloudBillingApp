@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AuditLogAppModule"
+  Version="12.2.1.0.31"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true">
+  <ViewUsage
+    Name="XpeDccCfgCarriersAdtView1"
+    ViewObjectName="model.auditlog.XpeDccCfgCarriersAdtView"/>
+  <ViewUsage
+    Name="XpeDccCfgCountiesAdtView1"
+    ViewObjectName="model.auditlog.XpeDccCfgCountiesAdtView"/>
+  <ViewUsage
+    Name="XpeDccCfgDestinationsAdtView1"
+    ViewObjectName="model.auditlog.XpeDccCfgDestinationsAdtView"/>
+  <ViewUsage
+    Name="XpeDccCfgOriginsAdtView1"
+    ViewObjectName="model.auditlog.XpeDccCfgOriginsAdtView"/>
+  <ViewUsage
+    Name="XpeDccCfgPcsshtnamesAdtView1"
+    ViewObjectName="model.auditlog.XpeDccCfgPcsshtnamesAdtView"/>
+  <ViewUsage
+    Name="XpeDccCfgPrdtserviceAdtView1"
+    ViewObjectName="model.auditlog.XpeDccCfgPrdtserviceAdtView"/>
+  <ViewUsage
+    Name="XpeDccCfgVehiclesAdtView1"
+    ViewObjectName="model.auditlog.XpeDccCfgVehiclesAdtView"/>
+  <ViewUsage
+    Name="XpeDccCntrctPrcngTermAdtView1"
+    ViewObjectName="model.auditlog.XpeDccCntrctPrcngTermAdtView"/>
+  <ViewUsage
+    Name="XpeDccContractLineAdtView1"
+    ViewObjectName="model.auditlog.XpeDccContractLineAdtView"/>
+  <ViewUsage
+    Name="XpeDccContractVersionAdtView1"
+    ViewObjectName="model.auditlog.XpeDccContractVersionAdtView"/>
+  <ViewUsage
+    Name="XpeDccContractsAdtView1"
+    ViewObjectName="model.auditlog.XpeDccContractsAdtView"/>
+</AppModule>

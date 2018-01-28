@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XpeDccCfgCarriersAdt"
+  Version="12.2.1.0.31"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="XPE_DCC_CFG_CARRIERS_ADT"
+  AliasName="XpeDccCfgCarriersAdt"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="CarrierId"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="CARRIER_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_CARRIERS_ADT"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CarrierName"
+    IsNotNull="true"
+    Precision="45"
+    ColumnName="CARRIER_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_CARRIERS_ADT"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="45"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="State"
+    IsNotNull="true"
+    Precision="5"
+    ColumnName="STATE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_CARRIERS_ADT"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Inactive"
+    Precision="1"
+    ColumnName="INACTIVE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_CARRIERS_ADT"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="InactiveDate"
+    ColumnName="INACTIVE_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XPE_DCC_CFG_CARRIERS_ADT"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="CreatedBy"
+    Precision="20"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_CARRIERS_ADT"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedDate"
+    ColumnName="CREATED_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XPE_DCC_CFG_CARRIERS_ADT"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="LastUpdatedBy"
+    Precision="20"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_CARRIERS_ADT"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedDate"
+    ColumnName="LAST_UPDATED_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XPE_DCC_CFG_CARRIERS_ADT"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="Doneby"
+    Precision="125"
+    ColumnName="DONEBY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_CARRIERS_ADT"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="125"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Syncdone"
+    Precision="1"
+    ColumnName="SYNCDONE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_CARRIERS_ADT"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Syncdoneat"
+    ColumnName="SYNCDONEAT"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XPE_DCC_CFG_CARRIERS_ADT"
+    PrimaryKey="true"/>
+  <Key
+    Name="XpedcccfgcarriersadtPrimaryKey"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="XPEDCCCFGCARRIERSADT_PRIMARY_K"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.auditlog.XpeDccCfgCarriersAdt.CarrierId"/>
+      <Item Value="model.auditlog.XpeDccCfgCarriersAdt.CarrierName"/>
+      <Item Value="model.auditlog.XpeDccCfgCarriersAdt.State"/>
+      <Item Value="model.auditlog.XpeDccCfgCarriersAdt.Inactive"/>
+      <Item Value="model.auditlog.XpeDccCfgCarriersAdt.InactiveDate"/>
+      <Item Value="model.auditlog.XpeDccCfgCarriersAdt.CreatedBy"/>
+      <Item Value="model.auditlog.XpeDccCfgCarriersAdt.CreatedDate"/>
+      <Item Value="model.auditlog.XpeDccCfgCarriersAdt.LastUpdatedBy"/>
+      <Item Value="model.auditlog.XpeDccCfgCarriersAdt.LastUpdatedDate"/>
+      <Item Value="model.auditlog.XpeDccCfgCarriersAdt.Doneby"/>
+      <Item Value="model.auditlog.XpeDccCfgCarriersAdt.Syncdone"/>
+      <Item Value="model.auditlog.XpeDccCfgCarriersAdt.Syncdoneat"/>
+    </AttrArray>
+  </Key>
+</Entity>
