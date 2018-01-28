@@ -94,8 +94,8 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
-  <SQLQuery><![CDATA[SELECT TERMINAL_ID,TERMINAL_DESC, TERMINAL_TYPE, STATE, COUNTY FROM XPE_DCC_CFG_TERMINALS      
-WHERE INACTIVE <> 'Y']]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT TERMINAL_ID,TERMINAL_DESC, TERMINAL_TYPE, STATE, COUNTY FROM XPE_DCC_CFG_TERMINALS       
+WHERE INACTIVE = 'Y']]></SQLQuery>
   <ViewAttribute
     Name="TerminalId"
     IsUpdateable="false"

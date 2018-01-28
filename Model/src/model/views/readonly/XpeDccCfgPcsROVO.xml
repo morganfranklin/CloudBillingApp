@@ -19,10 +19,10 @@
     Name="bindSiteId"
     Kind="viewcriteria"
     Type="java.lang.String"/>
-  <SQLQuery><![CDATA[SELECT SITE_ID,    
-       SITE_DESC     
-FROM XPE_DCC_CFG_PCS   
-WHERE INACTIVE<>'Y']]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT SITE_ID,     
+       SITE_DESC      
+FROM XPE_DCC_CFG_PCS    
+WHERE INACTIVE='N']]></SQLQuery>
   <ViewAttribute
     Name="SiteId"
     IsUpdateable="false"
