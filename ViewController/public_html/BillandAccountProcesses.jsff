@@ -37,6 +37,63 @@
         </af:column>
       </af:table>
     </af:panelHeader>
+    <af:panelHeader text="Results" id="ph3">
+      <f:facet name="context"/>
+      <f:facet name="toolbar"/>
+      <f:facet name="menuBar">
+        <af:button text="Refresh" id="b5" disabled="#{!bindings.Execute.enabled}" action="#{bindings.Execute.execute}"/>
+      </f:facet>
+      <f:facet name="legend"/>
+      <f:facet name="info"/>
+      <af:table value="#{bindings.PsCisXpeProcessView1.collectionModel}" var="row"
+                rows="#{bindings.PsCisXpeProcessView1.rangeSize}"
+                emptyText="#{bindings.PsCisXpeProcessView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                rowBandingInterval="0" selectedRowKeys="#{bindings.PsCisXpeProcessView1.collectionModel.selectedRow}"
+                selectionListener="#{bindings.PsCisXpeProcessView1.collectionModel.makeCurrent}" rowSelection="single"
+                fetchSize="#{bindings.PsCisXpeProcessView1.rangeSize}"
+                filterModel="#{bindings.PsCisXpeProcessView1Query.queryDescriptor}" filterVisible="true"
+                queryListener="#{bindings.PsCisXpeProcessView1Query.processQuery}" varStatus="vs" id="t4"
+                partialTriggers="::b5" maxClientRows="12">
+        <af:column sortProperty="#{bindings.PsCisXpeProcessView1.hints.Processid.name}" filterable="true"
+                   sortable="true" headerText="Process Id" id="c2" width="100">
+          <af:outputText value="#{row.Processid}" shortDesc="#{bindings.PsCisXpeProcessView1.hints.Processid.tooltip}"
+                         id="ot1">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.PsCisXpeProcessView1.hints.Processid.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.PsCisXpeProcessView1.hints.Descr100.name}" filterable="true" sortable="true"
+                   headerText="Message" id="c3" width="414">
+          <af:outputText value="#{row.Descr100}" shortDesc="#{bindings.PsCisXpeProcessView1.hints.Descr100.tooltip}"
+                         id="ot2"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.PsCisXpeProcessView1.hints.ActualStartDt.name}" filterable="true"
+                   sortable="true" headerText="Start" id="c4" width="-214">
+          <f:facet name="filter">
+            <af:inputDate value="#{bindings.PsCisXpeProcessView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.ActualStartDt.value}"
+                          id="id1">
+              <af:convertDateTime pattern="#{bindings.PsCisXpeProcessView1.hints.ActualStartDt.format}"/>
+            </af:inputDate>
+          </f:facet>
+          <af:outputText value="#{row.ActualStartDt}"
+                         shortDesc="#{bindings.PsCisXpeProcessView1.hints.ActualStartDt.tooltip}" id="ot3">
+            <af:convertDateTime pattern="#{bindings.PsCisXpeProcessView1.hints.ActualStartDt.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.PsCisXpeProcessView1.hints.ActualFinishDt.name}" filterable="true"
+                   sortable="true" headerText="Finish" id="c5" width="100">
+          <f:facet name="filter">
+            <af:inputDate value="#{bindings.PsCisXpeProcessView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.ActualFinishDt.value}"
+                          id="id2">
+              <af:convertDateTime pattern="#{bindings.PsCisXpeProcessView1.hints.ActualFinishDt.format}"/>
+            </af:inputDate>
+          </f:facet>
+          <af:outputText value="#{row.ActualFinishDt}"
+                         shortDesc="#{bindings.PsCisXpeProcessView1.hints.ActualFinishDt.tooltip}" id="ot4">
+            <af:convertDateTime pattern="#{bindings.PsCisXpeProcessView1.hints.ActualFinishDt.format}"/>
+          </af:outputText>
+        </af:column>
+      </af:table>
+    </af:panelHeader>
     <af:spacer width="10" height="10" id="s2"/>
     <af:panelHeader text="" id="ph2">
       <f:facet name="context"/>
