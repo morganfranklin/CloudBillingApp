@@ -48,31 +48,29 @@
         ViewObjectName="model.XpeDccDicCurrency"
         RowLevelBinds="true"/>
     <ViewAccessor
-        Name="LookupSharedAppModule_BusinessUnitLOV"
-        ViewObjectName="model.views.readonly.XpeDccDicNewContractSetupROVO"
-        AMUsageName="LookupSharedAppModule"
-        ViewInstanceName="XpeDccDicNewContractSetupROVO"
-        RowLevelBinds="true">
-        <ParameterMap>
-            <PIMap Variable="bind_Lookup_Type">
-                <TransientExpression
-                    trustMode="untrusted"
-                    Name="ExpressionScript"><![CDATA['BUS']]></TransientExpression>
-            </PIMap>
-        </ParameterMap>
-    </ViewAccessor>
-    <ViewAccessor
         Name="XpeDccCfgPcsROVO_LOV"
         ViewObjectName="model.views.readonly.XpeDccCfgPcsROVO"
-        RowLevelBinds="true"/>
-    <ViewAccessor
-        Name="PcBusUnitTblGlROVO1"
-        ViewObjectName="model.views.readonly.PcBusUnitTblGlROVO"
         RowLevelBinds="true"/>
     <ViewAccessor
         Name="PsCurrencyCdTblROVO1"
         ViewObjectName="model.views.readonly.PsCurrencyCdTblROVO"
         RowLevelBinds="true"/>
+    <ViewAccessor
+        Name="XpeDccGeneralItemListROVO_BusinessUintLOV"
+        ViewObjectName="model.views.readonly.XpeDccGeneralItemListROVO"
+        RowLevelBinds="true"
+        OrderBy='"VALID_VALUE"'>
+        <ViewCriteriaUsage
+            Name="findByItemListType"
+            FullName="model.views.readonly.XpeDccGeneralItemListROVO.findByItemListType"/>
+        <ParameterMap>
+            <PIMap Variable="bind_ItemListType">
+                <TransientExpression
+                    trustMode="untrusted"
+                    Name="ExpressionScript"><![CDATA['BU']]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
     <ListBinding
         Name="LOV_XpeProductId"
         ListVOName="XpeDccDicProducts1"
@@ -151,7 +149,7 @@
     </ListBinding>
     <ListBinding
         Name="LOV_BusinessUnitGl"
-        ListVOName="PcBusUnitTblGlROVO1"
+        ListVOName="XpeDccGeneralItemListROVO_BusinessUintLOV"
         ListRangeSize="-1"
         NullValueFlag="none"
         MRUCount="0">
@@ -160,10 +158,10 @@
         </AttrArray>
         <AttrArray Name="AttrExpressions"/>
         <AttrArray Name="ListAttrNames">
-            <Item Value="BusinessUnit"/>
+            <Item Value="ItemId"/>
         </AttrArray>
         <AttrArray Name="ListDisplayAttrNames">
-            <Item Value="BusinessUnit"/>
+            <Item Value="ValidValue"/>
         </AttrArray>
         <DisplayCriteria/>
     </ListBinding>

@@ -10,7 +10,8 @@
   CustomQuery="true"
   PageIterMode="Full"
   FetchSize="25"
-  FetchMode="FETCH_AS_NEEDED">
+  FetchMode="FETCH_AS_NEEDED"
+  OrderBy='"SITE_DESC"'>
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
   </DesignTime>
@@ -18,9 +19,10 @@
     Name="bindSiteId"
     Kind="viewcriteria"
     Type="java.lang.String"/>
-  <SQLQuery><![CDATA[SELECT SITE_ID, 
-       SITE_DESC  
-FROM XPE_DCC_CFG_PCS]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT SITE_ID,    
+       SITE_DESC     
+FROM XPE_DCC_CFG_PCS   
+WHERE INACTIVE<>'Y']]></SQLQuery>
   <ViewAttribute
     Name="SiteId"
     IsUpdateable="false"
