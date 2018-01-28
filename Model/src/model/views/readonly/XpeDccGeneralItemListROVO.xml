@@ -9,7 +9,8 @@
   BindingStyle="OracleName"
   CustomQuery="true"
   PageIterMode="Full"
-  FetchSize="25">
+  FetchSize="25"
+  FetchMode="FETCH_AS_NEEDED">
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
   </DesignTime>
