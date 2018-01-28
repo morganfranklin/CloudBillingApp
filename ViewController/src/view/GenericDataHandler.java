@@ -3,6 +3,7 @@ package view;
 //Change history maintained in accompanying track6
 
 //Update 2.1 1/23/2018: 5:33pm EX2G and CSCR routines 
+//Update 2.2 1/28/2018: 3:13pm process log changes, CSCR routine update
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -1090,6 +1091,8 @@ public class GenericDataHandler implements Runnable {
     	String sqlStatementBody = "", connectionPattern = "";
     	ResultSet myResultSet = null;
     	PreparedStatement sqlStatement = null;
+    	boolean hadResults=false;
+    	int localResult=0;
     			
     	System.out.println("----> entering executeScript");
     	
@@ -1117,6 +1120,7 @@ public class GenericDataHandler implements Runnable {
 
 			}
 			
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -1124,7 +1128,7 @@ public class GenericDataHandler implements Runnable {
         
     	System.out.println("<---- exiting executeScript");
     	
-    	return 0;
+    	return localResult;
     }
     
 
@@ -3623,16 +3627,19 @@ public class GenericDataHandler implements Runnable {
         // DEV System.out.println("Rule Name  => " + ruleName);
 
         try {
-            PreparedStatement pstmt = configdb.prepareStatement(insertSql);
-            pstmt.setInt(1, process_id_seq);
-            pstmt.setString(2, execPlanCode);
-            pstmt.setString(3, execStep);
-            pstmt.setInt(4, execSeq);
-            pstmt.setString(5, status);
-            pstmt.setString(6, msg);
-            pstmt.setString(7, userId);
+        	
+        	if (execPlanCode.equalsIgnoreCase("A10")) {
 
-            pstmt.executeUpdate(); // execute insert statement
+        		PreparedStatement pstmt = configdb.prepareStatement(insertSql);
+                pstmt.setInt(1, process_id_seq);
+                pstmt.setString(2, execPlanCode);
+                pstmt.setString(3, execStep);
+                pstmt.setInt(4, execSeq);
+                pstmt.setString(5, status);
+                pstmt.setString(6, msg);
+                pstmt.setString(7, userId);
+            	pstmt.executeUpdate(); // execute insert statement
+}
 
             projShare.setprocessId(process_id_seq);
 
@@ -3642,7 +3649,7 @@ public class GenericDataHandler implements Runnable {
             System.out.println(e);
         } //catch
 
-System.out.println(" 170830a exiting process status insert ");
+// System.out.println(" 170830a exiting process status insert ");
     }
 
     public void updateProcess(ProjectVariable projShare, int return_status, String descr) {

@@ -26,7 +26,6 @@
                                                                     shortDesc="#{bindings.XpeWasteType.hints.tooltip}"
                                                                     id="soc2" simple="true" autoSubmit="true"
                                                                     required="true"
-                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
                                                                     valueChangeListener="#{pageFlowScope.XpeDccNewContractMBean.onWasteTypeValueChange}">
                                                     <f:selectItems value="#{bindings.XpeWasteType.items}" id="si2"/>
                                                     <f:validator binding="#{bindings.XpeWasteType.validator}"/>
@@ -38,7 +37,6 @@
                                                                     label="#{bindings.XpeContractSubType.label}"
                                                                     shortDesc="#{bindings.XpeContractSubType.hints.tooltip}"
                                                                     id="soc3" simple="true" autoSubmit="true"
-                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
                                                                     required="true"
                                                                     binding="#{backingBeanScope.XpeDccNewContractBBean.contractSubTypeRIT}"
                                                                     valueChangeListener="#{pageFlowScope.XpeDccNewContractMBean.onContractSubtypeValueChange}">
@@ -53,7 +51,6 @@
                                                                     label="#{bindings.XpeAgreementType.label}"
                                                                     shortDesc="#{bindings.XpeAgreementType.hints.tooltip}"
                                                                     id="soc1" simple="true" autoSubmit="true"
-                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
                                                                     required="true"
                                                                     binding="#{backingBeanScope.XpeDccNewContractBBean.agreementRIT}">
                                                     <f:selectItems value="#{bindings.XpeAgreementType.items}" id="si1"/>
@@ -66,7 +63,6 @@
                                                                     label="#{bindings.XpeContractDirection.label}"
                                                                     shortDesc="#{bindings.XpeContractDirection.hints.tooltip}"
                                                                     id="soc29" simple="true" autoSubmit="true"
-                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
                                                                     required="true">
                                                     <f:selectItems value="#{bindings.XpeContractDirection.items}"
                                                                    id="si22"/>
@@ -118,8 +114,7 @@
                                                           required="#{bindings.XpeAsOfDate.hints.mandatory}"
                                                           columns="#{bindings.XpeAsOfDate.hints.displayWidth}"
                                                           shortDesc="#{bindings.XpeAsOfDate.hints.tooltip}" id="id1"
-                                                          autoSubmit="true"
-                                                          readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                          autoSubmit="true">
                                                 <f:validator binding="#{bindings.XpeAsOfDate.validator}"/>
                                             </af:inputDate>
                                             <af:panelLabelAndMessage label="#{bindings.XpeStartDate.hints.label}"
@@ -129,8 +124,7 @@
                                                               required="#{bindings.XpeStartDate.hints.mandatory}"
                                                               columns="#{bindings.XpeStartDate.hints.displayWidth}"
                                                               shortDesc="#{bindings.XpeStartDate.hints.tooltip}"
-                                                              id="id2" simple="true" autoSubmit="true"
-                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                              id="id2" simple="true" autoSubmit="true">
                                                     <f:validator binding="#{bindings.XpeStartDate.validator}"/>
                                                     <af:convertDateTime pattern="yyyy-MM-dd HH:mm:ss"/>
                                                 </af:inputDate>
@@ -140,8 +134,7 @@
                                                                   required="#{bindings.XpeEndDate.hints.mandatory}"
                                                                   columns="#{bindings.XpeEndDate.hints.displayWidth}"
                                                                   shortDesc="#{bindings.XpeEndDate.hints.tooltip}"
-                                                                  id="id3" autoSubmit="true"
-                                                                  readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                                  id="id3" autoSubmit="true">
                                                         <f:validator binding="#{bindings.XpeEndDate.validator}"/>
                                                         <af:convertDateTime pattern="yyyy-MM-dd HH:mm:ss"/>
                                                     </af:inputDate>
@@ -153,8 +146,7 @@
                                                                     label="#{bindings.XpeAcctgOptionsSet.label}"
                                                                     required="true"
                                                                     shortDesc="#{bindings.XpeAcctgOptionsSet.hints.tooltip}"
-                                                                    id="soc27" autoSubmit="true" simple="true"
-                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                                    id="soc27" autoSubmit="true" simple="true">
                                                     <f:selectItems value="#{bindings.XpeAcctgOptionsSet.items}"
                                                                    id="si20"/>
                                                     <f:validator binding="#{bindings.XpeAcctgOptionsSet.validator}"/>
@@ -165,8 +157,7 @@
                                                                     label="#{bindings.CurrencyCd.label}"
                                                                     required="#{bindings.CurrencyCd.hints.mandatory}"
                                                                     shortDesc="#{bindings.CurrencyCd.hints.tooltip}"
-                                                                    id="soc28" autoSubmit="true" simple="true"
-                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                                    id="soc28" autoSubmit="true" simple="true">
                                                     <f:selectItems value="#{bindings.CurrencyCd.items}" id="si21"/>
                                                     <f:validator binding="#{bindings.CurrencyCd.validator}"/>
                                                 </af:selectOneChoice>
@@ -177,7 +168,6 @@
                                                                     required="#{bindings.SalesPerson.hints.mandatory}"
                                                                     shortDesc="#{bindings.SalesPerson.hints.tooltip}"
                                                                     id="soc5" autoSubmit="true"
-                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
                                                                     simple="true">
                                                     <f:selectItems value="#{bindings.SalesPerson.items}" id="si5"/>
                                                     <f:validator binding="#{bindings.SalesPerson.validator}"/>
@@ -388,11 +378,10 @@
                                                                       popupTitle="Search and Select: #{row.bindings.XpePricingTermType.label}"
                                                                       id="ilov1"
                                                                       value="#{row.bindings.XpePricingTermType.inputValue}"
-                                                                      required="#{bindings.XpeDccNewContractPricingTermView.hints.XpePricingTermType.mandatory}"
                                                                       shortDesc="#{bindings.XpeDccNewContractPricingTermView.hints.XpePricingTermType.tooltip}"
                                                                       model="#{row.bindings.XpePricingTermType.listOfValuesModel}"
                                                                       readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
-                                                                      autoSubmit="true">
+                                                                      autoSubmit="true" required="true">
                                                     <f:validator binding="#{row.bindings.XpePricingTermType.validator}"/>
                                                 </af:inputListOfValues>
                                             </af:column>
@@ -416,13 +405,12 @@
                                                        id="c33">
                                                 <af:inputText value="#{row.bindings.XpeRate.inputValue}"
                                                               label="#{bindings.XpeDccNewContractPricingTermView.hints.XpeRate.label}"
-                                                              required="#{bindings.XpeDccNewContractPricingTermView.hints.XpeRate.mandatory}"
                                                               columns="#{bindings.XpeDccNewContractPricingTermView.hints.XpeRate.displayWidth}"
                                                               maximumLength="#{bindings.XpeDccNewContractPricingTermView.hints.XpeRate.precision}"
                                                               shortDesc="#{bindings.XpeDccNewContractPricingTermView.hints.XpeRate.tooltip}"
                                                               id="it2"
                                                               readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
-                                                              autoSubmit="true">
+                                                              autoSubmit="true" required="true">
                                                     <f:validator binding="#{row.bindings.XpeRate.validator}"/>
                                                     <af:convertNumber pattern="###.00000" groupingUsed="false"
                                                                       maxFractionDigits="5"
@@ -650,8 +638,7 @@
                                                           required="#{bindings.XpeNoteDttm.hints.mandatory}"
                                                           columns="#{bindings.XpeNoteDttm.hints.displayWidth}"
                                                           shortDesc="#{bindings.XpeNoteDttm.hints.tooltip}" id="id4"
-                                                          autoSubmit="true"
-                                                          readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                          autoSubmit="true">
                                                 <f:validator binding="#{bindings.XpeNoteDttm.validator}"/>
                                                 <af:convertDateTime pattern="#{bindings.XpeNoteDttm.format}"/>
                                             </af:inputDate>
@@ -673,8 +660,7 @@
                                                           required="#{bindings.XpeNote.hints.mandatory}" columns="50"
                                                           maximumLength="#{bindings.XpeNote.hints.precision}"
                                                           shortDesc="#{bindings.XpeNote.hints.tooltip}" id="it3"
-                                                          rows="10" autoSubmit="true"
-                                                          readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                          rows="10" autoSubmit="true">
                                                 <f:validator binding="#{bindings.XpeNote.validator}"/>
                                             </af:inputText>
                                             <af:inputText value="#{bindings.XpeNoteLong.inputValue}"
@@ -683,8 +669,7 @@
                                                           columns="50"
                                                           maximumLength="#{bindings.XpeNoteLong.hints.precision}"
                                                           shortDesc="#{bindings.XpeNoteLong.hints.tooltip}" id="it4"
-                                                          rows="10" autoSubmit="true" converter="oracle.genericDomain"
-                                                          readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                          rows="10" autoSubmit="true" converter="oracle.genericDomain">
                                                 <f:validator binding="#{bindings.XpeNoteLong.validator}"/>
                                             </af:inputText>
                                             <af:inputText value="#{bindings.XpeUser.inputValue}" label="User"

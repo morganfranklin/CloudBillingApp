@@ -41,10 +41,9 @@ public class XpeDccContractLineViewRowImpl extends ViewRowImpl {
         XpeDccDicPeriods1,
         XpeDccDicUnitsOfMeasure1,
         XpeDccDicCurrency1,
-        LookupSharedAppModule_BusinessUnitLOV,
         XpeDccCfgPcsROVO_LOV,
-        PcBusUnitTblGlROVO1,
-        PsCurrencyCdTblROVO1;
+        PsCurrencyCdTblROVO1,
+        XpeDccGeneralItemListROVO_BusinessUintLOV;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -90,11 +89,10 @@ public class XpeDccContractLineViewRowImpl extends ViewRowImpl {
     public static final int XPEDCCDICPERIODS1 = AttributesEnum.XpeDccDicPeriods1.index();
     public static final int XPEDCCDICUNITSOFMEASURE1 = AttributesEnum.XpeDccDicUnitsOfMeasure1.index();
     public static final int XPEDCCDICCURRENCY1 = AttributesEnum.XpeDccDicCurrency1.index();
-    public static final int LOOKUPSHAREDAPPMODULE_BUSINESSUNITLOV =
-        AttributesEnum.LookupSharedAppModule_BusinessUnitLOV.index();
     public static final int XPEDCCCFGPCSROVO_LOV = AttributesEnum.XpeDccCfgPcsROVO_LOV.index();
-    public static final int PCBUSUNITTBLGLROVO1 = AttributesEnum.PcBusUnitTblGlROVO1.index();
     public static final int PSCURRENCYCDTBLROVO1 = AttributesEnum.PsCurrencyCdTblROVO1.index();
+    public static final int XPEDCCGENERALITEMLISTROVO_BUSINESSUINTLOV =
+        AttributesEnum.XpeDccGeneralItemListROVO_BusinessUintLOV.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -360,12 +358,6 @@ public class XpeDccContractLineViewRowImpl extends ViewRowImpl {
         return (RowSet) getAttributeInternal(XPEDCCDICCURRENCY1);
     }
 
-    /**
-     * Gets the view accessor <code>RowSet</code> LookupSharedAppModule_BusinessUnitLOV.
-     */
-    public RowSet getLookupSharedAppModule_BusinessUnitLOV() {
-        return (RowSet) getAttributeInternal(LOOKUPSHAREDAPPMODULE_BUSINESSUNITLOV);
-    }
 
     /**
      * Gets the view accessor <code>RowSet</code> XpeDccCfgPcsROVO_LOV.
@@ -374,18 +366,19 @@ public class XpeDccContractLineViewRowImpl extends ViewRowImpl {
         return (RowSet) getAttributeInternal(XPEDCCCFGPCSROVO_LOV);
     }
 
-    /**
-     * Gets the view accessor <code>RowSet</code> PcBusUnitTblGlROVO1.
-     */
-    public RowSet getPcBusUnitTblGlROVO1() {
-        return (RowSet) getAttributeInternal(PCBUSUNITTBLGLROVO1);
-    }
 
     /**
      * Gets the view accessor <code>RowSet</code> PsCurrencyCdTblROVO1.
      */
     public RowSet getPsCurrencyCdTblROVO1() {
         return (RowSet) getAttributeInternal(PSCURRENCYCDTBLROVO1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> XpeDccGeneralItemListROVO_BusinessUintLOV.
+     */
+    public RowSet getXpeDccGeneralItemListROVO_BusinessUintLOV() {
+        return (RowSet) getAttributeInternal(XPEDCCGENERALITEMLISTROVO_BUSINESSUINTLOV);
     }
 }
 

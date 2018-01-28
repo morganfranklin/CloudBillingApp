@@ -19,6 +19,7 @@
           <Item Value="ValidValue"/>
           <Item Value="Inactive"/>
           <Item Value="InactiveDate"/>
+          <Item Value="ItemId"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

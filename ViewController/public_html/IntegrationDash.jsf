@@ -18,7 +18,7 @@
                 </f:facet>
                 <f:facet name="globalLinks">
                     <af:link text="Sign Out" id="l13"
-                             destination="https://finance.neustar.biz/psp/fsprd91/EMPLOYEE/ERP/h/?tab=DEFAULT"/>
+                             destination="https://fincvtadev.covanta.com/psp/DCVAEK/EMPLOYEE/ERP/h/?tab=DEFAULT"/>
                 </f:facet>
                 <f:facet name="footer"/>
                 <f:facet name="center">
@@ -51,7 +51,7 @@
                                         </af:gridRow>
                                         <af:gridRow marginTop="5px" height="auto" id="gr6">
                                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6">
-                                                <af:link text="ERP Cloud Billing Data"
+                                                <af:link text="Matching and Pricing Errors"
                                                          action="#{viewScope.integrationDashboardRegionName.distilledData}"
                                                          id="l1"/>
                                             </af:gridCell>
@@ -164,7 +164,7 @@
                                         </af:gridRow>
                                         <af:gridRow marginTop="5px" height="auto" id="gr28">
                                             <af:gridCell id="gc28" width="100%" marginStart="5px" marginEnd="5px">
-                                                <af:link text="Contract Amendment and Renewal" id="l23"
+                                                <af:link text="Amendment and Renewal" id="l23"
                                                          action="#{viewScope.integrationDashboardRegionName.updateContract}"/>
                                             </af:gridCell>
                                         </af:gridRow>
@@ -188,14 +188,14 @@
                                         </af:gridRow>
                                         <af:gridRow id="gr30" marginTop="5px" marginBottom="5px">
                                             <af:gridCell id="gc30" width="100%" marginStart="5px" marginEnd="5px">
-                                                <af:link text="Billing and Accounting Processes" id="l25"
+                                                <af:link text="Billing and Accounting" id="l25"
                                                          partialSubmit="true"
                                                          action="#{viewScope.integrationDashboardRegionName.billingAccountingProcesses}"/>
                                             </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow id="gr31" marginTop="5px" marginBottom="5px">
                                             <af:gridCell id="gc31" width="100%" marginStart="5px" marginEnd="5px">
-                                                <af:link text="Accrual and Revenue Generation" id="l26"
+                                                <af:link text="Accruals" id="l26"
                                                          partialSubmit="true"
                                                          action="#{viewScope.integrationDashboardRegionName.accrualRevenueGenerationProcesses}"/>
                                             </af:gridCell>

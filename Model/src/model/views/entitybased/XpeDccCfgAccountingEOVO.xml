@@ -114,16 +114,6 @@
     Name="PsBiTypeROVO1"
     ViewObjectName="model.views.readonly.PsBiTypeROVO"
     RowLevelBinds="true">
-    <ViewCriteriaUsage
-      Name="findBySetId"
-      FullName="model.views.readonly.PsBiTypeROVO.findBySetId"/>
-    <ParameterMap>
-      <PIMap Variable="bindSetId">
-        <TransientExpression
-          trustMode="untrusted"
-          Name="ExpressionScript"><![CDATA['MASTR']]></TransientExpression>
-      </PIMap>
-    </ParameterMap>
   </ViewAccessor>
   <ViewAccessor
     Name="PsGlAccountTblROVO1"
@@ -289,7 +279,6 @@
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="BillTypeId"/>
       <Item Value="Description"/>
-      <Item Value="Setid"/>
     </AttrArray>
     <DisplayCriteria
       Hint="showAndExecute"/>

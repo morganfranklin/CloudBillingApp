@@ -53,8 +53,8 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
-  <SQLQuery><![CDATA[SELECT COUNTY_ID, COUNTY_NAME, STATE FROM XPE_DCC_CFG_COUNTIES  
-WHERE INACTIVE <> 'Y']]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT COUNTY_ID, COUNTY_NAME, STATE FROM XPE_DCC_CFG_COUNTIES   
+WHERE INACTIVE = 'Y']]></SQLQuery>
   <ViewAttribute
     Name="CountyId"
     IsPersistent="false"

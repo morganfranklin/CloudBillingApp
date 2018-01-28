@@ -8,7 +8,9 @@
   InheritPersonalization="merge"
   BindingStyle="OracleName"
   CustomQuery="true"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  FetchSize="25"
+  FetchMode="FETCH_AS_NEEDED">
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
   </DesignTime>
@@ -80,7 +82,7 @@ FROM XPE_DCC_CFG_GENERAL]]></SQLQuery>
     ColumnType="VARCHAR2"
     AliasName="VALID_VALUE"
     Expression="VALID_VALUE"
-    SQLType="VARCHAR2">
+    SQLType="VARCHAR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="45"/>
     </DesignTime>

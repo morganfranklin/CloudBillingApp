@@ -44,7 +44,7 @@
             <f:validator binding="#{row.bindings.ItemListType.validator}"/>
           </af:selectOneChoice>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgGeneralEOVO.hints.ValidValue.label}" id="resId1c3">
+        <af:column headerText="#{bindings.XpeDccCfgGeneralEOVO.hints.ValidValue.label}" id="resId1c3" width="250">
           <af:outputText value="#{row.ValidValue}" shortDesc="#{bindings.XpeDccCfgGeneralEOVO.hints.ValidValue.tooltip}"
                          id="ot2"/>
         </af:column>
