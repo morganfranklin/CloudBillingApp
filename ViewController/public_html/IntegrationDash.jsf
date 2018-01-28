@@ -138,14 +138,14 @@
                                     <af:panelGridLayout id="pgl5">
                                         <af:gridRow marginTop="5px" height="auto" id="gr15">
                                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc15">
-                                                <af:link text="Accounting Events"
+                                                <af:link text="Processed Tickets Review"
                                                          action="#{viewScope.integrationDashboardRegionName.billingEvents}"
                                                          id="l4"/>
                                             </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow marginTop="5px" height="auto" id="gr16">
                                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc16">
-                                                <af:link text="Voucher Events"
+                                                <af:link text="Changes Log"
                                                          action="#{viewScope.integrationDashboardRegionName.voucherEvents}"
                                                          id="l5"/>
                                             </af:gridCell>
