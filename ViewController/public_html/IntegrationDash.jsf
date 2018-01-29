@@ -46,32 +46,37 @@
                                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc7">
                                                 <af:link text="Raw Usage Data Display"
                                                          action="#{viewScope.integrationDashboardRegionName.transmittedData}"
-                                                         id="l2"/>
+                                                         id="l2"
+                                                         rendered="#{ PeopleSoftCallSecurityFilter.accessLimit == 'A' || PeopleSoftCallSecurityFilter.accessLimit == 'D' }"/>
                                             </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow marginTop="5px" height="auto" id="gr6">
                                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6">
                                                 <af:link text="Matching and Pricing Errors"
                                                          action="#{viewScope.integrationDashboardRegionName.distilledData}"
-                                                         id="l1"/>
+                                                         id="l1"
+                                                         rendered="#{ PeopleSoftCallSecurityFilter.accessLimit == 'A' || PeopleSoftCallSecurityFilter.accessLimit == 'D' }"/>
                                             </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow marginTop="5px" height="auto" id="gr8">
                                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc8">
                                                 <af:link text="Contracts and Transactions" id="l6"
-                                                         action="#{viewScope.integrationDashboardRegionName.lookupSets}"/>
+                                                         action="#{viewScope.integrationDashboardRegionName.lookupSets}"
+                                                         rendered="#{ PeopleSoftCallSecurityFilter.accessLimit == 'S' || PeopleSoftCallSecurityFilter.accessLimit == 'A' || PeopleSoftCallSecurityFilter.accessLimit == 'D' }"/>
                                             </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr9">
                                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc9">
-                                                <af:link text="Web Services Definition" id="l7"/>
+                                                <af:link text="Web Services Definition" id="l7"
+                                                         rendered="#{ PeopleSoftCallSecurityFilter.accessLimit == 'D' }"/>
                                             </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow id="gr10">
                                             <af:gridCell id="gc10">
                                                 <af:link text="Contract Master"
                                                          action="#{viewScope.integrationDashboardRegionName.contractMaster}"
-                                                         id="l19"/>
+                                                         id="l19"
+                                                         rendered="#{ PeopleSoftCallSecurityFilter.accessLimit == 'D' }"/>
                                             </af:gridCell>
                                         </af:gridRow>
                                     </af:panelGridLayout>
@@ -87,7 +92,8 @@
                                             <af:gridCell id="gc20">
                                                 <af:link text="Enterprise Contracts"
                                                          action="#{viewScope.integrationDashboardRegionName.mappedContracts}"
-                                                         id="l15"/>
+                                                         id="l15"
+                                                         rendered="#{ PeopleSoftCallSecurityFilter.accessLimit == 'D' }"/>
                                             </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow id="gr22" marginTop="5px">
@@ -95,14 +101,15 @@
                                                 <af:link text="Rules and Rule sets"
                                                          action="#{viewScope.integrationDashboardRegionName.rulesets}"
                                                          id="l16"
-                                                         rendered="#{PeopleSoftCallSecurityFilter.accessLimit != 'R' &amp;&amp; PeopleSoftCallSecurityFilter.accessLimit != 'B'}"/>
+                                                         rendered="#{ PeopleSoftCallSecurityFilter.accessLimit == 'A' || PeopleSoftCallSecurityFilter.accessLimit == 'D' }"/>
                                             </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow marginTop="5px" height="auto" id="gr12">
                                             <af:gridCell marginStart="5px" marginEnd="5px" id="gc12">
                                                 <af:link text="Cross-reference Data"
                                                          action="#{viewScope.integrationDashboardRegionName.crossReferences}"
-                                                         id="l3"/>
+                                                         id="l3"
+                                                         rendered="#{ PeopleSoftCallSecurityFilter.accessLimit == 'D' }"/>
                                             </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow id="gr23" marginTop="5px">
@@ -110,7 +117,7 @@
                                                 <af:link text="Execution Plans"
                                                          action="#{viewScope.integrationDashboardRegionName.executionPlan}"
                                                          id="l17"
-                                                         rendered="#{PeopleSoftCallSecurityFilter.accessLimit != 'E' &amp;&amp; PeopleSoftCallSecurityFilter.accessLimit != 'B'}"/>
+                                                         rendered="#{ PeopleSoftCallSecurityFilter.accessLimit == 'A' || PeopleSoftCallSecurityFilter.accessLimit == 'D' }"/>
                                             </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow marginTop="5px" height="auto" id="gr13">
@@ -124,7 +131,8 @@
                                             <af:gridCell marginStart="5px" marginEnd="5px" id="gc14">
                                                 <af:link text="Lookup sets"
                                                          action="#{viewScope.integrationDashboardRegionName.lookupSets}"
-                                                         id="l8"/>
+                                                         id="l8"
+                                                         rendered="#{ PeopleSoftCallSecurityFilter.accessLimit == 'D' }"/>
                                             </af:gridCell>
                                         </af:gridRow>
                                     </af:panelGridLayout>
@@ -140,64 +148,74 @@
                                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc15">
                                                 <af:link text="Processed Tickets Review"
                                                          action="#{viewScope.integrationDashboardRegionName.billingEvents}"
-                                                         id="l4"/>
+                                                         id="l4"
+                                                         rendered="#{ PeopleSoftCallSecurityFilter.accessLimit == 'A' || PeopleSoftCallSecurityFilter.accessLimit == 'D' }"/>
                                             </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow marginTop="5px" height="auto" id="gr16">
                                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc16">
                                                 <af:link text="Changes Log"
                                                          action="#{viewScope.integrationDashboardRegionName.voucherEvents}"
-                                                         id="l5"/>
+                                                         id="l5"
+                                                         rendered="#{ PeopleSoftCallSecurityFilter.accessLimit == 'I'|| PeopleSoftCallSecurityFilter.accessLimit == 'A' || PeopleSoftCallSecurityFilter.accessLimit == 'D' }"/>
                                             </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow marginTop="5px" height="auto" id="gr19">
                                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc19">
                                                 <af:link text="Contract Management" id="l14"
-                                                         action="#{viewScope.integrationDashboardRegionName.dccContractMaintenance}"/>
+                                                         action="#{viewScope.integrationDashboardRegionName.dccContractMaintenance}"
+                                                         rendered="#{ PeopleSoftCallSecurityFilter.accessLimit == 'S'|| PeopleSoftCallSecurityFilter.accessLimit == 'A' || PeopleSoftCallSecurityFilter.accessLimit == 'D' }"/>
                                             </af:gridCell>
                                         </af:gridRow>
                                          <af:gridRow marginTop="5px" height="auto" id="gr25">
                                             <af:gridCell id="gc25" width="100%" marginStart="5px" marginEnd="5px">
                                                 <af:link text="New Contract" id="l20"
-                                                         action="#{viewScope.integrationDashboardRegionName.newContract}"/>
+                                                         action="#{viewScope.integrationDashboardRegionName.newContract}"
+                                                         rendered="#{ PeopleSoftCallSecurityFilter.accessLimit == 'S'|| PeopleSoftCallSecurityFilter.accessLimit == 'A' || PeopleSoftCallSecurityFilter.accessLimit == 'D' }"/>
                                             </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow marginTop="5px" height="auto" id="gr28">
                                             <af:gridCell id="gc28" width="100%" marginStart="5px" marginEnd="5px">
                                                 <af:link text="Amendment and Renewal" id="l23"
-                                                         action="#{viewScope.integrationDashboardRegionName.updateContract}"/>
+                                                         action="#{viewScope.integrationDashboardRegionName.updateContract}"
+                                                         rendered="#{ PeopleSoftCallSecurityFilter.accessLimit == 'S'|| PeopleSoftCallSecurityFilter.accessLimit == 'A' || PeopleSoftCallSecurityFilter.accessLimit == 'D' }"/>
                                             </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow marginTop="5px" height="auto" id="gr26">
                                             <af:gridCell id="gc26" width="100%" marginStart="5px" marginEnd="5px">
                                                 <af:link text="Terms Master" id="l21"
-                                                         action="#{viewScope.integrationDashboardRegionName.termMaster}"/>
+                                                         action="#{viewScope.integrationDashboardRegionName.termMaster}"
+                                                         rendered="#{ PeopleSoftCallSecurityFilter.accessLimit == 'L' || PeopleSoftCallSecurityFilter.accessLimit == 'D' }"/>
                                             </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow id="gr27" marginTop="5px" marginBottom="5px">
                                             <af:gridCell id="gc27" width="100%" marginStart="5px" marginEnd="5px">
-                                                <af:link text="Set Up Tables" id="l22" action="#{viewScope.integrationDashboardRegionName.setUpTables}"/>
+                                                <af:link text="Set Up Tables" id="l22" action="#{viewScope.integrationDashboardRegionName.setUpTables}"
+                                                         rendered="#{ PeopleSoftCallSecurityFilter.accessLimit == 'A' || PeopleSoftCallSecurityFilter.accessLimit == 'D' }"/>
                                             </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow id="gr29" marginTop="5px" marginBottom="5px">
                                             <af:gridCell id="gc29" width="100%" marginStart="5px" marginEnd="5px">
                                                 <af:link text="Blue Light Specials" id="l24"
                                                          action="#{viewScope.integrationDashboardRegionName.blueLightSpecials}"
-                                                         partialSubmit="true"/>
+                                                         partialSubmit="true" rendered="#{ PeopleSoftCallSecurityFilter.accessLimit == 'S'|| PeopleSoftCallSecurityFilter.accessLimit == 'A' || PeopleSoftCallSecurityFilter.accessLimit == 'D' }
+"/>
                                             </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow id="gr30" marginTop="5px" marginBottom="5px">
                                             <af:gridCell id="gc30" width="100%" marginStart="5px" marginEnd="5px">
                                                 <af:link text="Billing and Accounting" id="l25"
                                                          partialSubmit="true"
-                                                         action="#{viewScope.integrationDashboardRegionName.billingAccountingProcesses}"/>
+                                                         action="#{viewScope.integrationDashboardRegionName.billingAccountingProcesses}"
+                                                         rendered="#{ PeopleSoftCallSecurityFilter.accessLimit == 'A' || PeopleSoftCallSecurityFilter.accessLimit == 'D' }"/>
                                             </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow id="gr31" marginTop="5px" marginBottom="5px">
                                             <af:gridCell id="gc31" width="100%" marginStart="5px" marginEnd="5px">
                                                 <af:link text="Accruals" id="l26"
                                                          partialSubmit="true"
-                                                         action="#{viewScope.integrationDashboardRegionName.accrualRevenueGenerationProcesses}"/>
+                                                         action="#{viewScope.integrationDashboardRegionName.accrualRevenueGenerationProcesses}"
+                                                         rendered="#{ PeopleSoftCallSecurityFilter.accessLimit == 'A' || PeopleSoftCallSecurityFilter.accessLimit == 'D' }"/>
                                             </af:gridCell>
                                         </af:gridRow>
                                     </af:panelGridLayout>
@@ -219,19 +237,22 @@
                                         <af:gridRow marginTop="5px" height="auto" id="gr17">
                                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc17">
                                                 <af:link text="Cloud Integration Docker Log" id="l10"
-                                                         action="#{viewScope.integrationDashboardRegionName.voucherEvents}"/>
+                                                         action="#{viewScope.integrationDashboardRegionName.voucherEvents}"
+                                                         rendered="#{ PeopleSoftCallSecurityFilter.accessLimit == 'A' || PeopleSoftCallSecurityFilter.accessLimit == 'D' }"/>
                                             </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr18">
                                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc18">
-                                                <af:link text="Calculation Log" id="l11"/>
+                                                <af:link text="Calculation Log" id="l11"
+                                                         rendered="#{ PeopleSoftCallSecurityFilter.accessLimit == 'A' || PeopleSoftCallSecurityFilter.accessLimit == 'D' }"/>
                                             </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow id="gr21">
                                             <af:gridCell id="gc21">
                                                 <af:link text="dccContractMaintenance"
                                                          action="#{viewScope.integrationDashboardRegionName.dccContractMaintenance}"
-                                                         id="l12"/>
+                                                         id="l12"
+                                                         rendered="#{ PeopleSoftCallSecurityFilter.accessLimit == 'A' || PeopleSoftCallSecurityFilter.accessLimit == 'D' }"/>
                                             </af:gridCell>
                                         </af:gridRow>
                                     </af:panelGridLayout>
