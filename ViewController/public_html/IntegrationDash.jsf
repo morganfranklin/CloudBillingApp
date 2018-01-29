@@ -198,8 +198,7 @@
                                             <af:gridCell id="gc29" width="100%" marginStart="5px" marginEnd="5px">
                                                 <af:link text="Blue Light Specials" id="l24"
                                                          action="#{viewScope.integrationDashboardRegionName.blueLightSpecials}"
-                                                         partialSubmit="true" rendered="#{ PeopleSoftCallSecurityFilter.accessLimit == 'S'|| PeopleSoftCallSecurityFilter.accessLimit == 'A' || PeopleSoftCallSecurityFilter.accessLimit == 'D' }
-"/>
+                                                         partialSubmit="true" rendered="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow id="gr30" marginTop="5px" marginBottom="5px">
