@@ -8,6 +8,56 @@
                   id="PsCisXpeProcessView1Iterator"/>
         <searchRegion Binds="PsCisXpeProcessView1Iterator" Criteria=""
                       Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="PsCisXpeProcessView1Query"/>
+        <iterator Binds="XpeDccCfgCarriersAdtView1" RangeSize="25" DataControl="AuditLogAppModuleDataControl"
+                  id="XpeDccCfgCarriersAdtView1Iterator"/>
+        <searchRegion Binds="XpeDccCfgCarriersAdtView1Iterator" Criteria=""
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                      id="XpeDccCfgCarriersAdtView1Query"/>
+        <iterator Binds="XpeDccCfgCountiesAdtView1" RangeSize="25" DataControl="AuditLogAppModuleDataControl"
+                  id="XpeDccCfgCountiesAdtView1Iterator"/>
+        <searchRegion Binds="XpeDccCfgCountiesAdtView1Iterator" Criteria=""
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                      id="XpeDccCfgCountiesAdtView1Query"/>
+        <iterator Binds="XpeDccCfgDestinationsAdtView1" RangeSize="25" DataControl="AuditLogAppModuleDataControl"
+                  id="XpeDccCfgDestinationsAdtView1Iterator"/>
+        <searchRegion Binds="XpeDccCfgDestinationsAdtView1Iterator" Criteria=""
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                      id="XpeDccCfgDestinationsAdtView1Query"/>
+        <iterator Binds="XpeDccCfgOriginsAdtView1" RangeSize="25" DataControl="AuditLogAppModuleDataControl"
+                  id="XpeDccCfgOriginsAdtView1Iterator"/>
+        <searchRegion Binds="XpeDccCfgOriginsAdtView1Iterator" Criteria=""
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                      id="XpeDccCfgOriginsAdtView1Query"/>
+        <iterator Binds="XpeDccCfgVehiclesAdtView1" RangeSize="25" DataControl="AuditLogAppModuleDataControl"
+                  id="XpeDccCfgVehiclesAdtView1Iterator"/>
+        <searchRegion Binds="XpeDccCfgVehiclesAdtView1Iterator" Criteria=""
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                      id="XpeDccCfgVehiclesAdtView1Query"/>
+        <iterator Binds="XpeDccCfgPcsshtnamesAdtView1" RangeSize="25" DataControl="AuditLogAppModuleDataControl"
+                  id="XpeDccCfgPcsshtnamesAdtView1Iterator"/>
+        <searchRegion Binds="XpeDccCfgPcsshtnamesAdtView1Iterator" Criteria=""
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                      id="XpeDccCfgPcsshtnamesAdtView1Query"/>
+        <iterator Binds="XpeDccContractsAdtView1" RangeSize="25" DataControl="AuditLogAppModuleDataControl"
+                  id="XpeDccContractsAdtView1Iterator"/>
+        <searchRegion Binds="XpeDccContractsAdtView1Iterator" Criteria=""
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                      id="XpeDccContractsAdtView1Query"/>
+        <iterator Binds="XpeDccContractVersionAdtView1" RangeSize="25" DataControl="AuditLogAppModuleDataControl"
+                  id="XpeDccContractVersionAdtView1Iterator"/>
+        <searchRegion Binds="XpeDccContractVersionAdtView1Iterator" Criteria=""
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                      id="XpeDccContractVersionAdtView1Query"/>
+        <iterator Binds="XpeDccContractLineAdtView1" RangeSize="25" DataControl="AuditLogAppModuleDataControl"
+                  id="XpeDccContractLineAdtView1Iterator"/>
+        <searchRegion Binds="XpeDccContractLineAdtView1Iterator" Criteria=""
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                      id="XpeDccContractLineAdtView1Query"/>
+        <iterator Binds="XpeDccCntrctPrcngTermAdtView1" RangeSize="25" DataControl="AuditLogAppModuleDataControl"
+                  id="XpeDccCntrctPrcngTermAdtView1Iterator"/>
+        <searchRegion Binds="XpeDccCntrctPrcngTermAdtView1Iterator" Criteria=""
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                      id="XpeDccCntrctPrcngTermAdtView1Query"/>
     </executables>
     <bindings>
         <tree IterBinding="PsCisXpeProcessView1Iterator" id="PsCisXpeProcessView1">
@@ -27,5 +77,217 @@
         </tree>
         <action IterBinding="PsCisXpeProcessView1Iterator" id="Execute" RequiresUpdateModel="true"
                 Action="iteratorExecute"/>
+        <tree IterBinding="XpeDccCfgCarriersAdtView1Iterator" id="XpeDccCfgCarriersAdtView1">
+            <nodeDefinition DefName="model.auditlog.XpeDccCfgCarriersAdtView" Name="XpeDccCfgCarriersAdtView10">
+                <AttrNames>
+                    <Item Value="CarrierId"/>
+                    <Item Value="CarrierName"/>
+                    <Item Value="State"/>
+                    <Item Value="Inactive"/>
+                    <Item Value="InactiveDate"/>
+                    <Item Value="CreatedBy"/>
+                    <Item Value="CreatedDate"/>
+                    <Item Value="LastUpdatedBy"/>
+                    <Item Value="LastUpdatedDate"/>
+                    <Item Value="Doneby"/>
+                    <Item Value="Syncdone"/>
+                    <Item Value="Syncdoneat"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <tree IterBinding="XpeDccCfgCountiesAdtView1Iterator" id="XpeDccCfgCountiesAdtView1">
+            <nodeDefinition DefName="model.auditlog.XpeDccCfgCountiesAdtView" Name="XpeDccCfgCountiesAdtView10">
+                <AttrNames>
+                    <Item Value="CountyId"/>
+                    <Item Value="CountyName"/>
+                    <Item Value="State"/>
+                    <Item Value="Inactive"/>
+                    <Item Value="InactiveDate"/>
+                    <Item Value="CreatedBy"/>
+                    <Item Value="CreatedDate"/>
+                    <Item Value="LastUpdatedBy"/>
+                    <Item Value="LastUpdatedDate"/>
+                    <Item Value="Country"/>
+                    <Item Value="Doneby"/>
+                    <Item Value="Syncdone"/>
+                    <Item Value="Syncdoneat"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <tree IterBinding="XpeDccCfgDestinationsAdtView1Iterator" id="XpeDccCfgDestinationsAdtView1">
+            <nodeDefinition DefName="model.auditlog.XpeDccCfgDestinationsAdtView" Name="XpeDccCfgDestinationsAdtView10">
+                <AttrNames>
+                    <Item Value="DestinationId"/>
+                    <Item Value="DestinationDesc"/>
+                    <Item Value="State"/>
+                    <Item Value="Inactive"/>
+                    <Item Value="InactiveDate"/>
+                    <Item Value="CreatedBy"/>
+                    <Item Value="CreatedDate"/>
+                    <Item Value="LastUpdatedBy"/>
+                    <Item Value="LastUpdatedDate"/>
+                    <Item Value="Country"/>
+                    <Item Value="Doneby"/>
+                    <Item Value="Syncdone"/>
+                    <Item Value="Syncdoneat"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <tree IterBinding="XpeDccCfgOriginsAdtView1Iterator" id="XpeDccCfgOriginsAdtView1">
+            <nodeDefinition DefName="model.auditlog.XpeDccCfgOriginsAdtView" Name="XpeDccCfgOriginsAdtView10">
+                <AttrNames>
+                    <Item Value="OriginId"/>
+                    <Item Value="OriginDesc"/>
+                    <Item Value="State"/>
+                    <Item Value="Inactive"/>
+                    <Item Value="InactiveDate"/>
+                    <Item Value="CreatedBy"/>
+                    <Item Value="CreatedDate"/>
+                    <Item Value="LastUpdatedBy"/>
+                    <Item Value="LastUpdatedDate"/>
+                    <Item Value="County"/>
+                    <Item Value="XpeDccNycDosDistrict"/>
+                    <Item Value="Country"/>
+                    <Item Value="Doneby"/>
+                    <Item Value="Syncdone"/>
+                    <Item Value="Syncdoneat"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <tree IterBinding="XpeDccCfgVehiclesAdtView1Iterator" id="XpeDccCfgVehiclesAdtView1">
+            <nodeDefinition DefName="model.auditlog.XpeDccCfgVehiclesAdtView" Name="XpeDccCfgVehiclesAdtView10">
+                <AttrNames>
+                    <Item Value="VehicleId"/>
+                    <Item Value="VehicleType"/>
+                    <Item Value="VehicleDesc"/>
+                    <Item Value="RequireTrailer"/>
+                    <Item Value="Inactive"/>
+                    <Item Value="InactiveDate"/>
+                    <Item Value="CreatedBy"/>
+                    <Item Value="CreatedDate"/>
+                    <Item Value="LastUpdatedBy"/>
+                    <Item Value="LastUpdatedDate"/>
+                    <Item Value="Doneby"/>
+                    <Item Value="Syncdone"/>
+                    <Item Value="Syncdoneat"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <tree IterBinding="XpeDccCfgPcsshtnamesAdtView1Iterator" id="XpeDccCfgPcsshtnamesAdtView1">
+            <nodeDefinition DefName="model.auditlog.XpeDccCfgPcsshtnamesAdtView" Name="XpeDccCfgPcsshtnamesAdtView10">
+                <AttrNames>
+                    <Item Value="PcsshortnameId"/>
+                    <Item Value="PcsshortName"/>
+                    <Item Value="AccountClass"/>
+                    <Item Value="Inactive"/>
+                    <Item Value="InactiveDate"/>
+                    <Item Value="CreatedBy"/>
+                    <Item Value="CreatedDate"/>
+                    <Item Value="LastUpdatedBy"/>
+                    <Item Value="LastUpdatedDate"/>
+                    <Item Value="CovId"/>
+                    <Item Value="CovSoldId"/>
+                    <Item Value="CovBillId"/>
+                    <Item Value="CovSoldLocNum"/>
+                    <Item Value="CovBillLocNum"/>
+                    <Item Value="BillCycleId"/>
+                    <Item Value="InvSupress"/>
+                    <Item Value="Doneby"/>
+                    <Item Value="Syncdone"/>
+                    <Item Value="Syncdoneat"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <tree IterBinding="XpeDccContractsAdtView1Iterator" id="XpeDccContractsAdtView1">
+            <nodeDefinition DefName="model.auditlog.XpeDccContractsAdtView" Name="XpeDccContractsAdtView10">
+                <AttrNames>
+                    <Item Value="XpeContractId"/>
+                    <Item Value="XpeContractDesc"/>
+                    <Item Value="Setid"/>
+                    <Item Value="CustId"/>
+                    <Item Value="CreatedBy"/>
+                    <Item Value="CurrencyCd"/>
+                    <Item Value="XpeDccPcsname"/>
+                    <Item Value="CustContractContactName"/>
+                    <Item Value="CustContractApproverEmail"/>
+                    <Item Value="AddressSeqNum"/>
+                    <Item Value="Doneby"/>
+                    <Item Value="Syncdone"/>
+                    <Item Value="Syncdoneat"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <tree IterBinding="XpeDccContractVersionAdtView1Iterator" id="XpeDccContractVersionAdtView1">
+            <nodeDefinition DefName="model.auditlog.XpeDccContractVersionAdtView" Name="XpeDccContractVersionAdtView10">
+                <AttrNames>
+                    <Item Value="XpeContractId"/>
+                    <Item Value="XpeContractVersion"/>
+                    <Item Value="XpeContractStatus"/>
+                    <Item Value="XpeStartDate"/>
+                    <Item Value="XpeEndDate"/>
+                    <Item Value="XpeNewTermMode"/>
+                    <Item Value="CreatedBy"/>
+                    <Item Value="UpdatedBy"/>
+                    <Item Value="XpeBillOptionsSet"/>
+                    <Item Value="XpeAcctgOptionsSet"/>
+                    <Item Value="XpeContractTemplate"/>
+                    <Item Value="BusinessUnitGl"/>
+                    <Item Value="CurrencyCd"/>
+                    <Item Value="XpeWasteType"/>
+                    <Item Value="XpeContractSubType"/>
+                    <Item Value="XpeAgreementType"/>
+                    <Item Value="XpeAsOfDate"/>
+                    <Item Value="SalesPerson"/>
+                    <Item Value="XpeContractDirection"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <tree IterBinding="XpeDccContractLineAdtView1Iterator" id="XpeDccContractLineAdtView1">
+            <nodeDefinition DefName="model.auditlog.XpeDccContractLineAdtView" Name="XpeDccContractLineAdtView10">
+                <AttrNames>
+                    <Item Value="XpeContractId"/>
+                    <Item Value="XpeContractVersion"/>
+                    <Item Value="XpeContractLine"/>
+                    <Item Value="XpeFacility"/>
+                    <Item Value="XpeProductId"/>
+                    <Item Value="XpeProductUom"/>
+                    <Item Value="XpeQtyMin"/>
+                    <Item Value="XpeQtyMax"/>
+                    <Item Value="XpePeriodType"/>
+                    <Item Value="XpeIcon"/>
+                    <Item Value="XpeSwApprNbr"/>
+                    <Item Value="CurrencyCd"/>
+                    <Item Value="BusinessUnitGl"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <tree IterBinding="XpeDccCntrctPrcngTermAdtView1Iterator" id="XpeDccCntrctPrcngTermAdtView1">
+            <nodeDefinition DefName="model.auditlog.XpeDccCntrctPrcngTermAdtView" Name="XpeDccCntrctPrcngTermAdtView10">
+                <AttrNames>
+                    <Item Value="XpeContractId"/>
+                    <Item Value="XpeContractVersion"/>
+                    <Item Value="XpeContractLine"/>
+                    <Item Value="XpePricingTermLine"/>
+                    <Item Value="XpePricingTermType"/>
+                    <Item Value="XpeQtyMax"/>
+                    <Item Value="XpeRate"/>
+                    <Item Value="XpeChargeOverMin"/>
+                    <Item Value="XpeChargeOverMax"/>
+                    <Item Value="XpeChargeDesc"/>
+                    <Item Value="XpeRolloverType"/>
+                    <Item Value="XpeResetType"/>
+                    <Item Value="XpePeriodType"/>
+                    <Item Value="XpePeriodNbr"/>
+                    <Item Value="XpeIcon"/>
+                    <Item Value="XpeIndexChangeType"/>
+                    <Item Value="XpeIndexChangeId"/>
+                    <Item Value="XpeMetalsIndexVal"/>
+                    <Item Value="XpeMetalsIndexPrc1"/>
+                    <Item Value="XpeMetalsIndexPrc2"/>
+                    <Item Value="XpeMetalsUomMlt"/>
+                    <Item Value="XpeMetalsUomDen"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
     </bindings>
 </pageDefinition>

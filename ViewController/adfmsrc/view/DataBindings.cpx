@@ -221,5 +221,10 @@
                          SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
                          SupportsSortCollection="true" Configuration="AppModuleLocal" syncMode="Immediate"
                          xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+        <BC4JDataControl id="AuditLogAppModuleDataControl" Package="model.auditlog"
+                         FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                         SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                         SupportsSortCollection="true" Configuration="AuditLogAppModuleLocal" syncMode="Immediate"
+                         xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
     </dataControlUsages>
 </Application>
