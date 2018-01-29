@@ -73,7 +73,6 @@ public class PeopleSoftCallSecurityFilter {
         return accessLimit;
     }
 
-
     public void evaluateParameters() {
         /*
         System.out.println("evaluate parameters called");
@@ -126,10 +125,7 @@ public class PeopleSoftCallSecurityFilter {
             // 9/28: Prashant & Monika - first part of URL below needs to be changed when deploying elsewhere e.g. Prod
 
             url =
-                new URL("https://fsuat.neustar.biz/psc/fsupg02/EMPLOYEE/ERP/s/WEBLIB_ADFCALL.ISCRIPT1.FieldFormula.IScript_Feedback"); // UAT
-                // new URL("https://fsuat.neustar.biz/psc/fsupg02/EMPLOYEE/ERP/s/WEBLIB_ADFCALL.ISCRIPT1.FieldFormula.IScript_Feedback"); //UAT
-               // new URL("https://fsuat.neustar.biz/psc/fsupg02/EMPLOYEE/ERP/s/WEBLIB_ADFCALL.ISCRIPT1.FieldFormula.IScript_Feedback"); //UAT
-               // new URL("https://finance.neustar.biz/psc/fsprd91/EMPLOYEE/ERP/s/WEBLIB_ADFCALL.ISCRIPT1.FieldFormula.IScript_Feedback"); // PROD
+                new URL("https://fincvtadev.covanta.com/psc/DCVAEK/EMPLOYEE/ERP/s/WEBLIB_ADFCALL.ISCRIPT1.FieldFormula.IScript_Feedback"); // UAT
             HttpsURLConnection con = (HttpsURLConnection) url.openConnection();
 
             System.out.println("connection open");
@@ -145,7 +141,7 @@ public class PeopleSoftCallSecurityFilter {
 
             int responseCode = con.getResponseCode();
             con.connect();
-            System.out.println("connected ");
+            System.out.println("connected " );
 
             BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
             String inputLine;
@@ -180,7 +176,8 @@ public class PeopleSoftCallSecurityFilter {
             } catch (Exception e) {
             e.printStackTrace();
         }
-        */
+        System.out.println("retrieved :"+this.getRetrievedToken()+" ready to override");
+        /**/
         // test override
         this.setRetrievedToken("GBEWLEY");
 
@@ -197,7 +194,7 @@ public class PeopleSoftCallSecurityFilter {
     }
 
     private void checkRoles(String givenUser) {
-        /**/
+        /*
         this.setAccessLimit("A");
         String amDef = "model.AppModule";
         String config = "AppModuleLocal";
@@ -250,8 +247,10 @@ public class PeopleSoftCallSecurityFilter {
 
         if (roleRow != null) {
             this.setAccessLimit("D");
-        }
+        }*/
 
+        this.setAccessLimit("D");
+        
     }
 
     public void validateToken(ClientEvent clientEvent) {
