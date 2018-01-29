@@ -32,10 +32,7 @@
         Kind="where"
         Type="java.lang.String"
         DefaultValue="CIS_XPE_MANAGER"/>
-    <SQLQuery><![CDATA[SELECT 'ADMIN' AS ROLENAME FROM DUAL WHERE (:Q_ROLE_USER=:Q_ROLE_USER       
-AND :Q_ROLE_NAME=:Q_ROLE_NAME)  
---- SELECT ROLENAME FROM PSROLEUSER WHERE (ROLEUSER=:Q_ROLE_USER       
---- AND ROLENAME=:Q_ROLE_NAME)]]></SQLQuery>
+    <SQLQuery><![CDATA[SELECT ROLENAME FROM PSROLEUSER WHERE (ROLEUSER=:Q_ROLE_USER AND ROLENAME=:Q_ROLE_NAME)]]></SQLQuery>
     <ViewAttribute
         Name="Rolename"
         IsUpdateable="false"

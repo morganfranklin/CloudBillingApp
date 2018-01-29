@@ -182,7 +182,7 @@ public class PeopleSoftCallSecurityFilter {
         }
         */
         // test override
-        this.setRetrievedToken("gbewley");
+        this.setRetrievedToken("GBEWLEY");
 
         this.checkRoles(this.getRetrievedToken());
 
@@ -197,83 +197,60 @@ public class PeopleSoftCallSecurityFilter {
     }
 
     private void checkRoles(String givenUser) {
-        /*
-        boolean hasExecPlanAccess = true;
-        boolean hasRulesDefAccess = true;
-
+        /**/
+        this.setAccessLimit("A");
         String amDef = "model.AppModule";
-           String config = "AppModuleLocal";
-           RoleQueryRowImpl roleRow = null;
+        String config = "AppModuleLocal";
+        RoleQueryRowImpl roleRow = null;
 
-           ApplicationModule am =
-                             Configuration.createRootApplicationModule(amDef,config);
-           RoleQueryImpl roles = (RoleQueryImpl) am.findViewObject("RoleQuery1");
+        ApplicationModule am = Configuration.createRootApplicationModule(amDef, config);
+        RoleQueryImpl roles = (RoleQueryImpl) am.findViewObject("RoleQuery1");
 
-           // CIS_XPE_IT_SUPPORT and CIS_XPE_IT_ADMIN
-           roles.setQ_ROLE_NAME("CIS_XPE_IT_SUPPORT");
-           roles.setQ_ROLE_USER(givenUser);
-           roles.executeQuery();
-           roleRow = (RoleQueryRowImpl) roles.first();
-
-           hasExecPlanAccess=(roleRow==null);
-
-        if (hasExecPlanAccess!=true) {
-            hasExecPlanAccess=roleRow.getRolename().compareTo("CIS_XPE_IT_SUPPORT")!=0;
-            System.out.println("found role "+roleRow.getRolename());
-        }
-
-
-           if (hasExecPlanAccess) {
-               roles.setQ_ROLE_NAME("CIS_XPE_IT_ADMIN");
-               roles.setQ_ROLE_USER(givenUser);
-               roles.executeQuery();
-               roleRow = (RoleQueryRowImpl) roles.first();
-               hasExecPlanAccess=(roleRow==null);
-               if (hasExecPlanAccess!=true) {
-                   hasExecPlanAccess=roleRow.getRolename().compareTo("CIS_XPE_IT_ADMIN")!=0;
-                   System.out.println("found role "+roleRow.getRolename());
-               }
-           }
-
-        // CIS_XPE_MANAGER and CIS_XPE_ANALYST
-        roles.setQ_ROLE_NAME("CIS_XPE_MANAGER");
+        // CIS_XPE_IT_SUPPORT and CIS_XPE_IT_ADMIN
+        roles.setQ_ROLE_NAME("CPE_IA");
         roles.setQ_ROLE_USER(givenUser);
         roles.executeQuery();
         roleRow = (RoleQueryRowImpl) roles.first();
 
-        hasRulesDefAccess=(roleRow==null);
+        if (roleRow!=null) {
+            this.setAccessLimit("I");
+        }
+        
+        roles.setQ_ROLE_NAME("CPE_SALES");
+        roles.setQ_ROLE_USER(givenUser);
+        roles.executeQuery();
+        roleRow = (RoleQueryRowImpl) roles.first();
 
-        if (hasRulesDefAccess!=true) {
-            hasRulesDefAccess=roleRow.getRolename().compareTo("CIS_XPE_MANAGER")!=0;
-            System.out.println("found role "+roleRow.getRolename());
+        if (roleRow != null) {
+            this.setAccessLimit("S");
         }
 
-        if (hasRulesDefAccess) {
-            roles.setQ_ROLE_NAME("CIS_XPE_ANALYST");
-            roles.setQ_ROLE_USER(givenUser);
-            roles.executeQuery();
-            roleRow = (RoleQueryRowImpl) roles.first();
-            hasRulesDefAccess=(roleRow==null);
+        roles.setQ_ROLE_NAME("CPE_LEGAL");
+        roles.setQ_ROLE_USER(givenUser);
+        roles.executeQuery();
+        roleRow = (RoleQueryRowImpl) roles.first();
 
-            if (hasRulesDefAccess!=true) {
-                hasRulesDefAccess=roleRow.getRolename().compareTo("CIS_XPE_ANALYST")!=0;
-                System.out.println("found role "+roleRow.getRolename());
-            }
-
+        if (roleRow != null) {
+            this.setAccessLimit("L");
         }
+        
+        roles.setQ_ROLE_NAME("CPE_ADMIN");
+        roles.setQ_ROLE_USER(givenUser);
+        roles.executeQuery();
+        roleRow = (RoleQueryRowImpl) roles.first();
 
-        if (hasRulesDefAccess==false && hasExecPlanAccess==false) {
-            this.setAccessLimit("B");
-        } else {
-            if (hasRulesDefAccess==false) {
-                this.setAccessLimit("R");
-            } else {
-                this.setAccessLimit("E");
-            }
+        if (roleRow != null) {
+            this.setAccessLimit("A");
         }
-        /**/
-        // test overrider
-        this.accessLimit = "N";
+        
+        roles.setQ_ROLE_NAME("CPE_DEV");
+        roles.setQ_ROLE_USER(givenUser);
+        roles.executeQuery();
+        roleRow = (RoleQueryRowImpl) roles.first();
+
+        if (roleRow != null) {
+            this.setAccessLimit("D");
+        }
 
     }
 
