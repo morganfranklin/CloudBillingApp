@@ -178,7 +178,15 @@ public class XpeDccNewContractMBean implements Serializable {
         String contractType = (String) ADFUtils.evaluateEL("#{pageFlowScope.ContractType}");
         System.err.println("Contract Type: " + contractType);
         try {
-            if ("NEW".equals(contractType)) {
+            
+            Long notesRowCount =
+                (Long) ADFUtils.evaluateEL("#{bindings.XpeDccNewContractNotesViewIterator.estimatedRowCount}");
+            if (notesRowCount.intValue() == 0){
+                System.err.println("Inside  Row creation");
+                ADFUtils.invokeEL("#{bindings.NotesCreateInsert.execute}");
+            }
+            
+            /*if ("NEW".equals(contractType)) {
                 Long notesRowCount =
                     (Long) ADFUtils.evaluateEL("#{bindings.XpeDccNewContractNotesViewIterator.estimatedRowCount}");
                 if (notesRowCount.intValue() == 0)
@@ -188,7 +196,7 @@ public class XpeDccNewContractMBean implements Serializable {
                     (Long) ADFUtils.evaluateEL("#{bindings.XpeDccNewContractNotesViewIterator.estimatedRowCount}");
                 if (notesRowCount.intValue() == 0)
                     ADFUtils.invokeEL("#{bindings.NotesCreateInsert.execute}");
-            }
+            }*/
         } catch (Exception e) {
             // TODO: Add catch code
             e.printStackTrace();
