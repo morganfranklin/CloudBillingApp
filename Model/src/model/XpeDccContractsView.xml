@@ -246,7 +246,6 @@ WHERE TempCustomer.CUST_ID=XpeDccContracts.CUST_ID]]></SQLQuery>
     </ViewAttribute>
     <ViewAttribute
         Name="CustContractApproverEmail"
-        IsNotNull="true"
         PrecisionRule="true"
         EntityAttrName="CustContractApproverEmail"
         EntityUsage="XpeDccContracts"

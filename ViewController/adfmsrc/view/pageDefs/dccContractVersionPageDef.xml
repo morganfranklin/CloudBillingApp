@@ -219,5 +219,10 @@
                       InstanceName="data.AppModuleDataControl.dataProvider">
             <NamedData NDName="creationPlace" NDValue="CONTRACT_MAINTENANCE" NDType="java.lang.String"/>
         </methodAction>
+        <attributeValues IterBinding="XpeDccContractVersionView2Iterator" id="XpeWasteType">
+            <AttrNames>
+                <Item Value="XpeWasteType"/>
+            </AttrNames>
+        </attributeValues>
     </bindings>
 </pageDefinition>

@@ -102,6 +102,8 @@ import model.views.readonly.XpeDccWfActionROVOImpl;
 import model.views.readonly.XpeDccWfActionROVORowImpl;
 import model.views.readonly.XpeDmsCustomerROVOImpl;
 
+import oracle.adf.share.logging.ADFLogger;
+
 import oracle.jbo.Key;
 import oracle.jbo.Row;
 import oracle.jbo.RowIterator;
@@ -123,6 +125,9 @@ import org.apache.commons.io.IOUtils;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
+    
+    private static ADFLogger _logger = ADFLogger.createADFLogger(ApplicationModuleImpl.class);
+    
     /**
      * This is the default constructor (do not remove).
      */
@@ -1846,9 +1851,11 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             approvalWFEvent.executeQuery();
             XpeDccWfEventEOVORowImpl approvalWFEventRow = (XpeDccWfEventEOVORowImpl) approvalWFEvent.first();
             if (null != approvalWFEventRow) {
+                _logger.info("Inside pushEmailForApproval");
                 XpeDccWfActionEOVORowImpl xpeDccWfActionEOVORow =
                     (XpeDccWfActionEOVORowImpl) approvalWFEventRow.getXpeDccWfActionEOVO().first();
-                if (null!=xpeDccWfActionEOVORow && EmailUtils.sendEmail(xpeDccWfActionEOVORow.getXpeApproverEmail(),
+                _logger.info("After xpeDccWfActionEOVORow: "+xpeDccWfActionEOVORow.getXpeApproverEmail());
+                /*if (null!=xpeDccWfActionEOVORow && sendEmail(xpeDccWfActionEOVORow.getXpeApproverEmail(),
                                          buildEmailBody(xpeDccWfActionEOVORow, "I"),
                                          bytes)) {
                     if (null != approvalWFEventRow.getXpeEventStatus() &&
@@ -1856,7 +1863,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                         approvalWFEventRow.setXpeEventStatus("IWF");
                     xpeDccWfActionEOVORow.setXpeActionStatus("P");
                     emailStatus = "SUCCESS";
-                }
+                }*/
             }
         } catch (Exception e) {
             // TODO: Add catch code
@@ -1864,6 +1871,96 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         }
         return emailStatus;
     }
+    
+    /*public static boolean sendEmail(String recepient, Map<String,String> email, byte[] bytes) {
+        //String host = "smtp.gmail.com",port = "587",sender="morgan.franklin.test@gmail.com";
+        String host = "smtp.office365.com",port = "587",sender="nkoneru@morgan-franklin.com";
+        _logger.info("Inside sendEmail");
+        MimeMessage message = null;
+        Transport transport = null;
+        try {
+            if (host != null && port != null && host.trim().length() > 0 && port.trim().length() > 0) {
+                _logger.info("Inside IF Block");
+                Session session = getMailSession(host, port, sender);
+                _logger.info("After getMailSession");
+                message = new MimeMessage(session);
+                _logger.info("After MimeMessage");
+                message.setFrom(new InternetAddress(sender));
+                _logger.info("After setFrom");
+                message.setSubject(checkNull(email.get("EMAIL_SUBJECT")));
+                _logger.info("setSubject");
+                message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recepient));
+                _logger.info("setRecipients");
+                Multipart mp = new MimeMultipart();
+                _logger.info("MimeMultipart");
+                MimeBodyPart mbp1 = new MimeBodyPart();
+                _logger.info("MimeBodyPart");
+                mbp1.setContent(checkNull(email.get("EMAIL_BODY")), "text/html; charset=utf-8");
+                _logger.info("setContent");
+                mp.addBodyPart(mbp1);
+                _logger.info("addBodyPart");
+                if (null != bytes) {
+                    _logger.info("Inside bytes IF Block");
+                    MimeBodyPart mbp2 = new MimeBodyPart();
+                    _logger.info("Inside bytes IF Block  MimeBodyPart");
+                    ByteArrayDataSource bds = new ByteArrayDataSource(bytes, "application/octet-stream");
+                    _logger.info("Inside bytes IF Block ByteArrayDataSource");
+                    mbp2.setDataHandler(new DataHandler(bds));
+                    _logger.info("Inside bytes IF Block setDataHandler");
+                    mbp2.setFileName(checkNull(email.get("EMAIL_ATTACHMENT_NAME")));
+                    _logger.info("Inside bytes IF Block setFileName");
+                    mp.addBodyPart(mbp2);
+                    _logger.info("Inside  bytes IF Block addBodyPart");
+                }
+                _logger.info("Afetr bytes IF Block");
+                message.setContent(mp);
+                _logger.info("After bytes IF Block setContent");
+                transport = session.getTransport();
+                _logger.info("After bytes IF Block setContent");
+                transport.connect();
+                _logger.info("After bytes IF Block connect");
+                transport.send(message, message.getAllRecipients());
+                _logger.info("After bytes IF Block send");
+                transport.close();
+                _logger.info("After bytes IF Block close");
+                return true;
+            }
+        } catch (Exception ex) {
+            // TODO: Add catch code
+            ex.printStackTrace();
+            _logger.info("Inside Catch Block: "+ ex.getLocalizedMessage());
+        } 
+    //        catch (NoSuchProviderException nspe) {
+    //            // TODO: Add catch code
+    //            nspe.printStackTrace();
+    //        } catch (MessagingException me) {
+    //            // TODO: Add catch code
+    //            me.printStackTrace();
+    //        }
+    return false;
+    }
+    
+    private static Session getMailSession(String host, String port, String sender) {
+
+        Properties props = new Properties();
+        props.setProperty("mail.transport.protocol", "smtp");
+        props.setProperty("mail.smtp.host", host);
+        props.setProperty("mail.smtp.port", port);
+        props.setProperty("mail.smtp.user", sender);
+        props.setProperty("mail.debug", "true");
+        props.setProperty("mail.disable", "false");
+        props.setProperty("mail.verbose", "true");
+        Session session = Session.getDefaultInstance(props);
+        session.setDebug(true);
+        return session;
+    }
+    
+    private static String checkNull(String val){ 
+        if(null==val || val.trim().length()==0)
+          return "";
+        else
+          return val;
+    }*/
     
     private Map<String,String>  buildEmailBody(XpeDccWfActionEOVORowImpl xpeDccWfActionEOVORow, String userType){
         Map<String,String>  email = new HashMap<String,String>();
@@ -1960,6 +2057,10 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         email.put("EMAIL_SUBJECT", "Contract Approval – "+customerName);
         email.put("EMAIL_ATTACHMENT_NAME", customerName+" – Contract – "+contractId);
         email.put("EMAIL_BODY", html.toString());
+        
+        _logger.info("Inside Buildemail: "+email.get("EMAIL_SUBJECT"));
+        _logger.info("Inside Buildemail: "+email.get("EMAIL_ATTACHMENT_NAME"));
+        _logger.info("Inside Buildemail: "+email.get("EMAIL_BODY"));
 
         return email;
     }
@@ -2027,13 +2128,29 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             XpeDccWfActionROVORowImpl xpeDccWfActionROVORow =
                 (XpeDccWfActionROVORowImpl) this.getXpeDccWfActionROVO().first();
             if (null != xpeDccWfActionROVORow){
-                //build contract XML
-                pdfXMLMap.putAll(this.buildXML(xpeDccWfActionROVORow.getXpeContractId(),
-                                     xpeDccWfActionROVORow.getXpeContractVersion(),"N",uuId));
-                
-                //build contract cover sheet XML
-                if(null!= userType && null!= action && "E".equals(userType) && "ACCEPT".equals(action))
-                 pdfXMLMap.putAll(contractCoverSheetXML(xpeDccWfActionROVORow.getXpeContractId(),xpeDccWfActionROVORow.getXpeContractVersion()));
+                XpeDccNewContractsEOVOImpl contractView = this.getXpeDccNewContractsEOVO();
+                contractView.executeEmptyRowSet();
+                contractView.setApplyViewCriteriaName("FetchExtContractCriteria");
+                contractView.setbind_ContractId(xpeDccWfActionROVORow.getXpeContractId());
+                contractView.executeQuery();
+                if (null != contractView.first()) {
+                    XpeDccNewContractsEOVORowImpl xpeDccNewContractsEOVORow = (XpeDccNewContractsEOVORowImpl) contractView.first();
+                    Key key = new Key(new Object[] { xpeDccWfActionROVORow.getXpeContractId(),xpeDccWfActionROVORow.getXpeContractVersion() });
+                    Row[] rows = xpeDccNewContractsEOVORow.getXpeDccContractVersionView().findByKey(key, 1);
+                    if (null != rows &&rows.length >0) {
+                        XpeDccContractVersionViewRowImpl contractVersionViewRow = (XpeDccContractVersionViewRowImpl) rows[0];
+                        String wasteType = contractVersionViewRow.getXpeWasteType();
+                        if(null!=wasteType && ("MSW".equals(wasteType) || "MTL".equals(wasteType))){
+                            //build contract XML
+                            pdfXMLMap.putAll(this.buildXML(xpeDccWfActionROVORow.getXpeContractId(),
+                                                 xpeDccWfActionROVORow.getXpeContractVersion(),"N",uuId));
+                            
+                            //build contract cover sheet XML
+                            if(null!= userType && null!= action && "E".equals(userType) && "ACCEPT".equals(action))
+                             pdfXMLMap.putAll(contractCoverSheetXML(xpeDccWfActionROVORow.getXpeContractId(),xpeDccWfActionROVORow.getXpeContractVersion()));
+                        }
+                    }
+                }
             }
         } catch (Exception e) {
             // TODO: Add catch code
@@ -2274,29 +2391,35 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                 if (null != rows && rows.length > 0 && null!=userType) {
                     XpeDccContractVersionViewRowImpl contractVersionViewRow =
                         (XpeDccContractVersionViewRowImpl) rows[0];
-                    if ("I".equals(userType)) { //I - Internal User(Last Approver)
-                        //creating External Approval Work Flow Event
-                        XpeDccWfEventEOVORowImpl approvalWFEventExternalRow =
-                            (XpeDccWfEventEOVORowImpl) contractVersionViewRow.getXpeDccWfEventEOVO().createRow();
-                        approvalWFEventExternalRow.setXpeEventStatus("IWF");
-                        approvalWFEventExternalRow.setXpeEventType("E"); //E - External User
-                        contractVersionViewRow.getXpeDccWfEventEOVO().insertRow(approvalWFEventExternalRow);
-                        if (null !=
-                            approvalWFEventExternalRow) {
-                            //creating External Approval Work Flow Action
-                            XpeDccWfActionEOVORowImpl xpeDccWfActionEOVORow =
-                        (XpeDccWfActionEOVORowImpl) approvalWFEventExternalRow.getXpeDccWfActionEOVO().createRow();
-                            xpeDccWfActionEOVORow.setXpeContractId(approvalWFEventExternalRow.getXpeContractId());
-                            xpeDccWfActionEOVORow.setXpeContractVersion(approvalWFEventExternalRow.getXpeContractVersion());
-                            xpeDccWfActionEOVORow.setXpeUuid(UUID.randomUUID().toString());
-                            //setting customer email Id to push email notification
-                            xpeDccWfActionEOVORow.setXpeApproverEmail(xpeDccNewContractsEOVORow.getCustContractApproverEmail());
-                            xpeDccWfActionEOVORow.setXpeApproverLevel(NEUCloudBillingConstants.CUSTOMER);
-                            xpeDccWfActionEOVORow.setXpeActionStatus("W"); //W-Waiting
-                            approvalWFEventExternalRow.getXpeDccWfActionEOVO().insertRow(xpeDccWfActionEOVORow);
-                            this.pushEmailForApproval(xpeDccWfActionEOVORow, bytes, "E"); //E - External User
+                if ("I".equals(userType)) { //I - Internal User(Last Approver)
+                    String wasteType = contractVersionViewRow.getXpeWasteType();
+                    if (null != wasteType) {
+                        if ("SW".equals(wasteType)) //If Waste type is special waste updating version status to Approved
+                            updateContractVersionStatus(contractId, contractVersion, "APR");
+                        if ("MSW".equals(wasteType) || "MTL".equals(wasteType)) {
+                            //creating External Approval Work Flow Event
+                            XpeDccWfEventEOVORowImpl approvalWFEventExternalRow =(XpeDccWfEventEOVORowImpl) contractVersionViewRow.getXpeDccWfEventEOVO().createRow();
+                            approvalWFEventExternalRow.setXpeEventStatus("IWF");
+                            approvalWFEventExternalRow.setXpeEventType("E"); //E - External User
+                            contractVersionViewRow.getXpeDccWfEventEOVO().insertRow(approvalWFEventExternalRow);
+                            if (null !=
+                                approvalWFEventExternalRow) {
+                                //creating External Approval Work Flow Action
+                                XpeDccWfActionEOVORowImpl xpeDccWfActionEOVORow =
+                            (XpeDccWfActionEOVORowImpl) approvalWFEventExternalRow.getXpeDccWfActionEOVO().createRow();
+                                xpeDccWfActionEOVORow.setXpeContractId(approvalWFEventExternalRow.getXpeContractId());
+                                xpeDccWfActionEOVORow.setXpeContractVersion(approvalWFEventExternalRow.getXpeContractVersion());
+                                xpeDccWfActionEOVORow.setXpeUuid(UUID.randomUUID().toString());
+                                //setting customer email Id to push email notification
+                                xpeDccWfActionEOVORow.setXpeApproverEmail(xpeDccNewContractsEOVORow.getCustContractApproverEmail());
+                                xpeDccWfActionEOVORow.setXpeApproverLevel(NEUCloudBillingConstants.CUSTOMER);
+                                xpeDccWfActionEOVORow.setXpeActionStatus("W"); //W-Waiting
+                                approvalWFEventExternalRow.getXpeDccWfActionEOVO().insertRow(xpeDccWfActionEOVORow);
+                                this.pushEmailForApproval(xpeDccWfActionEOVORow, bytes, "E"); //E - External User
+                            }
                         }
-                    } else if ("E".equals(userType)) { //E - External User
+                    }
+                } else if ("E".equals(userType)) { //E - External User
                         updateContractVersionStatus(contractId, contractVersion, "APR");
                         try {
                             BlobDomain blobDomain = new BlobDomain();
@@ -2672,12 +2795,12 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         
         
         if (null != wasteType) {
-            if ("SW".equals(wasteType)){
+            /*if ("SW".equals(wasteType)){
                 if(blsCount>0)
                     return NEUCloudBillingConstants.BLS_RTF_TEMPLATE1;
                 else
                     return NEUCloudBillingConstants.RTF_TEMPLATE1;
-            }
+            }*/
             if (null != contractSubType) {
                 if ("MTL".equals(wasteType) && "FRS".equals(contractSubType))
                     return NEUCloudBillingConstants.RTF_TEMPLATE2;

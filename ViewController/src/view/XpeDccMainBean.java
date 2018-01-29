@@ -149,9 +149,11 @@ public class XpeDccMainBean {
                         if (null != pdf.get("VERSION_STATUS") && "DRA".equals(pdf.get("VERSION_STATUS"))) {
                             OperationBinding operationBinding1 = bindings.getOperationBinding("pushEmailForApproval");
                             if (null != operationBinding1) {
+                                if(null!=pdf.get("TEMPLATE_NAME")){//Template name will be null when waste type is Special Waste/Ecovanta
                                 operationBinding1.getParamsMap().put("bytes",
                                                                      FileOperations.genPdfRep(String.valueOf(pdf.get("XML")).getBytes(),
                                                                                               FileOperations.getRTFAsInputStream(String.valueOf(pdf.get("TEMPLATE_NAME")))));
+                                }
                                 String emailStatus = (String) operationBinding1.execute();
                                 if (null != emailStatus && "SUCCESS".equals(emailStatus)) {
                                     ADFUtils.setvalueToExpression("#{bindings.XpeContractStatus.inputValue}","IWF");
@@ -172,17 +174,22 @@ public class XpeDccMainBean {
     
     public void downloadPDF(FacesContext facesContext, OutputStream outputStream) {
         try {
-            BindingContext bc = BindingContext.getCurrent();
-            BindingContainer bindings = bc.getCurrentBindingsEntry();
-            OperationBinding operationBinding = bindings.getOperationBinding("buildXML");
-            if (null != operationBinding) {
-                Map pdf = (Map) operationBinding.execute();
-                if (null != pdf && pdf.size() > 1) {
-                    IOUtils.copy(new ByteArrayInputStream(FileOperations.genPdfRep(String.valueOf(pdf.get("XML")).getBytes(),
-                                                                          FileOperations.getRTFAsInputStream(String.valueOf(pdf.get("TEMPLATE_NAME"))))), outputStream);
-                    // flush the outout stream
-                    outputStream.flush();
+            String wasteType = (String)ADFUtils.evaluateEL("#{bindings.XpeWasteType.inputValue}");
+            if(null!=wasteType && ("MSW".equals(wasteType) || "MTL".equals(wasteType))){
+                BindingContext bc = BindingContext.getCurrent();
+                BindingContainer bindings = bc.getCurrentBindingsEntry();
+                OperationBinding operationBinding = bindings.getOperationBinding("buildXML");
+                if (null != operationBinding) {
+                    Map pdf = (Map) operationBinding.execute();
+                    if (null != pdf && pdf.size() > 1) {
+                        IOUtils.copy(new ByteArrayInputStream(FileOperations.genPdfRep(String.valueOf(pdf.get("XML")).getBytes(),
+                                                                              FileOperations.getRTFAsInputStream(String.valueOf(pdf.get("TEMPLATE_NAME"))))), outputStream);
+                        // flush the outout stream
+                        outputStream.flush();
+                    }
                 }
+            }else{
+                ADFUtils.showInfoMessage("No PDF available.");
             }
         } catch (Exception e) {
             e.printStackTrace();

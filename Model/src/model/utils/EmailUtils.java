@@ -7,71 +7,92 @@ import java.util.Properties;
 import javax.activation.DataHandler;
 
 import javax.mail.Message;
-import javax.mail.MessagingException;
 import javax.mail.Multipart;
-import javax.mail.NoSuchProviderException;
-import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
-import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.mail.util.ByteArrayDataSource;
 
+import oracle.adf.share.logging.ADFLogger;
+
 public class EmailUtils {
+    private static ADFLogger _logger = ADFLogger.createADFLogger(EmailUtils.class);
     public EmailUtils() {
         super();
     }
     
     public static boolean sendEmail(String recepient, Map<String,String> email, byte[] bytes) {
-        String host = "smtp.gmail.com",port = "587",sender="morgan.franklin.test@gmail.com";
-        
+        //String host = "smtp.gmail.com",port = "587",sender="morgan.franklin.test@gmail.com";
+        String host = "smtp.office365.com",port = "587",sender="nkoneru@morgan-franklin.com";
+        _logger.info("Inside sendEmail");
         MimeMessage message = null;
         Transport transport = null;
         try {
             if (host != null && port != null && host.trim().length() > 0 && port.trim().length() > 0) {
+                _logger.info("Inside IF Block");
                 Session session = getMailSession(host, port, sender);
+                _logger.info("After getMailSession");
                 message = new MimeMessage(session);
+                _logger.info("After MimeMessage");
                 message.setFrom(new InternetAddress(sender));
+                _logger.info("After setFrom");
                 message.setSubject(checkIfNull(email.get("EMAIL_SUBJECT")));
+                _logger.info("setSubject");
                 message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recepient));
-                
+                _logger.info("setRecipients");
                 Multipart mp = new MimeMultipart();
+                _logger.info("MimeMultipart");
                 MimeBodyPart mbp1 = new MimeBodyPart();
+                _logger.info("MimeBodyPart");
                 mbp1.setContent(checkIfNull(email.get("EMAIL_BODY")), "text/html; charset=utf-8");
+                _logger.info("setContent");
                 mp.addBodyPart(mbp1);
-                
+                _logger.info("addBodyPart");
                 if (null != bytes) {
+                    _logger.info("Inside bytes IF Block");
                     MimeBodyPart mbp2 = new MimeBodyPart();
+                    _logger.info("Inside bytes IF Block  MimeBodyPart");
                     ByteArrayDataSource bds = new ByteArrayDataSource(bytes, "application/octet-stream");
+                    _logger.info("Inside bytes IF Block ByteArrayDataSource");
                     mbp2.setDataHandler(new DataHandler(bds));
+                    _logger.info("Inside bytes IF Block setDataHandler");
                     mbp2.setFileName(checkIfNull(email.get("EMAIL_ATTACHMENT_NAME")));
+                    _logger.info("Inside bytes IF Block setFileName");
                     mp.addBodyPart(mbp2);
+                    _logger.info("Inside  bytes IF Block addBodyPart");
                 }
-                
+                _logger.info("Afetr bytes IF Block");
                 message.setContent(mp);
+                _logger.info("After bytes IF Block setContent");
                 transport = session.getTransport();
+                _logger.info("After bytes IF Block setContent");
                 transport.connect();
+                _logger.info("After bytes IF Block connect");
                 transport.send(message, message.getAllRecipients());
+                _logger.info("After bytes IF Block send");
                 transport.close();
+                _logger.info("After bytes IF Block close");
                 return true;
             }
-        } catch (AddressException ae) {
+        } catch (Exception ex) {
             // TODO: Add catch code
-            ae.printStackTrace();
-        } catch (NoSuchProviderException nspe) {
-            // TODO: Add catch code
-            nspe.printStackTrace();
-        } catch (MessagingException me) {
-            // TODO: Add catch code 
-            me.printStackTrace();
-        }
+            ex.printStackTrace();
+            _logger.info("Inside Catch Block: "+ ex.getLocalizedMessage());
+        } 
+//        catch (NoSuchProviderException nspe) {
+//            // TODO: Add catch code
+//            nspe.printStackTrace();
+//        } catch (MessagingException me) {
+//            // TODO: Add catch code 
+//            me.printStackTrace();
+//        }
     return false;
     }
     
-    private static Session getMailSession(String host, String port, String sender) {
+    /*private static Session getMailSession(String host, String port, String sender) {
 
         Properties props = new Properties();
         props.setProperty("mail.smtp.starttls.enable", "true");
@@ -89,6 +110,21 @@ public class EmailUtils {
       return new PasswordAuthentication(sender,"morganfranklin@TS");  
      }  
       });
+        session.setDebug(true);
+        return session;
+    }*/
+    
+    private static Session getMailSession(String host, String port, String sender) {
+
+        Properties props = new Properties();
+        props.setProperty("mail.transport.protocol", "smtp");
+        props.setProperty("mail.smtp.host", host);
+        props.setProperty("mail.smtp.port", port);
+        props.setProperty("mail.smtp.user", sender);
+        props.setProperty("mail.debug", "true");
+        props.setProperty("mail.disable", "false");
+        props.setProperty("mail.verbose", "true");
+        Session session = Session.getDefaultInstance(props);
         session.setDebug(true);
         return session;
     }

@@ -68,11 +68,10 @@
                                                 </af:panelLabelAndMessage>
                                                 <af:inputText value="#{bindings.CustContractContactName.inputValue}"
                                                               label="#{bindings.CustContractContactName.hints.label}"
-                                                              required="#{bindings.CustContractContactName.hints.mandatory}"
                                                               columns="#{bindings.CustContractContactName.hints.displayWidth}"
                                                               maximumLength="#{bindings.CustContractContactName.hints.precision}"
                                                               shortDesc="#{bindings.CustContractContactName.hints.tooltip}"
-                                                              id="it4">
+                                                              id="it4" required="true">
                                                     <f:validator binding="#{bindings.CustContractContactName.validator}"/>
                                                 </af:inputText>
                                                 <af:inputText value="#{bindings.CustContractApproverEmail.inputValue}"

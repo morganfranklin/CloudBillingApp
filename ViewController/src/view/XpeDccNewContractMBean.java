@@ -313,13 +313,16 @@ public class XpeDccNewContractMBean implements Serializable {
     
     public void buildPDF(){
         try {
-            BindingContext bc = BindingContext.getCurrent();
-            BindingContainer bindings = bc.getCurrentBindingsEntry();
-            OperationBinding operationBinding = bindings.getOperationBinding("buildXML");
-            if (null != operationBinding){
-                Map pdf = (Map)operationBinding.execute();
-                if(null!=pdf && pdf.size()>1)
-                    FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("PDF", FileOperations.genPdfRep(String.valueOf(pdf.get("XML")).getBytes(), FileOperations.getRTFAsInputStream(String.valueOf(pdf.get("TEMPLATE_NAME")))));
+            String wasteType = (String)ADFUtils.evaluateEL("#{bindings.XpeWasteType.inputValue}");
+            if(null!=wasteType && ("MSW".equals(wasteType) || "MTL".equals(wasteType))){
+                BindingContext bc = BindingContext.getCurrent();
+                BindingContainer bindings = bc.getCurrentBindingsEntry();
+                OperationBinding operationBinding = bindings.getOperationBinding("buildXML");
+                if (null != operationBinding){
+                    Map pdf = (Map)operationBinding.execute();
+                    if(null!=pdf && pdf.size()>1)
+                        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("PDF", FileOperations.genPdfRep(String.valueOf(pdf.get("XML")).getBytes(), FileOperations.getRTFAsInputStream(String.valueOf(pdf.get("TEMPLATE_NAME")))));
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();

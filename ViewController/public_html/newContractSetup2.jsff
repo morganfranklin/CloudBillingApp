@@ -146,7 +146,8 @@
                                               id="t3"/>
                                 </af:gridCell>
                             </af:gridRow>
-                            <af:gridRow marginTop="5px" height="auto" id="gr12">
+                            <af:gridRow marginTop="5px" height="auto" id="gr12"
+                                        rendered="#{bindings.XpeWasteType.inputValue ne 'SW'}">
                                 <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc13" halign="stretch">
                                     <af:panelGroupLayout id="pgl13" layout="horizontal">
                                         <af:selectOneChoice value="#{bindings.XpeTermId.inputValue}"
@@ -169,7 +170,8 @@
                                     </af:panelGroupLayout>
                                 </af:gridCell>
                             </af:gridRow>
-                            <af:gridRow id="gr5" marginTop="5px">
+                            <af:gridRow id="gr5" marginTop="5px"
+                                        rendered="#{bindings.XpeWasteType.inputValue ne 'SW'}">
                              <af:gridCell id="gc31" halign="stretch" width="100%">
                                     <af:panelGroupLayout id="pgl8" layout="horizontal"
                                                          partialTriggers="soc13 b_cre b_del sor2" valign="top">
@@ -252,6 +254,12 @@
                                     </af:panelGroupLayout>
                                 </af:gridCell>
                             </af:gridRow>
+                            <af:gridRow id="gr13" marginTop="5px"
+                                        rendered="#{bindings.XpeWasteType.inputValue eq 'SW'}">
+                                <af:gridCell id="gc9" width="100%" halign="stretch" marginStart="5px" marginEnd="5px">
+                                    <af:panelHeader text="Terms and Conditions are not applicable" id="ph4" messageType="info"/>
+                                </af:gridCell>
+                            </af:gridRow>
                             <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr14">
                                 <af:gridCell marginStart="5px" marginEnd="5px" id="gc12" width="100%" halign="stretch"
                                              valign="stretch">
@@ -272,10 +280,18 @@
                                               id="t4"/>
                                 </af:gridCell>
                             </af:gridRow>
-                             <af:gridRow marginTop="5px" height="auto" id="gr15">
+                             <af:gridRow marginTop="5px" height="auto" id="gr15"
+                                         rendered="#{bindings.XpeWasteType.inputValue ne 'SW'}">
                                 <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc18" halign="stretch">
                                     <af:inlineFrame id="if1" source="/rtf" styleClass="AFStretchWidth"
                                                     inlineStyle="height:500px;"/>
+                                </af:gridCell>
+                            </af:gridRow>
+                            <af:gridRow id="gr17" marginTop="5px"
+                                        rendered="#{bindings.XpeWasteType.inputValue eq 'SW'}">
+                                <af:gridCell id="gc14" width="100%" halign="stretch" marginStart="5px" marginEnd="5px">
+                                    <af:panelHeader text="RTF template is not applicable" id="ph5"
+                                                    messageType="info"/>
                                 </af:gridCell>
                             </af:gridRow>
                             <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr16">
@@ -303,7 +319,9 @@
                                     <af:selectOneRadio value="#{bindings.Approval_Level.inputValue}"
                                                        label="#{bindings.Approval_Level.label}"
                                                        shortDesc="#{bindings.Approval_Level.hints.tooltip}" id="sor1"
-                                                       autoSubmit="true" required="true">
+                                                       autoSubmit="true"
+                                                       rendered="#{bindings.XpeWasteType.inputValue ne 'SW'}"
+                                                       required="true">
                                         <f:selectItems value="#{bindings.Approval_Level.items}" id="si15"/>
                                         <f:validator binding="#{bindings.Approval_Level.validator}"/>
                                     </af:selectOneRadio>

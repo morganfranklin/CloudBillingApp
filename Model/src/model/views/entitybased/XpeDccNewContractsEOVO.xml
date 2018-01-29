@@ -79,7 +79,6 @@
     AliasName="XPE_DCC_PCSNAME"/>
   <ViewAttribute
     Name="CustContractApproverEmail"
-    IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="CustContractApproverEmail"
     EntityUsage="XpeDccContracts"
