@@ -182,7 +182,7 @@ public class PeopleSoftCallSecurityFilter {
         }
         */
         // test override
-        this.setRetrievedToken("admin");
+        this.setRetrievedToken("gbewley");
 
         this.checkRoles(this.getRetrievedToken());
 
