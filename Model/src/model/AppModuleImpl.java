@@ -3979,6 +3979,35 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         System.out.println("nextLineNumber: "+nextLineNumber);
         return nextLineNumber;
     }
+    
+    public String checkRoles(String givenUser){
+        List<String> availRoles = new ArrayList<String>();
+        String accessLimit = null;
+        RoleQueryImpl roles = this.getRoleQuery1();
+        roles.setQ_ROLE_USER(givenUser);
+        roles.executeQuery();
+        RowSetIterator rowSetIterator= roles.createRowSetIterator(null);
+        while (rowSetIterator.hasNext()) {
+            RoleQueryRowImpl roleRow = (RoleQueryRowImpl) rowSetIterator.next();
+            availRoles.add(roleRow.getRolename());
+        }
+        rowSetIterator.closeRowSetIterator();
+        
+        if (availRoles.size() > 0) {
+            if (availRoles.contains("CPE_DEV")) {
+                accessLimit = "D";
+            } else if (availRoles.contains("CPE_ADMIN")) {
+                accessLimit = "A";
+            } else if (availRoles.contains("CPE_LEGAL")) {
+                accessLimit = "L";
+            } else if (availRoles.contains("CPE_SALES")) {
+                accessLimit = "S";
+            } else if (availRoles.contains("CPE_IA")) {
+                accessLimit = "I";
+            }
+        }
+        return accessLimit;
+    }
 
     /**
      * Container's getter for XpeDccCfgMswFacilityEOVO2.

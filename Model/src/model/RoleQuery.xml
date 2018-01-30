@@ -4,7 +4,7 @@
 <ViewObject
     xmlns="http://xmlns.oracle.com/bc4j"
     Name="RoleQuery"
-    Version="12.2.1.0.31"
+    Version="12.2.1.11.57"
     InheritPersonalization="merge"
     BindingStyle="OracleName"
     CustomQuery="true"
@@ -27,12 +27,9 @@
         Kind="where"
         Type="java.lang.String"
         DefaultValue="MPALMER"/>
-    <Variable
-        Name="Q_ROLE_NAME"
-        Kind="where"
-        Type="java.lang.String"
-        DefaultValue="CIS_XPE_MANAGER"/>
-    <SQLQuery><![CDATA[SELECT ROLENAME FROM PSROLEUSER WHERE (ROLEUSER=:Q_ROLE_USER AND ROLENAME=:Q_ROLE_NAME)]]></SQLQuery>
+    <SQLQuery><![CDATA[SELECT ROLENAME FROM PSROLEUSER      
+WHERE ROLENAME IN('CPE_IA','CPE_SALES','CPE_LEGAL','CPE_ADMIN','CPE_DEV')     
+AND ROLEUSER=:Q_ROLE_USER]]></SQLQuery>
     <ViewAttribute
         Name="Rolename"
         IsUpdateable="false"

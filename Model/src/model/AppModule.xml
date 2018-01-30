@@ -1891,5 +1891,15 @@
                 Name="nextPricingTermLineNbr"
                 Type="java.lang.Integer"/>
         </Method>
+        <Method
+            Name="checkRoles"
+            MethodName="checkRoles">
+            <Return
+                Name="_return_type_"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="givenUser"
+                Type="java.lang.String"/>
+        </Method>
     </ClientInterface>
 </AppModule>

@@ -7,5 +7,12 @@
         <taskFlow id="dynamicRegion1" taskFlowId="${viewScope.integrationDashboardRegionName.dynamicTaskFlowId}"
                   activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
     </executables>
-    <bindings/>
+    <bindings>
+        <methodAction id="checkRoles" RequiresUpdateModel="true" Action="invokeMethod" MethodName="checkRoles"
+                      IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                      InstanceName="data.AppModuleDataControl.dataProvider"
+                      ReturnName="data.AppModuleDataControl.methodResults.checkRoles_AppModuleDataControl_dataProvider_checkRoles_result">
+            <NamedData NDName="givenUser" NDType="java.lang.String"/>
+        </methodAction>
+    </bindings>
 </pageDefinition>

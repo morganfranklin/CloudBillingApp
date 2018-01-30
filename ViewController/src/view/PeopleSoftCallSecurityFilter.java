@@ -1,50 +1,21 @@
 package view;
 
+import java.io.IOException;
+
 import javax.el.ELContext;
 import javax.el.ExpressionFactory;
-
 import javax.el.ValueExpression;
 
 import javax.faces.application.Application;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-
-import java.net.URLConnection;
-
-import java.security.cert.X509Certificate;
-
-import javax.net.ssl.HttpsURLConnection;
-
-import javax.faces.context.ExternalContext;
-
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSession;
-import javax.net.ssl.TrustManager;
-
-import javax.net.ssl.X509TrustManager;
-
-import model.PsCisXpeActionViewImpl;
-import model.RoleQueryImpl;
-
-import model.RoleQueryRowImpl;
-
 import oracle.adf.controller.ControllerContext;
-import oracle.adf.model.BindingContainer;
 import oracle.adf.model.BindingContext;
 import oracle.adf.model.binding.DCBindingContainer;
 import oracle.adf.view.rich.render.ClientEvent;
 
-import oracle.jbo.ApplicationModule;
-
-import oracle.jbo.client.Configuration;
+import oracle.binding.OperationBinding;
 
 public class PeopleSoftCallSecurityFilter {
 
@@ -177,7 +148,7 @@ public class PeopleSoftCallSecurityFilter {
             e.printStackTrace();
         }
         System.out.println("retrieved :"+this.getRetrievedToken()+" ready to override");
-        /**/
+        */
         // test override
         this.setRetrievedToken("GBEWLEY");
 
@@ -194,9 +165,19 @@ public class PeopleSoftCallSecurityFilter {
     }
 
     private void checkRoles(String givenUser) {
-        /*
+        
         this.setAccessLimit("A");
-        String amDef = "model.AppModule";
+        DCBindingContainer bindings = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
+        OperationBinding operationBinding = bindings.getOperationBinding("checkRoles");
+        if (null != operationBinding) {
+            operationBinding.getParamsMap().put("givenUser", givenUser);
+            String accessLimit = (String) operationBinding.execute();
+            if(null!=accessLimit)
+                this.setAccessLimit(accessLimit);
+        }
+        
+        System.err.println("Access Limit: "+this.getAccessLimit());
+        /*String amDef = "model.AppModule";
         String config = "AppModuleLocal";
         RoleQueryRowImpl roleRow = null;
 
@@ -247,9 +228,9 @@ public class PeopleSoftCallSecurityFilter {
 
         if (roleRow != null) {
             this.setAccessLimit("D");
-        }*/
+        }
 
-        this.setAccessLimit("D");
+        this.setAccessLimit("D");*/
         
     }
 

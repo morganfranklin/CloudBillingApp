@@ -70,5 +70,7 @@ public interface AppModule extends ApplicationModule {
     Integer nextContractPricingTermNumber(String creationPlace);
 
     void contractPricingTermLineAdd(String creationPlace, Integer nextPricingTermLineNbr);
+
+    String checkRoles(String givenUser);
 }
 

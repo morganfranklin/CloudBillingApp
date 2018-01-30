@@ -30,20 +30,6 @@ public class RoleQueryImpl extends ViewObjectImpl {
         setNamedWhereClauseParam("Q_ROLE_USER", value);
     }
 
-    /**
-     * Returns the bind variable value for Q_ROLE_NAME.
-     * @return bind variable value for Q_ROLE_NAME
-     */
-    public String getQ_ROLE_NAME() {
-        return (String) getNamedWhereClauseParam("Q_ROLE_NAME");
-    }
 
-    /**
-     * Sets <code>value</code> for bind variable Q_ROLE_NAME.
-     * @param value value to bind as Q_ROLE_NAME
-     */
-    public void setQ_ROLE_NAME(String value) {
-        setNamedWhereClauseParam("Q_ROLE_NAME", value);
-    }
 }
 
