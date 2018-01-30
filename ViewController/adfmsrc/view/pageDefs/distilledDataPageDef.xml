@@ -44,6 +44,8 @@
                     <Item Value="Qty5"/>
                     <Item Value="CisTargetVendor5"/>
                     <Item Value="AttrValue9"/>
+                    <Item Value="CisTargtcust2det2"/>
+                    <Item Value="CisTargtcust4det1"/>
                 </AttrNames>
             </nodeDefinition>
         </tree>
