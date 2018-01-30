@@ -8,7 +8,8 @@
   InheritPersonalization="merge"
   BindingStyle="OracleName"
   CustomQuery="true"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  FetchSize="25">
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
   </DesignTime>
@@ -18,19 +19,19 @@
         ResId="model.views.readonly.PsGlAccountTblROVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <SQLQuery><![CDATA[SELECT A.ACCOUNT, 
-  A.DESCRIPTION 
-FROM PS_GL_ACCOUNT_TBL A 
-WHERE ( A.EFFECTIVE_DATE = 
-  (SELECT MAX(A_ED.EFFECTIVE_DATE) 
-  FROM PS_GL_ACCOUNT_TBL A_ED 
-  WHERE A.SETID            = A_ED.SETID 
-  AND A.ACCOUNT            = A_ED.ACCOUNT 
-  AND A_ED.EFFECTIVE_DATE <= SYSDATE 
-  ) 
-AND A.SETID              = 'MASTR' 
-AND A.STATISTICS_ACCOUNT = 'Y' 
-AND A.EFFECTIVE_STATUS   = 'A')]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT A.ACCOUNT,  
+  A.DESCR DESCRIPTION  
+FROM PS_GL_ACCOUNT_TBL A  
+WHERE ( A.EFFDT =  
+  (SELECT MAX(A_ED.EFFDT)  
+  FROM PS_GL_ACCOUNT_TBL A_ED  
+  WHERE A.SETID            = A_ED.SETID  
+  AND A.ACCOUNT            = A_ED.ACCOUNT  
+  AND A_ED.EFFDT <= SYSDATE  
+  )  
+AND A.SETID              = 'MASTR'  
+AND A.STATISTICS_ACCOUNT = 'Y'  
+AND A.EFF_STATUS   = 'A')]]></SQLQuery>
   <ViewAttribute
     Name="Account"
     IsUpdateable="false"
