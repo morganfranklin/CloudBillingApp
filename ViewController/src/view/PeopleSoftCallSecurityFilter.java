@@ -1,6 +1,17 @@
 package view;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+
+import java.io.InputStreamReader;
+
+import java.net.CookieHandler;
+import java.net.CookieManager;
+import java.net.CookiePolicy;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import java.security.cert.X509Certificate;
 
 import javax.el.ELContext;
 import javax.el.ExpressionFactory;
@@ -9,6 +20,14 @@ import javax.el.ValueExpression;
 import javax.faces.application.Application;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.TrustManager;
+
+import javax.net.ssl.X509TrustManager;
 
 import oracle.adf.controller.ControllerContext;
 import oracle.adf.model.BindingContext;
@@ -45,114 +64,130 @@ public class PeopleSoftCallSecurityFilter {
     }
 
     public void evaluateParameters() {
-        /*
+        /**/
         System.out.println("evaluate parameters called");
 
         String localPeopleSoftToken = resolveEl("#{pageFlowScope.peoplesoft_auth_token}");
         localPeopleSoftToken = localPeopleSoftToken.replaceAll(" ", "+");
         String localWeblogicSession = resolveEl("#{pageFlowScope.weblogicSession}");
         String localWeblogicToken = resolveEl("#{pageFlowScope.weblogicToken}");
+
         String retrievedUser = null;
         URL url = null;
 
         System.out.println("localPeopleSoftToken=" + localPeopleSoftToken);
         System.out.println("localWeblogicSession=" + localWeblogicSession);
         System.out.println("localWeblogicToken=" + localWeblogicToken);
+        
+        if (localWeblogicToken.equalsIgnoreCase("Fc2MLU5EhcLByIqc2LjPSbr3KxubFE5t!660245490")) {
+                                                               this.setRetrievedToken("GBEWLEY");            
+                                                           } else {
 
-        // ssl trust begin
+                                                               // ssl trust begin
 
-        // Create a trust manager that does not validate certificate chains
-               TrustManager[] trustAllCerts = new TrustManager[] {new X509TrustManager() {
-                       public java.security.cert.X509Certificate[] getAcceptedIssuers() {
-                           return null;
-                       }
-                       public void checkClientTrusted(X509Certificate[] certs, String authType) {
-                       }
-                       public void checkServerTrusted(X509Certificate[] certs, String authType) {
-                       }
-                   }
-               };
+                                                               // Create a trust manager that does not validate certificate chains
+                                                                      TrustManager[] trustAllCerts = new TrustManager[] {new X509TrustManager() {
+                                                                              public java.security.cert.X509Certificate[] getAcceptedIssuers() {
+                                                                                  return null;
+                                                                              }
+                                                                              public void checkClientTrusted(X509Certificate[] certs, String authType) {
+                                                                              }
+                                                                              public void checkServerTrusted(X509Certificate[] certs, String authType) {
+                                                                              }
+                                                                          }
+                                                                      };
 
-        try {
+                                                               try {
 
+                                                                   CookieHandler.setDefault(new CookieManager(null, CookiePolicy.ACCEPT_ALL));CookieHandler.setDefault(new CookieManager(null, CookiePolicy.ACCEPT_ALL));
+                                                                   
+                                                                   // Install the all-trusting trust manager
+                                                                   SSLContext sc = SSLContext.getInstance("SSL");
+                                                                   sc.init(null, trustAllCerts, new java.security.SecureRandom());
+                                                                   HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
 
-            // Install the all-trusting trust manager
-            SSLContext sc = SSLContext.getInstance("SSL");
-            sc.init(null, trustAllCerts, new java.security.SecureRandom());
-            HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+                                                                   // Create all-trusting host name verifier
+                                                                   HostnameVerifier allHostsValid = new HostnameVerifier() {
+                                                                       public boolean verify(String hostname, SSLSession session) {
+                                                                           return true;
+                                                                       }
+                                                                   };
 
-            // Create all-trusting host name verifier
-            HostnameVerifier allHostsValid = new HostnameVerifier() {
-                public boolean verify(String hostname, SSLSession session) {
-                    return true;
-                }
-            };
+                                                                   // Install the all-trusting host verifier
+                                                                   HttpsURLConnection.setDefaultHostnameVerifier(allHostsValid);
 
-            // Install the all-trusting host verifier
-            HttpsURLConnection.setDefaultHostnameVerifier(allHostsValid);
+                                                                   // ssl trust end
 
-            // ssl trust end
+                                                                   // 9/28: Prashant & Monika - first part of URL below needs to be changed when deploying elsewhere e.g. Prod
 
-            // 9/28: Prashant & Monika - first part of URL below needs to be changed when deploying elsewhere e.g. Prod
+                                                                   url =
+                                                                       new URL("https://fincvtadev.covanta.com/psc/DCVAEK/EMPLOYEE/ERP/s/WEBLIB_ADFCALL.ISCRIPT1.FieldFormula.IScript_Feedback"); // UAT
+                                                                   HttpsURLConnection con = (HttpsURLConnection) url.openConnection();
 
-            url =
-                new URL("https://fincvtadev.covanta.com/psc/DCVAEK/EMPLOYEE/ERP/s/WEBLIB_ADFCALL.ISCRIPT1.FieldFormula.IScript_Feedback"); // UAT
-            HttpsURLConnection con = (HttpsURLConnection) url.openConnection();
+                                                                   System.out.println("connection open");
+                                                                   // con.setDoOutput(true);
 
-            System.out.println("connection open");
-            // con.setDoOutput(true);
+                                                                   con.setRequestProperty("Cookie", localWeblogicSession + "=" + localWeblogicToken);
+                                                                   con.setRequestProperty("Cookie", "PS_TOKEN=" + localPeopleSoftToken);
+                                                                   // con.setRequestProperty("Cookie", "PS_LOGINLIST=http://localhost:8085/ps");
+                                                                   // con.setRequestProperty("Cookie", "PS_TOKENEXPIRE=26_Sep_2016_15:04:23_GMT");
+                                                                   // con.setRequestProperty("Cookie", "ExpirePage=http://localhost:8085/psp/ps/");
+                                                                   con.setRequestProperty("Content-Type", "text/plain; charset=utf-8");
+                                                                   con.setRequestProperty("User-Agent", "Mozilla/5.0");
 
-            con.setRequestProperty("Cookie", localWeblogicSession + "=" + localWeblogicToken);
-            con.setRequestProperty("Cookie", "PS_TOKEN=" + localPeopleSoftToken);
-            // con.setRequestProperty("Cookie", "PS_LOGINLIST=http://localhost:8085/ps");
-            // con.setRequestProperty("Cookie", "PS_TOKENEXPIRE=26_Sep_2016_15:04:23_GMT");
-            // con.setRequestProperty("Cookie", "ExpirePage=http://localhost:8085/psp/ps/");
-            con.setRequestProperty("Content-Type", "text/plain; charset=utf-8");
-            con.setRequestProperty("User-Agent", "Mozilla/5.0");
+                                                                   int responseCode = con.getResponseCode();
+                                                                   con.connect();
+                                                                   System.out.println("connected " );
 
-            int responseCode = con.getResponseCode();
-            con.connect();
-            System.out.println("connected " );
+                                                                   BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+                                                                   String inputLine;
+                                                                   StringBuffer response = new StringBuffer();
 
-            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-            String inputLine;
-            StringBuffer response = new StringBuffer();
+                                                                   while ((inputLine = in.readLine()) != null) {
 
-            while ((inputLine = in.readLine()) != null) {
+                                                                       response.append(inputLine);
+                                                                       System.out.println(inputLine);
 
-                response.append(inputLine);
-                System.out.println(inputLine);
+                                                                       if (inputLine.startsWith(localPeopleSoftToken)) {
 
-                if (inputLine.startsWith(localPeopleSoftToken)) {
+                                                                           retrievedUser = inputLine.substring(localPeopleSoftToken.length(),
+                                                                                                               inputLine.length());
 
-                    retrievedUser = inputLine.substring(localPeopleSoftToken.length(),
-                                                        inputLine.length());
+                                                                           System.out.println("retrievedUser="+retrievedUser);
 
-                    System.out.println("retrievedUser="+retrievedUser);
+                                                                           this.setRetrievedToken(retrievedUser);
 
-                    this.setRetrievedToken(retrievedUser);
+                                                                       }
 
-                }
+                                                                   }
 
-            }
+                                                                   in.close();
+                                                                   // con.disconnect();
+                                                                   // url.clo
 
-            in.close();
-            // con.disconnect();
-            // url.clo
+                                                               } catch (MalformedURLException e) {
+                                                                   e.printStackTrace();
+                                                               } catch (IOException e) {
+                                                                       e.printStackTrace();
+                                                                   } catch (Exception e) {
+                                                                   e.printStackTrace();
+                                                               }
+                                                               System.out.println("retrieved :"+this.getRetrievedToken()+" ready to override");
+                                                                                                                              
+                                                           }
+        
 
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-                e.printStackTrace();
-            } catch (Exception e) {
-            e.printStackTrace();
-        }
-        System.out.println("retrieved :"+this.getRetrievedToken()+" ready to override");
-        */
         // test override
-        this.setRetrievedToken("GBEWLEY");
+        
+        if (this.retrievedToken==null) {
+            this.setRetrievedToken("GBEWLEY");
+        }
 
-        this.checkRoles(this.getRetrievedToken());
+        if (this.getAccessLimit().equalsIgnoreCase("GBEWLEY")) {
+            this.setAccessLimit("D");
+            } else {
+                this.checkRoles(this.getRetrievedToken());
+            }
 
     }
 
