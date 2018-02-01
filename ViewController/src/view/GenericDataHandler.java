@@ -3608,7 +3608,7 @@ public class GenericDataHandler implements Runnable {
 
         try {
             Statement stmt = configdb.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT PS_CIS_XPE_PROCESS_ID_SEQ.nextval FROM dual");
+            ResultSet rs = stmt.executeQuery("SELECT MAX(PROCESSID)+1 FROM PS_CIS_XPE_PROCESS");
 
             if (rs != null && rs.next()) {
                 process_id_seq = rs.getInt(1);

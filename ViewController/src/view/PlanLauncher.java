@@ -64,7 +64,8 @@ public class PlanLauncher {
         // userCfgFile = "/psft/wl12adf/user_projects/domains/tnsuat/config/xpe_breakfix_cfg.properties";
         
         // 
-        userCfgFile = "/dcva3t/local/xpe_batch/xpe_aws.properties";
+        userCfgFile = "/autofs/ood_implementation/lib4wls/xpe_batch/xpe_aws.properties";
+        // userCfgFile = "C:\\JDeveloper\\CovOverride\\xpe_aws.properties";
         
         String selectedExecutionPlan ;
         
