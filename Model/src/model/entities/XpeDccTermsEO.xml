@@ -9,7 +9,12 @@
   DBObjectType="table"
   DBObjectName="XPE_DCC_TERMS"
   AliasName="XpeDccTermsEO"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="model.entities.XpeDccTermsEOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="XpeDccTerm"
     Precision="50"
@@ -74,6 +79,47 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    Precision="20"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_TERMS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedBy"
+    Precision="20"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_TERMS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedDate"
+    ColumnName="CREATED_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XPE_DCC_TERMS"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory"/>
+  <Attribute
+    Name="LastUpdatedDate"
+    ColumnName="LAST_UPDATED_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XPE_DCC_TERMS"
+    HistoryColumn="DateHistory"/>
   <AccessorAttribute
     Name="XpeDccTermMaster"
     Association="model.entities.associations.XpeDccTermsFkAssoc"

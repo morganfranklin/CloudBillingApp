@@ -13,6 +13,7 @@
     RowClass="model.XpeDccContractsImpl">
     <DesignTime>
         <Attr Name="_isCodegen" Value="true"/>
+        <Attr Name="_codeGenFlag2" Value="Access"/>
     </DesignTime>
     <Attribute
       Name="XpeContractId"
@@ -150,6 +151,35 @@
         Type="java.math.BigInteger"
         ColumnType="NUMBER"
         TableName="XPE_DCC_CONTRACTS"/>
+    <Attribute
+        Name="LastUpdatedBy"
+        Precision="20"
+        ColumnName="LAST_UPDATED_BY"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="XPE_DCC_CONTRACTS">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="CreatedDate"
+        ColumnName="CREATED_DATE"
+        SQLType="TIMESTAMP"
+        Type="java.sql.Timestamp"
+        ColumnType="TIMESTAMP"
+        TableName="XPE_DCC_CONTRACTS"
+        IsUpdateable="while_insert"
+        HistoryColumn="DateHistory"/>
+    <Attribute
+        Name="LastUpdatedDate"
+        ColumnName="LAST_UPDATED_DATE"
+        SQLType="TIMESTAMP"
+        Type="java.sql.Timestamp"
+        ColumnType="TIMESTAMP"
+        TableName="XPE_DCC_CONTRACTS"
+        HistoryColumn="DateHistory"/>
     <AccessorAttribute
       Name="XpeDccContractParty"
       Association="model.XpeDccContractPartyFk1Assoc"

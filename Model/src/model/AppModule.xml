@@ -667,6 +667,9 @@
     <ViewUsage
         Name="XpeDccMatchEsummVw1"
         ViewObjectName="model.XpeDccMatchEsummVw"/>
+    <ViewUsage
+        Name="XpeDccUserInfoROVO"
+        ViewObjectName="model.views.readonly.XpeDccUserInfoROVO"/>
     <ViewLinkUsage
         Name="NeuRuleTblFk1Link1"
         ViewLinkObjectName="model.NeuRuleTblFk1Link"

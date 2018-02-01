@@ -9,7 +9,12 @@
     DBObjectType="table"
     DBObjectName="XPE_DCC_CONTRACT_LINE"
     AliasName="XpeDccContractLine"
-    BindingStyle="OracleName">
+    BindingStyle="OracleName"
+    RowClass="model.XpeDccContractLineImpl">
+    <DesignTime>
+        <Attr Name="_codeGenFlag2" Value="Access"/>
+        <Attr Name="_isCodegen" Value="true"/>
+    </DesignTime>
     <Attribute
         Name="XpeContractId"
         IsNotNull="true"
@@ -174,6 +179,47 @@
             <Attr Name="_DisplaySize" Value="5"/>
         </DesignTime>
     </Attribute>
+    <Attribute
+        Name="CreatedBy"
+        Precision="20"
+        ColumnName="CREATED_BY"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="XPE_DCC_CONTRACT_LINE">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="LastUpdatedBy"
+        Precision="20"
+        ColumnName="LAST_UPDATED_BY"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="XPE_DCC_CONTRACT_LINE">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
+    <Attribute
+        Name="CreatedDate"
+        ColumnName="CREATED_DATE"
+        SQLType="TIMESTAMP"
+        Type="java.sql.Timestamp"
+        ColumnType="TIMESTAMP"
+        TableName="XPE_DCC_CONTRACT_LINE"
+        IsUpdateable="while_insert"
+        HistoryColumn="DateHistory"/>
+    <Attribute
+        Name="LastUpdatedDate"
+        ColumnName="LAST_UPDATED_DATE"
+        SQLType="TIMESTAMP"
+        Type="java.sql.Timestamp"
+        ColumnType="TIMESTAMP"
+        TableName="XPE_DCC_CONTRACT_LINE"
+        HistoryColumn="DateHistory"/>
     <AccessorAttribute
         Name="XpeDccContractDocTerm"
         Association="model.XpeDccContractDocTermFk1Assoc"

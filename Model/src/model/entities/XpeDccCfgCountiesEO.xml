@@ -13,6 +13,7 @@
   RowClass="model.entities.XpeDccCfgCountiesEOImpl">
   <DesignTime>
     <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
   </DesignTime>
   <Attribute
     Name="CountyId"
@@ -31,7 +32,6 @@
     </DesignTime>
     <TransientExpression
       Name="ExpressionScript"
-      trustMode="trusted"
       CodeSourceName="XpeDccCfgCountiesEORow"/>
   </Attribute>
   <Attribute

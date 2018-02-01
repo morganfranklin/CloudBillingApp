@@ -57,7 +57,7 @@
               id="XpeNewTermMode" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
         <attributeValues IterBinding="XpeDccContractVersionView2Iterator" id="UpdatedBy">
             <AttrNames>
-                <Item Value="UpdatedBy"/>
+                <Item Value="LastUpdatedBy"/>
             </AttrNames>
         </attributeValues>
         <attributeValues IterBinding="XpeDccContractVersionView2Iterator" id="CreatedBy">

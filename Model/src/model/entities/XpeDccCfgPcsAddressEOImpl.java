@@ -23,6 +23,10 @@ public class XpeDccCfgPcsAddressEOImpl extends EntityImpl {
         SitePostal,
         SiteOperatingHours,
         SiteAddressId,
+        CreatedBy,
+        LastUpdatedBy,
+        CreatedDate,
+        LastUpdatedDate,
         XpeDccCfgPcsEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -46,6 +50,7 @@ public class XpeDccCfgPcsAddressEOImpl extends EntityImpl {
             return vals;
         }
     }
+
     public static final int SITEID = AttributesEnum.SiteId.index();
     public static final int SITEADDRESS1 = AttributesEnum.SiteAddress1.index();
     public static final int SITEADDRESS2 = AttributesEnum.SiteAddress2.index();
@@ -54,6 +59,10 @@ public class XpeDccCfgPcsAddressEOImpl extends EntityImpl {
     public static final int SITEPOSTAL = AttributesEnum.SitePostal.index();
     public static final int SITEOPERATINGHOURS = AttributesEnum.SiteOperatingHours.index();
     public static final int SITEADDRESSID = AttributesEnum.SiteAddressId.index();
+    public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
+    public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
+    public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
+    public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int XPEDCCCFGPCSEO = AttributesEnum.XpeDccCfgPcsEO.index();
 
     /**
@@ -78,7 +87,8 @@ public class XpeDccCfgPcsAddressEOImpl extends EntityImpl {
     public static synchronized EntityDefImpl getDefinitionObject() {
         return EntityDefImpl.findDefObject("model.entities.XpeDccCfgPcsAddressEO");
     }
-    
+
+
     protected String nextVal(String sequenceName) {
         SequenceImpl s = new SequenceImpl(sequenceName, getDBTransaction());
         return s.getSequenceNumber().toString();

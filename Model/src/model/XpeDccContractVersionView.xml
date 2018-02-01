@@ -484,12 +484,6 @@
         EntityUsage="XpeDccContractVersion"
         AliasName="CREATED_BY"/>
     <ViewAttribute
-        Name="UpdatedBy"
-        PrecisionRule="true"
-        EntityAttrName="UpdatedBy"
-        EntityUsage="XpeDccContractVersion"
-        AliasName="UPDATED_BY"/>
-    <ViewAttribute
         Name="XpeBillOptionsSet"
         PrecisionRule="true"
         EntityAttrName="XpeBillOptionsSet"
@@ -818,6 +812,12 @@
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>
+    <ViewAttribute
+        Name="LastUpdatedBy"
+        PrecisionRule="true"
+        EntityAttrName="LastUpdatedBy"
+        EntityUsage="XpeDccContractVersion"
+        AliasName="LAST_UPDATED_BY"/>
     <ViewLinkAccessor
         Name="XpeDccContractNotesView"
         ViewLink="model.XpeDccContractNotesFk1Link"

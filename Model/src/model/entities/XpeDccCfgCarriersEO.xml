@@ -13,6 +13,7 @@
   RowClass="model.entities.XpeDccCfgCarriersEOImpl">
   <DesignTime>
     <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
   </DesignTime>
   <Attribute
     Name="CarrierId"

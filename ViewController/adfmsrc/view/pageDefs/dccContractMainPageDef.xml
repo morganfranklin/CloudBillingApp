@@ -50,6 +50,7 @@
                     <Item Value="XpeContractTemplate"/>
                     <Item Value="BusinessUnitGl"/>
                     <Item Value="CurrencyCd"/>
+                    <Item Value="LastUpdatedBy"/>
                 </AttrNames>
             </nodeDefinition>
         </tree>
@@ -92,12 +93,12 @@
                     <Item Value="XpeEndDate"/>
                     <Item Value="XpeNewTermMode"/>
                     <Item Value="CreatedBy"/>
-                    <Item Value="UpdatedBy"/>
                     <Item Value="XpeBillOptionsSet"/>
                     <Item Value="XpeAcctgOptionsSet"/>
                     <Item Value="XpeContractTemplate"/>
                     <Item Value="BusinessUnitGl"/>
                     <Item Value="CurrencyCd"/>
+                    <Item Value="LastUpdatedBy"/>
                 </AttrNames>
             </nodeDefinition>
         </tree>

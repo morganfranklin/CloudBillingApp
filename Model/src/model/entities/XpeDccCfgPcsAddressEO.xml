@@ -117,6 +117,47 @@
       Name="ExpressionScript"
       CodeSourceName="XpeDccCfgPcsAddressEORow"/>
   </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    Precision="20"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_PCS_ADDRESS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedBy"
+    Precision="20"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_PCS_ADDRESS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedDate"
+    ColumnName="CREATED_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XPE_DCC_CFG_PCS_ADDRESS"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory"/>
+  <Attribute
+    Name="LastUpdatedDate"
+    ColumnName="LAST_UPDATED_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XPE_DCC_CFG_PCS_ADDRESS"
+    HistoryColumn="DateHistory"/>
   <AccessorAttribute
     Name="XpeDccCfgPcsEO"
     Association="model.entities.associations.XpeDccCfgPcsAddressFkAssoc"

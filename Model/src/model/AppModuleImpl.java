@@ -98,6 +98,8 @@ import model.views.readonly.XpeDccNewContractSetupROVOImpl;
 import model.views.readonly.XpeDccNewContractSetupROVORowImpl;
 import model.views.readonly.XpeDccTermsForMasterTermROVOImpl;
 import model.views.readonly.XpeDccTermsForMasterTermROVORowImpl;
+import model.views.readonly.XpeDccUserInfoROVOImpl;
+import model.views.readonly.XpeDccUserInfoROVORowImpl;
 import model.views.readonly.XpeDccWfActionROVOImpl;
 import model.views.readonly.XpeDccWfActionROVORowImpl;
 import model.views.readonly.XpeDmsCustomerROVOImpl;
@@ -132,6 +134,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      * This is the default constructor (do not remove).
      */
     public AppModuleImpl() {
+        
     }
 
     /**
@@ -3059,7 +3062,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         this.getXpeDccNewContractsEOVO().executeQuery();
         this.getXpeDccContractSearchROVO().executeEmptyRowSet();
     }
-    
+
     public void clearTermMaster(){
         this.getXpeDccTermMasterSetupROVO().clearCache();
         this.getXpeDccTermMasterEOVO().executeEmptyRowSet();
@@ -3981,6 +3984,15 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     }
     
     public String checkRoles(String givenUser){
+        this.getXpeDccUserInfoROVO().clearCache();
+        this.getXpeDccUserInfoROVO().executeQuery();
+        XpeDccUserInfoROVORowImpl userInfoROVORow =
+            (XpeDccUserInfoROVORowImpl) this.getXpeDccUserInfoROVO().first();
+        if (null != userInfoROVORow){
+            System.err.println("Inside userInfoROVORow: "+givenUser);
+            userInfoROVORow.setUSER_NAME(givenUser);
+        }
+        
         List<String> availRoles = new ArrayList<String>();
         String accessLimit = null;
         RoleQueryImpl roles = this.getRoleQuery1();
@@ -4327,6 +4339,14 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public ViewObjectImpl getXpeDccMatchEsummVw1() {
         return (ViewObjectImpl) findViewObject("XpeDccMatchEsummVw1");
+    }
+
+    /**
+     * Container's getter for XpeDccUserInfoROVO1.
+     * @return XpeDccUserInfoROVO1
+     */
+    public XpeDccUserInfoROVOImpl getXpeDccUserInfoROVO() {
+        return (XpeDccUserInfoROVOImpl) findViewObject("XpeDccUserInfoROVO");
     }
 }
 

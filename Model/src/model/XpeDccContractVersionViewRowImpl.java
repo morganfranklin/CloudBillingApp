@@ -27,7 +27,6 @@ public class XpeDccContractVersionViewRowImpl extends ViewRowImpl {
         XpeEndDate,
         XpeNewTermMode,
         CreatedBy,
-        UpdatedBy,
         XpeBillOptionsSet,
         XpeAcctgOptionsSet,
         XpeContractTemplate,
@@ -49,6 +48,7 @@ public class XpeDccContractVersionViewRowImpl extends ViewRowImpl {
         XpeExistingCustomer,
         XpeJustification,
         XpeCreditLimit,
+        LastUpdatedBy,
         XpeDccContractNotesView,
         XpeDccContractLineView,
         XpeDccContractsAttachmentsView,
@@ -101,7 +101,6 @@ public class XpeDccContractVersionViewRowImpl extends ViewRowImpl {
     public static final int XPEENDDATE = AttributesEnum.XpeEndDate.index();
     public static final int XPENEWTERMMODE = AttributesEnum.XpeNewTermMode.index();
     public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
-    public static final int UPDATEDBY = AttributesEnum.UpdatedBy.index();
     public static final int XPEBILLOPTIONSSET = AttributesEnum.XpeBillOptionsSet.index();
     public static final int XPEACCTGOPTIONSSET = AttributesEnum.XpeAcctgOptionsSet.index();
     public static final int XPECONTRACTTEMPLATE = AttributesEnum.XpeContractTemplate.index();
@@ -123,6 +122,7 @@ public class XpeDccContractVersionViewRowImpl extends ViewRowImpl {
     public static final int XPEEXISTINGCUSTOMER = AttributesEnum.XpeExistingCustomer.index();
     public static final int XPEJUSTIFICATION = AttributesEnum.XpeJustification.index();
     public static final int XPECREDITLIMIT = AttributesEnum.XpeCreditLimit.index();
+    public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int XPEDCCCONTRACTNOTESVIEW = AttributesEnum.XpeDccContractNotesView.index();
     public static final int XPEDCCCONTRACTLINEVIEW = AttributesEnum.XpeDccContractLineView.index();
     public static final int XPEDCCCONTRACTSATTACHMENTSVIEW = AttributesEnum.XpeDccContractsAttachmentsView.index();
@@ -275,21 +275,6 @@ public class XpeDccContractVersionViewRowImpl extends ViewRowImpl {
         setAttributeInternal(CREATEDBY, value);
     }
 
-    /**
-     * Gets the attribute value for UPDATED_BY using the alias name UpdatedBy.
-     * @return the UPDATED_BY
-     */
-    public String getUpdatedBy() {
-        return (String) getAttributeInternal(UPDATEDBY);
-    }
-
-    /**
-     * Sets <code>value</code> as attribute value for UPDATED_BY using the alias name UpdatedBy.
-     * @param value value to set the UPDATED_BY
-     */
-    public void setUpdatedBy(String value) {
-        setAttributeInternal(UPDATEDBY, value);
-    }
 
     /**
      * Gets the attribute value for XPE_BILL_OPTIONS_SET using the alias name XpeBillOptionsSet.
@@ -626,6 +611,22 @@ public class XpeDccContractVersionViewRowImpl extends ViewRowImpl {
      */
     public void setXpeCreditLimit(String value) {
         setAttributeInternal(XPECREDITLIMIT, value);
+    }
+
+    /**
+     * Gets the attribute value for LAST_UPDATED_BY using the alias name LastUpdatedBy.
+     * @return the LAST_UPDATED_BY
+     */
+    public String getLastUpdatedBy() {
+        return (String) getAttributeInternal(LASTUPDATEDBY);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for LAST_UPDATED_BY using the alias name LastUpdatedBy.
+     * @param value value to set the LAST_UPDATED_BY
+     */
+    public void setLastUpdatedBy(String value) {
+        setAttributeInternal(LASTUPDATEDBY, value);
     }
 
     /**
