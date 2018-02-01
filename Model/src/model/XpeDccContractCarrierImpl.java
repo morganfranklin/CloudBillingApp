@@ -8,6 +8,7 @@ import oracle.jbo.Key;
 import oracle.jbo.Row;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.EntityImpl;
+import oracle.jbo.server.SequenceImpl;
 import oracle.jbo.server.TransactionEvent;
 import oracle.jbo.server.ViewObjectImpl;
 // ---------------------------------------------------------------------
@@ -352,6 +353,11 @@ public class XpeDccContractCarrierImpl extends EntityImpl {
             this.setLastUpdatedBy(userName);
         
         super.doDML(i, transactionEvent);
+    }
+    
+    protected String nextVal(String sequenceName) {
+        SequenceImpl s = new SequenceImpl(sequenceName, getDBTransaction());
+        return s.getSequenceNumber().toString();
     }
 }
 

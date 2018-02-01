@@ -7,6 +7,6 @@ import oracle.jbo.script.annotation.TransientValueExpression;
 @TransientValueExpression(attributeName="XpeContractCarrierId")
 def XpeContractCarrierId_ExpressionScript_Expression()
 {
-(new oracle.jbo.server.SequenceImpl("XPE_DCC_CONTRACT_CARRIER_SEQ",adf.object.getDBTransaction())).getSequenceNumber()
+adf.object.nextVal("XPE_DCC_CONTRACT_CARRIER_SEQ")
 }
 
