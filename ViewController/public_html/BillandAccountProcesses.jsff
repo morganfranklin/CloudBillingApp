@@ -101,7 +101,7 @@
         <af:toolbar id="t3">
           <af:button text="Process" id="b3" actionListener="#{bindings.Commit.execute}"
                      action="#{BillandAccountProcessesMBean.launchPlanInstance}">
-            <af:setPropertyListener from="#{'A11'}" type="action"
+            <af:setPropertyListener from="#{'A10'}" type="action"
                                     to="#{BillandAccountProcessesMBean.planOverride}"/>
           </af:button>
           <af:spacer width="10" height="10" id="s3"/>
