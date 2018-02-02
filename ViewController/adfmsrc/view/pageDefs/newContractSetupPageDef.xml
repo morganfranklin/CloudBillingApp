@@ -93,6 +93,8 @@
         <AttrNames>
           <Item Value="XpeCarrierId"/>
           <Item Value="XpeVehicleType"/>
+          <Item Value="XpeRateOverride"/>
+          <Item Value="XpeSurcharge"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

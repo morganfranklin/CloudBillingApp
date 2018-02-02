@@ -219,7 +219,8 @@
                                 </af:inputText>
                             </af:column>
                             <af:column sortProperty="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.name}"
-                                       sortable="true" headerText="Rate Override" id="c9">
+                                       sortable="true"
+                                       headerText="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.label}" id="c9">
                                 <af:inputText value="#{row.bindings.XpeRateOverride.inputValue}"
                                               label="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.label}"
                                               required="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.mandatory}"
@@ -246,7 +247,8 @@
                                 </af:inputText>
                             </af:column>
                             <af:column sortProperty="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.name}"
-                                       sortable="true" headerText="Surcharge" id="c10">
+                                       sortable="true"
+                                       headerText="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.label}" id="c10">
                                 <af:inputText value="#{row.bindings.XpeSurcharge.inputValue}"
                                               label="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.label}"
                                               required="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.mandatory}"

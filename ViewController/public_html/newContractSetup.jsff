@@ -605,6 +605,32 @@
                                                     <f:validator binding="#{row.bindings.XpeVehicleType.validator}"/>
                                                 </af:selectOneChoice>
                                             </af:column>
+                                            <af:column headerText="#{bindings.XpeDccNewContractCarrierView.hints.XpeRateOverride.label}"
+                                                       id="c2">
+                                                <af:inputText value="#{row.bindings.XpeRateOverride.inputValue}"
+                                                              label="#{bindings.XpeDccNewContractCarrierView.hints.XpeRateOverride.label}"
+                                                              required="#{bindings.XpeDccNewContractCarrierView.hints.XpeRateOverride.mandatory}"
+                                                              columns="#{bindings.XpeDccNewContractCarrierView.hints.XpeRateOverride.displayWidth}"
+                                                              maximumLength="#{bindings.XpeDccNewContractCarrierView.hints.XpeRateOverride.precision}"
+                                                              shortDesc="#{bindings.XpeDccNewContractCarrierView.hints.XpeRateOverride.tooltip}"
+                                                              id="it7" autoSubmit="true">
+                                                    <f:validator binding="#{row.bindings.XpeRateOverride.validator}"/>
+                                                </af:inputText>
+                                            </af:column>
+                                            <af:column headerText="#{bindings.XpeDccNewContractCarrierView.hints.XpeSurcharge.label}"
+                                                       id="c1">
+                                                <af:inputText value="#{row.bindings.XpeSurcharge.inputValue}"
+                                                              label="#{bindings.XpeDccNewContractCarrierView.hints.XpeSurcharge.label}"
+                                                              required="#{bindings.XpeDccNewContractCarrierView.hints.XpeSurcharge.mandatory}"
+                                                              columns="#{bindings.XpeDccNewContractCarrierView.hints.XpeSurcharge.displayWidth}"
+                                                              maximumLength="#{bindings.XpeDccNewContractCarrierView.hints.XpeSurcharge.precision}"
+                                                              shortDesc="#{bindings.XpeDccNewContractCarrierView.hints.XpeSurcharge.tooltip}"
+                                                              id="it1" autoSubmit="true">
+                                                    <f:validator binding="#{row.bindings.XpeSurcharge.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.XpeDccNewContractCarrierView.hints.XpeSurcharge.format}"/>
+                                                </af:inputText>
+                                            </af:column>
                                         </af:table>
                                     </af:panelBox>
                                 </af:gridCell>
