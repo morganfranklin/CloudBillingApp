@@ -112,6 +112,7 @@
         <page path="/AccrualRevenueGeneration.jsff" usageId="view_AccrualRevenueGenerationPageDef"/>
         <page path="/WEB-INF/secureXPEflow.xml#secureXPEflow@authentication"
               usageId="view_secureXPEflow_secureXPEflow_authenticationPageDef"/>
+        <page path="/contractExpirationReport.jsff" usageId="view_contractExpirationReportPageDef"/>
     </pageMap>
     <pageDefinitionUsages>
         <page id="view_IntegrationDashPageDef" path="view.pageDefs.IntegrationDashPageDef"/>
@@ -218,6 +219,7 @@
         <page id="view_AccrualRevenueGenerationPageDef" path="view.pageDefs.AccrualRevenueGenerationPageDef"/>
         <page id="view_secureXPEflow_secureXPEflow_authenticationPageDef"
               path="view.pageDefs.secureXPEflow_secureXPEflow_authenticationPageDef"/>
+        <page id="view_contractExpirationReportPageDef" path="view.pageDefs.contractExpirationReportPageDef"/>
     </pageDefinitionUsages>
     <dataControlUsages>
         <BC4JDataControl id="AppModuleDataControl" Package="model"

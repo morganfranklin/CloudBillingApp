@@ -24,10 +24,6 @@
         ViewObjectName="model.XpeDccDicProducts"
         RowLevelBinds="true"/>
     <ViewAccessor
-        Name="XpeDccDicProducts2"
-        ViewObjectName="model.XpeDccDicProducts"
-        RowLevelBinds="true"/>
-    <ViewAccessor
         Name="XpeDccDicPeriods1"
         ViewObjectName="model.XpeDccDicPeriods"
         RowLevelBinds="true"/>

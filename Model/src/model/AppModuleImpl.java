@@ -4348,5 +4348,13 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     public XpeDccUserInfoROVOImpl getXpeDccUserInfoROVO() {
         return (XpeDccUserInfoROVOImpl) findViewObject("XpeDccUserInfoROVO");
     }
+
+    /**
+     * Container's getter for XpeDccCovCntrctExpirationReportROVO1.
+     * @return XpeDccCovCntrctExpirationReportROVO1
+     */
+    public ViewObjectImpl getXpeDccCovCntrctExpirationReportROVO() {
+        return (ViewObjectImpl) findViewObject("XpeDccCovCntrctExpirationReportROVO");
+    }
 }
 

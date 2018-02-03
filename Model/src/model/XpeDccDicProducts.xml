@@ -20,7 +20,14 @@
                 ResId="model.XpeDccDicProducts_LABEL"/>
         </SchemaBasedProperties>
     </Properties>
-    <SQLQuery><![CDATA[SELECT ITEM_ID XPE_LOOKUP_ID, DESCRIPTION XPE_LOOKUP_DESC FROM XPE_DCC_CFG_PRODUCTSERVICE WHERE ITEM_TYPE = 'PRD']]></SQLQuery>
+    <SQLQuery><![CDATA[SELECT   
+ITEM_ID XPE_LOOKUP_ID,  
+DESCRIPTION XPE_LOOKUP_DESC, 
+ITEM_ID || '-' || NVL(CATEGORY,'NA') CATEGORY 
+FROM    
+XPE_DCC_CFG_PRODUCTSERVICE    
+WHERE    
+ITEM_TYPE = 'PRD']]></SQLQuery>
     <ViewAttribute
         Name="XpeLookupId"
         IsUpdateable="false"
@@ -66,6 +73,21 @@
                     ResId="model.XpeDccDicProducts.XpeLookupDesc_LABEL"/>
             </SchemaBasedProperties>
         </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="Category"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="71"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        AliasName="CATEGORY"
+        Expression="CATEGORY"
+        SQLType="VARCHAR">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="71"/>
+        </DesignTime>
     </ViewAttribute>
     <AttrArray Name="KeyAttributes">
         <Item Value="XpeLookupId"/>

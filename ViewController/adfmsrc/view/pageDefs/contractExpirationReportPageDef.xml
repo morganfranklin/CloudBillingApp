@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57"
+                id="contractExpirationReportPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XpeDccCovCntrctExpirationReportROVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCovCntrctExpirationReportROVOIterator"/>
+    <searchRegion Criteria="XpeDccCovCntrctExpirationReportROVOCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="XpeDccCovCntrctExpirationReportROVOIterator"
+                  id="XpeDccCovCntrctExpirationReportROVOCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="XpeDccCovCntrctExpirationReportROVOIterator" id="XpeDccCovCntrctExpirationReportROVO">
+      <nodeDefinition DefName="model.views.readonly.XpeDccCovCntrctExpirationReportROVO"
+                      Name="XpeDccCovCntrctExpirationReportROVO0">
+        <AttrNames>
+          <Item Value="XpeFacility"/>
+          <Item Value="XpeContractId"/>
+          <Item Value="XpeDccPcsname"/>
+          <Item Value="CustId"/>
+          <Item Value="CustName"/>
+          <Item Value="XpeContractVersion"/>
+          <Item Value="XpeEndDate"/>
+          <Item Value="XpeProductId"/>
+          <Item Value="SalesPerson"/>
+          <Item Value="AddressSeqNum"/>
+          <Item Value="XpeContractLine"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

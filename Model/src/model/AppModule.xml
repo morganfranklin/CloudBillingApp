@@ -670,6 +670,9 @@
     <ViewUsage
         Name="XpeDccUserInfoROVO"
         ViewObjectName="model.views.readonly.XpeDccUserInfoROVO"/>
+    <ViewUsage
+        Name="XpeDccCovCntrctExpirationReportROVO"
+        ViewObjectName="model.views.readonly.XpeDccCovCntrctExpirationReportROVO"/>
     <ViewLinkUsage
         Name="NeuRuleTblFk1Link1"
         ViewLinkObjectName="model.NeuRuleTblFk1Link"

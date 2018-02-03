@@ -2,9 +2,6 @@ package view;
 
 import java.io.Serializable;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import oracle.adf.controller.TaskFlowId;
 import oracle.adf.view.rich.event.RegionNavigationEvent;
 
@@ -148,6 +145,11 @@ public class integrationDashboardRegionName implements Serializable {
 
     public String accrualRevenueGenerationProcesses() {
         setDynamicTaskFlowId("/WEB-INF/accrualRevenueGenerationProcesses.xml#accrualRevenueGenerationProcesses");
+        return null;
+    }
+                          
+    public String covantaContractExpirationReport() {
+        setDynamicTaskFlowId("/WEB-INF/covantaContractExpirationReport.xml#covantaContractExpirationReport");
         return null;
     }
 }
