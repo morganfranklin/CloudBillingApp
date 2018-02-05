@@ -13,7 +13,8 @@
                       queryOperationListener="#{bindings.XpeDccCovCntrctExpirationReportROVOCriteriaQuery.processQueryOperation}"
                       resultComponentId="::pc1:resId1"/>
           </af:panelHeader>
-          <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+          <af:panelCollection id="pc1" styleClass="AFStretchWidth"
+                              binding="#{backingBeanScope.covExpReportBBean.expirationReportPanelCollection}">
             <f:facet name="menus">
               <af:menu text="Report" id="m1">
                 <af:commandMenuItem text="Export to Excel" id="cmi1">
@@ -26,9 +27,12 @@
                       rows="#{bindings.XpeDccCovCntrctExpirationReportROVO.rangeSize}"
                       emptyText="#{bindings.XpeDccCovCntrctExpirationReportROVO.viewable ? 'No data to display.' : 'Access Denied.'}"
                       rowBandingInterval="1" fetchSize="#{bindings.XpeDccCovCntrctExpirationReportROVO.rangeSize}"
-                      id="resId1" contentDelivery="immediate" columnStretching="last">
+                      id="resId1" contentDelivery="immediate" columnStretching="last" filterVisible="true"
+                      filterModel="#{bindings.XpeDccCovCntrctExpirationReportROVOCriteriaQuery.queryDescriptor}"
+                      queryListener="#{bindings.XpeDccCovCntrctExpirationReportROVOCriteriaQuery.processQuery}">
               <af:column headerText="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.XpeFacility.label}"
-                         id="resId1c1">
+                         sortProperty="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.XpeFacility.name}"
+                         id="resId1c1" sortable="true" filterable="true">
                 <af:selectOneChoice value="#{row.bindings.XpeFacility.inputValue}"
                                     label="#{row.bindings.XpeFacility.label}"
                                     required="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.XpeFacility.mandatory}"
@@ -92,7 +96,8 @@
                 </af:selectOneChoice>
               </af:column>
               <af:column headerText="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.SalesPerson.label}"
-                         id="resId1c9">
+                         id="resId1c9" filterable="true"
+                         sortProperty="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.SalesPerson.name}">
                 <af:selectOneChoice value="#{row.bindings.SalesPerson.inputValue}"
                                     label="#{row.bindings.SalesPerson.label}"
                                     required="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.SalesPerson.mandatory}"
@@ -101,21 +106,6 @@
                   <f:selectItems value="#{row.bindings.SalesPerson.items}" id="si4"/>
                   <f:validator binding="#{row.bindings.SalesPerson.validator}"/>
                 </af:selectOneChoice>
-              </af:column>
-              <af:column headerText="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.AddressSeqNum.label}"
-                         id="resId1c10">
-                <af:outputText value="#{row.AddressSeqNum}"
-                               shortDesc="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.AddressSeqNum.tooltip}"
-                               id="ot6">
-                  <af:convertNumber groupingUsed="false"
-                                    pattern="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.AddressSeqNum.format}"/>
-                </af:outputText>
-              </af:column>
-              <af:column headerText="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.XpeContractLine.label}"
-                         id="resId1c11">
-                <af:outputText value="#{row.XpeContractLine}"
-                               shortDesc="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.XpeContractLine.tooltip}"
-                               id="ot7"/>
               </af:column>
             </af:table>
           </af:panelCollection>

@@ -5,7 +5,7 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="XpeDccCovCntrctExpirationReportROVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCovCntrctExpirationReportROVOIterator"/>
+              id="XpeDccCovCntrctExpirationReportROVOIterator" ChangeEventPolicy="none"/>
     <searchRegion Criteria="XpeDccCovCntrctExpirationReportROVOCriteria"
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="XpeDccCovCntrctExpirationReportROVOIterator"
@@ -25,8 +25,6 @@
           <Item Value="XpeEndDate"/>
           <Item Value="XpeProductId"/>
           <Item Value="SalesPerson"/>
-          <Item Value="AddressSeqNum"/>
-          <Item Value="XpeContractLine"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

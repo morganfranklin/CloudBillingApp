@@ -9,7 +9,7 @@
   BindingStyle="OracleName"
   CustomQuery="true"
   PageIterMode="Full"
-  FetchSize="25"
+  FetchSize="250"
   FetchMode="FETCH_AS_NEEDED"
   OrderBy='"XPE_FACILITY"'>
   <DesignTime>
@@ -18,11 +18,11 @@
   <Variable
     Name="bind_xpeEndDate"
     Kind="viewcriteria"
-    Type="java.sql.Timestamp"/>
+    Type="java.lang.String"/>
   <Variable
     Name="bind_xpeStartDate"
     Kind="viewcriteria"
-    Type="java.sql.Timestamp"/>
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="XpeDccCfgPcsROVO_LOV"
     ViewObjectName="model.views.readonly.XpeDccCfgPcsROVO"
@@ -156,6 +156,8 @@ AND F.XPE_CONTRACT_VERSION=E.XPE_CONTRACT_VERSION]]></SQLQuery>
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.views.readonly.XpeDccCovCntrctExpirationReportROVO.XpeFacility_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -173,6 +175,12 @@ AND F.XPE_CONTRACT_VERSION=E.XPE_CONTRACT_VERSION]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccCovCntrctExpirationReportROVO.XpeContractId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="XpeDccPcsname"
@@ -193,6 +201,8 @@ AND F.XPE_CONTRACT_VERSION=E.XPE_CONTRACT_VERSION]]></SQLQuery>
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.views.readonly.XpeDccCovCntrctExpirationReportROVO.XpeDccPcsname_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -210,6 +220,12 @@ AND F.XPE_CONTRACT_VERSION=E.XPE_CONTRACT_VERSION]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccCovCntrctExpirationReportROVO.CustId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="CustName"
@@ -225,6 +241,12 @@ AND F.XPE_CONTRACT_VERSION=E.XPE_CONTRACT_VERSION]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="40"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccCovCntrctExpirationReportROVO.CustName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="XpeContractVersion"
@@ -240,6 +262,12 @@ AND F.XPE_CONTRACT_VERSION=E.XPE_CONTRACT_VERSION]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="40"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccCovCntrctExpirationReportROVO.XpeContractVersion_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="XpeEndDate"
@@ -247,7 +275,7 @@ AND F.XPE_CONTRACT_VERSION=E.XPE_CONTRACT_VERSION]]></SQLQuery>
     IsPersistent="false"
     PrecisionRule="true"
     Precision="20"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="TIMESTAMP"
     AliasName="XPE_END_DATE"
     Expression="XPE_END_DATE"
@@ -255,6 +283,12 @@ AND F.XPE_CONTRACT_VERSION=E.XPE_CONTRACT_VERSION]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccCovCntrctExpirationReportROVO.XpeEndDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="XpeProductId"
@@ -271,6 +305,8 @@ AND F.XPE_CONTRACT_VERSION=E.XPE_CONTRACT_VERSION]]></SQLQuery>
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.views.readonly.XpeDccCovCntrctExpirationReportROVO.XpeProductId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -293,6 +329,8 @@ AND F.XPE_CONTRACT_VERSION=E.XPE_CONTRACT_VERSION]]></SQLQuery>
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.views.readonly.XpeDccCovCntrctExpirationReportROVO.SalesPerson_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -355,8 +393,8 @@ AND F.XPE_CONTRACT_VERSION=E.XPE_CONTRACT_VERSION]]></SQLQuery>
         Operator="BETWEEN"
         Conjunction="AND"
         UpperColumns="0"
-        ValidateBindVars="true"
-        Required="Required">
+        Required="Required"
+        ValidateBindVars="true">
         <ViewCriteriaItemValue
           Value=":bind_xpeStartDate"
           IsBindVarValue="true"/>
@@ -373,4 +411,8 @@ AND F.XPE_CONTRACT_VERSION=E.XPE_CONTRACT_VERSION]]></SQLQuery>
     <Item Value="AddressSeqNum"/>
     <Item Value="XpeContractLine"/>
   </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

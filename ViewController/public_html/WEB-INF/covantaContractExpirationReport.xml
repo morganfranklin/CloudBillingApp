@@ -5,6 +5,16 @@
     <data-control-scope>
       <shared/>
     </data-control-scope>
+    <managed-bean id="__1">
+      <managed-bean-name>covExpReportMBean</managed-bean-name>
+      <managed-bean-class>view.CovantaExpirationReportMBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__2">
+      <managed-bean-name>covExpReportBBean</managed-bean-name>
+      <managed-bean-class>view.CovantaExpirationReportBBean</managed-bean-class>
+      <managed-bean-scope>backingBean</managed-bean-scope>
+    </managed-bean>
     <view id="contractExpirationReport">
       <page>/contractExpirationReport.jsff</page>
     </view>

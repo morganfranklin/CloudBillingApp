@@ -550,7 +550,7 @@ public class XpeDccNewContractMBean implements Serializable {
     }
 
     public void contractCustQueryOperationListener(QueryOperationEvent queryOperationEvent) {
-        invokeEL("#{bindings.NewContractCustomerSearchQuery.processQueryOperation}",Object.class,
+        invokeEL("#{bindings.ImplicitViewCriteriaQuery1.processQueryOperation}",Object.class,
                  QueryOperationEvent.class, queryOperationEvent);
         if (queryOperationEvent.getOperation().name().toUpperCase().equals("RESET")) {
             DCIteratorBinding carrierIter = ADFUtils.findIterator("XpeDccNewContractCustomerSearchROVOIterator");
