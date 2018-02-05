@@ -18,11 +18,11 @@
   <Variable
     Name="bind_xpeEndDate"
     Kind="viewcriteria"
-    Type="java.lang.String"/>
+    Type="oracle.jbo.domain.Date"/>
   <Variable
     Name="bind_xpeStartDate"
     Kind="viewcriteria"
-    Type="java.lang.String"/>
+    Type="oracle.jbo.domain.Date"/>
   <ViewAccessor
     Name="XpeDccCfgPcsROVO_LOV"
     ViewObjectName="model.views.readonly.XpeDccCfgPcsROVO"
