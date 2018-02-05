@@ -22,7 +22,8 @@
     <ViewAccessor
         Name="XpeDccDicProducts1"
         ViewObjectName="model.XpeDccDicProducts"
-        RowLevelBinds="true"/>
+        RowLevelBinds="true"
+        OrderBy='"XPE_LOOKUP_DESC"'/>
     <ViewAccessor
         Name="XpeDccDicPeriods1"
         ViewObjectName="model.XpeDccDicPeriods"

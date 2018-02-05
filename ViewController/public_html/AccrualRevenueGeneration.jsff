@@ -28,9 +28,8 @@
         <af:column headerText="#{bindings.XpeDccAccrualRevenueEOVO.hints.XpeFacilityId.label}" id="c1" width="200">
           <af:selectOneChoice value="#{row.bindings.XpeFacilityId.inputValue}"
                               label="#{row.bindings.XpeFacilityId.label}"
-                              required="#{bindings.XpeDccAccrualRevenueEOVO.hints.XpeFacilityId.mandatory}"
                               shortDesc="#{bindings.XpeDccAccrualRevenueEOVO.hints.XpeFacilityId.tooltip}" id="soc1"
-                              autoSubmit="true">
+                              autoSubmit="true" required="true">
             <f:selectItems value="#{row.bindings.XpeFacilityId.items}" id="si1"/>
             <f:validator binding="#{row.bindings.XpeFacilityId.validator}"/>
           </af:selectOneChoice>
@@ -71,7 +70,7 @@
                                     type="action"/>
           </af:button>
           <af:spacer width="10" height="10" id="s4"/>
-          <af:button text="Cancel" id="b4" action="back"/>
+          <af:button text="Cancel" id="b4" action="back" immediate="true"/>
         </af:toolbar>
       </f:facet>
       <f:facet name="menuBar"/>

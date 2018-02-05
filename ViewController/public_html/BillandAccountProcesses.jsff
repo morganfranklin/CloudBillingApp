@@ -11,6 +11,8 @@
           <af:spacer width="10" height="10" id="s1"/>
           <af:button actionListener="#{bindings.Delete.execute}" text="Delete" disabled="#{!bindings.Delete.enabled}"
                      id="b2" immediate="true"/>
+          <af:spacer width="10" height="10" id="s11"/>           
+          <af:button text="Cancel" id="b10" action="back" immediate="true"/>
         </af:toolbar>
       </f:facet>
       <f:facet name="menuBar"/>
@@ -28,9 +30,8 @@
         <af:column headerText="#{bindings.XpeDccBillingAccountingEOVO.hints.XpeFacilityId.label}" id="c1">
           <af:selectOneChoice value="#{row.bindings.XpeFacilityId.inputValue}"
                               label="#{row.bindings.XpeFacilityId.label}"
-                              required="#{bindings.XpeDccBillingAccountingEOVO.hints.XpeFacilityId.mandatory}"
                               shortDesc="#{bindings.XpeDccBillingAccountingEOVO.hints.XpeFacilityId.tooltip}" id="soc1"
-                              autoSubmit="true">
+                              autoSubmit="true" required="true">
             <f:selectItems value="#{row.bindings.XpeFacilityId.items}" id="si1"/>
             <f:validator binding="#{row.bindings.XpeFacilityId.validator}"/>
           </af:selectOneChoice>
@@ -105,7 +106,7 @@
                                     to="#{BillandAccountProcessesMBean.planOverride}"/>
           </af:button>
           <af:spacer width="10" height="10" id="s3"/>
-          <af:button text="Cancel" id="b4" action="back"/>
+          <af:button text="Cancel" id="b4" action="back" immediate="true"/>
         </af:toolbar>
       </f:facet>
       <f:facet name="menuBar"/>

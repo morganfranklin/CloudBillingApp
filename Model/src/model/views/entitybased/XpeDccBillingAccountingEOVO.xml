@@ -100,7 +100,6 @@
     AliasName="XPE_BILLING_ACCOUNTING_ID"/>
   <ViewAttribute
     Name="XpeFacilityId"
-    IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="XpeFacilityId"
     EntityUsage="XpeDccBillingAccountingEO"

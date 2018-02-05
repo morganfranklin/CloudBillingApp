@@ -123,7 +123,6 @@
     AliasName="XPE_ACCRUAL_REVENUE_ID"/>
   <ViewAttribute
     Name="XpeFacilityId"
-    IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="XpeFacilityId"
     EntityUsage="XpeDccAccrualRevenueEO"

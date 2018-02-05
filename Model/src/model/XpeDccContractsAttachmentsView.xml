@@ -63,26 +63,36 @@
         PrecisionRule="true"
         EntityAttrName="CreatedBy"
         EntityUsage="XpeDccContractsAttachments"
-        AliasName="CREATED_BY"/>
+        AliasName="CREATED_BY"
+        IsUpdateable="false"/>
     <ViewAttribute
         Name="CreatedOn"
         IsNotNull="true"
         PrecisionRule="true"
         EntityAttrName="CreatedOn"
         EntityUsage="XpeDccContractsAttachments"
-        AliasName="CREATED_ON"/>
+        AliasName="CREATED_ON"
+        IsUpdateable="false"/>
     <ViewAttribute
         Name="LastUpdatedBy"
         IsNotNull="true"
         PrecisionRule="true"
         EntityAttrName="LastUpdatedBy"
         EntityUsage="XpeDccContractsAttachments"
-        AliasName="LAST_UPDATED_BY"/>
+        AliasName="LAST_UPDATED_BY"
+        IsUpdateable="false"/>
     <ViewAttribute
         Name="LastUpdatedOn"
         IsNotNull="true"
         PrecisionRule="true"
         EntityAttrName="LastUpdatedOn"
         EntityUsage="XpeDccContractsAttachments"
-        AliasName="LAST_UPDATED_ON"/>
+        AliasName="LAST_UPDATED_ON"
+        IsUpdateable="false"/>
+    <ViewAttribute
+        Name="Identifier"
+        PrecisionRule="true"
+        EntityAttrName="Identifier"
+        EntityUsage="XpeDccContractsAttachments"
+        AliasName="IDENTIFIER"/>
 </ViewObject>

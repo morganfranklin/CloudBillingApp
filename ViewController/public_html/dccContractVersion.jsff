@@ -609,11 +609,13 @@
                             <af:table value="#{bindings.XpeDccContractsAttachmentsView1.collectionModel}" var="row"
                                       rows="#{bindings.XpeDccContractsAttachmentsView1.rangeSize}"
                                       emptyText="#{bindings.XpeDccContractsAttachmentsView1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                      columnStretching="column:c19" rowBandingInterval="0"
+                                      columnStretching="column:c19" rowBandingInterval="1"
                                       selectedRowKeys="#{bindings.XpeDccContractsAttachmentsView1.collectionModel.selectedRow}"
                                       selectionListener="#{bindings.XpeDccContractsAttachmentsView1.collectionModel.makeCurrent}"
                                       rowSelection="single"
-                                      fetchSize="#{bindings.XpeDccContractsAttachmentsView1.rangeSize}" id="t4">
+                                      fetchSize="#{bindings.XpeDccContractsAttachmentsView1.rangeSize}" id="t4"
+                                      partialTriggers="b13" contentDelivery="immediate" autoHeightRows="0"
+                                      columnBandingInterval="0">
                                 <af:column headerText="#{bindings.XpeDccContractsAttachmentsView1.hints.Name.label}"
                                            id="c19">
                                     <af:outputText value="#{row.Name}"></af:outputText>
@@ -624,6 +626,10 @@
                                                                        filename="#{row.bindings.Name.inputValue}"
                                                                        method="#{pageFlowScope.FileUploadDownloadBean.downloadFile}"/>
                                     </af:commandButton>
+                                </af:column>
+                                <af:column id="c14" width="250" minimumWidth="12" displayIndex="-1">
+                                    <af:button text="Delete File" id="b13" action="#{bindings.CreateInsert.execute}"
+                                               visible="#{row.Identifier eq 'UPDATE_CONTRACT'}"/>
                                 </af:column>
                             </af:table>
                         </af:showDetailItem>

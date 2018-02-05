@@ -26,7 +26,6 @@
   </Attribute>
   <Attribute
     Name="XpeFacilityId"
-    IsNotNull="true"
     Precision="20"
     ColumnName="XPE_FACILITY_ID"
     SQLType="VARCHAR"

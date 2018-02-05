@@ -116,6 +116,7 @@
                     <Item Value="Name"/>
                     <Item Value="XpeContractId"/>
                     <Item Value="XpeContractVersion"/>
+                    <Item Value="Identifier"/>
                 </AttrNames>
             </nodeDefinition>
         </tree>
@@ -224,5 +225,8 @@
                 <Item Value="XpeWasteType"/>
             </AttrNames>
         </attributeValues>
+        <action IterBinding="XpeDccContractsAttachmentsView1Iterator" id="CreateInsert"
+                InstanceName="AppModuleDataControl.XpeDccContractsAttachmentsView1" DataControl="AppModuleDataControl"
+                RequiresUpdateModel="true" Action="createInsertRow"/>
     </bindings>
 </pageDefinition>

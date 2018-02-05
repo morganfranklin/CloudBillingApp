@@ -1236,6 +1236,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         Row row = vo.createRow();
         row.setAttribute("Name", filename);
         row.setAttribute("UploadFile", blob);
+        row.setAttribute("Identifier","UPDATE_CONTRACT");
         vo.insertRow(row);
         this.getDBTransaction().commit();
         return true;
@@ -2450,6 +2451,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         XpeDccContractsAttachmentsViewRowImpl xpeDccContractsAttachmentsViewRow = (XpeDccContractsAttachmentsViewRowImpl)contractVersionViewRow.getXpeDccContractsAttachmentsView().createRow();
         xpeDccContractsAttachmentsViewRow.setName(filename);
         xpeDccContractsAttachmentsViewRow.setUploadFile(blob);
+        xpeDccContractsAttachmentsViewRow.setIdentifier("NEW_CONTRACT");
         contractVersionViewRow.getXpeDccContractsAttachmentsView().insertRow(xpeDccContractsAttachmentsViewRow);
     }
     

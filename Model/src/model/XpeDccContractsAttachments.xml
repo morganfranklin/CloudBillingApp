@@ -118,6 +118,18 @@
         ColumnType="TIMESTAMP"
         TableName="XPE_DCC_CONTRACTS_ATTACHMENTS"
         HistoryColumn="DateHistory"/>
+    <Attribute
+        Name="Identifier"
+        Precision="20"
+        ColumnName="IDENTIFIER"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="XPE_DCC_CONTRACTS_ATTACHMENTS">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+    </Attribute>
     <AccessorAttribute
       Name="XpeDccContractVersion"
       Association="model.XpeDccContractsAttachmFk2Assoc"

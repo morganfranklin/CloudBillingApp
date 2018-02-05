@@ -113,6 +113,10 @@
         <page path="/WEB-INF/secureXPEflow.xml#secureXPEflow@authentication"
               usageId="view_secureXPEflow_secureXPEflow_authenticationPageDef"/>
         <page path="/contractExpirationReport.jsff" usageId="view_contractExpirationReportPageDef"/>
+        <page path="/WEB-INF/accrualRevenueGenerationProcesses.xml#accrualRevenueGenerationProcesses@Rollback"
+              usageId="view_accrualRevenueGenerationProcesses_accrualRevenueGenerationProcesses_RollbackPageDef"/>
+        <page path="/WEB-INF/billingAccountingProcesses.xml#billingAccountingProcesses@Rollback"
+              usageId="view_billingAccountingProcesses_billingAccountingProcesses_RollbackPageDef"/>
     </pageMap>
     <pageDefinitionUsages>
         <page id="view_IntegrationDashPageDef" path="view.pageDefs.IntegrationDashPageDef"/>
@@ -220,6 +224,10 @@
         <page id="view_secureXPEflow_secureXPEflow_authenticationPageDef"
               path="view.pageDefs.secureXPEflow_secureXPEflow_authenticationPageDef"/>
         <page id="view_contractExpirationReportPageDef" path="view.pageDefs.contractExpirationReportPageDef"/>
+        <page id="view_accrualRevenueGenerationProcesses_accrualRevenueGenerationProcesses_RollbackPageDef"
+              path="view.pageDefs.accrualRevenueGenerationProcesses_accrualRevenueGenerationProcesses_RollbackPageDef"/>
+        <page id="view_billingAccountingProcesses_billingAccountingProcesses_RollbackPageDef"
+              path="view.pageDefs.billingAccountingProcesses_billingAccountingProcesses_RollbackPageDef"/>
     </pageDefinitionUsages>
     <dataControlUsages>
         <BC4JDataControl id="AppModuleDataControl" Package="model"

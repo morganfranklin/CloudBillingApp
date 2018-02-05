@@ -14,6 +14,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class XpeDccContractsAttachmentsViewRowImpl extends ViewRowImpl {
+
     public static final int ENTITY_XPEDCCCONTRACTSATTACHMENTS = 0;
 
     /**
@@ -28,8 +29,10 @@ public class XpeDccContractsAttachmentsViewRowImpl extends ViewRowImpl {
         CreatedBy,
         CreatedOn,
         LastUpdatedBy,
-        LastUpdatedOn;
-        private static AttributesEnum[] vals = null;
+        LastUpdatedOn,
+        Identifier;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -51,6 +54,7 @@ public class XpeDccContractsAttachmentsViewRowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
     public static final int ATTACHMENTID = AttributesEnum.AttachmentId.index();
     public static final int XPECONTRACTID = AttributesEnum.XpeContractId.index();
     public static final int XPECONTRACTVERSION = AttributesEnum.XpeContractVersion.index();
@@ -60,6 +64,7 @@ public class XpeDccContractsAttachmentsViewRowImpl extends ViewRowImpl {
     public static final int CREATEDON = AttributesEnum.CreatedOn.index();
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDON = AttributesEnum.LastUpdatedOn.index();
+    public static final int IDENTIFIER = AttributesEnum.Identifier.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -163,13 +168,6 @@ public class XpeDccContractsAttachmentsViewRowImpl extends ViewRowImpl {
         return (String) getAttributeInternal(CREATEDBY);
     }
 
-    /**
-     * Sets <code>value</code> as attribute value for CREATED_BY using the alias name CreatedBy.
-     * @param value value to set the CREATED_BY
-     */
-    public void setCreatedBy(String value) {
-        setAttributeInternal(CREATEDBY, value);
-    }
 
     /**
      * Gets the attribute value for CREATED_ON using the alias name CreatedOn.
@@ -179,13 +177,6 @@ public class XpeDccContractsAttachmentsViewRowImpl extends ViewRowImpl {
         return (Timestamp) getAttributeInternal(CREATEDON);
     }
 
-    /**
-     * Sets <code>value</code> as attribute value for CREATED_ON using the alias name CreatedOn.
-     * @param value value to set the CREATED_ON
-     */
-    public void setCreatedOn(Timestamp value) {
-        setAttributeInternal(CREATEDON, value);
-    }
 
     /**
      * Gets the attribute value for LAST_UPDATED_BY using the alias name LastUpdatedBy.
@@ -195,13 +186,6 @@ public class XpeDccContractsAttachmentsViewRowImpl extends ViewRowImpl {
         return (String) getAttributeInternal(LASTUPDATEDBY);
     }
 
-    /**
-     * Sets <code>value</code> as attribute value for LAST_UPDATED_BY using the alias name LastUpdatedBy.
-     * @param value value to set the LAST_UPDATED_BY
-     */
-    public void setLastUpdatedBy(String value) {
-        setAttributeInternal(LASTUPDATEDBY, value);
-    }
 
     /**
      * Gets the attribute value for LAST_UPDATED_ON using the alias name LastUpdatedOn.
@@ -212,11 +196,20 @@ public class XpeDccContractsAttachmentsViewRowImpl extends ViewRowImpl {
     }
 
     /**
-     * Sets <code>value</code> as attribute value for LAST_UPDATED_ON using the alias name LastUpdatedOn.
-     * @param value value to set the LAST_UPDATED_ON
+     * Gets the attribute value for IDENTIFIER using the alias name Identifier.
+     * @return the IDENTIFIER
      */
-    public void setLastUpdatedOn(Timestamp value) {
-        setAttributeInternal(LASTUPDATEDON, value);
+    public String getIdentifier() {
+        return (String) getAttributeInternal(IDENTIFIER);
     }
+
+    /**
+     * Sets <code>value</code> as attribute value for IDENTIFIER using the alias name Identifier.
+     * @param value value to set the IDENTIFIER
+     */
+    public void setIdentifier(String value) {
+        setAttributeInternal(IDENTIFIER, value);
+    }
+
 }
 
