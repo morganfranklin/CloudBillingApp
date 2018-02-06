@@ -225,8 +225,8 @@
                 <Item Value="XpeWasteType"/>
             </AttrNames>
         </attributeValues>
-        <action IterBinding="XpeDccContractsAttachmentsView1Iterator" id="CreateInsert"
+        <action IterBinding="XpeDccContractsAttachmentsView1Iterator" id="DeleteFile"
                 InstanceName="AppModuleDataControl.XpeDccContractsAttachmentsView1" DataControl="AppModuleDataControl"
-                RequiresUpdateModel="true" Action="createInsertRow"/>
+                RequiresUpdateModel="false" Action="removeCurrentRow"/>
     </bindings>
 </pageDefinition>

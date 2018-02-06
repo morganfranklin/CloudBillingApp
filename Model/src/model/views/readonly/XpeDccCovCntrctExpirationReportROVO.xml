@@ -39,6 +39,21 @@
     Name="XpeDccDicProducts_LOV"
     ViewObjectName="model.XpeDccDicProducts"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ContractExpReportPSCustROVO_LOV"
+    ViewObjectName="model.views.readonly.ContractExpReportPSCustROVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="ContractExpReportPSCustROVOCriteria"
+      FullName="model.views.readonly.ContractExpReportPSCustROVO.ContractExpReportPSCustROVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bind_CustId">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA[CustId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LOV_XpeFacility"
     ListVOName="XpeDccCfgPcsROVO_LOV"
@@ -111,31 +126,41 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
-  <SQLQuery><![CDATA[SELECT          
-E.XPE_FACILITY,         
-D.XPE_CONTRACT_ID,         
-D.XPE_DCC_PCSNAME,         
-A.CUST_ID,         
-A.Name1 CUST_NAME,         
-F.XPE_CONTRACT_VERSION,         
-F.XPE_END_DATE,         
-E.XPE_PRODUCT_ID,         
-F.SALES_PERSON,  
-B.ADDRESS_SEQ_NUM,    
-E.XPE_CONTRACT_LINE    
-FROM PS_CUSTOMER A, PS_CUST_ADDR_SEQ B,                                  
-PS_CUST_ADDRESS C, XPE_DCC_CONTRACTS D,XPE_DCC_CONTRACT_LINE E ,XPE_DCC_CONTRACT_VERSION F                        
-WHERE A.SETID='MASTR'          
-AND B.BILL_TO_ADDR='Y'          
-AND C.LANGUAGE_CD='ENG'          
-AND F.XPE_CONTRACT_STATUS = 'APR'          
-AND A.CUST_ID=B.CUST_ID                                                                               
-AND B.CUST_ID=C.CUST_ID                                                                                             
-AND A.CUST_ID=D.CUST_ID          
-AND B.ADDRESS_SEQ_NUM=C.ADDRESS_SEQ_NUM          
-AND C.ADDRESS_SEQ_NUM=D.ADDRESS_SEQ_NUM          
-AND D.XPE_CONTRACT_ID=F.XPE_CONTRACT_ID           
-AND F.XPE_CONTRACT_ID=E.XPE_CONTRACT_ID                         
+  <ListBinding
+    Name="LOV_CustName"
+    ListVOName="ContractExpReportPSCustROVO_LOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CustName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CustId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CustName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT                 
+E.XPE_FACILITY,                
+D.XPE_CONTRACT_ID,                
+D.XPE_DCC_PCSNAME,                
+D.CUST_ID,                          
+F.XPE_CONTRACT_VERSION,                
+F.XPE_END_DATE,                
+E.XPE_PRODUCT_ID,                
+F.SALES_PERSON,           
+E.XPE_CONTRACT_LINE,    
+D.CUST_ID CUST_NAME  
+FROM        
+XPE_DCC_CONTRACTS D,XPE_DCC_CONTRACT_LINE E ,XPE_DCC_CONTRACT_VERSION F                               
+WHERE                         
+F.XPE_CONTRACT_STATUS = 'APR'                                                                                                                      
+AND D.XPE_CONTRACT_ID=F.XPE_CONTRACT_ID                  
+AND F.XPE_CONTRACT_ID=E.XPE_CONTRACT_ID                                
 AND F.XPE_CONTRACT_VERSION=E.XPE_CONTRACT_VERSION]]></SQLQuery>
   <ViewAttribute
     Name="XpeFacility"
@@ -228,27 +253,6 @@ AND F.XPE_CONTRACT_VERSION=E.XPE_CONTRACT_VERSION]]></SQLQuery>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="CustName"
-    IsUpdateable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Precision="40"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="CUST_NAME"
-    Expression="CUST_NAME"
-    SQLType="VARCHAR">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="40"/>
-    </DesignTime>
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.views.readonly.XpeDccCovCntrctExpirationReportROVO.CustName_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
     Name="XpeContractVersion"
     IsUpdateable="false"
     IsPersistent="false"
@@ -335,18 +339,6 @@ AND F.XPE_CONTRACT_VERSION=E.XPE_CONTRACT_VERSION]]></SQLQuery>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="AddressSeqNum"
-    IsUpdateable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Precision="38"
-    Scale="0"
-    Type="java.math.BigInteger"
-    ColumnType="NUMBER"
-    AliasName="ADDRESS_SEQ_NUM"
-    Expression="ADDRESS_SEQ_NUM"
-    SQLType="NUMERIC"/>
-  <ViewAttribute
     Name="XpeContractLine"
     IsUpdateable="false"
     IsPersistent="false"
@@ -360,6 +352,28 @@ AND F.XPE_CONTRACT_VERSION=E.XPE_CONTRACT_VERSION]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CustName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="15"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CUST_NAME"
+    Expression="CUST_NAME"
+    SQLType="VARCHAR"
+    IsUpdateable="false"
+    LOVName="LOV_CustName">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewCriteria
     Name="XpeDccCovCntrctExpirationReportROVOCriteria"
@@ -406,9 +420,7 @@ AND F.XPE_CONTRACT_VERSION=E.XPE_CONTRACT_VERSION]]></SQLQuery>
   </ViewCriteria>
   <AttrArray Name="KeyAttributes">
     <Item Value="XpeContractId"/>
-    <Item Value="CustId"/>
     <Item Value="XpeContractVersion"/>
-    <Item Value="AddressSeqNum"/>
     <Item Value="XpeContractLine"/>
   </AttrArray>
   <ResourceBundle>

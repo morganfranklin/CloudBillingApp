@@ -1859,7 +1859,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                 XpeDccWfActionEOVORowImpl xpeDccWfActionEOVORow =
                     (XpeDccWfActionEOVORowImpl) approvalWFEventRow.getXpeDccWfActionEOVO().first();
                 _logger.info("After xpeDccWfActionEOVORow: "+xpeDccWfActionEOVORow.getXpeApproverEmail());
-                /*if (null!=xpeDccWfActionEOVORow && sendEmail(xpeDccWfActionEOVORow.getXpeApproverEmail(),
+                if (null!=xpeDccWfActionEOVORow && EmailUtils.sendEmail(xpeDccWfActionEOVORow.getXpeApproverEmail(),
                                          buildEmailBody(xpeDccWfActionEOVORow, "I"),
                                          bytes)) {
                     if (null != approvalWFEventRow.getXpeEventStatus() &&
@@ -1867,7 +1867,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                         approvalWFEventRow.setXpeEventStatus("IWF");
                     xpeDccWfActionEOVORow.setXpeActionStatus("P");
                     emailStatus = "SUCCESS";
-                }*/
+                }
             }
         } catch (Exception e) {
             // TODO: Add catch code

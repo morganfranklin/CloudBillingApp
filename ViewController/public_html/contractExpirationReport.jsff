@@ -10,7 +10,7 @@
                       value="#{bindings.XpeDccCovCntrctExpirationReportROVOCriteriaQuery.queryDescriptor}"
                       model="#{bindings.XpeDccCovCntrctExpirationReportROVOCriteriaQuery.queryModel}"
                       queryListener="#{bindings.XpeDccCovCntrctExpirationReportROVOCriteriaQuery.processQuery}"
-                      queryOperationListener="#{bindings.XpeDccCovCntrctExpirationReportROVOCriteriaQuery.processQueryOperation}"
+                      queryOperationListener="#{pageFlowScope.covExpReportMBean.expirationReportQueryOperationListener}"
                       resultComponentId="::pc1:resId1"/>
           </af:panelHeader>
           <af:panelCollection id="pc1" styleClass="AFStretchWidth"
@@ -18,8 +18,7 @@
             <f:facet name="menus">
               <af:menu text="Report" id="m1">
                 <af:commandMenuItem text="Export to Excel" id="cmi1">
-                  <af:exportCollectionActionListener type="excelHTML" exportedId="resId1"
-                                                     filename="Contract Expiration Report.xlsx"/>
+                  <af:exportCollectionActionListener type="excelHTML" exportedId="resId1"/>
                 </af:commandMenuItem>
               </af:menu>
             </f:facet>
@@ -29,7 +28,8 @@
                       rowBandingInterval="1" fetchSize="#{bindings.XpeDccCovCntrctExpirationReportROVO.rangeSize}"
                       id="resId1" contentDelivery="immediate" columnStretching="last" filterVisible="true"
                       filterModel="#{bindings.XpeDccCovCntrctExpirationReportROVOCriteriaQuery.queryDescriptor}"
-                      queryListener="#{bindings.XpeDccCovCntrctExpirationReportROVOCriteriaQuery.processQuery}">
+                      queryListener="#{bindings.XpeDccCovCntrctExpirationReportROVOCriteriaQuery.processQuery}"
+                      varStatus="vs">
               <af:column headerText="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.XpeFacility.label}"
                          sortProperty="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.XpeFacility.name}"
                          id="resId1c1" sortable="true" filterable="true">
@@ -43,13 +43,15 @@
                 </af:selectOneChoice>
               </af:column>
               <af:column headerText="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.XpeContractId.label}"
-                         id="resId1c2">
+                         id="resId1c2"
+                         sortProperty="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.XpeContractId.name}">
                 <af:outputText value="#{row.XpeContractId}"
                                shortDesc="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.XpeContractId.tooltip}"
                                id="ot1"/>
               </af:column>
               <af:column headerText="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.XpeDccPcsname.label}"
-                         id="resId1c3">
+                         id="resId1c3"
+                         sortProperty="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.XpeDccPcsname.name}">
                 <af:selectOneChoice value="#{row.bindings.XpeDccPcsname.inputValue}"
                                     label="#{row.bindings.XpeDccPcsname.label}"
                                     required="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.XpeDccPcsname.mandatory}"
@@ -59,33 +61,47 @@
                   <f:validator binding="#{row.bindings.XpeDccPcsname.validator}"/>
                 </af:selectOneChoice>
               </af:column>
-              <af:column headerText="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.CustId.label}" id="resId1c4">
+              <af:column headerText="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.CustId.label}" id="resId1c4"
+                         sortProperty="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.CustId.name}">
                 <af:outputText value="#{row.CustId}"
                                shortDesc="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.CustId.tooltip}"
                                id="ot2"/>
               </af:column>
-              <af:column headerText="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.CustName.label}"
-                         id="resId1c5">
-                <af:outputText value="#{row.CustName}"
-                               shortDesc="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.CustName.tooltip}"
-                               id="ot3"/>
+              <af:column headerText="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.CustName.label}" id="resId1c5"
+                         sortProperty="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.CustName.name}">
+                <af:selectOneChoice value="#{row.bindings.CustName.inputValue}" label="#{row.bindings.CustName.label}"
+                                    required="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.CustName.mandatory}"
+                                    shortDesc="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.CustName.tooltip}"
+                                    readOnly="true" id="soc5">
+                  <f:selectItems value="#{row.bindings.CustName.items}" id="si5"/>
+                  <f:validator binding="#{row.bindings.CustName.validator}"/>
+                </af:selectOneChoice>
               </af:column>
               <af:column headerText="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.XpeContractVersion.label}"
-                         id="resId1c6">
+                         id="resId1c6"
+                         sortProperty="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.XpeContractVersion.name}">
                 <af:outputText value="#{row.XpeContractVersion}"
                                shortDesc="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.XpeContractVersion.tooltip}"
                                id="ot4"/>
               </af:column>
               <af:column headerText="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.XpeEndDate.label}"
-                         id="resId1c7">
+                         id="resId1c7"
+                         sortProperty="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.XpeEndDate.name}">
                 <af:outputText value="#{row.XpeEndDate}"
                                shortDesc="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.XpeEndDate.tooltip}"
                                id="ot5">
                   <af:convertDateTime pattern="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.XpeEndDate.format}"/>
                 </af:outputText>
+                <f:facet name="filter">
+                  <af:inputDate value="#{bindings.XpeDccCovCntrctExpirationReportROVOCriteriaQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.XpeEndDate.value}"
+                                id="id1">
+                    <af:convertDateTime pattern="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.XpeEndDate.format}"/>
+                  </af:inputDate>
+                </f:facet>
               </af:column>
               <af:column headerText="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.XpeProductId.label}"
-                         id="resId1c8">
+                         id="resId1c8"
+                         sortProperty="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.XpeProductId.name}">
                 <af:selectOneChoice value="#{row.bindings.XpeProductId.inputValue}"
                                     label="#{row.bindings.XpeProductId.label}"
                                     required="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.XpeProductId.mandatory}"
@@ -96,8 +112,9 @@
                 </af:selectOneChoice>
               </af:column>
               <af:column headerText="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.SalesPerson.label}"
-                         id="resId1c9" filterable="true"
-                         sortProperty="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.SalesPerson.name}">
+                         id="resId1c9"
+                         sortProperty="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.SalesPerson.name}"
+                         filterable="true">
                 <af:selectOneChoice value="#{row.bindings.SalesPerson.inputValue}"
                                     label="#{row.bindings.SalesPerson.label}"
                                     required="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.SalesPerson.mandatory}"

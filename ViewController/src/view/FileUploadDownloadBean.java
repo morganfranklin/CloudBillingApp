@@ -20,7 +20,6 @@ import oracle.adf.model.OperationBinding;
 import oracle.adf.model.binding.DCBindingContainer;
 import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.view.rich.component.rich.input.RichInputFile;
-
 import oracle.adf.view.rich.context.AdfFacesContext;
 import oracle.adf.view.rich.event.QueryOperationEvent;
 
@@ -96,6 +95,11 @@ public class FileUploadDownloadBean {
             inputFile.resetValue();
             inputFile.setValid(true);
         }
+    }
+    
+    public void onFileDelete(ActionEvent actionEvent) {
+        ADFUtils.invokeEL("#{bindings.DeleteFile.execute}");
+        
     }
 
 

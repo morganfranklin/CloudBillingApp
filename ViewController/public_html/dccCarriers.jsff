@@ -225,11 +225,13 @@
                                               label="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.label}"
                                               required="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.mandatory}"
                                               columns="15"
+                                              maximumLength="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.displayWidth}"
                                               shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.tooltip}"
                                               id="it17" autoSubmit="true">
                                     <f:validator binding="#{row.bindings.XpeRateOverride.validator}"/>
-                                    <af:convertNumber groupingUsed="false"
-                                                      pattern="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.format}"/>
+                                    <af:convertNumber pattern="###.00000" groupingUsed="false"
+                                                                      maxFractionDigits="5"
+                                                                      messageDetailConvertPattern="{0} with {1} has invalid precision/scale."/>
                                 </af:inputText>
                             </af:column>
                             <af:column sortProperty="#{bindings.XpeDccContractCarrierView3.hints.XpeSubNbr.name}"
@@ -253,11 +255,13 @@
                                               label="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.label}"
                                               required="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.mandatory}"
                                               columns="15"
+                                              maximumLength="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.displayWidth}"
                                               shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.tooltip}"
                                               id="it18" autoSubmit="true">
                                     <f:validator binding="#{row.bindings.XpeSurcharge.validator}"/>
-                                    <af:convertNumber groupingUsed="false"
-                                                      pattern="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.format}"/>
+                                    <af:convertNumber pattern="###.00000" groupingUsed="false"
+                                                                      maxFractionDigits="5"
+                                                                      messageDetailConvertPattern="{0} with {1} has invalid precision/scale."/>
                                 </af:inputText>
                             </af:column>
                         </af:table>

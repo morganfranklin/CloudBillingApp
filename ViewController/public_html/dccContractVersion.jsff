@@ -628,8 +628,9 @@
                                     </af:commandButton>
                                 </af:column>
                                 <af:column id="c14" width="250" minimumWidth="12" displayIndex="-1">
-                                    <af:button text="Delete File" id="b13" action="#{bindings.CreateInsert.execute}"
-                                               visible="#{row.Identifier eq 'UPDATE_CONTRACT'}"/>
+                                    <af:button text="Delete File" id="b13" action="#{bindings.Commit.execute}"
+                                               visible="#{row.Identifier eq 'UPDATE_CONTRACT'}"
+                                               actionListener="#{pageFlowScope.FileUploadDownloadBean.onFileDelete}"/>
                                 </af:column>
                             </af:table>
                         </af:showDetailItem>

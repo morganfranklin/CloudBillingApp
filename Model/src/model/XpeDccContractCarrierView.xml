@@ -171,6 +171,8 @@
             <SchemaBasedProperties>
                 <LABEL
                     ResId="model.XpeDccContractCarrierView.XpeRateOverride_LABEL"/>
+                <DISPLAYWIDTH
+                    Value="11"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>
@@ -184,6 +186,8 @@
             <SchemaBasedProperties>
                 <LABEL
                     ResId="model.XpeDccContractCarrierView.XpeSurcharge_LABEL"/>
+                <DISPLAYWIDTH
+                    Value="11"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>

@@ -213,13 +213,13 @@
                                         </af:inputText>
                                     </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccContractPricingTermView2.hints.XpeRate.name}"
-                                               sortable="true" headerText="Rate" id="c4">
+                                               sortable="true" headerText="Rate" id="c4" width="250">
                                         <af:inputText value="#{row.bindings.XpeRate.inputValue}"
                                                       label="#{bindings.XpeDccContractPricingTermView2.hints.XpeRate.label}"
                                                       columns="#{bindings.XpeDccContractPricingTermView2.hints.XpeRate.displayWidth}"
-                                                      maximumLength="#{bindings.XpeDccContractPricingTermView2.hints.XpeRate.precision}"
+                                                      maximumLength="#{bindings.XpeDccContractPricingTermView2.hints.XpeRate.displayWidth}"
                                                       shortDesc="#{bindings.XpeDccContractPricingTermView2.hints.XpeRate.tooltip}"
-                                                      id="it5" required="true">
+                                                      id="it5" required="true" autoSubmit="true">
                                             <f:validator binding="#{row.bindings.XpeRate.validator}"/>
                                             <af:convertNumber pattern="###.00000" groupingUsed="false"
                                                                       maxFractionDigits="5"

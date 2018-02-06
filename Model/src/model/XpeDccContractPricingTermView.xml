@@ -238,6 +238,8 @@
             <SchemaBasedProperties>
                 <LABEL
                     ResId="model.XpeDccContractPricingTermView.XpeRate_LABEL"/>
+                <DISPLAYWIDTH
+                    Value="26"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>
