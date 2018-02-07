@@ -89,7 +89,7 @@
         TableName="XPE_DCC_CONTRACT_PRICING_TERM"/>
     <Attribute
         Name="XpeRate"
-        Precision="26"
+        Precision="20"
         Scale="5"
         ColumnName="XPE_RATE"
         SQLType="NUMERIC"

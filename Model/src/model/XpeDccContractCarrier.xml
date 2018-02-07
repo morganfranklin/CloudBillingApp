@@ -111,7 +111,7 @@
     </Attribute>
     <Attribute
         Name="XpeRateOverride"
-        Precision="11"
+        Precision="10"
         Scale="5"
         ColumnName="XPE_RATE_OVERRIDE"
         SQLType="NUMERIC"
@@ -120,7 +120,7 @@
         TableName="XPE_DCC_CONTRACT_CARRIER"/>
     <Attribute
         Name="XpeSurcharge"
-        Precision="11"
+        Precision="10"
         Scale="5"
         ColumnName="XPE_SURCHARGE"
         SQLType="NUMERIC"
