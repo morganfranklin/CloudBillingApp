@@ -16,6 +16,8 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.mail.util.ByteArrayDataSource;
 
+import javax.naming.InitialContext;
+
 import oracle.adf.share.logging.ADFLogger;
 
 public class EmailUtils {
@@ -30,67 +32,38 @@ public class EmailUtils {
         String host = "sldcsmtp.atoracle.com",sender="tzarzycki@covanta.com";
         _logger.info("Inside sendEmail");
         MimeMessage message = null;
-        Transport transport = null;
-        try {
-            if (host != null && host.trim().length() > 0) {
-                _logger.info("Inside IF Block");
-                Session session = getMailSession(host);
-                _logger.info("After getMailSession");
+        InitialContext ic;
+            try {
+                ic = new InitialContext();
+                Session session = (Session) ic.lookup("outgoingmailroute");
+                //Session session = getMailSession(host);
                 message = new MimeMessage(session);
-                _logger.info("After MimeMessage");
                 message.setFrom(new InternetAddress(sender));
-                _logger.info("After setFrom");
                 message.setSubject(checkIfNull(email.get("EMAIL_SUBJECT")));
-                _logger.info("setSubject");
                 message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
-                _logger.info("setRecipients");
                 Multipart mp = new MimeMultipart();
-                _logger.info("MimeMultipart");
                 MimeBodyPart mbp1 = new MimeBodyPart();
-                _logger.info("MimeBodyPart");
                 mbp1.setContent(checkIfNull(email.get("EMAIL_BODY")), "text/html; charset=utf-8");
-                _logger.info("setContent");
                 mp.addBodyPart(mbp1);
-                _logger.info("addBodyPart");
                 if (null != bytes) {
-                    _logger.info("Inside bytes IF Block");
                     MimeBodyPart mbp2 = new MimeBodyPart();
-                    _logger.info("Inside bytes IF Block  MimeBodyPart");
                     ByteArrayDataSource bds = new ByteArrayDataSource(bytes, "application/octet-stream");
-                    _logger.info("Inside bytes IF Block ByteArrayDataSource");
                     mbp2.setDataHandler(new DataHandler(bds));
-                    _logger.info("Inside bytes IF Block setDataHandler");
                     mbp2.setFileName(checkIfNull(email.get("EMAIL_ATTACHMENT_NAME")));
-                    _logger.info("Inside bytes IF Block setFileName");
                     mp.addBodyPart(mbp2);
-                    _logger.info("Inside  bytes IF Block addBodyPart");
                 }
-                _logger.info("Afetr bytes IF Block");
                 message.setContent(mp);
-                _logger.info("After bytes IF Block setContent");
                 //transport = session.getTransport();
-                _logger.info("After bytes IF Block setContent");
                 //transport.connect();
-                _logger.info("After bytes IF Block connect");
                 //Transport.send(message, message.getAllRecipients());
                 Transport.send(message);
-                _logger.info("After bytes IF Block send");
                 //transport.close();
-                _logger.info("After bytes IF Block close");
                 return true;
-            }
         } catch (Exception ex) {
             // TODO: Add catch code
             ex.printStackTrace();
             _logger.info("Inside Catch Block: "+ ex.getLocalizedMessage());
         } 
-//        catch (NoSuchProviderException nspe) {
-//            // TODO: Add catch code
-//            nspe.printStackTrace();
-//        } catch (MessagingException me) {
-//            // TODO: Add catch code 
-//            me.printStackTrace();
-//        }
     return false;
     }
     
@@ -117,7 +90,6 @@ public class EmailUtils {
     }*/
     
     private static Session getMailSession(String host) {
-
         Properties props = new Properties();
         props.setProperty("mail.smtp.host", host);
         Session session = Session.getDefaultInstance(props);

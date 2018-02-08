@@ -35,8 +35,11 @@
                                     <af:commandMenuItem text="Export to CSV" id="cmi5" rendered="false">
                                         <af:exportCollectionActionListener type="CSV" exportedId="t2"/>
                                     </af:commandMenuItem>
-                                    <af:commandMenuItem text="commandMenuItem 1" id="cmi6" selected="false"
-                                                        rendered="false"/>
+                                    <af:commandMenuItem text="Export to PDF" id="cmi6">
+                                        <af:fileDownloadActionListener contentType="application/pdf"
+                                                                       filename="Summary.pdf"
+                                                                       method="#{distilledDataMBean.summaryPDFDownload}"/>
+                                    </af:commandMenuItem>
                                 </af:menu>
                             </f:facet>
                             <f:facet name="toolbar"/>
@@ -114,6 +117,11 @@
                                     </af:commandMenuItem>
                                     <af:commandMenuItem text="Show as printable page" id="cmi3" rendered="false">
                                         <af:showPrintablePageBehavior/>
+                                    </af:commandMenuItem>
+                                    <af:commandMenuItem text="Export to PDF" id="cmi7">
+                                        <af:fileDownloadActionListener filename="Details.pdf"
+                                                                       contentType="application/pdf"
+                                                                       method="#{distilledDataMBean.detailsPDFDownload}"/>
                                     </af:commandMenuItem>
                                 </af:menu>
                             </f:facet>

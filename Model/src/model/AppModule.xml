@@ -1907,5 +1907,15 @@
                 Name="givenUser"
                 Type="java.lang.String"/>
         </Method>
+        <Method
+            Name="writeVoToXml"
+            MethodName="writeVoToXml">
+            <Return
+                Name="_return_type_"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="voName"
+                Type="java.lang.String"/>
+        </Method>
     </ClientInterface>
 </AppModule>

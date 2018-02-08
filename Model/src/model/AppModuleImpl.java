@@ -1,6 +1,7 @@
 package model;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.Reader;
@@ -112,12 +113,16 @@ import oracle.jbo.RowIterator;
 import oracle.jbo.RowSet;
 import oracle.jbo.RowSetIterator;
 import oracle.jbo.ViewCriteria;
+import oracle.jbo.ViewObject;
+import oracle.jbo.XMLInterface;
 import oracle.jbo.domain.BlobDomain;
 import oracle.jbo.domain.ClobDomain;
 import oracle.jbo.server.ApplicationModuleImpl;
 import oracle.jbo.server.Entity;
 import oracle.jbo.server.ViewLinkImpl;
 import oracle.jbo.server.ViewObjectImpl;
+
+import oracle.xml.parser.v2.XMLNode;
 
 import org.apache.commons.io.IOUtils;
 // ---------------------------------------------------------------------
@@ -1876,95 +1881,6 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         return emailStatus;
     }
     
-    /*public static boolean sendEmail(String recepient, Map<String,String> email, byte[] bytes) {
-        //String host = "smtp.gmail.com",port = "587",sender="morgan.franklin.test@gmail.com";
-        String host = "smtp.office365.com",port = "587",sender="nkoneru@morgan-franklin.com";
-        _logger.info("Inside sendEmail");
-        MimeMessage message = null;
-        Transport transport = null;
-        try {
-            if (host != null && port != null && host.trim().length() > 0 && port.trim().length() > 0) {
-                _logger.info("Inside IF Block");
-                Session session = getMailSession(host, port, sender);
-                _logger.info("After getMailSession");
-                message = new MimeMessage(session);
-                _logger.info("After MimeMessage");
-                message.setFrom(new InternetAddress(sender));
-                _logger.info("After setFrom");
-                message.setSubject(checkNull(email.get("EMAIL_SUBJECT")));
-                _logger.info("setSubject");
-                message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recepient));
-                _logger.info("setRecipients");
-                Multipart mp = new MimeMultipart();
-                _logger.info("MimeMultipart");
-                MimeBodyPart mbp1 = new MimeBodyPart();
-                _logger.info("MimeBodyPart");
-                mbp1.setContent(checkNull(email.get("EMAIL_BODY")), "text/html; charset=utf-8");
-                _logger.info("setContent");
-                mp.addBodyPart(mbp1);
-                _logger.info("addBodyPart");
-                if (null != bytes) {
-                    _logger.info("Inside bytes IF Block");
-                    MimeBodyPart mbp2 = new MimeBodyPart();
-                    _logger.info("Inside bytes IF Block  MimeBodyPart");
-                    ByteArrayDataSource bds = new ByteArrayDataSource(bytes, "application/octet-stream");
-                    _logger.info("Inside bytes IF Block ByteArrayDataSource");
-                    mbp2.setDataHandler(new DataHandler(bds));
-                    _logger.info("Inside bytes IF Block setDataHandler");
-                    mbp2.setFileName(checkNull(email.get("EMAIL_ATTACHMENT_NAME")));
-                    _logger.info("Inside bytes IF Block setFileName");
-                    mp.addBodyPart(mbp2);
-                    _logger.info("Inside  bytes IF Block addBodyPart");
-                }
-                _logger.info("Afetr bytes IF Block");
-                message.setContent(mp);
-                _logger.info("After bytes IF Block setContent");
-                transport = session.getTransport();
-                _logger.info("After bytes IF Block setContent");
-                transport.connect();
-                _logger.info("After bytes IF Block connect");
-                transport.send(message, message.getAllRecipients());
-                _logger.info("After bytes IF Block send");
-                transport.close();
-                _logger.info("After bytes IF Block close");
-                return true;
-            }
-        } catch (Exception ex) {
-            // TODO: Add catch code
-            ex.printStackTrace();
-            _logger.info("Inside Catch Block: "+ ex.getLocalizedMessage());
-        } 
-    //        catch (NoSuchProviderException nspe) {
-    //            // TODO: Add catch code
-    //            nspe.printStackTrace();
-    //        } catch (MessagingException me) {
-    //            // TODO: Add catch code
-    //            me.printStackTrace();
-    //        }
-    return false;
-    }
-    
-    private static Session getMailSession(String host, String port, String sender) {
-
-        Properties props = new Properties();
-        props.setProperty("mail.transport.protocol", "smtp");
-        props.setProperty("mail.smtp.host", host);
-        props.setProperty("mail.smtp.port", port);
-        props.setProperty("mail.smtp.user", sender);
-        props.setProperty("mail.debug", "true");
-        props.setProperty("mail.disable", "false");
-        props.setProperty("mail.verbose", "true");
-        Session session = Session.getDefaultInstance(props);
-        session.setDebug(true);
-        return session;
-    }
-    
-    private static String checkNull(String val){ 
-        if(null==val || val.trim().length()==0)
-          return "";
-        else
-          return val;
-    }*/
     
     private Map<String,String>  buildEmailBody(XpeDccWfActionEOVORowImpl xpeDccWfActionEOVORow, String userType){
         Map<String,String>  email = new HashMap<String,String>();
@@ -2047,13 +1963,13 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         }
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://vmohscvae014.oracleoutsourcing.com:5021/neuCloudBilling1010_1/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://vmohscvae014.oracleoutsourcing.com:5021/neuCloudBilling1010_3/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(xpeDccWfActionEOVORow.getXpeUuid()).append("&").append("action=").append("ACCEPT").append("&").append("user=").append(userType);
         html.append("\"><b>Accept</b></a>");
         html.append("&nbsp;&nbsp;&nbsp;");
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://vmohscvae014.oracleoutsourcing.com:5021/neuCloudBilling1010_1/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://vmohscvae014.oracleoutsourcing.com:5021/neuCloudBilling1010_3/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(xpeDccWfActionEOVORow.getXpeUuid()).append("&").append("action=").append("REJECT").append("&").append("user=").append(userType);
         html.append("\"><b>Reject</b></a>");
         html.append("</p>");
@@ -4021,6 +3937,20 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             }
         }
         return accessLimit;
+    }
+    
+    public String writeVoToXml(String voName) {
+        ViewObject vo = this.findViewObject(voName);
+        ByteArrayOutputStream opStream = new ByteArrayOutputStream();
+        try {
+            // Generating XML for All rows and adding it to Output Stream
+            ((XMLNode) vo.writeXML(0, XMLInterface.XML_OPT_ALL_ROWS)).print(opStream);
+            System.out.println(opStream);
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return opStream.toString();
     }
 
     /**

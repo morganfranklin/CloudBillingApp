@@ -72,5 +72,7 @@ public interface AppModule extends ApplicationModule {
     void contractPricingTermLineAdd(String creationPlace, Integer nextPricingTermLineNbr);
 
     String checkRoles(String givenUser);
+
+    String writeVoToXml(String voName);
 }
 
