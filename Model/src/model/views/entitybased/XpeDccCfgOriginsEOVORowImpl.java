@@ -34,7 +34,6 @@ public class XpeDccCfgOriginsEOVORowImpl extends ViewRowImpl {
         LastUpdatedBy,
         LastUpdatedDate,
         Country,
-        SearchState,
         XpeDccCfgOgnAssTerminalsEOVO,
         LookupSharedAppModule_YONLOV,
         XpeDccCfgCountiesLOV,
@@ -77,7 +76,6 @@ public class XpeDccCfgOriginsEOVORowImpl extends ViewRowImpl {
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int COUNTRY = AttributesEnum.Country.index();
-    public static final int SEARCHSTATE = AttributesEnum.SearchState.index();
     public static final int XPEDCCCFGOGNASSTERMINALSEOVO = AttributesEnum.XpeDccCfgOgnAssTerminalsEOVO.index();
     public static final int LOOKUPSHAREDAPPMODULE_YONLOV = AttributesEnum.LookupSharedAppModule_YONLOV.index();
     public static final int XPEDCCCFGCOUNTIESLOV = AttributesEnum.XpeDccCfgCountiesLOV.index();
@@ -210,13 +208,6 @@ public class XpeDccCfgOriginsEOVORowImpl extends ViewRowImpl {
         setAttributeInternal(COUNTRY, value);
     }
 
-    /**
-     * Gets the attribute value for the calculated attribute SearchState.
-     * @return the SearchState
-     */
-    public String getSearchState() {
-        return (String) getAttributeInternal(SEARCHSTATE);
-    }
 
     /**
      * Gets the attribute value for ORIGIN_DESC using the alias name OriginDesc.

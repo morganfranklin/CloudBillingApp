@@ -7,14 +7,17 @@
   Version="12.2.1.11.57"
   InheritPersonalization="merge"
   BindingStyle="OracleName"
-  CustomQuery="true"
+  CustomQuery="false"
   PageIterMode="Full"
   RowClass="model.views.entitybased.XpeDccCfgOriginsEOVORowImpl"
-  ComponentClass="model.views.entitybased.XpeDccCfgOriginsEOVOImpl">
+  ComponentClass="model.views.entitybased.XpeDccCfgOriginsEOVOImpl"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  SelectAllAttributes="false">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
     <Attr Name="_isCodegen" Value="true"/>
-    <Attr Name="_isExpertMode" Value="true"/>
   </DesignTime>
   <Properties>
     <SchemaBasedProperties>
@@ -152,20 +155,6 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
-  <SQLQuery><![CDATA[SELECT XpeDccCfgOriginsEO.ORIGIN_ID,   
-       XpeDccCfgOriginsEO.ORIGIN_DESC,   
-       XpeDccCfgOriginsEO.COUNTY,   
-       XpeDccCfgOriginsEO.STATE,   
-       XpeDccCfgOriginsEO.XPE_DCC_NYC_DOS_DISTRICT,   
-       XpeDccCfgOriginsEO.CREATED_BY,   
-       XpeDccCfgOriginsEO.CREATED_DATE,   
-       XpeDccCfgOriginsEO.INACTIVE,   
-       XpeDccCfgOriginsEO.INACTIVE_DATE,   
-       XpeDccCfgOriginsEO.LAST_UPDATED_BY,   
-       XpeDccCfgOriginsEO.LAST_UPDATED_DATE,   
-       XpeDccCfgOriginsEO.COUNTRY, 
-       XpeDccCfgOriginsEO.STATE SEARCH_STATE 
-FROM  XPE_DCC_CFG_ORIGINS XpeDccCfgOriginsEO]]></SQLQuery>
   <EntityUsage
     Name="XpeDccCfgOriginsEO"
     Entity="model.entities.XpeDccCfgOriginsEO"/>
@@ -316,21 +305,6 @@ FROM  XPE_DCC_CFG_ORIGINS XpeDccCfgOriginsEO]]></SQLQuery>
           ResId="model.views.entitybased.XpeDccCfgOriginsEOVO.Country_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="SearchState"
-    IsUpdateable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Precision="5"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="SEARCH_STATE"
-    Expression="SEARCH_STATE"
-    SQLType="VARCHAR">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="5"/>
-    </DesignTime>
   </ViewAttribute>
   <ViewCriteria
     Name="OriginsCriteria"
