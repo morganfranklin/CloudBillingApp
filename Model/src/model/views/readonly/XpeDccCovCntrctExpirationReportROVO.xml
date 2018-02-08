@@ -144,24 +144,24 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
-  <SQLQuery><![CDATA[SELECT                 
-E.XPE_FACILITY,                
-D.XPE_CONTRACT_ID,                
-D.XPE_DCC_PCSNAME,                
-D.CUST_ID,                          
-F.XPE_CONTRACT_VERSION,                
-F.XPE_END_DATE,                
-E.XPE_PRODUCT_ID,                
-F.SALES_PERSON,           
-E.XPE_CONTRACT_LINE,    
-D.CUST_ID CUST_NAME  
-FROM        
-XPE_DCC_CONTRACTS D,XPE_DCC_CONTRACT_LINE E ,XPE_DCC_CONTRACT_VERSION F                               
-WHERE                         
-F.XPE_CONTRACT_STATUS = 'APR'                                                                                                                      
-AND D.XPE_CONTRACT_ID=F.XPE_CONTRACT_ID                  
-AND F.XPE_CONTRACT_ID=E.XPE_CONTRACT_ID                                
-AND F.XPE_CONTRACT_VERSION=E.XPE_CONTRACT_VERSION]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT                   
+E.XPE_FACILITY,                  
+D.XPE_CONTRACT_ID,                  
+D.XPE_DCC_PCSNAME,                  
+D.CUST_ID,                            
+F.XPE_CONTRACT_VERSION,                  
+F.XPE_END_DATE,                  
+E.XPE_PRODUCT_ID,                  
+F.SALES_PERSON,             
+E.XPE_CONTRACT_LINE,      
+D.CUST_ID CUST_NAME    
+FROM          
+XPE_DCC_CONTRACTS D,XPE_DCC_CONTRACT_LINE E ,XPE_DCC_CONTRACT_VERSION F                                 
+WHERE                           
+F.XPE_CONTRACT_STATUS = 'APR'                                                                                                                        
+AND D.XPE_CONTRACT_ID=F.XPE_CONTRACT_ID                   
+AND F.XPE_CONTRACT_ID=E.XPE_CONTRACT_ID(+)                                
+AND F.XPE_CONTRACT_VERSION=E.XPE_CONTRACT_VERSION(+)]]></SQLQuery>
   <ViewAttribute
     Name="XpeFacility"
     IsUpdateable="false"
