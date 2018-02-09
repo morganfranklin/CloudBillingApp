@@ -29,6 +29,14 @@
                     <Item Value="XpeSwApprNbr"/>
                     <Item Value="XpeContractStatus"/>
                     <Item Value="SalesPerson"/>
+                    <Item Value="AddressSeqNum"/>
+                    <Item Value="BusinessUnitGl"/>
+                    <Item Value="XpeFacility"/>
+                    <Item Value="XpeProductId"/>
+                    <Item Value="XpeContractVersion"/>
+                    <Item Value="XpeDccPcsname"/>
+                    <Item Value="XpeStartDate"/>
+                    <Item Value="XpeEndDate"/>
                 </AttrNames>
             </nodeDefinition>
         </tree>

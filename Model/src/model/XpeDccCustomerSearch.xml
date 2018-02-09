@@ -22,6 +22,33 @@
         Name="XpeDccDicContractStatus1"
         ViewObjectName="model.XpeDccDicContractStatus"
         RowLevelBinds="true"/>
+    <ViewAccessor
+        Name="XpeDccDicProducts1"
+        ViewObjectName="model.XpeDccDicProducts"
+        RowLevelBinds="true"/>
+    <ViewAccessor
+        Name="XpeDccGeneralItemListROVO1"
+        ViewObjectName="model.views.readonly.XpeDccGeneralItemListROVO"
+        RowLevelBinds="true">
+        <ViewCriteriaUsage
+            Name="findByItemListType"
+            FullName="model.views.readonly.XpeDccGeneralItemListROVO.findByItemListType"/>
+        <ParameterMap>
+            <PIMap Variable="bind_ItemListType">
+                <TransientExpression
+                    trustMode="untrusted"
+                    Name="ExpressionScript"><![CDATA['BU']]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="XpeDccCfgPCSShortNamesROVO1"
+        ViewObjectName="model.views.readonly.XpeDccCfgPCSShortNamesROVO"
+        RowLevelBinds="true"/>
+    <ViewAccessor
+        Name="XpeDccCfgPcsROVO1"
+        ViewObjectName="model.views.readonly.XpeDccCfgPcsROVO"
+        RowLevelBinds="true"/>
     <ListBinding
         Name="LOV_XpeContractStatus"
         ListVOName="XpeDccDicContractStatus1"
@@ -38,60 +65,151 @@
         </AttrArray>
         <DisplayCriteria/>
     </ListBinding>
-    <SQLQuery><![CDATA[SELECT D.XPE_CONTRACT_ID,      
-  D.XPE_CONTRACT_DESC,      
-  A.SETID,      
-  A.CUST_ID,      
-  A.NAME1,      
-  B.DESCR,      
-  C.COUNTRY,      
-  C.ADDRESS1,      
-  C.ADDRESS2,      
-  C.CITY,      
-  C.STATE,      
-  C.POSTAL,      
-  E.XPE_SW_APPR_NBR,      
-  F.XPE_CONTRACT_STATUS,      
-  F.SALES_PERSON      
-FROM PS_CUSTOMER A,      
-  PS_CUST_ADDR_SEQ B,      
-  PS_CUST_ADDRESS C,      
-  XPE_DCC_CONTRACTS D,      
-  XPE_DCC_CONTRACT_LINE E ,      
-  XPE_DCC_CONTRACT_VERSION F      
-WHERE A.SETID='MASTR' AND  
-A.CUST_ID             =B.CUST_ID      
-AND B.BILL_TO_ADDR        ='Y'      
-AND B.CUST_ID             =C.CUST_ID      
-AND B.ADDRESS_SEQ_NUM     =C.ADDRESS_SEQ_NUM      
-AND C.LANGUAGE_CD         ='ENG'      
-AND D.CUST_ID             =A.CUST_ID      
-AND D.XPE_CONTRACT_ID     =E.XPE_CONTRACT_ID      
-AND F.XPE_CONTRACT_ID     =E.XPE_CONTRACT_ID      
-AND F.XPE_CONTRACT_VERSION=E.XPE_CONTRACT_VERSION      
-UNION ALL      
-SELECT CNTCT.XPE_CONTRACT_ID,      
-  CNTCT.XPE_CONTRACT_DESC,      
-  CUST.SET_ID,      
-  CUST.CUST_ID,      
-  CUST.COMPANY_NAME NAME1,      
-  null DESCR,      
-  CUST.COUNTRY,      
-  CUST.MAILING_ADDRESS1 ADDRESS1,      
-  CUST.MAILING_ADDRESS2 ADDRESS2,      
-  CUST.CITY CITY,      
-  CUST.STATE STATE,      
-  CUST.POSTAL POSTAL,      
-  CNTCT_LN.XPE_SW_APPR_NBR,      
-  CNTCT_VR.XPE_CONTRACT_STATUS,      
-  CNTCT_VR.SALES_PERSON      
-FROM XPE_DMS_CUSTOMER CUST,      
-  XPE_DCC_CONTRACTS CNTCT,      
-  XPE_DCC_CONTRACT_LINE CNTCT_LN ,      
-  XPE_DCC_CONTRACT_VERSION CNTCT_VR      
-WHERE CUST.CUST_ID                = CNTCT.CUST_ID      
-AND CNTCT.XPE_CONTRACT_ID         = CNTCT_VR.XPE_CONTRACT_ID      
-AND CNTCT_VR.XPE_CONTRACT_VERSION = CNTCT_LN.XPE_CONTRACT_VERSION     
+    <ListBinding
+        Name="LOV_XpeFacility"
+        ListVOName="XpeDccCfgPcsROVO1"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="XpeFacility"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="SiteId"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="SiteDesc"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_XpeProductId"
+        ListVOName="XpeDccDicProducts1"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0"
+        ComboRowCountHint="10">
+        <AttrArray Name="AttrNames">
+            <Item Value="XpeProductId"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="XpeLookupId"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="XpeLookupId"/>
+            <Item Value="XpeLookupDesc"/>
+        </AttrArray>
+        <DisplayCriteria
+            Hint="showAndExecute"/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_BusinessUnitGl"
+        ListVOName="XpeDccGeneralItemListROVO1"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="BusinessUnitGl"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="ItemId"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="ValidValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_XpeDccPcsname"
+        ListVOName="XpeDccCfgPCSShortNamesROVO1"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="XpeDccPcsname"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="PcsshortnameId"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="PcsshortName"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <SQLQuery><![CDATA[SELECT D.XPE_CONTRACT_ID,    
+  F.XPE_CONTRACT_VERSION,    
+  D.XPE_CONTRACT_DESC,    
+  A.SETID,    
+  A.CUST_ID,    
+  A.NAME1,    
+  B.DESCR,    
+  C.COUNTRY,    
+  B.ADDRESS_SEQ_NUM,    
+  C.ADDRESS1,    
+  C.ADDRESS2,    
+  C.CITY,    
+  C.STATE,    
+  C.POSTAL,    
+  E.BUSINESS_UNIT_GL,    
+  E.XPE_FACILITY,    
+  E.XPE_PRODUCT_ID,    
+  E.XPE_SW_APPR_NBR,    
+  F.XPE_CONTRACT_STATUS,    
+  F.SALES_PERSON,   
+  F.XPE_START_DATE,  
+  F.XPE_END_DATE, 
+  D.XPE_DCC_PCSNAME   
+FROM PS_CUSTOMER A,    
+  PS_CUST_ADDR_SEQ B,    
+  PS_CUST_ADDRESS C,    
+  XPE_DCC_CONTRACTS D,    
+  XPE_DCC_CONTRACT_LINE E ,    
+  XPE_DCC_CONTRACT_VERSION F    
+WHERE A.SETID             ='MASTR'    
+AND A.CUST_ID             =B.CUST_ID    
+AND B.BILL_TO_ADDR        ='Y'    
+AND B.CUST_ID             =C.CUST_ID    
+AND B.ADDRESS_SEQ_NUM     =C.ADDRESS_SEQ_NUM    
+AND C.LANGUAGE_CD         ='ENG'    
+AND D.CUST_ID             =A.CUST_ID    
+AND D.XPE_CONTRACT_ID     =E.XPE_CONTRACT_ID    
+AND F.XPE_CONTRACT_ID     =E.XPE_CONTRACT_ID    
+AND F.XPE_CONTRACT_VERSION=E.XPE_CONTRACT_VERSION    
+UNION ALL    
+SELECT CNTCT.XPE_CONTRACT_ID,    
+  CNTCT_VR.XPE_CONTRACT_VERSION,    
+  CNTCT.XPE_CONTRACT_DESC,    
+  CUST.SET_ID,    
+  CUST.CUST_ID,    
+  CUST.COMPANY_NAME NAME1,    
+  NULL DESCR,    
+  CUST.COUNTRY,    
+  NULL ADDRESS_SEQ_NUM,    
+  CUST.MAILING_ADDRESS1 ADDRESS1,    
+  CUST.MAILING_ADDRESS2 ADDRESS2,    
+  CUST.CITY CITY,    
+  CUST.STATE STATE,    
+  CUST.POSTAL POSTAL,    
+  CNTCT_LN.BUSINESS_UNIT_GL,    
+  CNTCT_LN.XPE_FACILITY,    
+  CNTCT_LN.XPE_PRODUCT_ID,    
+  CNTCT_LN.XPE_SW_APPR_NBR,    
+  CNTCT_VR.XPE_CONTRACT_STATUS,    
+  CNTCT_VR.SALES_PERSON,   
+  CNTCT_VR.XPE_START_DATE,  
+  CNTCT_VR.XPE_END_DATE, 
+  CNTCT.XPE_DCC_PCSNAME   
+FROM XPE_DMS_CUSTOMER CUST,    
+  XPE_DCC_CONTRACTS CNTCT,    
+  XPE_DCC_CONTRACT_LINE CNTCT_LN ,    
+  XPE_DCC_CONTRACT_VERSION CNTCT_VR    
+WHERE CUST.CUST_ID                = CNTCT.CUST_ID    
+AND CNTCT.XPE_CONTRACT_ID         = CNTCT_VR.XPE_CONTRACT_ID    
+AND CNTCT_VR.XPE_CONTRACT_VERSION = CNTCT_LN.XPE_CONTRACT_VERSION    
 AND CNTCT.XPE_CONTRACT_ID         = CNTCT_LN.XPE_CONTRACT_ID]]></SQLQuery>
     <ViewAttribute
         Name="XpeContractId"
@@ -113,6 +231,28 @@ AND CNTCT.XPE_CONTRACT_ID         = CNTCT_LN.XPE_CONTRACT_ID]]></SQLQuery>
                     Value="30"/>
                 <LABEL
                     ResId="model.XpeDccCustomerSearch.XpeContractId_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="XpeContractVersion"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="20"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        AliasName="XPE_CONTRACT_VERSION"
+        Expression="XPE_CONTRACT_VERSION"
+        SQLType="VARCHAR"
+        IsQueriable="false">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccCustomerSearch.XpeContractVersion_LABEL"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>
@@ -150,7 +290,8 @@ AND CNTCT.XPE_CONTRACT_ID         = CNTCT_LN.XPE_CONTRACT_ID]]></SQLQuery>
         ColumnType="VARCHAR2"
         AliasName="SETID"
         Expression="SETID"
-        SQLType="VARCHAR">
+        SQLType="VARCHAR"
+        IsQueriable="false">
         <DesignTime>
             <Attr Name="_DisplaySize" Value="5"/>
         </DesignTime>
@@ -221,7 +362,8 @@ AND CNTCT.XPE_CONTRACT_ID         = CNTCT_LN.XPE_CONTRACT_ID]]></SQLQuery>
         ColumnType="VARCHAR2"
         AliasName="DESCR"
         Expression="DESCR"
-        SQLType="VARCHAR">
+        SQLType="VARCHAR"
+        IsQueriable="false">
         <DesignTime>
             <Attr Name="_DisplaySize" Value="30"/>
             <Attr Name="_description" Value="Description"/>
@@ -245,7 +387,8 @@ AND CNTCT.XPE_CONTRACT_ID         = CNTCT_LN.XPE_CONTRACT_ID]]></SQLQuery>
         ColumnType="VARCHAR2"
         AliasName="COUNTRY"
         Expression="COUNTRY"
-        SQLType="VARCHAR">
+        SQLType="VARCHAR"
+        IsQueriable="false">
         <DesignTime>
             <Attr Name="_DisplaySize" Value="3"/>
         </DesignTime>
@@ -253,6 +396,23 @@ AND CNTCT.XPE_CONTRACT_ID         = CNTCT_LN.XPE_CONTRACT_ID]]></SQLQuery>
             <SchemaBasedProperties>
                 <DISPLAYWIDTH
                     Value="10"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="AddressSeqNum"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Type="java.math.BigDecimal"
+        ColumnType="NUMBER"
+        AliasName="ADDRESS_SEQ_NUM"
+        Expression="ADDRESS_SEQ_NUM"
+        SQLType="NUMERIC">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccCustomerSearch.AddressSeqNum_LABEL"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>
@@ -344,10 +504,84 @@ AND CNTCT.XPE_CONTRACT_ID         = CNTCT_LN.XPE_CONTRACT_ID]]></SQLQuery>
         ColumnType="VARCHAR2"
         AliasName="POSTAL"
         Expression="POSTAL"
-        SQLType="VARCHAR">
+        SQLType="VARCHAR"
+        IsQueriable="false">
         <DesignTime>
             <Attr Name="_DisplaySize" Value="12"/>
         </DesignTime>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="BusinessUnitGl"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="5"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        AliasName="BUSINESS_UNIT_GL"
+        Expression="BUSINESS_UNIT_GL"
+        SQLType="VARCHAR"
+        LOVName="LOV_BusinessUnitGl">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="5"/>
+        </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccCustomerSearch.BusinessUnitGl_LABEL"/>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="XpeFacility"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="20"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        AliasName="XPE_FACILITY"
+        Expression="XPE_FACILITY"
+        SQLType="VARCHAR"
+        LOVName="LOV_XpeFacility">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccCustomerSearch.XpeFacility_LABEL"/>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="XpeProductId"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="30"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        AliasName="XPE_PRODUCT_ID"
+        Expression="XPE_PRODUCT_ID"
+        SQLType="VARCHAR"
+        IsQueriable="false"
+        LOVName="LOV_XpeProductId">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="30"/>
+        </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccCustomerSearch.XpeProductId_LABEL"/>
+                <CONTROLTYPE
+                    Value="input_text_lov"/>
+            </SchemaBasedProperties>
+        </Properties>
     </ViewAttribute>
     <ViewAttribute
         Name="XpeSwApprNbr"
@@ -412,6 +646,64 @@ AND CNTCT.XPE_CONTRACT_ID         = CNTCT_LN.XPE_CONTRACT_ID]]></SQLQuery>
             <SchemaBasedProperties>
                 <LABEL
                     ResId="model.XpeDccCustomerSearch.SalesPerson_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="XpeStartDate"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Type="oracle.jbo.domain.Date"
+        ColumnType="TIMESTAMP"
+        AliasName="XPE_START_DATE"
+        Expression="XPE_START_DATE"
+        SQLType="TIMESTAMP">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccCustomerSearch.XpeStartDate_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="XpeEndDate"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Type="oracle.jbo.domain.Date"
+        ColumnType="TIMESTAMP"
+        AliasName="XPE_END_DATE"
+        Expression="XPE_END_DATE"
+        SQLType="TIMESTAMP">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccCustomerSearch.XpeEndDate_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="XpeDccPcsname"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="50"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        AliasName="XPE_DCC_PCSNAME"
+        Expression="XPE_DCC_PCSNAME"
+        SQLType="VARCHAR"
+        LOVName="LOV_XpeDccPcsname">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="50"/>
+        </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccCustomerSearch.XpeDccPcsname_LABEL"/>
+                <CONTROLTYPE
+                    Value="choice"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>

@@ -9,7 +9,7 @@
   BindingStyle="OracleName"
   CustomQuery="true"
   PageIterMode="Full"
-  OrderBy='"COUNTRY"'>
+  OrderBy='"SEQ"'>
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
   </DesignTime>
@@ -19,14 +19,14 @@
         ResId="model.views.readonly.PsCountryTblROVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <SQLQuery><![CDATA[SELECT   
-COUNTRY,   
-DESCR AS DESCRIPTION,   
-COUNTRY_2CHAR AS COUNTRY_CODE,   
-DECODE(COUNTRY, 'USA', '1',  
-                'CAN', '2',  
-                'IRL', '3',  
-                       '4') SEQ  
+  <SQLQuery><![CDATA[SELECT    
+COUNTRY,    
+DESCR AS DESCRIPTION,    
+COUNTRY_2CHAR AS COUNTRY_CODE,    
+DECODE(COUNTRY, 'USA', '1',   
+                'CAN', '2',   
+                'IRL', '3',   
+                       '4') SEQ   
 FROM PS_COUNTRY_TBL]]></SQLQuery>
   <ViewAttribute
     Name="Country"

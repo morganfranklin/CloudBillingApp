@@ -85,7 +85,12 @@
                            headerText="#{bindings.XpeDccCustomerSearch1.hints.XpeContractId.label}" id="resId1c1">
                     <af:link text="#{row.XpeContractId}" id="l1" action="toDccContractMaster"/>
                 </af:column>
-                <af:column sortProperty="#{bindings.XpeDccCustomerSearch1.hints.XpeContractDesc.name}" sortable="true"
+            <af:column headerText="#{bindings.XpeDccCustomerSearch1.hints.XpeContractVersion.label}" id="c9">
+                <af:outputText value="#{row.XpeContractVersion}"
+                               shortDesc="#{bindings.XpeDccCustomerSearch1.hints.XpeContractVersion.tooltip}"
+                               id="ot14"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.XpeDccCustomerSearch1.hints.XpeContractDesc.name}" sortable="true"
                            headerText="#{bindings.XpeDccCustomerSearch1.hints.XpeContractDesc.label}" id="resId1c2">
                     <af:outputText value="#{row.XpeContractDesc}"
                                    shortDesc="#{bindings.XpeDccCustomerSearch1.hints.XpeContractDesc.tooltip}"
@@ -101,17 +106,14 @@
                     <af:outputText value="#{row.Name1}"
                                    shortDesc="#{bindings.XpeDccCustomerSearch1.hints.Name1.tooltip}" id="ot4"/>
                 </af:column>
-                <af:column sortProperty="#{bindings.XpeDccCustomerSearch1.hints.Descr.name}" sortable="true"
-                           headerText="#{bindings.XpeDccCustomerSearch1.hints.Descr.label}" id="resId1c5">
-                    <af:outputText value="#{row.Descr}"
-                                   shortDesc="#{bindings.XpeDccCustomerSearch1.hints.Descr.tooltip}" id="ot5"/>
-                </af:column>
-                <af:column sortProperty="#{bindings.XpeDccCustomerSearch1.hints.Country.name}" sortable="true"
-                           headerText="#{bindings.XpeDccCustomerSearch1.hints.Country.label}" id="resId1c6">
-                    <af:outputText value="#{row.Country}"
-                                   shortDesc="#{bindings.XpeDccCustomerSearch1.hints.Country.tooltip}" id="ot6"/>
-                </af:column>
-                <af:column sortProperty="#{bindings.XpeDccCustomerSearch1.hints.Address1.name}" sortable="true"
+            <af:column headerText="#{bindings.XpeDccCustomerSearch1.hints.AddressSeqNum.label}" id="c2">
+                <af:outputText value="#{row.AddressSeqNum}"
+                               shortDesc="#{bindings.XpeDccCustomerSearch1.hints.AddressSeqNum.tooltip}" id="ot5">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.XpeDccCustomerSearch1.hints.AddressSeqNum.format}"/>
+                </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.XpeDccCustomerSearch1.hints.Address1.name}" sortable="true"
                            headerText="#{bindings.XpeDccCustomerSearch1.hints.Address1.label}" id="resId1c7">
                     <af:outputText value="#{row.Address1}"
                                    shortDesc="#{bindings.XpeDccCustomerSearch1.hints.Address1.tooltip}" id="ot7"/>
@@ -126,12 +128,31 @@
                     <af:outputText value="#{row.State}"
                                    shortDesc="#{bindings.XpeDccCustomerSearch1.hints.State.tooltip}" id="ot1"/>
                 </af:column>
-                <af:column sortProperty="#{bindings.XpeDccCustomerSearch1.hints.Postal.name}" sortable="true"
-                           headerText="#{bindings.XpeDccCustomerSearch1.hints.Postal.label}" id="c2">
-                    <af:outputText value="#{row.Postal}"
-                                   shortDesc="#{bindings.XpeDccCustomerSearch1.hints.Postal.tooltip}" id="ot9"/>
-                </af:column>
-                <af:column sortProperty="#{bindings.XpeDccCustomerSearch1.hints.XpeSwApprNbr.name}" sortable="true"
+            <af:column headerText="#{bindings.XpeDccCustomerSearch1.hints.BusinessUnitGl.label}" id="c7">
+                <af:selectOneChoice value="#{row.bindings.BusinessUnitGl.inputValue}"
+                                    label="#{row.bindings.BusinessUnitGl.label}"
+                                    required="#{bindings.XpeDccCustomerSearch1.hints.BusinessUnitGl.mandatory}"
+                                    shortDesc="#{bindings.XpeDccCustomerSearch1.hints.BusinessUnitGl.tooltip}"
+                                    id="soc3" readOnly="true">
+                    <f:selectItems value="#{row.bindings.BusinessUnitGl.items}" id="si3"/>
+                    <f:validator binding="#{row.bindings.BusinessUnitGl.validator}"/>
+                </af:selectOneChoice>
+            </af:column>
+            <af:column headerText="#{bindings.XpeDccCustomerSearch1.hints.XpeFacility.label}" id="c10">
+                <af:selectOneChoice value="#{row.bindings.XpeFacility.inputValue}"
+                                    label="#{row.bindings.XpeFacility.label}"
+                                    required="#{bindings.XpeDccCustomerSearch1.hints.XpeFacility.mandatory}"
+                                    shortDesc="#{bindings.XpeDccCustomerSearch1.hints.XpeFacility.tooltip}" id="soc4"
+                                    readOnly="true">
+                    <f:selectItems value="#{row.bindings.XpeFacility.items}" id="si4"/>
+                    <f:validator binding="#{row.bindings.XpeFacility.validator}"/>
+                </af:selectOneChoice>
+            </af:column>
+            <af:column headerText="#{bindings.XpeDccCustomerSearch1.hints.XpeProductId.label}" id="c8">
+                <af:outputText value="#{row.XpeProductId}"
+                               shortDesc="#{bindings.XpeDccCustomerSearch1.hints.XpeProductId.tooltip}" id="ot13"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.XpeDccCustomerSearch1.hints.XpeSwApprNbr.name}" sortable="true"
                            headerText="#{bindings.XpeDccCustomerSearch1.hints.XpeSwApprNbr.label}" id="c3">
                     <af:outputText value="#{row.XpeSwApprNbr}"
                                    shortDesc="#{bindings.XpeDccCustomerSearch1.hints.XpeSwApprNbr.tooltip}" id="ot10"/>
@@ -146,6 +167,28 @@
                        headerText="#{bindings.XpeDccCustomerSearch1.hints.SalesPerson.label}" id="c5">
                 <af:outputText value="#{row.SalesPerson}"
                                shortDesc="#{bindings.XpeDccCustomerSearch1.hints.SalesPerson.tooltip}" id="ot12"/>
+            </af:column>
+            <af:column headerText="#{bindings.XpeDccCustomerSearch1.hints.XpeStartDate.label}" id="c11">
+                <af:outputText value="#{row.XpeStartDate}"
+                               shortDesc="#{bindings.XpeDccCustomerSearch1.hints.XpeStartDate.tooltip}" id="ot6">
+                    <af:convertDateTime pattern="#{bindings.XpeDccCustomerSearch1.hints.XpeStartDate.format}"/>
+                </af:outputText>
+            </af:column>
+            <af:column headerText="#{bindings.XpeDccCustomerSearch1.hints.XpeEndDate.label}" id="c12">
+                <af:outputText value="#{row.XpeEndDate}"
+                               shortDesc="#{bindings.XpeDccCustomerSearch1.hints.XpeEndDate.tooltip}" id="ot9">
+                    <af:convertDateTime pattern="#{bindings.XpeDccCustomerSearch1.hints.XpeEndDate.format}"/>
+                </af:outputText>
+            </af:column>
+            <af:column headerText="#{bindings.XpeDccCustomerSearch1.hints.XpeDccPcsname.label}" id="c6">
+                <af:selectOneChoice value="#{row.bindings.XpeDccPcsname.inputValue}"
+                                    label="#{row.bindings.XpeDccPcsname.label}"
+                                    required="#{bindings.XpeDccCustomerSearch1.hints.XpeDccPcsname.mandatory}"
+                                    shortDesc="#{bindings.XpeDccCustomerSearch1.hints.XpeDccPcsname.tooltip}" id="soc2"
+                                    readOnly="true">
+                    <f:selectItems value="#{row.bindings.XpeDccPcsname.items}" id="si2"/>
+                    <f:validator binding="#{row.bindings.XpeDccPcsname.validator}"/>
+                </af:selectOneChoice>
             </af:column>
         </af:table>
         </af:panelGroupLayout>

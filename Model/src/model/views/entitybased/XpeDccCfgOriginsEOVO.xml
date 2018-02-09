@@ -75,6 +75,10 @@
     Name="PsCountryTblROVO1"
     ViewObjectName="model.views.readonly.PsCountryTblROVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="XpeDccCfgDistinctStatesROVO1"
+    ViewObjectName="model.views.readonly.XpeDccCfgDistinctStatesROVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_Inactive"
     ListVOName="LookupSharedAppModule_YONLOV"
@@ -152,6 +156,24 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_StateSearch"
+    ListVOName="XpeDccCfgDistinctStatesROVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="StateSearch"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="State"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Name"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -306,6 +328,23 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="StateSearch"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="State"
+    EntityUsage="XpeDccCfgOriginsEO"
+    AliasName="STATE1"
+    LOVName="LOV_StateSearch">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgOriginsEOVO.StateSearch_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="OriginsCriteria"
     ViewObjectName="model.views.entitybased.XpeDccCfgOriginsEOVO"
@@ -357,8 +396,8 @@
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
-        Name="State"
-        ViewAttribute="State"
+        Name="StateSearch"
+        ViewAttribute="StateSearch"
         Operator="="
         Conjunction="AND"
         Value=":bind_OriginState"
