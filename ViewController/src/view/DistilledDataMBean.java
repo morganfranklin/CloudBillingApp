@@ -28,7 +28,7 @@ public class DistilledDataMBean {
                     String xml = (String) operationBinding.execute();
                     if (null != xml && xml.length() > 0) {
                         IOUtils.copy(new ByteArrayInputStream(FileOperations.genPdfRep(xml.getBytes(),
-                                                                              FileOperations.getRTFAsInputStream("TEMPLATE_NAME"))), outputStream);
+                                                                              FileOperations.getRTFAsInputStream("SummaryReport"))), outputStream);
                         // flush the outout stream
                         outputStream.flush();
                     }else
@@ -51,7 +51,7 @@ public class DistilledDataMBean {
                     String xml = (String) operationBinding.execute();
                     if (null != xml && xml.length() > 0) {
                         IOUtils.copy(new ByteArrayInputStream(FileOperations.genPdfRep(xml.getBytes(),
-                                                                              FileOperations.getRTFAsInputStream("TEMPLATE_NAME"))), outputStream);
+                                                                              FileOperations.getRTFAsInputStream("DetailsReport"))), outputStream);
                         // flush the outout stream
                         outputStream.flush();
                     }else

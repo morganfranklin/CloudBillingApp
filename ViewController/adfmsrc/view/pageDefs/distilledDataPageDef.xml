@@ -86,14 +86,14 @@
                       IsViewObjectMethod="false" DataControl="AppModuleDataControl"
                       InstanceName="data.AppModuleDataControl.dataProvider"
                       ReturnName="data.AppModuleDataControl.methodResults.writeVoToXml_AppModuleDataControl_dataProvider_writeVoToXml_result">
-            <NamedData NDName="voName" NDValue="#{bindings.XpeDccMatchEsummVw1Iterator.viewDefName}"
+            <NamedData NDName="voName" NDValue="#{bindings.XpeDccMatchEsummVw1Iterator.VOName}"
                        NDType="java.lang.String"/>
         </methodAction>
         <methodAction id="writeVoToXmlDetails" RequiresUpdateModel="true" Action="invokeMethod" MethodName="writeVoToXml"
                       IsViewObjectMethod="false" DataControl="AppModuleDataControl"
                       InstanceName="data.AppModuleDataControl.dataProvider"
                       ReturnName="data.AppModuleDataControl.methodResults.writeVoToXml_AppModuleDataControl_dataProvider_writeVoToXml_result">
-            <NamedData NDName="voName" NDValue="#{bindings.PsCisXpeImportView1Iterator.viewDefName}"
+            <NamedData NDName="voName" NDValue="#{bindings.PsCisXpeImportView1Iterator.VOName}"
                        NDType="java.lang.String"/>
         </methodAction>
     </bindings>
