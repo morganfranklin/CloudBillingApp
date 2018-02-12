@@ -64,10 +64,12 @@
         <AttrArray Name="AttrExpressions"/>
         <AttrArray Name="DerivedAttrNames">
             <Item Value="Name1"/>
+            <Item Value="AddressSeqNum"/>
         </AttrArray>
         <AttrArray Name="ListAttrNames">
             <Item Value="CustId"/>
             <Item Value="Name1"/>
+            <Item Value="AddressSeqNum"/>
         </AttrArray>
         <AttrArray Name="ListDisplayAttrNames">
             <Item Value="CustId"/>
@@ -97,32 +99,32 @@
         <DisplayCriteria
             Hint="showAndExecute"/>
     </ListBinding>
-    <SQLQuery><![CDATA[SELECT XpeDccContracts.XPE_CONTRACT_ID,   
-       XpeDccContracts.XPE_CONTRACT_DESC,   
-       XpeDccContracts.SETID,   
-       XpeDccContracts.CUST_ID,   
-       XpeDccContracts.CREATED_BY,   
-       XpeDccContracts.CURRENCY_CD,   
-       PsCustomer.NAME1,   
-       --PsCustomer.ROWID,   
-       XpeDccContracts.XPE_DCC_PCSNAME,   
-       XpeDccContracts.CUST_CONTRACT_APPROVER_EMAIL,   
-       XpeDccContracts.CUST_CONTRACT_CONTACT_NAME  
-FROM  XPE_DCC_CONTRACTS XpeDccContracts, PS_CUSTOMER PsCustomer  
-WHERE PsCustomer.CUST_ID=XpeDccContracts.CUST_ID  
-UNION  
-SELECT XpeDccContracts.XPE_CONTRACT_ID,   
-       XpeDccContracts.XPE_CONTRACT_DESC,   
-       XpeDccContracts.SETID,   
-       XpeDccContracts.CUST_ID,   
-       XpeDccContracts.CREATED_BY,   
-       XpeDccContracts.CURRENCY_CD,   
-       TempCustomer.COMPANY_NAME NAME1,    
-       --TempCustomer.ROWID,   
-       XpeDccContracts.XPE_DCC_PCSNAME,   
-       XpeDccContracts.CUST_CONTRACT_APPROVER_EMAIL,   
-       XpeDccContracts.CUST_CONTRACT_CONTACT_NAME  
-FROM  XPE_DCC_CONTRACTS XpeDccContracts, XPE_DMS_CUSTOMER TempCustomer  
+    <SQLQuery><![CDATA[SELECT XpeDccContracts.XPE_CONTRACT_ID,    
+       XpeDccContracts.XPE_CONTRACT_DESC,    
+       XpeDccContracts.SETID,    
+       XpeDccContracts.CUST_ID,    
+       XpeDccContracts.CREATED_BY,    
+       XpeDccContracts.CURRENCY_CD,    
+       PsCustomer.NAME1,    
+       XpeDccContracts.ADDRESS_SEQ_NUM,   
+       XpeDccContracts.XPE_DCC_PCSNAME,    
+       XpeDccContracts.CUST_CONTRACT_APPROVER_EMAIL,    
+       XpeDccContracts.CUST_CONTRACT_CONTACT_NAME   
+FROM  XPE_DCC_CONTRACTS XpeDccContracts, PS_CUSTOMER PsCustomer   
+WHERE PsCustomer.CUST_ID=XpeDccContracts.CUST_ID   
+UNION   
+SELECT XpeDccContracts.XPE_CONTRACT_ID,    
+       XpeDccContracts.XPE_CONTRACT_DESC,    
+       XpeDccContracts.SETID,    
+       XpeDccContracts.CUST_ID,    
+       XpeDccContracts.CREATED_BY,    
+       XpeDccContracts.CURRENCY_CD,    
+       TempCustomer.COMPANY_NAME NAME1,     
+       XpeDccContracts.ADDRESS_SEQ_NUM,    
+       XpeDccContracts.XPE_DCC_PCSNAME,    
+       XpeDccContracts.CUST_CONTRACT_APPROVER_EMAIL,    
+       XpeDccContracts.CUST_CONTRACT_CONTACT_NAME   
+FROM  XPE_DCC_CONTRACTS XpeDccContracts, XPE_DMS_CUSTOMER TempCustomer   
 WHERE TempCustomer.CUST_ID=XpeDccContracts.CUST_ID]]></SQLQuery>
     <EntityUsage
         Name="XpeDccContracts"
@@ -225,6 +227,24 @@ WHERE TempCustomer.CUST_ID=XpeDccContracts.CUST_ID]]></SQLQuery>
             <SchemaBasedProperties>
                 <LABEL
                     ResId="model.XpeDccContractsView.Name1_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="AddressSeqNum"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="38"
+        Scale="0"
+        Type="java.math.BigInteger"
+        ColumnType="NUMBER"
+        AliasName="ADDRESS_SEQ_NUM"
+        Expression="ADDRESS_SEQ_NUM"
+        SQLType="NUMERIC">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContractsView.AddressSeqNum_LABEL"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>

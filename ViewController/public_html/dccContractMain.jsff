@@ -49,6 +49,15 @@
                                                                    shortDesc="#{bindings.Name1.hints.tooltip}"
                                                                    id="ot31" partialTriggers="custIdId"/>
                                                 </af:panelLabelAndMessage>
+                                                <af:panelLabelAndMessage label="#{bindings.AddressSeqNum.hints.label}"
+                                                                         id="plam5">
+                                                    <af:outputText value="#{bindings.AddressSeqNum.inputValue}"
+                                                                   shortDesc="#{bindings.AddressSeqNum.hints.tooltip}"
+                                                                   id="ot4">
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.AddressSeqNum.format}"/>
+                                                    </af:outputText>
+                                                </af:panelLabelAndMessage>
                                                 <af:panelLabelAndMessage label="Created By" id="plam3">
                                                     <af:outputText value="#{bindings.CreatedBy.inputValue}"
                                                                    shortDesc="#{bindings.CreatedBy.hints.tooltip}"

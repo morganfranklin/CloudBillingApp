@@ -1,5 +1,7 @@
 package model;
 
+import java.math.BigInteger;
+
 import oracle.jbo.RowIterator;
 import oracle.jbo.RowSet;
 import oracle.jbo.server.ViewRowImpl;
@@ -25,6 +27,7 @@ public class XpeDccContractsViewRowImpl extends ViewRowImpl {
         CreatedBy,
         CurrencyCd,
         Name1,
+        AddressSeqNum,
         XpeDccPcsname,
         CustContractApproverEmail,
         CustContractContactName,
@@ -67,6 +70,7 @@ public class XpeDccContractsViewRowImpl extends ViewRowImpl {
     public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
     public static final int CURRENCYCD = AttributesEnum.CurrencyCd.index();
     public static final int NAME1 = AttributesEnum.Name1.index();
+    public static final int ADDRESSSEQNUM = AttributesEnum.AddressSeqNum.index();
     public static final int XPEDCCPCSNAME = AttributesEnum.XpeDccPcsname.index();
     public static final int CUSTCONTRACTAPPROVEREMAIL = AttributesEnum.CustContractApproverEmail.index();
     public static final int CUSTCONTRACTCONTACTNAME = AttributesEnum.CustContractContactName.index();
@@ -204,6 +208,22 @@ public class XpeDccContractsViewRowImpl extends ViewRowImpl {
      */
     public void setName1(String value) {
         setAttributeInternal(NAME1, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute AddressSeqNum.
+     * @return the AddressSeqNum
+     */
+    public BigInteger getAddressSeqNum() {
+        return (BigInteger) getAttributeInternal(ADDRESSSEQNUM);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute AddressSeqNum.
+     * @param value value to set the  AddressSeqNum
+     */
+    public void setAddressSeqNum(BigInteger value) {
+        setAttributeInternal(ADDRESSSEQNUM, value);
     }
 
     /**
