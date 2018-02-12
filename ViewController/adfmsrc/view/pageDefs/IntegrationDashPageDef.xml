@@ -14,5 +14,7 @@
                       ReturnName="data.AppModuleDataControl.methodResults.checkRoles_AppModuleDataControl_dataProvider_checkRoles_result">
             <NamedData NDName="givenUser" NDType="java.lang.String"/>
         </methodAction>
+        <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false"
+                Action="rollbackTransaction"/>
     </bindings>
 </pageDefinition>

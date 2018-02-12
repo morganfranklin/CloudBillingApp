@@ -49,6 +49,10 @@
         Name="XpeDccCfgPcsROVO1"
         ViewObjectName="model.views.readonly.XpeDccCfgPcsROVO"
         RowLevelBinds="true"/>
+    <ViewAccessor
+        Name="PsSalesPersonROVO1"
+        ViewObjectName="model.views.readonly.PsSalesPersonROVO"
+        RowLevelBinds="true"/>
     <ListBinding
         Name="LOV_XpeContractStatus"
         ListVOName="XpeDccDicContractStatus1"
@@ -62,6 +66,9 @@
         <AttrArray Name="AttrExpressions"/>
         <AttrArray Name="ListAttrNames">
             <Item Value="XpeLookupId"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="XpeLookupDesc"/>
         </AttrArray>
         <DisplayCriteria/>
     </ListBinding>
@@ -127,7 +134,8 @@
         ListVOName="XpeDccCfgPCSShortNamesROVO1"
         ListRangeSize="-1"
         NullValueFlag="none"
-        MRUCount="0">
+        MRUCount="0"
+        ComboRowCountHint="10">
         <AttrArray Name="AttrNames">
             <Item Value="XpeDccPcsname"/>
         </AttrArray>
@@ -136,80 +144,101 @@
             <Item Value="PcsshortnameId"/>
         </AttrArray>
         <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="PcsshortnameId"/>
             <Item Value="PcsshortName"/>
         </AttrArray>
         <DisplayCriteria/>
     </ListBinding>
-    <SQLQuery><![CDATA[SELECT D.XPE_CONTRACT_ID,    
-  F.XPE_CONTRACT_VERSION,    
-  D.XPE_CONTRACT_DESC,    
-  A.SETID,    
-  A.CUST_ID,    
-  A.NAME1,    
-  B.DESCR,    
-  C.COUNTRY,    
-  B.ADDRESS_SEQ_NUM,    
-  C.ADDRESS1,    
-  C.ADDRESS2,    
-  C.CITY,    
-  C.STATE,    
-  C.POSTAL,    
-  E.BUSINESS_UNIT_GL,    
-  E.XPE_FACILITY,    
-  E.XPE_PRODUCT_ID,    
-  E.XPE_SW_APPR_NBR,    
-  F.XPE_CONTRACT_STATUS,    
-  F.SALES_PERSON,   
-  F.XPE_START_DATE,  
-  F.XPE_END_DATE, 
-  D.XPE_DCC_PCSNAME   
-FROM PS_CUSTOMER A,    
-  PS_CUST_ADDR_SEQ B,    
-  PS_CUST_ADDRESS C,    
-  XPE_DCC_CONTRACTS D,    
-  XPE_DCC_CONTRACT_LINE E ,    
-  XPE_DCC_CONTRACT_VERSION F    
-WHERE A.SETID             ='MASTR'    
-AND A.CUST_ID             =B.CUST_ID    
-AND B.BILL_TO_ADDR        ='Y'    
-AND B.CUST_ID             =C.CUST_ID    
-AND B.ADDRESS_SEQ_NUM     =C.ADDRESS_SEQ_NUM    
-AND C.LANGUAGE_CD         ='ENG'    
-AND D.CUST_ID             =A.CUST_ID    
-AND D.XPE_CONTRACT_ID     =E.XPE_CONTRACT_ID    
-AND F.XPE_CONTRACT_ID     =E.XPE_CONTRACT_ID    
-AND F.XPE_CONTRACT_VERSION=E.XPE_CONTRACT_VERSION    
-UNION ALL    
-SELECT CNTCT.XPE_CONTRACT_ID,    
-  CNTCT_VR.XPE_CONTRACT_VERSION,    
-  CNTCT.XPE_CONTRACT_DESC,    
-  CUST.SET_ID,    
-  CUST.CUST_ID,    
-  CUST.COMPANY_NAME NAME1,    
-  NULL DESCR,    
-  CUST.COUNTRY,    
-  NULL ADDRESS_SEQ_NUM,    
-  CUST.MAILING_ADDRESS1 ADDRESS1,    
-  CUST.MAILING_ADDRESS2 ADDRESS2,    
-  CUST.CITY CITY,    
-  CUST.STATE STATE,    
-  CUST.POSTAL POSTAL,    
-  CNTCT_LN.BUSINESS_UNIT_GL,    
-  CNTCT_LN.XPE_FACILITY,    
-  CNTCT_LN.XPE_PRODUCT_ID,    
-  CNTCT_LN.XPE_SW_APPR_NBR,    
-  CNTCT_VR.XPE_CONTRACT_STATUS,    
-  CNTCT_VR.SALES_PERSON,   
-  CNTCT_VR.XPE_START_DATE,  
-  CNTCT_VR.XPE_END_DATE, 
-  CNTCT.XPE_DCC_PCSNAME   
-FROM XPE_DMS_CUSTOMER CUST,    
-  XPE_DCC_CONTRACTS CNTCT,    
-  XPE_DCC_CONTRACT_LINE CNTCT_LN ,    
-  XPE_DCC_CONTRACT_VERSION CNTCT_VR    
-WHERE CUST.CUST_ID                = CNTCT.CUST_ID    
-AND CNTCT.XPE_CONTRACT_ID         = CNTCT_VR.XPE_CONTRACT_ID    
-AND CNTCT_VR.XPE_CONTRACT_VERSION = CNTCT_LN.XPE_CONTRACT_VERSION    
+    <ListBinding
+        Name="LOV_SalesPerson"
+        ListVOName="PsSalesPersonROVO1"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="SalesPerson"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="SupportTeamCd"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="Descr"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <SQLQuery><![CDATA[SELECT D.XPE_CONTRACT_ID,         
+  F.XPE_CONTRACT_VERSION,         
+  D.XPE_CONTRACT_DESC,   
+  E.XPE_CONTRACT_LINE, 
+  A.SETID,         
+  A.CUST_ID,         
+  A.NAME1,         
+  B.DESCR,         
+  C.COUNTRY,         
+  B.ADDRESS_SEQ_NUM,         
+  C.ADDRESS1,         
+  C.ADDRESS2,         
+  C.CITY,         
+  C.STATE,         
+  C.POSTAL,         
+  E.BUSINESS_UNIT_GL,         
+  E.XPE_FACILITY,         
+  E.XPE_PRODUCT_ID,         
+  E.XPE_SW_APPR_NBR,         
+  F.XPE_CONTRACT_STATUS,         
+  F.SALES_PERSON,        
+  F.XPE_START_DATE,       
+  F.XPE_END_DATE,      
+  D.XPE_DCC_PCSNAME     
+FROM PS_CUSTOMER A,         
+  PS_CUST_ADDR_SEQ B,         
+  PS_CUST_ADDRESS C,         
+  XPE_DCC_CONTRACTS D,         
+  XPE_DCC_CONTRACT_LINE E ,         
+  XPE_DCC_CONTRACT_VERSION F         
+WHERE A.SETID             ='MASTR'         
+AND A.CUST_ID             =B.CUST_ID         
+AND B.BILL_TO_ADDR        ='Y'         
+AND B.CUST_ID             =C.CUST_ID         
+AND B.ADDRESS_SEQ_NUM     =C.ADDRESS_SEQ_NUM         
+AND C.LANGUAGE_CD         ='ENG'         
+AND D.CUST_ID             =A.CUST_ID         
+AND D.XPE_CONTRACT_ID     =E.XPE_CONTRACT_ID         
+AND F.XPE_CONTRACT_ID     =E.XPE_CONTRACT_ID         
+AND F.XPE_CONTRACT_VERSION=E.XPE_CONTRACT_VERSION         
+UNION ALL         
+SELECT CNTCT.XPE_CONTRACT_ID,         
+  CNTCT_VR.XPE_CONTRACT_VERSION,         
+  CNTCT.XPE_CONTRACT_DESC,  
+  CNTCT_LN.XPE_CONTRACT_LINE, 
+  CUST.SET_ID,         
+  CUST.CUST_ID,         
+  CUST.COMPANY_NAME NAME1,         
+  NULL DESCR,         
+  CUST.COUNTRY,         
+  NULL ADDRESS_SEQ_NUM,         
+  CUST.MAILING_ADDRESS1 ADDRESS1,         
+  CUST.MAILING_ADDRESS2 ADDRESS2,         
+  CUST.CITY CITY,         
+  CUST.STATE STATE,         
+  CUST.POSTAL POSTAL,         
+  CNTCT_LN.BUSINESS_UNIT_GL,         
+  CNTCT_LN.XPE_FACILITY,         
+  CNTCT_LN.XPE_PRODUCT_ID,         
+  CNTCT_LN.XPE_SW_APPR_NBR,         
+  CNTCT_VR.XPE_CONTRACT_STATUS,         
+  CNTCT_VR.SALES_PERSON,        
+  CNTCT_VR.XPE_START_DATE,       
+  CNTCT_VR.XPE_END_DATE,      
+  CNTCT.XPE_DCC_PCSNAME     
+FROM XPE_DMS_CUSTOMER CUST,         
+  XPE_DCC_CONTRACTS CNTCT,         
+  XPE_DCC_CONTRACT_LINE CNTCT_LN ,         
+  XPE_DCC_CONTRACT_VERSION CNTCT_VR         
+WHERE CUST.CUST_ID                = CNTCT.CUST_ID         
+AND CNTCT.XPE_CONTRACT_ID         = CNTCT_VR.XPE_CONTRACT_ID         
+AND CNTCT_VR.XPE_CONTRACT_VERSION = CNTCT_LN.XPE_CONTRACT_VERSION         
 AND CNTCT.XPE_CONTRACT_ID         = CNTCT_LN.XPE_CONTRACT_ID]]></SQLQuery>
     <ViewAttribute
         Name="XpeContractId"
@@ -277,6 +306,28 @@ AND CNTCT.XPE_CONTRACT_ID         = CNTCT_LN.XPE_CONTRACT_ID]]></SQLQuery>
                     Value="30"/>
                 <LABEL
                     ResId="model.XpeDccCustomerSearch.XpeContractDesc_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="XpeContractLine"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="20"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        AliasName="XPE_CONTRACT_LINE"
+        Expression="XPE_CONTRACT_LINE"
+        SQLType="VARCHAR"
+        IsQueriable="false">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="20"/>
+        </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccCustomerSearch.XpeContractLine_LABEL"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>
@@ -621,10 +672,10 @@ AND CNTCT.XPE_CONTRACT_ID         = CNTCT_LN.XPE_CONTRACT_ID]]></SQLQuery>
         </DesignTime>
         <Properties>
             <SchemaBasedProperties>
-                <CONTROLTYPE
-                    Value="choice"/>
                 <LABEL
                     ResId="model.XpeDccCustomerSearch.XpeContractStatus_LABEL"/>
+                <CONTROLTYPE
+                    Value="choice"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>
@@ -638,7 +689,8 @@ AND CNTCT.XPE_CONTRACT_ID         = CNTCT_LN.XPE_CONTRACT_ID]]></SQLQuery>
         ColumnType="VARCHAR2"
         AliasName="SALES_PERSON"
         Expression="SALES_PERSON"
-        SQLType="VARCHAR">
+        SQLType="VARCHAR"
+        LOVName="LOV_SalesPerson">
         <DesignTime>
             <Attr Name="_DisplaySize" Value="40"/>
         </DesignTime>
@@ -646,6 +698,8 @@ AND CNTCT.XPE_CONTRACT_ID         = CNTCT_LN.XPE_CONTRACT_ID]]></SQLQuery>
             <SchemaBasedProperties>
                 <LABEL
                     ResId="model.XpeDccCustomerSearch.SalesPerson_LABEL"/>
+                <CONTROLTYPE
+                    Value="choice"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>
@@ -658,7 +712,7 @@ AND CNTCT.XPE_CONTRACT_ID         = CNTCT_LN.XPE_CONTRACT_ID]]></SQLQuery>
         ColumnType="TIMESTAMP"
         AliasName="XPE_START_DATE"
         Expression="XPE_START_DATE"
-        SQLType="TIMESTAMP">
+        SQLType="DATE">
         <Properties>
             <SchemaBasedProperties>
                 <LABEL
@@ -675,7 +729,7 @@ AND CNTCT.XPE_CONTRACT_ID         = CNTCT_LN.XPE_CONTRACT_ID]]></SQLQuery>
         ColumnType="TIMESTAMP"
         AliasName="XPE_END_DATE"
         Expression="XPE_END_DATE"
-        SQLType="TIMESTAMP">
+        SQLType="DATE">
         <Properties>
             <SchemaBasedProperties>
                 <LABEL
@@ -703,12 +757,16 @@ AND CNTCT.XPE_CONTRACT_ID         = CNTCT_LN.XPE_CONTRACT_ID]]></SQLQuery>
                 <LABEL
                     ResId="model.XpeDccCustomerSearch.XpeDccPcsname_LABEL"/>
                 <CONTROLTYPE
-                    Value="choice"/>
+                    Value="input_text_lov"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>
     <AttrArray Name="KeyAttributes">
         <Item Value="XpeContractId"/>
+        <Item Value="XpeContractVersion"/>
+        <Item Value="XpeContractLine"/>
+        <Item Value="CustId"/>
+        <Item Value="AddressSeqNum"/>
     </AttrArray>
     <ViewLinkAccessor
         Name="XpeDccContractsView"

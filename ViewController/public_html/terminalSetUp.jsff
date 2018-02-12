@@ -15,7 +15,7 @@
       <f:facet name="context"/>
       <f:facet name="toolbar">
         <af:toolbar id="t1">
-          <af:button text="Add Item" disabled="#{!bindings.CreateInsert.enabled}" id="b1"
+          <af:button text="Add Item" id="b1"
                      action="#{bindings.CreateInsert.execute}"
                      actionListener="#{pageFlowScope.XpeCfgTableSetupMBean.onTerminalCreation}"/>
         </af:toolbar>

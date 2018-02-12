@@ -128,5 +128,10 @@
         </attributeValues>
         <listOfValues IterBinding="XpeDccContractsView1Iterator" StaticList="false" Uses="LOV_XpeDccPcsname"
                       id="XpeDccPcsname"/>
+        <attributeValues IterBinding="XpeDccContractsView1Iterator" id="AddressSeqNum">
+            <AttrNames>
+                <Item Value="AddressSeqNum"/>
+            </AttrNames>
+        </attributeValues>
     </bindings>
 </pageDefinition>
