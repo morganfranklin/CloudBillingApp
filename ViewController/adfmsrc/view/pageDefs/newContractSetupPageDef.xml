@@ -11,11 +11,11 @@
     <iterator Binds="XpeDccNewContractLineView" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccNewContractLineViewIterator"/>
     <iterator Binds="XpeDccNewContractPricingTermView" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccNewContractPricingTermViewIterator"/>
+              id="XpeDccNewContractPricingTermViewIterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="XpeDccNewContractCarrierView" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccNewContractCarrierViewIterator"/>
+              id="XpeDccNewContractCarrierViewIterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="XpeDccNewContractPricingOverView" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccNewContractPricingOverViewIterator"/>
+              id="XpeDccNewContractPricingOverViewIterator" ChangeEventPolicy="ppr"/>
   </executables>
   <bindings>
     <list IterBinding="XpeDccNewContractVersionViewIterator" StaticList="false" Uses="LOV_XpeAgreementType"
