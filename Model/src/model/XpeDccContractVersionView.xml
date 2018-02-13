@@ -429,6 +429,14 @@
         EntityAttrName="XpeStartDate"
         EntityUsage="XpeDccContractVersion"
         AliasName="XPE_START_DATE">
+        <TransientExpression
+            Name="ExpressionScript"
+            trustMode="trusted"
+            CodeSourceName="XpeDccContractVersionViewRow"/>
+        <RecalcCondition
+            Name="RecalcExpressionScript"
+            trustMode="trusted"
+            CodeSourceName="XpeDccContractVersionViewRow"/>
         <Properties>
             <SchemaBasedProperties>
                 <LABEL
@@ -442,6 +450,14 @@
         EntityAttrName="XpeEndDate"
         EntityUsage="XpeDccContractVersion"
         AliasName="XPE_END_DATE">
+        <TransientExpression
+            Name="ExpressionScript"
+            trustMode="trusted"
+            CodeSourceName="XpeDccContractVersionViewRow"/>
+        <RecalcCondition
+            Name="RecalcExpressionScript"
+            trustMode="trusted"
+            CodeSourceName="XpeDccContractVersionViewRow"/>
         <Properties>
             <SchemaBasedProperties>
                 <LABEL
@@ -574,6 +590,10 @@
         EntityAttrName="XpeAsOfDate"
         EntityUsage="XpeDccContractVersion"
         AliasName="XPE_AS_OF_DATE">
+        <TransientExpression
+            Name="ExpressionScript"
+            trustMode="trusted"
+            CodeSourceName="XpeDccContractVersionViewRow"/>
         <Properties>
             <SchemaBasedProperties>
                 <LABEL
