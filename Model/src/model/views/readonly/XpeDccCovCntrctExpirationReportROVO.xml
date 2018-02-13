@@ -372,6 +372,8 @@ AND F.XPE_CONTRACT_VERSION=E.XPE_CONTRACT_VERSION(+)]]></SQLQuery>
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.views.readonly.XpeDccCovCntrctExpirationReportROVO.CustName_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

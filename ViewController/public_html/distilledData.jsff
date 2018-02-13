@@ -30,7 +30,9 @@
                             <f:facet name="menus">
                                 <af:menu text="Report" id="m2">
                                     <af:commandMenuItem text="Export to Excel" id="cmi4">
-                                        <af:exportCollectionActionListener type="excelHTML" exportedId="t2"/>
+                                        <af:exportCollectionActionListener type="excelHTML" exportedId="t2"
+                                                                           filename="UnmatchedTicketsSummaryReport.xls"
+                                                                           title="Unmatched Tickets Summary Report"/>
                                     </af:commandMenuItem>
                                     <af:commandMenuItem text="Export to CSV" id="cmi5" rendered="false">
                                         <af:exportCollectionActionListener type="CSV" exportedId="t2"/>
@@ -109,7 +111,9 @@
                                 <af:menu text="Report" id="m1">
                                     <af:commandMenuItem text="Export to Excel" id="cmi1">
                                         <af:exportCollectionActionListener type="excelHTML" exportedId="t1"
-                                                                           exportedRows="selected"/>
+                                                                           exportedRows="selected"
+                                                                           filename="UnmatchedTicketsDetailsReport.xls"
+                                                                           title="Unmatched Tickets Details Report"/>
                                     </af:commandMenuItem>
                                     <af:commandMenuItem text="Export to CSV" id="cmi2" rendered="false">
                                         <af:exportCollectionActionListener type="CSV" exportedId="t1"

@@ -18,7 +18,9 @@
             <f:facet name="menus">
               <af:menu text="Report" id="m1">
                 <af:commandMenuItem text="Export to Excel" id="cmi1">
-                  <af:exportCollectionActionListener type="excelHTML" exportedId="resId1"/>
+                  <af:exportCollectionActionListener type="excelHTML" exportedId="resId1"
+                                                     filename="CovantaContractExpirationReport.xls"
+                                                     title="Covanta Contract Expiration Report"/>
                 </af:commandMenuItem>
               </af:menu>
             </f:facet>
