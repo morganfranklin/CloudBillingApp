@@ -83,4 +83,52 @@
       <property
          name="sdm:polyPoints">B50,146.41992,246.79883,286.75195,363.18945,L50</property>
    </ControlFlowCase>
+   <MethodCall
+      id="MethodCall8">
+      <property
+         name="activityId">Rollback</property>
+      <property
+         name="x">500.5</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Rollback&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">506.1494</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
+   <TaskFlowReturn
+      id="TaskFlowReturn9">
+      <property
+         name="activityId">taskFlowReturn1</property>
+      <property
+         name="x">712.0</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>taskFlowReturn1&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Return&lt;/p>&lt;p>Outcome:  taskFlowReturn1&lt;/p></property>
+      <property
+         name="y">443.24707</property>
+      <property
+         name="finish">true</property>
+      <property
+         name="exceptionHandler">false</property>
+   </TaskFlowReturn>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase10"
+      from="View2"
+      to="MethodCall8">
+      <property
+         name="fromOutcome">Back</property>
+      <property
+         name="sdm:polyPoints">B50,327.75195,417.18945,459.5,505.79883,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase11"
+      from="MethodCall8"
+      to="TaskFlowReturn9">
+      <property
+         name="fromOutcome">Rollback</property>
+      <property
+         name="sdm:polyPoints">R50,541.5,505.79883,671.0,442.89648,L50</property>
+   </ControlFlowCase>
 </SDM>
