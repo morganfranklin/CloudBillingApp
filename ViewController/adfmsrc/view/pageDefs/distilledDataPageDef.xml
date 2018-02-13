@@ -21,31 +21,17 @@
         <tree IterBinding="PsCisXpeImportView1Iterator" id="PsCisXpeImportView1">
             <nodeDefinition DefName="model.PsCisXpeImportView" Name="PsCisXpeImportView10">
                 <AttrNames>
-                    <Item Value="Key1"/>
-                    <Item Value="Key2"/>
-                    <Item Value="Key3"/>
-                    <Item Value="KeyDate01"/>
-                    <Item Value="CisTargetCustid1"/>
-                    <Item Value="CisTargtcust1det1"/>
-                    <Item Value="CisTargtcust1det2"/>
-                    <Item Value="CisTargtcust1det3"/>
-                    <Item Value="CisTargetVendor1"/>
-                    <Item Value="AttrValue3"/>
-                    <Item Value="AttrValue4"/>
-                    <Item Value="AttrValue5"/>
-                    <Item Value="Qty1"/>
-                    <Item Value="Qty2"/>
-                    <Item Value="Qty3"/>
-                    <Item Value="CisTransAggQty1"/>
-                    <Item Value="CisTransBiAmt1"/>
-                    <Item Value="CisStatus"/>
-                    <Item Value="ErrorMessage"/>
-                    <Item Value="Key4"/>
-                    <Item Value="Qty5"/>
                     <Item Value="CisTargetVendor5"/>
+                    <Item Value="Key2"/>
                     <Item Value="AttrValue9"/>
+                    <Item Value="CisTargtcust1det2"/>
+                    <Item Value="KeyDate01"/>
                     <Item Value="CisTargtcust2det2"/>
                     <Item Value="CisTargtcust4det1"/>
+                    <Item Value="CisTargetVendor1"/>
+                    <Item Value="AttrValue5"/>
+                    <Item Value="Qty5"/>
+                    <Item Value="ErrorMessage"/>
                 </AttrNames>
             </nodeDefinition>
         </tree>

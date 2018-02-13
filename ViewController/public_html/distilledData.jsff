@@ -136,10 +136,10 @@
                                       filterModel="#{bindings.PsCisXpeImportView1Query.queryDescriptor}"
                                       filterVisible="true"
                                       queryListener="#{bindings.PsCisXpeImportView1Query.processQuery}" varStatus="vs"
-                                      id="t1" partialTriggers="::b2 :::b2"
+                                      id="t1" partialTriggers="::b2"
                                       maxClientRows="100" columnStretching="last" width="1231">
-                                <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.CisTargetVendor5.name}" sortable="true"
-                                           headerText="Site" id="c1">
+                                <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.CisTargetVendor5.name}"
+                                           sortable="true" headerText="Site" id="c1" filterable="true">
                                     <af:outputText value="#{row.CisTargetVendor5}"
                                                    shortDesc="#{bindings.PsCisXpeImportView1.hints.CisTargetVendor5.tooltip}"
                                                    id="ot1"/>
@@ -151,13 +151,14 @@
                                                    id="ot2"/>
                                 </af:column>
                                 <af:column id="c20" headerText="Origin" sortable="true"
-                                           sortProperty="#{bindings.PsCisXpeImportView1.hints.AttrValue9.name}" width="70">
+                                           sortProperty="#{bindings.PsCisXpeImportView1.hints.AttrValue9.name}"
+                                           width="70" filterable="true">
                                     <af:outputText value="#{row.AttrValue9}"
                                                    shortDesc="#{bindings.PsCisXpeImportView1.hints.AttrValue9.tooltip}"
                                                    id="ot16"/>
                                 </af:column>
-                                <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.CisTargtcust1det2.name}" sortable="true"
-                                           headerText="Carrier" id="c3" width="70">
+                                <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.CisTargtcust1det2.name}"
+                                           sortable="true" headerText="Carrier" id="c3" width="70" filterable="true">
                                     <af:outputText value="#{row.CisTargtcust1det2}"
                                                    shortDesc="#{bindings.PsCisXpeImportView1.hints.CisTargtcust1det2.tooltip}"
                                                    id="ot3"/>
@@ -176,14 +177,14 @@
                                         <af:convertDateTime pattern="#{bindings.PsCisXpeImportView1.hints.KeyDate01.format}"/>
                                     </af:outputText>
                                 </af:column>
-                                <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.CisTargtcust2det2.name}" sortable="true"
-                                           headerText="Short Name" id="c5">
+                                <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.CisTargtcust2det2.name}"
+                                           sortable="true" headerText="Short Name" id="c5" filterable="true">
                                     <af:outputText value="#{row.CisTargtcust2det2}"
                                                    shortDesc="#{bindings.PsCisXpeImportView1.hints.CisTargtcust2det2.tooltip}"
                                                    id="ot5"/>
                                 </af:column>
-                                <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.CisTargtcust4det1.name}" sortable="true"
-                                           headerText="Client Cov Id" id="c6">
+                                <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.CisTargtcust4det1.name}"
+                                           sortable="true" headerText="Client Cov Id" id="c6" filterable="true">
                                     <af:outputText value="#{row.CisTargtcust4det1}"
                                                    shortDesc="#{bindings.PsCisXpeImportView1.hints.CisTargtcust4det1.tooltip}"
                                                    id="ot6"/>
@@ -195,8 +196,8 @@
                                                    shortDesc="#{bindings.PsCisXpeImportView1.hints.CisTargetVendor1.tooltip}"
                                                    id="ot9"/>
                                 </af:column>
-                                <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.AttrValue9.name}" sortable="true"
-                                           headerText="Origin" id="c11" width="70">
+                                <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.AttrValue9.name}"
+                                           sortable="true" headerText="Origin" id="c11" width="70" filterable="true">
                                     <af:outputText value="#{row.AttrValue9}"
                                                    shortDesc="#{bindings.PsCisXpeImportView1.hints.AttrValue9.tooltip}"
                                                    id="ot11"/>
