@@ -89,5 +89,7 @@
                 Action="createInsertRow"/>
         <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false"
                 Action="rollbackTransaction"/>
+        <action IterBinding="XpeDccContractCarrierView4Iterator" id="Delete" RequiresUpdateModel="false"
+                Action="removeCurrentRow"/>
     </bindings>
 </pageDefinition>

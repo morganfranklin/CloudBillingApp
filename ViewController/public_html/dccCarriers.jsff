@@ -169,6 +169,9 @@
                         <f:facet name="context">
                             <af:toolbar id="t2">
                                 <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add Row" id="b4"/>
+                                <af:spacer width="10" height="10" id="s4"/>
+                                <af:button actionListener="#{bindings.Delete.execute}" text="Delete Row"
+                                           disabled="#{!bindings.Delete.enabled}" id="b6"/>
                             </af:toolbar>
                         </f:facet>
                         <f:facet name="toolbar"/>
@@ -182,7 +185,7 @@
                                   selectedRowKeys="#{bindings.XpeDccContractCarrierView3.collectionModel.selectedRow}"
                                   selectionListener="#{bindings.XpeDccContractCarrierView3.collectionModel.makeCurrent}"
                                   rowSelection="single" fetchSize="#{bindings.XpeDccContractCarrierView3.rangeSize}"
-                                  id="t1" partialTriggers="::b4" contentDelivery="immediate">
+                                  id="t1" partialTriggers="::b4 ::b6" contentDelivery="immediate">
                             <af:column sortProperty="#{bindings.XpeDccContractCarrierView3.hints.XpeCarrierId.name}"
                                        sortable="true" headerText="Carrier" id="c5" width="250">
                                 <af:inputListOfValues value="#{row.bindings.XpeCarrierId.inputValue}"
