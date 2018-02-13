@@ -117,6 +117,8 @@
               usageId="view_accrualRevenueGenerationProcesses_accrualRevenueGenerationProcesses_RollbackPageDef"/>
         <page path="/WEB-INF/billingAccountingProcesses.xml#billingAccountingProcesses@Rollback"
               usageId="view_billingAccountingProcesses_billingAccountingProcesses_RollbackPageDef"/>
+        <page path="/WEB-INF/termsMaster.xml#termsMaster@Rollback"
+              usageId="view_termsMaster_termsMaster_RollbackPageDef"/>
     </pageMap>
     <pageDefinitionUsages>
         <page id="view_IntegrationDashPageDef" path="view.pageDefs.IntegrationDashPageDef"/>
@@ -228,6 +230,8 @@
               path="view.pageDefs.accrualRevenueGenerationProcesses_accrualRevenueGenerationProcesses_RollbackPageDef"/>
         <page id="view_billingAccountingProcesses_billingAccountingProcesses_RollbackPageDef"
               path="view.pageDefs.billingAccountingProcesses_billingAccountingProcesses_RollbackPageDef"/>
+        <page id="view_termsMaster_termsMaster_RollbackPageDef"
+              path="view.pageDefs.termsMaster_termsMaster_RollbackPageDef"/>
     </pageDefinitionUsages>
     <dataControlUsages>
         <BC4JDataControl id="AppModuleDataControl" Package="model"

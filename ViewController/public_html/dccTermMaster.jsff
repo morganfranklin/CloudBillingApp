@@ -13,14 +13,18 @@
     <af:panelGroupLayout id="pg1" layout="horizontal" partialTriggers="b_del">
       <af:button text="Add Master Term" id="b_add" action="#{bindings.CreateInsert.execute}"
                  actionListener="#{pageFlowScope.XpeDccTermsMasterMBean.onTermsMasterCreation}"/>
+      <af:spacer width="10" height="10" id="s3"/>
       <af:button actionListener="#{bindings.Delete.execute}" text="Delete Master Term" id="b_del"
                  disabled="#{bindings.XpeDccTermMasterEOVOIterator.estimatedRowCount eq 0}"
                  partialTriggers="b_add b_sav b_can qryId1"/>
+      <af:spacer width="10" height="10" id="s2"/>
       <af:button actionListener="#{bindings.Commit.execute}" text="Save" id="b_sav"/>
-      <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel" immediate="true" id="b_can">
+      <af:spacer width="10" height="10" id="s1"/>
+      <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel" immediate="true" id="b_can" action="Back">
         <af:resetActionListener/>
       </af:button>
     </af:panelGroupLayout>
+    <af:spacer width="10" height="10" id="s4"/>
     <af:table value="#{bindings.XpeDccTermMasterEOVO.collectionModel}" var="row"
               rows="#{bindings.XpeDccTermMasterEOVO.rangeSize}"
               emptyText="#{bindings.XpeDccTermMasterEOVO.viewable ? 'No data to display.' : 'Access Denied.'}"

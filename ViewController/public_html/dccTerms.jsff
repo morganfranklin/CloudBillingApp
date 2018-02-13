@@ -132,6 +132,7 @@
         <af:gridRow id="gr6" marginTop="5px">
             <af:gridCell id="gc7" halign="stretch" width="100%">
                 <af:button actionListener="#{bindings.Commit.execute}" text="Save" id="b_save"/>
+                <af:spacer width="10" height="10" id="s1"/>
                 <af:button actionListener="#{bindings.Rollback.execute}" text="Back" immediate="true" id="b_back"
                            action="master">
                     <af:resetActionListener/>
