@@ -54,6 +54,52 @@
     Name="bind_AddrSeqNum"
     Kind="viewcriteria"
     Type="java.math.BigInteger"/>
+  <ViewAccessor
+    Name="PsCountryTblROVO1"
+    ViewObjectName="model.views.readonly.PsCountryTblROVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="XpeDccCfgDistinctStatesROVO1"
+    ViewObjectName="model.views.readonly.XpeDccCfgDistinctStatesROVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_State"
+    ListVOName="XpeDccCfgDistinctStatesROVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="State"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="State"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Country"
+    ListVOName="PsCountryTblROVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Country"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Country"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <SQLQuery><![CDATA[SELECT A.SETID, A.CUST_ID, A.NAME1, B.DESCR, C.COUNTRY, C.ADDRESS1, C.ADDRESS2,                
 C.CITY,C.STATE,C.POSTAL,B.ADDRESS_SEQ_NUM    
 FROM PS_CUSTOMER A, PS_CUST_ADDR_SEQ B,                
@@ -148,7 +194,8 @@ AND C.LANGUAGE_CD='ENG']]></SQLQuery>
     ColumnType="VARCHAR2"
     AliasName="COUNTRY"
     Expression="COUNTRY"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    LOVName="LOV_Country">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="3"/>
     </DesignTime>
@@ -156,6 +203,8 @@ AND C.LANGUAGE_CD='ENG']]></SQLQuery>
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.readonly.XpeDccNewContractCustomerSearchROVO.Country_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -227,7 +276,8 @@ AND C.LANGUAGE_CD='ENG']]></SQLQuery>
     ColumnType="VARCHAR2"
     AliasName="STATE"
     Expression="STATE"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    LOVName="LOV_State">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="6"/>
     </DesignTime>
@@ -235,6 +285,8 @@ AND C.LANGUAGE_CD='ENG']]></SQLQuery>
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.readonly.XpeDccNewContractCustomerSearchROVO.State_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -270,7 +322,7 @@ AND C.LANGUAGE_CD='ENG']]></SQLQuery>
     ColumnType="NUMBER"
     AliasName="ADDRESS_SEQ_NUM"
     Expression="ADDRESS_SEQ_NUM"
-    SQLType="NUMERIC">
+    SQLType="VARCHAR">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -307,19 +359,19 @@ AND C.LANGUAGE_CD='ENG']]></SQLQuery>
       <ViewCriteriaItem
         Name="CustId"
         ViewAttribute="CustId"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bind_CustomerId"
-        UpperColumns="0"
+        UpperColumns="1"
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
         Name="Name1"
         ViewAttribute="Name1"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bind_CustomerName"
-        UpperColumns="0"
+        UpperColumns="1"
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
@@ -334,19 +386,19 @@ AND C.LANGUAGE_CD='ENG']]></SQLQuery>
       <ViewCriteriaItem
         Name="NewContractCustomerSearchROVOCriteria_NewContractCustomerSearchROVOCriteria_row_0_Address1"
         ViewAttribute="Address1"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bind_Address1"
-        UpperColumns="0"
+        UpperColumns="1"
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
         Name="City"
         ViewAttribute="City"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bind_City"
-        UpperColumns="0"
+        UpperColumns="1"
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
@@ -361,10 +413,10 @@ AND C.LANGUAGE_CD='ENG']]></SQLQuery>
       <ViewCriteriaItem
         Name="Postal"
         ViewAttribute="Postal"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bind_Postal"
-        UpperColumns="0"
+        UpperColumns="1"
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem

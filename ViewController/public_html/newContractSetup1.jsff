@@ -265,10 +265,16 @@
                                                                        id="ot2"/>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.XpeDccNewContractCustomerSearchROVO.hints.Country.label}"
-                                                               id="resId1c3">
-                                                        <af:outputText value="#{row.Country}"
-                                                                       shortDesc="#{bindings.XpeDccNewContractCustomerSearchROVO.hints.Country.tooltip}"
-                                                                       id="ot3"/>
+                                                               id="c3">
+                                                        <af:selectOneChoice value="#{row.bindings.Country.inputValue}"
+                                                                            label="#{row.bindings.Country.label}"
+                                                                            required="#{bindings.XpeDccNewContractCustomerSearchROVO.hints.Country.mandatory}"
+                                                                            shortDesc="#{bindings.XpeDccNewContractCustomerSearchROVO.hints.Country.tooltip}"
+                                                                            id="soc1" readOnly="true">
+                                                            <f:selectItems value="#{row.bindings.Country.items}"
+                                                                           id="si3"/>
+                                                            <f:validator binding="#{row.bindings.Country.validator}"/>
+                                                        </af:selectOneChoice>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.XpeDccNewContractCustomerSearchROVO.hints.Address1.label}"
                                                                id="resId1c4">
@@ -283,10 +289,16 @@
                                                                        id="ot5"/>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.XpeDccNewContractCustomerSearchROVO.hints.State.label}"
-                                                               id="resId1c6">
-                                                        <af:outputText value="#{row.State}"
-                                                                       shortDesc="#{bindings.XpeDccNewContractCustomerSearchROVO.hints.State.tooltip}"
-                                                                       id="ot6"/>
+                                                               id="c4">
+                                                        <af:selectOneChoice value="#{row.bindings.State.inputValue}"
+                                                                            label="#{row.bindings.State.label}"
+                                                                            required="#{bindings.XpeDccNewContractCustomerSearchROVO.hints.State.mandatory}"
+                                                                            shortDesc="#{bindings.XpeDccNewContractCustomerSearchROVO.hints.State.tooltip}"
+                                                                            id="soc2" readOnly="true">
+                                                            <f:selectItems value="#{row.bindings.State.items}"
+                                                                           id="si4"/>
+                                                            <f:validator binding="#{row.bindings.State.validator}"/>
+                                                        </af:selectOneChoice>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.XpeDccNewContractCustomerSearchROVO.hints.Postal.label}"
                                                                id="resId1c7">
