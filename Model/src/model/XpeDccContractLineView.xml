@@ -87,7 +87,8 @@
             <Item Value="XpeLookupDesc"/>
         </AttrArray>
         <DisplayCriteria
-            Hint="showAndExecute"/>
+            Hint="showAndExecute"
+            Name="XpeDccDicProductsCriteria"/>
     </ListBinding>
     <ListBinding
         Name="LOV_XpeProductUom"

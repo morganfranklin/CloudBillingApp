@@ -20,6 +20,18 @@
                 ResId="model.XpeDccDicProducts_LABEL"/>
         </SchemaBasedProperties>
     </Properties>
+    <Variable
+        Name="bindItemId"
+        Kind="viewcriteria"
+        Type="java.lang.String"/>
+    <Variable
+        Name="bindDescription"
+        Kind="viewcriteria"
+        Type="java.lang.String"/>
+    <Variable
+        Name="bindCategory"
+        Kind="viewcriteria"
+        Type="java.lang.String"/>
     <SQLQuery><![CDATA[SELECT   
 ITEM_ID XPE_LOOKUP_ID,  
 DESCRIPTION XPE_LOOKUP_DESC, 
@@ -89,6 +101,58 @@ ITEM_TYPE = 'PRD']]></SQLQuery>
             <Attr Name="_DisplaySize" Value="71"/>
         </DesignTime>
     </ViewAttribute>
+    <ViewCriteria
+        Name="XpeDccDicProductsCriteria"
+        ViewObjectName="model.XpeDccDicProducts"
+        Conjunction="AND">
+        <Properties Name="_Props">
+            <CustomProperties>
+                <Property
+                    Name="autoExecute"
+                    Value="false"/>
+                <Property
+                    Name="mode"
+                    Value="Basic"/>
+                <Property
+                    Name="allowConjunctionOverride"
+                    Value="true"/>
+                <Property
+                    Name="showInList"
+                    Value="true"/>
+                <Property
+                    Name="displayOperators"
+                    Value="InAdvancedMode"/>
+            </CustomProperties>
+        </Properties>
+        <ViewCriteriaRow
+            Name="XpeDccDicProductsCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+                Name="XpeLookupId"
+                ViewAttribute="XpeLookupId"
+                Operator="CONTAINS"
+                Conjunction="AND"
+                Value=":bindItemId"
+                IsBindVarValue="true"
+                Required="Optional"/>
+            <ViewCriteriaItem
+                Name="XpeLookupDesc"
+                ViewAttribute="XpeLookupDesc"
+                Operator="CONTAINS"
+                Conjunction="AND"
+                Value=":bindDescription"
+                IsBindVarValue="true"
+                Required="Optional"/>
+            <ViewCriteriaItem
+                Name="XpeDccDicProductsCriteria_XpeDccDicProductsCriteria_row_0_Category"
+                ViewAttribute="Category"
+                Operator="CONTAINS"
+                Conjunction="AND"
+                Value=":bindCategory"
+                IsBindVarValue="true"
+                Required="Optional"/>
+        </ViewCriteriaRow>
+    </ViewCriteria>
     <AttrArray Name="KeyAttributes">
         <Item Value="XpeLookupId"/>
     </AttrArray>
