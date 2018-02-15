@@ -20,10 +20,18 @@
         ResId="model.views.readonly.XpeDccCfgPCSShortNamesROVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <SQLQuery><![CDATA[SELECT  
-    XPE_DCC_CFG_PCSSHORTNAMES.PCSSHORTNAME_ID PCSSHORTNAME_ID,  
-    XPE_DCC_CFG_PCSSHORTNAMES.PCSSHORT_NAME PCSSHORT_NAME  
-FROM  
+  <Variable
+    Name="bindPcsShortname"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bindPcsShortNameId"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <SQLQuery><![CDATA[SELECT    
+    XPE_DCC_CFG_PCSSHORTNAMES.PCSSHORTNAME_ID PCSSHORTNAME_ID,    
+    XPE_DCC_CFG_PCSSHORTNAMES.PCSSHORT_NAME PCSSHORT_NAME    
+FROM    
     XPE_DCC_CFG_PCSSHORTNAMES]]></SQLQuery>
   <ViewAttribute
     Name="PcsshortnameId"
@@ -69,6 +77,50 @@ FROM
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewCriteria
+    Name="PCSShortNamesCriteria"
+    ViewObjectName="model.views.readonly.XpeDccCfgPCSShortNamesROVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="XpeDccCfgPCSShortNamesROVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="XpeDccCfgPCSShortNamesROVOCriteria_XpeDccCfgPCSShortNamesROVOCriteria_row_0_PcsshortnameId"
+        ViewAttribute="PcsshortnameId"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bindPcsShortNameId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="XpeDccCfgPCSShortNamesROVOCriteria_XpeDccCfgPCSShortNamesROVOCriteria_row_0_PcsshortName"
+        ViewAttribute="PcsshortName"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bindPcsShortname"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <AttrArray Name="KeyAttributes">
     <Item Value="PcsshortnameId"/>
   </AttrArray>

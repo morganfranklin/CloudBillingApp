@@ -12,7 +12,7 @@
               id="XpeDccNewContractCustomerSearchROVOIterator" ChangeEventPolicy="none"/>
     <iterator Binds="XpeDccContractSearchROVO" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccContractSearchROVOIterator" ChangeEventPolicy="none"/>
-    <searchRegion Criteria="__ImplicitViewCriteria__" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+    <searchRegion Criteria="__ContractSearchCriteria__" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="XpeDccContractSearchROVOIterator" id="ImplicitViewCriteriaQuery"/>
     <searchRegion Criteria="__NewContractCustomerSearch__" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="XpeDccNewContractCustomerSearchROVOIterator" id="ImplicitViewCriteriaQuery1"/>

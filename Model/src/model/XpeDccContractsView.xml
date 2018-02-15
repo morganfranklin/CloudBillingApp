@@ -97,7 +97,8 @@
             <Item Value="PcsshortName"/>
         </AttrArray>
         <DisplayCriteria
-            Hint="showAndExecute"/>
+            Hint="showAndExecute"
+            Name="PCSShortNamesCriteria"/>
     </ListBinding>
     <SQLQuery><![CDATA[SELECT XpeDccContracts.XPE_CONTRACT_ID,    
        XpeDccContracts.XPE_CONTRACT_DESC,    

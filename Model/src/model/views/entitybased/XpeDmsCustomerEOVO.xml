@@ -148,7 +148,7 @@
     EntityAttrName="SetId"
     EntityUsage="XpeDmsCustomerEO"
     AliasName="SET_ID"
-    DefaultValue="MODEL"/>
+    DefaultValue="MASTR"/>
   <ViewAttribute
     Name="State"
     PrecisionRule="true"

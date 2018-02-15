@@ -15,5 +15,116 @@ public class XpeDccContractSearchROVOImpl extends ViewObjectImpl {
     }
 
 
+    /**
+     * Returns the variable value for bindContractId.
+     * @return variable value for bindContractId
+     */
+    public String getbindContractId() {
+        return (String) ensureVariableManager().getVariableValue("bindContractId");
+    }
+
+    /**
+     * Sets <code>value</code> for variable bindContractId.
+     * @param value value to bind as bindContractId
+     */
+    public void setbindContractId(String value) {
+        ensureVariableManager().setVariableValue("bindContractId", value);
+    }
+
+    /**
+     * Returns the variable value for bindContractDesc.
+     * @return variable value for bindContractDesc
+     */
+    public String getbindContractDesc() {
+        return (String) ensureVariableManager().getVariableValue("bindContractDesc");
+    }
+
+    /**
+     * Sets <code>value</code> for variable bindContractDesc.
+     * @param value value to bind as bindContractDesc
+     */
+    public void setbindContractDesc(String value) {
+        ensureVariableManager().setVariableValue("bindContractDesc", value);
+    }
+
+    /**
+     * Returns the variable value for bindCustomerId.
+     * @return variable value for bindCustomerId
+     */
+    public String getbindCustomerId() {
+        return (String) ensureVariableManager().getVariableValue("bindCustomerId");
+    }
+
+    /**
+     * Sets <code>value</code> for variable bindCustomerId.
+     * @param value value to bind as bindCustomerId
+     */
+    public void setbindCustomerId(String value) {
+        ensureVariableManager().setVariableValue("bindCustomerId", value);
+    }
+
+    /**
+     * Returns the variable value for bindCustomerName.
+     * @return variable value for bindCustomerName
+     */
+    public String getbindCustomerName() {
+        return (String) ensureVariableManager().getVariableValue("bindCustomerName");
+    }
+
+    /**
+     * Sets <code>value</code> for variable bindCustomerName.
+     * @param value value to bind as bindCustomerName
+     */
+    public void setbindCustomerName(String value) {
+        ensureVariableManager().setVariableValue("bindCustomerName", value);
+    }
+
+    /**
+     * Returns the variable value for bindSwApprNbr.
+     * @return variable value for bindSwApprNbr
+     */
+    public String getbindSwApprNbr() {
+        return (String) ensureVariableManager().getVariableValue("bindSwApprNbr");
+    }
+
+    /**
+     * Sets <code>value</code> for variable bindSwApprNbr.
+     * @param value value to bind as bindSwApprNbr
+     */
+    public void setbindSwApprNbr(String value) {
+        ensureVariableManager().setVariableValue("bindSwApprNbr", value);
+    }
+
+    /**
+     * Returns the variable value for bindContractVersion.
+     * @return variable value for bindContractVersion
+     */
+    public String getbindContractVersion() {
+        return (String) ensureVariableManager().getVariableValue("bindContractVersion");
+    }
+
+    /**
+     * Sets <code>value</code> for variable bindContractVersion.
+     * @param value value to bind as bindContractVersion
+     */
+    public void setbindContractVersion(String value) {
+        ensureVariableManager().setVariableValue("bindContractVersion", value);
+    }
+
+    /**
+     * Returns the variable value for bindSalesPerson.
+     * @return variable value for bindSalesPerson
+     */
+    public String getbindSalesPerson() {
+        return (String) ensureVariableManager().getVariableValue("bindSalesPerson");
+    }
+
+    /**
+     * Sets <code>value</code> for variable bindSalesPerson.
+     * @param value value to bind as bindSalesPerson
+     */
+    public void setbindSalesPerson(String value) {
+        ensureVariableManager().setVariableValue("bindSalesPerson", value);
+    }
 }
 

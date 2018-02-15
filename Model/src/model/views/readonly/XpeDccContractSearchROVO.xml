@@ -24,6 +24,57 @@
         ResId="model.views.readonly.XpeDccContractSearchROVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <Variable
+    Name="bindContractId"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bindContractDesc"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bindCustomerId"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bindCustomerName"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bindSwApprNbr"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bindContractVersion"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bindSalesPerson"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <ViewAccessor
+    Name="PsSalesPersonROVO1"
+    ViewObjectName="model.views.readonly.PsSalesPersonROVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_SalesPerson"
+    ListVOName="PsSalesPersonROVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SalesPerson"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="SupportTeamCd"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Descr"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <SQLQuery><![CDATA[SELECT D.XPE_CONTRACT_ID, D.XPE_CONTRACT_DESC,                     
 A.SETID, A.CUST_ID, A.NAME1, B.DESCR, C.COUNTRY, C.ADDRESS1, C.ADDRESS2,                         
 C.CITY,C.STATE,C.POSTAL,E.XPE_SW_APPR_NBR,F.XPE_CONTRACT_VERSION, F.SALES_PERSON             
@@ -100,7 +151,8 @@ ORDER BY D.XPE_CONTRACT_ID DESC]]></SQLQuery>
     ColumnType="VARCHAR2"
     AliasName="SETID"
     Expression="SETID"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    IsQueriable="false">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="5"/>
     </DesignTime>
@@ -163,7 +215,8 @@ ORDER BY D.XPE_CONTRACT_ID DESC]]></SQLQuery>
     ColumnType="VARCHAR2"
     AliasName="DESCR"
     Expression="DESCR"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    IsQueriable="false">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
@@ -184,7 +237,8 @@ ORDER BY D.XPE_CONTRACT_ID DESC]]></SQLQuery>
     ColumnType="VARCHAR2"
     AliasName="COUNTRY"
     Expression="COUNTRY"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    IsQueriable="false">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="3"/>
     </DesignTime>
@@ -199,7 +253,8 @@ ORDER BY D.XPE_CONTRACT_ID DESC]]></SQLQuery>
     ColumnType="VARCHAR2"
     AliasName="ADDRESS1"
     Expression="ADDRESS1"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    IsQueriable="false">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="55"/>
     </DesignTime>
@@ -214,7 +269,8 @@ ORDER BY D.XPE_CONTRACT_ID DESC]]></SQLQuery>
     ColumnType="VARCHAR2"
     AliasName="ADDRESS2"
     Expression="ADDRESS2"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    IsQueriable="false">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="55"/>
     </DesignTime>
@@ -229,7 +285,8 @@ ORDER BY D.XPE_CONTRACT_ID DESC]]></SQLQuery>
     ColumnType="VARCHAR2"
     AliasName="CITY"
     Expression="CITY"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    IsQueriable="false">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
@@ -244,7 +301,8 @@ ORDER BY D.XPE_CONTRACT_ID DESC]]></SQLQuery>
     ColumnType="VARCHAR2"
     AliasName="STATE"
     Expression="STATE"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    IsQueriable="false">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="6"/>
     </DesignTime>
@@ -259,7 +317,8 @@ ORDER BY D.XPE_CONTRACT_ID DESC]]></SQLQuery>
     ColumnType="VARCHAR2"
     AliasName="POSTAL"
     Expression="POSTAL"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    IsQueriable="false">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="12"/>
     </DesignTime>
@@ -316,7 +375,8 @@ ORDER BY D.XPE_CONTRACT_ID DESC]]></SQLQuery>
     ColumnType="VARCHAR2"
     AliasName="SALES_PERSON"
     Expression="SALES_PERSON"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    LOVName="LOV_SalesPerson">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="40"/>
     </DesignTime>
@@ -324,9 +384,95 @@ ORDER BY D.XPE_CONTRACT_ID DESC]]></SQLQuery>
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.readonly.XpeDccContractSearchROVO.SalesPerson_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewCriteria
+    Name="ContractSearchCriteria"
+    ViewObjectName="model.views.readonly.XpeDccContractSearchROVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="XpeDccContractSearchROVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="XpeContractId"
+        ViewAttribute="XpeContractId"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bindContractId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="XpeContractDesc"
+        ViewAttribute="XpeContractDesc"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bindContractDesc"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="CustId"
+        ViewAttribute="CustId"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bindCustomerId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Name1"
+        ViewAttribute="Name1"
+        Operator="="
+        Conjunction="AND"
+        Value=":bindCustomerName"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="XpeSwApprNbr"
+        ViewAttribute="XpeSwApprNbr"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bindSwApprNbr"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="XpeContractVersion"
+        ViewAttribute="XpeContractVersion"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bindContractVersion"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="SalesPerson"
+        ViewAttribute="SalesPerson"
+        Operator="="
+        Conjunction="AND"
+        Value=":bindSalesPerson"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <AttrArray Name="KeyAttributes">
     <Item Value="XpeContractId"/>
     <Item Value="XpeContractVersion"/>
