@@ -18,6 +18,58 @@
                 ResId="model.XpeDccCustomerSearch_LABEL"/>
         </SchemaBasedProperties>
     </Properties>
+    <Variable
+        Name="bindContractId"
+        Kind="viewcriteria"
+        Type="java.lang.String"/>
+    <Variable
+        Name="bindContractDesc"
+        Kind="viewcriteria"
+        Type="java.lang.String"/>
+    <Variable
+        Name="bindCustId"
+        Kind="viewcriteria"
+        Type="java.lang.String"/>
+    <Variable
+        Name="bindCustName"
+        Kind="viewcriteria"
+        Type="java.lang.String"/>
+    <Variable
+        Name="bindAddrSeqNum"
+        Kind="viewcriteria"
+        Type="java.math.BigDecimal"/>
+    <Variable
+        Name="bindBusinessUnit"
+        Kind="viewcriteria"
+        Type="java.lang.String"/>
+    <Variable
+        Name="bindFacility"
+        Kind="viewcriteria"
+        Type="java.lang.String"/>
+    <Variable
+        Name="bindSwApprnbr"
+        Kind="viewcriteria"
+        Type="java.lang.String"/>
+    <Variable
+        Name="bindContractStatus"
+        Kind="viewcriteria"
+        Type="java.lang.String"/>
+    <Variable
+        Name="bindSalesPerson"
+        Kind="viewcriteria"
+        Type="java.lang.String"/>
+    <Variable
+        Name="bindStartDate"
+        Kind="viewcriteria"
+        Type="oracle.jbo.domain.Date"/>
+    <Variable
+        Name="bindEndDate"
+        Kind="viewcriteria"
+        Type="oracle.jbo.domain.Date"/>
+    <Variable
+        Name="bindPcsName"
+        Kind="viewcriteria"
+        Type="java.lang.String"/>
     <ViewAccessor
         Name="XpeDccDicContractStatus1"
         ViewObjectName="model.XpeDccDicContractStatus"
@@ -477,7 +529,8 @@ AND CNTCT.XPE_CONTRACT_ID         = CNTCT_LN.XPE_CONTRACT_ID]]></SQLQuery>
         ColumnType="VARCHAR2"
         AliasName="ADDRESS1"
         Expression="ADDRESS1"
-        SQLType="VARCHAR">
+        SQLType="VARCHAR"
+        IsQueriable="false">
         <DesignTime>
             <Attr Name="_DisplaySize" Value="55"/>
         </DesignTime>
@@ -498,7 +551,8 @@ AND CNTCT.XPE_CONTRACT_ID         = CNTCT_LN.XPE_CONTRACT_ID]]></SQLQuery>
         ColumnType="VARCHAR2"
         AliasName="ADDRESS2"
         Expression="ADDRESS2"
-        SQLType="VARCHAR">
+        SQLType="VARCHAR"
+        IsQueriable="false">
         <DesignTime>
             <Attr Name="_DisplaySize" Value="55"/>
         </DesignTime>
@@ -519,7 +573,8 @@ AND CNTCT.XPE_CONTRACT_ID         = CNTCT_LN.XPE_CONTRACT_ID]]></SQLQuery>
         ColumnType="VARCHAR2"
         AliasName="CITY"
         Expression="CITY"
-        SQLType="VARCHAR">
+        SQLType="VARCHAR"
+        IsQueriable="false">
         <DesignTime>
             <Attr Name="_DisplaySize" Value="30"/>
         </DesignTime>
@@ -540,7 +595,8 @@ AND CNTCT.XPE_CONTRACT_ID         = CNTCT_LN.XPE_CONTRACT_ID]]></SQLQuery>
         ColumnType="VARCHAR2"
         AliasName="STATE"
         Expression="STATE"
-        SQLType="VARCHAR">
+        SQLType="VARCHAR"
+        IsQueriable="false">
         <DesignTime>
             <Attr Name="_DisplaySize" Value="6"/>
         </DesignTime>
@@ -761,6 +817,138 @@ AND CNTCT.XPE_CONTRACT_ID         = CNTCT_LN.XPE_CONTRACT_ID]]></SQLQuery>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>
+    <ViewCriteria
+        Name="CustomerSearchCriteria"
+        ViewObjectName="model.XpeDccCustomerSearch"
+        Conjunction="AND">
+        <Properties Name="_Props">
+            <CustomProperties>
+                <Property
+                    Name="autoExecute"
+                    Value="false"/>
+                <Property
+                    Name="mode"
+                    Value="Basic"/>
+                <Property
+                    Name="allowConjunctionOverride"
+                    Value="true"/>
+                <Property
+                    Name="showInList"
+                    Value="true"/>
+                <Property
+                    Name="displayOperators"
+                    Value="InAdvancedMode"/>
+            </CustomProperties>
+        </Properties>
+        <ViewCriteriaRow
+            Name="XpeDccCustomerSearchCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+                Name="XpeContractId"
+                ViewAttribute="XpeContractId"
+                Operator="CONTAINS"
+                Conjunction="AND"
+                Value=":bindContractId"
+                IsBindVarValue="true"
+                Required="Optional"/>
+            <ViewCriteriaItem
+                Name="XpeContractDesc"
+                ViewAttribute="XpeContractDesc"
+                Operator="CONTAINS"
+                Conjunction="AND"
+                Value=":bindContractDesc"
+                IsBindVarValue="true"
+                Required="Optional"/>
+            <ViewCriteriaItem
+                Name="CustId"
+                ViewAttribute="CustId"
+                Operator="CONTAINS"
+                Conjunction="AND"
+                Value=":bindCustId"
+                IsBindVarValue="true"
+                Required="Optional"/>
+            <ViewCriteriaItem
+                Name="Name1"
+                ViewAttribute="Name1"
+                Operator="CONTAINS"
+                Conjunction="AND"
+                Value=":bindCustName"
+                IsBindVarValue="true"
+                Required="Optional"/>
+            <ViewCriteriaItem
+                Name="AddressSeqNum"
+                ViewAttribute="AddressSeqNum"
+                Operator="="
+                Conjunction="AND"
+                Value=":bindAddrSeqNum"
+                IsBindVarValue="true"
+                Required="Optional"/>
+            <ViewCriteriaItem
+                Name="BusinessUnitGl"
+                ViewAttribute="BusinessUnitGl"
+                Operator="="
+                Conjunction="AND"
+                Value=":bindBusinessUnit"
+                IsBindVarValue="true"
+                Required="Optional"/>
+            <ViewCriteriaItem
+                Name="XpeFacility"
+                ViewAttribute="XpeFacility"
+                Operator="="
+                Conjunction="AND"
+                Value=":bindFacility"
+                IsBindVarValue="true"
+                Required="Optional"/>
+            <ViewCriteriaItem
+                Name="XpeSwApprNbr"
+                ViewAttribute="XpeSwApprNbr"
+                Operator="CONTAINS"
+                Conjunction="AND"
+                Value=":bindSwApprnbr"
+                IsBindVarValue="true"
+                Required="Optional"/>
+            <ViewCriteriaItem
+                Name="XpeContractStatus"
+                ViewAttribute="XpeContractStatus"
+                Operator="="
+                Conjunction="AND"
+                Value=":bindContractStatus"
+                IsBindVarValue="true"
+                Required="Optional"/>
+            <ViewCriteriaItem
+                Name="SalesPerson"
+                ViewAttribute="SalesPerson"
+                Operator="="
+                Conjunction="AND"
+                Value=":bindSalesPerson"
+                IsBindVarValue="true"
+                Required="Optional"/>
+            <ViewCriteriaItem
+                Name="XpeStartDate"
+                ViewAttribute="XpeStartDate"
+                Operator="="
+                Conjunction="AND"
+                Value=":bindStartDate"
+                IsBindVarValue="true"
+                Required="Optional"/>
+            <ViewCriteriaItem
+                Name="XpeEndDate"
+                ViewAttribute="XpeEndDate"
+                Operator="="
+                Conjunction="AND"
+                Value=":bindEndDate"
+                IsBindVarValue="true"
+                Required="Optional"/>
+            <ViewCriteriaItem
+                Name="XpeDccPcsname"
+                ViewAttribute="XpeDccPcsname"
+                Operator="="
+                Conjunction="AND"
+                Value=":bindPcsName"
+                IsBindVarValue="true"
+                Required="Optional"/>
+        </ViewCriteriaRow>
+    </ViewCriteria>
     <AttrArray Name="KeyAttributes">
         <Item Value="XpeContractId"/>
         <Item Value="XpeContractVersion"/>

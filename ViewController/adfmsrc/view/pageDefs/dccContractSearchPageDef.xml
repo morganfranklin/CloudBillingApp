@@ -6,7 +6,7 @@
         <variableIterator id="variables"/>
         <iterator Binds="XpeDccCustomerSearch1" RangeSize="25" DataControl="AppModuleDataControl"
                   id="XpeDccCustomerSearch1Iterator" ChangeEventPolicy="none"/>
-        <searchRegion Criteria="__ImplicitViewCriteria__"
+        <searchRegion Criteria="__CustomerSearchCriteria__"
                       Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                       Binds="XpeDccCustomerSearch1Iterator" id="ImplicitViewCriteriaQuery"/>
         <iterator Binds="XpeDccContractsView1" RangeSize="25" DataControl="AppModuleDataControl"

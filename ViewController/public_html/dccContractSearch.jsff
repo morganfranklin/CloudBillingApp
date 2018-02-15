@@ -157,16 +157,27 @@
                     <af:outputText value="#{row.XpeSwApprNbr}"
                                    shortDesc="#{bindings.XpeDccCustomerSearch1.hints.XpeSwApprNbr.tooltip}" id="ot10"/>
                 </af:column>
-                <af:column sortProperty="#{bindings.XpeDccCustomerSearch1.hints.XpeContractStatus.name}" sortable="true"
-                           headerText="#{bindings.XpeDccCustomerSearch1.hints.XpeContractStatus.label}" id="c4">
-                    <af:outputText value="#{row.XpeContractStatus}"
-                                   shortDesc="#{bindings.XpeDccCustomerSearch1.hints.XpeContractStatus.tooltip}"
-                                   id="ot11"/>
-                </af:column>
             <af:column sortProperty="#{bindings.XpeDccCustomerSearch1.hints.XpeContractStatus.name}" sortable="true"
+                       headerText="#{bindings.XpeDccCustomerSearch1.hints.XpeContractStatus.label}" id="c4">
+                <af:selectOneChoice value="#{row.bindings.XpeContractStatus.inputValue}"
+                                    label="#{row.bindings.XpeContractStatus.label}"
+                                    required="#{bindings.XpeDccCustomerSearch1.hints.XpeContractStatus.mandatory}"
+                                    shortDesc="#{bindings.XpeDccCustomerSearch1.hints.XpeContractStatus.tooltip}"
+                                    id="soc5" readOnly="true">
+                    <f:selectItems value="#{row.bindings.XpeContractStatus.items}" id="si5"/>
+                    <f:validator binding="#{row.bindings.XpeContractStatus.validator}"/>
+                </af:selectOneChoice>
+            </af:column>
+            <af:column sortProperty="#{bindings.XpeDccCustomerSearch1.hints.SalesPerson.name}" sortable="true"
                        headerText="#{bindings.XpeDccCustomerSearch1.hints.SalesPerson.label}" id="c5">
-                <af:outputText value="#{row.SalesPerson}"
-                               shortDesc="#{bindings.XpeDccCustomerSearch1.hints.SalesPerson.tooltip}" id="ot12"/>
+                <af:selectOneChoice value="#{row.bindings.SalesPerson.inputValue}"
+                                    label="#{row.bindings.SalesPerson.label}"
+                                    required="#{bindings.XpeDccCustomerSearch1.hints.SalesPerson.mandatory}"
+                                    shortDesc="#{bindings.XpeDccCustomerSearch1.hints.SalesPerson.tooltip}" id="soc6"
+                                    readOnly="true">
+                    <f:selectItems value="#{row.bindings.SalesPerson.items}" id="si6"/>
+                    <f:validator binding="#{row.bindings.SalesPerson.validator}"/>
+                </af:selectOneChoice>
             </af:column>
             <af:column headerText="#{bindings.XpeDccCustomerSearch1.hints.XpeStartDate.label}" id="c11">
                 <af:outputText value="#{row.XpeStartDate}"
