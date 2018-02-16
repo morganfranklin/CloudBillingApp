@@ -5,15 +5,15 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="XpeDccCfgOriginsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgOriginsEOVOIterator"/>
+              id="XpeDccCfgOriginsEOVOIterator" ChangeEventPolicy="ppr"/>
     <searchRegion Criteria="OriginsCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="XpeDccCfgOriginsEOVOIterator" id="OriginsCriteriaQuery"/>
     <iterator Binds="XpeDccCfgOgnAssTerminalsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgOgnAssTerminalsEOVOIterator"/>
+              id="XpeDccCfgOgnAssTerminalsEOVOIterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="XpeDccCfgNewOriginsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgNewOriginsEOVOIterator"/>
+              id="XpeDccCfgNewOriginsEOVOIterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="XpeDccCfgNycDosTermCustEOVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgNycDosTermCustEOVOIterator"/>
+              id="XpeDccCfgNycDosTermCustEOVOIterator" ChangeEventPolicy="ppr"/>
   </executables>
   <bindings>
     <tree IterBinding="XpeDccCfgOriginsEOVOIterator" id="XpeDccCfgOriginsEOVO">

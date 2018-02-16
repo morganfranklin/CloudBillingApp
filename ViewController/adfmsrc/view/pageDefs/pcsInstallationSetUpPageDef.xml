@@ -4,13 +4,14 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="XpeDccCfgPcsEOVO" RangeSize="25" DataControl="AppModuleDataControl" id="XpeDccCfgPcsEOVOIterator"/>
+    <iterator Binds="XpeDccCfgPcsEOVO" RangeSize="25" DataControl="AppModuleDataControl" id="XpeDccCfgPcsEOVOIterator"
+              ChangeEventPolicy="ppr"/>
     <searchRegion Criteria="PCSCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="XpeDccCfgPcsEOVOIterator" id="PCSCriteriaQuery"/>
     <iterator Binds="XpeDccCfgPcsAssTerminalsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgPcsAssTerminalsEOVOIterator"/>
+              id="XpeDccCfgPcsAssTerminalsEOVOIterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="XpeDccCfgNewPcsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgNewPcsEOVOIterator"/>
+              id="XpeDccCfgNewPcsEOVOIterator" ChangeEventPolicy="ppr"/>
   </executables>
   <bindings>
     <tree IterBinding="XpeDccCfgPcsEOVOIterator" id="XpeDccCfgPcsEOVO">

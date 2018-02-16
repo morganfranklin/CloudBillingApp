@@ -5,9 +5,9 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="XpeDccCfgNewProductserviceEOVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgNewProductserviceEOVOIterator"/>
+              id="XpeDccCfgNewProductserviceEOVOIterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="XpeDccCfgNewUomEOVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgNewUomEOVOIterator"/>
+              id="XpeDccCfgNewUomEOVOIterator" ChangeEventPolicy="ppr"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="XpeDccCfgNewProductserviceEOVOIterator" id="ItemId">

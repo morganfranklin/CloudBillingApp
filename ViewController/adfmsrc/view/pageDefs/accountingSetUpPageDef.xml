@@ -5,11 +5,11 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="XpeDccCfgAccountingEOVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgAccountingEOVOIterator"/>
+              id="XpeDccCfgAccountingEOVOIterator" ChangeEventPolicy="ppr"/>
     <searchRegion Criteria="AccountingCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="XpeDccCfgAccountingEOVOIterator" id="AccountingCriteriaQuery"/>
     <iterator Binds="XpeDccCfgNewAccountingEOVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgNewAccountingEOVOIterator"/>
+              id="XpeDccCfgNewAccountingEOVOIterator" ChangeEventPolicy="ppr"/>
   </executables>
   <bindings>
     <tree IterBinding="XpeDccCfgAccountingEOVOIterator" id="XpeDccCfgAccountingEOVO">

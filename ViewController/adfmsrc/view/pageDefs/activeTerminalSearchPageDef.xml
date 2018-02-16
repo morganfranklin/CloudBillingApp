@@ -5,7 +5,7 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="XpeDccCfgTerminalsSearchROVO1" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgTerminalsSearchROVO1Iterator"/>
+              id="XpeDccCfgTerminalsSearchROVO1Iterator" ChangeEventPolicy="ppr"/>
     <searchRegion Criteria="TerminalsCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="XpeDccCfgTerminalsSearchROVO1Iterator" id="TerminalsCriteriaQuery"/>
   </executables>

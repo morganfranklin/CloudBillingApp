@@ -5,13 +5,13 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="XpeDccCfgNewOriginsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgNewOriginsEOVOIterator"/>
+              id="XpeDccCfgNewOriginsEOVOIterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="XpeDccCfgNewOgnAssTerminalsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgNewOgnAssTerminalsEOVOIterator"/>
+              id="XpeDccCfgNewOgnAssTerminalsEOVOIterator" ChangeEventPolicy="ppr"/>
     <taskFlow id="terminalSearch1" taskFlowId="/WEB-INF/terminalSearch.xml#terminalSearch" activation="deferred"
               xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
     <iterator Binds="XpeDccCfgNewNycDosTermCustEOVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgNewNycDosTermCustEOVOIterator"/>
+              id="XpeDccCfgNewNycDosTermCustEOVOIterator" ChangeEventPolicy="ppr"/>
   </executables>
   <bindings>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>

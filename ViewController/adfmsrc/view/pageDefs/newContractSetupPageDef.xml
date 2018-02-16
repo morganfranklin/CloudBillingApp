@@ -9,7 +9,7 @@
     <iterator Binds="XpeDccNewContractNotesView" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccNewContractNotesViewIterator"/>
     <iterator Binds="XpeDccNewContractLineView" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccNewContractLineViewIterator"/>
+              id="XpeDccNewContractLineViewIterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="XpeDccNewContractPricingTermView" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccNewContractPricingTermViewIterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="XpeDccNewContractCarrierView" RangeSize="25" DataControl="AppModuleDataControl"

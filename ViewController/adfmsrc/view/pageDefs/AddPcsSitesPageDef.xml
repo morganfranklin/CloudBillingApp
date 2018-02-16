@@ -5,13 +5,13 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="XpeDccCfgNewPcsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgNewPcsEOVOIterator"/>
+              id="XpeDccCfgNewPcsEOVOIterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="XpeDccCfgNewPcsAssTerminalsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgNewPcsAssTerminalsEOVOIterator"/>
+              id="XpeDccCfgNewPcsAssTerminalsEOVOIterator" ChangeEventPolicy="ppr"/>
     <taskFlow id="terminalSearch1" taskFlowId="/WEB-INF/terminalSearch.xml#terminalSearch" activation="deferred"
               xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
     <iterator Binds="XpeDccCfgNewPcsAddressEOVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgNewPcsAddressEOVOIterator"/>
+              id="XpeDccCfgNewPcsAddressEOVOIterator" ChangeEventPolicy="ppr"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="XpeDccCfgNewPcsEOVOIterator" id="SiteDesc">

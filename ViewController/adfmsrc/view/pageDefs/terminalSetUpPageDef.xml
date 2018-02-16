@@ -5,11 +5,11 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="XpeDccCfgTerminalsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgTerminalsEOVOIterator" ChangeEventPolicy="none"/>
+              id="XpeDccCfgTerminalsEOVOIterator" ChangeEventPolicy="ppr"/>
     <searchRegion Criteria="TerminalsCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="XpeDccCfgTerminalsEOVOIterator" id="TerminalsCriteriaQuery"/>
     <iterator Binds="XpeDccCfgNewTerminalCreationEOVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgNewTerminalCreationEOVOIterator" ChangeEventPolicy="none"/>
+              id="XpeDccCfgNewTerminalCreationEOVOIterator" ChangeEventPolicy="ppr"/>
   </executables>
   <bindings>
     <tree IterBinding="XpeDccCfgTerminalsEOVOIterator" id="XpeDccCfgTerminalsEOVO">

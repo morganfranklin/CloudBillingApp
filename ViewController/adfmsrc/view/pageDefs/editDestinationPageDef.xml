@@ -7,9 +7,9 @@
     <taskFlow id="terminalSearch1" taskFlowId="/WEB-INF/terminalSearch.xml#terminalSearch" activation="deferred"
               xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
     <iterator Binds="XpeDccCfgNewDestinationsCreationEOVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgNewDestinationsCreationEOVOIterator"/>
+              id="XpeDccCfgNewDestinationsCreationEOVOIterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="XpeDccCfgNewDstAssTerminalsCreationEOVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgNewDstAssTerminalsCreationEOVOIterator"/>
+              id="XpeDccCfgNewDstAssTerminalsCreationEOVOIterator" ChangeEventPolicy="ppr"/>
   </executables>
   <bindings>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>

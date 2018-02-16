@@ -5,7 +5,7 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="XpeDccCfgNewPcsshortnamesEOVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgNewPcsshortnamesEOVOIterator"/>
+              id="XpeDccCfgNewPcsshortnamesEOVOIterator" ChangeEventPolicy="ppr"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" id="PcsshortName">

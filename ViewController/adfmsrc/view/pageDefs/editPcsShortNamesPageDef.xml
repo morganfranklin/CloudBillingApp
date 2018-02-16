@@ -5,7 +5,7 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="XpeDccCfgPcsshortnamesEOVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgPcsshortnamesEOVOIterator"/>
+              id="XpeDccCfgPcsshortnamesEOVOIterator" ChangeEventPolicy="ppr"/>
   </executables>
   <bindings>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>

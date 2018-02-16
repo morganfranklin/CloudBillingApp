@@ -5,19 +5,19 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="XpeDccCfgCntrcttAprFcltyROVO1" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgCntrcttAprFcltyROVO1Iterator"/>
+              id="XpeDccCfgCntrcttAprFcltyROVO1Iterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="XpeDccCfgMswFacilityEOVO1" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgMswFacilityEOVO1Iterator"/>
+              id="XpeDccCfgMswFacilityEOVO1Iterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="XpeDccCfgNewMswFacilityEOVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgNewMswFacilityEOVOIterator"/>
+              id="XpeDccCfgNewMswFacilityEOVOIterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="XpeDccCfgCmtmntFacilityEOVO1" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgCmtmntFacilityEOVO1Iterator"/>
+              id="XpeDccCfgCmtmntFacilityEOVO1Iterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="XpeDccCfgMetalsFacilityEOVO1" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgMetalsFacilityEOVO1Iterator"/>
+              id="XpeDccCfgMetalsFacilityEOVO1Iterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="XpeDccCfgNewCmtmntFacilityEOVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgNewCmtmntFacilityEOVOIterator"/>
+              id="XpeDccCfgNewCmtmntFacilityEOVOIterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="XpeDccCfgNewMetalsFacilityEOVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgNewMetalsFacilityEOVOIterator"/>
+              id="XpeDccCfgNewMetalsFacilityEOVOIterator" ChangeEventPolicy="ppr"/>
     <taskFlow id="fileUploadFlow1" taskFlowId="/WEB-INF/fileUploadFlow.xml#fileUploadFlow" activation="deferred"
               xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
     <taskFlow id="fileUploadFlow2" taskFlowId="/WEB-INF/fileUploadFlow.xml#fileUploadFlow" activation="deferred"
@@ -31,9 +31,9 @@
     <taskFlow id="fileUploadFlow6" taskFlowId="/WEB-INF/fileUploadFlow.xml#fileUploadFlow" activation="deferred"
               xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
     <iterator Binds="XpeDccCfgSpclWasteFcltyEOVO1" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgSpclWasteFcltyEOVO1Iterator"/>
+              id="XpeDccCfgSpclWasteFcltyEOVO1Iterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="XpeDccCfgNewSpclWasteFcltyEOVO" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgNewSpclWasteFcltyEOVOIterator"/>
+              id="XpeDccCfgNewSpclWasteFcltyEOVOIterator" ChangeEventPolicy="ppr"/>
     <taskFlow id="fileUploadFlow7" taskFlowId="/WEB-INF/fileUploadFlow.xml#fileUploadFlow" activation="deferred"
               xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
     <taskFlow id="fileUploadFlow8" taskFlowId="/WEB-INF/fileUploadFlow.xml#fileUploadFlow" activation="deferred"

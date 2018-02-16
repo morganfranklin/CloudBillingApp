@@ -5,9 +5,9 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="XpeDccCfgNotificationEOVO1" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgNotificationEOVO1Iterator"/>
+              id="XpeDccCfgNotificationEOVO1Iterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="XpeDccCfgNotifGroupsEOVO1" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccCfgNotifGroupsEOVO1Iterator"/>
+              id="XpeDccCfgNotifGroupsEOVO1Iterator" ChangeEventPolicy="ppr"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="XpeDccCfgNotificationEOVO1Iterator" id="NotificationName">
