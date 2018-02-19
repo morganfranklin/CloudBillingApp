@@ -464,11 +464,19 @@
                     </f:facet>
                     <f:facet name="nine">
                         <af:panelHeader text="New Contract has been submitted successfully" id="ph2"
-                                        messageType="confirmation">
-                            <f:facet name="legend">
-                                <af:button text="Return to Customer/Contract Page" id="b3" action="parent"/>
-                            </f:facet>
-                        </af:panelHeader>
+                                        messageType="confirmation"/>
+                        <af:panelGroupLayout id="pgl14">
+                            <af:spacer width="10" height="10" id="s9"/>
+                            <af:panelLabelAndMessage label="#{bindings.XpeContractId.hints.label}" id="plam1">
+                                <af:outputText value="#{bindings.XpeContractId.inputValue}" id="ot1"/>
+                            </af:panelLabelAndMessage>
+                            <af:spacer width="10" height="10" id="s7"/>
+                            <af:panelLabelAndMessage label="#{bindings.XpeContractVersion.hints.label}" id="plam2">
+                                <af:outputText value="#{bindings.XpeContractVersion.inputValue}" id="ot2"/>
+                            </af:panelLabelAndMessage>
+                            <af:spacer width="10" height="40" id="s8"/>
+                            <af:button text="Return to Customer/Contract Page" id="b3" action="parent"/>
+                        </af:panelGroupLayout>
                     </f:facet>
                 </af:switcher>
             </af:gridCell>

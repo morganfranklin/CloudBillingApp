@@ -392,7 +392,14 @@
         PrecisionRule="true"
         EntityAttrName="XpeContractId"
         EntityUsage="XpeDccContractVersion"
-        AliasName="XPE_CONTRACT_ID"/>
+        AliasName="XPE_CONTRACT_ID">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContractVersionView.XpeContractId_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
     <ViewAttribute
         Name="XpeContractVersion"
         IsNotNull="true"
@@ -431,11 +438,9 @@
         AliasName="XPE_START_DATE">
         <TransientExpression
             Name="ExpressionScript"
-            trustMode="trusted"
             CodeSourceName="XpeDccContractVersionViewRow"/>
         <RecalcCondition
             Name="RecalcExpressionScript"
-            trustMode="trusted"
             CodeSourceName="XpeDccContractVersionViewRow"/>
         <Properties>
             <SchemaBasedProperties>
@@ -452,11 +457,9 @@
         AliasName="XPE_END_DATE">
         <TransientExpression
             Name="ExpressionScript"
-            trustMode="trusted"
             CodeSourceName="XpeDccContractVersionViewRow"/>
         <RecalcCondition
             Name="RecalcExpressionScript"
-            trustMode="trusted"
             CodeSourceName="XpeDccContractVersionViewRow"/>
         <Properties>
             <SchemaBasedProperties>
@@ -592,7 +595,6 @@
         AliasName="XPE_AS_OF_DATE">
         <TransientExpression
             Name="ExpressionScript"
-            trustMode="trusted"
             CodeSourceName="XpeDccContractVersionViewRow"/>
         <Properties>
             <SchemaBasedProperties>
