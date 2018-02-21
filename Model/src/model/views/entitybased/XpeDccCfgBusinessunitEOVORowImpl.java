@@ -24,9 +24,9 @@ public class XpeDccCfgBusinessunitEOVORowImpl extends ViewRowImpl {
      * AttributesEnum: generated enum for identifying attributes and accessors. DO NOT MODIFY.
      */
     public enum AttributesEnum {
+        BusinessUnit,
         SiteId,
         TerminalId,
-        BusinessUnit,
         AccountingClass,
         Affliate,
         BillingBusinessUnit,
@@ -59,7 +59,8 @@ public class XpeDccCfgBusinessunitEOVORowImpl extends ViewRowImpl {
         PsBusUnitTblFsROVO3,
         PsBusUnitTblFsROVO4,
         PsBusUnitTblFsROVO5,
-        PsPlantBURefROVO_LOV;
+        PsPlantBURefROVO_LOV,
+        XpeDccGeneralItemListROVO1;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -85,9 +86,9 @@ public class XpeDccCfgBusinessunitEOVORowImpl extends ViewRowImpl {
     }
 
 
+    public static final int BUSINESSUNIT = AttributesEnum.BusinessUnit.index();
     public static final int SITEID = AttributesEnum.SiteId.index();
     public static final int TERMINALID = AttributesEnum.TerminalId.index();
-    public static final int BUSINESSUNIT = AttributesEnum.BusinessUnit.index();
     public static final int ACCOUNTINGCLASS = AttributesEnum.AccountingClass.index();
     public static final int AFFLIATE = AttributesEnum.Affliate.index();
     public static final int BILLINGBUSINESSUNIT = AttributesEnum.BillingBusinessUnit.index();
@@ -121,6 +122,7 @@ public class XpeDccCfgBusinessunitEOVORowImpl extends ViewRowImpl {
     public static final int PSBUSUNITTBLFSROVO4 = AttributesEnum.PsBusUnitTblFsROVO4.index();
     public static final int PSBUSUNITTBLFSROVO5 = AttributesEnum.PsBusUnitTblFsROVO5.index();
     public static final int PSPLANTBUREFROVO_LOV = AttributesEnum.PsPlantBURefROVO_LOV.index();
+    public static final int XPEDCCGENERALITEMLISTROVO1 = AttributesEnum.XpeDccGeneralItemListROVO1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -575,6 +577,13 @@ public class XpeDccCfgBusinessunitEOVORowImpl extends ViewRowImpl {
      */
     public RowSet getPsPlantBURefROVO_LOV() {
         return (RowSet) getAttributeInternal(PSPLANTBUREFROVO_LOV);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> XpeDccGeneralItemListROVO1.
+     */
+    public RowSet getXpeDccGeneralItemListROVO1() {
+        return (RowSet) getAttributeInternal(XPEDCCGENERALITEMLISTROVO1);
     }
 }
 

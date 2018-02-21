@@ -152,7 +152,8 @@
       <Item Value="SiteDesc"/>
     </AttrArray>
     <DisplayCriteria
-      Hint="showAndExecute"/>
+      Hint="showAndExecute"
+      Name="XpeDccCfgPcsROVOCriteria"/>
   </ListBinding>
   <ListBinding
     Name="LOV_AccountingClass"
@@ -170,11 +171,11 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ItemId"/>
-      <Item Value="ItemListType"/>
       <Item Value="ValidValue"/>
     </AttrArray>
     <DisplayCriteria
-      Hint="showAndExecute"/>
+      Hint="showAndExecute"
+      Name="XpeDccGeneralItemListROVOCriteria"/>
   </ListBinding>
   <ListBinding
     Name="LOV_DealClass"
@@ -192,11 +193,11 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ItemId"/>
-      <Item Value="ItemListType"/>
       <Item Value="ValidValue"/>
     </AttrArray>
     <DisplayCriteria
-      Hint="showAndExecute"/>
+      Hint="showAndExecute"
+      Name="XpeDccGeneralItemListROVOCriteria"/>
   </ListBinding>
   <ListBinding
     Name="LOV_MaterialCategory"
@@ -214,11 +215,11 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ItemId"/>
-      <Item Value="ItemListType"/>
       <Item Value="ValidValue"/>
     </AttrArray>
     <DisplayCriteria
-      Hint="showAndExecute"/>
+      Hint="showAndExecute"
+      Name="XpeDccGeneralItemListROVOCriteria"/>
   </ListBinding>
   <ListBinding
     Name="LOV_ProductServiceId"
@@ -239,7 +240,8 @@
       <Item Value="Description"/>
     </AttrArray>
     <DisplayCriteria
-      Hint="showAndExecute"/>
+      Hint="showAndExecute"
+      Name="XpeDccCfgProductServiceROVOCriteria"/>
   </ListBinding>
   <ListBinding
     Name="LOV_ChargeId"
@@ -260,7 +262,8 @@
       <Item Value="Description"/>
     </AttrArray>
     <DisplayCriteria
-      Hint="showAndExecute"/>
+      Hint="showAndExecute"
+      Name="PsBiChargeROVOCriteria"/>
   </ListBinding>
   <ListBinding
     Name="LOV_EntryType"
@@ -281,7 +284,8 @@
       <Item Value="Description"/>
     </AttrArray>
     <DisplayCriteria
-      Hint="showAndExecute"/>
+      Hint="showAndExecute"
+      Name="PsBiTypeROVOCriteria"/>
   </ListBinding>
   <ListBinding
     Name="LOV_StatAccount"
@@ -302,7 +306,8 @@
       <Item Value="Description"/>
     </AttrArray>
     <DisplayCriteria
-      Hint="showAndExecute"/>
+      Hint="showAndExecute"
+      Name="PsGlAccountTblROVOCriteria"/>
   </ListBinding>
   <ListBinding
     Name="LOV_Inactive"

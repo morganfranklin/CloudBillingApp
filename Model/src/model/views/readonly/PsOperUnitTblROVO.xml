@@ -22,6 +22,14 @@
     Name="bindSetId"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="bindDescr"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bindOperatingUnit"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <SQLQuery><![CDATA[SELECT SETID, OPERATING_UNIT, DESCR FROM PS_OPER_UNIT_TBL]]></SQLQuery>
   <ViewAttribute
     Name="Setid"
@@ -122,6 +130,58 @@
         Operator="="
         Conjunction="AND"
         Value=":bindSetId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="PsOperUnitTblROVOCriteria"
+    ViewObjectName="model.views.readonly.PsOperUnitTblROVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="PsOperUnitTblROVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Setid"
+        ViewAttribute="Setid"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bindSetId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="PsOperUnitTblROVOCriteria_PsOperUnitTblROVOCriteria_row_0_OperatingUnit"
+        ViewAttribute="OperatingUnit"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bindOperatingUnit"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="PsOperUnitTblROVOCriteria_PsOperUnitTblROVOCriteria_row_0_Descr"
+        ViewAttribute="Descr"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bindDescr"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

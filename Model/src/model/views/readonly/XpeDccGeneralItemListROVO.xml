@@ -24,6 +24,14 @@
     Name="bind_ItemListType"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="bind_ItemId"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bindValidValue"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <SQLQuery><![CDATA[SELECT ITEM_ID,                  
 ITEM_LIST_TYPE,  
 VALID_VALUE  
@@ -125,6 +133,50 @@ FROM XPE_DCC_CFG_GENERAL]]></SQLQuery>
         Operator="="
         Conjunction="AND"
         Value=":bind_ItemListType"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="XpeDccGeneralItemListROVOCriteria"
+    ViewObjectName="model.views.readonly.XpeDccGeneralItemListROVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="XpeDccGeneralItemListROVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="XpeDccGeneralItemListROVOCriteria_XpeDccGeneralItemListROVOCriteria_row_0_ItemId"
+        ViewAttribute="ItemId"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bind_ItemId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ValidValue"
+        ViewAttribute="ValidValue"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bindValidValue"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

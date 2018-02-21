@@ -20,6 +20,14 @@
         ResId="model.views.readonly.PsGlAccountTblROVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <Variable
+    Name="bindAccount"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bindDescription"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <SQLQuery><![CDATA[SELECT A.ACCOUNT,  
   A.DESCR DESCRIPTION  
 FROM PS_GL_ACCOUNT_TBL A  
@@ -79,6 +87,50 @@ AND A.EFF_STATUS   = 'A')]]></SQLQuery>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewCriteria
+    Name="PsGlAccountTblROVOCriteria"
+    ViewObjectName="model.views.readonly.PsGlAccountTblROVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="PsGlAccountTblROVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="PsGlAccountTblROVOCriteria_PsGlAccountTblROVOCriteria_row_0_Account"
+        ViewAttribute="Account"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bindAccount"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="PsGlAccountTblROVOCriteria_PsGlAccountTblROVOCriteria_row_0_Description"
+        ViewAttribute="Description"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bindDescription"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <AttrArray Name="KeyAttributes">
     <Item Value="Account"/>
   </AttrArray>

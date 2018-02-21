@@ -30,6 +30,10 @@
     Name="bind_TerminalId"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="bindTerminalDesc"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <SQLQuery><![CDATA[select SITE_ID, TERMINAL_ID, TERMINAL_DESC from XPE_DCC_CFG_PCS_ASS_TERMINALS]]></SQLQuery>
   <ViewAttribute
     Name="SiteId"
@@ -176,6 +180,58 @@
         Operator="="
         Conjunction="AND"
         Value=":bind_TerminalId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="XpeDccCfgPcsAssTerminalsROVOCriteria"
+    ViewObjectName="model.views.readonly.XpeDccCfgPcsAssTerminalsROVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="XpeDccCfgPcsAssTerminalsROVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="XpeDccCfgPcsAssTerminalsROVOCriteria_XpeDccCfgPcsAssTerminalsROVOCriteria_row_0_SiteId"
+        ViewAttribute="SiteId"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bind_SiteId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="TerminalId"
+        ViewAttribute="TerminalId"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bind_TerminalId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="XpeDccCfgPcsAssTerminalsROVOCriteria_XpeDccCfgPcsAssTerminalsROVOCriteria_row_0_TerminalDesc"
+        ViewAttribute="TerminalDesc"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bindTerminalDesc"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

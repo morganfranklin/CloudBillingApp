@@ -18,6 +18,14 @@
         ResId="model.views.readonly.PsBiChargeROVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <Variable
+    Name="bindChargeId"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bindDescription"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <SQLQuery><![CDATA[SELECT CHARGE_ID, DESCR DESCRIPTION FROM PS_BI_CHARGE]]></SQLQuery>
   <ViewAttribute
     Name="ChargeId"
@@ -65,6 +73,50 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewCriteria
+    Name="PsBiChargeROVOCriteria"
+    ViewObjectName="model.views.readonly.PsBiChargeROVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="PsBiChargeROVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="PsBiChargeROVOCriteria_PsBiChargeROVOCriteria_row_0_ChargeId"
+        ViewAttribute="ChargeId"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bindChargeId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="PsBiChargeROVOCriteria_PsBiChargeROVOCriteria_row_0_Description"
+        ViewAttribute="Description"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bindDescription"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <AttrArray Name="KeyAttributes">
     <Item Value="ChargeId"/>
   </AttrArray>

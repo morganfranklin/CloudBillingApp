@@ -18,6 +18,14 @@
         ResId="model.views.readonly.PsBiTypeROVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <Variable
+    Name="bindBillTypeId"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bindDescription"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <SQLQuery><![CDATA[SELECT A.BILL_TYPE_ID, A.DESCR DESCRIPTION 
   FROM PS_BI_TYPE A  
   WHERE ( A.EFFDT =  
@@ -73,6 +81,50 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewCriteria
+    Name="PsBiTypeROVOCriteria"
+    ViewObjectName="model.views.readonly.PsBiTypeROVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="PsBiTypeROVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="PsBiTypeROVOCriteria_PsBiTypeROVOCriteria_row_0_BillTypeId"
+        ViewAttribute="BillTypeId"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bindBillTypeId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="PsBiTypeROVOCriteria_PsBiTypeROVOCriteria_row_0_Description"
+        ViewAttribute="Description"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bindDescription"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <AttrArray Name="KeyAttributes">
     <Item Value="BillTypeId"/>
   </AttrArray>

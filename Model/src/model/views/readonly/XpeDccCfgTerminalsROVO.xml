@@ -246,7 +246,7 @@ WHERE INACTIVE = 'N']]></SQLQuery>
       <ViewCriteriaItem
         Name="TerminalId"
         ViewAttribute="TerminalId"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bind_TerminalId"
         IsBindVarValue="true"

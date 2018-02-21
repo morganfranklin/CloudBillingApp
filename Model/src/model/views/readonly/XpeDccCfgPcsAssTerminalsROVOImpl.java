@@ -45,5 +45,21 @@ public class XpeDccCfgPcsAssTerminalsROVOImpl extends ViewObjectImpl {
     public void setbind_TerminalId(String value) {
         ensureVariableManager().setVariableValue("bind_TerminalId", value);
     }
+
+    /**
+     * Returns the variable value for bindTerminalDesc.
+     * @return variable value for bindTerminalDesc
+     */
+    public String getbindTerminalDesc() {
+        return (String) ensureVariableManager().getVariableValue("bindTerminalDesc");
+    }
+
+    /**
+     * Sets <code>value</code> for variable bindTerminalDesc.
+     * @param value value to bind as bindTerminalDesc
+     */
+    public void setbindTerminalDesc(String value) {
+        ensureVariableManager().setVariableValue("bindTerminalDesc", value);
+    }
 }
 

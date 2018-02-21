@@ -78,20 +78,6 @@ public class XpeDccCfgBusinessunitEOVOImpl extends ViewObjectImpl {
         ensureVariableManager().setVariableValue("bind_AccountingClass", value);
     }
 
-    /**
-     * Returns the variable value for bind_Affiliate.
-     * @return variable value for bind_Affiliate
-     */
-    public String getbind_Affiliate() {
-        return (String) ensureVariableManager().getVariableValue("bind_Affiliate");
-    }
 
-    /**
-     * Sets <code>value</code> for variable bind_Affiliate.
-     * @param value value to bind as bind_Affiliate
-     */
-    public void setbind_Affiliate(String value) {
-        ensureVariableManager().setVariableValue("bind_Affiliate", value);
-    }
 }
 

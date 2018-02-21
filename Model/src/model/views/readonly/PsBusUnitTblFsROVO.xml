@@ -18,6 +18,18 @@
         ResId="model.views.readonly.PsBusUnitTblFsROVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <Variable
+    Name="bindBusinessUnit"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bindDescr"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bindDescrShort"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <SQLQuery><![CDATA[SELECT BUSINESS_UNIT, DESCR, DESCRSHORT FROM PS_BUS_UNIT_TBL_FS]]></SQLQuery>
   <ViewAttribute
     Name="BusinessUnit"
@@ -79,7 +91,65 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.PsBusUnitTblFsROVO.Descrshort_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
+  <ViewCriteria
+    Name="PsBusUnitTblFsROVOCriteria"
+    ViewObjectName="model.views.readonly.PsBusUnitTblFsROVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="PsBusUnitTblFsROVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="PsBusUnitTblFsROVOCriteria_PsBusUnitTblFsROVOCriteria_row_0_BusinessUnit"
+        ViewAttribute="BusinessUnit"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bindBusinessUnit"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="PsBusUnitTblFsROVOCriteria_PsBusUnitTblFsROVOCriteria_row_0_Descr"
+        ViewAttribute="Descr"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bindDescr"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="PsBusUnitTblFsROVOCriteria_PsBusUnitTblFsROVOCriteria_row_0_Descrshort"
+        ViewAttribute="Descrshort"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bindDescrShort"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <AttrArray Name="KeyAttributes">
     <Item Value="BusinessUnit"/>
   </AttrArray>

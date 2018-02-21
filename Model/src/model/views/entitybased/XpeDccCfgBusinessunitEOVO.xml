@@ -41,10 +41,6 @@
     Name="bind_AccountingClass"
     Kind="viewcriteria"
     Type="java.lang.String"/>
-  <Variable
-    Name="bind_Affiliate"
-    Kind="viewcriteria"
-    Type="java.lang.String"/>
   <ViewAccessor
     Name="XpeDccCfgTerminals_LOV"
     ViewObjectName="model.views.readonly.XpeDccCfgTerminalsROVO"
@@ -159,6 +155,21 @@
     Name="PsPlantBURefROVO_LOV"
     ViewObjectName="model.views.readonly.PsPlantBURefROVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="XpeDccGeneralItemListROVO1"
+    ViewObjectName="model.views.readonly.XpeDccGeneralItemListROVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="findByItemListType"
+      FullName="model.views.readonly.XpeDccGeneralItemListROVO.findByItemListType"/>
+    <ParameterMap>
+      <PIMap Variable="bind_ItemListType">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA['BU']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LOV_TerminalId"
     ListVOName="XpeDccCfgTerminals_LOV"
@@ -181,7 +192,8 @@
       <Item Value="State"/>
     </AttrArray>
     <DisplayCriteria
-      Hint="showAndExecute"/>
+      Hint="showAndExecute"
+      Name="TerminalsCriteria"/>
   </ListBinding>
   <ListBinding
     Name="LOV_AccountingClass"
@@ -199,11 +211,11 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ItemId"/>
-      <Item Value="ItemListType"/>
       <Item Value="ValidValue"/>
     </AttrArray>
     <DisplayCriteria
-      Hint="showAndExecute"/>
+      Hint="showAndExecute"
+      Name="XpeDccGeneralItemListROVOCriteria"/>
   </ListBinding>
   <ListBinding
     Name="LOV_StatsOnly"
@@ -261,7 +273,8 @@
       <Item Value="TerminalDesc"/>
     </AttrArray>
     <DisplayCriteria
-      Hint="showAndExecute"/>
+      Hint="showAndExecute"
+      Name="XpeDccCfgPcsAssTerminalsROVOCriteria"/>
   </ListBinding>
   <ListBinding
     Name="LOV_SiteDesc"
@@ -318,7 +331,8 @@
       <Item Value="Descr"/>
     </AttrArray>
     <DisplayCriteria
-      Hint="showAndExecute"/>
+      Hint="showAndExecute"
+      Name="PsOperUnitTblROVOCriteria"/>
   </ListBinding>
   <ListBinding
     Name="LOV_OperatingUnit"
@@ -339,11 +353,12 @@
       <Item Value="Descr"/>
     </AttrArray>
     <DisplayCriteria
-      Hint="showAndExecute"/>
+      Hint="showAndExecute"
+      Name="PsOperUnitTblROVOCriteria"/>
   </ListBinding>
   <ListBinding
     Name="LOV_BusinessUnit"
-    ListVOName="PsBusUnitTblFsROVO1"
+    ListVOName="XpeDccGeneralItemListROVO1"
     ListRangeSize="-1"
     ComboRowCountHint="10"
     NullValueFlag="none"
@@ -353,14 +368,15 @@
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
-      <Item Value="BusinessUnit"/>
+      <Item Value="ItemId"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="BusinessUnit"/>
-      <Item Value="Descr"/>
+      <Item Value="ItemId"/>
+      <Item Value="ValidValue"/>
     </AttrArray>
     <DisplayCriteria
-      Hint="showAndExecute"/>
+      Hint="showAndExecute"
+      Name="XpeDccGeneralItemListROVOCriteria"/>
   </ListBinding>
   <ListBinding
     Name="LOV_Affliate"
@@ -381,7 +397,8 @@
       <Item Value="Descr"/>
     </AttrArray>
     <DisplayCriteria
-      Hint="showAndExecute"/>
+      Hint="showAndExecute"
+      Name="PsBusUnitTblFsROVOCriteria"/>
   </ListBinding>
   <ListBinding
     Name="LOV_GlBusinessUnit"
@@ -402,7 +419,8 @@
       <Item Value="Descr"/>
     </AttrArray>
     <DisplayCriteria
-      Hint="showAndExecute"/>
+      Hint="showAndExecute"
+      Name="PsBusUnitTblFsROVOCriteria"/>
   </ListBinding>
   <ListBinding
     Name="LOV_BillingGlBusinessUnit"
@@ -423,7 +441,8 @@
       <Item Value="Descr"/>
     </AttrArray>
     <DisplayCriteria
-      Hint="showAndExecute"/>
+      Hint="showAndExecute"
+      Name="PsBusUnitTblFsROVOCriteria"/>
   </ListBinding>
   <ListBinding
     Name="LOV_BillingAffiliate"
@@ -444,7 +463,8 @@
       <Item Value="Descr"/>
     </AttrArray>
     <DisplayCriteria
-      Hint="showAndExecute"/>
+      Hint="showAndExecute"
+      Name="PsBusUnitTblFsROVOCriteria"/>
   </ListBinding>
   <ListBinding
     Name="LOV_BusinessUnitRef"
@@ -465,11 +485,32 @@
       <Item Value="Description"/>
     </AttrArray>
     <DisplayCriteria
-      Hint="showAndExecute"/>
+      Hint="showAndExecute"
+      Name="PsPlantBURefROVOCriteria"/>
   </ListBinding>
   <EntityUsage
     Name="XpeDccCfgBusinessunitEO"
     Entity="model.entities.XpeDccCfgBusinessunitEO"/>
+  <ViewAttribute
+    Name="BusinessUnit"
+    IsUpdateable="while_insert"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="BusinessUnit"
+    EntityUsage="XpeDccCfgBusinessunitEO"
+    AliasName="BUSINESS_UNIT"
+    LOVName="LOV_BusinessUnit">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.BusinessUnit_LABEL"/>
+        <DISPLAYWIDTH
+          Value="10"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="SiteId"
     PrecisionRule="true"
@@ -481,10 +522,10 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="10"/>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.SiteId_LABEL"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -509,26 +550,6 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="BusinessUnit"
-    IsUpdateable="while_insert"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="BusinessUnit"
-    EntityUsage="XpeDccCfgBusinessunitEO"
-    AliasName="BUSINESS_UNIT"
-    LOVName="LOV_BusinessUnit">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.BusinessUnit_LABEL"/>
-        <DISPLAYWIDTH
-          Value="10"/>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
     Name="AccountingClass"
     PrecisionRule="true"
     EntityAttrName="AccountingClass"
@@ -539,10 +560,10 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="10"/>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.AccountingClass_LABEL"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -677,10 +698,10 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="10"/>
-        <CONTROLTYPE
-          Value="choice"/>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.SiteDesc_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -807,6 +828,14 @@
       Name="XpeDccCfgBusinessunitEOVOCriteria_row_0"
       UpperColumns="1">
       <ViewCriteriaItem
+        Name="BusinessUnit"
+        ViewAttribute="BusinessUnit"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_BusinessUnit"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
         Name="SiteId"
         ViewAttribute="SiteId"
         Operator="="
@@ -823,27 +852,11 @@
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
-        Name="BusinessUnit"
-        ViewAttribute="BusinessUnit"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_BusinessUnit"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
         Name="XpeDccCfgBusinessunitEOVOCriteria_XpeDccCfgBusinessunitEOVOCriteria_row_0_AccountingClass"
         ViewAttribute="AccountingClass"
         Operator="="
         Conjunction="AND"
         Value=":bind_AccountingClass"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="XpeDccCfgBusinessunitEOVOCriteria_XpeDccCfgBusinessunitEOVOCriteria_row_0_Affliate"
-        ViewAttribute="Affliate"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_Affiliate"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

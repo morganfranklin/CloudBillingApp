@@ -19,6 +19,10 @@
     Name="bindSiteId"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="bindSiteDesc"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <SQLQuery><![CDATA[SELECT SITE_ID,     
        SITE_DESC      
 FROM XPE_DCC_CFG_PCS    
@@ -104,6 +108,50 @@ WHERE INACTIVE='N']]></SQLQuery>
         IsBindVarValue="true"
         Required="Optional"
         UpperColumns="0"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="XpeDccCfgPcsROVOCriteria"
+    ViewObjectName="model.views.readonly.XpeDccCfgPcsROVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="XpeDccCfgPcsROVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="SiteId"
+        ViewAttribute="SiteId"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bindSiteId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="XpeDccCfgPcsROVOCriteria_XpeDccCfgPcsROVOCriteria_row_0_SiteDesc"
+        ViewAttribute="SiteDesc"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bindSiteDesc"
+        IsBindVarValue="true"
+        Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
   <AttrArray Name="KeyAttributes">

@@ -20,6 +20,14 @@
         ResId="model.views.readonly.PsPlantBURefROVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <Variable
+    Name="bindPlantBuRef"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bindDescription"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <SQLQuery><![CDATA[SELECT A.CHARTFIELD1 PLANT_BU_REF, A.DESCR DESCRIPTION 
   FROM PS_CHARTFIELD1_TBL A  
   WHERE ( A.EFFDT =  
@@ -72,6 +80,50 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewCriteria
+    Name="PsPlantBURefROVOCriteria"
+    ViewObjectName="model.views.readonly.PsPlantBURefROVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="PsPlantBURefROVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="PlantBuRef"
+        ViewAttribute="PlantBuRef"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bindPlantBuRef"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="PsPlantBURefROVOCriteria_PsPlantBURefROVOCriteria_row_0_Description"
+        ViewAttribute="Description"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bindDescription"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <AttrArray Name="KeyAttributes">
     <Item Value="PlantBuRef"/>
   </AttrArray>

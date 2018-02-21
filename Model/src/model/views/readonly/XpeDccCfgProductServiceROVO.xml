@@ -18,6 +18,14 @@
         ResId="model.views.readonly.XpeDccCfgProductServiceROVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <Variable
+    Name="bindItemId"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bindDescription"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <SQLQuery><![CDATA[SELECT    
     XPE_DCC_CFG_PRODUCTSERVICE.ITEM_ID ITEM_ID,    
     XPE_DCC_CFG_PRODUCTSERVICE.DESCRIPTION DESCRIPTION 
@@ -67,6 +75,50 @@ FROM
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewCriteria
+    Name="XpeDccCfgProductServiceROVOCriteria"
+    ViewObjectName="model.views.readonly.XpeDccCfgProductServiceROVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="XpeDccCfgProductServiceROVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="ItemId"
+        ViewAttribute="ItemId"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bindItemId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="XpeDccCfgProductServiceROVOCriteria_XpeDccCfgProductServiceROVOCriteria_row_0_Description"
+        ViewAttribute="Description"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bindDescription"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <AttrArray Name="KeyAttributes">
     <Item Value="ItemId"/>
   </AttrArray>
