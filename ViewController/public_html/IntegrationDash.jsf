@@ -261,7 +261,7 @@
                                         </af:gridRow>
                                          <af:gridRow id="gr32" marginTop="5px" marginBottom="5px">
                                             <af:gridCell id="gc32" width="100%" marginStart="5px" marginEnd="5px">
-                                                <af:link text="Covanta Contract Expiration Report" id="l27"
+                                                <af:link text="Contract Expiration Report" id="l27"
                                                          partialSubmit="true"
                                                          action="#{viewScope.integrationDashboardRegionName.covantaContractExpirationReport}"
                                                          rendered="#{ PeopleSoftCallSecurityFilter.accessLimit == 'A' || PeopleSoftCallSecurityFilter.accessLimit == 'D' }"
