@@ -101,12 +101,12 @@ public class XpeDccMainBean {
             (XpeDccContractsViewImpl) ADFUtils.findViewObjectFromIteratorName("XpeDccContractsView1Iterator");
         XpeDccContractsViewRowImpl contractRow = (XpeDccContractsViewRowImpl) contractVo.createAndInitRow(null);
         System.out.println("contract Id-" + contractRow.getXpeContractId());
+        AdfFacesContext.getCurrentInstance().getPageFlowScope().put("NewContractId", contractRow.getXpeContractId());
         XpeDccContractVersionViewRowImpl versionRow =
             (XpeDccContractVersionViewRowImpl) contractRow.getXpeDccContractVersionView().createRow();
         versionRow.setXpeContractVersion("V1");
         contractVo.insertRow(contractRow);
         contractRow.getXpeDccContractVersionView().insertRow(versionRow);
-
     }
 
     public void addLineDetailsActionListener(ActionEvent actionEvent) {

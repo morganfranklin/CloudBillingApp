@@ -74,9 +74,9 @@
         <AttrArray Name="ListDisplayAttrNames">
             <Item Value="CustId"/>
             <Item Value="Name1"/>
+            <Item Value="AddressSeqNum"/>
         </AttrArray>
-        <DisplayCriteria
-            Hint="showAndExecute"/>
+        <DisplayCriteria/>
     </ListBinding>
     <ListBinding
         Name="LOV_XpeDccPcsname"
@@ -184,6 +184,8 @@ WHERE TempCustomer.CUST_ID=XpeDccContracts.CUST_ID]]></SQLQuery>
                     Value="20"/>
                 <LABEL
                     ResId="model.XpeDccContractsView.CustId_LABEL"/>
+                <AUTOSUBMIT
+                    Value="true"/>
                 <CONTROLTYPE
                     Value="input_text_lov"/>
             </SchemaBasedProperties>

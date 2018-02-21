@@ -12,8 +12,9 @@
             </af:panelHeader>
         <!--    <af:button actionListener="#{backingBeanScope.XpeDccMainBean.addContractActionListener}"
                        text="Add Contract"></af:button>-->
-            <af:button action="addContract" text="Add Contract Wizard" rendered="false"></af:button>
-            <af:popup contentDelivery="lazyUncached" id="p1" autoCancel="disabled"
+            <af:button action="addContract" text="Add Contract"></af:button>
+        <af:spacer width="10" height="10" id="s1"/>
+        <af:popup contentDelivery="lazyUncached" id="p1" autoCancel="disabled"
                       popupCanceledListener="#{backingBeanScope.XpeDccMainBean.contractPopupCancelListener}"
                       rendered="false">
                 <af:panelWindow modal="true" closeIconVisible="true">

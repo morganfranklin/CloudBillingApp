@@ -5,7 +5,7 @@
     <executables>
         <variableIterator id="variables"/>
         <iterator Binds="XpeDccContractsView2" RangeSize="25" DataControl="AppModuleDataControl"
-                  id="XpeDccContractsView1Iterator" ChangeEventPolicy="none"/>
+                  id="XpeDccContractsView1Iterator" ChangeEventPolicy="ppr"/>
         <iterator Binds="XpeDccContractVersionView1" RangeSize="25" DataControl="AppModuleDataControl"
                   id="XpeDccContractVersionView2Iterator" ChangeEventPolicy="none"/>
         <iterator Binds="XpeDccContractPartyView1" RangeSize="25" DataControl="AppModuleDataControl"
@@ -111,11 +111,6 @@
         </attributeValues>
         <action IterBinding="XpeDccContractVersionView2Iterator" id="Delete" RequiresUpdateModel="false"
                 Action="removeCurrentRow"/>
-        <attributeValues IterBinding="XpeDccContractVersionView2Iterator" id="SalesPerson">
-            <AttrNames>
-                <Item Value="SalesPerson"/>
-            </AttrNames>
-        </attributeValues>
         <attributeValues IterBinding="XpeDccContractsView1Iterator" id="CustContractContactName">
             <AttrNames>
                 <Item Value="CustContractContactName"/>
@@ -133,5 +128,7 @@
                 <Item Value="AddressSeqNum"/>
             </AttrNames>
         </attributeValues>
+        <list IterBinding="XpeDccContractVersionView2Iterator" StaticList="false" Uses="LOV_SalesPerson"
+              id="SalesPerson" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     </bindings>
 </pageDefinition>

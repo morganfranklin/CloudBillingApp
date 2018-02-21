@@ -16,13 +16,13 @@
       <property
          name="pageFragment">true</property>
       <property
-         name="x">57.5</property>
+         name="x">7.5</property>
       <property
          name="start">true</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>dccContractSearch&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">589.918</property>
+         name="y">586.21686</property>
       <property
          name="page">/dccContractSearch.jsff</property>
       <property
@@ -106,7 +106,7 @@
       <property
          name="fromOutcome">toDccContractMaster</property>
       <property
-         name="sdm:polyPoints">R42,100.272,582.56744,215.01758,583.9243,L50</property>
+         name="sdm:polyPoints">R46,49.63753,582.3663,213.72437,587.4243,L54</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -116,7 +116,7 @@
       <property
          name="fromOutcome">goBack</property>
       <property
-         name="sdm:polyPoints">B50,256.01758,637.9243,49.8916,879.8523,T56</property>
+         name="sdm:polyPoints">L46,215.01758,580.4243,47.8916,445.0476,B56</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -183,11 +183,11 @@
       <property
          name="activityId">reexecuteCustomerSearch</property>
       <property
-         name="x">46.3916</property>
+         name="x">44.3916</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>reexecuteCustomerSearch&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
-         name="y">934.2029</property>
+         name="y">391.3982</property>
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
@@ -199,7 +199,7 @@
       <property
          name="fromOutcome">Execute</property>
       <property
-         name="sdm:polyPoints">T44,42.8916,878.4554,57.5,643.56744,B50</property>
+         name="sdm:polyPoints">B44,40.8916,445.0476,11.0,531.8663,T56</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall17">
@@ -367,11 +367,11 @@
       <property
          name="pageFragment">true</property>
       <property
-         name="x">736.0</property>
+         name="x">264.0</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>dccAddContract&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">763.68945</property>
+         name="y">791.43066</property>
       <property
          name="page">/dccAddContract.jsff</property>
       <property
@@ -385,7 +385,7 @@
       <property
          name="fromOutcome">addContract</property>
       <property
-         name="sdm:polyPoints">R58,98.5,596.56744,585.0,935.79297,L50</property>
+         name="sdm:polyPoints">L50,-33.5,585.8663,-232.0,739.68945,T50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -395,18 +395,18 @@
       <property
          name="fromOutcome">back</property>
       <property
-         name="sdm:polyPoints">T50,736.0,709.33887,99.92569,589.56744,R50</property>
+         name="sdm:polyPoints">T50,264.0,737.0801,48.5,589.3663,R54</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall40">
       <property
          name="activityId">InitializeVersionRow</property>
       <property
-         name="x">626.0</property>
+         name="x">-232.0</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>InitializeVersionRow&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
-         name="y">936.14355</property>
+         name="y">792.6377</property>
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
@@ -418,7 +418,7 @@
       <property
          name="fromOutcome">goAddContract</property>
       <property
-         name="sdm:polyPoints">T50,626.0,881.79297,736.0,817.33887,B50</property>
+         name="sdm:polyPoints">B50,-232.0,846.2871,264.0,845.0801,B50</property>
    </ControlFlowCase>
    <WildcardControlFlowRule
       id="WildcardControlFlowRule38">
@@ -437,6 +437,6 @@
       <property
          name="fromOutcome">Home</property>
       <property
-         name="sdm:polyPoints">R50,-115.0,446.44824,57.5,535.56744,T50</property>
+         name="sdm:polyPoints">R50,-115.0,446.44824,4.0,531.8663,T44</property>
    </ControlFlowCase>
 </SDM>

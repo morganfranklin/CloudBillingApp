@@ -15,6 +15,11 @@
             <managed-bean-class>view.FileUploadDownloadBean</managed-bean-class>
             <managed-bean-scope>pageFlow</managed-bean-scope>
         </managed-bean>
+        <managed-bean id="__40">
+            <managed-bean-name>CntrctMgmntAddContractBean</managed-bean-name>
+            <managed-bean-class>view.CntrctMgmntAddContractBean</managed-bean-class>
+            <managed-bean-scope>request</managed-bean-scope>
+        </managed-bean>
         <view id="dccContractSearch">
             <page>/dccContractSearch.jsff</page>
         </view>

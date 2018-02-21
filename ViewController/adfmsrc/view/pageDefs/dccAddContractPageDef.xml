@@ -6,41 +6,23 @@
     <variableIterator id="variables"/>
     <iterator Binds="XpeDccContractsView1" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccContractsView1Iterator"/>
-    <iterator Binds="XpeDccContractVersionView2" RangeSize="25" DataControl="AppModuleDataControl"
-              id="XpeDccContractVersionView2Iterator"/>
     <iterator Binds="XpeDccContractLineView2" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccContractLineView2Iterator"/>
     <iterator Binds="XpeDccContractPricingTermView2" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccContractPricingTermView2Iterator"/>
     <iterator Binds="XpeDccContractCarrierView2" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccContractCarrierView2Iterator"/>
+    <iterator Binds="XpeDccContractVersionView2" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccContractVersionView2Iterator"/>
+    <iterator Binds="XpeDccContractsView2" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccContractsView2Iterator"/>
   </executables>
   <bindings>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
-    <attributeValues IterBinding="XpeDccContractsView1Iterator" id="Setid">
-      <AttrNames>
-        <Item Value="Setid"/>
-      </AttrNames>
-    </attributeValues>
     <listOfValues IterBinding="XpeDccContractsView1Iterator" StaticList="false" Uses="LOV_CustId" id="CustId"/>
     <attributeValues IterBinding="XpeDccContractsView1Iterator" id="Name1">
       <AttrNames>
         <Item Value="Name1"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="XpeDccContractVersionView2Iterator" id="BusinessUnitGl">
-      <AttrNames>
-        <Item Value="BusinessUnitGl"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="XpeDccContractVersionView2Iterator" id="XpeStartDate">
-      <AttrNames>
-        <Item Value="XpeStartDate"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="XpeDccContractVersionView2Iterator" id="XpeEndDate">
-      <AttrNames>
-        <Item Value="XpeEndDate"/>
       </AttrNames>
     </attributeValues>
     <attributeValues IterBinding="XpeDccContractLineView2Iterator" id="XpeContractLine">
@@ -66,16 +48,6 @@
     <attributeValues IterBinding="XpeDccContractLineView2Iterator" id="XpeSwApprNbr">
       <AttrNames>
         <Item Value="XpeSwApprNbr"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="XpeDccContractsView1Iterator" id="XpeContractId">
-      <AttrNames>
-        <Item Value="XpeContractId"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="XpeDccContractVersionView2Iterator" id="XpeContractVersion">
-      <AttrNames>
-        <Item Value="XpeContractVersion"/>
       </AttrNames>
     </attributeValues>
     <attributeValues IterBinding="XpeDccContractPricingTermView2Iterator" id="XpePricingTermLine">
@@ -157,5 +129,49 @@
     </attributeValues>
     <listOfValues IterBinding="XpeDccContractCarrierView2Iterator" StaticList="false" Uses="LOV_XpeCarrierId"
                   id="XpeCarrierId"/>
+    <list IterBinding="XpeDccContractVersionView2Iterator" StaticList="false" Uses="LOV_XpeWasteType"
+          id="XpeWasteType" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccContractVersionView2Iterator" StaticList="false" Uses="LOV_XpeContractSubType"
+          id="XpeContractSubType" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccContractVersionView2Iterator" StaticList="false" Uses="LOV_XpeAgreementType"
+          id="XpeAgreementType" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccContractVersionView2Iterator" StaticList="false" Uses="LOV_XpeContractDirection"
+          id="XpeContractDirection" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccContractVersionView2Iterator" id="XpeAsOfDate">
+      <AttrNames>
+        <Item Value="XpeAsOfDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccContractVersionView2Iterator" id="XpeStartDate">
+      <AttrNames>
+        <Item Value="XpeStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccContractVersionView2Iterator" id="XpeEndDate">
+      <AttrNames>
+        <Item Value="XpeEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccContractVersionView2Iterator" StaticList="false" Uses="LOV_XpeAcctgOptionsSet"
+          id="XpeAcctgOptionsSet" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccContractVersionView2Iterator" StaticList="false" Uses="LOV_CurrencyCd" id="CurrencyCd1"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccContractVersionView2Iterator" StaticList="false" Uses="LOV_SalesPerson" id="SalesPerson"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccContractVersionView2Iterator" id="XpeContractId">
+      <AttrNames>
+        <Item Value="XpeContractId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccContractVersionView2Iterator" id="XpeContractVersion">
+      <AttrNames>
+        <Item Value="XpeContractVersion"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccContractsView2Iterator" id="AddressSeqNum">
+      <AttrNames>
+        <Item Value="AddressSeqNum"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
