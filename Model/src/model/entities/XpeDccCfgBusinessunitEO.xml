@@ -120,8 +120,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_BUSINESSUNIT"
-    IsNotNull="true">
+    TableName="XPE_DCC_CFG_BUSINESSUNIT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -275,18 +274,6 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.entities.XpeDccCfgBusinessunitEO.BusinessunitId"/>
-    </AttrArray>
-  </Key>
-  <Key
-    Name="XpeDccCfgBusinessunitBillingBusinessUnitCheck">
-    <DesignTime>
-      <Attr Name="_isNotNull" Value="true"/>
-      <Attr Name="_checkCondition" Value='"BILLING_BUSINESS_UNIT" IS NOT NULL'/>
-      <Attr Name="_isCheck" Value="true"/>
-      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_BUSINESSUNIT_BILLI"/>
-    </DesignTime>
-    <AttrArray Name="Attributes">
-      <Item Value="model.entities.XpeDccCfgBusinessunitEO.BillingBusinessUnit"/>
     </AttrArray>
   </Key>
   <Key

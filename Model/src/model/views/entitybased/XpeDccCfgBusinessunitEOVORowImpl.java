@@ -60,7 +60,8 @@ public class XpeDccCfgBusinessunitEOVORowImpl extends ViewRowImpl {
         PsBusUnitTblFsROVO4,
         PsBusUnitTblFsROVO5,
         PsPlantBURefROVO_LOV,
-        XpeDccGeneralItemListROVO1;
+        XpeDccGeneralItemListROVO1,
+        PsBusUnitTblBiROVO2;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -123,6 +124,7 @@ public class XpeDccCfgBusinessunitEOVORowImpl extends ViewRowImpl {
     public static final int PSBUSUNITTBLFSROVO5 = AttributesEnum.PsBusUnitTblFsROVO5.index();
     public static final int PSPLANTBUREFROVO_LOV = AttributesEnum.PsPlantBURefROVO_LOV.index();
     public static final int XPEDCCGENERALITEMLISTROVO1 = AttributesEnum.XpeDccGeneralItemListROVO1.index();
+    public static final int PSBUSUNITTBLBIROVO2 = AttributesEnum.PsBusUnitTblBiROVO2.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -584,6 +586,13 @@ public class XpeDccCfgBusinessunitEOVORowImpl extends ViewRowImpl {
      */
     public RowSet getXpeDccGeneralItemListROVO1() {
         return (RowSet) getAttributeInternal(XPEDCCGENERALITEMLISTROVO1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> PsBusUnitTblBiROVO2.
+     */
+    public RowSet getPsBusUnitTblBiROVO2() {
+        return (RowSet) getAttributeInternal(PSBUSUNITTBLBIROVO2);
     }
 }
 

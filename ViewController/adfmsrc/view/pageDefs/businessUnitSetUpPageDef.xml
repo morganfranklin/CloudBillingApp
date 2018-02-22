@@ -101,9 +101,9 @@
                   id="BillingOperatingUnit1"/>
     <listOfValues IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_OperatingUnit"
                   id="OperatingUnit1"/>
-    <listOfValues IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" StaticList="false" Uses="LOV_BusinessUnitRef"
-                  id="BusinessUnitRef"/>
-    <listOfValues IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_BusinessUnitRef"
-                  id="BusinessUnitRef1"/>
+    <list IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" StaticList="false" Uses="LOV_BusinessUnitRef"
+          id="BusinessUnitRef" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_BusinessUnitRef"
+          id="BusinessUnitRef1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>
