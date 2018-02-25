@@ -2,7 +2,6 @@ package view;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-
 import java.io.InputStreamReader;
 
 import java.net.CookieHandler;
@@ -26,7 +25,6 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
-
 import javax.net.ssl.X509TrustManager;
 
 import oracle.adf.controller.ControllerContext;
@@ -206,6 +204,7 @@ public class PeopleSoftCallSecurityFilter {
         OperationBinding operationBinding = bindings.getOperationBinding("checkRoles");
         if (null != operationBinding) {
             operationBinding.getParamsMap().put("givenUser", givenUser);
+            operationBinding.getParamsMap().put("userRole", "MOD_CPE_ADMIN");
             String accessLimit = (String) operationBinding.execute();
             if(null!=accessLimit)
                 this.setAccessLimit(accessLimit);

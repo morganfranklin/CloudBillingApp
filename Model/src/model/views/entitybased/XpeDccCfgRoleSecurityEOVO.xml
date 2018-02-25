@@ -1,0 +1,991 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XpeDccCfgRoleSecurityEOVO"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  RowClass="model.views.entitybased.XpeDccCfgRoleSecurityEOVORowImpl"
+  ComponentClass="model.views.entitybased.XpeDccCfgRoleSecurityEOVOImpl"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.views.entitybased.XpeDccCfgRoleSecurityEOVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="LookupSharedAppModule_ScreenSecurityTypeLOV"
+    ViewObjectName="model.views.readonly.XpeDccDicNewContractSetupROVO"
+    AMUsageName="LookupSharedAppModule"
+    ViewInstanceName="XpeDccDicNewContractSetupROVO"
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="bind_Lookup_Type">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA['SET']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_Screen1"
+    ListVOName="LookupSharedAppModule_ScreenSecurityTypeLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Screen1"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Screen2"
+    ListVOName="LookupSharedAppModule_ScreenSecurityTypeLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Screen2"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Screen3"
+    ListVOName="LookupSharedAppModule_ScreenSecurityTypeLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Screen3"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Screen4"
+    ListVOName="LookupSharedAppModule_ScreenSecurityTypeLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Screen4"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Screen5"
+    ListVOName="LookupSharedAppModule_ScreenSecurityTypeLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Screen5"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Screen6"
+    ListVOName="LookupSharedAppModule_ScreenSecurityTypeLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Screen6"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Screen7"
+    ListVOName="LookupSharedAppModule_ScreenSecurityTypeLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Screen7"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Screen8"
+    ListVOName="LookupSharedAppModule_ScreenSecurityTypeLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Screen8"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Screen9"
+    ListVOName="LookupSharedAppModule_ScreenSecurityTypeLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Screen9"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Screen10"
+    ListVOName="LookupSharedAppModule_ScreenSecurityTypeLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Screen10"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Screen11"
+    ListVOName="LookupSharedAppModule_ScreenSecurityTypeLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Screen11"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Screen12"
+    ListVOName="LookupSharedAppModule_ScreenSecurityTypeLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Screen12"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Screen13"
+    ListVOName="LookupSharedAppModule_ScreenSecurityTypeLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Screen13"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Screen14"
+    ListVOName="LookupSharedAppModule_ScreenSecurityTypeLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Screen14"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Screen15"
+    ListVOName="LookupSharedAppModule_ScreenSecurityTypeLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Screen15"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Screen16"
+    ListVOName="LookupSharedAppModule_ScreenSecurityTypeLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Screen16"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Screen17"
+    ListVOName="LookupSharedAppModule_ScreenSecurityTypeLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Screen17"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Screen18"
+    ListVOName="LookupSharedAppModule_ScreenSecurityTypeLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Screen18"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Screen19"
+    ListVOName="LookupSharedAppModule_ScreenSecurityTypeLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Screen19"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Screen20"
+    ListVOName="LookupSharedAppModule_ScreenSecurityTypeLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Screen20"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Screen21"
+    ListVOName="LookupSharedAppModule_ScreenSecurityTypeLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Screen21"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Screen22"
+    ListVOName="LookupSharedAppModule_ScreenSecurityTypeLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Screen22"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Screen23"
+    ListVOName="LookupSharedAppModule_ScreenSecurityTypeLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Screen23"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Screen24"
+    ListVOName="LookupSharedAppModule_ScreenSecurityTypeLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Screen24"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Screen25"
+    ListVOName="LookupSharedAppModule_ScreenSecurityTypeLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Screen25"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="XpeDccCfgRoleSecurityEO"
+    Entity="model.entities.XpeDccCfgRoleSecurityEO"/>
+  <ViewAttribute
+    Name="CpeRole"
+    IsUpdateable="while_insert"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CpeRole"
+    EntityUsage="XpeDccCfgRoleSecurityEO"
+    AliasName="CPE_ROLE"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="XpeDccCfgRoleSecurityEO"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="CreatedDate"
+    PrecisionRule="true"
+    EntityAttrName="CreatedDate"
+    EntityUsage="XpeDccCfgRoleSecurityEO"
+    AliasName="CREATED_DATE"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="XpeDccCfgRoleSecurityEO"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="LastUpdatedDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedDate"
+    EntityUsage="XpeDccCfgRoleSecurityEO"
+    AliasName="LAST_UPDATED_DATE"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="Screen1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Screen1"
+    EntityUsage="XpeDccCfgRoleSecurityEO"
+    AliasName="SCREEN1"
+    LOVName="LOV_Screen1">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgRoleSecurityEOVO.Screen1_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Screen10"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Screen10"
+    EntityUsage="XpeDccCfgRoleSecurityEO"
+    AliasName="SCREEN10"
+    LOVName="LOV_Screen10">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgRoleSecurityEOVO.Screen10_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Screen11"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Screen11"
+    EntityUsage="XpeDccCfgRoleSecurityEO"
+    AliasName="SCREEN11"
+    LOVName="LOV_Screen11">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgRoleSecurityEOVO.Screen11_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Screen12"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Screen12"
+    EntityUsage="XpeDccCfgRoleSecurityEO"
+    AliasName="SCREEN12"
+    LOVName="LOV_Screen12">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgRoleSecurityEOVO.Screen12_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Screen13"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Screen13"
+    EntityUsage="XpeDccCfgRoleSecurityEO"
+    AliasName="SCREEN13"
+    LOVName="LOV_Screen13">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgRoleSecurityEOVO.Screen13_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Screen14"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Screen14"
+    EntityUsage="XpeDccCfgRoleSecurityEO"
+    AliasName="SCREEN14"
+    LOVName="LOV_Screen14">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgRoleSecurityEOVO.Screen14_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Screen15"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Screen15"
+    EntityUsage="XpeDccCfgRoleSecurityEO"
+    AliasName="SCREEN15"
+    LOVName="LOV_Screen15">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgRoleSecurityEOVO.Screen15_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Screen16"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Screen16"
+    EntityUsage="XpeDccCfgRoleSecurityEO"
+    AliasName="SCREEN16"
+    LOVName="LOV_Screen16">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgRoleSecurityEOVO.Screen16_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Screen17"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Screen17"
+    EntityUsage="XpeDccCfgRoleSecurityEO"
+    AliasName="SCREEN17"
+    LOVName="LOV_Screen17">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgRoleSecurityEOVO.Screen17_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Screen18"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Screen18"
+    EntityUsage="XpeDccCfgRoleSecurityEO"
+    AliasName="SCREEN18"
+    LOVName="LOV_Screen18">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgRoleSecurityEOVO.Screen18_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Screen19"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Screen19"
+    EntityUsage="XpeDccCfgRoleSecurityEO"
+    AliasName="SCREEN19"
+    LOVName="LOV_Screen19">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgRoleSecurityEOVO.Screen19_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Screen2"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Screen2"
+    EntityUsage="XpeDccCfgRoleSecurityEO"
+    AliasName="SCREEN2"
+    LOVName="LOV_Screen2">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgRoleSecurityEOVO.Screen2_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Screen20"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Screen20"
+    EntityUsage="XpeDccCfgRoleSecurityEO"
+    AliasName="SCREEN20"
+    LOVName="LOV_Screen20">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgRoleSecurityEOVO.Screen20_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Screen21"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Screen21"
+    EntityUsage="XpeDccCfgRoleSecurityEO"
+    AliasName="SCREEN21"
+    LOVName="LOV_Screen21">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgRoleSecurityEOVO.Screen21_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Screen22"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Screen22"
+    EntityUsage="XpeDccCfgRoleSecurityEO"
+    AliasName="SCREEN22"
+    LOVName="LOV_Screen22">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgRoleSecurityEOVO.Screen22_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Screen23"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Screen23"
+    EntityUsage="XpeDccCfgRoleSecurityEO"
+    AliasName="SCREEN23"
+    LOVName="LOV_Screen23">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgRoleSecurityEOVO.Screen23_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Screen24"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Screen24"
+    EntityUsage="XpeDccCfgRoleSecurityEO"
+    AliasName="SCREEN24"
+    LOVName="LOV_Screen24">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgRoleSecurityEOVO.Screen24_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Screen25"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Screen25"
+    EntityUsage="XpeDccCfgRoleSecurityEO"
+    AliasName="SCREEN25"
+    LOVName="LOV_Screen25">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Screen26"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Screen26"
+    EntityUsage="XpeDccCfgRoleSecurityEO"
+    AliasName="SCREEN26"/>
+  <ViewAttribute
+    Name="Screen27"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Screen27"
+    EntityUsage="XpeDccCfgRoleSecurityEO"
+    AliasName="SCREEN27"/>
+  <ViewAttribute
+    Name="Screen28"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Screen28"
+    EntityUsage="XpeDccCfgRoleSecurityEO"
+    AliasName="SCREEN28"/>
+  <ViewAttribute
+    Name="Screen29"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Screen29"
+    EntityUsage="XpeDccCfgRoleSecurityEO"
+    AliasName="SCREEN29"/>
+  <ViewAttribute
+    Name="Screen3"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Screen3"
+    EntityUsage="XpeDccCfgRoleSecurityEO"
+    AliasName="SCREEN3"
+    LOVName="LOV_Screen3">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgRoleSecurityEOVO.Screen3_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Screen30"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Screen30"
+    EntityUsage="XpeDccCfgRoleSecurityEO"
+    AliasName="SCREEN30"/>
+  <ViewAttribute
+    Name="Screen4"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Screen4"
+    EntityUsage="XpeDccCfgRoleSecurityEO"
+    AliasName="SCREEN4"
+    LOVName="LOV_Screen4">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgRoleSecurityEOVO.Screen4_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Screen5"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Screen5"
+    EntityUsage="XpeDccCfgRoleSecurityEO"
+    AliasName="SCREEN5"
+    LOVName="LOV_Screen5">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgRoleSecurityEOVO.Screen5_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Screen6"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Screen6"
+    EntityUsage="XpeDccCfgRoleSecurityEO"
+    AliasName="SCREEN6"
+    LOVName="LOV_Screen6">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgRoleSecurityEOVO.Screen6_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Screen7"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Screen7"
+    EntityUsage="XpeDccCfgRoleSecurityEO"
+    AliasName="SCREEN7"
+    LOVName="LOV_Screen7">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgRoleSecurityEOVO.Screen7_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Screen8"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Screen8"
+    EntityUsage="XpeDccCfgRoleSecurityEO"
+    AliasName="SCREEN8"
+    LOVName="LOV_Screen8">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgRoleSecurityEOVO.Screen8_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Screen9"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Screen9"
+    EntityUsage="XpeDccCfgRoleSecurityEO"
+    AliasName="SCREEN9"
+    LOVName="LOV_Screen9">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgRoleSecurityEOVO.Screen9_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

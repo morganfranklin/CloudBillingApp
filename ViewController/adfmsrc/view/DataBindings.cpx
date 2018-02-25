@@ -119,6 +119,7 @@
               usageId="view_billingAccountingProcesses_billingAccountingProcesses_RollbackPageDef"/>
         <page path="/WEB-INF/termsMaster.xml#termsMaster@Rollback"
               usageId="view_termsMaster_termsMaster_RollbackPageDef"/>
+        <page path="/roleSecurity.jsff" usageId="view_roleSecurityPageDef"/>
     </pageMap>
     <pageDefinitionUsages>
         <page id="view_IntegrationDashPageDef" path="view.pageDefs.IntegrationDashPageDef"/>
@@ -232,6 +233,7 @@
               path="view.pageDefs.billingAccountingProcesses_billingAccountingProcesses_RollbackPageDef"/>
         <page id="view_termsMaster_termsMaster_RollbackPageDef"
               path="view.pageDefs.termsMaster_termsMaster_RollbackPageDef"/>
+        <page id="view_roleSecurityPageDef" path="view.pageDefs.roleSecurityPageDef"/>
     </pageDefinitionUsages>
     <dataControlUsages>
         <BC4JDataControl id="AppModuleDataControl" Package="model"

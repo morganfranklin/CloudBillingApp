@@ -673,6 +673,12 @@
     <ViewUsage
         Name="XpeDccCovCntrctExpirationReportROVO"
         ViewObjectName="model.views.readonly.XpeDccCovCntrctExpirationReportROVO"/>
+    <ViewUsage
+        Name="XpeDccCfgRolesEOVO"
+        ViewObjectName="model.views.entitybased.XpeDccCfgRolesEOVO"/>
+    <ViewUsage
+        Name="XpeDccCfgRoleSecurityEOVO"
+        ViewObjectName="model.views.entitybased.XpeDccCfgRoleSecurityEOVO"/>
     <ViewLinkUsage
         Name="NeuRuleTblFk1Link1"
         ViewLinkObjectName="model.NeuRuleTblFk1Link"
@@ -996,6 +1002,12 @@
         ViewLinkObjectName="model.views.entitybased.XpeDccCfgPcsAddressFkLink"
         SrcViewUsageName="model.AppModule.XpeDccCfgNewPcsEOVO"
         DstViewUsageName="model.AppModule.XpeDccCfgNewPcsAddressEOVO"
+        Reversed="false"/>
+    <ViewLinkUsage
+        Name="XpeDccCfgRoleSecurityFKVL"
+        ViewLinkObjectName="model.views.entitybased.XpeDccCfgRoleSecurityFKVL"
+        SrcViewUsageName="model.AppModule.XpeDccCfgRolesEOVO"
+        DstViewUsageName="model.AppModule.XpeDccCfgRoleSecurityEOVO"
         Reversed="false"/>
     <ClientInterface
         Name="__clientInterface">
@@ -1898,6 +1910,16 @@
                 Type="java.lang.Integer"/>
         </Method>
         <Method
+            Name="writeVoToXml"
+            MethodName="writeVoToXml">
+            <Return
+                Name="_return_type_"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="voName"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
             Name="checkRoles"
             MethodName="checkRoles">
             <Return
@@ -1906,15 +1928,8 @@
             <Parameter
                 Name="givenUser"
                 Type="java.lang.String"/>
-        </Method>
-        <Method
-            Name="writeVoToXml"
-            MethodName="writeVoToXml">
-            <Return
-                Name="_return_type_"
-                Type="java.lang.String"/>
             <Parameter
-                Name="voName"
+                Name="userRole"
                 Type="java.lang.String"/>
         </Method>
     </ClientInterface>

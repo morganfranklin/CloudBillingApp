@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="roleSecurityPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XpeDccCfgRolesEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgRolesEOVOIterator"/>
+    <iterator Binds="XpeDccCfgRoleSecurityEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgRoleSecurityEOVOIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="XpeDccCfgRolesEOVOIterator" id="XpeDccCfgRolesEOVO">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccCfgRolesEOVO" Name="XpeDccCfgRolesEOVO0">
+        <AttrNames>
+          <Item Value="CpeRole"/>
+          <Item Value="PeoplesoftRole"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <list IterBinding="XpeDccCfgRoleSecurityEOVOIterator" StaticList="false" Uses="LOV_Screen1" id="Screen1"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgRoleSecurityEOVOIterator" StaticList="false" Uses="LOV_Screen10" id="Screen10"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgRoleSecurityEOVOIterator" StaticList="false" Uses="LOV_Screen11" id="Screen11"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgRoleSecurityEOVOIterator" StaticList="false" Uses="LOV_Screen12" id="Screen12"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgRoleSecurityEOVOIterator" StaticList="false" Uses="LOV_Screen13" id="Screen13"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgRoleSecurityEOVOIterator" StaticList="false" Uses="LOV_Screen14" id="Screen14"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgRoleSecurityEOVOIterator" StaticList="false" Uses="LOV_Screen15" id="Screen15"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgRoleSecurityEOVOIterator" StaticList="false" Uses="LOV_Screen2" id="Screen2"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgRoleSecurityEOVOIterator" StaticList="false" Uses="LOV_Screen3" id="Screen3"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgRoleSecurityEOVOIterator" StaticList="false" Uses="LOV_Screen4" id="Screen4"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgRoleSecurityEOVOIterator" StaticList="false" Uses="LOV_Screen5" id="Screen5"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgRoleSecurityEOVOIterator" StaticList="false" Uses="LOV_Screen6" id="Screen6"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgRoleSecurityEOVOIterator" StaticList="false" Uses="LOV_Screen7" id="Screen7"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgRoleSecurityEOVOIterator" StaticList="false" Uses="LOV_Screen8" id="Screen8"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgRoleSecurityEOVOIterator" StaticList="false" Uses="LOV_Screen9" id="Screen9"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgRoleSecurityEOVOIterator" StaticList="false" Uses="LOV_Screen16" id="Screen16"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgRoleSecurityEOVOIterator" StaticList="false" Uses="LOV_Screen17" id="Screen17"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgRoleSecurityEOVOIterator" StaticList="false" Uses="LOV_Screen18" id="Screen18"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgRoleSecurityEOVOIterator" StaticList="false" Uses="LOV_Screen19" id="Screen19"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgRoleSecurityEOVOIterator" StaticList="false" Uses="LOV_Screen20" id="Screen20"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgRoleSecurityEOVOIterator" StaticList="false" Uses="LOV_Screen21" id="Screen21"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgRoleSecurityEOVOIterator" StaticList="false" Uses="LOV_Screen22" id="Screen22"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgRoleSecurityEOVOIterator" StaticList="false" Uses="LOV_Screen23" id="Screen23"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgRoleSecurityEOVOIterator" StaticList="false" Uses="LOV_Screen24" id="Screen24"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <action IterBinding="XpeDccCfgRolesEOVOIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="XpeDccCfgRolesEOVOIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <action IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

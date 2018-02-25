@@ -2,8 +2,6 @@ package view;
 
 import java.io.Serializable;
 
-import javax.faces.event.ActionEvent;
-
 import oracle.adf.controller.TaskFlowId;
 
 public class SetupTableRegionName implements Serializable {
@@ -94,6 +92,11 @@ public class SetupTableRegionName implements Serializable {
 
     public String notificationSetUpTable() {
         setDynamicTaskFlowId("/WEB-INF/notificationSetUpTable.xml#notificationSetUpTable");
+        return null;
+    }
+    
+    public String roleAndScreenSecuritySetUp() {
+        setDynamicTaskFlowId("/WEB-INF/roleSecurityFlow.xml#roleSecurityFlow");
         return null;
     }
 }

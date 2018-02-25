@@ -1,0 +1,259 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout layout="vertical" id="pgl1">
+    <af:panelHeader text="Role Setup" id="ph1">
+      <af:table id="md1" rows="#{bindings.XpeDccCfgRolesEOVO.rangeSize}"
+                fetchSize="#{bindings.XpeDccCfgRolesEOVO.rangeSize}"
+                emptyText="#{bindings.XpeDccCfgRolesEOVO.viewable ? 'No data to display.' : 'Access Denied.'}" var="row"
+                value="#{bindings.XpeDccCfgRolesEOVO.collectionModel}" rowBandingInterval="1"
+                selectedRowKeys="#{bindings.XpeDccCfgRolesEOVO.collectionModel.selectedRow}"
+                selectionListener="#{bindings.XpeDccCfgRolesEOVO.collectionModel.makeCurrent}" rowSelection="single"
+                columnStretching="last" partialTriggers="::b1 ::b2 ::b3 ::b4" contentDelivery="immediate">
+        <af:column headerText="#{bindings.XpeDccCfgRolesEOVO.hints.CpeRole.label}"
+                   sortProperty="#{bindings.XpeDccCfgRolesEOVO.hints.CpeRole.name}" sortable="false" id="c1"
+                   width="250">
+          <af:inputText value="#{row.bindings.CpeRole.inputValue}"
+                        label="#{bindings.XpeDccCfgRolesEOVO.hints.CpeRole.label}"
+                        required="#{bindings.XpeDccCfgRolesEOVO.hints.CpeRole.mandatory}"
+                        columns="#{bindings.XpeDccCfgRolesEOVO.hints.CpeRole.displayWidth}"
+                        maximumLength="#{bindings.XpeDccCfgRolesEOVO.hints.CpeRole.precision}"
+                        shortDesc="#{bindings.XpeDccCfgRolesEOVO.hints.CpeRole.tooltip}" id="it1" autoSubmit="true">
+            <f:validator binding="#{row.bindings.CpeRole.validator}"/>
+          </af:inputText>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgRolesEOVO.hints.PeoplesoftRole.label}"
+                   sortProperty="#{bindings.XpeDccCfgRolesEOVO.hints.PeoplesoftRole.name}" sortable="false" id="c6">
+          <af:inputText value="#{row.bindings.PeoplesoftRole.inputValue}"
+                        label="#{bindings.XpeDccCfgRolesEOVO.hints.PeoplesoftRole.label}"
+                        required="#{bindings.XpeDccCfgRolesEOVO.hints.PeoplesoftRole.mandatory}"
+                        columns="#{bindings.XpeDccCfgRolesEOVO.hints.PeoplesoftRole.displayWidth}"
+                        maximumLength="#{bindings.XpeDccCfgRolesEOVO.hints.PeoplesoftRole.precision}"
+                        shortDesc="#{bindings.XpeDccCfgRolesEOVO.hints.PeoplesoftRole.tooltip}" id="it2"
+                        autoSubmit="true">
+            <f:validator binding="#{row.bindings.PeoplesoftRole.validator}"/>
+          </af:inputText>
+        </af:column>
+      </af:table>
+      <f:facet name="context">
+        <af:group id="g1">
+          <af:button actionListener="#{bindings.CreateInsert.execute}" text="Create" id="b1"/>
+          <af:button actionListener="#{bindings.Delete.execute}" text="Delete" id="b2" immediate="true"/>
+        </af:group>
+      </f:facet>
+      <f:facet name="toolbar">
+        <af:group id="g2">
+          <af:button actionListener="#{bindings.Commit.execute}" text="Submit" id="b3"/>
+          <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel" immediate="true" id="b4"
+                     disabled="#{bindings.XpeDccCfgRolesEOVOIterator.estimatedRowCount==0}">
+            <af:resetActionListener/>
+          </af:button>
+        </af:group>
+      </f:facet>
+    </af:panelHeader>
+    <af:panelHeader text="Screen Setup" id="ph2">
+      <af:panelFormLayout partialTriggers="md1" id="pfl1" rows="10" maxColumns="3">
+        <af:panelLabelAndMessage label="#{bindings.Screen1.hints.label}" id="plam1">
+          <af:selectOneChoice value="#{bindings.Screen1.inputValue}" label="#{bindings.Screen1.label}"
+                              required="#{bindings.Screen1.hints.mandatory}"
+                              shortDesc="#{bindings.Screen1.hints.tooltip}" id="soc5" simple="true" autoSubmit="true">
+            <f:selectItems value="#{bindings.Screen1.items}" id="si6"/>
+            <f:validator binding="#{bindings.Screen1.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Screen2.hints.label}" id="plam2">
+          <af:selectOneChoice value="#{bindings.Screen2.inputValue}" label="#{bindings.Screen2.label}"
+                              required="#{bindings.Screen2.hints.mandatory}"
+                              shortDesc="#{bindings.Screen2.hints.tooltip}" id="soc13" simple="true" autoSubmit="true">
+            <f:selectItems value="#{bindings.Screen2.items}" id="si13"/>
+            <f:validator binding="#{bindings.Screen2.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Screen3.hints.label}" id="plam3">
+          <af:selectOneChoice value="#{bindings.Screen3.inputValue}" label="#{bindings.Screen3.label}"
+                              required="#{bindings.Screen3.hints.mandatory}"
+                              shortDesc="#{bindings.Screen3.hints.tooltip}" id="soc8" simple="true" autoSubmit="true">
+            <f:selectItems value="#{bindings.Screen3.items}" id="si7"/>
+            <f:validator binding="#{bindings.Screen3.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Screen4.hints.label}" id="plam4">
+          <af:selectOneChoice value="#{bindings.Screen4.inputValue}" label="#{bindings.Screen4.label}"
+                              required="#{bindings.Screen4.hints.mandatory}"
+                              shortDesc="#{bindings.Screen4.hints.tooltip}" id="soc9" simple="true" autoSubmit="true">
+            <f:selectItems value="#{bindings.Screen4.items}" id="si14"/>
+            <f:validator binding="#{bindings.Screen4.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Screen5.hints.label}" id="plam5">
+          <af:selectOneChoice value="#{bindings.Screen5.inputValue}" label="#{bindings.Screen5.label}"
+                              required="#{bindings.Screen5.hints.mandatory}"
+                              shortDesc="#{bindings.Screen5.hints.tooltip}" id="soc6" simple="true" autoSubmit="true">
+            <f:selectItems value="#{bindings.Screen5.items}" id="si8"/>
+            <f:validator binding="#{bindings.Screen5.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Screen6.hints.label}" id="plam6">
+          <af:selectOneChoice value="#{bindings.Screen6.inputValue}" label="#{bindings.Screen6.label}"
+                              required="#{bindings.Screen6.hints.mandatory}"
+                              shortDesc="#{bindings.Screen6.hints.tooltip}" id="soc15" simple="true" autoSubmit="true">
+            <f:selectItems value="#{bindings.Screen6.items}" id="si1"/>
+            <f:validator binding="#{bindings.Screen6.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Screen7.hints.label}" id="plam7">
+          <af:selectOneChoice value="#{bindings.Screen7.inputValue}" label="#{bindings.Screen7.label}"
+                              required="#{bindings.Screen7.hints.mandatory}"
+                              shortDesc="#{bindings.Screen7.hints.tooltip}" id="soc7" simple="true" autoSubmit="true">
+            <f:selectItems value="#{bindings.Screen7.items}" id="si9"/>
+            <f:validator binding="#{bindings.Screen7.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Screen8.hints.label}" id="plam8">
+          <af:selectOneChoice value="#{bindings.Screen8.inputValue}" label="#{bindings.Screen8.label}"
+                              required="#{bindings.Screen8.hints.mandatory}"
+                              shortDesc="#{bindings.Screen8.hints.tooltip}" id="soc2" simple="true" autoSubmit="true">
+            <f:selectItems value="#{bindings.Screen8.items}" id="si11"/>
+            <f:validator binding="#{bindings.Screen8.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Screen9.hints.label}" id="plam9">
+          <af:selectOneChoice value="#{bindings.Screen9.inputValue}" label="#{bindings.Screen9.label}"
+                              required="#{bindings.Screen9.hints.mandatory}"
+                              shortDesc="#{bindings.Screen9.hints.tooltip}" id="soc3" simple="true" autoSubmit="true">
+            <f:selectItems value="#{bindings.Screen9.items}" id="si3"/>
+            <f:validator binding="#{bindings.Screen9.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Screen10.hints.label}" id="plam10">
+          <af:selectOneChoice value="#{bindings.Screen10.inputValue}" label="#{bindings.Screen10.label}"
+                              required="#{bindings.Screen10.hints.mandatory}"
+                              shortDesc="#{bindings.Screen10.hints.tooltip}" id="soc10" simple="true" autoSubmit="true">
+            <f:selectItems value="#{bindings.Screen10.items}" id="si2"/>
+            <f:validator binding="#{bindings.Screen10.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Screen11.hints.label}" id="plam11">
+          <af:selectOneChoice value="#{bindings.Screen11.inputValue}" label="#{bindings.Screen11.label}"
+                              required="#{bindings.Screen11.hints.mandatory}"
+                              shortDesc="#{bindings.Screen11.hints.tooltip}" id="soc11" simple="true" autoSubmit="true">
+            <f:selectItems value="#{bindings.Screen11.items}" id="si4"/>
+            <f:validator binding="#{bindings.Screen11.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Screen12.hints.label}" id="plam12">
+          <af:selectOneChoice value="#{bindings.Screen12.inputValue}" label="#{bindings.Screen12.label}"
+                              required="#{bindings.Screen12.hints.mandatory}"
+                              shortDesc="#{bindings.Screen12.hints.tooltip}" id="soc14" simple="true" autoSubmit="true">
+            <f:selectItems value="#{bindings.Screen12.items}" id="si12"/>
+            <f:validator binding="#{bindings.Screen12.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Screen13.hints.label}" id="plam13">
+          <af:selectOneChoice value="#{bindings.Screen13.inputValue}" label="#{bindings.Screen13.label}"
+                              required="#{bindings.Screen13.hints.mandatory}"
+                              shortDesc="#{bindings.Screen13.hints.tooltip}" id="soc4" simple="true" autoSubmit="true">
+            <f:selectItems value="#{bindings.Screen13.items}" id="si5"/>
+            <f:validator binding="#{bindings.Screen13.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Screen14.hints.label}" id="plam14">
+          <af:selectOneChoice value="#{bindings.Screen14.inputValue}" label="#{bindings.Screen14.label}"
+                              required="#{bindings.Screen14.hints.mandatory}"
+                              shortDesc="#{bindings.Screen14.hints.tooltip}" id="soc12" simple="true" autoSubmit="true">
+            <f:selectItems value="#{bindings.Screen14.items}" id="si10"/>
+            <f:validator binding="#{bindings.Screen14.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Screen15.hints.label}" id="plam15">
+          <af:selectOneChoice value="#{bindings.Screen15.inputValue}" label="#{bindings.Screen15.label}"
+                              required="#{bindings.Screen15.hints.mandatory}"
+                              shortDesc="#{bindings.Screen15.hints.tooltip}" id="soc1" simple="true" autoSubmit="true">
+            <f:selectItems value="#{bindings.Screen15.items}" id="si15"/>
+            <f:validator binding="#{bindings.Screen15.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Screen16.label}" id="plam16">
+          <af:selectOneChoice value="#{bindings.Screen16.inputValue}" label="#{bindings.Screen16.label}"
+                              required="#{bindings.Screen16.hints.mandatory}"
+                              shortDesc="#{bindings.Screen16.hints.tooltip}" id="soc20" simple="true" autoSubmit="true">
+            <f:selectItems value="#{bindings.Screen16.items}" id="si22"/>
+            <f:validator binding="#{bindings.Screen16.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Screen17.label}" id="plam17">
+          <af:selectOneChoice value="#{bindings.Screen17.inputValue}" label="#{bindings.Screen17.label}"
+                              required="#{bindings.Screen17.hints.mandatory}"
+                              shortDesc="#{bindings.Screen17.hints.tooltip}" id="soc23" simple="true" autoSubmit="true">
+            <f:selectItems value="#{bindings.Screen17.items}" id="si17"/>
+            <f:validator binding="#{bindings.Screen17.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Screen18.label}" id="plam18">
+          <af:selectOneChoice value="#{bindings.Screen18.inputValue}" label="#{bindings.Screen18.label}"
+                              required="#{bindings.Screen18.hints.mandatory}"
+                              shortDesc="#{bindings.Screen18.hints.tooltip}" id="soc18" simple="true" autoSubmit="true">
+            <f:selectItems value="#{bindings.Screen18.items}" id="si21"/>
+            <f:validator binding="#{bindings.Screen18.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Screen19.label}" id="plam19">
+          <af:selectOneChoice value="#{bindings.Screen19.inputValue}" label="#{bindings.Screen19.label}"
+                              required="#{bindings.Screen19.hints.mandatory}"
+                              shortDesc="#{bindings.Screen19.hints.tooltip}" id="soc19" simple="true" autoSubmit="true">
+            <f:selectItems value="#{bindings.Screen19.items}" id="si16"/>
+            <f:validator binding="#{bindings.Screen19.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Screen20.label}" id="plam20">
+          <af:selectOneChoice value="#{bindings.Screen20.inputValue}" label="#{bindings.Screen20.label}"
+                              required="#{bindings.Screen20.hints.mandatory}"
+                              shortDesc="#{bindings.Screen20.hints.tooltip}" id="soc21" simple="true" autoSubmit="true">
+            <f:selectItems value="#{bindings.Screen20.items}" id="si24"/>
+            <f:validator binding="#{bindings.Screen20.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Screen21.label}" id="plam21">
+          <af:selectOneChoice value="#{bindings.Screen21.inputValue}" label="#{bindings.Screen21.label}"
+                              required="#{bindings.Screen21.hints.mandatory}"
+                              shortDesc="#{bindings.Screen21.hints.tooltip}" id="soc22" simple="true" autoSubmit="true">
+            <f:selectItems value="#{bindings.Screen21.items}" id="si20"/>
+            <f:validator binding="#{bindings.Screen21.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Screen22.label}" id="plam22">
+          <af:selectOneChoice value="#{bindings.Screen22.inputValue}" label="#{bindings.Screen22.label}"
+                              required="#{bindings.Screen22.hints.mandatory}"
+                              shortDesc="#{bindings.Screen22.hints.tooltip}" id="soc17" simple="true" autoSubmit="true">
+            <f:selectItems value="#{bindings.Screen22.items}" id="si19"/>
+            <f:validator binding="#{bindings.Screen22.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Screen23.label}" id="plam23">
+          <af:selectOneChoice value="#{bindings.Screen23.inputValue}" label="#{bindings.Screen23.label}"
+                              required="#{bindings.Screen23.hints.mandatory}"
+                              shortDesc="#{bindings.Screen23.hints.tooltip}" id="soc16" simple="true" autoSubmit="true">
+            <f:selectItems value="#{bindings.Screen23.items}" id="si18"/>
+            <f:validator binding="#{bindings.Screen23.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Screen24.label}" id="plam24">
+          <af:selectOneChoice value="#{bindings.Screen24.inputValue}" label="#{bindings.Screen24.label}"
+                              required="#{bindings.Screen24.hints.mandatory}"
+                              shortDesc="#{bindings.Screen24.hints.tooltip}" id="soc24" simple="true" autoSubmit="true">
+            <f:selectItems value="#{bindings.Screen24.items}" id="si23"/>
+            <f:validator binding="#{bindings.Screen24.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
+      </af:panelFormLayout>
+      <f:facet name="context">
+        <af:group id="g3">
+          <af:button actionListener="#{bindings.CreateInsert1.execute}" text="Create" id="b5"
+                     disabled="#{bindings.XpeDccCfgRolesEOVOIterator.estimatedRowCount!=0 &amp;&amp; bindings.XpeDccCfgRoleSecurityEOVOIterator.estimatedRowCount&lt;1}"
+                     partialTriggers="b1 b2 b3"/>
+          <af:button actionListener="#{bindings.Delete1.execute}" text="Delete" id="b6"/>
+        </af:group>
+      </f:facet>
+    </af:panelHeader>
+  </af:panelGroupLayout>
+</ui:composition>
