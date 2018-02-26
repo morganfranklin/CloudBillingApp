@@ -10,15 +10,18 @@
                         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
                             <af:gridCell marginStart="5px" width="155px" id="gc3">
                                 <af:button text="Launch Execution Plan" id="b14"
-                                           action="#{PlanLauncher.launchPlanInstance}"/>
+                                           action="#{PlanLauncher.launchPlanInstance}"
+                                           rendered="#{bindings.ExecutionPlans.inputValue ne 'V'}"/>
                                 <af:selectBooleanCheckbox text="Test Run" id="sbc1"
                                                           value="#{PlanLauncher.selectedTestRun}"/>
                             </af:gridCell>
                             <af:gridCell marginStart="5px" width="250px" id="gc8">
-                                <af:inputDate label="From Date" id="id1" value="#{PlanLauncher.selectedFromDate}"/>
+                                <af:inputDate label="From Date" id="id1" value="#{PlanLauncher.selectedFromDate}"
+                                              readOnly="#{bindings.ExecutionPlans.inputValue eq 'V'}"/>
                             </af:gridCell>
                             <af:gridCell marginStart="5px" width="240px" marginEnd="5px" id="gc9">
-                                <af:inputDate label="To Date" id="id2" value="#{PlanLauncher.selectedToDate}"/>
+                                <af:inputDate label="To Date" id="id2" value="#{PlanLauncher.selectedToDate}"
+                                              readOnly="#{bindings.ExecutionPlans.inputValue eq 'V'}"/>
                             </af:gridCell>
                             <af:gridCell id="gc6" width="auto"/>
                         </af:gridRow>
@@ -49,7 +52,7 @@
                                           columns="#{bindings.PsCisXpeExecplnView1.hints.CisExecPlanCode.displayWidth}"
                                           maximumLength="#{bindings.PsCisXpeExecplnView1.hints.CisExecPlanCode.precision}"
                                           shortDesc="#{bindings.PsCisXpeExecplnView1.hints.CisExecPlanCode.tooltip}"
-                                          id="it1">
+                                          id="it1" readOnly="#{bindings.ExecutionPlans.inputValue eq 'V'}">
                                 <f:validator binding="#{row.bindings.CisExecPlanCode.validator}"/>
                             </af:inputText>
                         </af:column>
@@ -60,7 +63,8 @@
                                           required="#{bindings.PsCisXpeExecplnView1.hints.Descr100.mandatory}"
                                           columns="#{bindings.PsCisXpeExecplnView1.hints.Descr100.displayWidth}"
                                           maximumLength="#{bindings.PsCisXpeExecplnView1.hints.Descr100.precision}"
-                                          shortDesc="#{bindings.PsCisXpeExecplnView1.hints.Descr100.tooltip}" id="it3">
+                                          shortDesc="#{bindings.PsCisXpeExecplnView1.hints.Descr100.tooltip}" id="it3"
+                                          readOnly="#{bindings.ExecutionPlans.inputValue eq 'V'}">
                                 <f:validator binding="#{row.bindings.Descr100.validator}"/>
                             </af:inputText>
                         </af:column>
@@ -71,7 +75,8 @@
                                           required="#{bindings.PsCisXpeExecplnView1.hints.SeqNbr.mandatory}"
                                           columns="#{bindings.PsCisXpeExecplnView1.hints.SeqNbr.displayWidth}"
                                           maximumLength="#{bindings.PsCisXpeExecplnView1.hints.SeqNbr.precision}"
-                                          shortDesc="#{bindings.PsCisXpeExecplnView1.hints.SeqNbr.tooltip}" id="it4">
+                                          shortDesc="#{bindings.PsCisXpeExecplnView1.hints.SeqNbr.tooltip}" id="it4"
+                                          readOnly="#{bindings.ExecutionPlans.inputValue eq 'V'}">
                                 <f:validator binding="#{row.bindings.SeqNbr.validator}"/>
                                 <af:convertNumber groupingUsed="false"
                                                   pattern="#{bindings.PsCisXpeExecplnView1.hints.SeqNbr.format}"/>
@@ -80,15 +85,19 @@
                         <f:facet name="footer"/>
                     </af:table>
                     <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
-                               disabled="#{!bindings.Commit.enabled}" id="b6"/>
+                               disabled="#{!bindings.Commit.enabled}" id="b6"
+                               rendered="#{bindings.ExecutionPlans.inputValue ne 'V'}"/>
                     <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
-                               disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b7">
+                               disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b7"
+                               rendered="#{bindings.ExecutionPlans.inputValue ne 'V'}">
                         <af:resetActionListener/>
                     </af:button>
                     <af:button actionListener="#{bindings.CreateInsert.execute}" text="Insert"
-                               disabled="#{!bindings.CreateInsert.enabled}" id="b2"/>
+                               disabled="#{!bindings.CreateInsert.enabled}" id="b2"
+                               rendered="#{bindings.ExecutionPlans.inputValue ne 'V'}"/>
                     <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
-                               disabled="#{!bindings.Delete.enabled}" id="b3"/>
+                               disabled="#{!bindings.Delete.enabled}" id="b3"
+                               rendered="#{bindings.ExecutionPlans.inputValue ne 'V'}"/>
                     <af:button actionListener="#{bindings.First.execute}" text="First"
                                disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b4"/>
                     <af:button actionListener="#{bindings.Last.execute}" text="Last"
@@ -119,7 +128,7 @@
                                           columns="#{bindings.PsCisXpeExecstpView2.hints.CisExecPlanStep.displayWidth}"
                                           maximumLength="#{bindings.PsCisXpeExecstpView2.hints.CisExecPlanStep.precision}"
                                           shortDesc="#{bindings.PsCisXpeExecstpView2.hints.CisExecPlanStep.tooltip}"
-                                          id="it5">
+                                          id="it5" readOnly="#{bindings.ExecutionPlans.inputValue eq 'V'}">
                                 <f:validator binding="#{row.bindings.CisExecPlanStep.validator}"/>
                             </af:inputText>
                         </af:column>
@@ -131,7 +140,7 @@
                                           columns="#{bindings.PsCisXpeExecstpView2.hints.CisExecutionSeq.displayWidth}"
                                           maximumLength="#{bindings.PsCisXpeExecstpView2.hints.CisExecutionSeq.precision}"
                                           shortDesc="#{bindings.PsCisXpeExecstpView2.hints.CisExecutionSeq.tooltip}"
-                                          id="it6">
+                                          id="it6" readOnly="#{bindings.ExecutionPlans.inputValue eq 'V'}">
                                 <f:validator binding="#{row.bindings.CisExecutionSeq.validator}"/>
                                 <af:convertNumber groupingUsed="false"
                                                   pattern="#{bindings.PsCisXpeExecstpView2.hints.CisExecutionSeq.format}"/>
@@ -143,7 +152,7 @@
                                                 label="#{row.bindings.CisRuleSetCode.label}"
                                                 required="#{bindings.PsCisXpeExecstpView2.hints.CisRuleSetCode.mandatory}"
                                                 shortDesc="#{bindings.PsCisXpeExecstpView2.hints.CisRuleSetCode.tooltip}"
-                                                id="soc1">
+                                                id="soc1" readOnly="#{bindings.ExecutionPlans.inputValue eq 'V'}">
                                 <f:selectItems value="#{row.bindings.CisRuleSetCode.items}" id="si1"/>
                                 <f:validator binding="#{row.bindings.CisRuleSetCode.validator}"/>
                             </af:selectOneChoice>
@@ -155,21 +164,26 @@
                                           required="#{bindings.PsCisXpeExecstpView2.hints.Descr100.mandatory}"
                                           columns="#{bindings.PsCisXpeExecstpView2.hints.Descr100.displayWidth}"
                                           maximumLength="#{bindings.PsCisXpeExecstpView2.hints.Descr100.precision}"
-                                          shortDesc="#{bindings.PsCisXpeExecstpView2.hints.Descr100.tooltip}" id="it7">
+                                          shortDesc="#{bindings.PsCisXpeExecstpView2.hints.Descr100.tooltip}" id="it7"
+                                          readOnly="#{bindings.ExecutionPlans.inputValue eq 'V'}">
                                 <f:validator binding="#{row.bindings.Descr100.validator}"/>
                             </af:inputText>
                         </af:column>
                     </af:table>
                     <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
-                               disabled="#{!bindings.Commit.enabled}" id="b8"/>
+                               disabled="#{!bindings.Commit.enabled}" id="b8"
+                               rendered="#{bindings.ExecutionPlans.inputValue ne 'V'}"/>
                     <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
-                               disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b9">
+                               disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b9"
+                               rendered="#{bindings.ExecutionPlans.inputValue ne 'V'}">
                         <af:resetActionListener/>
                     </af:button>
                     <af:button actionListener="#{bindings.CreateInsert.execute}" text="Insert"
-                               disabled="#{!bindings.CreateInsert.enabled}" id="b10"/>
+                               disabled="#{!bindings.CreateInsert.enabled}" id="b10"
+                               rendered="#{bindings.ExecutionPlans.inputValue ne 'V'}"/>
                     <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
-                               disabled="#{!bindings.Delete.enabled}" id="b11"/>
+                               disabled="#{!bindings.Delete.enabled}" id="b11"
+                               rendered="#{bindings.ExecutionPlans.inputValue ne 'V'}"/>
                     <af:button actionListener="#{bindings.First.execute}" text="First"
                                disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b12"/>
                     <af:button actionListener="#{bindings.Last.execute}" text="Last"

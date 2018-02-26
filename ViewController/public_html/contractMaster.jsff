@@ -140,7 +140,7 @@
                                                   columns="#{bindings.CovContractLinesView2.hints.ContractLine.displayWidth}"
                                                   maximumLength="#{bindings.CovContractLinesView2.hints.ContractLine.precision}"
                                                   shortDesc="#{bindings.CovContractLinesView2.hints.ContractLine.tooltip}"
-                                                  id="it1">
+                                                  id="it1" readOnly="#{bindings.ContractMaster.inputValue eq 'V'}">
                                         <f:validator binding="#{row.bindings.ContractLine.validator}"/>
                                     </af:inputText>
                                 </af:column>
@@ -153,7 +153,7 @@
                                                   columns="#{bindings.CovContractLinesView2.hints.PoNumber.displayWidth}"
                                                   maximumLength="#{bindings.CovContractLinesView2.hints.PoNumber.precision}"
                                                   shortDesc="#{bindings.CovContractLinesView2.hints.PoNumber.tooltip}"
-                                                  id="it2">
+                                                  id="it2" readOnly="#{bindings.ContractMaster.inputValue eq 'V'}">
                                         <f:validator binding="#{row.bindings.PoNumber.validator}"/>
                                     </af:inputText>
                                 </af:column>
@@ -167,7 +167,7 @@
                                                   columns="#{bindings.CovContractLinesView2.hints.ApprovalNumber.displayWidth}"
                                                   maximumLength="#{bindings.CovContractLinesView2.hints.ApprovalNumber.precision}"
                                                   shortDesc="#{bindings.CovContractLinesView2.hints.ApprovalNumber.tooltip}"
-                                                  id="it3">
+                                                  id="it3" readOnly="#{bindings.ContractMaster.inputValue eq 'V'}">
                                         <f:validator binding="#{row.bindings.ApprovalNumber.validator}"/>
                                     </af:inputText>
                                 </af:column>
@@ -179,7 +179,8 @@
                                                         label="#{row.bindings.Destination.label}"
                                                         required="#{bindings.CovContractLinesView2.hints.Destination.mandatory}"
                                                         shortDesc="#{bindings.CovContractLinesView2.hints.Destination.tooltip}"
-                                                        id="soc1">
+                                                        id="soc1"
+                                                        readOnly="#{bindings.ContractMaster.inputValue eq 'V'}">
                                         <f:selectItems value="#{row.bindings.Destination.items}" id="si1"/>
                                         <f:validator binding="#{row.bindings.Destination.validator}"/>
                                     </af:selectOneChoice>
@@ -194,7 +195,8 @@
                                                           model="#{row.bindings.WasteLaborCategory.listOfValuesModel}"
                                                           required="#{bindings.CovContractLinesView2.hints.WasteLaborCategory.mandatory}"
                                                           columns="#{bindings.CovContractLinesView2.hints.WasteLaborCategory.displayWidth}"
-                                                          shortDesc="#{bindings.CovContractLinesView2.hints.WasteLaborCategory.tooltip}">
+                                                          shortDesc="#{bindings.CovContractLinesView2.hints.WasteLaborCategory.tooltip}"
+                                                          readOnly="#{bindings.ContractMaster.inputValue eq 'V'}">
                                         <f:validator binding="#{row.bindings.WasteLaborCategory.validator}"/>
                                     </af:inputListOfValues>
                                 </af:column>
@@ -207,7 +209,8 @@
                                                           model="#{row.bindings.Material.listOfValuesModel}"
                                                           required="#{bindings.CovContractLinesView2.hints.Material.mandatory}"
                                                           columns="#{bindings.CovContractLinesView2.hints.Material.displayWidth}"
-                                                          shortDesc="#{bindings.CovContractLinesView2.hints.Material.tooltip}">
+                                                          shortDesc="#{bindings.CovContractLinesView2.hints.Material.tooltip}"
+                                                          readOnly="#{bindings.ContractMaster.inputValue eq 'V'}">
                                         <f:validator binding="#{row.bindings.Material.validator}"/>
                                     </af:inputListOfValues>
                                 </af:column>
@@ -220,7 +223,8 @@
                                                           model="#{row.bindings.Carrier.listOfValuesModel}"
                                                           required="#{bindings.CovContractLinesView2.hints.Carrier.mandatory}"
                                                           columns="#{bindings.CovContractLinesView2.hints.Carrier.displayWidth}"
-                                                          shortDesc="#{bindings.CovContractLinesView2.hints.Carrier.tooltip}">
+                                                          shortDesc="#{bindings.CovContractLinesView2.hints.Carrier.tooltip}"
+                                                          readOnly="#{bindings.ContractMaster.inputValue eq 'V'}">
                                         <f:validator binding="#{row.bindings.Carrier.validator}"/>
                                     </af:inputListOfValues>
                                 </af:column>
@@ -232,7 +236,8 @@
                                                         label="#{row.bindings.VehicleType.label}"
                                                         required="#{bindings.CovContractLinesView2.hints.VehicleType.mandatory}"
                                                         shortDesc="#{bindings.CovContractLinesView2.hints.VehicleType.tooltip}"
-                                                        id="soc2">
+                                                        id="soc2"
+                                                        readOnly="#{bindings.ContractMaster.inputValue eq 'V'}">
                                         <f:selectItems value="#{row.bindings.VehicleType.items}" id="si2"/>
                                         <f:validator binding="#{row.bindings.VehicleType.validator}"/>
                                     </af:selectOneChoice>
@@ -391,7 +396,7 @@
                                                   columns="#{bindings.CovContractDetailsView2.hints.SeqNum.displayWidth}"
                                                   maximumLength="#{bindings.CovContractDetailsView2.hints.SeqNum.precision}"
                                                   shortDesc="#{bindings.CovContractDetailsView2.hints.SeqNum.tooltip}"
-                                                  id="it4">
+                                                  id="it4" readOnly="#{bindings.ContractMaster.inputValue eq 'V'}">
                                         <f:validator binding="#{row.bindings.SeqNum.validator}"/>
                                         <af:convertNumber groupingUsed="false"
                                                           pattern="#{bindings.CovContractDetailsView2.hints.SeqNum.format}"/>
@@ -403,7 +408,8 @@
                                                         label="#{row.bindings.Selection.label}"
                                                         required="#{bindings.CovContractDetailsView2.hints.Selection.mandatory}"
                                                         shortDesc="#{bindings.CovContractDetailsView2.hints.Selection.tooltip}"
-                                                        id="soc3">
+                                                        id="soc3"
+                                                        readOnly="#{bindings.ContractMaster.inputValue eq 'V'}">
                                         <f:selectItems value="#{row.bindings.Selection.items}" id="si3"/>
                                         <f:validator binding="#{row.bindings.Selection.validator}"/>
                                     </af:selectOneChoice>
@@ -416,7 +422,7 @@
                                                   columns="#{bindings.CovContractDetailsView2.hints.Char1.displayWidth}"
                                                   maximumLength="#{bindings.CovContractDetailsView2.hints.Char1.precision}"
                                                   shortDesc="#{bindings.CovContractDetailsView2.hints.Char1.tooltip}"
-                                                  id="it5">
+                                                  id="it5" readOnly="#{bindings.ContractMaster.inputValue eq 'V'}">
                                         <f:validator binding="#{row.bindings.Char1.validator}"/>
                                     </af:inputText>
                                 </af:column>
@@ -427,7 +433,7 @@
                                                   required="#{bindings.CovContractDetailsView2.hints.Effdt1.mandatory}"
                                                   columns="#{bindings.CovContractDetailsView2.hints.Effdt1.displayWidth}"
                                                   shortDesc="#{bindings.CovContractDetailsView2.hints.Effdt1.tooltip}"
-                                                  id="id3">
+                                                  id="id3" readOnly="#{bindings.ContractMaster.inputValue eq 'V'}">
                                         <f:validator binding="#{row.bindings.Effdt1.validator}"/>
                                         <af:convertDateTime pattern="#{bindings.CovContractDetailsView2.hints.Effdt1.format}"/>
                                     </af:inputDate>
@@ -439,7 +445,7 @@
                                                   required="#{bindings.CovContractDetailsView2.hints.Effdt2.mandatory}"
                                                   columns="#{bindings.CovContractDetailsView2.hints.Effdt2.displayWidth}"
                                                   shortDesc="#{bindings.CovContractDetailsView2.hints.Effdt2.tooltip}"
-                                                  id="id4">
+                                                  id="id4" readOnly="#{bindings.ContractMaster.inputValue eq 'V'}">
                                         <f:validator binding="#{row.bindings.Effdt2.validator}"/>
                                         <af:convertDateTime pattern="#{bindings.CovContractDetailsView2.hints.Effdt2.format}"/>
                                     </af:inputDate>
@@ -452,7 +458,7 @@
                                                   columns="#{bindings.CovContractDetailsView2.hints.Number1.displayWidth}"
                                                   maximumLength="#{bindings.CovContractDetailsView2.hints.Number1.precision}"
                                                   shortDesc="#{bindings.CovContractDetailsView2.hints.Number1.tooltip}"
-                                                  id="it6">
+                                                  id="it6" readOnly="#{bindings.ContractMaster.inputValue eq 'V'}">
                                         <f:validator binding="#{row.bindings.Number1.validator}"/>
                                         <af:convertNumber groupingUsed="false"
                                                           pattern="#{bindings.CovContractDetailsView2.hints.Number1.format}"/>
@@ -466,7 +472,7 @@
                                                   columns="#{bindings.CovContractDetailsView2.hints.Number2.displayWidth}"
                                                   maximumLength="#{bindings.CovContractDetailsView2.hints.Number2.precision}"
                                                   shortDesc="#{bindings.CovContractDetailsView2.hints.Number2.tooltip}"
-                                                  id="it7">
+                                                  id="it7" readOnly="#{bindings.ContractMaster.inputValue eq 'V'}">
                                         <f:validator binding="#{row.bindings.Number2.validator}"/>
                                         <af:convertNumber groupingUsed="false"
                                                           pattern="#{bindings.CovContractDetailsView2.hints.Number2.format}"/>
@@ -480,7 +486,7 @@
                                                   columns="#{bindings.CovContractDetailsView2.hints.Number3.displayWidth}"
                                                   maximumLength="#{bindings.CovContractDetailsView2.hints.Number3.precision}"
                                                   shortDesc="#{bindings.CovContractDetailsView2.hints.Number3.tooltip}"
-                                                  id="it8">
+                                                  id="it8" readOnly="#{bindings.ContractMaster.inputValue eq 'V'}">
                                         <f:validator binding="#{row.bindings.Number3.validator}"/>
                                         <af:convertNumber groupingUsed="false"
                                                           pattern="#{bindings.CovContractDetailsView2.hints.Number3.format}"/>

@@ -24,6 +24,8 @@
                   id="PsCisXpeMappingView1Iterator"/>
         <searchRegion Binds="PsCisXpeMappingView1Iterator" Criteria=""
                       Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="PsCisXpeMappingView1Query"/>
+        <iterator Binds="XpeDccCfgRoleSecurityEOVO" RangeSize="10" DataControl="AppModuleDataControl"
+                  id="XpeDccCfgRoleSecurityEOVOIterator"/>
     </executables>
     <bindings>
         <attributeValues IterBinding="PsCisXpeRuleView2Iterator" id="CisRuleSetCode">
@@ -252,5 +254,10 @@
         <action IterBinding="PsCisXpeMapDtlView2Iterator" id="Next1" RequiresUpdateModel="true" Action="next"/>
         <action IterBinding="PsCisXpeMappingView1Iterator" id="First4" RequiresUpdateModel="true" Action="first"/>
         <action IterBinding="PsCisXpeMappingView1Iterator" id="Last4" RequiresUpdateModel="true" Action="last"/>
+        <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="RulesandRulesets">
+            <AttrNames>
+                <Item Value="Screen7"/>
+            </AttrNames>
+        </attributeValues>
     </bindings>
 </pageDefinition>

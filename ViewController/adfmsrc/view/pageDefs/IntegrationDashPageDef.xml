@@ -6,6 +6,8 @@
         <variableIterator id="variables"/>
         <taskFlow id="dynamicRegion1" taskFlowId="${viewScope.integrationDashboardRegionName.dynamicTaskFlowId}"
                   activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+        <iterator Binds="XpeDccCfgRoleSecurityEOVO" RangeSize="10" DataControl="AppModuleDataControl"
+                  id="XpeDccCfgRoleSecurityEOVOIterator"/>
     </executables>
     <bindings>
         <methodAction id="checkRoles" RequiresUpdateModel="true" Action="invokeMethod" MethodName="checkRoles"
@@ -13,8 +15,129 @@
                       InstanceName="data.AppModuleDataControl.dataProvider"
                       ReturnName="data.AppModuleDataControl.methodResults.checkRoles_AppModuleDataControl_dataProvider_checkRoles_result">
             <NamedData NDName="givenUser" NDType="java.lang.String"/>
+            <NamedData NDName="userRole" NDType="java.lang.String"/>
         </methodAction>
         <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false"
                 Action="rollbackTransaction"/>
+        <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="RawUsageDataDisplay">
+            <AttrNames>
+                <Item Value="Screen1"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="MatchingandPricingErrors">
+            <AttrNames>
+                <Item Value="Screen2"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="LookupSets">
+            <AttrNames>
+                <Item Value="Screen10"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="ProcessedTicketsReview">
+            <AttrNames>
+                <Item Value="Screen11"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="ChangesLog">
+            <AttrNames>
+                <Item Value="Screen12"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="ContractManagement">
+            <AttrNames>
+                <Item Value="Screen13"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="NewContract">
+            <AttrNames>
+                <Item Value="Screen14"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="AmendmentandRenewal">
+            <AttrNames>
+                <Item Value="Screen15"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="TermsMaster">
+            <AttrNames>
+                <Item Value="Screen16"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="SetUpTables">
+            <AttrNames>
+                <Item Value="Screen17"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="BlueLightSpecials">
+            <AttrNames>
+                <Item Value="Screen18"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="BillingandAccounting">
+            <AttrNames>
+                <Item Value="Screen19"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="Accruals">
+            <AttrNames>
+                <Item Value="Screen20"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="ContractExpirationReport">
+            <AttrNames>
+                <Item Value="Screen21"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="AdministratorHome">
+            <AttrNames>
+                <Item Value="Screen22"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="IntegrationLog">
+            <AttrNames>
+                <Item Value="Screen23"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="CalculationLog">
+            <AttrNames>
+                <Item Value="Screen24"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="ContractsandTransactions">
+            <AttrNames>
+                <Item Value="Screen3"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="WebServicesDefinition">
+            <AttrNames>
+                <Item Value="Screen4"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="ContractMaster">
+            <AttrNames>
+                <Item Value="Screen5"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="EnterpriseContracts">
+            <AttrNames>
+                <Item Value="Screen6"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="RulesandRulesets">
+            <AttrNames>
+                <Item Value="Screen7"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="CrossReferenceData">
+            <AttrNames>
+                <Item Value="Screen8"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="ExecutionPlans">
+            <AttrNames>
+                <Item Value="Screen9"/>
+            </AttrNames>
+        </attributeValues>
     </bindings>
 </pageDefinition>

@@ -24,7 +24,7 @@
                                           columns="#{bindings.PsCisXpeRulesetView1.hints.CisRuleSetCode.displayWidth}"
                                           maximumLength="#{bindings.PsCisXpeRulesetView1.hints.CisRuleSetCode.precision}"
                                           shortDesc="#{bindings.PsCisXpeRulesetView1.hints.CisRuleSetCode.tooltip}"
-                                          id="it1">
+                                          id="it1" readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                 <f:validator binding="#{row.bindings.CisRuleSetCode.validator}"/>
                             </af:inputText>
                         </af:column>
@@ -37,7 +37,7 @@
                                           columns="#{bindings.PsCisXpeRulesetView1.hints.CisRuleSetDescr.displayWidth}"
                                           maximumLength="#{bindings.PsCisXpeRulesetView1.hints.CisRuleSetDescr.precision}"
                                           shortDesc="#{bindings.PsCisXpeRulesetView1.hints.CisRuleSetDescr.tooltip}"
-                                          id="it2">
+                                          id="it2" readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                 <f:validator binding="#{row.bindings.CisRuleSetDescr.validator}"/>
                             </af:inputText>
                         </af:column>
@@ -47,22 +47,26 @@
                                                 label="#{row.bindings.ActiveFlag.label}"
                                                 required="#{bindings.PsCisXpeRulesetView1.hints.ActiveFlag.mandatory}"
                                                 shortDesc="#{bindings.PsCisXpeRulesetView1.hints.ActiveFlag.tooltip}"
-                                                id="soc1">
+                                                id="soc1" readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                 <f:selectItems value="#{row.bindings.ActiveFlag.items}" id="si1"/>
                                 <f:validator binding="#{row.bindings.ActiveFlag.validator}"/>
                             </af:selectOneChoice>
                         </af:column>
                     </af:table>
                     <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
-                               disabled="#{!bindings.Commit.enabled}" id="b1"/>
+                               disabled="#{!bindings.Commit.enabled}" id="b1"
+                               rendered="#{bindings.RulesandRulesets.inputValue ne 'V'}"/>
                     <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
-                               disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b8">
+                               disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b8"
+                               rendered="#{bindings.RulesandRulesets.inputValue ne 'V'}">
                         <af:resetActionListener/>
                     </af:button>
                     <af:button actionListener="#{bindings.CreateInsert.execute}" text="Insert"
-                               disabled="#{!bindings.CreateInsert.enabled}" id="b9"/>
+                               disabled="#{!bindings.CreateInsert.enabled}" id="b9"
+                               rendered="#{bindings.RulesandRulesets.inputValue ne 'V'}"/>
                     <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
-                               disabled="#{!bindings.Delete.enabled}" id="b10"/>
+                               disabled="#{!bindings.Delete.enabled}" id="b10"
+                               rendered="#{bindings.RulesandRulesets.inputValue ne 'V'}"/>
                     <af:button actionListener="#{bindings.First1.execute}" text="First"
                                disabled="#{!bindings.First1.enabled}" partialSubmit="true" id="b11"/>
                     <af:button actionListener="#{bindings.Last1.execute}" text="Last"
@@ -91,7 +95,8 @@
                                           required="#{bindings.PsCisXpeRuleView2.hints.CisRuleCode.mandatory}"
                                           columns="#{bindings.PsCisXpeRuleView2.hints.CisRuleCode.displayWidth}"
                                           maximumLength="#{bindings.PsCisXpeRuleView2.hints.CisRuleCode.precision}"
-                                          shortDesc="#{bindings.PsCisXpeRuleView2.hints.CisRuleCode.tooltip}" id="it3">
+                                          shortDesc="#{bindings.PsCisXpeRuleView2.hints.CisRuleCode.tooltip}" id="it3"
+                                          readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                 <f:validator binding="#{row.bindings.CisRuleCode.validator}"/>
                             </af:inputText>
                         </af:column>
@@ -102,7 +107,8 @@
                                           required="#{bindings.PsCisXpeRuleView2.hints.SeqNbr.mandatory}"
                                           columns="#{bindings.PsCisXpeRuleView2.hints.SeqNbr.displayWidth}"
                                           maximumLength="#{bindings.PsCisXpeRuleView2.hints.SeqNbr.precision}"
-                                          shortDesc="#{bindings.PsCisXpeRuleView2.hints.SeqNbr.tooltip}" id="it4">
+                                          shortDesc="#{bindings.PsCisXpeRuleView2.hints.SeqNbr.tooltip}" id="it4"
+                                          readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                 <f:validator binding="#{row.bindings.SeqNbr.validator}"/>
                                 <af:convertNumber groupingUsed="false"
                                                   pattern="#{bindings.PsCisXpeRuleView2.hints.SeqNbr.format}"/>
@@ -115,7 +121,8 @@
                                           required="#{bindings.PsCisXpeRuleView2.hints.CisRuleName.mandatory}"
                                           columns="#{bindings.PsCisXpeRuleView2.hints.CisRuleName.displayWidth}"
                                           maximumLength="#{bindings.PsCisXpeRuleView2.hints.CisRuleName.precision}"
-                                          shortDesc="#{bindings.PsCisXpeRuleView2.hints.CisRuleName.tooltip}" id="it5">
+                                          shortDesc="#{bindings.PsCisXpeRuleView2.hints.CisRuleName.tooltip}" id="it5"
+                                          readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                 <f:validator binding="#{row.bindings.CisRuleName.validator}"/>
                             </af:inputText>
                         </af:column>
@@ -125,22 +132,26 @@
                                                 label="#{row.bindings.CisConditionCode.label}"
                                                 required="#{bindings.PsCisXpeRuleView2.hints.CisConditionCode.mandatory}"
                                                 shortDesc="#{bindings.PsCisXpeRuleView2.hints.CisConditionCode.tooltip}"
-                                                id="soc2">
+                                                id="soc2" readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                 <f:selectItems value="#{row.bindings.CisConditionCode.items}" id="si2"/>
                                 <f:validator binding="#{row.bindings.CisConditionCode.validator}"/>
                             </af:selectOneChoice>
                         </af:column>
                     </af:table>
                     <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
-                               disabled="#{!bindings.Commit.enabled}" id="b2"/>
+                               disabled="#{!bindings.Commit.enabled}" id="b2"
+                               rendered="#{bindings.RulesandRulesets.inputValue ne 'V'}"/>
                     <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
-                               disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b3">
+                               disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b3"
+                               rendered="#{bindings.RulesandRulesets.inputValue ne 'V'}">
                         <af:resetActionListener/>
                     </af:button>
                     <af:button actionListener="#{bindings.CreateInsert1.execute}" text="Insert"
-                               disabled="#{!bindings.CreateInsert1.enabled}" id="b4"/>
+                               disabled="#{!bindings.CreateInsert1.enabled}" id="b4"
+                               rendered="#{bindings.RulesandRulesets.inputValue ne 'V'}"/>
                     <af:button actionListener="#{bindings.Delete1.execute}" text="Delete"
-                               disabled="#{!bindings.Delete1.enabled}" id="b5"/>
+                               disabled="#{!bindings.Delete1.enabled}" id="b5"
+                               rendered="#{bindings.RulesandRulesets.inputValue ne 'V'}"/>
                     <af:button actionListener="#{bindings.First.execute}" text="First"
                                disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b6"/>
                     <af:button actionListener="#{bindings.Last.execute}" text="Last"
@@ -179,7 +190,8 @@
                                                       columns="#{bindings.PsCisXpeActionView1.hints.CisActionCode.displayWidth}"
                                                       maximumLength="#{bindings.PsCisXpeActionView1.hints.CisActionCode.precision}"
                                                       shortDesc="#{bindings.PsCisXpeActionView1.hints.CisActionCode.tooltip}"
-                                                      id="it6">
+                                                      id="it6"
+                                                      readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                             <f:validator binding="#{row.bindings.CisActionCode.validator}"/>
                                         </af:inputText>
                                     </af:column>
@@ -191,7 +203,8 @@
                                                             label="#{row.bindings.Actiontype.label}"
                                                             required="#{bindings.PsCisXpeActionView1.hints.Actiontype.mandatory}"
                                                             shortDesc="#{bindings.PsCisXpeActionView1.hints.Actiontype.tooltip}"
-                                                            id="soc3">
+                                                            id="soc3"
+                                                            readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                             <f:selectItems value="#{row.bindings.Actiontype.items}" id="si3"/>
                                             <f:validator binding="#{row.bindings.Actiontype.validator}"/>
                                         </af:selectOneChoice>
@@ -206,21 +219,26 @@
                                                       columns="#{bindings.PsCisXpeActionView1.hints.CisRuleCode.displayWidth}"
                                                       maximumLength="#{bindings.PsCisXpeActionView1.hints.CisRuleCode.precision}"
                                                       shortDesc="#{bindings.PsCisXpeActionView1.hints.CisRuleCode.tooltip}"
-                                                      id="it7">
+                                                      id="it7"
+                                                      readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                             <f:validator binding="#{row.bindings.CisRuleCode.validator}"/>
                                         </af:inputText>
                                     </af:column>
                                 </af:table>
                                 <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
-                                           disabled="#{!bindings.Commit.enabled}" id="b13"/>
+                                           disabled="#{!bindings.Commit.enabled}" id="b13"
+                                           rendered="#{bindings.RulesandRulesets.inputValue ne 'V'}"/>
                                 <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
-                                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b14">
+                                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b14"
+                                           rendered="#{bindings.RulesandRulesets.inputValue ne 'V'}">
                                     <af:resetActionListener/>
                                 </af:button>
                                 <af:button actionListener="#{bindings.CreateInsert2.execute}" text="Insert"
-                                           disabled="#{!bindings.CreateInsert2.enabled}" id="b15"/>
+                                           disabled="#{!bindings.CreateInsert2.enabled}" id="b15"
+                                           rendered="#{bindings.RulesandRulesets.inputValue ne 'V'}"/>
                                 <af:button actionListener="#{bindings.Delete2.execute}" text="Delete"
-                                           disabled="#{!bindings.Delete2.enabled}" id="b16"/>
+                                           disabled="#{!bindings.Delete2.enabled}" id="b16"
+                                           rendered="#{bindings.RulesandRulesets.inputValue ne 'V'}"/>
                                 <af:button text="First" disabled="#{!bindings.First2.enabled}" partialSubmit="true"
                                            id="b17" actionListener="#{bindings.First2.execute}"/>
                                 <af:button actionListener="#{bindings.Last2.execute}" text="Last"
@@ -235,7 +253,8 @@
                                               required="#{bindings.CisCustomSql.hints.mandatory}"
                                               columns="#{bindings.CisCustomSql.hints.displayWidth}"
                                               maximumLength="#{bindings.CisCustomSql.hints.precision}"
-                                              shortDesc="#{bindings.CisCustomSql.hints.tooltip}" id="it8">
+                                              shortDesc="#{bindings.CisCustomSql.hints.tooltip}" id="it8"
+                                              readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                     <f:validator binding="#{bindings.CisCustomSql.validator}"/>
                                 </af:inputText>
                                 <af:inputText value="#{bindings.CisDetailCode.inputValue}"
@@ -243,7 +262,8 @@
                                               required="#{bindings.CisDetailCode.hints.mandatory}"
                                               columns="#{bindings.CisDetailCode.hints.displayWidth}"
                                               maximumLength="#{bindings.CisDetailCode.hints.precision}"
-                                              shortDesc="#{bindings.CisDetailCode.hints.tooltip}" id="it9">
+                                              shortDesc="#{bindings.CisDetailCode.hints.tooltip}" id="it9"
+                                              readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                     <f:validator binding="#{bindings.CisDetailCode.validator}"/>
                                 </af:inputText>
                                 <af:inputText value="#{bindings.DtlSeqNbr.inputValue}"
@@ -251,7 +271,8 @@
                                               required="#{bindings.DtlSeqNbr.hints.mandatory}"
                                               columns="#{bindings.DtlSeqNbr.hints.displayWidth}"
                                               maximumLength="#{bindings.DtlSeqNbr.hints.precision}"
-                                              shortDesc="#{bindings.DtlSeqNbr.hints.tooltip}" id="it10">
+                                              shortDesc="#{bindings.DtlSeqNbr.hints.tooltip}" id="it10"
+                                              readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                     <f:validator binding="#{bindings.DtlSeqNbr.validator}"/>
                                     <af:convertNumber groupingUsed="false" pattern="#{bindings.DtlSeqNbr.format}"/>
                                 </af:inputText>
@@ -260,7 +281,8 @@
                                               required="#{bindings.CisActionCode.hints.mandatory}"
                                               columns="#{bindings.CisActionCode.hints.displayWidth}"
                                               maximumLength="#{bindings.CisActionCode.hints.precision}"
-                                              shortDesc="#{bindings.CisActionCode.hints.tooltip}" id="it11">
+                                              shortDesc="#{bindings.CisActionCode.hints.tooltip}" id="it11"
+                                              readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                     <f:validator binding="#{bindings.CisActionCode.validator}"/>
                                 </af:inputText>
                                 <af:inputText value="#{bindings.CisOperator1.inputValue}"
@@ -268,7 +290,8 @@
                                               required="#{bindings.CisOperator1.hints.mandatory}"
                                               columns="#{bindings.CisOperator1.hints.displayWidth}"
                                               maximumLength="#{bindings.CisOperator1.hints.precision}"
-                                              shortDesc="#{bindings.CisOperator1.hints.tooltip}" id="it12">
+                                              shortDesc="#{bindings.CisOperator1.hints.tooltip}" id="it12"
+                                              readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                     <f:validator binding="#{bindings.CisOperator1.validator}"/>
                                 </af:inputText>
                                 <af:inputText value="#{bindings.CisPrefix.inputValue}"
@@ -276,7 +299,8 @@
                                               required="#{bindings.CisPrefix.hints.mandatory}"
                                               columns="#{bindings.CisPrefix.hints.displayWidth}"
                                               maximumLength="#{bindings.CisPrefix.hints.precision}"
-                                              shortDesc="#{bindings.CisPrefix.hints.tooltip}" id="it13">
+                                              shortDesc="#{bindings.CisPrefix.hints.tooltip}" id="it13"
+                                              readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                     <f:validator binding="#{bindings.CisPrefix.validator}"/>
                                 </af:inputText>
                                 <af:inputText value="#{bindings.CisAttrLeft.inputValue}"
@@ -284,7 +308,8 @@
                                               required="#{bindings.CisAttrLeft.hints.mandatory}"
                                               columns="#{bindings.CisAttrLeft.hints.displayWidth}"
                                               maximumLength="#{bindings.CisAttrLeft.hints.precision}"
-                                              shortDesc="#{bindings.CisAttrLeft.hints.tooltip}" id="it14">
+                                              shortDesc="#{bindings.CisAttrLeft.hints.tooltip}" id="it14"
+                                              readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                     <f:validator binding="#{bindings.CisAttrLeft.validator}"/>
                                 </af:inputText>
                                 <af:inputText value="#{bindings.CisOperator2.inputValue}"
@@ -292,7 +317,8 @@
                                               required="#{bindings.CisOperator2.hints.mandatory}"
                                               columns="#{bindings.CisOperator2.hints.displayWidth}"
                                               maximumLength="#{bindings.CisOperator2.hints.precision}"
-                                              shortDesc="#{bindings.CisOperator2.hints.tooltip}" id="it15">
+                                              shortDesc="#{bindings.CisOperator2.hints.tooltip}" id="it15"
+                                              readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                     <f:validator binding="#{bindings.CisOperator2.validator}"/>
                                 </af:inputText>
                                 <af:inputText value="#{bindings.CisAttrRight.inputValue}"
@@ -300,7 +326,8 @@
                                               required="#{bindings.CisAttrRight.hints.mandatory}"
                                               columns="#{bindings.CisAttrRight.hints.displayWidth}"
                                               maximumLength="#{bindings.CisAttrRight.hints.precision}"
-                                              shortDesc="#{bindings.CisAttrRight.hints.tooltip}" id="it16">
+                                              shortDesc="#{bindings.CisAttrRight.hints.tooltip}" id="it16"
+                                              readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                     <f:validator binding="#{bindings.CisAttrRight.validator}"/>
                                 </af:inputText>
                                 <af:inputText value="#{bindings.CisAttrConst.inputValue}"
@@ -308,7 +335,8 @@
                                               required="#{bindings.CisAttrConst.hints.mandatory}"
                                               columns="#{bindings.CisAttrConst.hints.displayWidth}"
                                               maximumLength="#{bindings.CisAttrConst.hints.precision}"
-                                              shortDesc="#{bindings.CisAttrConst.hints.tooltip}" id="it17">
+                                              shortDesc="#{bindings.CisAttrConst.hints.tooltip}" id="it17"
+                                              readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                     <f:validator binding="#{bindings.CisAttrConst.validator}"/>
                                 </af:inputText>
                                 <af:inputText value="#{bindings.CisSuffixValue.inputValue}"
@@ -316,7 +344,8 @@
                                               required="#{bindings.CisSuffixValue.hints.mandatory}"
                                               columns="#{bindings.CisSuffixValue.hints.displayWidth}"
                                               maximumLength="#{bindings.CisSuffixValue.hints.precision}"
-                                              shortDesc="#{bindings.CisSuffixValue.hints.tooltip}" id="it18">
+                                              shortDesc="#{bindings.CisSuffixValue.hints.tooltip}" id="it18"
+                                              readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                     <f:validator binding="#{bindings.CisSuffixValue.validator}"/>
                                 </af:inputText>
                                 <af:inputText value="#{bindings.CisOperator3.inputValue}"
@@ -324,7 +353,8 @@
                                               required="#{bindings.CisOperator3.hints.mandatory}"
                                               columns="#{bindings.CisOperator3.hints.displayWidth}"
                                               maximumLength="#{bindings.CisOperator3.hints.precision}"
-                                              shortDesc="#{bindings.CisOperator3.hints.tooltip}" id="it19">
+                                              shortDesc="#{bindings.CisOperator3.hints.tooltip}" id="it19"
+                                              readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                     <f:validator binding="#{bindings.CisOperator3.validator}"/>
                                 </af:inputText>
                                 <af:inputText value="#{bindings.CisCustCondition.inputValue}"
@@ -332,7 +362,8 @@
                                               required="#{bindings.CisCustCondition.hints.mandatory}"
                                               columns="#{bindings.CisCustCondition.hints.displayWidth}"
                                               maximumLength="#{bindings.CisCustCondition.hints.precision}"
-                                              shortDesc="#{bindings.CisCustCondition.hints.tooltip}" id="it20">
+                                              shortDesc="#{bindings.CisCustCondition.hints.tooltip}" id="it20" readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}
+">
                                     <f:validator binding="#{bindings.CisCustCondition.validator}"/>
                                 </af:inputText>
                                 <af:inputText value="#{bindings.CisCustomProcess.inputValue}"
@@ -340,21 +371,24 @@
                                               required="#{bindings.CisCustomProcess.hints.mandatory}"
                                               columns="#{bindings.CisCustomProcess.hints.displayWidth}"
                                               maximumLength="#{bindings.CisCustomProcess.hints.precision}"
-                                              shortDesc="#{bindings.CisCustomProcess.hints.tooltip}" id="it21">
+                                              shortDesc="#{bindings.CisCustomProcess.hints.tooltip}" id="it21"
+                                              readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                     <f:validator binding="#{bindings.CisCustomProcess.validator}"/>
                                 </af:inputText>
                                 <af:inputText value="#{bindings.Parm1.inputValue}" label="#{bindings.Parm1.hints.label}"
                                               required="#{bindings.Parm1.hints.mandatory}"
                                               columns="#{bindings.Parm1.hints.displayWidth}"
                                               maximumLength="#{bindings.Parm1.hints.precision}"
-                                              shortDesc="#{bindings.Parm1.hints.tooltip}" id="it22">
+                                              shortDesc="#{bindings.Parm1.hints.tooltip}" id="it22"
+                                              readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                     <f:validator binding="#{bindings.Parm1.validator}"/>
                                 </af:inputText>
                                 <af:inputText value="#{bindings.Parm2.inputValue}" label="#{bindings.Parm2.hints.label}"
                                               required="#{bindings.Parm2.hints.mandatory}"
                                               columns="#{bindings.Parm2.hints.displayWidth}"
                                               maximumLength="#{bindings.Parm2.hints.precision}"
-                                              shortDesc="#{bindings.Parm2.hints.tooltip}" id="it23">
+                                              shortDesc="#{bindings.Parm2.hints.tooltip}" id="it23"
+                                              readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                     <f:validator binding="#{bindings.Parm2.validator}"/>
                                 </af:inputText>
                                 <f:facet name="footer">
@@ -373,7 +407,8 @@
                                                        disabled="#{!bindings.Last3.enabled}" partialSubmit="true"
                                                        id="b23"/>
                                         </af:panelGroupLayout>
-                                        <af:button text="Submit" id="b24"/>
+                                        <af:button text="Submit" id="b24"
+                                                   rendered="#{bindings.RulesandRulesets.inputValue ne 'V'}"/>
                                     </af:panelGroupLayout>
                                 </f:facet>
                             </af:panelFormLayout>
@@ -402,21 +437,26 @@
                                                       columns="#{bindings.PsCisXpeMappingView1.hints.Tablename.displayWidth}"
                                                       maximumLength="#{bindings.PsCisXpeMappingView1.hints.Tablename.precision}"
                                                       shortDesc="#{bindings.PsCisXpeMappingView1.hints.Tablename.tooltip}"
-                                                      id="it24">
+                                                      id="it24"
+                                                      readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                             <f:validator binding="#{row.bindings.Tablename.validator}"/>
                                         </af:inputText>
                                     </af:column>
                                 </af:table>
                                 <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
-                                           disabled="#{!bindings.Commit.enabled}" id="b35"/>
+                                           disabled="#{!bindings.Commit.enabled}" id="b35"
+                                           rendered="#{bindings.RulesandRulesets.inputValue ne 'V'}"/>
                                 <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
-                                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b36">
+                                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b36"
+                                           rendered="#{bindings.RulesandRulesets.inputValue ne 'V'}">
                                     <af:resetActionListener/>
                                 </af:button>
                                 <af:button actionListener="#{bindings.CreateInsert3.execute}" text="Insert"
-                                           disabled="#{!bindings.CreateInsert3.enabled}" id="b27"/>
+                                           disabled="#{!bindings.CreateInsert3.enabled}" id="b27"
+                                           rendered="#{bindings.RulesandRulesets.inputValue ne 'V'}"/>
                                 <af:button actionListener="#{bindings.Delete3.execute}" text="Delete"
-                                           disabled="#{!bindings.Delete3.enabled}" id="b26"/>
+                                           disabled="#{!bindings.Delete3.enabled}" id="b26"
+                                           rendered="#{bindings.RulesandRulesets.inputValue ne 'V'}"/>
                                 <af:button actionListener="#{bindings.First4.execute}" text="First"
                                            disabled="#{!bindings.First4.enabled}" partialSubmit="true" id="b33"/>
                                 <af:button actionListener="#{bindings.Last4.execute}" text="Last"
@@ -428,7 +468,8 @@
                                               required="#{bindings.Tablename.hints.mandatory}"
                                               columns="#{bindings.Tablename.hints.displayWidth}"
                                               maximumLength="#{bindings.Tablename.hints.precision}"
-                                              shortDesc="#{bindings.Tablename.hints.tooltip}" id="it25">
+                                              shortDesc="#{bindings.Tablename.hints.tooltip}" id="it25"
+                                              readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                     <f:validator binding="#{bindings.Tablename.validator}"/>
                                 </af:inputText>
                                 <af:inputText value="#{bindings.CisActionCode1.inputValue}"
@@ -436,14 +477,16 @@
                                               required="#{bindings.CisActionCode1.hints.mandatory}"
                                               columns="#{bindings.CisActionCode1.hints.displayWidth}"
                                               maximumLength="#{bindings.CisActionCode1.hints.precision}"
-                                              shortDesc="#{bindings.CisActionCode1.hints.tooltip}" id="it26">
+                                              shortDesc="#{bindings.CisActionCode1.hints.tooltip}" id="it26"
+                                              readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                     <f:validator binding="#{bindings.CisActionCode1.validator}"/>
                                 </af:inputText>
                                 <af:inputText value="#{bindings.Seqno.inputValue}" label="#{bindings.Seqno.hints.label}"
                                               required="#{bindings.Seqno.hints.mandatory}"
                                               columns="#{bindings.Seqno.hints.displayWidth}"
                                               maximumLength="#{bindings.Seqno.hints.precision}"
-                                              shortDesc="#{bindings.Seqno.hints.tooltip}" id="it27">
+                                              shortDesc="#{bindings.Seqno.hints.tooltip}" id="it27"
+                                              readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                     <f:validator binding="#{bindings.Seqno.validator}"/>
                                     <af:convertNumber groupingUsed="false" pattern="#{bindings.Seqno.format}"/>
                                 </af:inputText>
@@ -452,7 +495,8 @@
                                               required="#{bindings.GenericField.hints.mandatory}"
                                               columns="#{bindings.GenericField.hints.displayWidth}"
                                               maximumLength="#{bindings.GenericField.hints.precision}"
-                                              shortDesc="#{bindings.GenericField.hints.tooltip}" id="it28">
+                                              shortDesc="#{bindings.GenericField.hints.tooltip}" id="it28"
+                                              readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                     <f:validator binding="#{bindings.GenericField.validator}"/>
                                 </af:inputText>
                                 <af:inputText value="#{bindings.CisNativeField.inputValue}"
@@ -460,7 +504,8 @@
                                               required="#{bindings.CisNativeField.hints.mandatory}"
                                               columns="#{bindings.CisNativeField.hints.displayWidth}"
                                               maximumLength="#{bindings.CisNativeField.hints.precision}"
-                                              shortDesc="#{bindings.CisNativeField.hints.tooltip}" id="it29">
+                                              shortDesc="#{bindings.CisNativeField.hints.tooltip}" id="it29"
+                                              readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                     <f:validator binding="#{bindings.CisNativeField.validator}"/>
                                 </af:inputText>
                                 <af:inputText value="#{bindings.CisConstantField.inputValue}"
@@ -468,14 +513,16 @@
                                               required="#{bindings.CisConstantField.hints.mandatory}"
                                               columns="#{bindings.CisConstantField.hints.displayWidth}"
                                               maximumLength="#{bindings.CisConstantField.hints.precision}"
-                                              shortDesc="#{bindings.CisConstantField.hints.tooltip}" id="it30">
+                                              shortDesc="#{bindings.CisConstantField.hints.tooltip}" id="it30"
+                                              readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                     <f:validator binding="#{bindings.CisConstantField.validator}"/>
                                 </af:inputText>
                                 <af:inputText value="#{bindings.IsKey.inputValue}" label="#{bindings.IsKey.hints.label}"
                                               required="#{bindings.IsKey.hints.mandatory}"
                                               columns="#{bindings.IsKey.hints.displayWidth}"
                                               maximumLength="#{bindings.IsKey.hints.precision}"
-                                              shortDesc="#{bindings.IsKey.hints.tooltip}" id="it31">
+                                              shortDesc="#{bindings.IsKey.hints.tooltip}" id="it31"
+                                              readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                     <f:validator binding="#{bindings.IsKey.validator}"/>
                                 </af:inputText>
                                 <af:inputText value="#{bindings.WhereClause1.inputValue}"
@@ -483,7 +530,8 @@
                                               required="#{bindings.WhereClause1.hints.mandatory}"
                                               columns="#{bindings.WhereClause1.hints.displayWidth}"
                                               maximumLength="#{bindings.WhereClause1.hints.precision}"
-                                              shortDesc="#{bindings.WhereClause1.hints.tooltip}" id="it32">
+                                              shortDesc="#{bindings.WhereClause1.hints.tooltip}" id="it32"
+                                              readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                     <f:validator binding="#{bindings.WhereClause1.validator}"/>
                                 </af:inputText>
                                 <af:inputText value="#{bindings.AppTblName.inputValue}"
@@ -491,7 +539,8 @@
                                               required="#{bindings.AppTblName.hints.mandatory}"
                                               columns="#{bindings.AppTblName.hints.displayWidth}"
                                               maximumLength="#{bindings.AppTblName.hints.precision}"
-                                              shortDesc="#{bindings.AppTblName.hints.tooltip}" id="it33">
+                                              shortDesc="#{bindings.AppTblName.hints.tooltip}" id="it33"
+                                              readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                     <f:validator binding="#{bindings.AppTblName.validator}"/>
                                 </af:inputText>
                                 <af:inputText value="#{bindings.DpTargetfield.inputValue}"
@@ -499,7 +548,8 @@
                                               required="#{bindings.DpTargetfield.hints.mandatory}"
                                               columns="#{bindings.DpTargetfield.hints.displayWidth}"
                                               maximumLength="#{bindings.DpTargetfield.hints.precision}"
-                                              shortDesc="#{bindings.DpTargetfield.hints.tooltip}" id="it34">
+                                              shortDesc="#{bindings.DpTargetfield.hints.tooltip}" id="it34"
+                                              readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                     <f:validator binding="#{bindings.DpTargetfield.validator}"/>
                                 </af:inputText>
                                 <af:inputText value="#{bindings.CisAggregateType.inputValue}"
@@ -507,7 +557,8 @@
                                               required="#{bindings.CisAggregateType.hints.mandatory}"
                                               columns="#{bindings.CisAggregateType.hints.displayWidth}"
                                               maximumLength="#{bindings.CisAggregateType.hints.precision}"
-                                              shortDesc="#{bindings.CisAggregateType.hints.tooltip}" id="it35">
+                                              shortDesc="#{bindings.CisAggregateType.hints.tooltip}" id="it35"
+                                              readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                     <f:validator binding="#{bindings.CisAggregateType.validator}"/>
                                 </af:inputText>
                                 <af:inputText value="#{bindings.LblDescr.inputValue}"
@@ -515,7 +566,8 @@
                                               required="#{bindings.LblDescr.hints.mandatory}"
                                               columns="#{bindings.LblDescr.hints.displayWidth}"
                                               maximumLength="#{bindings.LblDescr.hints.precision}"
-                                              shortDesc="#{bindings.LblDescr.hints.tooltip}" id="it36">
+                                              shortDesc="#{bindings.LblDescr.hints.tooltip}" id="it36"
+                                              readOnly="#{bindings.RulesandRulesets.inputValue eq 'V'}">
                                     <f:validator binding="#{bindings.LblDescr.validator}"/>
                                 </af:inputText>
                                 <f:facet name="footer">
@@ -534,7 +586,8 @@
                                                        disabled="#{!bindings.Last2.enabled}" partialSubmit="true"
                                                        id="b31"/>
                                         </af:panelGroupLayout>
-                                        <af:button text="Submit" id="b32"/>
+                                        <af:button text="Submit" id="b32"
+                                                   rendered="#{bindings.RulesandRulesets.inputValue ne 'V'}"/>
                                     </af:panelGroupLayout>
                                 </f:facet>
                             </af:panelFormLayout>

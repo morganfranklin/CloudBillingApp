@@ -7,10 +7,10 @@
       <f:facet name="toolbar">
         <af:toolbar id="t1">
           <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add"
-                     id="b1"/>
+                     id="b1" rendered="#{bindings.Accruals.inputValue ne 'V'}"/>
           <af:spacer width="10" height="10" id="s1"/>
           <af:button actionListener="#{bindings.Delete.execute}" text="Delete" disabled="#{!bindings.Delete.enabled}"
-                     id="b2" immediate="true"/>
+                     id="b2" immediate="true" rendered="#{bindings.Accruals.inputValue ne 'V'}"/>
         </af:toolbar>
       </f:facet>
       <f:facet name="menuBar"/>
@@ -24,12 +24,12 @@
                 selectedRowKeys="#{bindings.XpeDccAccrualRevenueEOVO.collectionModel.selectedRow}"
                 selectionListener="#{bindings.XpeDccAccrualRevenueEOVO.collectionModel.makeCurrent}"
                 rowSelection="single" fetchSize="#{bindings.XpeDccAccrualRevenueEOVO.rangeSize}" id="t2"
-                contentDelivery="immediate" columnStretching="last" partialTriggers="::b2">
+                contentDelivery="immediate" columnStretching="last" partialTriggers="::b2 ::b1">
         <af:column headerText="#{bindings.XpeDccAccrualRevenueEOVO.hints.XpeFacilityId.label}" id="c1" width="200">
           <af:selectOneChoice value="#{row.bindings.XpeFacilityId.inputValue}"
                               label="#{row.bindings.XpeFacilityId.label}"
                               shortDesc="#{bindings.XpeDccAccrualRevenueEOVO.hints.XpeFacilityId.tooltip}" id="soc1"
-                              autoSubmit="true" required="true">
+                              autoSubmit="true" required="true" readOnly="#{bindings.Accruals.inputValue eq 'V'}">
             <f:selectItems value="#{row.bindings.XpeFacilityId.items}" id="si1"/>
             <f:validator binding="#{row.bindings.XpeFacilityId.validator}"/>
           </af:selectOneChoice>
@@ -40,7 +40,7 @@
                               label="#{row.bindings.XpeJournalGeneratorTemplate.label}"
                               required="#{bindings.XpeDccAccrualRevenueEOVO.hints.XpeJournalGeneratorTemplate.mandatory}"
                               shortDesc="#{bindings.XpeDccAccrualRevenueEOVO.hints.XpeJournalGeneratorTemplate.tooltip}"
-                              id="soc2" autoSubmit="true">
+                              id="soc2" autoSubmit="true" readOnly="#{bindings.Accruals.inputValue eq 'V'}">
             <f:selectItems value="#{row.bindings.XpeJournalGeneratorTemplate.items}" id="si2"/>
             <f:validator binding="#{row.bindings.XpeJournalGeneratorTemplate.validator}"/>
           </af:selectOneChoice>
@@ -51,7 +51,7 @@
                         required="#{bindings.XpeDccAccrualRevenueEOVO.hints.XpeAccountingDate.mandatory}"
                         columns="#{bindings.XpeDccAccrualRevenueEOVO.hints.XpeAccountingDate.displayWidth}"
                         shortDesc="#{bindings.XpeDccAccrualRevenueEOVO.hints.XpeAccountingDate.tooltip}" id="id1"
-                        autoSubmit="true">
+                        autoSubmit="true" readOnly="#{bindings.Accruals.inputValue eq 'V'}">
             <f:validator binding="#{row.bindings.XpeAccountingDate.validator}"/>
             <af:convertDateTime pattern="#{bindings.XpeDccAccrualRevenueEOVO.hints.XpeAccountingDate.format}"/>
           </af:inputDate>
@@ -65,7 +65,8 @@
         <af:toolbar id="t3">
           <af:button actionListener="#{bindings.Commit.execute}"
                      text="Process"
-                     id="b3" action="#{AccrualRevenueProcessesMBean.launchPlanInstance}">
+                     id="b3" action="#{AccrualRevenueProcessesMBean.launchPlanInstance}"
+                     rendered="#{bindings.Accruals.inputValue ne 'V'}">
             <af:setPropertyListener from="#{'A12'}" to="#{AccrualRevenueProcessesMBean.planOverride}"
                                     type="action"/>
           </af:button>

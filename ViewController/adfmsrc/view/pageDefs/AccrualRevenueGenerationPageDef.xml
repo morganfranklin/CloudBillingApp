@@ -6,6 +6,8 @@
     <variableIterator id="variables"/>
     <iterator Binds="XpeDccAccrualRevenueEOVO" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccAccrualRevenueEOVOIterator" ChangeEventPolicy="none"/>
+    <iterator Binds="XpeDccCfgRoleSecurityEOVO" RangeSize="10" DataControl="AppModuleDataControl"
+              id="XpeDccCfgRoleSecurityEOVOIterator"/>
   </executables>
   <bindings>
     <action IterBinding="XpeDccAccrualRevenueEOVOIterator" id="CreateInsert" RequiresUpdateModel="true"
@@ -24,5 +26,10 @@
       </nodeDefinition>
     </tree>
     <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="Accruals">
+      <AttrNames>
+        <Item Value="Screen20"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

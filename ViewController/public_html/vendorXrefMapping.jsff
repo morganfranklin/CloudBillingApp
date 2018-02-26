@@ -48,7 +48,8 @@
                                                                       model="#{row.bindings.Ocn.listOfValuesModel}"
                                                                       required="#{bindings.NeuTnsVndrXrefView1.hints.Ocn.mandatory}"
                                                                       columns="#{bindings.NeuTnsVndrXrefView1.hints.Ocn.displayWidth}"
-                                                                      shortDesc="#{bindings.NeuTnsVndrXrefView1.hints.Ocn.tooltip}">
+                                                                      shortDesc="#{bindings.NeuTnsVndrXrefView1.hints.Ocn.tooltip}"
+                                                                      readOnly="#{bindings.CrossReferenceData.inputValue eq 'V'}">
                                                     <f:validator binding="#{row.bindings.Ocn.validator}"/>
                                                 </af:inputListOfValues>
                                             </af:column>
@@ -62,7 +63,8 @@
                                                               columns="#{bindings.NeuTnsVndrXrefView1.hints.MsgType.displayWidth}"
                                                               maximumLength="#{bindings.NeuTnsVndrXrefView1.hints.MsgType.precision}"
                                                               shortDesc="#{bindings.NeuTnsVndrXrefView1.hints.MsgType.tooltip}"
-                                                              id="it1">
+                                                              id="it1"
+                                                              readOnly="#{bindings.CrossReferenceData.inputValue eq 'V'}">
                                                     <f:validator binding="#{row.bindings.MsgType.validator}"/>
                                                 </af:inputText>
                                             </af:column>
@@ -74,7 +76,8 @@
                                                                       model="#{row.bindings.VendorId.listOfValuesModel}"
                                                                       required="#{bindings.NeuTnsVndrXrefView1.hints.VendorId.mandatory}"
                                                                       columns="#{bindings.NeuTnsVndrXrefView1.hints.VendorId.displayWidth}"
-                                                                      shortDesc="#{bindings.NeuTnsVndrXrefView1.hints.VendorId.tooltip}">
+                                                                      shortDesc="#{bindings.NeuTnsVndrXrefView1.hints.VendorId.tooltip}"
+                                                                      readOnly="#{bindings.CrossReferenceData.inputValue eq 'V'}">
                                                     <f:validator binding="#{row.bindings.VendorId.validator}"/>
                                                 </af:inputListOfValues>
                                             </af:column>
@@ -93,7 +96,8 @@
                                                               required="#{bindings.NeuTnsVndrXrefView1.hints.EffDate.mandatory}"
                                                               columns="#{bindings.NeuTnsVndrXrefView1.hints.EffDate.displayWidth}"
                                                               shortDesc="#{bindings.NeuTnsVndrXrefView1.hints.EffDate.tooltip}"
-                                                              id="id2">
+                                                              id="id2"
+                                                              readOnly="#{bindings.CrossReferenceData.inputValue eq 'V'}">
                                                     <f:validator binding="#{row.bindings.EffDate.validator}"/>
                                                     <af:convertDateTime pattern="#{bindings.NeuTnsVndrXrefView1.hints.EffDate.format}"/>
                                                 </af:inputDate>
@@ -109,7 +113,8 @@
                                                           required="#{bindings.CalcPercent.hints.mandatory}"
                                                           columns="#{bindings.CalcPercent.hints.displayWidth}"
                                                           maximumLength="#{bindings.CalcPercent.hints.precision}"
-                                                          shortDesc="#{bindings.CalcPercent.hints.tooltip}" id="it2">
+                                                          shortDesc="#{bindings.CalcPercent.hints.tooltip}" id="it2"
+                                                          readOnly="#{bindings.CrossReferenceData.inputValue eq 'V'}">
                                                 <f:validator binding="#{bindings.CalcPercent.validator}"/>
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.CalcPercent.format}"/>
@@ -118,7 +123,8 @@
                                                           required="#{bindings.CalcRate.hints.mandatory}"
                                                           columns="#{bindings.CalcRate.hints.displayWidth}"
                                                           maximumLength="#{bindings.CalcRate.hints.precision}"
-                                                          shortDesc="#{bindings.CalcRate.hints.tooltip}" id="it3">
+                                                          shortDesc="#{bindings.CalcRate.hints.tooltip}" id="it3"
+                                                          readOnly="#{bindings.CrossReferenceData.inputValue eq 'V'}">
                                                 <f:validator binding="#{bindings.CalcRate.validator}"/>
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.CalcRate.format}"/>
@@ -154,7 +160,8 @@
                                                                               model="#{row.bindings.Opc.listOfValuesModel}"
                                                                               required="#{bindings.NeuTnsCustXrefView1.hints.Opc.mandatory}"
                                                                               columns="#{bindings.NeuTnsCustXrefView1.hints.Opc.displayWidth}"
-                                                                              shortDesc="#{bindings.NeuTnsCustXrefView1.hints.Opc.tooltip}">
+                                                                              shortDesc="#{bindings.NeuTnsCustXrefView1.hints.Opc.tooltip}"
+                                                                              readOnly="#{bindings.CrossReferenceData.inputValue eq 'V'}">
                                                     <f:validator binding="#{row.bindings.Opc.validator}"/>
                                                 </af:inputComboboxListOfValues>
                                             </af:column>
@@ -168,7 +175,8 @@
                                                               columns="#{bindings.NeuTnsCustXrefView1.hints.MsgType.displayWidth}"
                                                               maximumLength="#{bindings.NeuTnsCustXrefView1.hints.MsgType.precision}"
                                                               shortDesc="#{bindings.NeuTnsCustXrefView1.hints.MsgType.tooltip}"
-                                                              id="it4">
+                                                              id="it4"
+                                                              readOnly="#{bindings.CrossReferenceData.inputValue eq 'V'}">
                                                     <f:validator binding="#{row.bindings.MsgType.validator}"/>
                                                 </af:inputText>
                                             </af:column>
@@ -181,7 +189,8 @@
                                                                               model="#{row.bindings.CustId.listOfValuesModel}"
                                                                               required="#{bindings.NeuTnsCustXrefView1.hints.CustId.mandatory}"
                                                                               columns="#{bindings.NeuTnsCustXrefView1.hints.CustId.displayWidth}"
-                                                                              shortDesc="#{bindings.NeuTnsCustXrefView1.hints.CustId.tooltip}">
+                                                                              shortDesc="#{bindings.NeuTnsCustXrefView1.hints.CustId.tooltip}"
+                                                                              readOnly="#{bindings.CrossReferenceData.inputValue eq 'V'}">
                                                     <f:validator binding="#{row.bindings.CustId.validator}"/>
                                                 </af:inputComboboxListOfValues>
                                             </af:column>
@@ -200,7 +209,8 @@
                                                               required="#{bindings.NeuTnsCustXrefView1.hints.EffDate.mandatory}"
                                                               columns="#{bindings.NeuTnsCustXrefView1.hints.EffDate.displayWidth}"
                                                               shortDesc="#{bindings.NeuTnsCustXrefView1.hints.EffDate.tooltip}"
-                                                              id="id4">
+                                                              id="id4"
+                                                              readOnly="#{bindings.CrossReferenceData.inputValue eq 'V'}">
                                                     <f:validator binding="#{row.bindings.EffDate.validator}"/>
                                                     <af:convertDateTime pattern="#{bindings.NeuTnsCustXrefView1.hints.EffDate.format}"/>
                                                 </af:inputDate>
@@ -215,7 +225,8 @@
                                                           required="#{bindings.BillRate.hints.mandatory}"
                                                           columns="#{bindings.BillRate.hints.displayWidth}"
                                                           maximumLength="#{bindings.BillRate.hints.precision}"
-                                                          shortDesc="#{bindings.BillRate.hints.tooltip}" id="it5">
+                                                          shortDesc="#{bindings.BillRate.hints.tooltip}" id="it5"
+                                                          readOnly="#{bindings.CrossReferenceData.inputValue eq 'V'}">
                                                 <f:validator binding="#{bindings.BillRate.validator}"/>
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.BillRate.format}"/>
@@ -223,7 +234,8 @@
                                             <af:selectBooleanCheckbox value="#{bindings.SwitchTrans.inputValue}"
                                                                       label="#{bindings.SwitchTrans.label}"
                                                                       shortDesc="#{bindings.SwitchTrans.hints.tooltip}"
-                                                                      id="sbc1"/>
+                                                                      id="sbc1"
+                                                                      readOnly="#{bindings.CrossReferenceData.inputValue eq 'V'}"/>
                                         </af:panelFormLayout>
                                     </af:gridCell>
                                 </af:gridRow>
