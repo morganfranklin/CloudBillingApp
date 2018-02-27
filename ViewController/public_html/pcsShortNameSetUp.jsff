@@ -16,7 +16,7 @@
       <f:facet name="toolbar">
         <af:toolbar id="t1">
           <af:button actionListener="#{pageFlowScope.PcsShortNameSetUpTableBean.onPcsShortNameCreation}" text="Add Item"
-                     id="b1" action="Add"/>
+                     id="b1" action="Add" rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
         </af:toolbar>
       </f:facet>
       <f:facet name="menuBar"/>
@@ -33,7 +33,8 @@
                 binding="#{backingBeanScope.PcsShortNameSetUpTableBBean.pcsShortNamesSetUpTblBind}">
         <af:column headerText="#{bindings.XpeDccCfgPcsshortnamesEOVO.hints.PcsshortnameId.label}" id="resId1c1">
           <af:link text="#{row.PcsshortnameId}" id="l1" partialSubmit="true" action="Edit"
-                   actionListener="#{pageFlowScope.PcsShortNameSetUpTableBean.pcsShortNameEditActnLstnr}"/>
+                   actionListener="#{pageFlowScope.PcsShortNameSetUpTableBean.pcsShortNameEditActnLstnr}"
+                   disabled="#{bindings.SetUpTables.inputValue eq 'V'}"/>
         </af:column>
         <af:column headerText="#{bindings.XpeDccCfgPcsshortnamesEOVO.hints.PcsshortName.label}" id="resId1c2">
           <af:outputText value="#{row.PcsshortName}"

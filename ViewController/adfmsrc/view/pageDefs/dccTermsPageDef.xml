@@ -10,6 +10,8 @@
               ChangeEventPolicy="none"/>
     <iterator Binds="XpeDccTermMasterSetupROVO" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccTermMasterSetupROVOIterator"/>
+    <iterator Binds="XpeDccCfgRoleSecurityEOVO" RangeSize="10" DataControl="AppModuleDataControl"
+              id="XpeDccCfgRoleSecurityEOVOIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="XpeDccTermMasterEOVOIterator" id="XpeDccStatus">
@@ -69,5 +71,10 @@
           id="XpeContractSubType" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="XpeDccTermMasterEOVOIterator" StaticList="false" Uses="LOV_XpeAgreementType"
           id="XpeAgreementType" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="TermsMaster">
+      <AttrNames>
+        <Item Value="Screen16"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

@@ -10,6 +10,8 @@
                   Binds="XpeDccCfgAccountingEOVOIterator" id="AccountingCriteriaQuery"/>
     <iterator Binds="XpeDccCfgNewAccountingEOVO" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccCfgNewAccountingEOVOIterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="XpeDccCfgRoleSecurityEOVO" RangeSize="10" DataControl="AppModuleDataControl"
+              id="XpeDccCfgRoleSecurityEOVOIterator"/>
   </executables>
   <bindings>
     <tree IterBinding="XpeDccCfgAccountingEOVOIterator" id="XpeDccCfgAccountingEOVO">
@@ -66,6 +68,11 @@
     <attributeValues IterBinding="XpeDccCfgAccountingEOVOIterator" id="InactiveDate">
       <AttrNames>
         <Item Value="InactiveDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="SetUpTables">
+      <AttrNames>
+        <Item Value="Screen17"/>
       </AttrNames>
     </attributeValues>
   </bindings>

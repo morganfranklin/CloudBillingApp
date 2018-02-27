@@ -22,7 +22,8 @@
                       contentDelivery="immediate" columnStretching="last"
                       binding="#{backingBeanScope.DestinationSetUpTableBBean.destinationSetUpTblBind}">
                 <af:column headerText="#{bindings.XpeDccCfgDestinationsEOVO.hints.DestinationId.label}" id="resId1c1">
-                    <af:link text="#{row.DestinationId}" id="l1" partialSubmit="true" action="setCurrentRow">
+                    <af:link text="#{row.DestinationId}" id="l1" partialSubmit="true" action="setCurrentRow"
+                             rendered="#{bindings.SetUpTables.inputValue eq 'V'}">
                         <af:setActionListener from="#{row.DestinationId}" to="#{pageFlowScope.DestinationId}"/>
                         <af:setActionListener from="EDIT" to="#{pageFlowScope.NavFlow}"/>
                     </af:link>
@@ -70,7 +71,8 @@
             </af:table>
             <f:facet name="toolbar">
                 <af:button text="Add Item" id="b2" action="setCurrentRow"
-                           actionListener="#{pageFlowScope.DestinationSetUpTableMBean.onDestinationCreation}">
+                           actionListener="#{pageFlowScope.DestinationSetUpTableMBean.onDestinationCreation}"
+                           rendered="#{bindings.SetUpTables.inputValue ne 'V'}">
                     <af:setActionListener from="ADD" to="#{pageFlowScope.NavFlow}"/>
                 </af:button>
             </f:facet>

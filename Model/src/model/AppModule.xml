@@ -679,6 +679,12 @@
     <ViewUsage
         Name="XpeDccCfgRoleSecurityEOVO"
         ViewObjectName="model.views.entitybased.XpeDccCfgRoleSecurityEOVO"/>
+    <ViewUsage
+        Name="XpeDccCfgNewRolesEOVO"
+        ViewObjectName="model.views.entitybased.XpeDccCfgRolesEOVO"/>
+    <ViewUsage
+        Name="XpeDccCfgNewRoleSecurityEOVO"
+        ViewObjectName="model.views.entitybased.XpeDccCfgRoleSecurityEOVO"/>
     <ViewLinkUsage
         Name="NeuRuleTblFk1Link1"
         ViewLinkObjectName="model.NeuRuleTblFk1Link"
@@ -1008,6 +1014,12 @@
         ViewLinkObjectName="model.views.entitybased.XpeDccCfgRoleSecurityFKVL"
         SrcViewUsageName="model.AppModule.XpeDccCfgRolesEOVO"
         DstViewUsageName="model.AppModule.XpeDccCfgRoleSecurityEOVO"
+        Reversed="false"/>
+    <ViewLinkUsage
+        Name="XpeDccCfgRoleSecurityFKVL1"
+        ViewLinkObjectName="model.views.entitybased.XpeDccCfgRoleSecurityFKVL"
+        SrcViewUsageName="model.AppModule.XpeDccCfgNewRolesEOVO"
+        DstViewUsageName="model.AppModule.XpeDccCfgNewRoleSecurityEOVO"
         Reversed="false"/>
     <ClientInterface
         Name="__clientInterface">

@@ -10,6 +10,8 @@
                   Binds="XpeDccCfgCountiesEOVOIterator" id="CountiesCriteriaQuery"/>
     <iterator Binds="XpeDccCfgNewCountiesCreationEOVO" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccCfgNewCountiesCreationEOVOIterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="XpeDccCfgRoleSecurityEOVO" RangeSize="10" DataControl="AppModuleDataControl"
+              id="XpeDccCfgRoleSecurityEOVOIterator"/>
   </executables>
   <bindings>
     <tree IterBinding="XpeDccCfgCountiesEOVOIterator" id="XpeDccCfgCountiesEOVO">
@@ -69,5 +71,10 @@
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="XpeDccCfgCountiesEOVOIterator" StaticList="false" Uses="LOV_Country" id="Country1"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="SetUpTables">
+      <AttrNames>
+        <Item Value="Screen17"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

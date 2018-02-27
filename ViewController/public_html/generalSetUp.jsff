@@ -17,7 +17,8 @@
         <af:toolbar id="t1">
           <af:button action="#{bindings.CreateInsert.execute}" text="Add Item"
                      disabled="#{!bindings.CreateInsert.enabled}" id="b1"
-                     actionListener="#{pageFlowScope.generalSetUpTableMBean.onGeneralItemCreation}"/>
+                     actionListener="#{pageFlowScope.generalSetUpTableMBean.onGeneralItemCreation}"
+                     rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
         </af:toolbar>
       </f:facet>
       <f:facet name="menuBar"/>
@@ -33,7 +34,8 @@
                 partialTriggers="::b2 ::b3 ::b4 ::b5">
         <af:column headerText="#{bindings.XpeDccCfgGeneralEOVO.hints.ItemId.label}" id="resId1c1">
           <af:link text="#{row.ItemId}" id="l1" partialSubmit="true"
-                   actionListener="#{pageFlowScope.generalSetUpTableMBean.onGeneralItemEdit}"/>
+                   actionListener="#{pageFlowScope.generalSetUpTableMBean.onGeneralItemEdit}"
+                   disabled="#{bindings.SetUpTables.inputValue eq 'V'}"/>
         </af:column>
         <af:column headerText="#{bindings.XpeDccCfgGeneralEOVO.hints.ItemListType.label}" id="resId1c2">
           <af:selectOneChoice value="#{row.bindings.ItemListType.inputValue}" label="#{row.bindings.ItemListType.label}"

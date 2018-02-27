@@ -17,7 +17,8 @@
                 <af:toolbar id="t1">
                     <af:button action="#{bindings.CreateInsert.execute}" text="Add"
                                disabled="#{!bindings.CreateInsert.enabled}" id="b1"
-                               actionListener="#{pageFlowScope.CarriersSetUpTableMBean.onCarriersCreation}"/>
+                               actionListener="#{pageFlowScope.CarriersSetUpTableMBean.onCarriersCreation}"
+                               rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
                 </af:toolbar>
             </f:facet>
             <f:facet name="menuBar"/>
@@ -35,7 +36,8 @@
                       contentDelivery="immediate">
                 <af:column headerText="#{bindings.XpeDccCfgCarriersEOVO.hints.CarrierId.label}" id="resId1c1">
                     <af:link text="#{row.CarrierId}" id="l1" partialSubmit="true"
-                             actionListener="#{pageFlowScope.CarriersSetUpTableMBean.onCarrierEdit}"/>
+                             actionListener="#{pageFlowScope.CarriersSetUpTableMBean.onCarrierEdit}"
+                             disabled="#{bindings.SetUpTables.inputValue eq 'V'}"/>
                 </af:column>
                 <af:column headerText="#{bindings.XpeDccCfgCarriersEOVO.hints.CarrierName.label}" id="resId1c2">
                     <af:outputText value="#{row.CarrierName}"
@@ -73,7 +75,8 @@
                 <af:dialog id="d1" type="none" title="Carrier Details" closeIconVisible="false">
                     <f:facet name="buttonBar">
                         <af:button text="Save" id="b4"
-                                   actionListener="#{pageFlowScope.CarriersSetUpTableMBean.onCarrierCreationSave}"/>
+                                   actionListener="#{pageFlowScope.CarriersSetUpTableMBean.onCarrierCreationSave}"
+                                   rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
                         <af:spacer width="10" height="10" id="s2"/>
                         <af:button action="#{bindings.Rollback.execute}" text="Cancel"
                                    disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b5"
@@ -92,13 +95,15 @@
                                       columns="#{bindings.CarrierName.hints.displayWidth}"
                                       maximumLength="#{bindings.CarrierName.hints.precision}"
                                       shortDesc="#{bindings.CarrierName.hints.tooltip}" id="it1"
-                                      contentStyle="text-transform:uppercase;">
+                                      contentStyle="text-transform:uppercase;"
+                                      readOnly="#{bindings.SetUpTables.inputValue eq 'V'}">
                             <f:validator binding="#{bindings.CarrierName.validator}"/>
                         </af:inputText>
                         <af:panelLabelAndMessage label="#{bindings.State.label}" id="plam4">
                             <af:selectOneChoice value="#{bindings.State.inputValue}" label="#{bindings.State.label}"
                                                 required="#{bindings.State.hints.mandatory}"
-                                                shortDesc="#{bindings.State.hints.tooltip}" id="soc4" simple="true">
+                                                shortDesc="#{bindings.State.hints.tooltip}" id="soc4" simple="true"
+                                                readOnly="#{bindings.SetUpTables.inputValue eq 'V'}">
                                 <f:selectItems value="#{bindings.State.items}" id="si4"/>
                                 <f:validator binding="#{bindings.State.validator}"/>
                             </af:selectOneChoice>
@@ -112,7 +117,8 @@
                 <af:dialog id="d2" type="none" title="Carrier Details" closeIconVisible="false">
                     <f:facet name="buttonBar">
                         <af:button text="Save" id="b2"
-                                   actionListener="#{pageFlowScope.CarriersSetUpTableMBean.onCarrierEditSave}"/>
+                                   actionListener="#{pageFlowScope.CarriersSetUpTableMBean.onCarrierEditSave}"
+                                   rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
                         <af:spacer width="10" height="10" id="s3"/>
                         <af:button action="#{bindings.Rollback.execute}" text="Cancel" immediate="true" id="b3"
                                    actionListener="#{pageFlowScope.CarriersSetUpTableMBean.onCarrierEditCancel}">
@@ -130,13 +136,15 @@
                                       columns="#{bindings.CarrierName1.hints.displayWidth}"
                                       maximumLength="#{bindings.CarrierName1.hints.precision}"
                                       shortDesc="#{bindings.CarrierName1.hints.tooltip}" id="it3"
-                                      contentStyle="text-transform:uppercase;">
+                                      contentStyle="text-transform:uppercase;"
+                                      readOnly="#{bindings.SetUpTables.inputValue eq 'V'}">
                             <f:validator binding="#{bindings.CarrierName1.validator}"/>
                         </af:inputText>
                         <af:panelLabelAndMessage label="#{bindings.State1.label}" id="plam5">
                             <af:selectOneChoice value="#{bindings.State1.inputValue}" label="#{bindings.State1.label}"
                                                 required="#{bindings.State1.hints.mandatory}"
-                                                shortDesc="#{bindings.State1.hints.tooltip}" id="soc5" simple="true">
+                                                shortDesc="#{bindings.State1.hints.tooltip}" id="soc5" simple="true"
+                                                readOnly="#{bindings.SetUpTables.inputValue eq 'V'}">
                                 <f:selectItems value="#{bindings.State1.items}" id="si5"/>
                                 <f:validator binding="#{bindings.State1.validator}"/>
                             </af:selectOneChoice>
@@ -147,7 +155,8 @@
                                                 required="#{bindings.Inactive.hints.mandatory}"
                                                 shortDesc="#{bindings.Inactive.hints.tooltip}" id="soc2"
                                                 valueChangeListener="#{pageFlowScope.CarriersSetUpTableMBean.onInActiveValChgLstnr}"
-                                                autoSubmit="true" simple="true">
+                                                autoSubmit="true" simple="true"
+                                                readOnly="#{bindings.SetUpTables.inputValue eq 'V'}">
                                 <f:selectItems value="#{bindings.Inactive.items}" id="si2"/>
                                 <f:validator binding="#{bindings.Inactive.validator}"/>
                             </af:selectOneChoice>
@@ -157,7 +166,7 @@
                                       required="#{bindings.InactiveDate.hints.mandatory}"
                                       columns="#{bindings.InactiveDate.hints.displayWidth}"
                                       shortDesc="#{bindings.InactiveDate.hints.tooltip}" id="id1" partialTriggers="soc2"
-                                      autoSubmit="true">
+                                      autoSubmit="true" readOnly="#{bindings.SetUpTables.inputValue eq 'V'}">
                             <f:validator binding="#{bindings.InactiveDate.validator}"/>
                             <af:convertDateTime pattern="#{bindings.InactiveDate.format}"/>
                         </af:inputDate>

@@ -17,7 +17,8 @@
         <af:toolbar id="t1">
           <af:button action="#{bindings.CreateInsert.execute}" text="Add Item"
                      disabled="#{!bindings.CreateInsert.enabled}" id="b1"
-                     actionListener="#{pageFlowScope.VehicleTypeSetUpTableMBean.onVehicleTypeCreation}"/>
+                     actionListener="#{pageFlowScope.VehicleTypeSetUpTableMBean.onVehicleTypeCreation}"
+                     rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
         </af:toolbar>
       </f:facet>
       <f:facet name="menuBar"/>
@@ -34,7 +35,8 @@
                 binding="#{backingBeanScope.VehicleTypeSetUpTableBBean.vehicleTypeSetUpTblBind}">
         <af:column headerText="#{bindings.XpeDccCfgVehiclesEOVO.hints.VehicleId.label}" id="resId1c1">
           <af:link text="#{row.VehicleId}" id="l1"
-                   actionListener="#{pageFlowScope.VehicleTypeSetUpTableMBean.onVehicleTypeEdit}" partialSubmit="true"/>
+                   actionListener="#{pageFlowScope.VehicleTypeSetUpTableMBean.onVehicleTypeEdit}" partialSubmit="true"
+                   disabled="#{bindings.SetUpTables.inputValue eq 'V'}"/>
         </af:column>
         <af:column headerText="#{bindings.XpeDccCfgVehiclesEOVO.hints.VehicleType.label}" id="resId1c2">
           <af:outputText value="#{row.VehicleType}"

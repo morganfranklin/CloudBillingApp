@@ -117,8 +117,6 @@
               usageId="view_accrualRevenueGenerationProcesses_accrualRevenueGenerationProcesses_RollbackPageDef"/>
         <page path="/WEB-INF/billingAccountingProcesses.xml#billingAccountingProcesses@Rollback"
               usageId="view_billingAccountingProcesses_billingAccountingProcesses_RollbackPageDef"/>
-        <page path="/WEB-INF/termsMaster.xml#termsMaster@Rollback"
-              usageId="view_termsMaster_termsMaster_RollbackPageDef"/>
         <page path="/roleSecurity.jsff" usageId="view_roleSecurityPageDef"/>
     </pageMap>
     <pageDefinitionUsages>
@@ -231,8 +229,6 @@
               path="view.pageDefs.accrualRevenueGenerationProcesses_accrualRevenueGenerationProcesses_RollbackPageDef"/>
         <page id="view_billingAccountingProcesses_billingAccountingProcesses_RollbackPageDef"
               path="view.pageDefs.billingAccountingProcesses_billingAccountingProcesses_RollbackPageDef"/>
-        <page id="view_termsMaster_termsMaster_RollbackPageDef"
-              path="view.pageDefs.termsMaster_termsMaster_RollbackPageDef"/>
         <page id="view_roleSecurityPageDef" path="view.pageDefs.roleSecurityPageDef"/>
     </pageDefinitionUsages>
     <dataControlUsages>
