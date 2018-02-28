@@ -14,6 +14,8 @@
               id="XpeDccCfgNewOriginsEOVOIterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="XpeDccCfgNycDosTermCustEOVO" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccCfgNycDosTermCustEOVOIterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="XpeDccCfgRoleSecurityEOVO" RangeSize="10" DataControl="AppModuleDataControl"
+              id="XpeDccCfgRoleSecurityEOVOIterator"/>
   </executables>
   <bindings>
     <tree IterBinding="XpeDccCfgOriginsEOVOIterator" id="XpeDccCfgOriginsEOVO">
@@ -58,5 +60,10 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="SetUpTables">
+      <AttrNames>
+        <Item Value="Screen17"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

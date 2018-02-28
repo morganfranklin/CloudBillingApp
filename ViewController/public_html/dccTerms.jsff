@@ -17,7 +17,8 @@
                                   required="#{bindings.XpeDccStatus.hints.mandatory}"
                                   columns="#{bindings.XpeDccStatus.hints.displayWidth}"
                                   maximumLength="#{bindings.XpeDccStatus.hints.precision}"
-                                  shortDesc="#{bindings.XpeDccStatus.hints.tooltip}" id="it1" autoSubmit="true">
+                                  shortDesc="#{bindings.XpeDccStatus.hints.tooltip}" id="it1" autoSubmit="true"
+                                  readOnly="#{bindings.TermsMaster.inputValue eq 'V'}">
                         <f:validator binding="#{bindings.XpeDccStatus.validator}"/>
                     </af:inputText>
                     <af:inputText value="#{bindings.XpeDccTermDesc.inputValue}"
@@ -25,13 +26,15 @@
                                   required="#{bindings.XpeDccTermDesc.hints.mandatory}"
                                   columns="#{bindings.XpeDccTermDesc.hints.displayWidth}"
                                   maximumLength="#{bindings.XpeDccTermDesc.hints.precision}"
-                                  shortDesc="#{bindings.XpeDccTermDesc.hints.tooltip}" id="it3" autoSubmit="true">
+                                  shortDesc="#{bindings.XpeDccTermDesc.hints.tooltip}" id="it3" autoSubmit="true"
+                                  readOnly="#{bindings.TermsMaster.inputValue eq 'V'}">
                         <f:validator binding="#{bindings.XpeDccTermDesc.validator}"/>
                     </af:inputText>
                     <af:selectOneChoice value="#{bindings.XpeWasteType.inputValue}"
                                         label="#{bindings.XpeWasteType.label}"
                                         required="#{bindings.XpeWasteType.hints.mandatory}"
-                                        shortDesc="#{bindings.XpeWasteType.hints.tooltip}" id="soc2" autoSubmit="true">
+                                        shortDesc="#{bindings.XpeWasteType.hints.tooltip}" id="soc2" autoSubmit="true"
+                                        readOnly="#{bindings.TermsMaster.inputValue eq 'V'}">
                         <f:selectItems value="#{bindings.XpeWasteType.items}" id="si2"/>
                         <f:validator binding="#{bindings.XpeWasteType.validator}"/>
                     </af:selectOneChoice>
@@ -39,7 +42,8 @@
                                         label="#{bindings.XpeContractSubType.label}"
                                         required="#{bindings.XpeContractSubType.hints.mandatory}"
                                         shortDesc="#{bindings.XpeContractSubType.hints.tooltip}" id="soc3"
-                                        autoSubmit="true" partialTriggers="soc2">
+                                        autoSubmit="true" partialTriggers="soc2"
+                                        readOnly="#{bindings.TermsMaster.inputValue eq 'V'}">
                         <f:selectItems value="#{bindings.XpeContractSubType.items}" id="si3"/>
                         <f:validator binding="#{bindings.XpeContractSubType.validator}"/>
                     </af:selectOneChoice>
@@ -47,7 +51,8 @@
                                         label="#{bindings.XpeAgreementType.label}"
                                         required="#{bindings.XpeAgreementType.hints.mandatory}"
                                         shortDesc="#{bindings.XpeAgreementType.hints.tooltip}" id="soc4"
-                                        autoSubmit="true" partialTriggers="soc2 soc3">
+                                        autoSubmit="true" partialTriggers="soc2 soc3"
+                                        readOnly="#{bindings.TermsMaster.inputValue eq 'V'}">
                         <f:selectItems value="#{bindings.XpeAgreementType.items}" id="si4"/>
                         <f:validator binding="#{bindings.XpeAgreementType.validator}"/>
                     </af:selectOneChoice>
@@ -56,10 +61,12 @@
         </af:gridRow>
         <af:gridRow id="gr5" marginTop="5px">
             <af:gridCell id="gc5" halign="stretch" width="100%">
-                <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add New Term" id="b_add"/>
+                <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add New Term" id="b_add"
+                           rendered="#{bindings.TermsMaster.inputValue ne 'V'}"/>
                 <af:button actionListener="#{bindings.Delete.execute}" text="Delete New Term" id="b_del"
                            partialTriggers="b_add"
-                           disabled="#{bindings.XpeDccTermsEOVOIterator.estimatedRowCount eq 0}"/>
+                           disabled="#{bindings.XpeDccTermsEOVOIterator.estimatedRowCount eq 0}"
+                           rendered="#{bindings.TermsMaster.inputValue ne 'V'}"/>
             </af:gridCell>
         </af:gridRow>
         <af:gridRow marginTop="5px" height="auto" id="gr2">
@@ -88,7 +95,8 @@
                                                           columns="#{bindings.XpeDccClause.hints.displayWidth}"
                                                           maximumLength="#{bindings.XpeDccClause.hints.precision}"
                                                           shortDesc="#{bindings.XpeDccClause.hints.tooltip}" id="it_cla"
-                                                          autoSubmit="true">
+                                                          autoSubmit="true"
+                                                          readOnly="#{bindings.TermsMaster.inputValue eq 'V'}">
                                                 <f:validator binding="#{bindings.XpeDccClause.validator}"/>
                                             </af:inputText>
                                             <af:inputText value="#{bindings.XpeDccSeq.inputValue}"
@@ -97,7 +105,8 @@
                                                           columns="#{bindings.XpeDccSeq.hints.displayWidth}"
                                                           maximumLength="#{bindings.XpeDccSeq.hints.precision}"
                                                           shortDesc="#{bindings.XpeDccSeq.hints.tooltip}" id="it5"
-                                                          autoSubmit="true">
+                                                          autoSubmit="true"
+                                                          readOnly="#{bindings.TermsMaster.inputValue eq 'V'}">
                                                 <f:validator binding="#{bindings.XpeDccSeq.validator}"/>
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.XpeDccSeq.format}"/>
@@ -107,14 +116,16 @@
                                                                value="#{bindings.XpeDccTermTemplate.inputValue}"
                                                                autoSubmit="true" converter="oracle.genericDomain"
                                                                simple="true" rows="8" columns="100"
-                                                               partialTriggers="soc1">
+                                                               partialTriggers="soc1"
+                                                               disabled="#{bindings.TermsMaster.inputValue eq 'V'}">
                                                 <f:facet name="footer">
                                                     <af:selectOneChoice value="#{bindings.Dic_Desc.inputValue}"
                                                                         label="#{bindings.Dic_Desc.label}"
                                                                         required="#{bindings.Dic_Desc.hints.mandatory}"
                                                                         shortDesc="#{bindings.Dic_Desc.hints.tooltip}"
                                                                         id="soc1" autoSubmit="true"
-                                                                        valueChangeListener="#{pageFlowScope.XpeDccTermsMasterMBean.onRFFSelValueChange}">
+                                                                        valueChangeListener="#{pageFlowScope.XpeDccTermsMasterMBean.onRFFSelValueChange}"
+                                                                        rendered="#{bindings.TermsMaster.inputValue ne 'V'}">
                                                         <f:selectItems value="#{bindings.Dic_Desc.items}" id="si1"/>
                                                         <f:validator binding="#{bindings.Dic_Desc.validator}"/>
                                                     </af:selectOneChoice>
@@ -131,7 +142,8 @@
         </af:gridRow>
         <af:gridRow id="gr6" marginTop="5px">
             <af:gridCell id="gc7" halign="stretch" width="100%">
-                <af:button actionListener="#{bindings.Commit.execute}" text="Save" id="b_save"/>
+                <af:button actionListener="#{bindings.Commit.execute}" text="Save" id="b_save"
+                           rendered="#{bindings.TermsMaster.inputValue ne 'V'}"/>
                 <af:spacer width="10" height="10" id="s1"/>
                 <af:button actionListener="#{bindings.Rollback.execute}" text="Back" immediate="true" id="b_back"
                            action="master">

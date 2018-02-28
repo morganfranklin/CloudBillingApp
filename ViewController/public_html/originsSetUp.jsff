@@ -15,7 +15,7 @@
             <f:facet name="context"/>
             <f:facet name="toolbar">
                 <af:button actionListener="#{pageFlowScope.OriginsSetUpTableMBean.onOriginCreation}" text="Add Item"
-                           id="b1" action="setCurrentRow">
+                           id="b1" action="setCurrentRow" rendered="#{bindings.SetUpTables.inputValue ne 'V'}">
                     <af:setActionListener from="ADD" to="#{pageFlowScope.NavFlow}"/>
                 </af:button>
             </f:facet>
@@ -32,7 +32,8 @@
                       contentDelivery="immediate" columnStretching="last" partialTriggers="::b1"
                       binding="#{backingBeanScope.OriginSetUpTableBBean.originsSetUpTblBind}">
                 <af:column headerText="#{bindings.XpeDccCfgOriginsEOVO.hints.OriginId.label}" id="resId1c1">
-                    <af:link text="#{row.OriginId}" id="l1" partialSubmit="true" action="setCurrentRow">
+                    <af:link text="#{row.OriginId}" id="l1" partialSubmit="true" action="setCurrentRow"
+                             disabled="#{bindings.SetUpTables.inputValue eq 'V'}">
                         <af:setActionListener from="#{row.OriginId}" to="#{pageFlowScope.OriginId}"/>
                         <af:setActionListener from="EDIT" to="#{pageFlowScope.NavFlow}"/>
                     </af:link>

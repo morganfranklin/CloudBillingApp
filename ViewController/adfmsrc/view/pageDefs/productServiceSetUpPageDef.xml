@@ -12,6 +12,8 @@
               ChangeEventPolicy="ppr"/>
     <iterator Binds="XpeDccCfgNewProductserviceEOVO" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccCfgNewProductserviceEOVOIterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="XpeDccCfgRoleSecurityEOVO" RangeSize="10" DataControl="AppModuleDataControl"
+              id="XpeDccCfgRoleSecurityEOVOIterator"/>
   </executables>
   <bindings>
     <tree IterBinding="XpeDccCfgProductserviceEOVOIterator" id="XpeDccCfgProductserviceEOVO">
@@ -46,6 +48,11 @@
     <attributeValues IterBinding="XpeDccCfgNewProductserviceEOVOIterator" id="ItemId">
       <AttrNames>
         <Item Value="ItemId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="SetUpTables">
+      <AttrNames>
+        <Item Value="Screen17"/>
       </AttrNames>
     </attributeValues>
   </bindings>

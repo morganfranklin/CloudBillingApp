@@ -17,7 +17,8 @@
         <af:toolbar id="t1">
           <af:button text="Add Item" id="b1"
                      action="#{bindings.CreateInsert.execute}"
-                     actionListener="#{pageFlowScope.XpeCfgTableSetupMBean.onTerminalCreation}"/>
+                     actionListener="#{pageFlowScope.XpeCfgTableSetupMBean.onTerminalCreation}"
+                     rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
         </af:toolbar>
       </f:facet>
       <f:facet name="menuBar"/>
@@ -33,7 +34,8 @@
                 binding="#{backingBeanScope.XpeCfgTableSetupBBean.terminalSetUpTblBind}">
         <af:column headerText="#{bindings.XpeDccCfgTerminalsEOVO.hints.TerminalId.label}" id="resId1c1">
           <af:link text="#{row.TerminalId}" id="l1" partialSubmit="true"
-                   actionListener="#{pageFlowScope.XpeCfgTableSetupMBean.onTerminalEdit}"/>
+                   actionListener="#{pageFlowScope.XpeCfgTableSetupMBean.onTerminalEdit}"
+                   disabled="#{bindings.SetUpTables.inputValue eq 'V'}"/>
         </af:column>
         <af:column headerText="#{bindings.XpeDccCfgTerminalsEOVO.hints.TerminalDesc.label}" id="resId1c2">
           <af:outputText value="#{row.TerminalDesc}"

@@ -3,33 +3,33 @@
                 xmlns:f="http://java.sun.com/jsf/core">
   <af:panelGroupLayout layout="vertical" id="pgl1">
     <af:panelHeader text="Role Setup" id="ph1">
-      <af:table id="md1" rows="#{bindings.XpeDccCfgRolesEOVO.rangeSize}"
-                fetchSize="#{bindings.XpeDccCfgRolesEOVO.rangeSize}"
-                emptyText="#{bindings.XpeDccCfgRolesEOVO.viewable ? 'No data to display.' : 'Access Denied.'}" var="row"
-                value="#{bindings.XpeDccCfgRolesEOVO.collectionModel}" rowBandingInterval="1"
-                selectedRowKeys="#{bindings.XpeDccCfgRolesEOVO.collectionModel.selectedRow}"
-                selectionListener="#{bindings.XpeDccCfgRolesEOVO.collectionModel.makeCurrent}" rowSelection="single"
+      <af:table id="md1" rows="#{bindings.XpeDccCfgNewRolesEOVO.rangeSize}"
+                fetchSize="#{bindings.XpeDccCfgNewRolesEOVO.rangeSize}"
+                emptyText="#{bindings.XpeDccCfgNewRolesEOVO.viewable ? 'No data to display.' : 'Access Denied.'}" var="row"
+                value="#{bindings.XpeDccCfgNewRolesEOVO.collectionModel}" rowBandingInterval="1"
+                selectedRowKeys="#{bindings.XpeDccCfgNewRolesEOVO.collectionModel.selectedRow}"
+                selectionListener="#{bindings.XpeDccCfgNewRolesEOVO.collectionModel.makeCurrent}" rowSelection="single"
                 columnStretching="last" partialTriggers="::b1 ::b2 ::b3 ::b4" contentDelivery="immediate">
-        <af:column headerText="#{bindings.XpeDccCfgRolesEOVO.hints.CpeRole.label}"
-                   sortProperty="#{bindings.XpeDccCfgRolesEOVO.hints.CpeRole.name}" sortable="false" id="c1"
+        <af:column headerText="#{bindings.XpeDccCfgNewRolesEOVO.hints.CpeRole.label}"
+                   sortProperty="#{bindings.XpeDccCfgNewRolesEOVO.hints.CpeRole.name}" sortable="false" id="c1"
                    width="250">
           <af:inputText value="#{row.bindings.CpeRole.inputValue}"
-                        label="#{bindings.XpeDccCfgRolesEOVO.hints.CpeRole.label}"
-                        required="#{bindings.XpeDccCfgRolesEOVO.hints.CpeRole.mandatory}"
-                        columns="#{bindings.XpeDccCfgRolesEOVO.hints.CpeRole.displayWidth}"
-                        maximumLength="#{bindings.XpeDccCfgRolesEOVO.hints.CpeRole.precision}"
-                        shortDesc="#{bindings.XpeDccCfgRolesEOVO.hints.CpeRole.tooltip}" id="it1" autoSubmit="true">
+                        label="#{bindings.XpeDccCfgNewRolesEOVO.hints.CpeRole.label}"
+                        required="#{bindings.XpeDccCfgNewRolesEOVO.hints.CpeRole.mandatory}"
+                        columns="#{bindings.XpeDccCfgNewRolesEOVO.hints.CpeRole.displayWidth}"
+                        maximumLength="#{bindings.XpeDccCfgNewRolesEOVO.hints.CpeRole.precision}"
+                        shortDesc="#{bindings.XpeDccCfgNewRolesEOVO.hints.CpeRole.tooltip}" id="it1" autoSubmit="true">
             <f:validator binding="#{row.bindings.CpeRole.validator}"/>
           </af:inputText>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgRolesEOVO.hints.PeoplesoftRole.label}"
-                   sortProperty="#{bindings.XpeDccCfgRolesEOVO.hints.PeoplesoftRole.name}" sortable="false" id="c6">
+        <af:column headerText="#{bindings.XpeDccCfgNewRolesEOVO.hints.PeoplesoftRole.label}"
+                   sortProperty="#{bindings.XpeDccCfgNewRolesEOVO.hints.PeoplesoftRole.name}" sortable="false" id="c6">
           <af:inputText value="#{row.bindings.PeoplesoftRole.inputValue}"
-                        label="#{bindings.XpeDccCfgRolesEOVO.hints.PeoplesoftRole.label}"
-                        required="#{bindings.XpeDccCfgRolesEOVO.hints.PeoplesoftRole.mandatory}"
-                        columns="#{bindings.XpeDccCfgRolesEOVO.hints.PeoplesoftRole.displayWidth}"
-                        maximumLength="#{bindings.XpeDccCfgRolesEOVO.hints.PeoplesoftRole.precision}"
-                        shortDesc="#{bindings.XpeDccCfgRolesEOVO.hints.PeoplesoftRole.tooltip}" id="it2"
+                        label="#{bindings.XpeDccCfgNewRolesEOVO.hints.PeoplesoftRole.label}"
+                        required="#{bindings.XpeDccCfgNewRolesEOVO.hints.PeoplesoftRole.mandatory}"
+                        columns="#{bindings.XpeDccCfgNewRolesEOVO.hints.PeoplesoftRole.displayWidth}"
+                        maximumLength="#{bindings.XpeDccCfgNewRolesEOVO.hints.PeoplesoftRole.precision}"
+                        shortDesc="#{bindings.XpeDccCfgNewRolesEOVO.hints.PeoplesoftRole.tooltip}" id="it2"
                         autoSubmit="true">
             <f:validator binding="#{row.bindings.PeoplesoftRole.validator}"/>
           </af:inputText>
@@ -45,7 +45,7 @@
         <af:group id="g2">
           <af:button actionListener="#{bindings.Commit.execute}" text="Submit" id="b3"/>
           <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel" immediate="true" id="b4"
-                     disabled="#{bindings.XpeDccCfgRolesEOVOIterator.estimatedRowCount==0}">
+                     disabled="#{bindings.XpeDccCfgNewRolesEOVOIterator.estimatedRowCount==0}">
             <af:resetActionListener/>
           </af:button>
         </af:group>
@@ -249,7 +249,7 @@
       <f:facet name="context">
         <af:group id="g3">
           <af:button actionListener="#{bindings.CreateInsert1.execute}" text="Create" id="b5"
-                     disabled="#{bindings.XpeDccCfgRolesEOVOIterator.estimatedRowCount!=0 &amp;&amp; bindings.XpeDccCfgRoleSecurityEOVOIterator.estimatedRowCount&lt;1}"
+                     disabled="#{bindings.XpeDccCfgNewRolesEOVOIterator.estimatedRowCount!=0 &amp;&amp; bindings.XpeDccCfgNewRoleSecurityEOVOIterator.estimatedRowCount&lt;1}"
                      partialTriggers="b1 b2 b3"/>
           <af:button actionListener="#{bindings.Delete1.execute}" text="Delete" id="b6"/>
         </af:group>

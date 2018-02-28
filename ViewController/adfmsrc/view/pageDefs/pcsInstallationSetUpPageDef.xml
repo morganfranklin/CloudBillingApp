@@ -12,6 +12,8 @@
               id="XpeDccCfgPcsAssTerminalsEOVOIterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="XpeDccCfgNewPcsEOVO" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccCfgNewPcsEOVOIterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="XpeDccCfgRoleSecurityEOVO" RangeSize="10" DataControl="AppModuleDataControl"
+              id="XpeDccCfgRoleSecurityEOVOIterator"/>
   </executables>
   <bindings>
     <tree IterBinding="XpeDccCfgPcsEOVOIterator" id="XpeDccCfgPcsEOVO">
@@ -47,6 +49,11 @@
     <attributeValues IterBinding="XpeDccCfgNewPcsEOVOIterator" id="SiteId">
       <AttrNames>
         <Item Value="SiteId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="SetUpTables">
+      <AttrNames>
+        <Item Value="Screen17"/>
       </AttrNames>
     </attributeValues>
   </bindings>

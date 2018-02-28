@@ -17,7 +17,8 @@
                 <af:toolbar id="t1">
                     <af:button action="#{bindings.CreateInsert.execute}" text="Add Item"
                                disabled="#{!bindings.CreateInsert.enabled}" id="b1"
-                               actionListener="#{pageFlowScope.countiesSetUpTableMBean.onCountyCreation}"/>
+                               actionListener="#{pageFlowScope.countiesSetUpTableMBean.onCountyCreation}"
+                               rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
                 </af:toolbar>
             </f:facet>
             <f:facet name="menuBar"/>
@@ -34,7 +35,8 @@
                       binding="#{backingBeanScope.countiesSetUpTableBBean.countySetUpTblBind}">
                 <af:column headerText="#{bindings.XpeDccCfgCountiesEOVO.hints.CountyId.label}" id="resId1c1">
                     <af:link text="#{row.CountyId}" id="l1"
-                             actionListener="#{pageFlowScope.countiesSetUpTableMBean.onCountyEdit}"/>
+                             actionListener="#{pageFlowScope.countiesSetUpTableMBean.onCountyEdit}"
+                             disabled="#{bindings.SetUpTables.inputValue eq 'V'}"/>
                 </af:column>
                 <af:column headerText="#{bindings.XpeDccCfgCountiesEOVO.hints.CountyName.label}" id="c1">
                     <af:outputText value="#{row.CountyName}"

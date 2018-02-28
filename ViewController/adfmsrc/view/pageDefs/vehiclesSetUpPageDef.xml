@@ -10,6 +10,8 @@
                   Binds="XpeDccCfgVehiclesEOVOIterator" id="VehiclesCriteriaQuery"/>
     <iterator Binds="XpeDccCfgNewVehiclesCreationEOVO" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccCfgNewVehiclesCreationEOVOIterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="XpeDccCfgRoleSecurityEOVO" RangeSize="10" DataControl="AppModuleDataControl"
+              id="XpeDccCfgRoleSecurityEOVOIterator"/>
   </executables>
   <bindings>
     <tree IterBinding="XpeDccCfgVehiclesEOVOIterator" id="XpeDccCfgVehiclesEOVO">
@@ -69,6 +71,11 @@
     <attributeValues IterBinding="XpeDccCfgVehiclesEOVOIterator" id="InactiveDate">
       <AttrNames>
         <Item Value="InactiveDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="SetUpTables">
+      <AttrNames>
+        <Item Value="Screen17"/>
       </AttrNames>
     </attributeValues>
   </bindings>

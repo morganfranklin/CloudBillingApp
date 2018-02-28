@@ -17,7 +17,8 @@
                 <af:toolbar id="t1">
                     <af:button action="#{bindings.CreateInsert.execute}" text="Add"
                                disabled="#{!bindings.CreateInsert.enabled}" id="b1"
-                               actionListener="#{pageFlowScope.AccountingSetUpTableMBean.onAccountingCreation}"/>
+                               actionListener="#{pageFlowScope.AccountingSetUpTableMBean.onAccountingCreation}"
+                               rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
                 </af:toolbar>
             </f:facet>
             <f:facet name="menuBar"/>
@@ -36,7 +37,8 @@
                 <af:column headerText="#{bindings.XpeDccCfgAccountingEOVO.hints.AccountId.label}" id="resId1c1"
                            sortProperty="#{bindings.XpeDccCfgAccountingEOVO.hints.AccountId.name}" sortable="true">
                     <af:link text="#{row.AccountId}" id="l1" partialSubmit="true"
-                             actionListener="#{pageFlowScope.AccountingSetUpTableMBean.onAccountingEdit}"/>
+                             actionListener="#{pageFlowScope.AccountingSetUpTableMBean.onAccountingEdit}"
+                             disabled="#{bindings.SetUpTables.inputValue eq 'V'}"/>
                 </af:column>
                 <af:column headerText="#{bindings.XpeDccCfgAccountingEOVO.hints.DealClass.label}" id="resId1c4"
                            sortProperty="#{bindings.XpeDccCfgAccountingEOVO.hints.DealClass.name}" sortable="true">
@@ -97,7 +99,8 @@
                 <af:dialog id="d1" type="none" title="Accounting Details" closeIconVisible="false">
                     <f:facet name="buttonBar">
                         <af:button text="Save" id="b2"
-                                   actionListener="#{pageFlowScope.AccountingSetUpTableMBean.onAccountingCreationSave}"/>
+                                   actionListener="#{pageFlowScope.AccountingSetUpTableMBean.onAccountingCreationSave}"
+                                   rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
                         <af:spacer width="10" height="10" id="s2"/>
                         <af:button action="#{bindings.Rollback.execute}" text="Cancel"
                                    disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b3"
@@ -105,7 +108,7 @@
                             <af:resetActionListener/>
                         </af:button>
                     </f:facet>
-                    <af:panelGroupLayout id="pgl2">
+                    <af:panelGroupLayout id="pgl2" layout="vertical">
                         <af:panelFormLayout id="pfl1" maxColumns="5" rows="1" labelAlignment="top">
                             <af:inputListOfValues id="dealClassId"
                                                   popupTitle="Search and Select: #{bindings.DealClass.hints.label}"
@@ -114,7 +117,8 @@
                                                   model="#{bindings.DealClass.listOfValuesModel}"
                                                   required="#{bindings.DealClass.hints.mandatory}"
                                                   columns="#{bindings.DealClass.hints.displayWidth}"
-                                                  shortDesc="#{bindings.DealClass.hints.tooltip}">
+                                                  shortDesc="#{bindings.DealClass.hints.tooltip}"
+                                                  readOnly="#{bindings.SetUpTables.inputValue eq 'V'}">
                                 <f:validator binding="#{bindings.DealClass.validator}"/>
                             </af:inputListOfValues>
                             <af:inputListOfValues id="accountingClassId"
@@ -124,7 +128,8 @@
                                                   model="#{bindings.AccountingClass.listOfValuesModel}"
                                                   required="#{bindings.AccountingClass.hints.mandatory}"
                                                   columns="#{bindings.AccountingClass.hints.displayWidth}"
-                                                  shortDesc="#{bindings.AccountingClass.hints.tooltip}">
+                                                  shortDesc="#{bindings.AccountingClass.hints.tooltip}"
+                                                  readOnly="#{bindings.SetUpTables.inputValue eq 'V'}">
                                 <f:validator binding="#{bindings.AccountingClass.validator}"/>
                             </af:inputListOfValues>
                             <af:inputListOfValues id="materialCategoryId"
@@ -134,7 +139,8 @@
                                                   model="#{bindings.MaterialCategory.listOfValuesModel}"
                                                   required="#{bindings.MaterialCategory.hints.mandatory}"
                                                   columns="#{bindings.MaterialCategory.hints.displayWidth}"
-                                                  shortDesc="#{bindings.MaterialCategory.hints.tooltip}">
+                                                  shortDesc="#{bindings.MaterialCategory.hints.tooltip}"
+                                                  readOnly="#{bindings.SetUpTables.inputValue eq 'V'}">
                                 <f:validator binding="#{bindings.MaterialCategory.validator}"/>
                             </af:inputListOfValues>
                             <af:inputListOfValues id="productServiceIdId"
@@ -144,7 +150,8 @@
                                                   model="#{bindings.ProductServiceId.listOfValuesModel}"
                                                   required="#{bindings.ProductServiceId.hints.mandatory}"
                                                   columns="#{bindings.ProductServiceId.hints.displayWidth}"
-                                                  shortDesc="#{bindings.ProductServiceId.hints.tooltip}">
+                                                  shortDesc="#{bindings.ProductServiceId.hints.tooltip}"
+                                                  readOnly="#{bindings.SetUpTables.inputValue eq 'V'}">
                                 <f:validator binding="#{bindings.ProductServiceId.validator}"/>
                             </af:inputListOfValues>
                             <af:inputListOfValues id="siteIdId"
@@ -154,7 +161,8 @@
                                                   model="#{bindings.SiteId.listOfValuesModel}"
                                                   required="#{bindings.SiteId.hints.mandatory}"
                                                   columns="#{bindings.SiteId.hints.displayWidth}"
-                                                  shortDesc="#{bindings.SiteId.hints.tooltip}">
+                                                  shortDesc="#{bindings.SiteId.hints.tooltip}"
+                                                  readOnly="#{bindings.SetUpTables.inputValue eq 'V'}">
                                 <f:validator binding="#{bindings.SiteId.validator}"/>
                             </af:inputListOfValues>
                         </af:panelFormLayout>
@@ -168,7 +176,8 @@
                                                   model="#{bindings.ChargeId.listOfValuesModel}"
                                                   required="#{bindings.ChargeId.hints.mandatory}"
                                                   columns="#{bindings.ChargeId.hints.displayWidth}"
-                                                  shortDesc="#{bindings.ChargeId.hints.tooltip}" autoSubmit="true">
+                                                  shortDesc="#{bindings.ChargeId.hints.tooltip}" autoSubmit="true"
+                                                  readOnly="#{bindings.SetUpTables.inputValue eq 'V'}">
                                 <f:validator binding="#{bindings.ChargeId.validator}"/>
                             </af:inputListOfValues>
                             <af:inputListOfValues id="statAccountId"
@@ -178,7 +187,8 @@
                                                   model="#{bindings.StatAccount.listOfValuesModel}"
                                                   required="#{bindings.StatAccount.hints.mandatory}"
                                                   columns="#{bindings.StatAccount.hints.displayWidth}"
-                                                  shortDesc="#{bindings.StatAccount.hints.tooltip}" autoSubmit="true">
+                                                  shortDesc="#{bindings.StatAccount.hints.tooltip}" autoSubmit="true"
+                                                  readOnly="#{bindings.SetUpTables.inputValue eq 'V'}">
                                 <f:validator binding="#{bindings.StatAccount.validator}"/>
                             </af:inputListOfValues>
                             <af:inputListOfValues id="entryTypeId"
@@ -188,7 +198,8 @@
                                                   model="#{bindings.EntryType.listOfValuesModel}"
                                                   required="#{bindings.EntryType.hints.mandatory}"
                                                   columns="#{bindings.EntryType.hints.displayWidth}"
-                                                  shortDesc="#{bindings.EntryType.hints.tooltip}" autoSubmit="true">
+                                                  shortDesc="#{bindings.EntryType.hints.tooltip}" autoSubmit="true"
+                                                  readOnly="#{bindings.SetUpTables.inputValue eq 'V'}">
                                 <f:validator binding="#{bindings.EntryType.validator}"/>
                             </af:inputListOfValues>
                         </af:panelFormLayout>
@@ -200,14 +211,15 @@
                 <af:dialog id="d2" type="none" title="Accounting Details" closeIconVisible="false">
                     <f:facet name="buttonBar">
                         <af:button text="Save" id="b4"
-                                   actionListener="#{pageFlowScope.AccountingSetUpTableMBean.onAccountingEditSave}"/>
+                                   actionListener="#{pageFlowScope.AccountingSetUpTableMBean.onAccountingEditSave}"
+                                   rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
                         <af:spacer width="10" height="10" id="s3"/>
                         <af:button action="#{bindings.Rollback.execute}" text="Cancel" immediate="true" id="b5"
                                    actionListener="#{pageFlowScope.AccountingSetUpTableMBean.onAccountingEditCancel}">
                             <af:resetActionListener/>
                         </af:button>
                     </f:facet>
-                    <af:panelGroupLayout id="pgl3">
+                    <af:panelGroupLayout id="pgl3" layout="vertical">
                         <af:panelFormLayout id="pfl2" maxColumns="5" rows="1" labelAlignment="top">
                             <af:inputListOfValues id="dealClass1Id"
                                                   popupTitle="Search and Select: #{bindings.DealClass1.hints.label}"
@@ -216,7 +228,8 @@
                                                   model="#{bindings.DealClass1.listOfValuesModel}"
                                                   required="#{bindings.DealClass1.hints.mandatory}"
                                                   columns="#{bindings.DealClass1.hints.displayWidth}"
-                                                  shortDesc="#{bindings.DealClass1.hints.tooltip}">
+                                                  shortDesc="#{bindings.DealClass1.hints.tooltip}"
+                                                  readOnly="#{bindings.SetUpTables.inputValue eq 'V'}">
                                 <f:validator binding="#{bindings.DealClass1.validator}"/>
                             </af:inputListOfValues>
                             <af:inputListOfValues id="accountingClass1Id"
@@ -226,7 +239,8 @@
                                                   model="#{bindings.AccountingClass1.listOfValuesModel}"
                                                   required="#{bindings.AccountingClass1.hints.mandatory}"
                                                   columns="#{bindings.AccountingClass1.hints.displayWidth}"
-                                                  shortDesc="#{bindings.AccountingClass1.hints.tooltip}">
+                                                  shortDesc="#{bindings.AccountingClass1.hints.tooltip}"
+                                                  readOnly="#{bindings.SetUpTables.inputValue eq 'V'}">
                                 <f:validator binding="#{bindings.AccountingClass1.validator}"/>
                             </af:inputListOfValues>
                             <af:inputListOfValues id="materialCategory1Id"
@@ -236,7 +250,8 @@
                                                   model="#{bindings.MaterialCategory1.listOfValuesModel}"
                                                   required="#{bindings.MaterialCategory1.hints.mandatory}"
                                                   columns="#{bindings.MaterialCategory1.hints.displayWidth}"
-                                                  shortDesc="#{bindings.MaterialCategory1.hints.tooltip}">
+                                                  shortDesc="#{bindings.MaterialCategory1.hints.tooltip}"
+                                                  readOnly="#{bindings.SetUpTables.inputValue eq 'V'}">
                                 <f:validator binding="#{bindings.MaterialCategory1.validator}"/>
                             </af:inputListOfValues>
                             <af:inputListOfValues id="productServiceId1Id"
@@ -246,7 +261,8 @@
                                                   model="#{bindings.ProductServiceId1.listOfValuesModel}"
                                                   required="#{bindings.ProductServiceId1.hints.mandatory}"
                                                   columns="#{bindings.ProductServiceId1.hints.displayWidth}"
-                                                  shortDesc="#{bindings.ProductServiceId1.hints.tooltip}">
+                                                  shortDesc="#{bindings.ProductServiceId1.hints.tooltip}"
+                                                  readOnly="#{bindings.SetUpTables.inputValue eq 'V'}">
                                 <f:validator binding="#{bindings.ProductServiceId1.validator}"/>
                             </af:inputListOfValues>
                             <af:inputListOfValues id="siteId1Id"
@@ -256,7 +272,8 @@
                                                   model="#{bindings.SiteId1.listOfValuesModel}"
                                                   required="#{bindings.SiteId1.hints.mandatory}"
                                                   columns="#{bindings.SiteId1.hints.displayWidth}"
-                                                  shortDesc="#{bindings.SiteId1.hints.tooltip}">
+                                                  shortDesc="#{bindings.SiteId1.hints.tooltip}"
+                                                  readOnly="#{bindings.SetUpTables.inputValue eq 'V'}">
                                 <f:validator binding="#{bindings.SiteId1.validator}"/>
                             </af:inputListOfValues>
                         </af:panelFormLayout>
@@ -270,7 +287,8 @@
                                                   model="#{bindings.ChargeId1.listOfValuesModel}"
                                                   required="#{bindings.ChargeId1.hints.mandatory}"
                                                   columns="#{bindings.ChargeId1.hints.displayWidth}"
-                                                  shortDesc="#{bindings.ChargeId1.hints.tooltip}" autoSubmit="true">
+                                                  shortDesc="#{bindings.ChargeId1.hints.tooltip}" autoSubmit="true"
+                                                  readOnly="#{bindings.SetUpTables.inputValue eq 'V'}">
                                 <f:validator binding="#{bindings.ChargeId1.validator}"/>
                             </af:inputListOfValues>
                             <af:inputListOfValues id="statAccount1Id"
@@ -280,7 +298,8 @@
                                                   model="#{bindings.StatAccount1.listOfValuesModel}"
                                                   required="#{bindings.StatAccount1.hints.mandatory}"
                                                   columns="#{bindings.StatAccount1.hints.displayWidth}"
-                                                  shortDesc="#{bindings.StatAccount1.hints.tooltip}" autoSubmit="true">
+                                                  shortDesc="#{bindings.StatAccount1.hints.tooltip}" autoSubmit="true"
+                                                  readOnly="#{bindings.SetUpTables.inputValue eq 'V'}">
                                 <f:validator binding="#{bindings.StatAccount1.validator}"/>
                             </af:inputListOfValues>
                             <af:inputListOfValues id="entryType1Id"
@@ -290,7 +309,8 @@
                                                   model="#{bindings.EntryType1.listOfValuesModel}"
                                                   required="#{bindings.EntryType1.hints.mandatory}"
                                                   columns="#{bindings.EntryType1.hints.displayWidth}"
-                                                  shortDesc="#{bindings.EntryType1.hints.tooltip}" autoSubmit="true">
+                                                  shortDesc="#{bindings.EntryType1.hints.tooltip}" autoSubmit="true"
+                                                  readOnly="#{bindings.SetUpTables.inputValue eq 'V'}">
                                 <f:validator binding="#{bindings.EntryType1.validator}"/>
                             </af:inputListOfValues>
                             <af:panelLabelAndMessage label="#{bindings.Inactive.label}" id="plam1">
@@ -299,7 +319,8 @@
                                                     required="#{bindings.Inactive.hints.mandatory}"
                                                     shortDesc="#{bindings.Inactive.hints.tooltip}" id="soc1"
                                                     autoSubmit="true" simple="true"
-                                                    valueChangeListener="#{pageFlowScope.AccountingSetUpTableMBean.accountingSetUpTblValChgLstnr}">
+                                                    valueChangeListener="#{pageFlowScope.AccountingSetUpTableMBean.accountingSetUpTblValChgLstnr}"
+                                                    readOnly="#{bindings.SetUpTables.inputValue eq 'V'}">
                                     <f:selectItems value="#{bindings.Inactive.items}" id="si1"/>
                                     <f:validator binding="#{bindings.Inactive.validator}"/>
                                 </af:selectOneChoice>
@@ -309,7 +330,7 @@
                                           required="#{bindings.InactiveDate.hints.mandatory}"
                                           columns="#{bindings.InactiveDate.hints.displayWidth}"
                                           shortDesc="#{bindings.InactiveDate.hints.tooltip}" id="id1"
-                                          partialTriggers="soc1">
+                                          partialTriggers="soc1" readOnly="#{bindings.SetUpTables.inputValue eq 'V'}">
                                 <f:validator binding="#{bindings.InactiveDate.validator}"/>
                                 <af:convertDateTime pattern="#{bindings.InactiveDate.format}"/>
                             </af:inputDate>

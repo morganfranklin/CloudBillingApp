@@ -4322,5 +4322,29 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     public ViewLinkImpl getXpeDccCfgRoleSecurityFKVL() {
         return (ViewLinkImpl) findViewLink("XpeDccCfgRoleSecurityFKVL");
     }
+
+    /**
+     * Container's getter for XpeDccCfgRolesEOVO1.
+     * @return XpeDccCfgRolesEOVO1
+     */
+    public XpeDccCfgRolesEOVOImpl getXpeDccCfgNewRolesEOVO() {
+        return (XpeDccCfgRolesEOVOImpl) findViewObject("XpeDccCfgNewRolesEOVO");
+    }
+
+    /**
+     * Container's getter for XpeDccCfgRoleSecurityEOVO1.
+     * @return XpeDccCfgRoleSecurityEOVO1
+     */
+    public XpeDccCfgRoleSecurityEOVOImpl getXpeDccCfgNewRoleSecurityEOVO() {
+        return (XpeDccCfgRoleSecurityEOVOImpl) findViewObject("XpeDccCfgNewRoleSecurityEOVO");
+    }
+
+    /**
+     * Container's getter for XpeDccCfgRoleSecurityFKVL1.
+     * @return XpeDccCfgRoleSecurityFKVL1
+     */
+    public ViewLinkImpl getXpeDccCfgRoleSecurityFKVL1() {
+        return (ViewLinkImpl) findViewLink("XpeDccCfgRoleSecurityFKVL1");
+    }
 }
 

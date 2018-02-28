@@ -17,7 +17,8 @@
                 <af:toolbar id="t1">
                     <af:button action="#{bindings.CreateInsert.execute}" text="Add Item"
                                disabled="#{!bindings.CreateInsert.enabled}" id="b1"
-                               actionListener="#{pageFlowScope.GeneralConversionSetUpTableMBean.onGeneralConversionCreation}"/>
+                               actionListener="#{pageFlowScope.GeneralConversionSetUpTableMBean.onGeneralConversionCreation}"
+                               rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
                 </af:toolbar>
             </f:facet>
             <f:facet name="menuBar"/>
@@ -36,7 +37,8 @@
                 <af:column headerText="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.GeneralCnvId.label}" id="resId1c1"
                            sortable="true" sortProperty="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.GeneralCnvId.name}">
                     <af:link text="#{row.GeneralCnvId}" id="l1" partialSubmit="true"
-                             actionListener="#{pageFlowScope.GeneralConversionSetUpTableMBean.onGeneralConversionEdit}"/>
+                             actionListener="#{pageFlowScope.GeneralConversionSetUpTableMBean.onGeneralConversionEdit}"
+                             disabled="#{bindings.SetUpTables.inputValue eq 'V'}"/>
                 </af:column>
                 <af:column headerText="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.CarrierId.label}" id="c1"
                            sortProperty="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.CarrierId.name}" sortable="true">
