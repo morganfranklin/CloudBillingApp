@@ -45,6 +45,10 @@
     Name="bind_InactiveDate"
     Kind="viewcriteria"
     Type="java.sql.Timestamp"/>
+  <Variable
+    Name="bind_CountryId"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="LookupSharedAppModule_YONLOV"
     ViewObjectName="model.views.readonly.XpeDccDicNewContractSetupROVO"
@@ -180,6 +184,23 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
+    Name="Country"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Country"
+    EntityUsage="XpeDccCfgDestinationsEO"
+    AliasName="COUNTRY"
+    LOVName="LOV_Country">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgDestinationsEOVO.Country_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
     Name="Inactive"
     PrecisionRule="true"
     EntityAttrName="Inactive"
@@ -233,23 +254,6 @@
     EntityAttrName="LastUpdatedDate"
     EntityUsage="XpeDccCfgDestinationsEO"
     AliasName="LAST_UPDATED_DATE"/>
-  <ViewAttribute
-    Name="Country"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="Country"
-    EntityUsage="XpeDccCfgDestinationsEO"
-    AliasName="COUNTRY"
-    LOVName="LOV_Country">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgDestinationsEOVO.Country_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
   <ViewCriteria
     Name="DestinationsCriteria"
     ViewObjectName="model.views.entitybased.XpeDccCfgDestinationsEOVO"
@@ -318,6 +322,14 @@
         Operator="="
         Conjunction="AND"
         Value=":bind_InactiveDate"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="DestinationsCriteria_XpeDccCfgDestinationsEOVOCriteria_row_0_Country"
+        ViewAttribute="Country"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_CountryId"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

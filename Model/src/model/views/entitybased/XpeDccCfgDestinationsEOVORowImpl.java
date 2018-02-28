@@ -25,13 +25,13 @@ public class XpeDccCfgDestinationsEOVORowImpl extends ViewRowImpl {
         DestinationId,
         DestinationDesc,
         State,
+        Country,
         Inactive,
         InactiveDate,
         CreatedBy,
         CreatedDate,
         LastUpdatedBy,
         LastUpdatedDate,
-        Country,
         XpeDccCfgDstAssTerminalsEOVO,
         LookupSharedAppModule_YONLOV,
         XpeDccGeneralItemListROVO1,
@@ -64,13 +64,13 @@ public class XpeDccCfgDestinationsEOVORowImpl extends ViewRowImpl {
     public static final int DESTINATIONID = AttributesEnum.DestinationId.index();
     public static final int DESTINATIONDESC = AttributesEnum.DestinationDesc.index();
     public static final int STATE = AttributesEnum.State.index();
+    public static final int COUNTRY = AttributesEnum.Country.index();
     public static final int INACTIVE = AttributesEnum.Inactive.index();
     public static final int INACTIVEDATE = AttributesEnum.InactiveDate.index();
     public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
     public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
-    public static final int COUNTRY = AttributesEnum.Country.index();
     public static final int XPEDCCCFGDSTASSTERMINALSEOVO = AttributesEnum.XpeDccCfgDstAssTerminalsEOVO.index();
     public static final int LOOKUPSHAREDAPPMODULE_YONLOV = AttributesEnum.LookupSharedAppModule_YONLOV.index();
     public static final int XPEDCCGENERALITEMLISTROVO1 = AttributesEnum.XpeDccGeneralItemListROVO1.index();
