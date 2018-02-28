@@ -26,7 +26,7 @@
                         <af:gridRow height="auto" id="gr1">
                             <af:gridCell width="100%" id="gc1" halign="stretch" marginStart="5px" marginEnd="5px">
                                 <af:region value="#{bindings.dynamicRegion1.regionModel}" id="r1"
-                                           partialTriggers="::l2 ::l1 ::l19 ::l15 ::l16 ::l3 ::l17 ::l9 ::l8 ::l4 ::l5 ::l20 ::l23 ::l21 ::l18 ::l12 ::l22 ::l24 ::l25 ::l27 ::l28"
+                                           partialTriggers="::l2 ::l1 ::l19 ::l15 ::l16 ::l3 ::l17 ::l9 ::l8 ::l4 ::l5 ::l20 ::l23 ::l21 ::l18 ::l12 ::l22 ::l24 ::l25 ::l27 ::l28 ::l29"
                                            regionNavigationListener="#{viewScope.integrationDashboardRegionName.regionNavigationListener}"/>
                             </af:gridCell>
                         </af:gridRow>
@@ -164,6 +164,13 @@
                                                          action="#{viewScope.integrationDashboardRegionName.roleAndScreenSecuritySetUp}"
                                                          immediate="true" actionListener="#{bindings.Rollback.execute}"
                                                          rendered="#{bindings.RoleandScreenSecurity.inputValue ne 'H'}"/>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow id="gr34" marginTop="5px">
+                                            <af:gridCell id="gc34">
+                                                <af:link text="User Business Unit" id="l29"
+                                                         action="#{viewScope.integrationDashboardRegionName.userBusinessUnitSetUp}"
+                                                         immediate="true" actionListener="#{bindings.Rollback.execute}"/>
                                             </af:gridCell>
                                         </af:gridRow>
                                     </af:panelGridLayout>
