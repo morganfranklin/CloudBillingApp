@@ -27,14 +27,14 @@ public class XpeDccCfgOriginsEOVORowImpl extends ViewRowImpl {
         County,
         State,
         XpeDccNycDosDistrict,
+        StateSearch,
+        Country,
         CreatedBy,
         CreatedDate,
         Inactive,
         InactiveDate,
         LastUpdatedBy,
         LastUpdatedDate,
-        Country,
-        StateSearch,
         XpeDccCfgOgnAssTerminalsEOVO,
         LookupSharedAppModule_YONLOV,
         XpeDccCfgCountiesLOV,
@@ -71,14 +71,14 @@ public class XpeDccCfgOriginsEOVORowImpl extends ViewRowImpl {
     public static final int COUNTY = AttributesEnum.County.index();
     public static final int STATE = AttributesEnum.State.index();
     public static final int XPEDCCNYCDOSDISTRICT = AttributesEnum.XpeDccNycDosDistrict.index();
+    public static final int STATESEARCH = AttributesEnum.StateSearch.index();
+    public static final int COUNTRY = AttributesEnum.Country.index();
     public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
     public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
     public static final int INACTIVE = AttributesEnum.Inactive.index();
     public static final int INACTIVEDATE = AttributesEnum.InactiveDate.index();
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
-    public static final int COUNTRY = AttributesEnum.Country.index();
-    public static final int STATESEARCH = AttributesEnum.StateSearch.index();
     public static final int XPEDCCCFGOGNASSTERMINALSEOVO = AttributesEnum.XpeDccCfgOgnAssTerminalsEOVO.index();
     public static final int LOOKUPSHAREDAPPMODULE_YONLOV = AttributesEnum.LookupSharedAppModule_YONLOV.index();
     public static final int XPEDCCCFGCOUNTIESLOV = AttributesEnum.XpeDccCfgCountiesLOV.index();

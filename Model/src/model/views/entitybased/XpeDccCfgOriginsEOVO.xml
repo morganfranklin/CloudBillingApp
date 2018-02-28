@@ -41,6 +41,10 @@
     Name="bind_OriginState"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="bind_CountryId"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="LookupSharedAppModule_YONLOV"
     ViewObjectName="model.views.readonly.XpeDccDicNewContractSetupROVO"
@@ -258,6 +262,40 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
+    Name="StateSearch"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="State"
+    EntityUsage="XpeDccCfgOriginsEO"
+    AliasName="STATE1"
+    LOVName="LOV_StateSearch">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgOriginsEOVO.StateSearch_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Country"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Country"
+    EntityUsage="XpeDccCfgOriginsEO"
+    AliasName="COUNTRY"
+    LOVName="LOV_Country">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgOriginsEOVO.Country_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
     Name="CreatedBy"
     PrecisionRule="true"
     EntityAttrName="CreatedBy"
@@ -311,40 +349,6 @@
     EntityAttrName="LastUpdatedDate"
     EntityUsage="XpeDccCfgOriginsEO"
     AliasName="LAST_UPDATED_DATE"/>
-  <ViewAttribute
-    Name="Country"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="Country"
-    EntityUsage="XpeDccCfgOriginsEO"
-    AliasName="COUNTRY"
-    LOVName="LOV_Country">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgOriginsEOVO.Country_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="StateSearch"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="State"
-    EntityUsage="XpeDccCfgOriginsEO"
-    AliasName="STATE1"
-    LOVName="LOV_StateSearch">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgOriginsEOVO.StateSearch_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
   <ViewCriteria
     Name="OriginsCriteria"
     ViewObjectName="model.views.entitybased.XpeDccCfgOriginsEOVO"
@@ -393,6 +397,14 @@
         Operator="="
         Conjunction="AND"
         Value=":bind_OriginCounty"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="OriginsCriteria_XpeDccCfgOriginsEOVOCriteria_row_0_Country"
+        ViewAttribute="Country"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_CountryId"
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem

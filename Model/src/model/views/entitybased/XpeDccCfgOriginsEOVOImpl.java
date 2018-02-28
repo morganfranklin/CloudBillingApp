@@ -77,5 +77,21 @@ public class XpeDccCfgOriginsEOVOImpl extends ViewObjectImpl {
     public void setbind_OriginState(String value) {
         ensureVariableManager().setVariableValue("bind_OriginState", value);
     }
+
+    /**
+     * Returns the variable value for bind_CountryId.
+     * @return variable value for bind_CountryId
+     */
+    public String getbind_CountryId() {
+        return (String) ensureVariableManager().getVariableValue("bind_CountryId");
+    }
+
+    /**
+     * Sets <code>value</code> for variable bind_CountryId.
+     * @param value value to bind as bind_CountryId
+     */
+    public void setbind_CountryId(String value) {
+        ensureVariableManager().setVariableValue("bind_CountryId", value);
+    }
 }
 

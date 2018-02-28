@@ -37,6 +37,10 @@
     Name="bind_State"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="bind_CountryId"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="LookupSharedAppModule_YONLOV"
     ViewObjectName="model.views.readonly.XpeDccDicNewContractSetupROVO"
@@ -291,6 +295,14 @@
         Operator="="
         Conjunction="AND"
         Value=":bind_State"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="CountiesCriteria_XpeDccCfgCountiesEOVOCriteria_row_0_Country"
+        ViewAttribute="Country"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_CountryId"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>
