@@ -157,4 +157,9 @@ public class integrationDashboardRegionName implements Serializable {
         setDynamicTaskFlowId("/WEB-INF/roleSecurityFlow.xml#roleSecurityFlow");
         return null;
     }
+
+    public String userBusinessUnitSetUp() {
+        setDynamicTaskFlowId("/WEB-INF/userBusinessUnitSetUpTable.xml#userBusinessUnitSetUpTable");
+        return null;
+    }
 }

@@ -68,6 +68,7 @@ import model.views.entitybased.XpeDccCfgSpclWasteFcltyEOVOImpl;
 import model.views.entitybased.XpeDccCfgSpclWasteFcltyEOVORowImpl;
 import model.views.entitybased.XpeDccCfgTerminalsEOVOImpl;
 import model.views.entitybased.XpeDccCfgUomEOVOImpl;
+import model.views.entitybased.XpeDccCfgUserBusinessUnitEOVOImpl;
 import model.views.entitybased.XpeDccCfgVehiclesEOVOImpl;
 import model.views.entitybased.XpeDccNewContractsEOVOImpl;
 import model.views.entitybased.XpeDccNewContractsEOVORowImpl;
@@ -4346,6 +4347,22 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public ViewLinkImpl getXpeDccCfgRoleSecurityFKVL1() {
         return (ViewLinkImpl) findViewLink("XpeDccCfgRoleSecurityFKVL1");
+    }
+
+    /**
+     * Container's getter for XpeDccCfgUserBusinessUnitEOVO1.
+     * @return XpeDccCfgUserBusinessUnitEOVO1
+     */
+    public XpeDccCfgUserBusinessUnitEOVOImpl getXpeDccCfgUserBusinessUnitEOVO1() {
+        return (XpeDccCfgUserBusinessUnitEOVOImpl) findViewObject("XpeDccCfgUserBusinessUnitEOVO1");
+    }
+
+    /**
+     * Container's getter for XpeDccCfgUserBusinessUnitEOVO2.
+     * @return XpeDccCfgUserBusinessUnitEOVO2
+     */
+    public XpeDccCfgUserBusinessUnitEOVOImpl getXpeDccCfgNewUserBusinessUnitEOVO() {
+        return (XpeDccCfgUserBusinessUnitEOVOImpl) findViewObject("XpeDccCfgNewUserBusinessUnitEOVO");
     }
 }
 

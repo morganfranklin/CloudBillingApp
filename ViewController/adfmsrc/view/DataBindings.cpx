@@ -118,6 +118,7 @@
         <page path="/WEB-INF/billingAccountingProcesses.xml#billingAccountingProcesses@Rollback"
               usageId="view_billingAccountingProcesses_billingAccountingProcesses_RollbackPageDef"/>
         <page path="/roleSecurity.jsff" usageId="view_roleSecurityPageDef"/>
+        <page path="/userBusinessUnitSetUp.jsff" usageId="view_userBusinessUnitSetUpPageDef"/>
     </pageMap>
     <pageDefinitionUsages>
         <page id="view_IntegrationDashPageDef" path="view.pageDefs.IntegrationDashPageDef"/>
@@ -230,6 +231,7 @@
         <page id="view_billingAccountingProcesses_billingAccountingProcesses_RollbackPageDef"
               path="view.pageDefs.billingAccountingProcesses_billingAccountingProcesses_RollbackPageDef"/>
         <page id="view_roleSecurityPageDef" path="view.pageDefs.roleSecurityPageDef"/>
+        <page id="view_userBusinessUnitSetUpPageDef" path="view.pageDefs.userBusinessUnitSetUpPageDef"/>
     </pageDefinitionUsages>
     <dataControlUsages>
         <BC4JDataControl id="AppModuleDataControl" Package="model"
