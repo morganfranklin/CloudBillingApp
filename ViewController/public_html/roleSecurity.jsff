@@ -173,7 +173,7 @@
             <f:validator binding="#{bindings.Screen15.validator}"/>
           </af:selectOneChoice>
         </af:panelLabelAndMessage>
-        <af:panelLabelAndMessage label="#{bindings.Screen16.label}" id="plam16">
+        <af:panelLabelAndMessage label="#{bindings.Screen16.hints.label}" id="plam16">
           <af:selectOneChoice value="#{bindings.Screen16.inputValue}" label="#{bindings.Screen16.label}"
                               required="#{bindings.Screen16.hints.mandatory}"
                               shortDesc="#{bindings.Screen16.hints.tooltip}" id="soc20" simple="true" autoSubmit="true">
@@ -181,7 +181,7 @@
             <f:validator binding="#{bindings.Screen16.validator}"/>
           </af:selectOneChoice>
         </af:panelLabelAndMessage>
-        <af:panelLabelAndMessage label="#{bindings.Screen17.label}" id="plam17">
+        <af:panelLabelAndMessage label="#{bindings.Screen17.hints.label}" id="plam17">
           <af:selectOneChoice value="#{bindings.Screen17.inputValue}" label="#{bindings.Screen17.label}"
                               required="#{bindings.Screen17.hints.mandatory}"
                               shortDesc="#{bindings.Screen17.hints.tooltip}" id="soc23" simple="true" autoSubmit="true">
@@ -189,7 +189,7 @@
             <f:validator binding="#{bindings.Screen17.validator}"/>
           </af:selectOneChoice>
         </af:panelLabelAndMessage>
-        <af:panelLabelAndMessage label="#{bindings.Screen18.label}" id="plam18">
+        <af:panelLabelAndMessage label="#{bindings.Screen18.hints.label}" id="plam18">
           <af:selectOneChoice value="#{bindings.Screen18.inputValue}" label="#{bindings.Screen18.label}"
                               required="#{bindings.Screen18.hints.mandatory}"
                               shortDesc="#{bindings.Screen18.hints.tooltip}" id="soc18" simple="true" autoSubmit="true">
@@ -197,7 +197,7 @@
             <f:validator binding="#{bindings.Screen18.validator}"/>
           </af:selectOneChoice>
         </af:panelLabelAndMessage>
-        <af:panelLabelAndMessage label="#{bindings.Screen19.label}" id="plam19">
+        <af:panelLabelAndMessage label="#{bindings.Screen19.hints.label}" id="plam19">
           <af:selectOneChoice value="#{bindings.Screen19.inputValue}" label="#{bindings.Screen19.label}"
                               required="#{bindings.Screen19.hints.mandatory}"
                               shortDesc="#{bindings.Screen19.hints.tooltip}" id="soc19" simple="true" autoSubmit="true">
@@ -205,7 +205,7 @@
             <f:validator binding="#{bindings.Screen19.validator}"/>
           </af:selectOneChoice>
         </af:panelLabelAndMessage>
-        <af:panelLabelAndMessage label="#{bindings.Screen20.label}" id="plam20">
+        <af:panelLabelAndMessage label="#{bindings.Screen20.hints.label}" id="plam20">
           <af:selectOneChoice value="#{bindings.Screen20.inputValue}" label="#{bindings.Screen20.label}"
                               required="#{bindings.Screen20.hints.mandatory}"
                               shortDesc="#{bindings.Screen20.hints.tooltip}" id="soc21" simple="true" autoSubmit="true">
@@ -213,7 +213,7 @@
             <f:validator binding="#{bindings.Screen20.validator}"/>
           </af:selectOneChoice>
         </af:panelLabelAndMessage>
-        <af:panelLabelAndMessage label="#{bindings.Screen21.label}" id="plam21">
+        <af:panelLabelAndMessage label="#{bindings.Screen21.hints.label}" id="plam21">
           <af:selectOneChoice value="#{bindings.Screen21.inputValue}" label="#{bindings.Screen21.label}"
                               required="#{bindings.Screen21.hints.mandatory}"
                               shortDesc="#{bindings.Screen21.hints.tooltip}" id="soc22" simple="true" autoSubmit="true">
@@ -221,7 +221,7 @@
             <f:validator binding="#{bindings.Screen21.validator}"/>
           </af:selectOneChoice>
         </af:panelLabelAndMessage>
-        <af:panelLabelAndMessage label="#{bindings.Screen22.label}" id="plam22">
+        <af:panelLabelAndMessage label="#{bindings.Screen22.hints.label}" id="plam22">
           <af:selectOneChoice value="#{bindings.Screen22.inputValue}" label="#{bindings.Screen22.label}"
                               required="#{bindings.Screen22.hints.mandatory}"
                               shortDesc="#{bindings.Screen22.hints.tooltip}" id="soc17" simple="true" autoSubmit="true">
@@ -229,7 +229,7 @@
             <f:validator binding="#{bindings.Screen22.validator}"/>
           </af:selectOneChoice>
         </af:panelLabelAndMessage>
-        <af:panelLabelAndMessage label="#{bindings.Screen23.label}" id="plam23">
+        <af:panelLabelAndMessage label="#{bindings.Screen23.hints.label}" id="plam23">
           <af:selectOneChoice value="#{bindings.Screen23.inputValue}" label="#{bindings.Screen23.label}"
                               required="#{bindings.Screen23.hints.mandatory}"
                               shortDesc="#{bindings.Screen23.hints.tooltip}" id="soc16" simple="true" autoSubmit="true">
@@ -237,12 +237,20 @@
             <f:validator binding="#{bindings.Screen23.validator}"/>
           </af:selectOneChoice>
         </af:panelLabelAndMessage>
-        <af:panelLabelAndMessage label="#{bindings.Screen24.label}" id="plam24">
+        <af:panelLabelAndMessage label="#{bindings.Screen24.hints.label}" id="plam24">
           <af:selectOneChoice value="#{bindings.Screen24.inputValue}" label="#{bindings.Screen24.label}"
                               required="#{bindings.Screen24.hints.mandatory}"
                               shortDesc="#{bindings.Screen24.hints.tooltip}" id="soc24" simple="true" autoSubmit="true">
             <f:selectItems value="#{bindings.Screen24.items}" id="si23"/>
             <f:validator binding="#{bindings.Screen24.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Screen25.label}" id="plam25">
+          <af:selectOneChoice value="#{bindings.Screen25.inputValue}" label="#{bindings.Screen25.label}"
+                              required="#{bindings.Screen25.hints.mandatory}"
+                              shortDesc="#{bindings.Screen25.hints.tooltip}" id="soc25" simple="true" autoSubmit="true">
+            <f:selectItems value="#{bindings.Screen25.items}" id="si25"/>
+            <f:validator binding="#{bindings.Screen25.validator}"/>
           </af:selectOneChoice>
         </af:panelLabelAndMessage>
       </af:panelFormLayout>

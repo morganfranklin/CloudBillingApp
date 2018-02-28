@@ -827,6 +827,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgRoleSecurityEOVO.Screen25_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

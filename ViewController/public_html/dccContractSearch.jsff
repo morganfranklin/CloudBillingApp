@@ -12,7 +12,8 @@
             </af:panelHeader>
         <!--    <af:button actionListener="#{backingBeanScope.XpeDccMainBean.addContractActionListener}"
                        text="Add Contract"></af:button>-->
-            <af:button action="addContract" text="Add Contract"></af:button>
+            <af:button action="addContract" text="Add Contract" id="b1"
+                       rendered="#{bindings.ContractManagement.inputValue ne 'V'}"></af:button>
         <af:spacer width="10" height="10" id="s1"/>
         <af:popup contentDelivery="lazyUncached" id="p1" autoCancel="disabled"
                       popupCanceledListener="#{backingBeanScope.XpeDccMainBean.contractPopupCancelListener}"

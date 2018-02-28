@@ -11,7 +11,6 @@
                   InstanceName="data.AppModuleDataControl.dataProvider"
                   ReturnName="data.AppModuleDataControl.methodResults.checkRoles_AppModuleDataControl_dataProvider_checkRoles_result">
       <NamedData NDName="givenUser" NDType="java.lang.String"/>
-      <NamedData NDName="userRole" NDType="java.lang.String"/>
     </methodAction>
   </bindings>
 </pageDefinition>

@@ -11,6 +11,8 @@
                       Binds="XpeDccCustomerSearch1Iterator" id="ImplicitViewCriteriaQuery"/>
         <iterator Binds="XpeDccContractsView1" RangeSize="25" DataControl="AppModuleDataControl"
                   id="XpeDccContractsView1Iterator" ChangeEventPolicy="none"/>
+        <iterator Binds="XpeDccCfgNewRoleSecurityEOVO" RangeSize="10" DataControl="AppModuleDataControl"
+                  id="XpeDccCfgNewRoleSecurityEOVOIterator"/>
     </executables>
     <bindings>
         <tree IterBinding="XpeDccCustomerSearch1Iterator" id="XpeDccCustomerSearch1">
@@ -69,5 +71,10 @@
         <action IterBinding="XpeDccContractsView1Iterator" id="CreateInsert"
                 InstanceName="AppModuleDataControl.XpeDccContractsView1" DataControl="AppModuleDataControl"
                 RequiresUpdateModel="true" Action="createInsertRow"/>
+        <attributeValues IterBinding="XpeDccCfgNewRoleSecurityEOVOIterator" id="ContractManagement">
+            <AttrNames>
+                <Item Value="Screen13"/>
+            </AttrNames>
+        </attributeValues>
     </bindings>
 </pageDefinition>
