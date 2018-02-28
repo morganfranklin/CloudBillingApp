@@ -26,7 +26,7 @@
                         <af:gridRow height="auto" id="gr1">
                             <af:gridCell width="100%" id="gc1" halign="stretch" marginStart="5px" marginEnd="5px">
                                 <af:region value="#{bindings.dynamicRegion1.regionModel}" id="r1"
-                                           partialTriggers="::l2 ::l1 ::l19 ::l15 ::l16 ::l3 ::l17 ::l9 ::l8 ::l4 ::l5 ::l20 ::l23 ::l21 ::l18 ::l12 ::l22 ::l24 ::l25 ::l27"
+                                           partialTriggers="::l2 ::l1 ::l19 ::l15 ::l16 ::l3 ::l17 ::l9 ::l8 ::l4 ::l5 ::l20 ::l23 ::l21 ::l18 ::l12 ::l22 ::l24 ::l25 ::l27 ::l28"
                                            regionNavigationListener="#{viewScope.integrationDashboardRegionName.regionNavigationListener}"/>
                             </af:gridCell>
                         </af:gridRow>
@@ -71,7 +71,8 @@
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
-                                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr9">
+                                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr9"
+                                                    rendered="false">
                                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc9">
                                                 <af:link text="Web Services Definition" id="l7"
                                                          rendered="#{bindings.WebServicesDefinition.inputValue ne 'H'}"
@@ -79,7 +80,7 @@
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
-                                        <af:gridRow id="gr10">
+                                        <af:gridRow id="gr10" rendered="false">
                                             <af:gridCell id="gc10">
                                                 <af:link text="Contract Master"
                                                          action="#{viewScope.integrationDashboardRegionName.contractMaster}"
@@ -138,16 +139,16 @@
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
-                                        <af:gridRow marginTop="5px" height="auto" id="gr13">
+                                        <af:gridRow marginTop="5px" height="auto" id="gr13" rendered="false">
                                             <af:gridCell marginStart="5px" marginEnd="5px" id="gc13">
                                                 <af:link text="Processing Rules Definition"
                                                          action="#{viewScope.integrationDashboardRegionName.rulesetConfiguration}"
-                                                         id="l9" rendered="false"
+                                                         id="l9"
                                                          actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
-                                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr14">
+                                        <af:gridRow marginTop="5px" height="auto" id="gr14">
                                             <af:gridCell marginStart="5px" marginEnd="5px" id="gc14">
                                                 <af:link text="Lookup sets"
                                                          action="#{viewScope.integrationDashboardRegionName.lookupSets}"
@@ -155,6 +156,14 @@
                                                          rendered="#{bindings.LookupSets.inputValue ne 'H'}"
                                                          actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow id="gr33" marginTop="5px">
+                                            <af:gridCell id="gc33">
+                                                <af:link text="Role and Screen Security" id="l28"
+                                                         action="#{viewScope.integrationDashboardRegionName.roleAndScreenSecuritySetUp}"
+                                                         immediate="true" actionListener="#{bindings.Rollback.execute}"
+                                                         rendered="#{bindings.RoleandScreenSecurity.inputValue ne 'H'}"/>
                                             </af:gridCell>
                                         </af:gridRow>
                                     </af:panelGridLayout>
@@ -288,7 +297,7 @@
                                                          rendered="#{bindings.AdministratorHome.inputValue ne 'H'}"/>
                                             </af:gridCell>
                                         </af:gridRow>
-                                        <af:gridRow marginTop="5px" height="auto" id="gr17">
+                                        <af:gridRow marginTop="5px" height="auto" id="gr17" rendered="false">
                                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc17">
                                                 <af:link text="Cloud Integration Docker Log" id="l10"
                                                          action="#{viewScope.integrationDashboardRegionName.voucherEvents}"
@@ -297,7 +306,8 @@
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
-                                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr18">
+                                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr18"
+                                                    rendered="false">
                                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc18">
                                                 <af:link text="Calculation Log" id="l11"
                                                          rendered="#{bindings.CalculationLog.inputValue ne 'H'}"
@@ -305,7 +315,7 @@
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
-                                        <af:gridRow id="gr21">
+                                        <af:gridRow id="gr21" rendered="false">
                                             <af:gridCell id="gc21">
                                                 <af:link text="dccContractMaintenance"
                                                          action="#{viewScope.integrationDashboardRegionName.dccContractMaintenance}"

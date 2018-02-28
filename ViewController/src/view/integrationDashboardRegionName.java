@@ -152,4 +152,9 @@ public class integrationDashboardRegionName implements Serializable {
         setDynamicTaskFlowId("/WEB-INF/covantaContractExpirationReport.xml#covantaContractExpirationReport");
         return null;
     }
+    
+    public String roleAndScreenSecuritySetUp() {
+        setDynamicTaskFlowId("/WEB-INF/roleSecurityFlow.xml#roleSecurityFlow");
+        return null;
+    }
 }

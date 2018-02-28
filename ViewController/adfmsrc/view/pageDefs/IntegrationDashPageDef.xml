@@ -139,5 +139,10 @@
                 <Item Value="Screen9"/>
             </AttrNames>
         </attributeValues>
+        <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="RoleandScreenSecurity">
+            <AttrNames>
+                <Item Value="Screen25"/>
+            </AttrNames>
+        </attributeValues>
     </bindings>
 </pageDefinition>
