@@ -257,7 +257,7 @@
       <f:facet name="context">
         <af:group id="g3">
           <af:button actionListener="#{bindings.CreateInsert1.execute}" text="Create" id="b5"
-                     disabled="#{bindings.XpeDccCfgNewRolesEOVOIterator.estimatedRowCount!=0 &amp;&amp; bindings.XpeDccCfgNewRoleSecurityEOVOIterator.estimatedRowCount&lt;1}"
+                     disabled="#{!(bindings.XpeDccCfgNewRolesEOVOIterator.estimatedRowCount!=0 &amp;&amp; bindings.XpeDccCfgNewRoleSecurityEOVOIterator.estimatedRowCount&lt;1)}"
                      partialTriggers="b1 b2 b3"/>
           <af:button actionListener="#{bindings.Delete1.execute}" text="Delete" id="b6"/>
         </af:group>
