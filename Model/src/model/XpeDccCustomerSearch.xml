@@ -8,9 +8,13 @@
     InheritPersonalization="merge"
     BindingStyle="OracleName"
     CustomQuery="true"
-    PageIterMode="Full">
+    PageIterMode="Full"
+    RowClass="model.XpeDccCustomerSearchRowImpl"
+    ComponentClass="model.XpeDccCustomerSearchImpl">
     <DesignTime>
         <Attr Name="_isExpertMode" Value="true"/>
+        <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+        <Attr Name="_isCodegen" Value="true"/>
     </DesignTime>
     <Properties>
         <SchemaBasedProperties>
@@ -105,6 +109,17 @@
         Name="PsSalesPersonROVO1"
         ViewObjectName="model.views.readonly.PsSalesPersonROVO"
         RowLevelBinds="true"/>
+    <ViewAccessor
+        Name="XpeDccCfgUserBusinessUnitROVO1"
+        ViewObjectName="model.views.readonly.XpeDccCfgUserBusinessUnitROVO"
+        RowLevelBinds="true">
+        <ParameterMap>
+            <PIMap Variable="bindUserName">
+                <TransientExpression
+                    Name="ExpressionScript"><![CDATA[adf.object.viewObject.loggedInUser()]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
     <ListBinding
         Name="LOV_XpeContractStatus"
         ListVOName="XpeDccDicContractStatus1"
@@ -164,24 +179,6 @@
             Hint="showAndExecute"/>
     </ListBinding>
     <ListBinding
-        Name="LOV_BusinessUnitGl"
-        ListVOName="XpeDccGeneralItemListROVO1"
-        ListRangeSize="-1"
-        NullValueFlag="none"
-        MRUCount="0">
-        <AttrArray Name="AttrNames">
-            <Item Value="BusinessUnitGl"/>
-        </AttrArray>
-        <AttrArray Name="AttrExpressions"/>
-        <AttrArray Name="ListAttrNames">
-            <Item Value="ItemId"/>
-        </AttrArray>
-        <AttrArray Name="ListDisplayAttrNames">
-            <Item Value="ValidValue"/>
-        </AttrArray>
-        <DisplayCriteria/>
-    </ListBinding>
-    <ListBinding
         Name="LOV_XpeDccPcsname"
         ListVOName="XpeDccCfgPCSShortNamesROVO1"
         ListRangeSize="-1"
@@ -216,6 +213,24 @@
         </AttrArray>
         <AttrArray Name="ListDisplayAttrNames">
             <Item Value="Descr"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_BusinessUnitGl"
+        ListVOName="XpeDccCfgUserBusinessUnitROVO1"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="BusinessUnitGl"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="ItemId"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="ValidValue"/>
         </AttrArray>
         <DisplayCriteria/>
     </ListBinding>

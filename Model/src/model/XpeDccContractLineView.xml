@@ -68,6 +68,17 @@
             </PIMap>
         </ParameterMap>
     </ViewAccessor>
+    <ViewAccessor
+        Name="XpeDccCfgUserBusinessUnitROVO1"
+        ViewObjectName="model.views.readonly.XpeDccCfgUserBusinessUnitROVO"
+        RowLevelBinds="true">
+        <ParameterMap>
+            <PIMap Variable="bindUserName">
+                <TransientExpression
+                    Name="ExpressionScript"><![CDATA[adf.object.viewObject.loggedInUser()]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
     <ListBinding
         Name="LOV_XpeProductId"
         ListVOName="XpeDccDicProducts1"
@@ -146,24 +157,6 @@
         <DisplayCriteria/>
     </ListBinding>
     <ListBinding
-        Name="LOV_BusinessUnitGl"
-        ListVOName="XpeDccGeneralItemListROVO_BusinessUintLOV"
-        ListRangeSize="-1"
-        NullValueFlag="none"
-        MRUCount="0">
-        <AttrArray Name="AttrNames">
-            <Item Value="BusinessUnitGl"/>
-        </AttrArray>
-        <AttrArray Name="AttrExpressions"/>
-        <AttrArray Name="ListAttrNames">
-            <Item Value="ItemId"/>
-        </AttrArray>
-        <AttrArray Name="ListDisplayAttrNames">
-            <Item Value="ValidValue"/>
-        </AttrArray>
-        <DisplayCriteria/>
-    </ListBinding>
-    <ListBinding
         Name="LOV_CurrencyCd"
         ListVOName="PsCurrencyCdTblROVO1"
         ListRangeSize="-1"
@@ -178,6 +171,25 @@
         </AttrArray>
         <AttrArray Name="ListDisplayAttrNames">
             <Item Value="Descr"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_BusinessUnitGl"
+        ListVOName="XpeDccCfgUserBusinessUnitROVO1"
+        ListRangeSize="-1"
+        NullValueFlag="start"
+        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="BusinessUnitGl"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="ItemId"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="ValidValue"/>
         </AttrArray>
         <DisplayCriteria/>
     </ListBinding>

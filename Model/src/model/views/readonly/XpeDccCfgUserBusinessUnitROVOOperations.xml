@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding='windows-1252'?>
+<!DOCTYPE OperationDefinitions SYSTEM "jbo_03_01.dtd">
+<OperationDefinitions xmlns="http://xmlns.oracle.com/bc4j" Name="XpeDccCfgUserBusinessUnitROVOOperations">
+  <ExpressionCodeSource
+    Name="XpeDccCfgUserBusinessUnitROVO"
+    Type="Static"
+    URI="model/views/readonly/XpeDccCfgUserBusinessUnitROVO.bcs"/>
+</OperationDefinitions>

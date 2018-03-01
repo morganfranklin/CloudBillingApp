@@ -974,8 +974,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      * Container's getter for XpeDccCustomerSearch1.
      * @return XpeDccCustomerSearch1
      */
-    public ViewObjectImpl getXpeDccCustomerSearch1() {
-        return (ViewObjectImpl) findViewObject("XpeDccCustomerSearch1");
+    public XpeDccCustomerSearchImpl getXpeDccCustomerSearch1() {
+        return (XpeDccCustomerSearchImpl) findViewObject("XpeDccCustomerSearch1");
     }
 
     /**
