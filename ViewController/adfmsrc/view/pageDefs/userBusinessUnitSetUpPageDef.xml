@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="userBusinessUnitSetUpPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XpeDccCfgUserBusinessUnitEOVO1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgUserBusinessUnitEOVO1Iterator" ChangeEventPolicy="ppr"/>
+    <searchRegion Criteria="UserBusinessUnitCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="XpeDccCfgUserBusinessUnitEOVO1Iterator" id="UserBusinessUnitCriteriaQuery"/>
+    <iterator Binds="XpeDccCfgNewUserBusinessUnitEOVO" RangeSize="25" DataControl="AppModuleDataControl"
+              id="XpeDccCfgNewUserBusinessUnitEOVOIterator" ChangeEventPolicy="ppr"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="XpeDccCfgUserBusinessUnitEOVO1Iterator" id="XpeDccCfgUserBusinessUnitEOVO1">
+      <nodeDefinition DefName="model.views.entitybased.XpeDccCfgUserBusinessUnitEOVO"
+                      Name="XpeDccCfgUserBusinessUnitEOVO10">
+        <AttrNames>
+          <Item Value="Username"/>
+          <Item Value="BusinessUnit"/>
+          <Item Value="Inactive"/>
+          <Item Value="InactiveDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="XpeDccCfgNewUserBusinessUnitEOVOIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow" InstanceName="AppModuleDataControl.XpeDccCfgNewUserBusinessUnitEOVO"
+            DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <attributeValues IterBinding="XpeDccCfgNewUserBusinessUnitEOVOIterator" id="Username">
+      <AttrNames>
+        <Item Value="Username"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="XpeDccCfgNewUserBusinessUnitEOVOIterator" StaticList="false" Uses="LOV_BusinessUnit"
+                  id="BusinessUnit"/>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="XpeDccCfgUserBusinessUnitEOVO1Iterator" id="Username1">
+      <AttrNames>
+        <Item Value="Username"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgUserBusinessUnitEOVO1Iterator" id="BusinessUnit1">
+      <AttrNames>
+        <Item Value="BusinessUnit"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XpeDccCfgUserBusinessUnitEOVO1Iterator" StaticList="false" Uses="LOV_Inactive" id="Inactive"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XpeDccCfgUserBusinessUnitEOVO1Iterator" id="InactiveDate">
+      <AttrNames>
+        <Item Value="InactiveDate"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>
