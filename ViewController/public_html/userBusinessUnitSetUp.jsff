@@ -83,7 +83,7 @@
                           required="#{bindings.Username.hints.mandatory}"
                           columns="#{bindings.Username.hints.displayWidth}"
                           maximumLength="#{bindings.Username.hints.precision}"
-                          shortDesc="#{bindings.Username.hints.tooltip}" id="it1">
+                          shortDesc="#{bindings.Username.hints.tooltip}" id="it1" autoSubmit="true">
               <f:validator binding="#{bindings.Username.validator}"/>
             </af:inputText>
             <af:inputListOfValues id="businessUnitId"

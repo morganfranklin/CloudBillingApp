@@ -691,6 +691,9 @@
     <ViewUsage
         Name="XpeDccCfgNewUserBusinessUnitEOVO"
         ViewObjectName="model.views.entitybased.XpeDccCfgUserBusinessUnitEOVO"/>
+    <ViewUsage
+        Name="XpeDccCfgUserBusinessUnitROVO"
+        ViewObjectName="model.views.readonly.XpeDccCfgUserBusinessUnitROVO"/>
     <ViewLinkUsage
         Name="NeuRuleTblFk1Link1"
         ViewLinkObjectName="model.NeuRuleTblFk1Link"
@@ -2221,19 +2224,6 @@
                 Type="java.lang.String"/>
             <Parameter
                 Name="voName"
-                Type="java.lang.String"/>
-        </Method>
-        <Method
-            Name="checkRoles"
-            MethodName="checkRoles">
-            <Return
-                Name="_return_type_"
-                Type="java.lang.String"/>
-            <Parameter
-                Name="givenUser"
-                Type="java.lang.String"/>
-            <Parameter
-                Name="userRole"
                 Type="java.lang.String"/>
         </Method>
     </ClientInterface>

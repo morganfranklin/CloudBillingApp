@@ -5,7 +5,12 @@ import java.math.BigDecimal;
 import java.util.Iterator;
 import java.util.List;
 
+import model.views.readonly.XpeDccCfgUserBusinessUnitROVOImpl;
+
+import model.views.readonly.XpeDccCfgUserBusinessUnitROVORowImpl;
+
 import oracle.jbo.Row;
+import oracle.jbo.RowSetIterator;
 import oracle.jbo.ViewCriteria;
 import oracle.jbo.ViewCriteriaItem;
 import oracle.jbo.ViewCriteriaRow;
@@ -241,7 +246,29 @@ public class XpeDccCustomerSearchImpl extends ViewObjectImpl {
             userName = (String)userInforVORow.getAttribute("USER_NAME");
         return userName;
     }
-    
-    
+
+    @Override
+    public void prepareRowSetForQuery(ViewRowSetImpl viewRowSetImpl, Row[] row) {
+        AppModuleImpl appModImpl = (AppModuleImpl) this.getApplicationModule();
+        XpeDccCfgUserBusinessUnitROVOImpl usrBusUnitImpl = appModImpl.getXpeDccCfgUserBusinessUnitROVO();
+        usrBusUnitImpl.setbindUserName(this.loggedInUser());
+        usrBusUnitImpl.executeQuery();
+        ViewCriteria newVc = this.createViewCriteria();
+        ViewCriteriaRow newVcr = newVc.createViewCriteriaRow();
+        ViewCriteriaItem newVci = newVcr.ensureCriteriaItem(XpeDccCustomerSearchRowImpl.BUSINESSUNITGL);
+        newVci.setOperator("IN");
+        RowSetIterator rSetIter = usrBusUnitImpl.createRowSetIterator(null);
+        rSetIter.reset();
+        int pos = 0;
+        while (rSetIter.hasNext()) {
+            XpeDccCfgUserBusinessUnitROVORowImpl usrBusRow = (XpeDccCfgUserBusinessUnitROVORowImpl) rSetIter.next();
+            newVci.setValue(pos, usrBusRow.getItemId());
+            pos++;
+        }
+        newVc.add(newVcr);
+        this.applyViewCriteria(newVc, true);
+        System.out.println("Search Contract Management" + this.getQuery());
+        super.prepareRowSetForQuery(viewRowSetImpl, row);
+    }
 }
 

@@ -92,6 +92,7 @@ import model.views.readonly.XpeDccCfgPcsAssTerminalsROVOImpl;
 import model.views.readonly.XpeDccCfgPcsAssTerminalsROVORowImpl;
 import model.views.readonly.XpeDccCfgTerminalsSearchROVOImpl;
 import model.views.readonly.XpeDccCfgTerminalsSearchROVORowImpl;
+import model.views.readonly.XpeDccCfgUserBusinessUnitROVOImpl;
 import model.views.readonly.XpeDccContractSearchROVOImpl;
 import model.views.readonly.XpeDccContractSearchROVORowImpl;
 import model.views.readonly.XpeDccCustContractShortNameROVOImpl;
@@ -4363,6 +4364,14 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public XpeDccCfgUserBusinessUnitEOVOImpl getXpeDccCfgNewUserBusinessUnitEOVO() {
         return (XpeDccCfgUserBusinessUnitEOVOImpl) findViewObject("XpeDccCfgNewUserBusinessUnitEOVO");
+    }
+
+    /**
+     * Container's getter for XpeDccCfgUserBusinessUnitROVO1.
+     * @return XpeDccCfgUserBusinessUnitROVO1
+     */
+    public XpeDccCfgUserBusinessUnitROVOImpl getXpeDccCfgUserBusinessUnitROVO() {
+        return (XpeDccCfgUserBusinessUnitROVOImpl) findViewObject("XpeDccCfgUserBusinessUnitROVO");
     }
 }
 
