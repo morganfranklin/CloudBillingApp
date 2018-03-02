@@ -33,14 +33,14 @@
                                                               required="#{bindings.XpeStartDate.hints.mandatory}"
                                                               columns="#{bindings.XpeStartDate.hints.displayWidth}"
                                                               shortDesc="#{bindings.XpeStartDate.hints.tooltip}"
-                                                              readOnly="#{bindings.XpeContractStatus.inputValue eq 'APR' ? 'true':'false'}"
+                                                              readOnly="#{bindings.ContractManagement.inputValue eq 'V'? 'true' : bindings.XpeContractStatus.inputValue eq 'APR' ? 'true':'false'}"
                                                               id="id1">
                                                     <f:validator binding="#{bindings.XpeStartDate.validator}"/>
                                                     <af:convertDateTime pattern="yyyy-MM-dd HH:mm:ss"/>
                                                 </af:inputDate>
                                                 <af:inputDate value="#{bindings.XpeEndDate.inputValue}" label="End Date"
                                                               required="#{bindings.XpeEndDate.hints.mandatory}"
-                                                              readOnly="#{bindings.XpeContractStatus.inputValue eq 'APR' ? 'true':'false'}"
+                                                              readOnly="#{bindings.ContractManagement.inputValue eq 'V'? 'true' : bindings.XpeContractStatus.inputValue eq 'APR' ? 'true':'false'}"
                                                               autoSubmit="true"
                                                               columns="#{bindings.XpeEndDate.hints.displayWidth}"
                                                               shortDesc="#{bindings.XpeEndDate.hints.tooltip}" id="id2">
@@ -51,7 +51,7 @@
                                                                          id="plam9">
                                                     <af:selectOneChoice value="#{bindings.XpeNewTermMode.inputValue}"
                                                                         label="Renewal mode"
-                                                                        readOnly="#{bindings.XpeContractStatus.inputValue eq 'APR' ? 'true':'false'}"
+                                                                        readOnly="#{bindings.ContractManagement.inputValue eq 'V'? 'true' : bindings.XpeContractStatus.inputValue eq 'APR' ? 'true':'false'}"
                                                                         required="#{bindings.XpeNewTermMode.hints.mandatory}"
                                                                         shortDesc="#{bindings.XpeNewTermMode.hints.tooltip}"
                                                                         id="soc1" simple="true">
@@ -64,14 +64,14 @@
                                                               label="Created By" autoSubmit="true"
                                                               required="#{bindings.CreatedBy.hints.mandatory}"
                                                               columns="#{bindings.CreatedBy.hints.displayWidth}"
-                                                              readOnly="#{bindings.XpeContractStatus.inputValue eq 'APR' ? 'true':'false'}"
+                                                              readOnly="#{bindings.ContractManagement.inputValue eq 'V'? 'true' : bindings.XpeContractStatus.inputValue eq 'APR' ? 'true':'false'}"
                                                               maximumLength="#{bindings.CreatedBy.hints.precision}"
                                                               shortDesc="#{bindings.CreatedBy.hints.tooltip}" id="it1">
                                                     <f:validator binding="#{bindings.CreatedBy.validator}"/>
                                                 </af:inputText>
                                                 <af:inputText value="#{bindings.UpdatedBy.inputValue}"
                                                               label="Updated By"
-                                                              readOnly="#{bindings.XpeContractStatus.inputValue eq 'APR' ? 'true':'false'}"
+                                                              readOnly="#{bindings.ContractManagement.inputValue eq 'V'? 'true' : bindings.XpeContractStatus.inputValue eq 'APR' ? 'true':'false'}"
                                                               required="#{bindings.UpdatedBy.hints.mandatory}"
                                                               columns="#{bindings.UpdatedBy.hints.displayWidth}"
                                                               autoSubmit="true"
@@ -83,7 +83,7 @@
                                                                          id="plam8">
                                                     <af:selectOneChoice value="#{bindings.XpeBillOptionsSet.inputValue}"
                                                                         label="Billing Options"
-                                                                        readOnly="#{bindings.XpeContractStatus.inputValue eq 'APR' ? 'true':'false'}"
+                                                                        readOnly="#{bindings.ContractManagement.inputValue eq 'V'? 'true' : bindings.XpeContractStatus.inputValue eq 'APR' ? 'true':'false'}"
                                                                         required="#{bindings.XpeBillOptionsSet.hints.mandatory}"
                                                                         autoSubmit="true"
                                                                         shortDesc="#{bindings.XpeBillOptionsSet.hints.tooltip}"
@@ -99,7 +99,7 @@
                                                                         label="Deal Class" autoSubmit="true"
                                                                         required="true"
                                                                         shortDesc="#{bindings.XpeAcctgOptionsSet.hints.tooltip}"
-                                                                        readOnly="#{bindings.XpeContractStatus.inputValue eq 'APR' ? 'true':'false'}"
+                                                                        readOnly="#{bindings.ContractManagement.inputValue eq 'V'? 'true' : bindings.XpeContractStatus.inputValue eq 'APR' ? 'true':'false'}"
                                                                         id="soc3" simple="true">
                                                         <f:selectItems value="#{bindings.XpeAcctgOptionsSet.items}"
                                                                        id="si3"/>
@@ -123,7 +123,7 @@
                                                 <af:panelLabelAndMessage label="#{bindings.CurrencyCd.label}"
                                                                          id="plam6">
                                                     <af:selectOneChoice value="#{bindings.CurrencyCd.inputValue}"
-                                                                        readOnly="#{bindings.XpeContractStatus.inputValue eq 'APR' ? 'true':'false'}"
+                                                                        readOnly="#{bindings.ContractManagement.inputValue eq 'V'? 'true' : bindings.XpeContractStatus.inputValue eq 'APR' ? 'true':'false'}"
                                                                         label="Currency Cd"
                                                                         required="#{bindings.CurrencyCd.hints.mandatory}"
                                                                         shortDesc="#{bindings.CurrencyCd.hints.tooltip}"
@@ -138,7 +138,8 @@
                                                                         label="#{bindings.XpeContractDirection.label}"
                                                                         required="#{bindings.XpeContractDirection.hints.mandatory}"
                                                                         shortDesc="#{bindings.XpeContractDirection.hints.tooltip}"
-                                                                        id="soc11" simple="true">
+                                                                        id="soc11" simple="true"
+                                                                        readOnly="#{bindings.ContractManagement.inputValue eq 'V'? 'true' : bindings.XpeContractStatus.inputValue eq 'APR' ? 'true':'false'}">
                                                         <f:selectItems value="#{bindings.XpeContractDirection.items}"
                                                                        id="si11"/>
                                                         <f:validator binding="#{bindings.XpeContractDirection.validator}"/>
@@ -155,24 +156,28 @@
                         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3" halign="stretch"
                                          valign="stretch">
-                                <af:button action="refreshAll" text="Refresh" id="b1"/>
+                                <af:button action="refreshAll" text="Refresh" id="b1"
+                                           rendered="#{bindings.ContractManagement.inputValue ne 'V'}"/>
                                 <af:spacer width="10" height="10" id="s1"/>
                                 <!--    <af:button text="Submit" id="b3"/>-->
                                 <af:button actionListener="#{bindings.Commit.execute}" text="Submit"
-                                           action="reexecuteContractLine" id="b4"/>
+                                           action="reexecuteContractLine" id="b4"
+                                           rendered="#{bindings.ContractManagement.inputValue ne 'V'}"/>
                                 <af:spacer width="10" height="10" id="s2"/>
                                 <af:button immediate="true" text="Back" id="b2" action="goBack"/>
                                 <af:spacer width="10" height="10" id="s3"
                                            rendered="#{bindings.XpeContractStatus.inputValue eq 'APR' ? 'true':'false'}"/>
                                 <af:button immediate="true" text="Copy" id="b6"
                                            rendered="#{bindings.XpeContractStatus.inputValue eq 'APR' ? 'true':'false'}"
-                                           actionListener="#{backingBeanScope.XpeDccMainBean.copyActionListener}"/>
+                                           actionListener="#{backingBeanScope.XpeDccMainBean.copyActionListener}"
+                                           visible="#{bindings.ContractManagement.inputValue ne 'V'}"/>
                                 <af:spacer width="10" height="10" id="s4"/>
                                 <af:button text="Return To Home" id="b8" action="Home"
                                            actionListener="#{bindings.Rollback.execute}" immediate="true"/>
                                 <af:spacer width="10" height="10" id="s9"/>
                                 <af:button text="Route For Approval" id="b11"
-                                           actionListener="#{backingBeanScope.XpeDccMainBean.onRouteForApproval}"/>
+                                           actionListener="#{backingBeanScope.XpeDccMainBean.onRouteForApproval}"
+                                           rendered="#{bindings.ContractManagement.inputValue ne 'V'}"/>
                                 <af:spacer width="10" height="10" id="s10"/>
                                 <af:button text="Download Contract PDF" id="b12">
                                     <af:fileDownloadActionListener method="#{backingBeanScope.XpeDccMainBean.downloadPDF}"
@@ -255,7 +260,7 @@
                                 <f:facet name="context">
                                     <af:toolbar id="t5">
                                         <af:button actionListener="#{backingBeanScope.XpeDccMainBean.onContractLineAdd}" text="Add"
-                                                   id="b3"/>
+                                                   id="b3" rendered="#{bindings.ContractManagement.inputValue ne 'V'}"/>
                                         <af:spacer width="10" height="10" id="s5"/>
                                         <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
                                                    disabled="#{!bindings.Delete.enabled}" id="b9" immediate="true">
@@ -302,7 +307,7 @@
                                                             required="true"
                                                             shortDesc="#{bindings.XpeDccContractLineView2.hints.BusinessUnitGl.tooltip}"
                                                             id="soc10" autoSubmit="true"
-                                                            readOnly="#{(bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }">
+                                                            readOnly="#{bindings.ContractManagement.inputValue eq 'V' ? 'true' : (bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }">
                                             <f:selectItems value="#{row.bindings.BusinessUnitGl.items}" id="si10"/>
                                             <f:validator binding="#{row.bindings.BusinessUnitGl.validator}"/>
                                         </af:selectOneChoice>
@@ -311,7 +316,7 @@
                                                filterable="true" sortable="true" headerText="Facility" id="c2">
                                         <af:selectOneChoice value="#{row.bindings.XpeFacility.inputValue}"
                                                             label="#{row.bindings.XpeFacility.label}"
-                                                            readOnly="#{(bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }"
+                                                            readOnly="#{bindings.ContractManagement.inputValue eq 'V' ? 'true' : (bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }"
                                                             required="#{bindings.XpeDccContractLineView2.hints.XpeFacility.mandatory}"
                                                             shortDesc="#{bindings.XpeDccContractLineView2.hints.XpeFacility.tooltip}"
                                                             id="soc6" autoSubmit="true">
@@ -326,7 +331,7 @@
                                                               id="ilov5" value="#{row.bindings.XpeProductId.inputValue}"
                                                               shortDesc="#{bindings.XpeDccContractLineView2.hints.XpeProductId.tooltip}"
                                                               model="#{row.bindings.XpeProductId.listOfValuesModel}"
-                                                              readOnly="#{(bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }"
+                                                              readOnly="#{bindings.ContractManagement.inputValue eq 'V' ? 'true' : (bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }"
                                                               autoSubmit="true" required="true">
                                             <f:validator binding="#{row.bindings.XpeProductId.validator}"/>
                                         </af:inputListOfValues>
@@ -335,7 +340,7 @@
                                                filterable="true" sortable="true" headerText="UOM" id="c4">
                                         <af:selectOneChoice value="#{row.bindings.XpeProductUom.inputValue}"
                                                             label="#{row.bindings.XpeProductUom.label}"
-                                                            readOnly="#{(bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }"
+                                                            readOnly="#{bindings.ContractManagement.inputValue eq 'V' ? 'true' : (bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }"
                                                             shortDesc="#{bindings.XpeDccContractLineView2.hints.XpeProductUom.tooltip}"
                                                             id="soc8" partialTriggers="ilov5" autoSubmit="true"
                                                             required="true">
@@ -347,7 +352,7 @@
                                                filterable="true" sortable="true" headerText="Qty Min" id="c5">
                                         <af:inputText value="#{row.bindings.XpeQtyMin.inputValue}"
                                                       label="#{bindings.XpeDccContractLineView2.hints.XpeQtyMin.label}"
-                                                      readOnly="#{(bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }"
+                                                      readOnly="#{bindings.ContractManagement.inputValue eq 'V' ? 'true' : (bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }"
                                                       required="#{bindings.XpeDccContractLineView2.hints.XpeQtyMin.mandatory}"
                                                       columns="#{bindings.XpeDccContractLineView2.hints.XpeQtyMin.displayWidth}"
                                                       maximumLength="#{bindings.XpeDccContractLineView2.hints.XpeQtyMin.precision}"
@@ -364,7 +369,7 @@
                                                       label="#{bindings.XpeDccContractLineView2.hints.XpeQtyMax.label}"
                                                       required="#{bindings.XpeDccContractLineView2.hints.XpeQtyMax.mandatory}"
                                                       columns="#{bindings.XpeDccContractLineView2.hints.XpeQtyMax.displayWidth}"
-                                                      readOnly="#{(bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }"
+                                                      readOnly="#{bindings.ContractManagement.inputValue eq 'V' ? 'true' : (bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }"
                                                       maximumLength="#{bindings.XpeDccContractLineView2.hints.XpeQtyMax.precision}"
                                                       shortDesc="#{bindings.XpeDccContractLineView2.hints.XpeQtyMax.tooltip}"
                                                       id="it5">
@@ -377,7 +382,7 @@
                                                filterable="true" sortable="true" headerText="Period Type" id="c7">
                                         <af:selectOneChoice value="#{row.bindings.XpePeriodType.inputValue}"
                                                             label="#{row.bindings.XpePeriodType.label}"
-                                                            readOnly="#{(bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }"
+                                                            readOnly="#{bindings.ContractManagement.inputValue eq 'V' ? 'true' : (bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }"
                                                             required="#{bindings.XpeDccContractLineView2.hints.XpePeriodType.mandatory}"
                                                             shortDesc="#{bindings.XpeDccContractLineView2.hints.XpePeriodType.tooltip}"
                                                             id="soc9">
@@ -389,7 +394,7 @@
                                         <af:inputText value="#{row.bindings.XpeSwApprNbr.inputValue}" simple="true"
                                                       required="#{bindings.XpeDccContractLineView2.hints.XpeSwApprNbr.mandatory}"
                                                       columns="#{bindings.XpeDccContractLineView2.hints.XpeSwApprNbr.displayWidth}"
-                                                      readOnly="#{(bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }"
+                                                      readOnly="#{bindings.ContractManagement.inputValue eq 'V' ? 'true' : (bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }"
                                                       maximumLength="#{bindings.XpeDccContractLineView2.hints.XpeSwApprNbr.precision}"
                                                       shortDesc="#{bindings.XpeDccContractLineView2.hints.XpeSwApprNbr.tooltip}"
                                                       id="it12">
@@ -404,10 +409,12 @@
                                 <f:facet name="context">
                                     <af:toolbar id="t6">
                                         <af:button actionListener="#{bindings.CreateInsert1.execute}"
-                                                   text="Add New Comment" id="b5"/>
+                                                   text="Add New Comment" id="b5"
+                                                   rendered="#{bindings.ContractManagement.inputValue ne 'V'}"/>
                                         <af:spacer width="10" height="10" id="s8"/>
                                         <af:button actionListener="#{bindings.Delete1.execute}" text="Delete Comment"
-                                                   disabled="#{!bindings.Delete1.enabled}" id="b10" immediate="true"/>
+                                                   disabled="#{!bindings.Delete1.enabled}" id="b10" immediate="true"
+                                                   rendered="#{bindings.ContractManagement.inputValue ne 'V'}"/>
                                     </af:toolbar>
                                 </f:facet>
                                 <f:facet name="toolbar"/>
@@ -440,7 +447,8 @@
                                                       required="#{bindings.XpeDccContractNotesView2.hints.XpeNoteDttm.mandatory}"
                                                       columns="#{bindings.XpeDccContractNotesView2.hints.XpeNoteDttm.displayWidth}"
                                                       shortDesc="#{bindings.XpeDccContractNotesView2.hints.XpeNoteDttm.tooltip}"
-                                                      id="id4">
+                                                      id="id4"
+                                                      readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                             <f:validator binding="#{row.bindings.XpeNoteDttm.validator}"/>
                                             <af:convertDateTime pattern="#{bindings.XpeDccContractNotesView2.hints.XpeNoteDttm.format}"/>
                                         </af:inputDate>
@@ -466,7 +474,8 @@
                                                       columns="#{bindings.XpeDccContractNotesView2.hints.XpeNote.displayWidth}"
                                                       maximumLength="#{bindings.XpeDccContractNotesView2.hints.XpeNote.precision}"
                                                       shortDesc="#{bindings.XpeDccContractNotesView2.hints.XpeNote.tooltip}"
-                                                      id="it7">
+                                                      id="it7"
+                                                      readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                             <f:validator binding="#{row.bindings.XpeNote.validator}"/>
                                         </af:inputText>
                                     </af:column>
@@ -478,7 +487,8 @@
                                                       columns="#{bindings.XpeDccContractNotesView2.hints.XpeNoteLong.displayWidth}"
                                                       maximumLength="#{bindings.XpeDccContractNotesView2.hints.XpeNoteLong.precision}"
                                                       shortDesc="#{bindings.XpeDccContractNotesView2.hints.XpeNoteLong.tooltip}"
-                                                      id="it6">
+                                                      id="it6"
+                                                      readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                             <f:validator binding="#{row.bindings.XpeNoteLong.validator}"/>
                                         </af:inputText>
                                     </af:column>
@@ -602,10 +612,12 @@
                             <af:inputFile label="Upload File" id="if1" partialTriggers="cb1"
                                           valueChangeListener="#{pageFlowScope.FileUploadDownloadBean.onFileUploadVCL}"
                                           binding="#{pageFlowScope.FileUploadDownloadBean.inputFile}"
-                                          autoSubmit="true"/>
+                                          autoSubmit="true"
+                                          rendered="#{bindings.ContractManagement.inputValue ne 'V'}"/>
                             <af:button text="Upload" id="cb1" partialTriggers="if1"
                                        disabled="#{pageFlowScope.FileUploadDownloadBean.inputFile.value == null ? true : false}"
-                                       actionListener="#{pageFlowScope.FileUploadDownloadBean.onFileUpload}"/>
+                                       actionListener="#{pageFlowScope.FileUploadDownloadBean.onFileUpload}"
+                                       rendered="#{bindings.ContractManagement.inputValue ne 'V'}"/>
                             <af:table value="#{bindings.XpeDccContractsAttachmentsView1.collectionModel}" var="row"
                                       rows="#{bindings.XpeDccContractsAttachmentsView1.rangeSize}"
                                       emptyText="#{bindings.XpeDccContractsAttachmentsView1.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -627,7 +639,8 @@
                                                                        method="#{pageFlowScope.FileUploadDownloadBean.downloadFile}"/>
                                     </af:commandButton>
                                 </af:column>
-                                <af:column id="c14" width="250" minimumWidth="12" displayIndex="-1">
+                                <af:column id="c14" width="250" minimumWidth="12" displayIndex="-1"
+                                           rendered="#{bindings.ContractManagement.inputValue ne 'V'}">
                                     <af:button text="Delete File" id="b13" action="#{bindings.Commit.execute}"
                                                visible="#{row.Identifier eq 'UPDATE_CONTRACT'}"
                                                actionListener="#{pageFlowScope.FileUploadDownloadBean.onFileDelete}"/>

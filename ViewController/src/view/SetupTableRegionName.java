@@ -94,9 +94,5 @@ public class SetupTableRegionName implements Serializable {
         setDynamicTaskFlowId("/WEB-INF/notificationSetUpTable.xml#notificationSetUpTable");
         return null;
     }
-    
-    public String roleAndScreenSecuritySetUp() {
-        setDynamicTaskFlowId("/WEB-INF/roleSecurityFlow.xml#roleSecurityFlow");
-        return null;
-    }
+
 }

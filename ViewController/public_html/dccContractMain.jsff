@@ -25,7 +25,8 @@
                                                               autoSubmit="true"
                                                               maximumLength="#{bindings.XpeContractDesc.hints.precision}"
                                                               shortDesc="#{bindings.XpeContractDesc.hints.tooltip}"
-                                                              id="it1">
+                                                              id="it1"
+                                                              readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                                     <f:validator binding="#{bindings.XpeContractDesc.validator}"/>
                                                 </af:inputText>
                                                 <af:panelLabelAndMessage label="SetId" id="plam2" rendered="false">
@@ -41,7 +42,8 @@
                                                                       required="#{bindings.CustId.hints.mandatory}"
                                                                       columns="#{bindings.CustId.hints.displayWidth}"
                                                                       shortDesc="#{bindings.CustId.hints.tooltip}"
-                                                                      autoSubmit="true">
+                                                                      autoSubmit="true"
+                                                                      readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                                     <f:validator binding="#{bindings.CustId.validator}"/>
                                                 </af:inputListOfValues>
                                                 <af:panelLabelAndMessage label="Customer Name" id="plam31">
@@ -71,7 +73,8 @@
                                                                           required="#{bindings.XpeDccPcsname.hints.mandatory}"
                                                                           columns="#{bindings.XpeDccPcsname.hints.displayWidth}"
                                                                           shortDesc="#{bindings.XpeDccPcsname.hints.tooltip}"
-                                                                          simple="true" autoSubmit="true">
+                                                                          simple="true" autoSubmit="true"
+                                                                          readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                                         <f:validator binding="#{bindings.XpeDccPcsname.validator}"/>
                                                     </af:inputListOfValues>
                                                 </af:panelLabelAndMessage>
@@ -80,7 +83,8 @@
                                                               columns="#{bindings.CustContractContactName.hints.displayWidth}"
                                                               maximumLength="#{bindings.CustContractContactName.hints.precision}"
                                                               shortDesc="#{bindings.CustContractContactName.hints.tooltip}"
-                                                              id="it4" required="true">
+                                                              id="it4" required="true"
+                                                              readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                                     <f:validator binding="#{bindings.CustContractContactName.validator}"/>
                                                 </af:inputText>
                                                 <af:inputText value="#{bindings.CustContractApproverEmail.inputValue}"
@@ -88,7 +92,8 @@
                                                               columns="#{bindings.CustContractApproverEmail.hints.displayWidth}"
                                                               maximumLength="#{bindings.CustContractApproverEmail.hints.precision}"
                                                               shortDesc="#{bindings.CustContractApproverEmail.hints.tooltip}"
-                                                              id="it5" required="true">
+                                                              id="it5" required="true"
+                                                              readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                                     <f:validator binding="#{bindings.CustContractApproverEmail.validator}"/>
                                                 </af:inputText>
                                                 <af:panelLabelAndMessage label="#{bindings.SalesPerson.label}" id="plam6">
@@ -96,7 +101,8 @@
                                                                         label="#{bindings.SalesPerson.label}"
                                                                         required="#{bindings.SalesPerson.hints.mandatory}"
                                                                         shortDesc="#{bindings.SalesPerson.hints.tooltip}"
-                                                                        id="soc1" autoSubmit="true" simple="true">
+                                                                        id="soc1" autoSubmit="true" simple="true"
+                                                                        readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                                         <f:selectItems value="#{bindings.SalesPerson.items}" id="si1"/>
                                                         <f:validator binding="#{bindings.SalesPerson.validator}"/>
                                                     </af:selectOneChoice>
@@ -112,10 +118,12 @@
                         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3" halign="stretch"
                                          valign="stretch">
-                                <af:button action="refreshAll" text="Refresh" id="b1"/>
+                                <af:button action="refreshAll" text="Refresh" id="b1"
+                                           rendered="#{bindings.ContractManagement.inputValue ne 'V'}"/>
                                 <af:spacer width="10" height="10" id="s1"/>
                                 <af:button actionListener="#{bindings.Commit.execute}" text="Submit"
-                                           id="b4" action="reexecuteVersion"/>
+                                           id="b4" action="reexecuteVersion"
+                                           rendered="#{bindings.ContractManagement.inputValue ne 'V'}"/>
                                 <af:spacer width="10" height="10" id="s2"/>
                                 <af:button text="Back" action="goBack" immediate="true" id="b2"></af:button>
                             </af:gridCell>
@@ -134,10 +142,11 @@
                                 <f:facet name="context">
                                     <af:toolbar id="t1">
                                         <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add"
-                                                   id="b3"/>
+                                                   id="b3" rendered="#{bindings.ContractManagement.inputValue ne 'V'}"/>
                                         <af:spacer width="10" height="10" id="s3"/>
                                         <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
-                                                   disabled="#{!bindings.Delete.enabled}" id="b5" immediate="true"/>
+                                                   disabled="#{!bindings.Delete.enabled}" id="b5" immediate="true"
+                                                   rendered="#{bindings.ContractManagement.inputValue ne 'V'}"/>
                                     </af:toolbar>
                                 </f:facet>
                                 <f:facet name="toolbar"/>

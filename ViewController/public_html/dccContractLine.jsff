@@ -33,7 +33,8 @@
                                                                         label="Facility" autoSubmit="true"
                                                                         required="#{bindings.XpeFacility.hints.mandatory}"
                                                                         shortDesc="#{bindings.XpeFacility.hints.tooltip}"
-                                                                        id="soc1" simple="true">
+                                                                        id="soc1" simple="true"
+                                                                        readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                                         <f:selectItems value="#{bindings.XpeFacility.items}" id="si1"/>
                                                         <f:validator binding="#{bindings.XpeFacility.validator}"/>
                                                     </af:selectOneChoice>
@@ -45,7 +46,8 @@
                                                                       model="#{bindings.XpeProductId.listOfValuesModel}"
                                                                       columns="#{bindings.XpeProductId.hints.displayWidth}"
                                                                       shortDesc="#{bindings.XpeProductId.hints.tooltip}"
-                                                                      autoSubmit="true" required="true">
+                                                                      autoSubmit="true" required="true"
+                                                                      readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                                     <f:validator binding="#{bindings.XpeProductId.validator}"/>
                                                 </af:inputListOfValues>
                                                 <af:panelLabelAndMessage label="UOM" id="plam6" showRequired="true">
@@ -55,7 +57,8 @@
                                                                         shortDesc="#{bindings.XpeProductUom.hints.tooltip}"
                                                                         id="soc3" simple="true"
                                                                         partialTriggers="xpeProductIdId"
-                                                                        required="true">
+                                                                        required="true"
+                                                                        readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                                         <f:selectItems value="#{bindings.XpeProductUom.items}"
                                                                        id="si3"/>
                                                         <f:validator binding="#{bindings.XpeProductUom.validator}"/>
@@ -66,7 +69,8 @@
                                                               required="#{bindings.XpeQtyMin.hints.mandatory}"
                                                               columns="#{bindings.XpeQtyMin.hints.displayWidth}"
                                                               maximumLength="#{bindings.XpeQtyMin.hints.precision}"
-                                                              shortDesc="#{bindings.XpeQtyMin.hints.tooltip}" id="it1">
+                                                              shortDesc="#{bindings.XpeQtyMin.hints.tooltip}" id="it1"
+                                                              readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                                     <f:validator binding="#{bindings.XpeQtyMin.validator}"/>
                                                     <af:convertNumber groupingUsed="false"
                                                                       pattern="#{bindings.XpeQtyMin.format}"/>
@@ -77,7 +81,8 @@
                                                               columns="#{bindings.XpeQtyMax.hints.displayWidth}"
                                                               autoSubmit="true"
                                                               maximumLength="#{bindings.XpeQtyMax.hints.precision}"
-                                                              shortDesc="#{bindings.XpeQtyMax.hints.tooltip}" id="it2">
+                                                              shortDesc="#{bindings.XpeQtyMax.hints.tooltip}" id="it2"
+                                                              readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                                     <f:validator binding="#{bindings.XpeQtyMax.validator}"/>
                                                     <af:convertNumber groupingUsed="false"
                                                                       pattern="#{bindings.XpeQtyMax.format}"/>
@@ -88,7 +93,8 @@
                                                                         required="#{bindings.XpePeriodType.hints.mandatory}"
                                                                         autoSubmit="true"
                                                                         shortDesc="#{bindings.XpePeriodType.hints.tooltip}"
-                                                                        id="soc4" simple="true">
+                                                                        id="soc4" simple="true"
+                                                                        readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                                         <f:selectItems value="#{bindings.XpePeriodType.items}"
                                                                        id="si4"/>
                                                         <f:validator binding="#{bindings.XpePeriodType.validator}"/>
@@ -100,7 +106,8 @@
                                                               columns="#{bindings.XpeSwApprNbr.hints.displayWidth}"
                                                               maximumLength="#{bindings.XpeSwApprNbr.hints.precision}"
                                                               shortDesc="#{bindings.XpeSwApprNbr.hints.tooltip}"
-                                                              id="it9">
+                                                              id="it9"
+                                                              readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                                     <f:validator binding="#{bindings.XpeSwApprNbr.validator}"/>
                                                 </af:inputText>
                                                 <af:panelLabelAndMessage label="Currency Cd" id="plam8">
@@ -108,7 +115,8 @@
                                                                         label="#{bindings.CurrencyCd.label}"
                                                                         required="#{bindings.CurrencyCd.hints.mandatory}"
                                                                         shortDesc="#{bindings.CurrencyCd.hints.tooltip}"
-                                                                        id="soc11" simple="true">
+                                                                        id="soc11" simple="true"
+                                                                        readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                                         <f:selectItems value="#{bindings.CurrencyCd.items}" id="si11"/>
                                                         <f:validator binding="#{bindings.CurrencyCd.validator}"/>
                                                     </af:selectOneChoice>
@@ -124,10 +132,12 @@
                         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3" halign="stretch"
                                          valign="stretch">
-                                <af:button text="Refresh" action="refreshAll" id="b1"/>
+                                <af:button text="Refresh" action="refreshAll" id="b1"
+                                           rendered="#{bindings.ContractManagement.inputValue ne 'V'}"/>
                                 <!-- <af:button text="Submit" id="b3"/>-->
                                 <af:spacer width="10" height="10" id="s3"/>
-                                <af:button actionListener="#{bindings.Commit.execute}" text="Submit" id="b4"/>
+                                <af:button actionListener="#{bindings.Commit.execute}" text="Submit" id="b4"
+                                           rendered="#{bindings.ContractManagement.inputValue ne 'V'}"/>
                                 <af:spacer width="10" height="10" id="s2"/>
                                 <af:button text="Back" id="b2" action="goBack"/>
                                 <af:spacer width="10" height="10" id="s1"/>
@@ -149,10 +159,11 @@
                                 <f:facet name="context">
                                     <af:toolbar id="t3">
                                         <af:button actionListener="#{backingBeanScope.XpeDccMainBean.onContractPricingTermLineAdd}" text="Add"
-                                                   id="b3"/>
+                                                   id="b3" rendered="#{bindings.ContractManagement.inputValue ne 'V'}"/>
                                         <af:spacer width="10" height="10" id="s4"/>
                                         <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
-                                                   disabled="#{!bindings.Delete.enabled}" id="b6" immediate="true">
+                                                   disabled="#{!bindings.Delete.enabled}" id="b6" immediate="true"
+                                                   rendered="#{bindings.ContractManagement.inputValue eq 'V'}">
                                             <af:resetActionListener/>
                                         </af:button>
                                     </af:toolbar>
@@ -194,7 +205,8 @@
                                                               value="#{row.bindings.XpePricingTermType.inputValue}"
                                                               shortDesc="#{bindings.XpeDccContractPricingTermView2.hints.XpePricingTermType.tooltip}"
                                                               model="#{row.bindings.XpePricingTermType.listOfValuesModel}"
-                                                              required="true">
+                                                              required="true"
+                                                              readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                             <f:validator binding="#{row.bindings.XpePricingTermType.validator}"/>
                                         </af:inputListOfValues>
                                     </af:column>
@@ -206,7 +218,8 @@
                                                       columns="#{bindings.XpeDccContractPricingTermView2.hints.XpeQtyMax.displayWidth}"
                                                       maximumLength="#{bindings.XpeDccContractPricingTermView2.hints.XpeQtyMax.precision}"
                                                       shortDesc="#{bindings.XpeDccContractPricingTermView2.hints.XpeQtyMax.tooltip}"
-                                                      id="it4">
+                                                      id="it4"
+                                                      readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                             <f:validator binding="#{row.bindings.XpeQtyMax.validator}"/>
                                             <af:convertNumber groupingUsed="false"
                                                               pattern="#{bindings.XpeDccContractPricingTermView2.hints.XpeQtyMax.format}"/>
@@ -219,7 +232,8 @@
                                                       columns="#{bindings.XpeDccContractPricingTermView2.hints.XpeRate.displayWidth}"
                                                       maximumLength="#{bindings.XpeDccContractPricingTermView2.hints.XpeRate.displayWidth}"
                                                       shortDesc="#{bindings.XpeDccContractPricingTermView2.hints.XpeRate.tooltip}"
-                                                      id="it5" required="true" autoSubmit="true">
+                                                      id="it5" required="true" autoSubmit="true"
+                                                      readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                             <f:validator binding="#{row.bindings.XpeRate.validator}"/>
                                             <af:convertNumber pattern="###.00000" groupingUsed="false"
                                                                       maxFractionDigits="5"
@@ -234,7 +248,8 @@
                                                       columns="#{bindings.XpeDccContractPricingTermView2.hints.XpeChargeOverMin.displayWidth}"
                                                       maximumLength="#{bindings.XpeDccContractPricingTermView2.hints.XpeChargeOverMin.precision}"
                                                       shortDesc="#{bindings.XpeDccContractPricingTermView2.hints.XpeChargeOverMin.tooltip}"
-                                                      id="it6">
+                                                      id="it6"
+                                                      readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                             <f:validator binding="#{row.bindings.XpeChargeOverMin.validator}"/>
                                             <af:convertNumber groupingUsed="false"
                                                               pattern="#{bindings.XpeDccContractPricingTermView2.hints.XpeChargeOverMin.format}"/>
@@ -248,7 +263,8 @@
                                                       columns="#{bindings.XpeDccContractPricingTermView2.hints.XpeChargeOverMax.displayWidth}"
                                                       maximumLength="#{bindings.XpeDccContractPricingTermView2.hints.XpeChargeOverMax.precision}"
                                                       shortDesc="#{bindings.XpeDccContractPricingTermView2.hints.XpeChargeOverMax.tooltip}"
-                                                      id="it7">
+                                                      id="it7"
+                                                      readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                             <f:validator binding="#{row.bindings.XpeChargeOverMax.validator}"/>
                                             <af:convertNumber groupingUsed="false"
                                                               pattern="#{bindings.XpeDccContractPricingTermView2.hints.XpeChargeOverMax.format}"/>
@@ -260,7 +276,8 @@
                                                             label="#{row.bindings.XpePeriodType.label}"
                                                             required="#{bindings.XpeDccContractPricingTermView2.hints.XpePeriodType.mandatory}"
                                                             shortDesc="#{bindings.XpeDccContractPricingTermView2.hints.XpePeriodType.tooltip}"
-                                                            id="soc6">
+                                                            id="soc6"
+                                                            readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                             <f:selectItems value="#{row.bindings.XpePeriodType.items}" id="si6"/>
                                             <f:validator binding="#{row.bindings.XpePeriodType.validator}"/>
                                         </af:selectOneChoice>
@@ -273,7 +290,8 @@
                                                       columns="#{bindings.XpeDccContractPricingTermView2.hints.XpePeriodNbr.displayWidth}"
                                                       maximumLength="#{bindings.XpeDccContractPricingTermView2.hints.XpePeriodNbr.precision}"
                                                       shortDesc="#{bindings.XpeDccContractPricingTermView2.hints.XpePeriodNbr.tooltip}"
-                                                      id="it8">
+                                                      id="it8"
+                                                      readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                             <f:validator binding="#{row.bindings.XpePeriodNbr.validator}"/>
                                             <af:convertNumber groupingUsed="false"
                                                               pattern="#{bindings.XpeDccContractPricingTermView2.hints.XpePeriodNbr.format}"/>
@@ -287,10 +305,12 @@
                             <af:panelHeader text="" id="ph2">
                                 <f:facet name="context">
                                     <af:toolbar id="t4">
-                                        <af:button actionListener="#{backingBeanScope.XpeDccMainBean.onContractPricingOverLineAdd}" text="Add" id="b7"/>
+                                        <af:button actionListener="#{backingBeanScope.XpeDccMainBean.onContractPricingOverLineAdd}" text="Add" id="b7"
+                                                   rendered="#{bindings.ContractManagement.inputValue ne 'V'}"/>
                                         <af:spacer width="10" height="10" id="s6"/>
                                         <af:button actionListener="#{bindings.Delete1.execute}" text="Delete"
-                                                   disabled="#{!bindings.Delete1.enabled}" id="b8" immediate="true">
+                                                   disabled="#{!bindings.Delete1.enabled}" id="b8" immediate="true"
+                                                   rendered="#{bindings.ContractManagement.inputValue ne 'V'}">
                                             <af:resetActionListener/>
                                         </af:button>
                                     </af:toolbar>
@@ -330,7 +350,8 @@
                                                       required="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverStart.mandatory}"
                                                       columns="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverStart.displayWidth}"
                                                       shortDesc="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverStart.tooltip}"
-                                                      id="id1">
+                                                      id="id1"
+                                                      readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                             <f:validator binding="#{row.bindings.XpeOverStart.validator}"/>
                                             <af:convertDateTime pattern="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverStart.format}"/>
                                         </af:inputDate>
@@ -342,7 +363,8 @@
                                                       required="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverEnd.mandatory}"
                                                       columns="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverEnd.displayWidth}"
                                                       shortDesc="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverEnd.tooltip}"
-                                                      id="id2">
+                                                      id="id2"
+                                                      readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                             <f:validator binding="#{row.bindings.XpeOverEnd.validator}"/>
                                             <af:convertDateTime pattern="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverEnd.format}"/>
                                         </af:inputDate>
@@ -353,7 +375,8 @@
                                                             label="#{row.bindings.XpeOverType.label}"
                                                             required="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverType.mandatory}"
                                                             shortDesc="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverType.tooltip}"
-                                                            id="soc7">
+                                                            id="soc7"
+                                                            readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                             <f:selectItems value="#{row.bindings.XpeOverType.items}" id="si7"/>
                                             <f:validator binding="#{row.bindings.XpeOverType.validator}"/>
                                         </af:selectOneChoice>
@@ -364,7 +387,8 @@
                                                             label="#{row.bindings.XpeSourceFld.label}"
                                                             required="#{bindings.XpeDccContractPricingOverView1.hints.XpeSourceFld.mandatory}"
                                                             shortDesc="#{bindings.XpeDccContractPricingOverView1.hints.XpeSourceFld.tooltip}"
-                                                            id="soc8">
+                                                            id="soc8"
+                                                            readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                             <f:selectItems value="#{row.bindings.XpeSourceFld.items}" id="si8"/>
                                             <f:validator binding="#{row.bindings.XpeSourceFld.validator}"/>
                                         </af:selectOneChoice>
@@ -375,7 +399,8 @@
                                                             label="#{row.bindings.XpeCondition.label}"
                                                             required="#{bindings.XpeDccContractPricingOverView1.hints.XpeCondition.mandatory}"
                                                             shortDesc="#{bindings.XpeDccContractPricingOverView1.hints.XpeCondition.tooltip}"
-                                                            id="soc9">
+                                                            id="soc9"
+                                                            readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                             <f:selectItems value="#{row.bindings.XpeCondition.items}" id="si9"/>
                                             <f:validator binding="#{row.bindings.XpeCondition.validator}"/>
                                         </af:selectOneChoice>
@@ -386,7 +411,8 @@
                                                             label="#{row.bindings.XpeTargetFld.label}"
                                                             required="#{bindings.XpeDccContractPricingOverView1.hints.XpeTargetFld.mandatory}"
                                                             shortDesc="#{bindings.XpeDccContractPricingOverView1.hints.XpeTargetFld.tooltip}"
-                                                            id="soc10">
+                                                            id="soc10"
+                                                            readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                             <f:selectItems value="#{row.bindings.XpeTargetFld.items}" id="si10"/>
                                             <f:validator binding="#{row.bindings.XpeTargetFld.validator}"/>
                                         </af:selectOneChoice>
@@ -399,7 +425,8 @@
                                                       columns="#{bindings.XpeDccContractPricingOverView1.hints.XpeCheck.displayWidth}"
                                                       maximumLength="#{bindings.XpeDccContractPricingOverView1.hints.XpeCheck.precision}"
                                                       shortDesc="#{bindings.XpeDccContractPricingOverView1.hints.XpeCheck.tooltip}"
-                                                      id="it11">
+                                                      id="it11"
+                                                      readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                             <f:validator binding="#{row.bindings.XpeCheck.validator}"/>
                                         </af:inputText>
                                     </af:column>
@@ -411,7 +438,8 @@
                                                       columns="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverMsg.displayWidth}"
                                                       maximumLength="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverMsg.precision}"
                                                       shortDesc="#{bindings.XpeDccContractPricingOverView1.hints.XpeOverMsg.tooltip}"
-                                                      id="it12">
+                                                      id="it12"
+                                                      readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                             <f:validator binding="#{row.bindings.XpeOverMsg.validator}"/>
                                         </af:inputText>
                                     </af:column>

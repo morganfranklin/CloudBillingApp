@@ -77,5 +77,7 @@
             Action="createInsertRow"/>
     <action IterBinding="XpeDccCfgNewRoleSecurityEOVOIterator" id="Delete1" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
+    <list IterBinding="XpeDccCfgNewRoleSecurityEOVOIterator" StaticList="false" Uses="LOV_Screen25" id="Screen25"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

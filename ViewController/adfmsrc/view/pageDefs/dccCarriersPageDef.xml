@@ -8,6 +8,8 @@
                   DataControl="AppModuleDataControl" RangeSize="25"/>
         <iterator id="XpeDccContractCarrierView4Iterator" Binds="XpeDccContractCarrierView1"
                   DataControl="AppModuleDataControl" RangeSize="25"/>
+        <iterator Binds="XpeDccCfgRoleSecurityEOVO" RangeSize="10" DataControl="AppModuleDataControl"
+                  id="XpeDccCfgRoleSecurityEOVOIterator"/>
     </executables>
     <bindings>
         <attributeValues IterBinding="XpeDccContractPricingTermView3Iterator" id="XpeContractId">
@@ -91,5 +93,10 @@
                 Action="rollbackTransaction"/>
         <action IterBinding="XpeDccContractCarrierView4Iterator" id="Delete" RequiresUpdateModel="false"
                 Action="removeCurrentRow"/>
+        <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="ContractManagement">
+            <AttrNames>
+                <Item Value="Screen13"/>
+            </AttrNames>
+        </attributeValues>
     </bindings>
 </pageDefinition>

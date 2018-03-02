@@ -26,6 +26,8 @@
                   id="XpeDccWfEventEOVO2Iterator"/>
         <iterator Binds="XpeDccWfActionEOVO2" RangeSize="25" DataControl="AppModuleDataControl"
                   id="XpeDccWfActionEOVO2Iterator"/>
+        <iterator Binds="XpeDccCfgNewRoleSecurityEOVO" RangeSize="10" DataControl="AppModuleDataControl"
+                  id="XpeDccCfgNewRoleSecurityEOVOIterator"/>
     </executables>
     <bindings>
         <attributeValues IterBinding="XpeDccContractVersionView2Iterator" id="XpeContractId">
@@ -228,5 +230,10 @@
         <action IterBinding="XpeDccContractsAttachmentsView1Iterator" id="DeleteFile"
                 InstanceName="AppModuleDataControl.XpeDccContractsAttachmentsView1" DataControl="AppModuleDataControl"
                 RequiresUpdateModel="false" Action="removeCurrentRow"/>
+        <attributeValues IterBinding="XpeDccCfgNewRoleSecurityEOVOIterator" id="ContractManagement">
+            <AttrNames>
+                <Item Value="Screen13"/>
+            </AttrNames>
+        </attributeValues>
     </bindings>
 </pageDefinition>

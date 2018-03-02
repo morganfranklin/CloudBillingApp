@@ -204,7 +204,6 @@ public class PeopleSoftCallSecurityFilter {
         OperationBinding operationBinding = bindings.getOperationBinding("checkRoles");
         if (null != operationBinding) {
             operationBinding.getParamsMap().put("givenUser", givenUser);
-            operationBinding.getParamsMap().put("userRole", "MOD_CPE_ADMIN");
             String accessLimit = (String) operationBinding.execute();
             if(null!=accessLimit)
                 this.setAccessLimit(accessLimit);

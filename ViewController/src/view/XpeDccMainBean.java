@@ -3,6 +3,7 @@ package view;
 import java.io.ByteArrayInputStream;
 import java.io.OutputStream;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.faces.context.FacesContext;
@@ -19,6 +20,14 @@ import oracle.adf.model.binding.DCBindingContainer;
 import oracle.adf.view.rich.component.rich.data.RichTable;
 import oracle.adf.view.rich.context.AdfFacesContext;
 import oracle.adf.view.rich.event.PopupCanceledEvent;
+
+import oracle.adf.view.rich.event.QueryEvent;
+
+import oracle.adf.view.rich.model.AttributeCriterion;
+import oracle.adf.view.rich.model.AttributeDescriptor;
+import oracle.adf.view.rich.model.ConjunctionCriterion;
+import oracle.adf.view.rich.model.Criterion;
+import oracle.adf.view.rich.model.QueryDescriptor;
 
 import oracle.binding.BindingContainer;
 import oracle.binding.OperationBinding;

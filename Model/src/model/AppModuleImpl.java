@@ -974,8 +974,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      * Container's getter for XpeDccCustomerSearch1.
      * @return XpeDccCustomerSearch1
      */
-    public ViewObjectImpl getXpeDccCustomerSearch1() {
-        return (ViewObjectImpl) findViewObject("XpeDccCustomerSearch1");
+    public XpeDccCustomerSearchImpl getXpeDccCustomerSearch1() {
+        return (XpeDccCustomerSearchImpl) findViewObject("XpeDccCustomerSearch1");
     }
 
     /**
@@ -3904,7 +3904,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         return nextLineNumber;
     }
     
-    public String checkRoles(String givenUser, String userRole){
+    public String checkRoles(String givenUser){
         this.getXpeDccUserInfoROVO().clearCache();
         this.getXpeDccUserInfoROVO().executeQuery();
         XpeDccUserInfoROVORowImpl userInfoROVORow =
@@ -3919,7 +3919,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         RoleQueryImpl roles = this.getRoleQuery1();
         roles.setQ_ROLE_USER(givenUser);
         roles.executeQuery();
-        RowSetIterator rowSetIterator= roles.createRowSetIterator(null);
+        RoleQueryRowImpl roleRow = (RoleQueryRowImpl) roles.first();
+        /*RowSetIterator rowSetIterator= roles.createRowSetIterator(null);
         while (rowSetIterator.hasNext()) {
             RoleQueryRowImpl roleRow = (RoleQueryRowImpl) rowSetIterator.next();
             availRoles.add(roleRow.getRolename());
@@ -3938,13 +3939,13 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             } else if (availRoles.contains("CPE_IA")) {
                 accessLimit = "I";
             }
-        }
+        }*/
         
         XpeDccCfgRolesEOVOImpl xpeDccCfgRolesEOVO = this.getXpeDccCfgRolesEOVO();
         if(null!=xpeDccCfgRolesEOVO){
             xpeDccCfgRolesEOVO.executeEmptyRowSet();
             xpeDccCfgRolesEOVO.setApplyViewCriteriaName("XpeDccCfgRolesEOVOCriteria");
-            xpeDccCfgRolesEOVO.setbind_PeoplesoftRole(userRole);
+            xpeDccCfgRolesEOVO.setbind_PeoplesoftRole(null!=roleRow?roleRow.getRolename():null);
             xpeDccCfgRolesEOVO.executeQuery();
         }
         return accessLimit;
