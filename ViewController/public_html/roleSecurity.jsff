@@ -52,7 +52,7 @@
       </f:facet>
     </af:panelHeader>
     <af:panelHeader text="Screen Setup" id="ph2">
-      <af:panelFormLayout partialTriggers="md1" id="pfl1" rows="10" maxColumns="3">
+      <af:panelFormLayout partialTriggers="md1 b5 b6 b3 b4" id="pfl1" rows="10" maxColumns="3">
         <af:panelLabelAndMessage label="#{bindings.Screen1.hints.label}" id="plam1">
           <af:selectOneChoice value="#{bindings.Screen1.inputValue}" label="#{bindings.Screen1.label}"
                               required="#{bindings.Screen1.hints.mandatory}"
@@ -77,7 +77,7 @@
             <f:validator binding="#{bindings.Screen3.validator}"/>
           </af:selectOneChoice>
         </af:panelLabelAndMessage>
-        <af:panelLabelAndMessage label="#{bindings.Screen4.hints.label}" id="plam4">
+        <af:panelLabelAndMessage label="#{bindings.Screen4.hints.label}" id="plam4" rendered="false">
           <af:selectOneChoice value="#{bindings.Screen4.inputValue}" label="#{bindings.Screen4.label}"
                               required="#{bindings.Screen4.hints.mandatory}"
                               shortDesc="#{bindings.Screen4.hints.tooltip}" id="soc9" simple="true" autoSubmit="true">
@@ -85,7 +85,7 @@
             <f:validator binding="#{bindings.Screen4.validator}"/>
           </af:selectOneChoice>
         </af:panelLabelAndMessage>
-        <af:panelLabelAndMessage label="#{bindings.Screen5.hints.label}" id="plam5">
+        <af:panelLabelAndMessage label="#{bindings.Screen5.hints.label}" id="plam5" rendered="false">
           <af:selectOneChoice value="#{bindings.Screen5.inputValue}" label="#{bindings.Screen5.label}"
                               required="#{bindings.Screen5.hints.mandatory}"
                               shortDesc="#{bindings.Screen5.hints.tooltip}" id="soc6" simple="true" autoSubmit="true">
@@ -229,7 +229,7 @@
             <f:validator binding="#{bindings.Screen22.validator}"/>
           </af:selectOneChoice>
         </af:panelLabelAndMessage>
-        <af:panelLabelAndMessage label="#{bindings.Screen23.hints.label}" id="plam23">
+        <af:panelLabelAndMessage label="#{bindings.Screen23.hints.label}" id="plam23" rendered="false">
           <af:selectOneChoice value="#{bindings.Screen23.inputValue}" label="#{bindings.Screen23.label}"
                               required="#{bindings.Screen23.hints.mandatory}"
                               shortDesc="#{bindings.Screen23.hints.tooltip}" id="soc16" simple="true" autoSubmit="true">
@@ -237,7 +237,7 @@
             <f:validator binding="#{bindings.Screen23.validator}"/>
           </af:selectOneChoice>
         </af:panelLabelAndMessage>
-        <af:panelLabelAndMessage label="#{bindings.Screen24.hints.label}" id="plam24">
+        <af:panelLabelAndMessage label="#{bindings.Screen24.hints.label}" id="plam24" rendered="false">
           <af:selectOneChoice value="#{bindings.Screen24.inputValue}" label="#{bindings.Screen24.label}"
                               required="#{bindings.Screen24.hints.mandatory}"
                               shortDesc="#{bindings.Screen24.hints.tooltip}" id="soc24" simple="true" autoSubmit="true">
@@ -257,7 +257,6 @@
       <f:facet name="context">
         <af:group id="g3">
           <af:button actionListener="#{bindings.CreateInsert1.execute}" text="Create" id="b5"
-                     disabled="#{!(bindings.XpeDccCfgNewRolesEOVOIterator.estimatedRowCount!=0 &amp;&amp; bindings.XpeDccCfgNewRoleSecurityEOVOIterator.estimatedRowCount&lt;1)}"
                      partialTriggers="b1 b2 b3"/>
           <af:button actionListener="#{bindings.Delete1.execute}" text="Delete" id="b6"/>
         </af:group>

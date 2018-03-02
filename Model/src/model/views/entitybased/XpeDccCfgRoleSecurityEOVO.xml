@@ -783,7 +783,6 @@
   </ViewAttribute>
   <ViewAttribute
     Name="Screen23"
-    IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="Screen23"
     EntityUsage="XpeDccCfgRoleSecurityEO"
@@ -800,7 +799,6 @@
   </ViewAttribute>
   <ViewAttribute
     Name="Screen24"
-    IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="Screen24"
     EntityUsage="XpeDccCfgRoleSecurityEO"
@@ -834,28 +832,24 @@
   </ViewAttribute>
   <ViewAttribute
     Name="Screen26"
-    IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="Screen26"
     EntityUsage="XpeDccCfgRoleSecurityEO"
     AliasName="SCREEN26"/>
   <ViewAttribute
     Name="Screen27"
-    IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="Screen27"
     EntityUsage="XpeDccCfgRoleSecurityEO"
     AliasName="SCREEN27"/>
   <ViewAttribute
     Name="Screen28"
-    IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="Screen28"
     EntityUsage="XpeDccCfgRoleSecurityEO"
     AliasName="SCREEN28"/>
   <ViewAttribute
     Name="Screen29"
-    IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="Screen29"
     EntityUsage="XpeDccCfgRoleSecurityEO"
@@ -879,14 +873,12 @@
   </ViewAttribute>
   <ViewAttribute
     Name="Screen30"
-    IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="Screen30"
     EntityUsage="XpeDccCfgRoleSecurityEO"
     AliasName="SCREEN30"/>
   <ViewAttribute
     Name="Screen4"
-    IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="Screen4"
     EntityUsage="XpeDccCfgRoleSecurityEO"
@@ -903,7 +895,6 @@
   </ViewAttribute>
   <ViewAttribute
     Name="Screen5"
-    IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="Screen5"
     EntityUsage="XpeDccCfgRoleSecurityEO"

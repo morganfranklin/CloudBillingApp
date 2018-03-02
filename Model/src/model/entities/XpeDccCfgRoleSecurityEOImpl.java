@@ -663,13 +663,6 @@ public class XpeDccCfgRoleSecurityEOImpl extends EntityImpl {
         return (Timestamp) getAttributeInternal(CREATEDDATE);
     }
 
-    /**
-     * Sets <code>value</code> as the attribute value for CreatedDate.
-     * @param value value to set the CreatedDate
-     */
-    public void setCreatedDate(Timestamp value) {
-        setAttributeInternal(CREATEDDATE, value);
-    }
 
     /**
      * Gets the attribute value for LastUpdatedDate, using the alias name LastUpdatedDate.
@@ -679,13 +672,6 @@ public class XpeDccCfgRoleSecurityEOImpl extends EntityImpl {
         return (Timestamp) getAttributeInternal(LASTUPDATEDDATE);
     }
 
-    /**
-     * Sets <code>value</code> as the attribute value for LastUpdatedDate.
-     * @param value value to set the LastUpdatedDate
-     */
-    public void setLastUpdatedDate(Timestamp value) {
-        setAttributeInternal(LASTUPDATEDDATE, value);
-    }
 
     /**
      * @return the associated entity oracle.jbo.server.EntityImpl.

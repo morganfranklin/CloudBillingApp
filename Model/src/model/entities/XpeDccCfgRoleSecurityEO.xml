@@ -32,46 +32,45 @@
   </Attribute>
   <Attribute
     Name="Screen1"
-    IsNotNull="true"
     Precision="10"
     ColumnName="SCREEN1"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_ROLE_SECURITY">
+    TableName="XPE_DCC_CFG_ROLE_SECURITY"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="Screen2"
-    IsNotNull="true"
     Precision="10"
     ColumnName="SCREEN2"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_ROLE_SECURITY">
+    TableName="XPE_DCC_CFG_ROLE_SECURITY"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="Screen3"
-    IsNotNull="true"
     Precision="10"
     ColumnName="SCREEN3"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_ROLE_SECURITY">
+    TableName="XPE_DCC_CFG_ROLE_SECURITY"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="Screen4"
-    IsNotNull="true"
     Precision="10"
     ColumnName="SCREEN4"
     SQLType="VARCHAR"
@@ -84,7 +83,6 @@
   </Attribute>
   <Attribute
     Name="Screen5"
-    IsNotNull="true"
     Precision="10"
     ColumnName="SCREEN5"
     SQLType="VARCHAR"
@@ -97,228 +95,227 @@
   </Attribute>
   <Attribute
     Name="Screen6"
-    IsNotNull="true"
     Precision="10"
     ColumnName="SCREEN6"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_ROLE_SECURITY">
+    TableName="XPE_DCC_CFG_ROLE_SECURITY"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="Screen7"
-    IsNotNull="true"
     Precision="10"
     ColumnName="SCREEN7"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_ROLE_SECURITY">
+    TableName="XPE_DCC_CFG_ROLE_SECURITY"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="Screen8"
-    IsNotNull="true"
     Precision="10"
     ColumnName="SCREEN8"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_ROLE_SECURITY">
+    TableName="XPE_DCC_CFG_ROLE_SECURITY"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="Screen9"
-    IsNotNull="true"
     Precision="10"
     ColumnName="SCREEN9"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_ROLE_SECURITY">
+    TableName="XPE_DCC_CFG_ROLE_SECURITY"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="Screen10"
-    IsNotNull="true"
     Precision="10"
     ColumnName="SCREEN10"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_ROLE_SECURITY">
+    TableName="XPE_DCC_CFG_ROLE_SECURITY"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="Screen11"
-    IsNotNull="true"
     Precision="10"
     ColumnName="SCREEN11"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_ROLE_SECURITY">
+    TableName="XPE_DCC_CFG_ROLE_SECURITY"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="Screen12"
-    IsNotNull="true"
     Precision="10"
     ColumnName="SCREEN12"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_ROLE_SECURITY">
+    TableName="XPE_DCC_CFG_ROLE_SECURITY"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="Screen13"
-    IsNotNull="true"
     Precision="10"
     ColumnName="SCREEN13"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_ROLE_SECURITY">
+    TableName="XPE_DCC_CFG_ROLE_SECURITY"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="Screen14"
-    IsNotNull="true"
     Precision="10"
     ColumnName="SCREEN14"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_ROLE_SECURITY">
+    TableName="XPE_DCC_CFG_ROLE_SECURITY"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="Screen15"
-    IsNotNull="true"
     Precision="10"
     ColumnName="SCREEN15"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_ROLE_SECURITY">
+    TableName="XPE_DCC_CFG_ROLE_SECURITY"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="Screen16"
-    IsNotNull="true"
     Precision="10"
     ColumnName="SCREEN16"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_ROLE_SECURITY">
+    TableName="XPE_DCC_CFG_ROLE_SECURITY"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="Screen17"
-    IsNotNull="true"
     Precision="10"
     ColumnName="SCREEN17"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_ROLE_SECURITY">
+    TableName="XPE_DCC_CFG_ROLE_SECURITY"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="Screen18"
-    IsNotNull="true"
     Precision="10"
     ColumnName="SCREEN18"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_ROLE_SECURITY">
+    TableName="XPE_DCC_CFG_ROLE_SECURITY"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="Screen19"
-    IsNotNull="true"
     Precision="10"
     ColumnName="SCREEN19"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_ROLE_SECURITY">
+    TableName="XPE_DCC_CFG_ROLE_SECURITY"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="Screen20"
-    IsNotNull="true"
     Precision="10"
     ColumnName="SCREEN20"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_ROLE_SECURITY">
+    TableName="XPE_DCC_CFG_ROLE_SECURITY"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="Screen21"
-    IsNotNull="true"
     Precision="10"
     ColumnName="SCREEN21"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_ROLE_SECURITY">
+    TableName="XPE_DCC_CFG_ROLE_SECURITY"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="Screen22"
-    IsNotNull="true"
     Precision="10"
     ColumnName="SCREEN22"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_ROLE_SECURITY">
+    TableName="XPE_DCC_CFG_ROLE_SECURITY"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="Screen23"
-    IsNotNull="true"
     Precision="10"
     ColumnName="SCREEN23"
     SQLType="VARCHAR"
@@ -331,7 +328,6 @@
   </Attribute>
   <Attribute
     Name="Screen24"
-    IsNotNull="true"
     Precision="10"
     ColumnName="SCREEN24"
     SQLType="VARCHAR"
@@ -344,7 +340,6 @@
   </Attribute>
   <Attribute
     Name="Screen25"
-    IsNotNull="true"
     Precision="10"
     ColumnName="SCREEN25"
     SQLType="VARCHAR"
@@ -357,7 +352,6 @@
   </Attribute>
   <Attribute
     Name="Screen26"
-    IsNotNull="true"
     Precision="10"
     ColumnName="SCREEN26"
     SQLType="VARCHAR"
@@ -370,7 +364,6 @@
   </Attribute>
   <Attribute
     Name="Screen27"
-    IsNotNull="true"
     Precision="10"
     ColumnName="SCREEN27"
     SQLType="VARCHAR"
@@ -383,7 +376,6 @@
   </Attribute>
   <Attribute
     Name="Screen28"
-    IsNotNull="true"
     Precision="10"
     ColumnName="SCREEN28"
     SQLType="VARCHAR"
@@ -396,7 +388,6 @@
   </Attribute>
   <Attribute
     Name="Screen29"
-    IsNotNull="true"
     Precision="10"
     ColumnName="SCREEN29"
     SQLType="VARCHAR"
@@ -409,7 +400,6 @@
   </Attribute>
   <Attribute
     Name="Screen30"
-    IsNotNull="true"
     Precision="10"
     ColumnName="SCREEN30"
     SQLType="VARCHAR"
@@ -476,6 +466,246 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.entities.XpeDccCfgRoleSecurityEO.CpeRole"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgRoleSecurityScreen10Check">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"SCREEN10" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_ROLE_SECURITY_SCRE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgRoleSecurityEO.Screen10"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgRoleSecurityScreen11Check">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"SCREEN11" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_ROLE_SECURITY_SCRE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgRoleSecurityEO.Screen11"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgRoleSecurityScreen12Check">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"SCREEN12" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_ROLE_SECURITY_SCRE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgRoleSecurityEO.Screen12"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgRoleSecurityScreen13Check">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"SCREEN13" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_ROLE_SECURITY_SCRE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgRoleSecurityEO.Screen13"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgRoleSecurityScreen14Check">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"SCREEN14" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_ROLE_SECURITY_SCRE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgRoleSecurityEO.Screen14"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgRoleSecurityScreen15Check">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"SCREEN15" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_ROLE_SECURITY_SCRE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgRoleSecurityEO.Screen15"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgRoleSecurityScreen16Check">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"SCREEN16" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_ROLE_SECURITY_SCRE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgRoleSecurityEO.Screen16"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgRoleSecurityScreen17Check">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"SCREEN17" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_ROLE_SECURITY_SCRE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgRoleSecurityEO.Screen17"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgRoleSecurityScreen18Check">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"SCREEN18" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_ROLE_SECURITY_SCRE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgRoleSecurityEO.Screen18"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgRoleSecurityScreen19Check">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"SCREEN19" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_ROLE_SECURITY_SCRE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgRoleSecurityEO.Screen19"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgRoleSecurityScreen1Check">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"SCREEN1" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_ROLE_SECURITY_SCRE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgRoleSecurityEO.Screen1"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgRoleSecurityScreen20Check">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"SCREEN20" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_ROLE_SECURITY_SCRE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgRoleSecurityEO.Screen20"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgRoleSecurityScreen21Check">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"SCREEN21" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_ROLE_SECURITY_SCRE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgRoleSecurityEO.Screen21"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgRoleSecurityScreen22Check">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"SCREEN22" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_ROLE_SECURITY_SCRE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgRoleSecurityEO.Screen22"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgRoleSecurityScreen2Check">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"SCREEN2" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_ROLE_SECURITY_SCRE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgRoleSecurityEO.Screen2"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgRoleSecurityScreen3Check">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"SCREEN3" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_ROLE_SECURITY_SCRE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgRoleSecurityEO.Screen3"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgRoleSecurityScreen6Check">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"SCREEN6" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_ROLE_SECURITY_SCRE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgRoleSecurityEO.Screen6"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgRoleSecurityScreen7Check">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"SCREEN7" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_ROLE_SECURITY_SCRE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgRoleSecurityEO.Screen7"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgRoleSecurityScreen8Check">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"SCREEN8" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_ROLE_SECURITY_SCRE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgRoleSecurityEO.Screen8"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XpeDccCfgRoleSecurityScreen9Check">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"SCREEN9" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XPE_DCC_CFG_ROLE_SECURITY_SCRE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entities.XpeDccCfgRoleSecurityEO.Screen9"/>
     </AttrArray>
   </Key>
   <Key
