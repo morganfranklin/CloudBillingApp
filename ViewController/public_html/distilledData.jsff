@@ -12,7 +12,7 @@
                                          valign="stretch">
                                 <af:button actionListener="#{bindings.Execute.execute}" text="Refresh"
                                            disabled="#{!bindings.Execute.enabled}" id="b2"/>
-                                <af:panelLabelAndMessage label="Selected Error:" id="plam1">
+                                <af:panelLabelAndMessage label="Selected Error:" id="plam1" partialTriggers="pc1:t1">
                                     <af:outputText value="#{bindings.ErrorMessage.inputValue}"
                                                    shortDesc="#{bindings.ErrorMessage.hints.tooltip}" id="ot7"/>
                                 </af:panelLabelAndMessage>
@@ -26,7 +26,7 @@
             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" halign="stretch" valign="stretch">
                 <af:panelTabbed position="above" id="pt1" dimensionsFrom="auto">
                     <af:showDetailItem id="tab2" text="Summary" disclosed="true">
-                        <af:panelCollection id="pc2">
+                        <af:panelCollection id="pc2" styleClass="AFStretchWidth">
                             <f:facet name="menus">
                                 <af:menu text="Report" id="m2">
                                     <af:commandMenuItem text="Export to Excel" id="cmi4">
@@ -48,14 +48,15 @@
                             <af:table value="#{bindings.XpeDccMatchEsummVw1.collectionModel}" var="row"
                                       rows="#{bindings.XpeDccMatchEsummVw1.rangeSize}"
                                       emptyText="#{bindings.XpeDccMatchEsummVw1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                      rowBandingInterval="0"
+                                      rowBandingInterval="1"
                                       selectedRowKeys="#{bindings.XpeDccMatchEsummVw1.collectionModel.selectedRow}"
                                       selectionListener="#{bindings.XpeDccMatchEsummVw1.collectionModel.makeCurrent}"
                                       rowSelection="single" fetchSize="#{bindings.XpeDccMatchEsummVw1.rangeSize}"
                                       filterModel="#{bindings.XpeDccMatchEsummVw1Query.queryDescriptor}"
                                       filterVisible="true"
                                       queryListener="#{bindings.XpeDccMatchEsummVw1Query.processQuery}" varStatus="vs"
-                                      id="t2">
+                                      id="t2" contentDelivery="immediate" columnBandingInterval="0"
+                                      columnStretching="last">
                                 <af:column sortProperty="#{bindings.XpeDccMatchEsummVw1.hints.Site.name}"
                                            filterable="true" sortable="true" headerText="Site" id="c7" width="100">
                                     <af:outputText value="#{row.Site}"
@@ -106,7 +107,7 @@
                         </af:panelCollection>
                     </af:showDetailItem>
                     <af:showDetailItem id="tab1" text="Details">
-                        <af:panelCollection id="pc1" inlineStyle="width:1224px;">
+                        <af:panelCollection id="pc1" styleClass="AFStretchWidth">
                             <f:facet name="menus">
                                 <af:menu text="Report" id="m1">
                                     <af:commandMenuItem text="Export to Excel" id="cmi1">
@@ -133,42 +134,42 @@
                             <af:table value="#{bindings.PsCisXpeImportView1.collectionModel}" var="row"
                                       rows="#{bindings.PsCisXpeImportView1.rangeSize}"
                                       emptyText="#{bindings.PsCisXpeImportView1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                      rowBandingInterval="0"
+                                      rowBandingInterval="1"
                                       selectedRowKeys="#{bindings.PsCisXpeImportView1.collectionModel.selectedRow}"
                                       selectionListener="#{bindings.PsCisXpeImportView1.collectionModel.makeCurrent}"
                                       rowSelection="single" fetchSize="#{bindings.PsCisXpeImportView1.rangeSize}"
                                       filterModel="#{bindings.PsCisXpeImportView1Query.queryDescriptor}"
                                       filterVisible="true"
                                       queryListener="#{bindings.PsCisXpeImportView1Query.processQuery}" varStatus="vs"
-                                      id="t1" partialTriggers="::b2"
-                                      maxClientRows="100" columnStretching="last" width="1231">
+                                      id="t1" partialTriggers=":::b2"
+                                      maxClientRows="100" columnStretching="last" contentDelivery="immediate">
                                 <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.CisTargetVendor5.name}"
-                                           sortable="true" headerText="Site" id="c1" filterable="true">
+                                           sortable="true" headerText="Site" id="c1" filterable="true" width="150">
                                     <af:outputText value="#{row.CisTargetVendor5}"
                                                    shortDesc="#{bindings.PsCisXpeImportView1.hints.CisTargetVendor5.tooltip}"
                                                    id="ot1"/>
                                 </af:column>
                                 <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.Key2.name}"
-                                           filterable="true" sortable="true" headerText="Ticket" id="c2" width="70">
+                                           filterable="true" sortable="true" headerText="Ticket" id="c2" width="100">
                                     <af:outputText value="#{row.Key2}"
                                                    shortDesc="#{bindings.PsCisXpeImportView1.hints.Key2.tooltip}"
                                                    id="ot2"/>
                                 </af:column>
                                 <af:column id="c20" headerText="Origin" sortable="true"
                                            sortProperty="#{bindings.PsCisXpeImportView1.hints.AttrValue9.name}"
-                                           width="70" filterable="true">
+                                           width="150" filterable="true">
                                     <af:outputText value="#{row.AttrValue9}"
                                                    shortDesc="#{bindings.PsCisXpeImportView1.hints.AttrValue9.tooltip}"
                                                    id="ot16"/>
                                 </af:column>
                                 <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.CisTargtcust1det2.name}"
-                                           sortable="true" headerText="Carrier" id="c3" width="70" filterable="true">
+                                           sortable="true" headerText="Carrier" id="c3" width="150" filterable="true">
                                     <af:outputText value="#{row.CisTargtcust1det2}"
                                                    shortDesc="#{bindings.PsCisXpeImportView1.hints.CisTargtcust1det2.tooltip}"
                                                    id="ot3"/>
                                 </af:column>
                                 <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.KeyDate01.name}"
-                                           filterable="true" sortable="true" headerText="Date" id="c4" width="70">
+                                           filterable="true" sortable="true" headerText="Date" id="c4" width="150">
                                     <f:facet name="filter">
                                         <af:inputDate value="#{bindings.PsCisXpeImportView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.KeyDate01.value}"
                                                       id="id1">
@@ -182,13 +183,14 @@
                                     </af:outputText>
                                 </af:column>
                                 <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.CisTargtcust2det2.name}"
-                                           sortable="true" headerText="Short Name" id="c5" filterable="true">
+                                           sortable="true" headerText="PCS Short Name" id="c5" filterable="true"
+                                           width="150">
                                     <af:outputText value="#{row.CisTargtcust2det2}"
                                                    shortDesc="#{bindings.PsCisXpeImportView1.hints.CisTargtcust2det2.tooltip}"
                                                    id="ot5"/>
                                 </af:column>
                                 <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.CisTargtcust4det1.name}"
-                                           sortable="true" headerText="Client Cov Id" id="c6" filterable="true">
+                                           sortable="true" headerText="COV ID" id="c6" filterable="true" width="150">
                                     <af:outputText value="#{row.CisTargtcust4det1}"
                                                    shortDesc="#{bindings.PsCisXpeImportView1.hints.CisTargtcust4det1.tooltip}"
                                                    id="ot6"/>
@@ -200,21 +202,15 @@
                                                    shortDesc="#{bindings.PsCisXpeImportView1.hints.CisTargetVendor1.tooltip}"
                                                    id="ot9"/>
                                 </af:column>
-                                <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.AttrValue9.name}"
-                                           sortable="true" headerText="Origin" id="c11" width="70" filterable="true">
-                                    <af:outputText value="#{row.AttrValue9}"
-                                                   shortDesc="#{bindings.PsCisXpeImportView1.hints.AttrValue9.tooltip}"
-                                                   id="ot11"/>
-                                </af:column>
                                 <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.AttrValue5.name}"
                                            filterable="true" sortable="true" headerText="Material Id" id="c12"
-                                           width="70">
+                                           width="150">
                                     <af:outputText value="#{row.AttrValue5}"
                                                    shortDesc="#{bindings.PsCisXpeImportView1.hints.AttrValue5.tooltip}"
                                                    id="ot12"/>
                                 </af:column>
                                 <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.Qty5.name}"
-                                           sortable="true" headerText="Tonnage" id="c10" width="70" filterable="true">
+                                           sortable="true" headerText="Tonnage" id="c10" width="150" filterable="true">
                                     <af:outputText value="#{row.Qty5}"
                                                    shortDesc="#{bindings.PsCisXpeImportView1.hints.Qty5.tooltip}"
                                                    id="ot10">
@@ -223,7 +219,8 @@
                                     </af:outputText>
                                 </af:column>
                                 <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.ErrorMessage.name}"
-                                           filterable="true" sortable="true" headerText="Error Message" id="c19">
+                                           filterable="true" sortable="true" headerText="Error Message" id="c19"
+                                           width="150">
                                     <af:outputText value="#{row.ErrorMessage}"
                                                    shortDesc="#{bindings.PsCisXpeImportView1.hints.ErrorMessage.tooltip}"
                                                    id="ot19"/>

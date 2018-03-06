@@ -4,11 +4,13 @@
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="XpeDccMatchEsummVw"
-  Version="12.2.1.0.31"
+  Version="12.2.1.11.57"
   InheritPersonalization="merge"
   BindingStyle="OracleName"
   CustomQuery="true"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  FetchSize="50"
+  FetchMode="FETCH_AS_NEEDED">
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
   </DesignTime>
