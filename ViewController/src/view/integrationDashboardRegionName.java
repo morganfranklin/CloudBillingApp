@@ -162,4 +162,9 @@ public class integrationDashboardRegionName implements Serializable {
         setDynamicTaskFlowId("/WEB-INF/userBusinessUnitSetUpTable.xml#userBusinessUnitSetUpTable");
         return null;
     }
+    
+    public String metalsIndices() {
+        setDynamicTaskFlowId("/WEB-INF/MetalIndicesFlow.xml#MetalIndicesFlow");
+        return null;
+    }
 }

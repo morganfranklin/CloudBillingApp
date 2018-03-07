@@ -119,6 +119,7 @@
               usageId="view_billingAccountingProcesses_billingAccountingProcesses_RollbackPageDef"/>
         <page path="/roleSecurity.jsff" usageId="view_roleSecurityPageDef"/>
         <page path="/userBusinessUnitSetUp.jsff" usageId="view_userBusinessUnitSetUpPageDef"/>
+        <page path="/metalIndices.jsff" usageId="view_metalIndicesPageDef"/>
     </pageMap>
     <pageDefinitionUsages>
         <page id="view_IntegrationDashPageDef" path="view.pageDefs.IntegrationDashPageDef"/>
@@ -232,6 +233,7 @@
               path="view.pageDefs.billingAccountingProcesses_billingAccountingProcesses_RollbackPageDef"/>
         <page id="view_roleSecurityPageDef" path="view.pageDefs.roleSecurityPageDef"/>
         <page id="view_userBusinessUnitSetUpPageDef" path="view.pageDefs.userBusinessUnitSetUpPageDef"/>
+        <page id="view_metalIndicesPageDef" path="view.pageDefs.metalIndicesPageDef"/>
     </pageDefinitionUsages>
     <dataControlUsages>
         <BC4JDataControl id="AppModuleDataControl" Package="model"

@@ -143,5 +143,10 @@
                 <Item Value="Screen25"/>
             </AttrNames>
         </attributeValues>
+        <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="MetalsIndices">
+            <AttrNames>
+                <Item Value="Screen26"/>
+            </AttrNames>
+        </attributeValues>
     </bindings>
 </pageDefinition>

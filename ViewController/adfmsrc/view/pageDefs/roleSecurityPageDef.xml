@@ -79,5 +79,7 @@
             Action="removeCurrentRow"/>
     <list IterBinding="XpeDccCfgNewRoleSecurityEOVOIterator" StaticList="false" Uses="LOV_Screen25" id="Screen25"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgNewRoleSecurityEOVOIterator" StaticList="false" Uses="LOV_Screen26" id="Screen26"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

@@ -26,7 +26,7 @@
                         <af:gridRow height="auto" id="gr1">
                             <af:gridCell width="100%" id="gc1" halign="stretch" marginStart="5px" marginEnd="5px">
                                 <af:region value="#{bindings.dynamicRegion1.regionModel}" id="r1"
-                                           partialTriggers="::l2 ::l1 ::l19 ::l15 ::l16 ::l3 ::l17 ::l9 ::l8 ::l4 ::l5 ::l20 ::l23 ::l21 ::l18 ::l12 ::l22 ::l24 ::l25 ::l27 ::l28 ::l29"
+                                           partialTriggers="::l2 ::l1 ::l19 ::l15 ::l16 ::l3 ::l17 ::l9 ::l8 ::l4 ::l5 ::l20 ::l23 ::l21 ::l18 ::l12 ::l22 ::l24 ::l25 ::l27 ::l28 ::l29 ::l30"
                                            regionNavigationListener="#{viewScope.integrationDashboardRegionName.regionNavigationListener}"/>
                             </af:gridCell>
                         </af:gridRow>
@@ -276,12 +276,22 @@
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
-                                         <af:gridRow id="gr32" marginTop="5px" marginBottom="5px">
+                                         <af:gridRow id="gr32" marginTop="5px">
                                             <af:gridCell id="gc32" width="100%" marginStart="5px" marginEnd="5px">
                                                 <af:link text="Contract Expiration Report" id="l27"
                                                          partialSubmit="true"
                                                          action="#{viewScope.integrationDashboardRegionName.covantaContractExpirationReport}"
                                                          rendered="#{bindings.ContractExpirationReport.inputValue ne 'H'}"
+                                                         actionListener="#{bindings.Rollback.execute}"
+                                                         immediate="true"/>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow id="gr35" marginTop="5px" marginBottom="5px">
+                                            <af:gridCell id="gc35" width="100%" marginStart="5px" marginEnd="5px">
+                                                <af:link text="Metals Indices" id="l30"
+                                                         partialSubmit="true"
+                                                         action="#{viewScope.integrationDashboardRegionName.metalsIndices}"
+                                                         rendered="#{bindings.MetalsIndices.inputValue ne 'H'}"
                                                          actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
                                             </af:gridCell>

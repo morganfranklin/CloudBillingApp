@@ -694,6 +694,12 @@
     <ViewUsage
         Name="XpeDccCfgUserBusinessUnitROVO"
         ViewObjectName="model.views.readonly.XpeDccCfgUserBusinessUnitROVO"/>
+    <ViewUsage
+        Name="XpeDccCfgMtlIndicesHeaderEOVO1"
+        ViewObjectName="model.views.entitybased.XpeDccCfgMtlIndicesHeaderEOVO"/>
+    <ViewUsage
+        Name="XpeDccCfgMtlIndicesDetailEOVO1"
+        ViewObjectName="model.views.entitybased.XpeDccCfgMtlIndicesDetailEOVO"/>
     <ViewLinkUsage
         Name="NeuRuleTblFk1Link1"
         ViewLinkObjectName="model.NeuRuleTblFk1Link"
@@ -1029,6 +1035,12 @@
         ViewLinkObjectName="model.views.entitybased.XpeDccCfgRoleSecurityFKVL"
         SrcViewUsageName="model.AppModule.XpeDccCfgNewRolesEOVO"
         DstViewUsageName="model.AppModule.XpeDccCfgNewRoleSecurityEOVO"
+        Reversed="false"/>
+    <ViewLinkUsage
+        Name="XpeDccCfgMtlIndicesDetailFKVL1"
+        ViewLinkObjectName="model.views.entitybased.XpeDccCfgMtlIndicesDetailFKVL"
+        SrcViewUsageName="model.AppModule.XpeDccCfgMtlIndicesHeaderEOVO1"
+        DstViewUsageName="model.AppModule.XpeDccCfgMtlIndicesDetailEOVO1"
         Reversed="false"/>
     <ClientInterface
         Name="__clientInterface">

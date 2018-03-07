@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl1" layout="vertical">
+    <af:panelHeader text="Metal Indices Header Level" id="ph1">
+      <af:table id="md1" rows="#{bindings.XpeDccCfgMtlIndicesHeaderEOVO1.rangeSize}"
+                fetchSize="#{bindings.XpeDccCfgMtlIndicesHeaderEOVO1.rangeSize}"
+                emptyText="#{bindings.XpeDccCfgMtlIndicesHeaderEOVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                var="row" value="#{bindings.XpeDccCfgMtlIndicesHeaderEOVO1.collectionModel}" rowBandingInterval="1"
+                selectedRowKeys="#{bindings.XpeDccCfgMtlIndicesHeaderEOVO1.collectionModel.selectedRow}"
+                selectionListener="#{bindings.XpeDccCfgMtlIndicesHeaderEOVO1.collectionModel.makeCurrent}"
+                rowSelection="single" contentDelivery="immediate" columnStretching="last" partialTriggers="::b1 ::b2">
+        <af:column headerText="#{bindings.XpeDccCfgMtlIndicesHeaderEOVO1.hints.XpeIndexChangeId.label}"
+                   sortProperty="#{bindings.XpeDccCfgMtlIndicesHeaderEOVO1.hints.XpeIndexChangeId.name}"
+                   sortable="false" id="c1" width="150">
+          <af:outputText value="#{row.XpeIndexChangeId}"
+                         shortDesc="#{bindings.XpeDccCfgMtlIndicesHeaderEOVO1.hints.XpeIndexChangeId.tooltip}" id="ot1">
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.XpeDccCfgMtlIndicesHeaderEOVO1.hints.XpeIndexChangeId.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgMtlIndicesHeaderEOVO1.hints.XpeMtlIndexName.label}"
+                   sortProperty="#{bindings.XpeDccCfgMtlIndicesHeaderEOVO1.hints.XpeMtlIndexName.name}" sortable="false"
+                   id="c2">
+          <af:inputText value="#{row.bindings.XpeMtlIndexName.inputValue}"
+                        label="#{bindings.XpeDccCfgMtlIndicesHeaderEOVO1.hints.XpeMtlIndexName.label}"
+                        required="#{bindings.XpeDccCfgMtlIndicesHeaderEOVO1.hints.XpeMtlIndexName.mandatory}"
+                        columns="#{bindings.XpeDccCfgMtlIndicesHeaderEOVO1.hints.XpeMtlIndexName.displayWidth}"
+                        maximumLength="#{bindings.XpeDccCfgMtlIndicesHeaderEOVO1.hints.XpeMtlIndexName.precision}"
+                        shortDesc="#{bindings.XpeDccCfgMtlIndicesHeaderEOVO1.hints.XpeMtlIndexName.tooltip}" id="it2"
+                        readOnly="#{bindings.MetalsIndices.inputValue eq 'V'}" autoSubmit="true">
+            <f:validator binding="#{row.bindings.XpeMtlIndexName.validator}"/>
+          </af:inputText>
+        </af:column>
+      </af:table>
+      <f:facet name="context">
+        <af:group id="g1">
+          <af:button actionListener="#{bindings.CreateInsert.execute}" text="Create" id="b1"
+                     rendered="#{bindings.MetalsIndices.inputValue ne 'V'}"/>
+          <af:button actionListener="#{bindings.Delete.execute}" text="Delete" id="b2"
+                     rendered="#{bindings.MetalsIndices.inputValue ne 'V'}"/>
+        </af:group>
+      </f:facet>
+      <f:facet name="toolbar">
+        <af:group id="g2">
+          <af:button actionListener="#{bindings.Commit.execute}" text="Save" id="b3"
+                     rendered="#{bindings.MetalsIndices.inputValue ne 'V'}"/>
+          <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel" immediate="true" id="b4"
+                     rendered="#{bindings.MetalsIndices.inputValue ne 'V'}">
+            <af:resetActionListener/>
+          </af:button>
+        </af:group>
+      </f:facet>
+    </af:panelHeader>
+    <af:panelHeader text="Metal Indices Detail Level" id="ph2">
+      <af:table rows="#{bindings.XpeDccCfgMtlIndicesDetailEOVO1.rangeSize}"
+                fetchSize="#{bindings.XpeDccCfgMtlIndicesDetailEOVO1.rangeSize}"
+                emptyText="#{bindings.XpeDccCfgMtlIndicesDetailEOVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                var="row" value="#{bindings.XpeDccCfgMtlIndicesDetailEOVO1.collectionModel}" rowBandingInterval="1"
+                selectedRowKeys="#{bindings.XpeDccCfgMtlIndicesDetailEOVO1.collectionModel.selectedRow}"
+                selectionListener="#{bindings.XpeDccCfgMtlIndicesDetailEOVO1.collectionModel.makeCurrent}"
+                rowSelection="single" id="t1" columnStretching="last" contentDelivery="immediate"
+                partialTriggers="::b5 ::b6">
+        <af:column headerText="#{bindings.XpeDccCfgMtlIndicesDetailEOVO1.hints.XpeStartDate.label}"
+                   sortProperty="#{bindings.XpeDccCfgMtlIndicesDetailEOVO1.hints.XpeStartDate.name}" sortable="false"
+                   id="c7" width="150">
+          <af:inputDate value="#{row.bindings.XpeStartDate.inputValue}"
+                        label="#{bindings.XpeDccCfgMtlIndicesDetailEOVO1.hints.XpeStartDate.label}"
+                        required="#{bindings.XpeDccCfgMtlIndicesDetailEOVO1.hints.XpeStartDate.mandatory}"
+                        columns="#{bindings.XpeDccCfgMtlIndicesDetailEOVO1.hints.XpeStartDate.displayWidth}"
+                        shortDesc="#{bindings.XpeDccCfgMtlIndicesDetailEOVO1.hints.XpeStartDate.tooltip}" id="id1"
+                        readOnly="#{bindings.MetalsIndices.inputValue eq 'V'}" autoSubmit="true">
+            <f:validator binding="#{row.bindings.XpeStartDate.validator}"/>
+            <af:convertDateTime pattern="#{bindings.XpeDccCfgMtlIndicesDetailEOVO1.hints.XpeStartDate.format}"/>
+          </af:inputDate>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgMtlIndicesDetailEOVO1.hints.XpeEndDate.label}"
+                   sortProperty="#{bindings.XpeDccCfgMtlIndicesDetailEOVO1.hints.XpeEndDate.name}" sortable="false"
+                   id="c3" width="150">
+          <af:inputDate value="#{row.bindings.XpeEndDate.inputValue}"
+                        label="#{bindings.XpeDccCfgMtlIndicesDetailEOVO1.hints.XpeEndDate.label}"
+                        required="#{bindings.XpeDccCfgMtlIndicesDetailEOVO1.hints.XpeEndDate.mandatory}"
+                        columns="#{bindings.XpeDccCfgMtlIndicesDetailEOVO1.hints.XpeEndDate.displayWidth}"
+                        shortDesc="#{bindings.XpeDccCfgMtlIndicesDetailEOVO1.hints.XpeEndDate.tooltip}" id="id2"
+                        readOnly="#{bindings.MetalsIndices.inputValue eq 'V'}" autoSubmit="true">
+            <f:validator binding="#{row.bindings.XpeEndDate.validator}"/>
+            <af:convertDateTime pattern="#{bindings.XpeDccCfgMtlIndicesDetailEOVO1.hints.XpeEndDate.format}"/>
+          </af:inputDate>
+        </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgMtlIndicesDetailEOVO1.hints.XpeIndexPrice.label}"
+                   sortProperty="#{bindings.XpeDccCfgMtlIndicesDetailEOVO1.hints.XpeIndexPrice.name}" sortable="false"
+                   id="c5">
+          <af:inputText value="#{row.bindings.XpeIndexPrice.inputValue}"
+                        label="#{bindings.XpeDccCfgMtlIndicesDetailEOVO1.hints.XpeIndexPrice.label}"
+                        required="#{bindings.XpeDccCfgMtlIndicesDetailEOVO1.hints.XpeIndexPrice.mandatory}"
+                        columns="#{bindings.XpeDccCfgMtlIndicesDetailEOVO1.hints.XpeIndexPrice.displayWidth}"
+                        maximumLength="#{bindings.XpeDccCfgMtlIndicesDetailEOVO1.hints.XpeIndexPrice.precision}"
+                        shortDesc="#{bindings.XpeDccCfgMtlIndicesDetailEOVO1.hints.XpeIndexPrice.tooltip}" id="it3"
+                        readOnly="#{bindings.MetalsIndices.inputValue eq 'V'}" autoSubmit="true">
+            <f:validator binding="#{row.bindings.XpeIndexPrice.validator}"/>
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.XpeDccCfgMtlIndicesDetailEOVO1.hints.XpeIndexPrice.format}"/>
+          </af:inputText>
+        </af:column>
+      </af:table>
+      <f:facet name="context">
+        <af:group id="g3">
+          <af:button actionListener="#{bindings.CreateInsert1.execute}" text="Create" id="b5"
+                     rendered="#{bindings.MetalsIndices.inputValue ne 'V'}"/>
+          <af:button actionListener="#{bindings.Delete1.execute}" text="Delete"
+                     id="b6" rendered="#{bindings.MetalsIndices.inputValue ne 'V'}"/>
+        </af:group>
+      </f:facet>
+    </af:panelHeader>
+  </af:panelGroupLayout>
+</ui:composition>

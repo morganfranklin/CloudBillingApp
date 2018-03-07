@@ -489,6 +489,24 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LOV_Screen26"
+    ListVOName="LookupSharedAppModule_ScreenSecurityTypeLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Screen26"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="XpeDccCfgRoleSecurityEO"
     Entity="model.entities.XpeDccCfgRoleSecurityEO"/>
@@ -835,7 +853,15 @@
     PrecisionRule="true"
     EntityAttrName="Screen26"
     EntityUsage="XpeDccCfgRoleSecurityEO"
-    AliasName="SCREEN26"/>
+    AliasName="SCREEN26"
+    LOVName="LOV_Screen26">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Screen27"
     PrecisionRule="true"

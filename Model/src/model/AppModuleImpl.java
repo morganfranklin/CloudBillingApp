@@ -1967,13 +1967,13 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         }
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://vmohscvae014.oracleoutsourcing.com:5021/neuCloudBilling1010_5/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://vmohscvae014.oracleoutsourcing.com:5021/neuCloudBilling1010_6/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(xpeDccWfActionEOVORow.getXpeUuid()).append("&").append("action=").append("ACCEPT").append("&").append("user=").append(userType);
         html.append("\"><b>Accept</b></a>");
         html.append("&nbsp;&nbsp;&nbsp;");
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://vmohscvae014.oracleoutsourcing.com:5021/neuCloudBilling1010_5/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://vmohscvae014.oracleoutsourcing.com:5021/neuCloudBilling1010_6/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(xpeDccWfActionEOVORow.getXpeUuid()).append("&").append("action=").append("REJECT").append("&").append("user=").append(userType);
         html.append("\"><b>Reject</b></a>");
         html.append("</p>");
@@ -4372,6 +4372,30 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public XpeDccCfgUserBusinessUnitROVOImpl getXpeDccCfgUserBusinessUnitROVO() {
         return (XpeDccCfgUserBusinessUnitROVOImpl) findViewObject("XpeDccCfgUserBusinessUnitROVO");
+    }
+
+    /**
+     * Container's getter for XpeDccCfgMtlIndicesHeaderEOVO1.
+     * @return XpeDccCfgMtlIndicesHeaderEOVO1
+     */
+    public ViewObjectImpl getXpeDccCfgMtlIndicesHeaderEOVO1() {
+        return (ViewObjectImpl) findViewObject("XpeDccCfgMtlIndicesHeaderEOVO1");
+    }
+
+    /**
+     * Container's getter for XpeDccCfgMtlIndicesDetailEOVO1.
+     * @return XpeDccCfgMtlIndicesDetailEOVO1
+     */
+    public ViewObjectImpl getXpeDccCfgMtlIndicesDetailEOVO1() {
+        return (ViewObjectImpl) findViewObject("XpeDccCfgMtlIndicesDetailEOVO1");
+    }
+
+    /**
+     * Container's getter for XpeDccCfgMtlIndicesDetailFKVL1.
+     * @return XpeDccCfgMtlIndicesDetailFKVL1
+     */
+    public ViewLinkImpl getXpeDccCfgMtlIndicesDetailFKVL1() {
+        return (ViewLinkImpl) findViewLink("XpeDccCfgMtlIndicesDetailFKVL1");
     }
 }
 

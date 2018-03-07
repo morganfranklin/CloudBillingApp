@@ -1,0 +1,12 @@
+//Groovy Scripts for model.entities.XpeDccCfgMtlIndicesDetailEO
+
+package model.entities
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="XpeIndexChangeId")
+def XpeIndexChangeId_ExpressionScript_Expression()
+{
+(new oracle.jbo.server.SequenceImpl("XPE_DCC_CFG_MTL_INDICES_D_SEQ",adf.object.getDBTransaction())).getSequenceNumber()
+}
+
