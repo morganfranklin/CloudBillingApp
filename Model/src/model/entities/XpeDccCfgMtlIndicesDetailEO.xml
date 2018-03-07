@@ -19,7 +19,11 @@
     ColumnType="NUMBER"
     TableName="XPE_DCC_CFG_MTL_INDICES_DETAIL"
     PrimaryKey="true"
-    IsUpdateable="while_insert"/>
+    IsUpdateable="while_insert">
+    <TransientExpression
+      Name="ExpressionScript"
+      CodeSourceName="XpeDccCfgMtlIndicesDetailEORow"/>
+  </Attribute>
   <Attribute
     Name="XpeStartDate"
     ColumnName="XPE_START_DATE"
@@ -50,11 +54,7 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="XPE_DCC_CFG_MTL_INDICES_DETAIL">
-    <TransientExpression
-      Name="ExpressionScript"
-      CodeSourceName="XpeDccCfgMtlIndicesDetailEORow"/>
-  </Attribute>
+    TableName="XPE_DCC_CFG_MTL_INDICES_DETAIL"/>
   <Attribute
     Name="CreatedBy"
     Precision="20"
