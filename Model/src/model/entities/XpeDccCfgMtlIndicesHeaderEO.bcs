@@ -3,8 +3,11 @@
 package model.entities
 
 import oracle.jbo.script.annotation.TransientValueExpression;
+import groovy.transform.TypeCheckingMode
+import groovy.transform.TypeChecked
 
 @TransientValueExpression(attributeName="XpeIndexChangeId")
+@TypeChecked(TypeCheckingMode.SKIP)
 def XpeIndexChangeId_ExpressionScript_Expression()
 {
 (new oracle.jbo.server.SequenceImpl("XPE_DCC_CFG_MTL_INDICES_H_SEQ",adf.object.getDBTransaction())).getSequenceNumber()
