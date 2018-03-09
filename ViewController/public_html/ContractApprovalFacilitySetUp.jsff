@@ -67,15 +67,14 @@
     <af:panelHeader text="Facility Lookup" id="ph3" size="5" visible="#{requestScope.type eq 'MSW'}">
       <f:facet name="context"/>
       <f:facet name="toolbar">
-        <af:toolbar id="t3">
+        <af:toolbar id="t3" rendered="#{bindings.ContractApprovalFacilities.inputValue ne 'V'}">
           <af:button text="Add"
                      id="b3"
                      actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.onMswFacilityCreation}"
-                     action="#{bindings.CreateInsert.execute}" rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
+                     action="#{bindings.CreateInsert.execute}"/>
             <af:spacer width="10" height="10" id="s5"/>
             <af:button text="Edit" id="b10"
-                       actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.onMswFacilityEdit}"
-                       rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
+                       actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.onMswFacilityEdit}"/>
           </af:toolbar>
       </f:facet>
       <f:facet name="menuBar"/>
@@ -119,7 +118,7 @@
               <af:button text="Save"
                          id="b6"
                          actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.mswFacilityAddSave}"
-                         rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
+                         rendered="#{bindings.ContractApprovalFacilities.inputValue ne 'V'}"/>
               <af:spacer width="10" height="10" id="s3"/>
               <af:button action="#{bindings.Rollback.execute}" text="Cancel"
                          immediate="true" id="b7"
@@ -133,7 +132,7 @@
                                     label="#{bindings.XpeFacilityId2.label}"
                                     required="#{bindings.XpeFacilityId2.hints.mandatory}"
                                     shortDesc="#{bindings.XpeFacilityId2.hints.tooltip}" id="soc9" simple="true"
-                                    readOnly="#{bindings.SetUpTables.inputValue eq 'V'}">
+                                    readOnly="#{bindings.ContractApprovalFacilities.inputValue eq 'V'}">
                   <f:selectItems value="#{bindings.XpeFacilityId2.items}" id="si9"/>
                   <f:validator binding="#{bindings.XpeFacilityId2.validator}"/>
                 </af:selectOneChoice>
@@ -144,7 +143,7 @@
                             columns="#{bindings.CustomerCareReview1.hints.displayWidth}"
                             maximumLength="#{bindings.CustomerCareReview1.hints.precision}"
                             shortDesc="#{bindings.CustomerCareReview1.hints.tooltip}" id="it4"
-                            readOnly="#{bindings.SetUpTables.inputValue eq 'V'}">
+                            readOnly="#{bindings.ContractApprovalFacilities.inputValue eq 'V'}">
                 <f:validator binding="#{bindings.CustomerCareReview1.validator}"/>
               </af:inputText>
               <af:inputText value="#{bindings.LegalReview1.inputValue}" label="#{bindings.LegalReview1.hints.label}"
@@ -152,7 +151,7 @@
                             columns="#{bindings.LegalReview1.hints.displayWidth}"
                             maximumLength="#{bindings.LegalReview1.hints.precision}"
                             shortDesc="#{bindings.LegalReview1.hints.tooltip}" id="it5"
-                            readOnly="#{bindings.SetUpTables.inputValue eq 'V'}">
+                            readOnly="#{bindings.ContractApprovalFacilities.inputValue eq 'V'}">
                 <f:validator binding="#{bindings.LegalReview1.validator}"/>
               </af:inputText>
               <af:inputText value="#{bindings.GeneralManagerReview1.inputValue}"
@@ -161,11 +160,11 @@
                             columns="#{bindings.GeneralManagerReview1.hints.displayWidth}"
                             maximumLength="#{bindings.GeneralManagerReview1.hints.precision}"
                             shortDesc="#{bindings.GeneralManagerReview1.hints.tooltip}" id="it6"
-                            readOnly="#{bindings.SetUpTables.inputValue eq 'V'}">
+                            readOnly="#{bindings.ContractApprovalFacilities.inputValue eq 'V'}">
                 <f:validator binding="#{bindings.GeneralManagerReview1.validator}"/>
               </af:inputText>
               <af:region value="#{bindings.fileUploadFlow1.regionModel}" id="r1"
-                         rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
+                         rendered="#{bindings.ContractApprovalFacilities.inputValue ne 'V'}"/>
             </af:panelFormLayout>
           </af:dialog>
         </af:popup>
@@ -176,7 +175,7 @@
               <af:button text="Save"
                          id="b8"
                          actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.mswFacilityEditSave}"
-                         rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
+                         rendered="#{bindings.ContractApprovalFacilities.inputValue ne 'V'}"/>
               <af:spacer width="10" height="10" id="s4"/>
               <af:button action="#{bindings.Rollback.execute}" text="Cancel"
                          immediate="true" id="b9"
@@ -236,7 +235,7 @@
                 <af:convertDateTime pattern="#{bindings.InactiveDate.format}"/>
               </af:inputDate>
               <af:region value="#{bindings.fileUploadFlow2.regionModel}" id="r2"
-                         rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
+                         rendered="#{bindings.ContractApprovalFacilities.inputValue ne 'V'}"/>
             </af:panelFormLayout>
           </af:dialog>
         </af:popup>
@@ -244,15 +243,13 @@
     <af:panelHeader text="Facility Lookup" id="ph4" size="5" visible="#{requestScope.type eq 'CMTMNT'}">
       <f:facet name="context"/>
       <f:facet name="toolbar">
-        <af:toolbar id="t7">
+        <af:toolbar id="t7" rendered="#{bindings.ContractApprovalFacilities.inputValue ne 'V'}">
           <af:button action="#{bindings.CreateInsert1.execute}" text="Add"
                      disabled="#{!bindings.CreateInsert1.enabled}" id="b4"
-                     actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.onCommitmentFacilityCreation}"
-                     rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
+                     actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.onCommitmentFacilityCreation}"/>
             <af:spacer width="10" height="10" id="s6"/>
             <af:button text="Edit" id="b15"
-                       actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.onCommitmentFacilityEdit}"
-                       rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
+                       actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.onCommitmentFacilityEdit}"/>
           </af:toolbar>
       </f:facet>
       <f:facet name="menuBar"/>
@@ -314,7 +311,7 @@
               <af:button text="Save"
                          id="b11"
                          actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.cmtmntFacilityAddSave}"
-                         rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
+                         rendered="#{bindings.ContractApprovalFacilities.inputValue ne 'V'}"/>
               <af:spacer width="10" height="10" id="s7"/>
               <af:button action="#{bindings.Rollback.execute}" text="Cancel"
                          immediate="true" id="b12"
@@ -385,7 +382,7 @@
                 <f:validator binding="#{bindings.CeoReview1.validator}"/>
               </af:inputText>
               <af:region value="#{bindings.fileUploadFlow3.regionModel}" id="r3"
-                         rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
+                         rendered="#{bindings.ContractApprovalFacilities.inputValue ne 'V'}"/>
             </af:panelFormLayout>
           </af:dialog>
         </af:popup>
@@ -396,7 +393,7 @@
               <af:button text="Save"
                          id="b13"
                          actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.cmtmntFacilityEditSave}"
-                         rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
+                         rendered="#{bindings.ContractApprovalFacilities.inputValue ne 'V'}"/>
               <af:spacer width="10" height="10" id="s8"/>
               <af:button action="#{bindings.Rollback.execute}" text="Cancel"
                          immediate="true" id="b14"
@@ -485,7 +482,7 @@
                 <af:convertDateTime pattern="#{bindings.InactiveDate1.format}"/>
               </af:inputDate>
               <af:region value="#{bindings.fileUploadFlow4.regionModel}" id="r4"
-                         rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
+                         rendered="#{bindings.ContractApprovalFacilities.inputValue ne 'V'}"/>
             </af:panelFormLayout>
           </af:dialog>
         </af:popup>
@@ -493,15 +490,13 @@
     <af:panelHeader text="Facility Lookup" id="ph5" size="5" visible="#{requestScope.type eq 'MTL'}">
       <f:facet name="context"/>
       <f:facet name="toolbar">
-        <af:toolbar id="t6">
+        <af:toolbar id="t6" rendered="#{bindings.ContractApprovalFacilities.inputValue ne 'V'}">
           <af:button action="#{bindings.CreateInsert2.execute}" text="Add"
                      disabled="#{!bindings.CreateInsert2.enabled}" id="b5"
-                     actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.onMetalsFacilityCreation}"
-                     rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
+                     actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.onMetalsFacilityCreation}"/>
             <af:spacer width="10" height="10" id="s9"/>
             <af:button text="Edit" id="b16"
-                       actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.onMetalsFacilityEdit}"
-                       rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
+                       actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.onMetalsFacilityEdit}"/>
           </af:toolbar>
       </f:facet>
       <f:facet name="menuBar"/>
@@ -550,7 +545,7 @@
               <af:button text="Save"
                          id="b17"
                          actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.metalsFacilityAddSave}"
-                         rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
+                         rendered="#{bindings.ContractApprovalFacilities.inputValue ne 'V'}"/>
               <af:spacer width="10" height="10" id="s10"/>
               <af:button action="#{bindings.Rollback.execute}" text="Cancel"
                          immediate="true" id="b18"
@@ -599,7 +594,7 @@
                 <f:validator binding="#{bindings.SvpReview1.validator}"/>
               </af:inputText>
               <af:region value="#{bindings.fileUploadFlow5.regionModel}" id="r5"
-                         rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
+                         rendered="#{bindings.ContractApprovalFacilities.inputValue ne 'V'}"/>
             </af:panelFormLayout>
           </af:dialog>
         </af:popup>
@@ -610,7 +605,7 @@
               <af:button text="Save"
                          id="b19"
                          actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.metalsFacilityEditSave}"
-                         rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
+                         rendered="#{bindings.ContractApprovalFacilities.inputValue ne 'V'}"/>
               <af:spacer width="10" height="10" id="s11"/>
               <af:button action="#{bindings.Rollback.execute}" text="Cancel"
                          immediate="true" id="b20"
@@ -677,7 +672,7 @@
                 <af:convertDateTime pattern="#{bindings.InactiveDate3.format}"/>
               </af:inputDate>
               <af:region value="#{bindings.fileUploadFlow6.regionModel}" id="r6"
-                         rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
+                         rendered="#{bindings.ContractApprovalFacilities.inputValue ne 'V'}"/>
             </af:panelFormLayout>
           </af:dialog>
         </af:popup>
@@ -685,15 +680,13 @@
       <af:panelHeader text="Facility Lookup" id="ph6" size="5" visible="#{requestScope.type eq 'SW'}">
         <f:facet name="context"/>
         <f:facet name="toolbar">
-          <af:toolbar id="t9">
+          <af:toolbar id="t9" rendered="#{bindings.ContractApprovalFacilities.inputValue ne 'V'}">
             <af:button action="#{bindings.CreateInsert4.execute}" text="Add"
                        id="b27"
-                       actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.onSpclWasteFacilityCreation}"
-                       rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
+                       actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.onSpclWasteFacilityCreation}"/>
             <af:spacer width="10" height="10" id="s12"/>
             <af:button text="Edit" id="b22"
-                       actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.onSpclWasteFacilityEdit}"
-                       rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
+                       actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.onSpclWasteFacilityEdit}"/>
           </af:toolbar>
         </f:facet>
         <f:facet name="menuBar"/>
@@ -747,7 +740,7 @@
             <f:facet name="buttonBar">
               <af:button text="Save" id="b23"
                          actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.spclWasteFcltyAddSaveActnLstnr}"
-                         rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
+                         rendered="#{bindings.ContractApprovalFacilities.inputValue ne 'V'}"/>
               <af:spacer width="10" height="10" id="s14"/>
               <af:button text="Cancel" id="b24"
                          actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.spclWasteFcltyAddCancelActnLstnr}"
@@ -773,7 +766,7 @@
                 <f:validator binding="#{bindings.CustomerCareReview7.validator}"/>
               </af:inputText>
               <af:region value="#{bindings.fileUploadFlow7.regionModel}" id="r7"
-                         rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
+                         rendered="#{bindings.ContractApprovalFacilities.inputValue ne 'V'}"/>
             </af:panelFormLayout>
           </af:dialog>
         </af:popup>
@@ -784,7 +777,7 @@
             <f:facet name="buttonBar">
               <af:button text="Save" id="b25"
                          actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.spclWasteFcltyEditSaveActnLstnr}"
-                         rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
+                         rendered="#{bindings.ContractApprovalFacilities.inputValue ne 'V'}"/>
               <af:spacer width="10" height="10" id="s13"/>
               <af:button text="Cancel" id="b26"
                          actionListener="#{pageFlowScope.ContractApprovalFacilitySetUpMBean.spclWasteFcltyEditCancelActnLstnr}"
@@ -827,7 +820,7 @@
                 <af:convertDateTime pattern="#{bindings.InactiveDate2.format}"/>
               </af:inputDate>
               <af:region value="#{bindings.fileUploadFlow8.regionModel}" id="r8"
-                         rendered="#{bindings.SetUpTables.inputValue ne 'V'}"/>
+                         rendered="#{bindings.ContractApprovalFacilities.inputValue ne 'V'}"/>
             </af:panelFormLayout>
           </af:dialog>
         </af:popup>

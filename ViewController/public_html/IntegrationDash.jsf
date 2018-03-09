@@ -26,7 +26,7 @@
                         <af:gridRow height="auto" id="gr1">
                             <af:gridCell width="100%" id="gc1" halign="stretch" marginStart="5px" marginEnd="5px">
                                 <af:region value="#{bindings.dynamicRegion1.regionModel}" id="r1"
-                                           partialTriggers="::l2 ::l1 ::l19 ::l15 ::l16 ::l3 ::l17 ::l9 ::l8 ::l4 ::l5 ::l20 ::l23 ::l21 ::l18 ::l12 ::l22 ::l24 ::l25 ::l27 ::l28 ::l29 ::l30"
+                                           partialTriggers="::l2 ::l1 ::l19 ::l15 ::l16 ::l3 ::l17 ::l9 ::l8 ::l4 ::l5 ::l20 ::l23 ::l21 ::l18 ::l12 ::l22 ::l24 ::l25 ::l27 ::l28 ::l29 ::l30 ::l31"
                                            regionNavigationListener="#{viewScope.integrationDashboardRegionName.regionNavigationListener}"/>
                             </af:gridCell>
                         </af:gridRow>
@@ -42,31 +42,31 @@
                                 <af:panelBox text="Integration Manager" id="pb1">
                                     <f:facet name="toolbar"/>
                                     <af:panelGridLayout id="pgl3">
-                                        <af:gridRow marginTop="5px" height="auto" id="gr7">
+                                        <af:gridRow marginTop="5px" height="auto" id="gr7"
+                                                    rendered="#{bindings.RawUsageDataDisplay.inputValue ne 'H'}">
                                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc7">
                                                 <af:link text="Raw Usage Data Display"
                                                          action="#{viewScope.integrationDashboardRegionName.transmittedData}"
                                                          id="l2"
-                                                         rendered="#{bindings.RawUsageDataDisplay.inputValue ne 'H'}"
                                                          actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
-                                        <af:gridRow marginTop="5px" height="auto" id="gr6">
+                                        <af:gridRow marginTop="5px" height="auto" id="gr6"
+                                                    rendered="#{bindings.MatchingandPricingErrors.inputValue ne 'H'}">
                                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6">
                                                 <af:link text="Matching and Pricing Errors"
                                                          action="#{viewScope.integrationDashboardRegionName.distilledData}"
                                                          id="l1"
-                                                         rendered="#{bindings.MatchingandPricingErrors.inputValue ne 'H'}"
                                                          actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
-                                        <af:gridRow marginTop="5px" height="auto" id="gr8">
+                                        <af:gridRow marginTop="5px" height="auto" id="gr8"
+                                                    rendered="#{bindings.ContractsandTransactions.inputValue ne 'H'}">
                                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc8">
                                                 <af:link text="Contracts and Transactions" id="l6"
                                                          action="#{viewScope.integrationDashboardRegionName.lookupSets}"
-                                                         rendered="#{bindings.ContractsandTransactions.inputValue ne 'H'}"
                                                          actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
                                             </af:gridCell>
@@ -99,42 +99,42 @@
                                 <af:panelBox text="Configuration" id="pb2" showDisclosure="true">
                                     <f:facet name="toolbar"/>
                                     <af:panelGridLayout id="pgl4">
-                                        <af:gridRow id="gr20">
+                                        <af:gridRow id="gr20"
+                                                    rendered="#{bindings.EnterpriseContracts.inputValue ne 'H'}">
                                             <af:gridCell id="gc20">
                                                 <af:link text="Enterprise Contracts"
                                                          action="#{viewScope.integrationDashboardRegionName.mappedContracts}"
                                                          id="l15"
-                                                         rendered="#{bindings.EnterpriseContracts.inputValue ne 'H'}"
                                                          actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
-                                        <af:gridRow id="gr22" marginTop="5px">
+                                        <af:gridRow id="gr22" marginTop="5px"
+                                                    rendered="#{bindings.RulesandRulesets.inputValue ne 'H'}">
                                             <af:gridCell id="gc22" width="auto">
                                                 <af:link text="Rules and Rule sets"
                                                          action="#{viewScope.integrationDashboardRegionName.rulesets}"
                                                          id="l16"
-                                                         rendered="#{bindings.RulesandRulesets.inputValue ne 'H'}"
                                                          actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
-                                        <af:gridRow marginTop="5px" height="auto" id="gr12">
+                                        <af:gridRow marginTop="5px" height="auto" id="gr12"
+                                                    rendered="#{bindings.CrossReferenceData.inputValue ne 'H'}">
                                             <af:gridCell marginStart="5px" marginEnd="5px" id="gc12">
                                                 <af:link text="Cross-reference Data"
                                                          action="#{viewScope.integrationDashboardRegionName.crossReferences}"
                                                          id="l3"
-                                                         rendered="#{bindings.CrossReferenceData.inputValue ne 'H'}"
                                                          actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
-                                        <af:gridRow id="gr23" marginTop="5px">
+                                        <af:gridRow id="gr23" marginTop="5px"
+                                                    rendered="#{bindings.ExecutionPlans.inputValue ne 'H'}">
                                             <af:gridCell id="gc23">
                                                 <af:link text="Execution Plans"
                                                          action="#{viewScope.integrationDashboardRegionName.executionPlan}"
                                                          id="l17"
-                                                         rendered="#{bindings.ExecutionPlans.inputValue ne 'H'}"
                                                          actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
                                             </af:gridCell>
@@ -143,34 +143,44 @@
                                             <af:gridCell marginStart="5px" marginEnd="5px" id="gc13">
                                                 <af:link text="Processing Rules Definition"
                                                          action="#{viewScope.integrationDashboardRegionName.rulesetConfiguration}"
-                                                         id="l9"
-                                                         actionListener="#{bindings.Rollback.execute}"
+                                                         id="l9" actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
-                                        <af:gridRow marginTop="5px" height="auto" id="gr14">
+                                        <af:gridRow marginTop="5px" height="auto" id="gr14"
+                                                    rendered="#{bindings.LookupSets.inputValue ne 'H'}">
                                             <af:gridCell marginStart="5px" marginEnd="5px" id="gc14">
                                                 <af:link text="Lookup sets"
                                                          action="#{viewScope.integrationDashboardRegionName.lookupSets}"
                                                          id="l8"
-                                                         rendered="#{bindings.LookupSets.inputValue ne 'H'}"
                                                          actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
-                                        <af:gridRow id="gr33" marginTop="5px">
+                                        <af:gridRow id="gr33" marginTop="5px"
+                                                    rendered="#{bindings.RoleandScreenSecurity.inputValue ne 'H'}">
                                             <af:gridCell id="gc33">
                                                 <af:link text="Role and Screen Security" id="l28"
                                                          action="#{viewScope.integrationDashboardRegionName.roleAndScreenSecuritySetUp}"
-                                                         immediate="true" actionListener="#{bindings.Rollback.execute}"
-                                                         rendered="#{bindings.RoleandScreenSecurity.inputValue ne 'H'}"/>
+                                                         immediate="true" actionListener="#{bindings.Rollback.execute}"/>
                                             </af:gridCell>
                                         </af:gridRow>
-                                        <af:gridRow id="gr34" marginTop="5px">
+                                        <af:gridRow id="gr34" marginTop="5px" marginBottom="5px"
+                                                    rendered="#{bindings.UserBusinessUnit.inputValue ne 'H'}">
                                             <af:gridCell id="gc34">
                                                 <af:link text="User Business Unit" id="l29"
                                                          action="#{viewScope.integrationDashboardRegionName.userBusinessUnitSetUp}"
-                                                         immediate="true" actionListener="#{bindings.Rollback.execute}"/>
+                                                         immediate="true"
+                                                         actionListener="#{bindings.Rollback.execute}"/>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow id="gr36" marginTop="5px"
+                                                    rendered="#{bindings.ContractApprovalFacilities.inputValue ne 'H'}">
+                                            <af:gridCell id="gc36">
+                                                <af:link text="Contract Approval Facilities" id="l31"
+                                                         action="#{viewScope.integrationDashboardRegionName.userBusinessUnitSetUp}"
+                                                         immediate="true"
+                                                         actionListener="#{bindings.Rollback.execute}"/>
                                             </af:gridCell>
                                         </af:gridRow>
                                     </af:panelGridLayout>
@@ -182,54 +192,55 @@
                                 <af:panelBox text="Cycle Manager" id="pb3" showDisclosure="true">
                                     <f:facet name="toolbar"/>
                                     <af:panelGridLayout id="pgl5">
-                                        <af:gridRow marginTop="5px" height="auto" id="gr15">
+                                        <af:gridRow marginTop="5px" height="auto" id="gr15"
+                                                    rendered="#{bindings.ProcessedTicketsReview.inputValue ne 'H'}">
                                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc15">
                                                 <af:link text="Processed Tickets Review"
                                                          action="#{viewScope.integrationDashboardRegionName.billingEvents}"
                                                          id="l4"
-                                                         rendered="#{bindings.ProcessedTicketsReview.inputValue ne 'H'}"
                                                          actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
-                                        <af:gridRow marginTop="5px" height="auto" id="gr16">
+                                        <af:gridRow marginTop="5px" height="auto" id="gr16"
+                                                    rendered="#{bindings.ChangesLog.inputValue ne 'H'}">
                                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc16">
                                                 <af:link text="Changes Log"
                                                          action="#{viewScope.integrationDashboardRegionName.voucherEvents}"
                                                          id="l5"
-                                                         rendered="#{bindings.ChangesLog.inputValue ne 'H'}"
                                                          actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
-                                        <af:gridRow marginTop="5px" height="auto" id="gr19">
+                                        <af:gridRow marginTop="5px" height="auto" id="gr19"
+                                                    rendered="#{bindings.ContractManagement.inputValue ne 'H'}">
                                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc19">
                                                 <af:link text="Contract Management" id="l14"
                                                          action="#{viewScope.integrationDashboardRegionName.dccContractMaintenance}"
-                                                         rendered="#{bindings.ContractManagement.inputValue ne 'H'}"
                                                          actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
-                                         <af:gridRow marginTop="5px" height="auto" id="gr25">
+                                         <af:gridRow marginTop="5px" height="auto" id="gr25"
+                                                     rendered="#{bindings.NewContract.inputValue ne 'H'}">
                                             <af:gridCell id="gc25" width="100%" marginStart="5px" marginEnd="5px">
                                                 <af:link text="New Contract" id="l20"
                                                          action="#{viewScope.integrationDashboardRegionName.newContract}"
-                                                         rendered="#{bindings.NewContract.inputValue ne 'H'}"
                                                          actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
-                                        <af:gridRow marginTop="5px" height="auto" id="gr28">
+                                        <af:gridRow marginTop="5px" height="auto" id="gr28"
+                                                    rendered="#{bindings.AmendmentandRenewal.inputValue ne 'H'}">
                                             <af:gridCell id="gc28" width="100%" marginStart="5px" marginEnd="5px">
                                                 <af:link text="Amendment and Renewal" id="l23"
                                                          action="#{viewScope.integrationDashboardRegionName.updateContract}"
-                                                         rendered="#{bindings.AmendmentandRenewal.inputValue ne 'H'}"
                                                          actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
-                                        <af:gridRow marginTop="5px" height="auto" id="gr26">
+                                        <af:gridRow marginTop="5px" height="auto" id="gr26"
+                                                    rendered="#{bindings.TermsMaster.inputValue ne 'H'}">
                                             <af:gridCell id="gc26" width="100%" marginStart="5px" marginEnd="5px">
                                                 <af:link text="Terms Master" id="l21"
                                                          action="#{viewScope.integrationDashboardRegionName.termMaster}"
@@ -238,60 +249,60 @@
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
-                                        <af:gridRow id="gr27" marginTop="5px">
+                                        <af:gridRow id="gr27" marginTop="5px"
+                                                    rendered="#{bindings.SetUpTables.inputValue ne 'H'}">
                                             <af:gridCell id="gc27" width="100%" marginStart="5px" marginEnd="5px">
                                                 <af:link text="Set Up Tables" id="l22" action="#{viewScope.integrationDashboardRegionName.setUpTables}"
-                                                         rendered="#{bindings.SetUpTables.inputValue ne 'H'}"
                                                          actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
-                                        <af:gridRow id="gr29" marginTop="5px">
+                                        <af:gridRow id="gr29" marginTop="5px"
+                                                    rendered="#{bindings.BlueLightSpecials.inputValue ne 'H'}">
                                             <af:gridCell id="gc29" width="100%" marginStart="5px" marginEnd="5px">
                                                 <af:link text="Blue Light Specials" id="l24"
                                                          action="#{viewScope.integrationDashboardRegionName.blueLightSpecials}"
                                                          partialSubmit="true"
-                                                         rendered="#{bindings.BlueLightSpecials.inputValue ne 'H'}"
                                                          actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
-                                        <af:gridRow id="gr30" marginTop="5px">
+                                        <af:gridRow id="gr30" marginTop="5px"
+                                                    rendered="#{bindings.BillingandAccounting.inputValue ne 'H'}">
                                             <af:gridCell id="gc30" width="100%" marginStart="5px" marginEnd="5px">
                                                 <af:link text="Billing and Accounting" id="l25"
                                                          partialSubmit="true"
                                                          action="#{viewScope.integrationDashboardRegionName.billingAccountingProcesses}"
-                                                         rendered="#{bindings.BillingandAccounting.inputValue ne 'H'}"
                                                          actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
-                                        <af:gridRow id="gr31" marginTop="5px">
+                                        <af:gridRow id="gr31" marginTop="5px"
+                                                    rendered="#{bindings.Accruals.inputValue ne 'H'}">
                                             <af:gridCell id="gc31" width="100%" marginStart="5px" marginEnd="5px">
                                                 <af:link text="Accruals" id="l26"
                                                          partialSubmit="true"
                                                          action="#{viewScope.integrationDashboardRegionName.accrualRevenueGenerationProcesses}"
-                                                         rendered="#{bindings.Accruals.inputValue ne 'H'}"
                                                          actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
-                                         <af:gridRow id="gr32" marginTop="5px">
+                                         <af:gridRow id="gr32" marginTop="5px"
+                                                     rendered="#{bindings.ContractExpirationReport.inputValue ne 'H'}">
                                             <af:gridCell id="gc32" width="100%" marginStart="5px" marginEnd="5px">
                                                 <af:link text="Contract Expiration Report" id="l27"
                                                          partialSubmit="true"
                                                          action="#{viewScope.integrationDashboardRegionName.covantaContractExpirationReport}"
-                                                         rendered="#{bindings.ContractExpirationReport.inputValue ne 'H'}"
                                                          actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
-                                        <af:gridRow id="gr35" marginTop="5px" marginBottom="5px">
+                                        <af:gridRow id="gr35" marginTop="5px" marginBottom="5px"
+                                                    rendered="#{bindings.MetalsIndices.inputValue ne 'H'}">
                                             <af:gridCell id="gc35" width="100%" marginStart="5px" marginEnd="5px">
                                                 <af:link text="Metals Indices" id="l30"
                                                          partialSubmit="true"
                                                          action="#{viewScope.integrationDashboardRegionName.metalsIndices}"
-                                                         rendered="#{bindings.MetalsIndices.inputValue ne 'H'}"
                                                          actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
                                             </af:gridCell>
@@ -305,13 +316,13 @@
                                 <af:panelBox text="Status Monitor" id="pb4" showDisclosure="false" background="light">
                                     <f:facet name="toolbar"/>
                                     <af:panelGridLayout id="pgl6">
-                                        <af:gridRow id="gr24" marginTop="5px">
+                                        <af:gridRow id="gr24" marginTop="5px"
+                                                    rendered="#{bindings.AdministratorHome.inputValue ne 'H'}">
                                             <af:gridCell id="gc24" width="100%" marginStart="5px" marginEnd="5px">
                                                 <af:link text="Administrator Home"
                                                          action="#{viewScope.integrationDashboardRegionName.adminStats}"
                                                          id="l18" actionListener="#{bindings.Rollback.execute}"
-                                                         immediate="true"
-                                                         rendered="#{bindings.AdministratorHome.inputValue ne 'H'}"/>
+                                                         immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow marginTop="5px" height="auto" id="gr17" rendered="false">

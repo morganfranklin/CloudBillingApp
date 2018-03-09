@@ -167,4 +167,9 @@ public class integrationDashboardRegionName implements Serializable {
         setDynamicTaskFlowId("/WEB-INF/MetalIndicesFlow.xml#MetalIndicesFlow");
         return null;
     }
+    
+    public String contractApprovalFacilities() {
+        setDynamicTaskFlowId("/WEB-INF/contractApprovalSetUpTable.xml#contractApprovalSetUpTable");
+        return null;
+    }
 }

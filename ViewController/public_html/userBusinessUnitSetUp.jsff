@@ -19,7 +19,7 @@
     <af:panelHeader text="User Business Units" id="ph2" size="5">
       <f:facet name="context"/>
       <f:facet name="toolbar">
-        <af:toolbar id="t1">
+        <af:toolbar id="t1" rendered="#{bindings.UserBusinessUnit.inputValue ne 'V'}">
           <af:button action="#{bindings.CreateInsert.execute}" text="Add"
                      disabled="#{!bindings.CreateInsert.enabled}" id="b1"
                      actionListener="#{pageFlowScope.UserBusinessUnitSetUpTableMBean.onUserBusinessUnitCreation}"/>
@@ -41,7 +41,8 @@
                    width="150">
           <af:link text="#{row.Username}" id="l1"
                    shortDesc="#{bindings.XpeDccCfgUserBusinessUnitEOVO1.hints.Username.tooltip}"
-                   actionListener="#{pageFlowScope.UserBusinessUnitSetUpTableMBean.onUserBusinessUnitEdit}"/>
+                   actionListener="#{pageFlowScope.UserBusinessUnitSetUpTableMBean.onUserBusinessUnitEdit}"
+                   disabled="#{bindings.UserBusinessUnit.inputValue eq 'V'}"/>
         </af:column>
         <af:column headerText="#{bindings.XpeDccCfgUserBusinessUnitEOVO1.hints.BusinessUnit.label}" id="resId1c2"
                    width="150">

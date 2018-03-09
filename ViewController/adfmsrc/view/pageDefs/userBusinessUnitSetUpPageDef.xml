@@ -10,6 +10,8 @@
                   Binds="XpeDccCfgUserBusinessUnitEOVO1Iterator" id="UserBusinessUnitCriteriaQuery"/>
     <iterator Binds="XpeDccCfgNewUserBusinessUnitEOVO" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccCfgNewUserBusinessUnitEOVOIterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="XpeDccCfgRoleSecurityEOVO" RangeSize="10" DataControl="AppModuleDataControl"
+              id="XpeDccCfgRoleSecurityEOVOIterator"/>
   </executables>
   <bindings>
     <tree IterBinding="XpeDccCfgUserBusinessUnitEOVO1Iterator" id="XpeDccCfgUserBusinessUnitEOVO1">
@@ -50,6 +52,11 @@
     <attributeValues IterBinding="XpeDccCfgUserBusinessUnitEOVO1Iterator" id="InactiveDate">
       <AttrNames>
         <Item Value="InactiveDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="UserBusinessUnit">
+      <AttrNames>
+        <Item Value="Screen28"/>
       </AttrNames>
     </attributeValues>
   </bindings>

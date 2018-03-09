@@ -148,5 +148,15 @@
                 <Item Value="Screen26"/>
             </AttrNames>
         </attributeValues>
+        <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="ContractApprovalFacilities">
+            <AttrNames>
+                <Item Value="Screen27"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="UserBusinessUnit">
+            <AttrNames>
+                <Item Value="Screen28"/>
+            </AttrNames>
+        </attributeValues>
     </bindings>
 </pageDefinition>

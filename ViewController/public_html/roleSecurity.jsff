@@ -253,12 +253,28 @@
             <f:validator binding="#{bindings.Screen25.validator}"/>
           </af:selectOneChoice>
         </af:panelLabelAndMessage>
-        <af:panelLabelAndMessage label="#{bindings.Screen26.inputValue}" id="plam26">
+        <af:panelLabelAndMessage label="#{bindings.Screen26.hints.label}" id="plam26">
           <af:selectOneChoice value="#{bindings.Screen26.inputValue}" label="#{bindings.Screen26.label}"
                               required="#{bindings.Screen26.hints.mandatory}"
                               shortDesc="#{bindings.Screen26.hints.tooltip}" id="soc26" simple="true" autoSubmit="true">
             <f:selectItems value="#{bindings.Screen26.items}" id="si26"/>
             <f:validator binding="#{bindings.Screen26.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Screen27.hints.label}" id="plam27">
+          <af:selectOneChoice value="#{bindings.Screen27.inputValue}" label="#{bindings.Screen27.label}"
+                              required="#{bindings.Screen27.hints.mandatory}"
+                              shortDesc="#{bindings.Screen27.hints.tooltip}" id="soc27" simple="true" autoSubmit="true">
+            <f:selectItems value="#{bindings.Screen27.items}" id="si27"/>
+            <f:validator binding="#{bindings.Screen27.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Screen28.label}" id="plam28">
+          <af:selectOneChoice value="#{bindings.Screen28.inputValue}" label="#{bindings.Screen28.label}"
+                              required="#{bindings.Screen28.hints.mandatory}"
+                              shortDesc="#{bindings.Screen28.hints.tooltip}" id="soc28" simple="true" autoSubmit="true">
+            <f:selectItems value="#{bindings.Screen28.items}" id="si28"/>
+            <f:validator binding="#{bindings.Screen28.validator}"/>
           </af:selectOneChoice>
         </af:panelLabelAndMessage>
       </af:panelFormLayout>

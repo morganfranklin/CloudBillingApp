@@ -10,7 +10,7 @@
           <f:facet name="context">
             <af:menuBar id="mb1" flex="0">
               <af:menu text="" id="m1">
-                <af:menu text="Menu 1" id="m2">
+                <af:menu text="A to C" id="m2">
                   <af:commandMenuItem text="Accounting" id="cmi12"
                                       action="#{viewScope.SetupTableMBean.accountingSetUpTable}"
                                       inlineStyle="font-weight:bold;"/>
@@ -19,16 +19,13 @@
                                       inlineStyle="font-weight:bold;"/>
                   <af:commandMenuItem text="Carriers" id="cmi4" action="#{viewScope.SetupTableMBean.carriersSetUpTable}"
                                       inlineStyle="font-weight:bold;"/>
-                  <af:commandMenuItem text="Contract Approval Facilities" id="cmi14"
-                                      action="#{viewScope.SetupTableMBean.contractAprFcltyLookUp}"
-                                      inlineStyle="font-weight:bold;"/>
                   <af:commandMenuItem text="Counties" id="cmi3" action="#{viewScope.SetupTableMBean.countiesSetUpTable}"
                                       inlineStyle="font-weight:bold;"/>
-                </af:menu>
-                <af:menu text="Menu 2" id="m3">
                   <af:commandMenuItem text="Credit Status" id="cmi15"
                                       action="#{viewScope.SetupTableMBean.notificationSetUpTable}"
                                       inlineStyle="font-weight:bold;"/>
+                </af:menu>
+                <af:menu text="D to O" id="m3">
                   <af:commandMenuItem text="Destinations" id="cmi2"
                                       action="#{viewScope.SetupTableMBean.destinationSetUpTable}"
                                       inlineStyle="font-weight:bold;"/>
@@ -40,7 +37,7 @@
                   <af:commandMenuItem text="Origins" id="cmi6" action="#{viewScope.SetupTableMBean.originsSetUpTable}"
                                       inlineStyle="font-weight:bold;"/>
                 </af:menu>
-                <af:menu text="Menu 3" id="m4">
+                <af:menu text="P to Z" id="m4">
                   <af:commandMenuItem text="PCS Installation" id="cmi7"
                                       action="#{viewScope.SetupTableMBean.pcsInstallationSetUpTable}"
                                       inlineStyle="font-weight:bold;"/>
@@ -70,7 +67,7 @@
     <f:facet name="bottom"/>
     <f:facet name="center">
       <af:region value="#{bindings.dynamicRegion1.regionModel}" id="r1"
-                 partialTriggers="::cmi12 ::cmi13 ::cmi4 ::cmi14 ::cmi3 ::cmi15 ::cmi2 ::cmi8 ::cmi11 ::cmi6 ::cmi7 ::cmi10 ::cmi9 ::cmi1 ::cmi5"/>
+                 partialTriggers="::cmi12 ::cmi13 ::cmi4 ::cmi3 ::cmi15 ::cmi2 ::cmi8 ::cmi11 ::cmi6 ::cmi7 ::cmi10 ::cmi9 ::cmi1 ::cmi5"/>
     </f:facet>
   </af:panelStretchLayout>
   <!--<af:panelSplitter id="ps1" splitterPosition="150">

@@ -80,11 +80,6 @@ public class SetupTableRegionName implements Serializable {
         return null;
     }
 
-    public String contractAprFcltyLookUp() {
-        setDynamicTaskFlowId("/WEB-INF/contractApprovalSetUpTable.xml#contractApprovalSetUpTable");
-        return null;
-    }
-
     public String businessUnitSetUpTable() {
         setDynamicTaskFlowId("/WEB-INF/businessUnitSetUpTable.xml#businessUnitSetUpTable");
         return null;

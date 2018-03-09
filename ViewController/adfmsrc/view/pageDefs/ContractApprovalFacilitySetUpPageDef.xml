@@ -310,9 +310,9 @@
     </attributeValues>
     <action IterBinding="XpeDccCfgNewSpclWasteFcltyEOVOIterator" id="CreateInsert4" RequiresUpdateModel="true"
             Action="createInsertRow"/>
-    <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="SetUpTables">
+    <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="ContractApprovalFacilities">
       <AttrNames>
-        <Item Value="Screen17"/>
+        <Item Value="Screen27"/>
       </AttrNames>
     </attributeValues>
   </bindings>

@@ -507,6 +507,42 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LOV_Screen27"
+    ListVOName="LookupSharedAppModule_ScreenSecurityTypeLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Screen27"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Screen28"
+    ListVOName="LookupSharedAppModule_ScreenSecurityTypeLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Screen28"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="XpeLookupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="XpeLookupDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="XpeDccCfgRoleSecurityEO"
     Entity="model.entities.XpeDccCfgRoleSecurityEO"/>
@@ -859,6 +895,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgRoleSecurityEOVO.Screen26_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -867,13 +905,33 @@
     PrecisionRule="true"
     EntityAttrName="Screen27"
     EntityUsage="XpeDccCfgRoleSecurityEO"
-    AliasName="SCREEN27"/>
+    AliasName="SCREEN27"
+    LOVName="LOV_Screen27">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgRoleSecurityEOVO.Screen27_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Screen28"
     PrecisionRule="true"
     EntityAttrName="Screen28"
     EntityUsage="XpeDccCfgRoleSecurityEO"
-    AliasName="SCREEN28"/>
+    AliasName="SCREEN28"
+    LOVName="LOV_Screen28">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgRoleSecurityEOVO.Screen28_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Screen29"
     PrecisionRule="true"

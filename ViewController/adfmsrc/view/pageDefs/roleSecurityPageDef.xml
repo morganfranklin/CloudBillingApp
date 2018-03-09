@@ -81,5 +81,9 @@
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <list IterBinding="XpeDccCfgNewRoleSecurityEOVOIterator" StaticList="false" Uses="LOV_Screen26" id="Screen26"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgNewRoleSecurityEOVOIterator" StaticList="false" Uses="LOV_Screen27" id="Screen27"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgNewRoleSecurityEOVOIterator" StaticList="false" Uses="LOV_Screen28" id="Screen28"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>
