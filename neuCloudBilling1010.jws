@@ -93,6 +93,54 @@
             <value n="profileClass" v="oracle.jdeveloper.deploy.ear.EarProfile"/>
             <value n="profileName" v="neuCloudBilling1010"/>
          </hash>
+         <hash n="neuCloudBilling1010_EAR">
+            <hash n="archiveOptions">
+               <value n="hasManifest" v="false"/>
+            </hash>
+            <url n="earURL" path="deploy/neuCloudBilling1010_EAR.ear"/>
+            <value n="enterpriseAppName" v="neuCloudBilling1010_EAR"/>
+            <hash n="fileGroups">
+               <list n="groups">
+                  <hash>
+                     <list n="contributors">
+                        <hash>
+                           <value n="type" v="9"/>
+                        </hash>
+                     </list>
+                     <value n="displayName" v="Application Descriptors"/>
+                     <hash n="filters">
+                        <list n="rules">
+                           <hash>
+                              <value n="pattern" v="**"/>
+                              <value n="type" v="0"/>
+                           </hash>
+                        </list>
+                     </hash>
+                     <value n="internalName" v="ear-metainf"/>
+                     <value n="type" v="1"/>
+                  </hash>
+                  <hash>
+                     <value n="displayName" v="Application Libraries"/>
+                     <hash n="filters">
+                        <list n="rules">
+                           <hash>
+                              <value n="pattern" v="**"/>
+                              <value n="type" v="0"/>
+                           </hash>
+                        </list>
+                     </hash>
+                     <value n="internalName" v="libraries"/>
+                     <value n="targetWithinJar" v="lib"/>
+                     <value n="type" v="3"/>
+                  </hash>
+               </list>
+            </hash>
+            <value n="profileClass" v="oracle.jdeveloper.deploy.ear.EarProfile"/>
+            <value n="profileName" v="neuCloudBilling1010_EAR"/>
+            <hash n="properties">
+               <value n="" v=""/>
+            </hash>
+         </hash>
          <hash n="neuCloudBilling1010_Project1_neuCloudBilling1010">
             <hash n="archiveOptions">
                <value n="hasManifest" v="false"/>
@@ -246,6 +294,7 @@
          <string v="neuCloudBilling1010"/>
          <string v="neustar_xpe1010"/>
          <string v="NeustarXPE"/>
+         <string v="neuCloudBilling1010_EAR"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.deploy.SecurityDeploymentSettings">
