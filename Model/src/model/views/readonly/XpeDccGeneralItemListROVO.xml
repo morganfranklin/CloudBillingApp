@@ -32,10 +32,12 @@
     Name="bindValidValue"
     Kind="viewcriteria"
     Type="java.lang.String"/>
-  <SQLQuery><![CDATA[SELECT ITEM_ID,                  
-ITEM_LIST_TYPE,  
-VALID_VALUE  
-FROM XPE_DCC_CFG_GENERAL]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT ITEM_ID,                   
+ITEM_LIST_TYPE,   
+VALID_VALUE   
+FROM XPE_DCC_CFG_GENERAL 
+WHERE 
+INACTIVE = 'N']]></SQLQuery>
   <ViewAttribute
     Name="ItemId"
     IsUpdateable="false"

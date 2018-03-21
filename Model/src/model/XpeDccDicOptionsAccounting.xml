@@ -18,7 +18,11 @@
                 ResId="model.XpeDccDicOptionsAccounting_LABEL"/>
         </SchemaBasedProperties>
     </Properties>
-    <SQLQuery><![CDATA[SELECT ITEM_ID XPE_LOOKUP_ID, VALID_VALUE XPE_LOOKUP_DESC FROM XPE_DCC_CFG_GENERAL WHERE ITEM_LIST_TYPE = 'DC']]></SQLQuery>
+    <SQLQuery><![CDATA[SELECT ITEM_ID XPE_LOOKUP_ID, VALID_VALUE XPE_LOOKUP_DESC  
+FROM XPE_DCC_CFG_GENERAL  
+WHERE  
+ITEM_LIST_TYPE = 'DC' 
+AND INACTIVE = 'N']]></SQLQuery>
     <ViewAttribute
         Name="XpeLookupId"
         IsUpdateable="false"

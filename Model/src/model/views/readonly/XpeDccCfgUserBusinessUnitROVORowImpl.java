@@ -19,7 +19,8 @@ public class XpeDccCfgUserBusinessUnitROVORowImpl extends ViewRowImpl {
         ValidValue,
         Username,
         BusinessUnit;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -41,6 +42,8 @@ public class XpeDccCfgUserBusinessUnitROVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
+
     public static final int ITEMID = AttributesEnum.ItemId.index();
     public static final int ITEMLISTTYPE = AttributesEnum.ItemListType.index();
     public static final int VALIDVALUE = AttributesEnum.ValidValue.index();
@@ -92,5 +95,6 @@ public class XpeDccCfgUserBusinessUnitROVORowImpl extends ViewRowImpl {
     public String getBusinessUnit() {
         return (String) getAttributeInternal(BUSINESSUNIT);
     }
+
 }
 

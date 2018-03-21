@@ -19,9 +19,11 @@
         ResId="model.views.readonly.XpeDccCfgDistinctStatesROVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <SQLQuery><![CDATA[SELECT DISTINCT cnty.STATE, gen.ITEM_LIST_TYPE, gen.VALID_VALUE NAME FROM XPE_DCC_CFG_COUNTIES cnty, XPE_DCC_CFG_GENERAL gen      
-  WHERE cnty.STATE = gen.ITEM_ID     
-  AND gen.ITEM_LIST_TYPE = 'ST']]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT DISTINCT cnty.STATE, gen.ITEM_LIST_TYPE, gen.VALID_VALUE NAME FROM XPE_DCC_CFG_COUNTIES cnty, XPE_DCC_CFG_GENERAL gen        
+  WHERE cnty.STATE = gen.ITEM_ID       
+  AND gen.ITEM_LIST_TYPE = 'ST'  
+  AND gen.INACTIVE = 'N'  
+  AND cnty.INACTIVE = 'N']]></SQLQuery>
   <ViewAttribute
     Name="State"
     IsUpdateable="false"
