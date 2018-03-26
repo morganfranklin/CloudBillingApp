@@ -20,11 +20,12 @@
         ResId="model.views.readonly.XpeDccCfgCarriersROVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <SQLQuery><![CDATA[SELECT  
-    XPE_DCC_CFG_CARRIERS.CARRIER_ID CARRIER_ID,  
-    XPE_DCC_CFG_CARRIERS.CARRIER_NAME CARRIER_NAME  
-FROM  
-    XPE_DCC_CFG_CARRIERS]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT   
+    XPE_DCC_CFG_CARRIERS.CARRIER_ID CARRIER_ID,   
+    XPE_DCC_CFG_CARRIERS.CARRIER_NAME CARRIER_NAME   
+FROM   
+    XPE_DCC_CFG_CARRIERS 
+WHERE INACTIVE = 'N']]></SQLQuery>
   <ViewAttribute
     Name="CarrierId"
     IsUpdateable="false"

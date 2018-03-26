@@ -629,5 +629,17 @@ public class XpeDccNewContractMBean implements Serializable {
             e.printStackTrace();
         }
     }
-    
+
+    public void mailBillAddressValChgLstnr(ValueChangeEvent valueChangeEvent) {
+        if (null != valueChangeEvent.getNewValue() && valueChangeEvent.getNewValue().equals("Y")) {
+            DCIteratorBinding newCustBind = ADFUtils.findIterator("XpeDmsCustomerEOVOIterator");
+            XpeDmsCustomerEOVORowImpl dmsCustRow = (XpeDmsCustomerEOVORowImpl) newCustBind.getCurrentRow();
+            dmsCustRow.setMailingAddress1(null);
+            dmsCustRow.setMailingAddress2(null);
+            dmsCustRow.setMailingCity(null);
+            dmsCustRow.setMailingState(null);
+            dmsCustRow.setMailingCountry(null);
+            dmsCustRow.setMailingCountry(null);
+        }
+    }
 }

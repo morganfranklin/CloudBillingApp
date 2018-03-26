@@ -101,7 +101,9 @@
                                                               columns="#{bindings.MailingAddress1.hints.displayWidth}"
                                                               maximumLength="#{bindings.MailingAddress1.hints.precision}"
                                                               shortDesc="#{bindings.MailingAddress1.hints.tooltip}"
-                                                              id="it28" autoSubmit="true">
+                                                              id="it28" autoSubmit="true"
+                                                              disabled="#{bindings.MailBillAddress.inputValue eq 'Y'}"
+                                                              partialTriggers="sor2">
                                                     <f:validator binding="#{bindings.MailingAddress1.validator}"/>
                                                 </af:inputText>
                                                 <af:inputText value="#{bindings.MailingAddress2.inputValue}"
@@ -110,7 +112,9 @@
                                                               columns="#{bindings.MailingAddress2.hints.displayWidth}"
                                                               maximumLength="#{bindings.MailingAddress2.hints.precision}"
                                                               shortDesc="#{bindings.MailingAddress2.hints.tooltip}"
-                                                              id="it29" autoSubmit="true">
+                                                              id="it29" autoSubmit="true"
+                                                              disabled="#{bindings.MailBillAddress.inputValue eq 'Y'}"
+                                                              partialTriggers="sor2">
                                                     <f:validator binding="#{bindings.MailingAddress2.validator}"/>
                                                 </af:inputText>
                                                 <af:inputText value="#{bindings.MailingCity.inputValue}"
@@ -119,7 +123,8 @@
                                                               columns="#{bindings.MailingCity.hints.displayWidth}"
                                                               maximumLength="#{bindings.MailingCity.hints.precision}"
                                                               shortDesc="#{bindings.MailingCity.hints.tooltip}"
-                                                              id="it30" autoSubmit="true">
+                                                              id="it30" autoSubmit="true" partialTriggers="sor2"
+                                                              disabled="#{bindings.MailBillAddress.inputValue eq 'Y'}">
                                                     <f:validator binding="#{bindings.MailingCity.validator}"/>
                                                 </af:inputText>
                                                 <af:inputText value="#{bindings.MailingState.inputValue}"
@@ -128,7 +133,9 @@
                                                               columns="#{bindings.MailingState.hints.displayWidth}"
                                                               maximumLength="#{bindings.MailingState.hints.precision}"
                                                               shortDesc="#{bindings.MailingState.hints.tooltip}"
-                                                              id="it33" autoSubmit="true">
+                                                              id="it33" autoSubmit="true"
+                                                              disabled="#{bindings.MailBillAddress.inputValue eq 'Y'}"
+                                                              partialTriggers="sor2">
                                                     <f:validator binding="#{bindings.MailingState.validator}"/>
                                                 </af:inputText>
                                                 <af:inputText value="#{bindings.MailingCountry.inputValue}"
@@ -137,7 +144,9 @@
                                                               columns="#{bindings.MailingCountry.hints.displayWidth}"
                                                               maximumLength="#{bindings.MailingCountry.hints.precision}"
                                                               shortDesc="#{bindings.MailingCountry.hints.tooltip}"
-                                                              id="it31" autoSubmit="true">
+                                                              id="it31" autoSubmit="true"
+                                                              disabled="#{bindings.MailBillAddress.inputValue eq 'Y'}"
+                                                              partialTriggers="sor2">
                                                     <f:validator binding="#{bindings.MailingCountry.validator}"/>
                                                 </af:inputText>
                                                 <af:inputText value="#{bindings.MailingPostal.inputValue}"
@@ -146,7 +155,9 @@
                                                               columns="#{bindings.MailingPostal.hints.displayWidth}"
                                                               maximumLength="#{bindings.MailingPostal.hints.precision}"
                                                               shortDesc="#{bindings.MailingPostal.hints.tooltip}"
-                                                              id="it32" autoSubmit="true">
+                                                              id="it32" autoSubmit="true"
+                                                              disabled="#{bindings.MailBillAddress.inputValue eq 'Y'}"
+                                                              partialTriggers="sor2">
                                                     <f:validator binding="#{bindings.MailingPostal.validator}"/>
                                                 </af:inputText>
                                             </af:panelFormLayout>
@@ -154,7 +165,8 @@
                                                                label="#{bindings.MailBillAddress.label}"
                                                                shortDesc="#{bindings.MailBillAddress.hints.tooltip}"
                                                                id="sor2" layout="horizontal" autoSubmit="true"
-                                                               required="true">
+                                                               required="true"
+                                                               valueChangeListener="#{pageFlowScope.XpeDccNewContractMBean.mailBillAddressValChgLstnr}">
                                                 <f:selectItems value="#{bindings.MailBillAddress.items}" id="si1"/>
                                                 <f:validator binding="#{bindings.MailBillAddress.validator}"/>
                                             </af:selectOneRadio>

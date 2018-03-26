@@ -38,7 +38,7 @@
                                         <f:validator binding="#{bindings.XpeContractLine.validator}"/>
                                     </af:inputText>
                                     <af:inputText value="#{bindings.XpePricingTermLine.inputValue}"
-                                                  label="Pricint Term Line"
+                                                  label="Pricing Term Line"
                                                   required="#{bindings.XpePricingTermLine.hints.mandatory}"
                                                   columns="#{bindings.XpePricingTermLine.hints.displayWidth}"
                                                   autoSubmit="true"
