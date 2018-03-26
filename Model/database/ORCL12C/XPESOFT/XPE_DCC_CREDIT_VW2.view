@@ -1,0 +1,295 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<view xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
+  <name>XPE_DCC_CREDIT_VW2</name>
+  <SQLQuery>
+    <queryString>select a.cust_id, a.total1, a.total2, a.cr_limit, (a.total1+a.total2)/a.cr_limit as credit_used,
+case when ( (a.total1+a.total2)/a.cr_limit ) &lt;0.8 then &apos;1&apos; else 
+case when ( (a.total1+a.total2)/a.cr_limit ) &gt;=0.8 and ( (a.total1+a.total2)/a.cr_limit ) &lt;1.00 then &apos;2&apos; else
+&apos;3&apos;
+end end as credit_status,
+A.BALANCE, A.INTFC_BI, A.BI_HDR, A.PAYMENTS
+from xpe_dcc_credit_vw a
+where cr_limit != 0</queryString>
+  </SQLQuery>
+  <columns>
+    <column>
+      <name>CUST_ID</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">15</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">CHAR</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>CUST_ID</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_DCC_CREDIT_VW2</name>
+              <identifier class="java.math.BigDecimal">52511631</identifier>
+              <schemaName>XPESOFT</schemaName>
+              <type>VIEW</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>TOTAL1</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>TOTAL1</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_DCC_CREDIT_VW2</name>
+              <identifier class="java.math.BigDecimal">52511631</identifier>
+              <schemaName>XPESOFT</schemaName>
+              <type>VIEW</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>TOTAL2</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>TOTAL2</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_DCC_CREDIT_VW2</name>
+              <identifier class="java.math.BigDecimal">52511631</identifier>
+              <schemaName>XPESOFT</schemaName>
+              <type>VIEW</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>CR_LIMIT</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>CR_LIMIT</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_DCC_CREDIT_VW2</name>
+              <identifier class="java.math.BigDecimal">52511631</identifier>
+              <schemaName>XPESOFT</schemaName>
+              <type>VIEW</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>CREDIT_USED</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>CREDIT_USED</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_DCC_CREDIT_VW2</name>
+              <identifier class="java.math.BigDecimal">52511631</identifier>
+              <schemaName>XPESOFT</schemaName>
+              <type>VIEW</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>CREDIT_STATUS</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">1</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>CHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>CREDIT_STATUS</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_DCC_CREDIT_VW2</name>
+              <identifier class="java.math.BigDecimal">52511631</identifier>
+              <schemaName>XPESOFT</schemaName>
+              <type>VIEW</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>BALANCE</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>BALANCE</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_DCC_CREDIT_VW2</name>
+              <identifier class="java.math.BigDecimal">52511631</identifier>
+              <schemaName>XPESOFT</schemaName>
+              <type>VIEW</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>INTFC_BI</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>INTFC_BI</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_DCC_CREDIT_VW2</name>
+              <identifier class="java.math.BigDecimal">52511631</identifier>
+              <schemaName>XPESOFT</schemaName>
+              <type>VIEW</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>BI_HDR</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>BI_HDR</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_DCC_CREDIT_VW2</name>
+              <identifier class="java.math.BigDecimal">52511631</identifier>
+              <schemaName>XPESOFT</schemaName>
+              <type>VIEW</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>PAYMENTS</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>PAYMENTS</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_DCC_CREDIT_VW2</name>
+              <identifier class="java.math.BigDecimal">52511631</identifier>
+              <schemaName>XPESOFT</schemaName>
+              <type>VIEW</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+  </columns>
+  <forceOnCreate>false</forceOnCreate>
+  <properties>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_CONNECTION</key>
+      <value class="java.lang.String">fsuat91.neustar.com</value>
+    </entry>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+      <value class="oracle.javatools.db.ReferenceID">
+        <name>XPE_DCC_CREDIT_VW2</name>
+        <identifier class="java.math.BigDecimal">52511631</identifier>
+        <schemaName>XPESOFT</schemaName>
+        <type>VIEW</type>
+      </value>
+    </entry>
+  </properties>
+  <schema>
+    <name>XPESOFT</name>
+  </schema>
+</view>

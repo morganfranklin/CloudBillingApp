@@ -1,0 +1,146 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<view xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
+  <name>XPE_DCC_NEW_SWS_VW</name>
+  <SQLQuery>
+    <queryString>SELECT B.PCSSHORTNAME_ID || &apos;i&apos; 
+ PCSSHORTNAME_ID , D.XPE_SW_APPR_NBR
+, E.XPE_START_DATE 
+FROM XPE_DCC_CONTRACT_LINE_ADT A, 
+XPE_DCC_CFG_PCSSHORTNAMES B, 
+XPE_DCC_CONTRACTS C, 
+XPE_DCC_CONTRACT_LINE D, 
+XPE_DCC_CONTRACT_VERSION E 
+WHERE 
+A.SYNCDONE IN (&apos;N&apos;,&apos;E&apos;,&apos;P&apos;) 
+AND A.XPE_CONTRACT_ID=D.XPE_CONTRACT_ID
+AND A.XPE_CONTRACT_VERSION=D.XPE_CONTRACT_VERSION
+AND A.XPE_CONTRACT_LINE=D.XPE_CONTRACT_LINE
+AND B.PCSSHORTNAME_ID=C.XPE_DCC_PCSNAME 
+AND E.XPE_CONTRACT_ID = C.XPE_CONTRACT_ID 
+AND D.XPE_CONTRACT_ID = C.XPE_CONTRACT_ID 
+AND E.XPE_CONTRACT_VERSION=D.XPE_CONTRACT_VERSION 
+AND E.XPE_CONTRACT_STATUS=&apos;APR&apos;
+AND D.XPE_SW_APPR_NBR IS NOT NULL
+GROUP BY B.PCSSHORTNAME_ID, D.XPE_SW_APPR_NBR,
+E.XPE_START_DATE</queryString>
+  </SQLQuery>
+  <columns>
+    <column>
+      <name>PCSSHORTNAME_ID</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">21</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>PCSSHORTNAME_ID</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_DCC_NEW_SWS_VW</name>
+              <identifier class="java.math.BigDecimal">52505936</identifier>
+              <schemaName>XPESOFT</schemaName>
+              <type>VIEW</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>XPE_SW_APPR_NBR</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">40</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>XPE_SW_APPR_NBR</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_DCC_NEW_SWS_VW</name>
+              <identifier class="java.math.BigDecimal">52505936</identifier>
+              <schemaName>XPESOFT</schemaName>
+              <type>VIEW</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>XPE_START_DATE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">6</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>TIMESTAMP</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>XPE_START_DATE</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_DCC_NEW_SWS_VW</name>
+              <identifier class="java.math.BigDecimal">52505936</identifier>
+              <schemaName>XPESOFT</schemaName>
+              <type>VIEW</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+  </columns>
+  <forceOnCreate>false</forceOnCreate>
+  <properties>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_CONNECTION</key>
+      <value class="java.lang.String">fsuat91.neustar.com</value>
+    </entry>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+      <value class="oracle.javatools.db.ReferenceID">
+        <name>XPE_DCC_NEW_SWS_VW</name>
+        <identifier class="java.math.BigDecimal">52505936</identifier>
+        <schemaName>XPESOFT</schemaName>
+        <type>VIEW</type>
+      </value>
+    </entry>
+  </properties>
+  <schema>
+    <name>XPESOFT</name>
+  </schema>
+</view>

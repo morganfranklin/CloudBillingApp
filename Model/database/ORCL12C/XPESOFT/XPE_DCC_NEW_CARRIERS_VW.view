@@ -1,0 +1,112 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<view xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
+  <name>XPE_DCC_NEW_CARRIERS_VW</name>
+  <SQLQuery>
+    <queryString>SELECT B.PCSSHORTNAME_ID || &apos;i&apos;
+ PCSSHORTNAME_ID , D.XPE_CARRIER_ID
+FROM XPE_DCC_CONTRACTS_ADT A, 
+XPE_DCC_CFG_PCSSHORTNAMES B, 
+XPE_DCC_CONTRACTS C, 
+XPE_DCC_CONTRACT_CARRIER D, 
+XPE_DCC_CONTRACT_VERSION E 
+WHERE 
+A.SYNCDONE IN (&apos;N&apos;,&apos;E&apos;,&apos;P&apos;) 
+AND A.XPE_DCC_PCSNAME=B.PCSSHORTNAME_ID
+AND B.PCSSHORTNAME_ID=C.XPE_DCC_PCSNAME 
+AND E.XPE_CONTRACT_ID = C.XPE_CONTRACT_ID 
+AND D.XPE_CONTRACT_ID = C.XPE_CONTRACT_ID 
+AND E.XPE_CONTRACT_VERSION=D.XPE_CONTRACT_VERSION 
+AND E.XPE_CONTRACT_STATUS=&apos;APR&apos;
+GROUP BY B.PCSSHORTNAME_ID
+, D.XPE_CARRIER_ID</queryString>
+  </SQLQuery>
+  <columns>
+    <column>
+      <name>PCSSHORTNAME_ID</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">21</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>PCSSHORTNAME_ID</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_DCC_NEW_CARRIERS_VW</name>
+              <identifier class="java.math.BigDecimal">52504754</identifier>
+              <schemaName>XPESOFT</schemaName>
+              <type>VIEW</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>XPE_CARRIER_ID</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">20</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>XPE_CARRIER_ID</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_DCC_NEW_CARRIERS_VW</name>
+              <identifier class="java.math.BigDecimal">52504754</identifier>
+              <schemaName>XPESOFT</schemaName>
+              <type>VIEW</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+  </columns>
+  <forceOnCreate>false</forceOnCreate>
+  <properties>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_CONNECTION</key>
+      <value class="java.lang.String">fsuat91.neustar.com</value>
+    </entry>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+      <value class="oracle.javatools.db.ReferenceID">
+        <name>XPE_DCC_NEW_CARRIERS_VW</name>
+        <identifier class="java.math.BigDecimal">52504754</identifier>
+        <schemaName>XPESOFT</schemaName>
+        <type>VIEW</type>
+      </value>
+    </entry>
+  </properties>
+  <schema>
+    <name>XPESOFT</name>
+  </schema>
+</view>

@@ -1,0 +1,139 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<view xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
+  <name>XPE_DCC_MATCH_ESUMM_VW</name>
+  <SQLQuery>
+    <queryString>SELECT  B.SITE_DESC AS SITE, 
+MIN(A.KEY_DATE_01) AS TICKET_DT_MIN, 
+MAX(A.KEY_DATE_01) AS TICKET_DT_MAX, 
+COUNT(A.KEY2) AS TICKET_COUNT FROM PS_CIS_XPE_IMPORT A, XPE_DCC_CFG_PCS B
+WHERE A.CIS_STATUS = &apos;E&apos; AND UPPER(A.KEY1) = UPPER(B.DB_LINK)
+GROUP BY B.SITE_DESC</queryString>
+  </SQLQuery>
+  <columns>
+    <column>
+      <name>SITE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">45</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>SITE</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_DCC_MATCH_ESUMM_VW</name>
+              <identifier class="java.math.BigDecimal">52505907</identifier>
+              <schemaName>XPESOFT</schemaName>
+              <type>VIEW</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>TICKET_DT_MIN</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>DATE</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>TICKET_DT_MIN</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_DCC_MATCH_ESUMM_VW</name>
+              <identifier class="java.math.BigDecimal">52505907</identifier>
+              <schemaName>XPESOFT</schemaName>
+              <type>VIEW</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>TICKET_DT_MAX</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>DATE</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>TICKET_DT_MAX</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_DCC_MATCH_ESUMM_VW</name>
+              <identifier class="java.math.BigDecimal">52505907</identifier>
+              <schemaName>XPESOFT</schemaName>
+              <type>VIEW</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>TICKET_COUNT</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>TICKET_COUNT</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>XPE_DCC_MATCH_ESUMM_VW</name>
+              <identifier class="java.math.BigDecimal">52505907</identifier>
+              <schemaName>XPESOFT</schemaName>
+              <type>VIEW</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+  </columns>
+  <forceOnCreate>false</forceOnCreate>
+  <properties>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_CONNECTION</key>
+      <value class="java.lang.String">fsuat91.neustar.com</value>
+    </entry>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+      <value class="oracle.javatools.db.ReferenceID">
+        <name>XPE_DCC_MATCH_ESUMM_VW</name>
+        <identifier class="java.math.BigDecimal">52505907</identifier>
+        <schemaName>XPESOFT</schemaName>
+        <type>VIEW</type>
+      </value>
+    </entry>
+  </properties>
+  <schema>
+    <name>XPESOFT</name>
+  </schema>
+</view>
