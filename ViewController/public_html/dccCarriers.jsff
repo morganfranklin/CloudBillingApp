@@ -15,7 +15,7 @@
                                                   columns="#{bindings.XpeContractId.hints.displayWidth}"
                                                   maximumLength="#{bindings.XpeContractId.hints.precision}"
                                                   shortDesc="#{bindings.XpeContractId.hints.tooltip}" id="it1"
-                                                  editable="onAccess">
+                                                  readOnly="true">
                                         <f:validator binding="#{bindings.XpeContractId.validator}"/>
                                     </af:inputText>
                                     <af:inputText value="#{bindings.XpeContractVersion.inputValue}"
@@ -25,7 +25,7 @@
                                                   autoSubmit="true"
                                                   maximumLength="#{bindings.XpeContractVersion.hints.precision}"
                                                   shortDesc="#{bindings.XpeContractVersion.hints.tooltip}" id="it2"
-                                                  editable="onAccess">
+                                                  readOnly="true">
                                         <f:validator binding="#{bindings.XpeContractVersion.validator}"/>
                                     </af:inputText>
                                     <af:inputText value="#{bindings.XpeContractLine.inputValue}" label="Contract Line"
@@ -34,7 +34,7 @@
                                                   autoSubmit="true"
                                                   maximumLength="#{bindings.XpeContractLine.hints.precision}"
                                                   shortDesc="#{bindings.XpeContractLine.hints.tooltip}" id="it3"
-                                                  editable="onAccess">
+                                                  readOnly="true">
                                         <f:validator binding="#{bindings.XpeContractLine.validator}"/>
                                     </af:inputText>
                                     <af:inputText value="#{bindings.XpePricingTermLine.inputValue}"
@@ -44,7 +44,7 @@
                                                   autoSubmit="true"
                                                   maximumLength="#{bindings.XpePricingTermLine.hints.precision}"
                                                   shortDesc="#{bindings.XpePricingTermLine.hints.tooltip}" id="it4"
-                                                  editable="onAccess">
+                                                  readOnly="true">
                                         <f:validator binding="#{bindings.XpePricingTermLine.validator}"/>
                                         <af:convertNumber groupingUsed="false"
                                                           pattern="#{bindings.XpePricingTermLine.format}"/>
