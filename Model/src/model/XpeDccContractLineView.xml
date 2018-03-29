@@ -90,8 +90,12 @@
             <Item Value="XpeProductId"/>
         </AttrArray>
         <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="DerivedAttrNames">
+            <Item Value="XpeProductDesc"/>
+        </AttrArray>
         <AttrArray Name="ListAttrNames">
             <Item Value="XpeLookupId"/>
+            <Item Value="XpeLookupDesc"/>
         </AttrArray>
         <AttrArray Name="ListDisplayAttrNames">
             <Item Value="XpeLookupId"/>
@@ -375,6 +379,24 @@
                     ResId="model.XpeDccContractLineView.BusinessUnitGl_LABEL"/>
                 <CONTROLTYPE
                     Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="XpeProductDesc"
+        IsSelected="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="255"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        AliasName="XPE_PRODUCT_DESC"
+        SQLType="VARCHAR"
+        Passivate="true">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContractLineView.XpeProductDesc_LABEL"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>

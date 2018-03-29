@@ -73,15 +73,12 @@
         <tree IterBinding="XpeDccContractCarrierView4Iterator" id="XpeDccContractCarrierView3">
             <nodeDefinition DefName="model.XpeDccContractCarrierView" Name="XpeDccContractCarrierView30">
                 <AttrNames>
-                    <Item Value="XpeContractId"/>
-                    <Item Value="XpePricingTermLine"/>
-                    <Item Value="XpeContractLine"/>
-                    <Item Value="XpeContractVersion"/>
                     <Item Value="XpeCarrierId"/>
+                    <Item Value="XpeCarrierDesc"/>
                     <Item Value="XpeVehicleType"/>
-                    <Item Value="XpeSubNbr"/>
                     <Item Value="XpeVehicleNbr"/>
                     <Item Value="XpeRateOverride"/>
+                    <Item Value="XpeSubNbr"/>
                     <Item Value="XpeSurcharge"/>
                 </AttrNames>
             </nodeDefinition>

@@ -32,6 +32,7 @@ public class XpeDccContractLineViewRowImpl extends ViewRowImpl {
         XpeSwApprNbr,
         CurrencyCd,
         BusinessUnitGl,
+        XpeProductDesc,
         XpeDccContractDocTermView,
         XpeDccContractPricingTermView,
         XpeDccContractPricingOverView,
@@ -80,6 +81,7 @@ public class XpeDccContractLineViewRowImpl extends ViewRowImpl {
     public static final int XPESWAPPRNBR = AttributesEnum.XpeSwApprNbr.index();
     public static final int CURRENCYCD = AttributesEnum.CurrencyCd.index();
     public static final int BUSINESSUNITGL = AttributesEnum.BusinessUnitGl.index();
+    public static final int XPEPRODUCTDESC = AttributesEnum.XpeProductDesc.index();
     public static final int XPEDCCCONTRACTDOCTERMVIEW = AttributesEnum.XpeDccContractDocTermView.index();
     public static final int XPEDCCCONTRACTPRICINGTERMVIEW = AttributesEnum.XpeDccContractPricingTermView.index();
     public static final int XPEDCCCONTRACTPRICINGOVERVIEW = AttributesEnum.XpeDccContractPricingOverView.index();
@@ -298,6 +300,22 @@ public class XpeDccContractLineViewRowImpl extends ViewRowImpl {
      */
     public void setBusinessUnitGl(String value) {
         setAttributeInternal(BUSINESSUNITGL, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute XpeProductDesc.
+     * @return the XpeProductDesc
+     */
+    public String getXpeProductDesc() {
+        return (String) getAttributeInternal(XPEPRODUCTDESC);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute XpeProductDesc.
+     * @param value value to set the  XpeProductDesc
+     */
+    public void setXpeProductDesc(String value) {
+        setAttributeInternal(XPEPRODUCTDESC, value);
     }
 
     /**

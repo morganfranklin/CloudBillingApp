@@ -84,14 +84,15 @@
             <nodeDefinition DefName="model.XpeDccContractLineView" Name="XpeDccContractLineView20">
                 <AttrNames>
                     <Item Value="XpeContractLine"/>
+                    <Item Value="BusinessUnitGl"/>
                     <Item Value="XpeFacility"/>
                     <Item Value="XpeProductId"/>
+                    <Item Value="XpeProductDesc"/>
                     <Item Value="XpeProductUom"/>
                     <Item Value="XpeQtyMin"/>
                     <Item Value="XpeQtyMax"/>
                     <Item Value="XpePeriodType"/>
                     <Item Value="XpeSwApprNbr"/>
-                    <Item Value="BusinessUnitGl"/>
                 </AttrNames>
             </nodeDefinition>
         </tree>

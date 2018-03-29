@@ -56,8 +56,12 @@
             <Item Value="XpeCarrierId"/>
         </AttrArray>
         <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="DerivedAttrNames">
+            <Item Value="XpeCarrierDesc"/>
+        </AttrArray>
         <AttrArray Name="ListAttrNames">
             <Item Value="CarrierId"/>
+            <Item Value="CarrierName"/>
         </AttrArray>
         <AttrArray Name="ListDisplayAttrNames">
             <Item Value="CarrierId"/>
@@ -197,7 +201,26 @@
         PrecisionRule="true"
         EntityAttrName="XpeContractCarrierId"
         EntityUsage="XpeDccContractCarrier"
-        AliasName="XPE_CONTRACT_CARRIER_ID"/>
+        AliasName="XPE_CONTRACT_CARRIER_ID"
+        IsUpdateable="while_insert"/>
+    <ViewAttribute
+        Name="XpeCarrierDesc"
+        IsSelected="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="255"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        AliasName="XPE_CARRIER_DSEC"
+        SQLType="VARCHAR"
+        Passivate="true">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContractCarrierView.XpeCarrierDesc_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
     <ResourceBundle>
         <PropertiesBundle
             PropertiesFile="model.ModelBundle"/>

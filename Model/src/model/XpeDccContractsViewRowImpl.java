@@ -31,6 +31,7 @@ public class XpeDccContractsViewRowImpl extends ViewRowImpl {
         XpeDccPcsname,
         CustContractApproverEmail,
         CustContractContactName,
+        XpeDccPcsnameDesc,
         XpeDccContractPartyView,
         XpeDccContractVersionView,
         XpeDccPlatformEventView,
@@ -74,6 +75,7 @@ public class XpeDccContractsViewRowImpl extends ViewRowImpl {
     public static final int XPEDCCPCSNAME = AttributesEnum.XpeDccPcsname.index();
     public static final int CUSTCONTRACTAPPROVEREMAIL = AttributesEnum.CustContractApproverEmail.index();
     public static final int CUSTCONTRACTCONTACTNAME = AttributesEnum.CustContractContactName.index();
+    public static final int XPEDCCPCSNAMEDESC = AttributesEnum.XpeDccPcsnameDesc.index();
     public static final int XPEDCCCONTRACTPARTYVIEW = AttributesEnum.XpeDccContractPartyView.index();
     public static final int XPEDCCCONTRACTVERSIONVIEW = AttributesEnum.XpeDccContractVersionView.index();
     public static final int XPEDCCPLATFORMEVENTVIEW = AttributesEnum.XpeDccPlatformEventView.index();
@@ -272,6 +274,22 @@ public class XpeDccContractsViewRowImpl extends ViewRowImpl {
      */
     public void setCustContractContactName(String value) {
         setAttributeInternal(CUSTCONTRACTCONTACTNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute XpeDccPcsnameDesc.
+     * @return the XpeDccPcsnameDesc
+     */
+    public String getXpeDccPcsnameDesc() {
+        return (String) getAttributeInternal(XPEDCCPCSNAMEDESC);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute XpeDccPcsnameDesc.
+     * @param value value to set the  XpeDccPcsnameDesc
+     */
+    public void setXpeDccPcsnameDesc(String value) {
+        setAttributeInternal(XPEDCCPCSNAMEDESC, value);
     }
 
     /**

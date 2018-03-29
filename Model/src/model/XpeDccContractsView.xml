@@ -89,8 +89,12 @@
             <Item Value="XpeDccPcsname"/>
         </AttrArray>
         <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="DerivedAttrNames">
+            <Item Value="XpeDccPcsnameDesc"/>
+        </AttrArray>
         <AttrArray Name="ListAttrNames">
             <Item Value="PcsshortnameId"/>
+            <Item Value="PcsshortName"/>
         </AttrArray>
         <AttrArray Name="ListDisplayAttrNames">
             <Item Value="PcsshortnameId"/>
@@ -279,6 +283,24 @@ WHERE TempCustomer.CUST_ID=XpeDccContracts.CUST_ID]]></SQLQuery>
         EntityAttrName="CustContractContactName"
         EntityUsage="XpeDccContracts"
         AliasName="CUST_CONTRACT_CONTACT_NAME"/>
+    <ViewAttribute
+        Name="XpeDccPcsnameDesc"
+        IsSelected="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="255"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        AliasName="XPE_DCC_PCSNAME_DESC"
+        SQLType="VARCHAR"
+        Passivate="true">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.XpeDccContractsView.XpeDccPcsnameDesc_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
     <ViewLinkAccessor
         Name="XpeDccContractPartyView"
         ViewLink="model.XpeDccContractPartyFk1Link"

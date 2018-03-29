@@ -32,6 +32,7 @@ public class XpeDccContractCarrierViewRowImpl extends ViewRowImpl {
         XpeRateOverride,
         XpeSurcharge,
         XpeContractCarrierId,
+        XpeCarrierDesc,
         XpeDccDicVehicleTypes1,
         XpeDccCfgCarriersROVO1;
         static AttributesEnum[] vals = null;
@@ -70,6 +71,7 @@ public class XpeDccContractCarrierViewRowImpl extends ViewRowImpl {
     public static final int XPERATEOVERRIDE = AttributesEnum.XpeRateOverride.index();
     public static final int XPESURCHARGE = AttributesEnum.XpeSurcharge.index();
     public static final int XPECONTRACTCARRIERID = AttributesEnum.XpeContractCarrierId.index();
+    public static final int XPECARRIERDESC = AttributesEnum.XpeCarrierDesc.index();
     public static final int XPEDCCDICVEHICLETYPES1 = AttributesEnum.XpeDccDicVehicleTypes1.index();
     public static final int XPEDCCCFGCARRIERSROVO1 = AttributesEnum.XpeDccCfgCarriersROVO1.index();
 
@@ -83,8 +85,8 @@ public class XpeDccContractCarrierViewRowImpl extends ViewRowImpl {
      * Gets XpeDccContractCarrier entity object.
      * @return the XpeDccContractCarrier
      */
-    public EntityImpl getXpeDccContractCarrier() {
-        return (EntityImpl) getEntity(ENTITY_XPEDCCCONTRACTCARRIER);
+    public XpeDccContractCarrierImpl getXpeDccContractCarrier() {
+        return (XpeDccContractCarrierImpl) getEntity(ENTITY_XPEDCCCONTRACTCARRIER);
     }
 
     /**
@@ -262,6 +264,22 @@ public class XpeDccContractCarrierViewRowImpl extends ViewRowImpl {
      */
     public void setXpeContractCarrierId(BigDecimal value) {
         setAttributeInternal(XPECONTRACTCARRIERID, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute XpeCarrierDesc.
+     * @return the XpeCarrierDesc
+     */
+    public String getXpeCarrierDesc() {
+        return (String) getAttributeInternal(XPECARRIERDESC);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute XpeCarrierDesc.
+     * @param value value to set the  XpeCarrierDesc
+     */
+    public void setXpeCarrierDesc(String value) {
+        setAttributeInternal(XPECARRIERDESC, value);
     }
 
     /**

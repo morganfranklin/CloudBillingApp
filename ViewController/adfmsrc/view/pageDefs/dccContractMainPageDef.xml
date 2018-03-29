@@ -7,11 +7,11 @@
         <iterator Binds="XpeDccContractsView2" RangeSize="25" DataControl="AppModuleDataControl"
                   id="XpeDccContractsView1Iterator" ChangeEventPolicy="ppr"/>
         <iterator Binds="XpeDccContractVersionView1" RangeSize="25" DataControl="AppModuleDataControl"
-                  id="XpeDccContractVersionView2Iterator" ChangeEventPolicy="none"/>
+                  id="XpeDccContractVersionView2Iterator" ChangeEventPolicy="ppr"/>
         <iterator Binds="XpeDccContractPartyView1" RangeSize="25" DataControl="AppModuleDataControl"
-                  id="XpeDccContractPartyView2Iterator" ChangeEventPolicy="none"/>
+                  id="XpeDccContractPartyView2Iterator" ChangeEventPolicy="ppr"/>
         <iterator Binds="XpeDccPlatformEventView3" RangeSize="25" DataControl="AppModuleDataControl"
-                  id="XpeDccPlatformEventView2Iterator" ChangeEventPolicy="none"/>
+                  id="XpeDccPlatformEventView2Iterator" ChangeEventPolicy="ppr"/>
         <searchRegion Binds="XpeDccPlatformEventView2Iterator" Criteria=""
                       Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                       id="XpeDccPlatformEventView2Query"/>
@@ -19,9 +19,9 @@
                   id="XpeDccCfgRoleSecurityEOVOIterator"/>
     </executables>
     <bindings>
-        <attributeValues IterBinding="XpeDccContractsView1Iterator" id="XpeContractId">
+        <attributeValues IterBinding="XpeDccContractsView1Iterator" id="XpeDccPcsnameDesc">
             <AttrNames>
-                <Item Value="XpeContractId"/>
+                <Item Value="XpeDccPcsnameDesc"/>
             </AttrNames>
         </attributeValues>
         <attributeValues IterBinding="XpeDccContractsView1Iterator" id="XpeContractDesc">

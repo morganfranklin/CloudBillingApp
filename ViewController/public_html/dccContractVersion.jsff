@@ -303,8 +303,7 @@
                                     <af:column sortProperty="#{bindings.XpeDccContractLineView2.hints.BusinessUnitGl.name}"
                                                filterable="true" sortable="true" headerText="Business Unit" id="c11">
                                         <af:selectOneChoice value="#{row.bindings.BusinessUnitGl.inputValue}"
-                                                            label="#{row.bindings.BusinessUnitGl.label}"
-                                                            required="true"
+                                                            label="#{row.bindings.BusinessUnitGl.label}" required="true"
                                                             shortDesc="#{bindings.XpeDccContractLineView2.hints.BusinessUnitGl.tooltip}"
                                                             id="soc10" autoSubmit="true"
                                                             readOnly="#{bindings.ContractManagement.inputValue eq 'V' ? 'true' : (bindings.XpeContractStatus.inputValue eq 'APR'? 'true':'false') and !(row.row.entities[0].entityState==0 ? 'true':'false') }">
@@ -335,6 +334,14 @@
                                                               autoSubmit="true" required="true">
                                             <f:validator binding="#{row.bindings.XpeProductId.validator}"/>
                                         </af:inputListOfValues>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.XpeDccContractLineView2.hints.XpeProductDesc.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.XpeDccContractLineView2.hints.XpeProductDesc.label}"
+                                               id="c16" width="200">
+                                        <af:outputText value="#{row.XpeProductDesc}"
+                                                       shortDesc="#{bindings.XpeDccContractLineView2.hints.XpeProductDesc.tooltip}"
+                                                       id="ot5" partialTriggers="ilov5"/>
                                     </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccContractLineView2.hints.XpeProductUom.name}"
                                                filterable="true" sortable="true" headerText="UOM" id="c4">
@@ -390,7 +397,8 @@
                                             <f:validator binding="#{row.bindings.XpePeriodType.validator}"/>
                                         </af:selectOneChoice>
                                     </af:column>
-                                    <af:column id="c17" headerText="SW Approval #" sortable="true" filterable="true">
+                                    <af:column id="c17" headerText="SW Approval #" sortable="true" filterable="true"
+                                               sortProperty="#{bindings.XpeDccContractLineView2.hints.XpeSwApprNbr.name}">
                                         <af:inputText value="#{row.bindings.XpeSwApprNbr.inputValue}" simple="true"
                                                       required="#{bindings.XpeDccContractLineView2.hints.XpeSwApprNbr.mandatory}"
                                                       columns="#{bindings.XpeDccContractLineView2.hints.XpeSwApprNbr.displayWidth}"

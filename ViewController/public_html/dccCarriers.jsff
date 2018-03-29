@@ -211,6 +211,14 @@
                                     <f:validator binding="#{row.bindings.XpeCarrierId.validator}"/>
                                 </af:inputListOfValues>
                             </af:column>
+                            <af:column sortProperty="#{bindings.XpeDccContractCarrierView3.hints.XpeCarrierDesc.name}"
+                                       sortable="true"
+                                       headerText="#{bindings.XpeDccContractCarrierView3.hints.XpeCarrierDesc.label}"
+                                       id="c2" width="200">
+                                <af:outputText value="#{row.XpeCarrierDesc}"
+                                               shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeCarrierDesc.tooltip}"
+                                               id="ot1" partialTriggers="ilov5"/>
+                            </af:column>
                             <af:column sortProperty="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleType.name}"
                                        sortable="true" headerText="Vehicle Type" id="c6">
                                 <af:selectOneChoice value="#{row.bindings.XpeVehicleType.inputValue}"
@@ -238,7 +246,8 @@
                             </af:column>
                             <af:column sortProperty="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.name}"
                                        sortable="true"
-                                       headerText="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.label}" id="c9">
+                                       headerText="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.label}"
+                                       id="c9">
                                 <af:inputText value="#{row.bindings.XpeRateOverride.inputValue}"
                                               label="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.label}"
                                               required="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.mandatory}"
@@ -248,9 +257,8 @@
                                               id="it17" autoSubmit="true"
                                               readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                     <f:validator binding="#{row.bindings.XpeRateOverride.validator}"/>
-                                    <af:convertNumber pattern="###.00000" groupingUsed="false"
-                                                                      maxFractionDigits="5"
-                                                                      messageDetailConvertPattern="{0} with {1} has invalid precision/scale."/>
+                                    <af:convertNumber pattern="###.00000" groupingUsed="false" maxFractionDigits="5"
+                                                      messageDetailConvertPattern="{0} with {1} has invalid precision/scale."/>
                                 </af:inputText>
                             </af:column>
                             <af:column sortProperty="#{bindings.XpeDccContractCarrierView3.hints.XpeSubNbr.name}"
@@ -270,7 +278,8 @@
                             </af:column>
                             <af:column sortProperty="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.name}"
                                        sortable="true"
-                                       headerText="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.label}" id="c10">
+                                       headerText="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.label}"
+                                       id="c10">
                                 <af:inputText value="#{row.bindings.XpeSurcharge.inputValue}"
                                               label="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.label}"
                                               required="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.mandatory}"
@@ -280,9 +289,8 @@
                                               id="it18" autoSubmit="true"
                                               readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                     <f:validator binding="#{row.bindings.XpeSurcharge.validator}"/>
-                                    <af:convertNumber pattern="###.00000" groupingUsed="false"
-                                                                      maxFractionDigits="5"
-                                                                      messageDetailConvertPattern="{0} with {1} has invalid precision/scale."/>
+                                    <af:convertNumber pattern="###.00000" groupingUsed="false" maxFractionDigits="5"
+                                                      messageDetailConvertPattern="{0} with {1} has invalid precision/scale."/>
                                 </af:inputText>
                             </af:column>
                         </af:table>

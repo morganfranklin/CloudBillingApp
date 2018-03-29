@@ -385,7 +385,7 @@
       <property
          name="fromOutcome">addContract</property>
       <property
-         name="sdm:polyPoints">L50,-33.5,585.8663,-232.0,739.68945,T50</property>
+         name="sdm:polyPoints">L50,-33.5,585.8663,-232.0,738.2871,T50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"

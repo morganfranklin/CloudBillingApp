@@ -68,6 +68,7 @@
           <Item Value="BusinessUnitGl"/>
           <Item Value="XpeFacility"/>
           <Item Value="XpeProductId"/>
+          <Item Value="XpeProductDesc"/>
           <Item Value="XpeProductUom"/>
           <Item Value="XpeQtyMin"/>
           <Item Value="XpeQtyMax"/>
@@ -92,6 +93,7 @@
       <nodeDefinition DefName="model.XpeDccContractCarrierView" Name="XpeDccNewContractCarrierView0">
         <AttrNames>
           <Item Value="XpeCarrierId"/>
+          <Item Value="XpeCarrierDesc"/>
           <Item Value="XpeVehicleType"/>
           <Item Value="XpeRateOverride"/>
           <Item Value="XpeSurcharge"/>
