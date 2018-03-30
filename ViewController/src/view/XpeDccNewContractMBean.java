@@ -121,6 +121,7 @@ public class XpeDccNewContractMBean implements Serializable {
                         XpeDmsCustomerEOVORowImpl newCustomerRow =
                             (XpeDmsCustomerEOVORowImpl) newCustomerVo.getCurrentRow();
                         contractRow.setCustId(newCustomerRow.getCustId());
+                        contractRow.setAddressSeqNum(null);
                     } else if ("EXT".equals(customerType)) {
                         XpeDccNewContractCustomerSearchROVOImpl existCustomerVo =
                             (XpeDccNewContractCustomerSearchROVOImpl) ADFUtils.findViewObjectFromIteratorName("XpeDccNewContractCustomerSearchROVOIterator");
