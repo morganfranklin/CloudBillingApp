@@ -2014,28 +2014,6 @@ CREATE TABLE XPESOFT.XPE_DCC_CFG_MSW_FACILITY_ADT
 , INACTIVE VARCHAR2(1 BYTE) 
 , INACTIVE_DATE TIMESTAMP(6) 
 , GENERAL_MANAGER_SIGNATURE BLOB 
-, CONSTRAINT XPE_MSW_FACILITY_ADT_PK PRIMARY KEY 
-  (
-    XPE_FACILITY_ID 
-  )
-  USING INDEX 
-  (
-      CREATE UNIQUE INDEX XPESOFT.XPE_MSW_FACILITY_ADT_PK ON XPESOFT.XPE_DCC_CFG_MSW_FACILITY_ADT (XPE_FACILITY_ID ASC) 
-      LOGGING 
-      TABLESPACE USERS 
-      PCTFREE 10 
-      INITRANS 2 
-      STORAGE 
-      ( 
-        INITIAL 65536 
-        NEXT 1048576 
-        MINEXTENTS 1 
-        MAXEXTENTS UNLIMITED 
-        BUFFER_POOL DEFAULT 
-      ) 
-      NOPARALLEL 
-  )
-  ENABLE 
 ) 
 LOGGING 
 TABLESPACE USERS 
@@ -5292,6 +5270,16 @@ WHERE A.CUST_ID=B.CIS_TARGTCUST4DET1 (+)
 AND 'FIN' = B.CIS_STAGE (+)
 GROUP BY A.CUST_ID;
 
+CREATE VIEW XPESOFT.XPE_DCC_CREDIT_VW2
+AS select a.cust_id, a.total1, a.total2, a.cr_limit, (a.total1+a.total2)/a.cr_limit as credit_used,
+case when ( (a.total1+a.total2)/a.cr_limit ) <0.8 then '1' else 
+case when ( (a.total1+a.total2)/a.cr_limit ) >=0.8 and ( (a.total1+a.total2)/a.cr_limit ) <1.00 then '2' else
+'3'
+end end as credit_status,
+A.BALANCE, A.INTFC_BI, A.BI_HDR, A.PAYMENTS
+from xpe_dcc_credit_vw a
+where cr_limit != 0;
+
 CREATE VIEW XPESOFT.XPE_DCC_MATCH_ESUMM_VW
 AS SELECT  B.SITE_DESC AS SITE, 
 MIN(A.KEY_DATE_01) AS TICKET_DT_MIN, 
@@ -5354,16 +5342,6 @@ AND E.XPE_CONTRACT_STATUS='APR'
 AND D.XPE_SW_APPR_NBR IS NOT NULL
 GROUP BY B.PCSSHORTNAME_ID, D.XPE_SW_APPR_NBR,
 E.XPE_START_DATE;
-
-CREATE VIEW XPESOFT.XPE_DCC_CREDIT_VW2
-AS select a.cust_id, a.total1, a.total2, a.cr_limit, (a.total1+a.total2)/a.cr_limit as credit_used,
-case when ( (a.total1+a.total2)/a.cr_limit ) <0.8 then '1' else 
-case when ( (a.total1+a.total2)/a.cr_limit ) >=0.8 and ( (a.total1+a.total2)/a.cr_limit ) <1.00 then '2' else
-'3'
-end end as credit_status,
-A.BALANCE, A.INTFC_BI, A.BI_HDR, A.PAYMENTS
-from xpe_dcc_credit_vw a
-where cr_limit != 0;
 
 CREATE UNIQUE INDEX XPESOFT.PS_CIS_XPE_ACTION_PK ON XPESOFT.PS_CIS_XPE_ACTION (CIS_ACTION_CODE ASC) 
 LOGGING 
