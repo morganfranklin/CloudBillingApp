@@ -9,7 +9,12 @@
   DBObjectType="table"
   DBObjectName="XPE_DCC_CFG_CMTMNT_FACILITY"
   AliasName="XpeDccCfgCmtmntFacilityEO"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="model.entities.XpeDccCfgCmtmntFacilityEOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="XpeFacilityId"
     IsNotNull="true"
@@ -115,9 +120,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_CMTMNT_FACILITY"
-    IsUpdateable="while_insert"
-    HistoryColumn="UserHistory"/>
+    TableName="XPE_DCC_CFG_CMTMNT_FACILITY"/>
   <Attribute
     Name="CreationDate"
     ColumnName="CREATION_DATE"
@@ -134,8 +137,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_CMTMNT_FACILITY"
-    HistoryColumn="UserHistory"/>
+    TableName="XPE_DCC_CFG_CMTMNT_FACILITY"/>
   <Attribute
     Name="LastUpdateDate"
     ColumnName="LAST_UPDATE_DATE"

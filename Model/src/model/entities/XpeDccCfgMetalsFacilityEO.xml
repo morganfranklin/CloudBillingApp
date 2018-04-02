@@ -9,7 +9,12 @@
   DBObjectType="table"
   DBObjectName="XPE_DCC_CFG_METALS_FACILITY"
   AliasName="XpeDccCfgMetalsFacilityEO"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="model.entities.XpeDccCfgMetalsFacilityEOImpl">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+  </DesignTime>
   <Attribute
     Name="XpeFacilityId"
     IsNotNull="true"
@@ -79,9 +84,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_METALS_FACILITY"
-    IsUpdateable="while_insert"
-    HistoryColumn="UserHistory"/>
+    TableName="XPE_DCC_CFG_METALS_FACILITY"/>
   <Attribute
     Name="CreationDate"
     ColumnName="CREATION_DATE"
@@ -98,8 +101,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_METALS_FACILITY"
-    HistoryColumn="UserHistory"/>
+    TableName="XPE_DCC_CFG_METALS_FACILITY"/>
   <Attribute
     Name="LastUpdateDate"
     ColumnName="LAST_UPDATE_DATE"

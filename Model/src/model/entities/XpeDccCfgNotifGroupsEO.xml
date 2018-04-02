@@ -9,7 +9,12 @@
   DBObjectType="table"
   DBObjectName="XPE_DCC_CFG_NOTIF_GROUPS"
   AliasName="XpeDccCfgNotifGroupsEO"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="model.entities.XpeDccCfgNotifGroupsEOImpl">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+  </DesignTime>
   <Attribute
     Name="GroupId"
     IsNotNull="true"
@@ -78,9 +83,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_NOTIF_GROUPS"
-    IsUpdateable="while_insert"
-    HistoryColumn="UserHistory">
+    TableName="XPE_DCC_CFG_NOTIF_GROUPS">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -101,8 +104,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_NOTIF_GROUPS"
-    HistoryColumn="UserHistory">
+    TableName="XPE_DCC_CFG_NOTIF_GROUPS">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>

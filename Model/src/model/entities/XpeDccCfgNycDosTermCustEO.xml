@@ -9,7 +9,12 @@
   DBObjectType="table"
   DBObjectName="XPE_DCC_CFG_NYC_DOS_TERM_CUST"
   AliasName="XpeDccCfgNycDosTermCustEO"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="model.entities.XpeDccCfgNycDosTermCustEOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="OriginId"
     IsNotNull="true"
@@ -89,7 +94,9 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="XPE_DCC_CFG_NYC_DOS_TERM_CUST"/>
+    TableName="XPE_DCC_CFG_NYC_DOS_TERM_CUST"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="LastUpdatedBy"
     Precision="20"
@@ -108,7 +115,8 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="XPE_DCC_CFG_NYC_DOS_TERM_CUST"/>
+    TableName="XPE_DCC_CFG_NYC_DOS_TERM_CUST"
+    HistoryColumn="DateHistory"/>
   <AccessorAttribute
     Name="XpeDccCfgOgnAssTerminalsEO"
     Association="model.entities.associations.XpeDccCfgNycDosTermCustFKAssoc"

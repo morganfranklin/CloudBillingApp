@@ -273,8 +273,10 @@ public class XpeDccContractNotesImpl extends EntityImpl {
         if(null!=userInforVORow)
             userName = (String)userInforVORow.getAttribute("USER_NAME");
         //INSERT
-        if(i==this.DML_INSERT) 
+        if(i==this.DML_INSERT){
             this.setCreatedBy(userName);
+            this.setLastUpdatedBy(userName);
+        }
         //UPDATE
         if(i==this.DML_UPDATE) 
             this.setLastUpdatedBy(userName);

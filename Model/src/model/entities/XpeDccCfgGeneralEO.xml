@@ -9,7 +9,12 @@
   DBObjectType="table"
   DBObjectName="XPE_DCC_CFG_GENERAL"
   AliasName="XpeDccCfgGeneralEO"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="model.entities.XpeDccCfgGeneralEOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="ItemId"
     IsUpdateable="while_insert"
@@ -72,7 +77,9 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="XPE_DCC_CFG_GENERAL"/>
+    TableName="XPE_DCC_CFG_GENERAL"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="LastUpdatedBy"
     Precision="20"
@@ -91,7 +98,8 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="XPE_DCC_CFG_GENERAL"/>
+    TableName="XPE_DCC_CFG_GENERAL"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="Inactive"
     Precision="1"

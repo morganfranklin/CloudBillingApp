@@ -13,6 +13,7 @@
   RowClass="model.entities.XpeDccCfgTerminalsEOImpl">
   <DesignTime>
     <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
   </DesignTime>
   <Attribute
     Name="TerminalId"
@@ -121,7 +122,9 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="XPE_DCC_CFG_TERMINALS"/>
+    TableName="XPE_DCC_CFG_TERMINALS"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="LastUpdatedBy"
     Precision="20"
@@ -140,7 +143,8 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="XPE_DCC_CFG_TERMINALS"/>
+    TableName="XPE_DCC_CFG_TERMINALS"
+    HistoryColumn="DateHistory"/>
   <AccessorAttribute
     Name="XpeDccCfgDstAssTerminalsEO"
     Association="model.entities.associations.XpeDccCfgTerminalsFkAssoc"

@@ -13,6 +13,7 @@
   RowClass="model.entities.XpeDccCfgPcsEOImpl">
   <DesignTime>
     <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
   </DesignTime>
   <Attribute
     Name="SiteId"
@@ -139,7 +140,9 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="XPE_DCC_CFG_PCS"/>
+    TableName="XPE_DCC_CFG_PCS"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="LastUpdatedBy"
     Precision="20"
@@ -158,7 +161,8 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="XPE_DCC_CFG_PCS"/>
+    TableName="XPE_DCC_CFG_PCS"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="FacilityId"
     Precision="20"

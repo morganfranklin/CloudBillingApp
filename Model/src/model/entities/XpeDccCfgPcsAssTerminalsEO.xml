@@ -9,7 +9,12 @@
   DBObjectType="table"
   DBObjectName="XPE_DCC_CFG_PCS_ASS_TERMINALS"
   AliasName="XpeDccCfgPcsAssTerminalsEO"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="model.entities.XpeDccCfgPcsAssTerminalsEOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="TerminalId"
     IsNotNull="true"
@@ -91,7 +96,9 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="XPE_DCC_CFG_PCS_ASS_TERMINALS"/>
+    TableName="XPE_DCC_CFG_PCS_ASS_TERMINALS"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="LastUpdatedBy"
     Precision="20"
@@ -110,7 +117,8 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="XPE_DCC_CFG_PCS_ASS_TERMINALS"/>
+    TableName="XPE_DCC_CFG_PCS_ASS_TERMINALS"
+    HistoryColumn="DateHistory"/>
   <AccessorAttribute
     Name="XpeDccCfgTerminalsEO"
     Association="model.entities.associations.XpeDccCfgTerminalsFk1Assoc"

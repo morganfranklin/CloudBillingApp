@@ -96,7 +96,9 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="XPE_DCC_CFG_DST_ASS_TERMINALS"/>
+    TableName="XPE_DCC_CFG_DST_ASS_TERMINALS"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="LastUpdatedBy"
     Precision="20"
@@ -115,7 +117,8 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="XPE_DCC_CFG_DST_ASS_TERMINALS"/>
+    TableName="XPE_DCC_CFG_DST_ASS_TERMINALS"
+    HistoryColumn="DateHistory"/>
   <AccessorAttribute
     Name="XpeDccCfgTerminalsEO"
     Association="model.entities.associations.XpeDccCfgTerminalsFkAssoc"

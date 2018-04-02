@@ -9,7 +9,12 @@
   DBObjectType="table"
   DBObjectName="XPE_DCC_CFG_PRODUCTSERVICE"
   AliasName="XpeDccCfgProductserviceEO"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="model.entities.XpeDccCfgProductserviceEOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="ItemId"
     IsUpdateable="while_insert"
@@ -135,7 +140,9 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="XPE_DCC_CFG_PRODUCTSERVICE"/>
+    TableName="XPE_DCC_CFG_PRODUCTSERVICE"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="LastUpdatedBy"
     Precision="20"
@@ -154,7 +161,8 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="XPE_DCC_CFG_PRODUCTSERVICE"/>
+    TableName="XPE_DCC_CFG_PRODUCTSERVICE"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="WeightClass"
     Precision="15"

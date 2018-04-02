@@ -13,6 +13,7 @@
   RowClass="model.entities.XpeDccCfgPcsshortnamesEOImpl">
   <DesignTime>
     <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
   </DesignTime>
   <Attribute
     Name="PcsshortnameId"
@@ -95,7 +96,9 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="XPE_DCC_CFG_PCSSHORTNAMES"/>
+    TableName="XPE_DCC_CFG_PCSSHORTNAMES"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="LastUpdatedBy"
     Precision="20"
@@ -114,7 +117,8 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="XPE_DCC_CFG_PCSSHORTNAMES"/>
+    TableName="XPE_DCC_CFG_PCSSHORTNAMES"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="CovId"
     Precision="15"

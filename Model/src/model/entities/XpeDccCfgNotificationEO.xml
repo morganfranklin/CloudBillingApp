@@ -13,6 +13,7 @@
   RowClass="model.entities.XpeDccCfgNotificationEOImpl">
   <DesignTime>
     <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
   </DesignTime>
   <Attribute
     Name="NotificationId"
@@ -147,9 +148,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_NOTIFICATION"
-    IsUpdateable="while_insert"
-    HistoryColumn="UserHistory">
+    TableName="XPE_DCC_CFG_NOTIFICATION">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -170,8 +169,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CFG_NOTIFICATION"
-    HistoryColumn="UserHistory">
+    TableName="XPE_DCC_CFG_NOTIFICATION">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>

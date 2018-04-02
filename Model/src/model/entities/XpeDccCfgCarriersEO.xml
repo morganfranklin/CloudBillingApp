@@ -97,7 +97,9 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="XPE_DCC_CFG_CARRIERS"/>
+    TableName="XPE_DCC_CFG_CARRIERS"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="LastUpdatedBy"
     Precision="20"
@@ -116,7 +118,8 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="XPE_DCC_CFG_CARRIERS"/>
+    TableName="XPE_DCC_CFG_CARRIERS"
+    HistoryColumn="DateHistory"/>
   <Key
     Name="XpeDccCfgCarriersCarrierNameCheck">
     <DesignTime>

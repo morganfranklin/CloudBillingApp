@@ -1,0 +1,12 @@
+//Groovy Scripts for model.XpeDccContractsView
+
+package model
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="XpeDccPcsnameDesc")
+def XpeDccPcsnameDesc_ExpressionScript_Expression()
+{
+XpeDccPcsname
+}
+

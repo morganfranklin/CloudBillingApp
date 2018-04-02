@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding='windows-1252'?>
+<!DOCTYPE OperationDefinitions SYSTEM "jbo_03_01.dtd">
+<OperationDefinitions xmlns="http://xmlns.oracle.com/bc4j" Name="XpeDccContractsViewOperations">
+  <ExpressionCodeSource
+    Name="XpeDccContractsViewRow"
+    Type="Static"
+    URI="model/XpeDccContractsViewRow.bcs"/>
+</OperationDefinitions>

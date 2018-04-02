@@ -1,0 +1,12 @@
+//Groovy Scripts for model.XpeDccContractCarrierView
+
+package model
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="XpeCarrierDesc")
+def XpeCarrierDesc_ExpressionScript_Expression()
+{
+XpeCarrierId
+}
+

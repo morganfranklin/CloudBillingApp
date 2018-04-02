@@ -13,6 +13,7 @@
   RowClass="model.entities.XpeDccWfActionEOImpl">
   <DesignTime>
     <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
   </DesignTime>
   <Attribute
     Name="XpeContractId"
@@ -116,9 +117,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_WF_ACTION"
-    IsUpdateable="while_insert"
-    HistoryColumn="UserHistory">
+    TableName="XPE_DCC_WF_ACTION">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -141,8 +140,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_WF_ACTION"
-    HistoryColumn="UserHistory">
+    TableName="XPE_DCC_WF_ACTION">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>

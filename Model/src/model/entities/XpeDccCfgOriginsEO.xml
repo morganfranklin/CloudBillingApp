@@ -97,7 +97,9 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="XPE_DCC_CFG_ORIGINS"/>
+    TableName="XPE_DCC_CFG_ORIGINS"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="LastUpdatedBy"
     Precision="20"
@@ -116,7 +118,8 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="XPE_DCC_CFG_ORIGINS"/>
+    TableName="XPE_DCC_CFG_ORIGINS"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="County"
     Precision="20"
