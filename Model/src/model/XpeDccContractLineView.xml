@@ -95,7 +95,7 @@
         </AttrArray>
         <AttrArray Name="ListAttrNames">
             <Item Value="XpeLookupId"/>
-            <Item Value="XpeLookupDesc"/>
+            <Item Value="XpeLookupId"/>
         </AttrArray>
         <AttrArray Name="ListDisplayAttrNames">
             <Item Value="XpeLookupId"/>
@@ -193,6 +193,24 @@
         </AttrArray>
         <AttrArray Name="ListDisplayAttrNames">
             <Item Value="ValidValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_XpeProductDesc"
+        ListVOName="XpeDccDicProducts1"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="XpeProductDesc"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="XpeLookupId"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="XpeLookupDesc"/>
         </AttrArray>
         <DisplayCriteria/>
     </ListBinding>
@@ -392,11 +410,17 @@
         ColumnType="VARCHAR2"
         AliasName="XPE_PRODUCT_DESC"
         SQLType="VARCHAR"
-        Passivate="true">
+        Passivate="true"
+        LOVName="LOV_XpeProductDesc">
+        <TransientExpression
+            Name="ExpressionScript"
+            CodeSourceName="XpeDccContractLineViewRow"/>
         <Properties>
             <SchemaBasedProperties>
                 <LABEL
                     ResId="model.XpeDccContractLineView.XpeProductDesc_LABEL"/>
+                <CONTROLTYPE
+                    Value="choice"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>

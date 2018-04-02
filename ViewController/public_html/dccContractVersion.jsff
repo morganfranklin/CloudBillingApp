@@ -339,9 +339,14 @@
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccContractLineView2.hints.XpeProductDesc.label}"
                                                id="c16" width="200">
-                                        <af:outputText value="#{row.XpeProductDesc}"
-                                                       shortDesc="#{bindings.XpeDccContractLineView2.hints.XpeProductDesc.tooltip}"
-                                                       id="ot5" partialTriggers="ilov5"/>
+                                        <af:selectOneChoice value="#{row.bindings.XpeProductDesc.inputValue}"
+                                                            label="#{row.bindings.XpeProductDesc.label}"
+                                                            required="#{bindings.XpeDccContractLineView2.hints.XpeProductDesc.mandatory}"
+                                                            shortDesc="#{bindings.XpeDccContractLineView2.hints.XpeProductDesc.tooltip}"
+                                                            id="soc12" partialTriggers="ilov5" readOnly="true">
+                                            <f:selectItems value="#{row.bindings.XpeProductDesc.items}" id="si12"/>
+                                            <f:validator binding="#{row.bindings.XpeProductDesc.validator}"/>
+                                        </af:selectOneChoice>
                                     </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccContractLineView2.hints.XpeProductUom.name}"
                                                filterable="true" sortable="true" headerText="UOM" id="c4">

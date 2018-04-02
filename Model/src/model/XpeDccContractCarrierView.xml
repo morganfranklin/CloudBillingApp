@@ -61,7 +61,7 @@
         </AttrArray>
         <AttrArray Name="ListAttrNames">
             <Item Value="CarrierId"/>
-            <Item Value="CarrierName"/>
+            <Item Value="CarrierId"/>
         </AttrArray>
         <AttrArray Name="ListDisplayAttrNames">
             <Item Value="CarrierId"/>
@@ -69,6 +69,24 @@
         </AttrArray>
         <DisplayCriteria
             Hint="showAndExecute"/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_XpeCarrierDesc"
+        ListVOName="XpeDccCfgCarriersROVO1"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="XpeCarrierDesc"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="CarrierId"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="CarrierName"/>
+        </AttrArray>
+        <DisplayCriteria/>
     </ListBinding>
     <EntityUsage
         Name="XpeDccContractCarrier"
@@ -213,11 +231,18 @@
         ColumnType="VARCHAR2"
         AliasName="XPE_CARRIER_DSEC"
         SQLType="VARCHAR"
-        Passivate="true">
+        Passivate="true"
+        LOVName="LOV_XpeCarrierDesc">
+        <TransientExpression
+            Name="ExpressionScript"
+            trustMode="untrusted"
+            CodeSourceName="XpeDccContractCarrierViewRow"/>
         <Properties>
             <SchemaBasedProperties>
                 <LABEL
                     ResId="model.XpeDccContractCarrierView.XpeCarrierDesc_LABEL"/>
+                <CONTROLTYPE
+                    Value="choice"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>

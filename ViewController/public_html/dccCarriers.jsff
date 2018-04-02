@@ -215,9 +215,14 @@
                                        sortable="true"
                                        headerText="#{bindings.XpeDccContractCarrierView3.hints.XpeCarrierDesc.label}"
                                        id="c2" width="200">
-                                <af:outputText value="#{row.XpeCarrierDesc}"
-                                               shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeCarrierDesc.tooltip}"
-                                               id="ot1" partialTriggers="ilov5"/>
+                                <af:selectOneChoice value="#{row.bindings.XpeCarrierDesc.inputValue}"
+                                                    label="#{row.bindings.XpeCarrierDesc.label}"
+                                                    required="#{bindings.XpeDccContractCarrierView3.hints.XpeCarrierDesc.mandatory}"
+                                                    shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeCarrierDesc.tooltip}"
+                                                    readOnly="true" id="soc1" partialTriggers="ilov5">
+                                    <f:selectItems value="#{row.bindings.XpeCarrierDesc.items}" id="si1"/>
+                                    <f:validator binding="#{row.bindings.XpeCarrierDesc.validator}"/>
+                                </af:selectOneChoice>
                             </af:column>
                             <af:column sortProperty="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleType.name}"
                                        sortable="true" headerText="Vehicle Type" id="c6">

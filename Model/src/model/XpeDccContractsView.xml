@@ -94,7 +94,7 @@
         </AttrArray>
         <AttrArray Name="ListAttrNames">
             <Item Value="PcsshortnameId"/>
-            <Item Value="PcsshortName"/>
+            <Item Value="PcsshortnameId"/>
         </AttrArray>
         <AttrArray Name="ListDisplayAttrNames">
             <Item Value="PcsshortnameId"/>
@@ -103,6 +103,24 @@
         <DisplayCriteria
             Hint="showAndExecute"
             Name="PCSShortNamesCriteria"/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_XpeDccPcsnameDesc"
+        ListVOName="XpeDccCfgPCSShortNamesROVO1"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="XpeDccPcsnameDesc"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="PcsshortnameId"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="PcsshortName"/>
+        </AttrArray>
+        <DisplayCriteria/>
     </ListBinding>
     <SQLQuery><![CDATA[SELECT XpeDccContracts.XPE_CONTRACT_ID,    
        XpeDccContracts.XPE_CONTRACT_DESC,    
@@ -293,11 +311,18 @@ WHERE TempCustomer.CUST_ID=XpeDccContracts.CUST_ID]]></SQLQuery>
         ColumnType="VARCHAR2"
         AliasName="XPE_DCC_PCSNAME_DESC"
         SQLType="VARCHAR"
-        Passivate="true">
+        Passivate="true"
+        LOVName="LOV_XpeDccPcsnameDesc">
+        <TransientExpression
+            Name="ExpressionScript"
+            trustMode="untrusted"
+            CodeSourceName="XpeDccContractsViewRow"/>
         <Properties>
             <SchemaBasedProperties>
                 <LABEL
                     ResId="model.XpeDccContractsView.XpeDccPcsnameDesc_LABEL"/>
+                <CONTROLTYPE
+                    Value="choice"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>

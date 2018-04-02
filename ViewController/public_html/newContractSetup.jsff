@@ -264,9 +264,15 @@
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractLineView.hints.XpeProductDesc.label}"
                                                        id="c3" width="200">
-                                                <af:outputText value="#{row.XpeProductDesc}"
-                                                               shortDesc="#{bindings.XpeDccNewContractLineView.hints.XpeProductDesc.tooltip}"
-                                                               id="ot1" partialTriggers="ilov5"/>
+                                                <af:selectOneChoice value="#{row.bindings.XpeProductDesc.inputValue}"
+                                                                    label="#{row.bindings.XpeProductDesc.label}"
+                                                                    required="#{bindings.XpeDccNewContractLineView.hints.XpeProductDesc.mandatory}"
+                                                                    shortDesc="#{bindings.XpeDccNewContractLineView.hints.XpeProductDesc.tooltip}"
+                                                                    readOnly="true" id="soc7" partialTriggers="ilov5">
+                                                    <f:selectItems value="#{row.bindings.XpeProductDesc.items}"
+                                                                   id="si7"/>
+                                                    <f:validator binding="#{row.bindings.XpeProductDesc.validator}"/>
+                                                </af:selectOneChoice>
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractLineView.hints.XpeProductUom.label}"
                                                        id="c20">
