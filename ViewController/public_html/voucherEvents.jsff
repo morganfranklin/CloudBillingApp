@@ -5,7 +5,6 @@
         <af:gridRow marginTop="5px" height="85px" id="gr1">
             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1" halign="stretch" valign="stretch">
                 <af:panelBox text="Changes Log" id="pb1" showDisclosure="false" background="light">
-                    <f:facet name="toolbar"/>
                     <af:panelGridLayout id="pgl2">
                         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3" halign="stretch"
@@ -21,16 +20,18 @@
         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" halign="stretch" valign="stretch">
                 <af:panelBox text="Audit Tables Review" id="pb2" showDisclosure="false">
-                    <f:facet name="toolbar"/>
                     <af:panelTabbed position="above" id="pt1" dimensionsFrom="parent" styleClass="AFStretchWidth">
                         <af:showDetailItem id="tab1" text="carriers" disclosed="true">
                             <af:panelCollection id="pc1" styleClass="AFStretchWidth">
                                 <f:facet name="menus">
                                     <af:menu text="Audit Report" id="m1">
-                                        <af:commandMenuItem text="Download as Excel" id="cmi1"/>
+                                        <af:commandMenuItem text="Export to Excel" id="cmi1">
+                                            <af:exportCollectionActionListener type="excelHTML" exportedId="t1"
+                                                                               filename="CarriersAuditReport.xls"
+                                                                               title="Carriers Audit Report"/>
+                                        </af:commandMenuItem>
                                     </af:menu>
                                 </f:facet>
-                                <f:facet name="toolbar"/>
                                 <af:table value="#{bindings.XpeDccCfgCarriersAdtView1.collectionModel}" var="row"
                                           rows="#{bindings.XpeDccCfgCarriersAdtView1.rangeSize}"
                                           emptyText="#{bindings.XpeDccCfgCarriersAdtView1.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -165,17 +166,19 @@
                                         </af:outputText>
                                     </af:column>
                                 </af:table>
-                                <f:facet name="statusbar"/>
                             </af:panelCollection>
                         </af:showDetailItem>
                         <af:showDetailItem id="tab2" text="counties">
                             <af:panelCollection id="pc2" styleClass="AFStretchWidth">
                                 <f:facet name="menus">
                                     <af:menu text="Audit Report" id="m2">
-                                        <af:commandMenuItem text="Download as Excel" id="cmi2"/>
+                                        <af:commandMenuItem text="Export to Excel" id="cmi2">
+                                        <af:exportCollectionActionListener type="excelHTML" exportedId="t2"
+                                                                               filename="CountiesAuditReport.xls"
+                                                                               title="Counties Audit Report"/>
+                                        </af:commandMenuItem>
                                     </af:menu>
                                 </f:facet>
-                                <f:facet name="toolbar"/>
                                 <af:table value="#{bindings.XpeDccCfgCountiesAdtView1.collectionModel}" var="row"
                                           rows="#{bindings.XpeDccCfgCountiesAdtView1.rangeSize}"
                                           emptyText="#{bindings.XpeDccCfgCountiesAdtView1.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -324,17 +327,19 @@
                                         </af:outputText>
                                     </af:column>
                                 </af:table>
-                                <f:facet name="statusbar"/>
                             </af:panelCollection>
                         </af:showDetailItem>
                         <af:showDetailItem id="tab3" text="destinations">
                             <af:panelCollection id="pc3" styleClass="AFStretchWidth">
                                 <f:facet name="menus">
                                     <af:menu text="Audit Report" id="m3">
-                                        <af:commandMenuItem text="Download as Excel" id="cmi3"/>
+                                         <af:commandMenuItem text="Export to Excel" id="cmi3">
+                                            <af:exportCollectionActionListener type="excelHTML" exportedId="t3"
+                                                                               filename="DestinationsAuditReport.xls"
+                                                                               title="Destinations Audit Report"/>
+                                        </af:commandMenuItem>
                                     </af:menu>
                                 </f:facet>
-                                <f:facet name="toolbar"/>
                                 <af:table value="#{bindings.XpeDccCfgDestinationsAdtView1.collectionModel}" var="row"
                                           rows="#{bindings.XpeDccCfgDestinationsAdtView1.rangeSize}"
                                           emptyText="#{bindings.XpeDccCfgDestinationsAdtView1.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -483,17 +488,19 @@
                                         </af:outputText>
                                     </af:column>
                                 </af:table>
-                                <f:facet name="statusbar"/>
                             </af:panelCollection>
                         </af:showDetailItem>
                         <af:showDetailItem id="tab4" text="origins">
                             <af:panelCollection id="pc4" styleClass="AFStretchWidth">
                                 <f:facet name="menus">
                                     <af:menu text="Audit Report" id="m4">
-                                        <af:commandMenuItem text="Download as Excel" id="cmi4"/>
+                                        <af:commandMenuItem text="Export to Excel" id="cmi4">
+                                            <af:exportCollectionActionListener type="excelHTML" exportedId="t4"
+                                                                               filename="OriginsAuditReport.xls"
+                                                                               title="Origins Audit Report"/>
+                                        </af:commandMenuItem>
                                     </af:menu>
                                 </f:facet>
-                                <f:facet name="toolbar"/>
                                 <af:table value="#{bindings.XpeDccCfgOriginsAdtView1.collectionModel}" var="row"
                                           rows="#{bindings.XpeDccCfgOriginsAdtView1.rangeSize}"
                                           emptyText="#{bindings.XpeDccCfgOriginsAdtView1.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -658,17 +665,19 @@
                                         </af:outputText>
                                     </af:column>
                                 </af:table>
-                                <f:facet name="statusbar"/>
                             </af:panelCollection>
                         </af:showDetailItem>
                         <af:showDetailItem id="tab5" text="vehicles">
                             <af:panelCollection id="pc5" styleClass="AFStretchWidth">
                                 <f:facet name="menus">
                                     <af:menu text="Audit Report" id="m5">
-                                        <af:commandMenuItem text="Download as Excel" id="cmi5"/>
+                                        <af:commandMenuItem text="Export to Excel" id="cmi5">
+                                            <af:exportCollectionActionListener type="excelHTML" exportedId="t5"
+                                                                               filename="VehiclesAuditReport.xls"
+                                                                               title="Vehicles Audit Report"/>
+                                        </af:commandMenuItem>
                                     </af:menu>
                                 </f:facet>
-                                <f:facet name="toolbar"/>
                                 <af:table value="#{bindings.XpeDccCfgVehiclesAdtView1.collectionModel}" var="row"
                                           rows="#{bindings.XpeDccCfgVehiclesAdtView1.rangeSize}"
                                           emptyText="#{bindings.XpeDccCfgVehiclesAdtView1.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -817,17 +826,19 @@
                                         </af:outputText>
                                     </af:column>
                                 </af:table>
-                                <f:facet name="statusbar"/>
                             </af:panelCollection>
                         </af:showDetailItem>
                         <af:showDetailItem id="tab6" text="customers">
                             <af:panelCollection id="pc6" styleClass="AFStretchWidth">
                                 <f:facet name="menus">
                                     <af:menu text="Audit Report" id="m6">
-                                        <af:commandMenuItem text="Download as Excel" id="cmi6"/>
+                                        <af:commandMenuItem text="Export to Excel" id="cmi6">
+                                            <af:exportCollectionActionListener type="excelHTML" exportedId="t6"
+                                                                               filename="CustomersAuditReport.xls"
+                                                                               title="Customers Audit Report"/>
+                                        </af:commandMenuItem>
                                     </af:menu>
                                 </f:facet>
-                                <f:facet name="toolbar"/>
                                 <af:table value="#{bindings.XpeDccCfgPcsshtnamesAdtView1.collectionModel}" var="row"
                                           rows="#{bindings.XpeDccCfgPcsshtnamesAdtView1.rangeSize}"
                                           emptyText="#{bindings.XpeDccCfgPcsshtnamesAdtView1.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -1030,17 +1041,19 @@
                                         </af:outputText>
                                     </af:column>
                                 </af:table>
-                                <f:facet name="statusbar"/>
                             </af:panelCollection>
                         </af:showDetailItem>
                         <af:showDetailItem id="tab7" text="contracts">
                             <af:panelCollection id="pc7" styleClass="AFStretchWidth">
                                 <f:facet name="menus">
                                     <af:menu text="Audit Report" id="m7">
-                                        <af:commandMenuItem text="Download as Excel" id="cmi7"/>
+                                         <af:commandMenuItem text="Export to Excel" id="cmi7">
+                                            <af:exportCollectionActionListener type="excelHTML" exportedId="t7"
+                                                                               filename="ContractsAuditReport.xls"
+                                                                               title="Contracts Audit Report"/>
+                                        </af:commandMenuItem>
                                     </af:menu>
                                 </f:facet>
-                                <f:facet name="toolbar"/>
                                 <af:table value="#{bindings.XpeDccContractsAdtView1.collectionModel}" var="row"
                                           rows="#{bindings.XpeDccContractsAdtView1.rangeSize}"
                                           emptyText="#{bindings.XpeDccContractsAdtView1.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -1168,17 +1181,19 @@
                                         </af:outputText>
                                     </af:column>
                                 </af:table>
-                                <f:facet name="statusbar"/>
                             </af:panelCollection>
                         </af:showDetailItem>
                         <af:showDetailItem id="tab8" text="contract versions">
                             <af:panelCollection id="pc8" styleClass="AFStretchWidth">
                                 <f:facet name="menus">
                                     <af:menu text="Audit Report" id="m8">
-                                        <af:commandMenuItem text="Download as Excel" id="cmi8"/>
+                                         <af:commandMenuItem text="Export to Excel" id="cmi8">
+                                            <af:exportCollectionActionListener type="excelHTML" exportedId="t8"
+                                                                               filename="ContractVersionsAuditReport.xls"
+                                                                               title="Contract Versions Audit Report"/>
+                                        </af:commandMenuItem>
                                     </af:menu>
                                 </f:facet>
-                                <f:facet name="toolbar"/>
                                 <af:table value="#{bindings.XpeDccContractVersionAdtView1.collectionModel}" var="row"
                                           rows="#{bindings.XpeDccContractVersionAdtView1.rangeSize}"
                                           emptyText="#{bindings.XpeDccContractVersionAdtView1.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -1367,17 +1382,19 @@
                                                        id="ot117"/>
                                     </af:column>
                                 </af:table>
-                                <f:facet name="statusbar"/>
                             </af:panelCollection>
                         </af:showDetailItem>
                         <af:showDetailItem id="tab9" text="contract lines">
                             <af:panelCollection id="pc9" styleClass="AFStretchWidth">
                                 <f:facet name="menus">
                                     <af:menu text="Audit Report" id="m9">
-                                        <af:commandMenuItem text="Download as Excel" id="cmi9"/>
+                                         <af:commandMenuItem text="Export to Excel" id="cmi9">
+                                            <af:exportCollectionActionListener type="excelHTML" exportedId="t9"
+                                                                               filename="ContractLinesAuditReport.xls"
+                                                                               title="Contract Lines Audit Report"/>
+                                        </af:commandMenuItem>
                                     </af:menu>
                                 </f:facet>
-                                <f:facet name="toolbar"/>
                                 <af:table value="#{bindings.XpeDccContractLineAdtView1.collectionModel}" var="row"
                                           rows="#{bindings.XpeDccContractLineAdtView1.rangeSize}"
                                           emptyText="#{bindings.XpeDccContractLineAdtView1.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -1500,17 +1517,19 @@
                                                        id="ot130"/>
                                     </af:column>
                                 </af:table>
-                                <f:facet name="statusbar"/>
                             </af:panelCollection>
                         </af:showDetailItem>
                         <af:showDetailItem id="tab10" text="pricing">
                             <af:panelCollection id="pc10" styleClass="AFStretchWidth">
                                 <f:facet name="menus">
                                     <af:menu text="Audit Report" id="m10">
-                                        <af:commandMenuItem text="Download as Excel" id="cmi10"/>
+                                         <af:commandMenuItem text="Export to Excel" id="cmi10">
+                                            <af:exportCollectionActionListener type="excelHTML" exportedId="t10"
+                                                                               filename="ContractPricingAuditReport.xls"
+                                                                               title="Contract Pricing Audit Report"/>
+                                        </af:commandMenuItem>
                                     </af:menu>
                                 </f:facet>
-                                <f:facet name="toolbar"/>
                                 <af:table value="#{bindings.XpeDccCntrctPrcngTermAdtView1.collectionModel}" var="row"
                                           rows="#{bindings.XpeDccCntrctPrcngTermAdtView1.rangeSize}"
                                           emptyText="#{bindings.XpeDccCntrctPrcngTermAdtView1.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -1732,7 +1751,6 @@
                                         </af:outputText>
                                     </af:column>
                                 </af:table>
-                                <f:facet name="statusbar"/>
                             </af:panelCollection>
                         </af:showDetailItem>
                     </af:panelTabbed>
