@@ -5,6 +5,11 @@
         <data-control-scope>
             <shared/>
         </data-control-scope>
+        <managed-bean id="__1">
+            <managed-bean-name>auditReportsMBean</managed-bean-name>
+            <managed-bean-class>view.AuditReportsMBean</managed-bean-class>
+            <managed-bean-scope>pageFlow</managed-bean-scope>
+        </managed-bean>
         <view id="voucherEventsView">
             <page>/voucherEvents.jsff</page>
         </view>

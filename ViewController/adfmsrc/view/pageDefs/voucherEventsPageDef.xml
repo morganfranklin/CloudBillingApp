@@ -289,5 +289,75 @@
                 </AttrNames>
             </nodeDefinition>
         </tree>
+        <methodAction id="writeCarriersVoToXml" RequiresUpdateModel="true" Action="invokeMethod" MethodName="writeVoToXml"
+                      IsViewObjectMethod="false" DataControl="AuditLogAppModuleDataControl"
+                      InstanceName="data.AuditLogAppModuleDataControl.dataProvider"
+                      ReturnName="data.AuditLogAppModuleDataControl.methodResults.writeVoToXml_AuditLogAppModuleDataControl_dataProvider_writeVoToXml_result">
+            <NamedData NDName="voName" NDValue="#{bindings.XpeDccCfgCarriersAdtView1Iterator.VOName}"
+                       NDType="java.lang.String"/>
+        </methodAction>
+        <methodAction id="writeCountiesVoToXml" RequiresUpdateModel="true" Action="invokeMethod" MethodName="writeVoToXml"
+                      IsViewObjectMethod="false" DataControl="AuditLogAppModuleDataControl"
+                      InstanceName="data.AuditLogAppModuleDataControl.dataProvider"
+                      ReturnName="data.AuditLogAppModuleDataControl.methodResults.writeVoToXml_AuditLogAppModuleDataControl_dataProvider_writeVoToXml_result">
+            <NamedData NDName="voName" NDValue="#{bindings.XpeDccCfgCountiesAdtView1Iterator.VOName}"
+                       NDType="java.lang.String"/>
+        </methodAction>
+        <methodAction id="writeDestinationsVoToXml" RequiresUpdateModel="true" Action="invokeMethod" MethodName="writeVoToXml"
+                      IsViewObjectMethod="false" DataControl="AuditLogAppModuleDataControl"
+                      InstanceName="data.AuditLogAppModuleDataControl.dataProvider"
+                      ReturnName="data.AuditLogAppModuleDataControl.methodResults.writeVoToXml_AuditLogAppModuleDataControl_dataProvider_writeVoToXml_result">
+            <NamedData NDName="voName" NDValue="#{bindings.XpeDccCfgDestinationsAdtView1Iterator.VOName}"
+                       NDType="java.lang.String"/>
+        </methodAction>
+        <methodAction id="writeOriginsVoToXml" RequiresUpdateModel="true" Action="invokeMethod" MethodName="writeVoToXml"
+                      IsViewObjectMethod="false" DataControl="AuditLogAppModuleDataControl"
+                      InstanceName="data.AuditLogAppModuleDataControl.dataProvider"
+                      ReturnName="data.AuditLogAppModuleDataControl.methodResults.writeVoToXml_AuditLogAppModuleDataControl_dataProvider_writeVoToXml_result">
+            <NamedData NDName="voName" NDValue="#{bindings.XpeDccCfgOriginsAdtView1Iterator.VOName}"
+                       NDType="java.lang.String"/>
+        </methodAction>
+        <methodAction id="writeVehiclesVoToXml" RequiresUpdateModel="true" Action="invokeMethod" MethodName="writeVoToXml"
+                      IsViewObjectMethod="false" DataControl="AuditLogAppModuleDataControl"
+                      InstanceName="data.AuditLogAppModuleDataControl.dataProvider"
+                      ReturnName="data.AuditLogAppModuleDataControl.methodResults.writeVoToXml_AuditLogAppModuleDataControl_dataProvider_writeVoToXml_result">
+            <NamedData NDName="voName" NDValue="#{bindings.XpeDccCfgVehiclesAdtView1Iterator.VOName}"
+                       NDType="java.lang.String"/>
+        </methodAction>
+        <methodAction id="writePCSVoToXml" RequiresUpdateModel="true" Action="invokeMethod" MethodName="writeVoToXml"
+                      IsViewObjectMethod="false" DataControl="AuditLogAppModuleDataControl"
+                      InstanceName="data.AuditLogAppModuleDataControl.dataProvider"
+                      ReturnName="data.AuditLogAppModuleDataControl.methodResults.writeVoToXml_AuditLogAppModuleDataControl_dataProvider_writeVoToXml_result">
+            <NamedData NDName="voName" NDValue="#{bindings.XpeDccCfgPcsshtnamesAdtView1Iterator.VOName}"
+                       NDType="java.lang.String"/>
+        </methodAction>
+        <methodAction id="writeContractsVoToXml" RequiresUpdateModel="true" Action="invokeMethod" MethodName="writeVoToXml"
+                      IsViewObjectMethod="false" DataControl="AuditLogAppModuleDataControl"
+                      InstanceName="data.AuditLogAppModuleDataControl.dataProvider"
+                      ReturnName="data.AuditLogAppModuleDataControl.methodResults.writeVoToXml_AuditLogAppModuleDataControl_dataProvider_writeVoToXml_result">
+            <NamedData NDName="voName" NDValue="#{bindings.XpeDccContractsAdtView1Iterator.VOName}"
+                       NDType="java.lang.String"/>
+        </methodAction>
+        <methodAction id="writeContractVersionVoToXml" RequiresUpdateModel="true" Action="invokeMethod" MethodName="writeVoToXml"
+                      IsViewObjectMethod="false" DataControl="AuditLogAppModuleDataControl"
+                      InstanceName="data.AuditLogAppModuleDataControl.dataProvider"
+                      ReturnName="data.AuditLogAppModuleDataControl.methodResults.writeVoToXml_AuditLogAppModuleDataControl_dataProvider_writeVoToXml_result">
+            <NamedData NDName="voName" NDValue="#{bindings.XpeDccContractVersionAdtView1Iterator.VOName}"
+                       NDType="java.lang.String"/>
+        </methodAction>
+        <methodAction id="writeContractLineVoToXml" RequiresUpdateModel="true" Action="invokeMethod" MethodName="writeVoToXml"
+                      IsViewObjectMethod="false" DataControl="AuditLogAppModuleDataControl"
+                      InstanceName="data.AuditLogAppModuleDataControl.dataProvider"
+                      ReturnName="data.AuditLogAppModuleDataControl.methodResults.writeVoToXml_AuditLogAppModuleDataControl_dataProvider_writeVoToXml_result">
+            <NamedData NDName="voName" NDValue="#{bindings.XpeDccContractLineAdtView1Iterator.VOName}"
+                       NDType="java.lang.String"/>
+        </methodAction>
+        <methodAction id="writeContractPriceTermVoToXml" RequiresUpdateModel="true" Action="invokeMethod" MethodName="writeVoToXml"
+                      IsViewObjectMethod="false" DataControl="AuditLogAppModuleDataControl"
+                      InstanceName="data.AuditLogAppModuleDataControl.dataProvider"
+                      ReturnName="data.AuditLogAppModuleDataControl.methodResults.writeVoToXml_AuditLogAppModuleDataControl_dataProvider_writeVoToXml_result">
+            <NamedData NDName="voName" NDValue="#{bindings.XpeDccCntrctPrcngTermAdtView1Iterator.VOName}"
+                       NDType="java.lang.String"/>
+        </methodAction>
     </bindings>
 </pageDefinition>
