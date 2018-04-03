@@ -119,7 +119,7 @@ public class PeopleSoftCallSecurityFilter {
                                                                    // 9/28: Prashant & Monika - first part of URL below needs to be changed when deploying elsewhere e.g. Prod
 
                                                                    url =
-                                                                       new URL("https://fincvtadev.covanta.com/psc/DCVAEK/EMPLOYEE/ERP/s/WEBLIB_ADFCALL.ISCRIPT1.FieldFormula.IScript_Feedback"); // UAT
+                                                                       new URL(null, "https://fincvtadev.covanta.com/psc/DCVAEK/EMPLOYEE/ERP/s/WEBLIB_ADFCALL.ISCRIPT1.FieldFormula.IScript_Feedback", new sun.net.www.protocol.https.Handler()); // UAT
                                                                    HttpsURLConnection con = (HttpsURLConnection) url.openConnection();
 
                                                                    System.out.println("connection open");
@@ -181,11 +181,11 @@ public class PeopleSoftCallSecurityFilter {
 //            this.setRetrievedToken("GBEWLEY");
 //        }
 
-        if (this.getAccessLimit().equalsIgnoreCase("GBEWLEY")) {
-            this.setAccessLimit("D");
-            } else {
+//        if (this.getAccessLimit().equalsIgnoreCase("GBEWLEY")) {
+//            this.setAccessLimit("D");
+//            } else {
                 this.checkRoles(this.getRetrievedToken());
-            }
+//            }
 
     }
 
@@ -268,46 +268,46 @@ public class PeopleSoftCallSecurityFilter {
     }
 
     public void validateToken(ClientEvent clientEvent) {
-
-        boolean isAuthenticated = false;
-        String resolvedUser = "";
-
-        try {
-
-            // resolvedUser  = resolveEl("#{PeopleSoftCallSecurityFilter.retrievedToken}");
-            resolvedUser = this.getRetrievedToken();
-
-        } catch (Exception e) {
-
-        }
-
-        if (resolvedUser != null) {
-            if (resolvedUser.length() > 0) {
-                System.out.println("found user " + resolvedUser);
-                isAuthenticated = true;
-                setRetrievedToken(resolvedUser);
-                this.checkRoles(resolvedUser);
-            }
-        }
-
-        if (isAuthenticated == false) {
-            System.out.println("no user found");
-
-            FacesContext fctx = FacesContext.getCurrentInstance();
-            ExternalContext ectx = fctx.getExternalContext();
-
-            String viewId = "unauthorized.jsf";
-            ControllerContext controllerCtx = null;
-            controllerCtx = ControllerContext.getInstance();
-            String activityURL = controllerCtx.getGlobalViewActivityURL(viewId);
-            try {
-                ectx.redirect(activityURL);
-            } catch (IOException e) {
-                //Can't redirect
-                e.printStackTrace();
-            }
-
-        }
+//
+//        boolean isAuthenticated = false;
+//        String resolvedUser = "";
+//
+//        try {
+//
+//            // resolvedUser  = resolveEl("#{PeopleSoftCallSecurityFilter.retrievedToken}");
+//            resolvedUser = this.getRetrievedToken();
+//
+//        } catch (Exception e) {
+//
+//        }
+//
+//        if (resolvedUser != null) {
+//            if (resolvedUser.length() > 0) {
+//                System.out.println("found user " + resolvedUser);
+//                isAuthenticated = true;
+//                setRetrievedToken(resolvedUser);
+//                this.checkRoles(resolvedUser);
+//            }
+//        }
+//
+//        if (isAuthenticated == false) {
+//            System.out.println("no user found");
+//
+//            FacesContext fctx = FacesContext.getCurrentInstance();
+//            ExternalContext ectx = fctx.getExternalContext();
+//
+//            String viewId = "unauthorized.jsf";
+//            ControllerContext controllerCtx = null;
+//            controllerCtx = ControllerContext.getInstance();
+//            String activityURL = controllerCtx.getGlobalViewActivityURL(viewId);
+//            try {
+//                ectx.redirect(activityURL);
+//            } catch (IOException e) {
+//                //Can't redirect
+//                e.printStackTrace();
+//            }
+//
+//        }
 
 
     }
