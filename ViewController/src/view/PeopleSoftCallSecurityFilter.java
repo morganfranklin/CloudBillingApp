@@ -177,9 +177,9 @@ public class PeopleSoftCallSecurityFilter {
 
         // test override
         
-        if (this.retrievedToken==null) {
-            this.setRetrievedToken("GBEWLEY");
-        }
+//        if (this.getRetrievedToken()==null) {
+//            this.setRetrievedToken("GBEWLEY");
+//        }
 
         if (this.getAccessLimit().equalsIgnoreCase("GBEWLEY")) {
             this.setAccessLimit("D");
