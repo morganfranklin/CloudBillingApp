@@ -46,7 +46,6 @@
     Entity="model.entities.XpeDccWfEventEO"/>
   <ViewAttribute
     Name="CreatedBy"
-    IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="CreatedBy"
     EntityUsage="XpeDccWfEventEO"
@@ -54,7 +53,6 @@
     IsUpdateable="false"/>
   <ViewAttribute
     Name="CreatedDate"
-    IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="CreatedDate"
     EntityUsage="XpeDccWfEventEO"
@@ -69,7 +67,6 @@
   </ViewAttribute>
   <ViewAttribute
     Name="LastUpdatedBy"
-    IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedBy"
     EntityUsage="XpeDccWfEventEO"
@@ -77,7 +74,6 @@
     IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdatedDate"
-    IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedDate"
     EntityUsage="XpeDccWfEventEO"

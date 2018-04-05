@@ -257,6 +257,7 @@ public class XpeDccWfEventEOImpl extends EntityImpl {
             userName = (String)userInforVORow.getAttribute("USER_NAME");
         //INSERT
         if(i==this.DML_INSERT){
+            System.err.println("Inside Event INSERT: "+userName);
             this.setCreatedBy(userName);
             this.setLastUpdatedBy(userName);
         }

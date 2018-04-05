@@ -85,7 +85,6 @@
   </Attribute>
   <Attribute
     Name="CreatedBy"
-    IsNotNull="true"
     Precision="20"
     ColumnName="CREATED_BY"
     SQLType="VARCHAR"
@@ -98,7 +97,6 @@
   </Attribute>
   <Attribute
     Name="CreatedDate"
-    IsNotNull="true"
     ColumnName="CREATED_DATE"
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
@@ -108,7 +106,6 @@
     HistoryColumn="DateHistory"/>
   <Attribute
     Name="LastUpdatedBy"
-    IsNotNull="true"
     Precision="20"
     ColumnName="LAST_UPDATED_BY"
     SQLType="VARCHAR"
@@ -121,7 +118,6 @@
   </Attribute>
   <Attribute
     Name="LastUpdatedDate"
-    IsNotNull="true"
     ColumnName="LAST_UPDATED_DATE"
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"

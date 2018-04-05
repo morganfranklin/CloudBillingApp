@@ -299,6 +299,7 @@ public class XpeDccWfActionEOImpl extends EntityImpl {
             userName = (String)userInforVORow.getAttribute("USER_NAME");
         //INSERT
         if(i==this.DML_INSERT){
+            System.err.println("Inside Action INSERT: "+userName);
             this.setCreatedBy(userName);
             this.setLastUpdatedBy(userName);
         }
