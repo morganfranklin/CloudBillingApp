@@ -10,7 +10,7 @@
                   DataControl="AppModuleDataControl" RangeSize="25"/>
         <iterator Binds="XpeDccContractPricingOverView2" RangeSize="25" DataControl="AppModuleDataControl"
                   id="XpeDccContractPricingOverView1Iterator"/>
-        <iterator Binds="XpeDccCfgRoleSecurityEOVO" RangeSize="10" DataControl="AppModuleDataControl"
+        <iterator Binds="XpeDccCfgRoleSecurityROVO" RangeSize="10" DataControl="AppModuleDataControl"
                   id="XpeDccCfgRoleSecurityEOVOIterator"/>
     </executables>
     <bindings>

@@ -26,7 +26,7 @@
                   id="XpeDccWfEventEOVO2Iterator"/>
         <iterator Binds="XpeDccWfActionEOVO2" RangeSize="25" DataControl="AppModuleDataControl"
                   id="XpeDccWfActionEOVO2Iterator"/>
-        <iterator Binds="XpeDccCfgNewRoleSecurityEOVO" RangeSize="10" DataControl="AppModuleDataControl"
+        <iterator Binds="XpeDccCfgRoleSecurityROVO" RangeSize="25" DataControl="AppModuleDataControl"
                   id="XpeDccCfgNewRoleSecurityEOVOIterator"/>
     </executables>
     <bindings>

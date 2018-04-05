@@ -24,7 +24,7 @@
                   id="PsCisXpeMappingView1Iterator"/>
         <searchRegion Binds="PsCisXpeMappingView1Iterator" Criteria=""
                       Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="PsCisXpeMappingView1Query"/>
-        <iterator Binds="XpeDccCfgRoleSecurityEOVO" RangeSize="10" DataControl="AppModuleDataControl"
+        <iterator Binds="XpeDccCfgRoleSecurityROVO" RangeSize="10" DataControl="AppModuleDataControl"
                   id="XpeDccCfgRoleSecurityEOVOIterator"/>
     </executables>
     <bindings>

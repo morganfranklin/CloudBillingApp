@@ -8,7 +8,7 @@
               id="XpeDccCfgMtlIndicesHeaderEOVO1Iterator"/>
     <iterator Binds="XpeDccCfgMtlIndicesDetailEOVO1" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccCfgMtlIndicesDetailEOVO1Iterator"/>
-    <iterator Binds="XpeDccCfgRoleSecurityEOVO" RangeSize="10" DataControl="AppModuleDataControl"
+    <iterator Binds="XpeDccCfgRoleSecurityROVO" RangeSize="10" DataControl="AppModuleDataControl"
               id="XpeDccCfgRoleSecurityEOVOIterator"/>
   </executables>
   <bindings>

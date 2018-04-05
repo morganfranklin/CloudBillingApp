@@ -90,6 +90,7 @@ import model.views.readonly.XpeDccCfgPcsAddressROVOImpl;
 import model.views.readonly.XpeDccCfgPcsAddressROVORowImpl;
 import model.views.readonly.XpeDccCfgPcsAssTerminalsROVOImpl;
 import model.views.readonly.XpeDccCfgPcsAssTerminalsROVORowImpl;
+import model.views.readonly.XpeDccCfgRoleSecurityROVOImpl;
 import model.views.readonly.XpeDccCfgTerminalsSearchROVOImpl;
 import model.views.readonly.XpeDccCfgTerminalsSearchROVORowImpl;
 import model.views.readonly.XpeDccCfgUserBusinessUnitROVOImpl;
@@ -3942,12 +3943,11 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             }
         }*/
         
-        XpeDccCfgRolesEOVOImpl xpeDccCfgRolesEOVO = this.getXpeDccCfgRolesEOVO();
-        if(null!=xpeDccCfgRolesEOVO){
-            xpeDccCfgRolesEOVO.executeEmptyRowSet();
-            xpeDccCfgRolesEOVO.setApplyViewCriteriaName("XpeDccCfgRolesEOVOCriteria");
-            xpeDccCfgRolesEOVO.setbind_PeoplesoftRole(null!=roleRow?roleRow.getRolename():null);
-            xpeDccCfgRolesEOVO.executeQuery();
+        XpeDccCfgRoleSecurityROVOImpl xpeDccCfgRoleSecurityROVO = this.getXpeDccCfgRoleSecurityROVO();
+        if(null!=xpeDccCfgRoleSecurityROVO){
+            xpeDccCfgRoleSecurityROVO.executeEmptyRowSet();
+            xpeDccCfgRoleSecurityROVO.setbind_peoplesoftrole(null!=roleRow?roleRow.getRolename():null);
+            xpeDccCfgRoleSecurityROVO.executeQuery();
         }
         return accessLimit;
     }
@@ -4302,29 +4302,6 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         return (ViewObjectImpl) findViewObject("XpeDccCovCntrctExpirationReportROVO");
     }
 
-    /**
-     * Container's getter for XpeDccCfgRolesEOVO1.
-     * @return XpeDccCfgRolesEOVO1
-     */
-    public XpeDccCfgRolesEOVOImpl getXpeDccCfgRolesEOVO() {
-        return (XpeDccCfgRolesEOVOImpl) findViewObject("XpeDccCfgRolesEOVO");
-    }
-
-    /**
-     * Container's getter for XpeDccCfgRoleSecurityEOVO1.
-     * @return XpeDccCfgRoleSecurityEOVO1
-     */
-    public XpeDccCfgRoleSecurityEOVOImpl getXpeDccCfgRoleSecurityEOVO() {
-        return (XpeDccCfgRoleSecurityEOVOImpl) findViewObject("XpeDccCfgRoleSecurityEOVO");
-    }
-
-    /**
-     * Container's getter for XpeDccCfgRoleSecurityFKVL1.
-     * @return XpeDccCfgRoleSecurityFKVL1
-     */
-    public ViewLinkImpl getXpeDccCfgRoleSecurityFKVL() {
-        return (ViewLinkImpl) findViewLink("XpeDccCfgRoleSecurityFKVL");
-    }
 
     /**
      * Container's getter for XpeDccCfgRolesEOVO1.
@@ -4396,6 +4373,14 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public ViewLinkImpl getXpeDccCfgMtlIndicesDetailFKVL1() {
         return (ViewLinkImpl) findViewLink("XpeDccCfgMtlIndicesDetailFKVL1");
+    }
+
+    /**
+     * Container's getter for XpeDccCfgRoleSecurityROVO1.
+     * @return XpeDccCfgRoleSecurityROVO1
+     */
+    public XpeDccCfgRoleSecurityROVOImpl getXpeDccCfgRoleSecurityROVO() {
+        return (XpeDccCfgRoleSecurityROVOImpl) findViewObject("XpeDccCfgRoleSecurityROVO");
     }
 }
 

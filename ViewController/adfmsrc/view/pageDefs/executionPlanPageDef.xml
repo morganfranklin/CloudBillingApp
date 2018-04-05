@@ -12,7 +12,7 @@
                   id="PsCisXpeExecstpView2Iterator"/>
         <searchRegion Binds="PsCisXpeExecstpView2Iterator" Criteria=""
                       Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="PsCisXpeExecstpView2Query"/>
-        <iterator Binds="XpeDccCfgRoleSecurityEOVO" RangeSize="10" DataControl="AppModuleDataControl"
+        <iterator Binds="XpeDccCfgRoleSecurityROVO" RangeSize="10" DataControl="AppModuleDataControl"
                   id="XpeDccCfgRoleSecurityEOVOIterator"/>
     </executables>
     <bindings>

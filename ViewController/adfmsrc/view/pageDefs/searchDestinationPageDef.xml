@@ -12,7 +12,7 @@
               id="XpeDccCfgDstAssTerminalsEOVOIterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="XpeDccCfgNewDestinationsCreationEOVO" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccCfgNewDestinationsCreationEOVOIterator" ChangeEventPolicy="ppr"/>
-    <iterator Binds="XpeDccCfgRoleSecurityEOVO" RangeSize="10" DataControl="AppModuleDataControl"
+    <iterator Binds="XpeDccCfgRoleSecurityROVO" RangeSize="10" DataControl="AppModuleDataControl"
               id="XpeDccCfgRoleSecurityEOVOIterator"/>
   </executables>
   <bindings>

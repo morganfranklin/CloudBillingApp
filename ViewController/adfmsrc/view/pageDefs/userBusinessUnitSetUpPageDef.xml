@@ -10,7 +10,7 @@
                   Binds="XpeDccCfgUserBusinessUnitEOVO1Iterator" id="UserBusinessUnitCriteriaQuery"/>
     <iterator Binds="XpeDccCfgNewUserBusinessUnitEOVO" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccCfgNewUserBusinessUnitEOVOIterator" ChangeEventPolicy="ppr"/>
-    <iterator Binds="XpeDccCfgRoleSecurityEOVO" RangeSize="10" DataControl="AppModuleDataControl"
+    <iterator Binds="XpeDccCfgRoleSecurityROVO" RangeSize="10" DataControl="AppModuleDataControl"
               id="XpeDccCfgRoleSecurityEOVOIterator"/>
   </executables>
   <bindings>

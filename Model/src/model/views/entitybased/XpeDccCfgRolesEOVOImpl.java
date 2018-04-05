@@ -14,20 +14,6 @@ public class XpeDccCfgRolesEOVOImpl extends ViewObjectImpl {
     public XpeDccCfgRolesEOVOImpl() {
     }
 
-    /**
-     * Returns the variable value for bind_PeoplesoftRole.
-     * @return variable value for bind_PeoplesoftRole
-     */
-    public String getbind_PeoplesoftRole() {
-        return (String) ensureVariableManager().getVariableValue("bind_PeoplesoftRole");
-    }
 
-    /**
-     * Sets <code>value</code> for variable bind_PeoplesoftRole.
-     * @param value value to bind as bind_PeoplesoftRole
-     */
-    public void setbind_PeoplesoftRole(String value) {
-        ensureVariableManager().setVariableValue("bind_PeoplesoftRole", value);
-    }
 }
 

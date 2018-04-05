@@ -27,10 +27,6 @@
         ResId="model.views.entitybased.XpeDccCfgRolesEOVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <Variable
-    Name="bind_PeoplesoftRole"
-    Kind="viewcriteria"
-    Type="java.lang.String"/>
   <EntityUsage
     Name="XpeDccCfgRolesEO"
     Entity="model.entities.XpeDccCfgRolesEO"/>
@@ -89,43 +85,6 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
-  <ViewCriteria
-    Name="XpeDccCfgRolesEOVOCriteria"
-    ViewObjectName="model.views.entitybased.XpeDccCfgRolesEOVO"
-    Conjunction="AND">
-    <Properties Name="_Props">
-      <CustomProperties>
-        <Property
-          Name="autoExecute"
-          Value="false"/>
-        <Property
-          Name="mode"
-          Value="Basic"/>
-        <Property
-          Name="allowConjunctionOverride"
-          Value="true"/>
-        <Property
-          Name="showInList"
-          Value="true"/>
-        <Property
-          Name="displayOperators"
-          Value="InAdvancedMode"/>
-      </CustomProperties>
-    </Properties>
-    <ViewCriteriaRow
-      Name="XpeDccCfgRolesEOVOCriteria_row_0"
-      UpperColumns="1">
-      <ViewCriteriaItem
-        Name="PeoplesoftRole"
-        ViewAttribute="PeoplesoftRole"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_PeoplesoftRole"
-        UpperColumns="0"
-        IsBindVarValue="true"
-        Required="Optional"/>
-    </ViewCriteriaRow>
-  </ViewCriteria>
   <ViewLinkAccessor
     Name="XpeDccCfgRoleSecurityEOVO"
     ViewLink="model.views.entitybased.XpeDccCfgRoleSecurityFKVL"

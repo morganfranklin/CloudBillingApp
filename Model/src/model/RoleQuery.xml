@@ -27,8 +27,8 @@
         Kind="where"
         Type="java.lang.String"
         DefaultValue="MPALMER"/>
-    <SQLQuery><![CDATA[SELECT ROLENAME FROM PSROLEUSER      
-WHERE ROLENAME IN('CPE_IA','CPE_SALES','CPE_LEGAL','CPE_ADMIN','CPE_DEV')     
+    <SQLQuery><![CDATA[SELECT ROLENAME FROM PSROLEUSER       
+WHERE ROLENAME IN('MOD_CPE_IA','MOD_CPE_SALES','MOD_CPE_LEGAL','MOD_CPE_ADMIN','MOD_CPE_DEV')      
 AND ROLEUSER=:Q_ROLE_USER]]></SQLQuery>
     <ViewAttribute
         Name="Rolename"

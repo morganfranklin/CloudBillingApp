@@ -11,7 +11,7 @@
                   id="XpeDccTermMasterEOVOCriteriaQuery"/>
     <iterator id="XpeDccTermMasterNewRowCreationEOVOIterator" Binds="XpeDccTermMasterNewRowCreationEOVO"
               DataControl="AppModuleDataControl" RangeSize="25" ChangeEventPolicy="none"/>
-    <iterator Binds="XpeDccCfgRoleSecurityEOVO" RangeSize="10" DataControl="AppModuleDataControl"
+    <iterator Binds="XpeDccCfgRoleSecurityROVO" RangeSize="10" DataControl="AppModuleDataControl"
               id="XpeDccCfgRoleSecurityEOVOIterator"/>
   </executables>
   <bindings>

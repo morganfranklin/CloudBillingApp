@@ -10,7 +10,7 @@
                   Binds="XpeDccCfgGeneralCnvEOVOIterator" id="GeneralConversionCriteriaQuery"/>
     <iterator Binds="XpeDccCfgNewGeneralCnvEOVO" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccCfgNewGeneralCnvEOVOIterator" ChangeEventPolicy="ppr"/>
-    <iterator Binds="XpeDccCfgRoleSecurityEOVO" RangeSize="10" DataControl="AppModuleDataControl"
+    <iterator Binds="XpeDccCfgRoleSecurityROVO" RangeSize="10" DataControl="AppModuleDataControl"
               id="XpeDccCfgRoleSecurityEOVOIterator"/>
   </executables>
   <bindings>

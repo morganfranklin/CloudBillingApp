@@ -10,7 +10,7 @@
                   Binds="XpeDccCfgCarriersEOVOIterator" id="CarriersCriteriaQuery"/>
     <iterator Binds="XpeDccCfgNewCarriersCreationEOVO" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccCfgNewCarriersCreationEOVOIterator" ChangeEventPolicy="ppr"/>
-    <iterator Binds="XpeDccCfgRoleSecurityEOVO" RangeSize="10" DataControl="AppModuleDataControl"
+    <iterator Binds="XpeDccCfgRoleSecurityROVO" RangeSize="10" DataControl="AppModuleDataControl"
               id="XpeDccCfgRoleSecurityEOVOIterator"/>
   </executables>
   <bindings>

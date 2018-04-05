@@ -17,7 +17,7 @@
         <iterator Binds="CovUnbill1" RangeSize="25" DataControl="AppModuleDataControl" id="CovUnbill1Iterator"/>
         <iterator Binds="CovBill1" RangeSize="25" DataControl="AppModuleDataControl" id="CovBill1Iterator"/>
         <iterator Binds="CovAudit1" RangeSize="25" DataControl="AppModuleDataControl" id="CovAudit1Iterator"/>
-        <iterator Binds="XpeDccCfgRoleSecurityEOVO" RangeSize="10" DataControl="AppModuleDataControl"
+        <iterator Binds="XpeDccCfgRoleSecurityROVO" RangeSize="10" DataControl="AppModuleDataControl"
                   id="XpeDccCfgRoleSecurityEOVOIterator"/>
     </executables>
     <bindings>

@@ -163,7 +163,7 @@
                                         <af:spacer width="10" height="10" id="s4"/>
                                         <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
                                                    disabled="#{!bindings.Delete.enabled}" id="b6" immediate="true"
-                                                   rendered="#{bindings.ContractManagement.inputValue eq 'V'}">
+                                                   rendered="#{bindings.ContractManagement.inputValue ne 'V'}">
                                             <af:resetActionListener/>
                                         </af:button>
                                     </af:toolbar>

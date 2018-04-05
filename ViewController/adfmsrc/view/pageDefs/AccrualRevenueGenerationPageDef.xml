@@ -6,7 +6,7 @@
     <variableIterator id="variables"/>
     <iterator Binds="XpeDccAccrualRevenueEOVO" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccAccrualRevenueEOVOIterator" ChangeEventPolicy="none"/>
-    <iterator Binds="XpeDccCfgRoleSecurityEOVO" RangeSize="10" DataControl="AppModuleDataControl"
+    <iterator Binds="XpeDccCfgRoleSecurityROVO" RangeSize="10" DataControl="AppModuleDataControl"
               id="XpeDccCfgRoleSecurityEOVOIterator"/>
   </executables>
   <bindings>

@@ -6,7 +6,7 @@
         <variableIterator id="variables"/>
         <taskFlow id="dynamicRegion1" taskFlowId="${viewScope.integrationDashboardRegionName.dynamicTaskFlowId}"
                   activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
-        <iterator Binds="XpeDccCfgRoleSecurityEOVO" RangeSize="10" DataControl="AppModuleDataControl"
+        <iterator Binds="XpeDccCfgRoleSecurityROVO" RangeSize="10" DataControl="AppModuleDataControl"
                   id="XpeDccCfgRoleSecurityEOVOIterator"/>
     </executables>
     <bindings>

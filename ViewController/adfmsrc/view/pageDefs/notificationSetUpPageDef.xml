@@ -10,7 +10,7 @@
                   Binds="XpeDccCfgNotificationEOVO1Iterator" id="NotificationCriteriaQuery"/>
     <iterator Binds="XpeDccCfgNewNotificationEOVO" RangeSize="25" DataControl="AppModuleDataControl"
               id="XpeDccCfgNewNotificationEOVOIterator" ChangeEventPolicy="ppr"/>
-    <iterator Binds="XpeDccCfgRoleSecurityEOVO" RangeSize="10" DataControl="AppModuleDataControl"
+    <iterator Binds="XpeDccCfgRoleSecurityROVO" RangeSize="10" DataControl="AppModuleDataControl"
               id="XpeDccCfgRoleSecurityEOVOIterator"/>
   </executables>
   <bindings>
