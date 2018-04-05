@@ -7,11 +7,11 @@
         <iterator Binds="XpeDccContractsView2" RangeSize="25" DataControl="AppModuleDataControl"
                   id="XpeDccContractsView1Iterator" ChangeEventPolicy="ppr"/>
         <iterator Binds="XpeDccContractVersionView1" RangeSize="25" DataControl="AppModuleDataControl"
-                  id="XpeDccContractVersionView2Iterator" ChangeEventPolicy="ppr"/>
+                  id="XpeDccContractVersionView2Iterator" ChangeEventPolicy="none"/>
         <iterator Binds="XpeDccContractPartyView1" RangeSize="25" DataControl="AppModuleDataControl"
-                  id="XpeDccContractPartyView2Iterator" ChangeEventPolicy="ppr"/>
+                  id="XpeDccContractPartyView2Iterator" ChangeEventPolicy="none"/>
         <iterator Binds="XpeDccPlatformEventView3" RangeSize="25" DataControl="AppModuleDataControl"
-                  id="XpeDccPlatformEventView2Iterator" ChangeEventPolicy="ppr"/>
+                  id="XpeDccPlatformEventView2Iterator" ChangeEventPolicy="none"/>
         <searchRegion Binds="XpeDccPlatformEventView2Iterator" Criteria=""
                       Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                       id="XpeDccPlatformEventView2Query"/>
@@ -19,9 +19,9 @@
                   id="XpeDccCfgRoleSecurityEOVOIterator"/>
     </executables>
     <bindings>
-        <attributeValues IterBinding="XpeDccContractsView1Iterator" id="XpeDccPcsnameDesc">
+        <attributeValues IterBinding="XpeDccContractsView1Iterator" id="XpeContractId">
             <AttrNames>
-                <Item Value="XpeDccPcsnameDesc"/>
+                <Item Value="XpeContractId"/>
             </AttrNames>
         </attributeValues>
         <attributeValues IterBinding="XpeDccContractsView1Iterator" id="XpeContractDesc">
@@ -137,5 +137,7 @@
                 <Item Value="Screen13"/>
             </AttrNames>
         </attributeValues>
+        <list IterBinding="XpeDccContractsView1Iterator" StaticList="false" Uses="LOV_XpeDccPcsnameDesc"
+              id="XpeDccPcsnameDesc" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     </bindings>
 </pageDefinition>

@@ -14,18 +14,19 @@
                                         <af:gridCell marginStart="0px" width="50%" id="gc5">
                                             <af:panelFormLayout id="pfl1">
                                                 <af:panelLabelAndMessage label="Contract Id" id="plam1">
-                                                    <af:outputText value="#{bindings.XpeDccPcsnameDesc.inputValue}"
-                                                                   shortDesc="#{bindings.XpeDccPcsnameDesc.hints.tooltip}"
+                                                    <af:outputText value="#{bindings.XpeContractId.inputValue}"
+                                                                   shortDesc="#{bindings.XpeContractId.hints.tooltip}"
                                                                    id="ot1"/>
                                                 </af:panelLabelAndMessage>
                                                 <af:inputText value="#{bindings.XpeContractDesc.inputValue}"
-                                                              label="#{bindings.XpeContractDesc.hints.label}"
+                                                              label="Contract Description"
                                                               required="#{bindings.XpeContractDesc.hints.mandatory}"
                                                               columns="#{bindings.XpeContractDesc.hints.displayWidth}"
                                                               autoSubmit="true"
                                                               maximumLength="#{bindings.XpeContractDesc.hints.precision}"
                                                               shortDesc="#{bindings.XpeContractDesc.hints.tooltip}"
-                                                              id="it1">
+                                                              id="it1"
+                                                              readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                                     <f:validator binding="#{bindings.XpeContractDesc.validator}"/>
                                                 </af:inputText>
                                                 <af:panelLabelAndMessage label="SetId" id="plam2" rendered="false">
@@ -36,7 +37,7 @@
                                                 <af:inputListOfValues id="custIdId"
                                                                       popupTitle="Search and Select: #{bindings.CustId.hints.label}"
                                                                       value="#{bindings.CustId.inputValue}"
-                                                                      label="#{bindings.CustId.hints.label}"
+                                                                      label="Customer Id"
                                                                       model="#{bindings.CustId.listOfValuesModel}"
                                                                       required="#{bindings.CustId.hints.mandatory}"
                                                                       columns="#{bindings.CustId.hints.displayWidth}"
@@ -51,17 +52,20 @@
                                                                    partialTriggers="custIdId"/>
                                                 </af:panelLabelAndMessage>
                                                 <af:panelLabelAndMessage label="#{bindings.AddressSeqNum.hints.label}"
-                                                                         id="plam5" partialTriggers="custIdId">
+                                                                         id="plam5" >
                                                     <af:outputText value="#{bindings.AddressSeqNum.inputValue}"
                                                                    shortDesc="#{bindings.AddressSeqNum.hints.tooltip}"
-                                                                   id="ot4" partialTriggers="custIdId"/>
+                                                                   id="ot4" partialTriggers="custIdId">
+                                                        <af:convertNumber groupingUsed="false"
+                                                                        pattern="#{bindings.AddressSeqNum.format}"/>
+                                                    </af:outputText>
                                                 </af:panelLabelAndMessage>
                                                 <af:panelLabelAndMessage label="Created By" id="plam3">
                                                     <af:outputText value="#{bindings.CreatedBy.inputValue}"
                                                                    shortDesc="#{bindings.CreatedBy.hints.tooltip}"
                                                                    id="ot3"/>
                                                 </af:panelLabelAndMessage>
-                                                <af:panelLabelAndMessage label="#{bindings.XpeDccPcsname.hints.label}"
+                                                <af:panelLabelAndMessage label="#{bindings.XpeDccPcsname.label}"
                                                                          id="plam4">
                                                     <af:inputListOfValues id="xpeDccPcsnameId"
                                                                           popupTitle="Search and Select: #{bindings.XpeDccPcsname.hints.label}"
@@ -75,11 +79,16 @@
                                                         <f:validator binding="#{bindings.XpeDccPcsname.validator}"/>
                                                     </af:inputListOfValues>
                                                 </af:panelLabelAndMessage>
-                                                <af:panelLabelAndMessage label="#{bindings.XpeDccPcsnameDesc.hints.label}"
-                                                                         id="plam7" partialTriggers="xpeDccPcsnameId">
-                                                    <af:outputText value="#{bindings.XpeDccPcsnameDesc.inputValue}"
-                                                                   shortDesc="#{bindings.XpeDccPcsnameDesc.hints.tooltip}"
-                                                                   id="ot7"/>
+                                                <af:panelLabelAndMessage label="#{bindings.XpeDccPcsnameDesc.label}" id="plam7">
+                                                    <af:selectOneChoice value="#{bindings.XpeDccPcsnameDesc.inputValue}"
+                                                                        required="#{bindings.XpeDccPcsnameDesc.hints.mandatory}"
+                                                                        shortDesc="#{bindings.XpeDccPcsnameDesc.hints.tooltip}"
+                                                                        readOnly="true" id="soc2" simple="true"
+                                                                        partialTriggers="xpeDccPcsnameId">
+                                                        <f:selectItems value="#{bindings.XpeDccPcsnameDesc.items}"
+                                                                       id="si2"/>
+                                                        <f:validator binding="#{bindings.XpeDccPcsnameDesc.validator}"/>
+                                                    </af:selectOneChoice>
                                                 </af:panelLabelAndMessage>
                                                 <af:inputText value="#{bindings.CustContractContactName.inputValue}"
                                                               label="#{bindings.CustContractContactName.hints.label}"
@@ -87,7 +96,8 @@
                                                               maximumLength="#{bindings.CustContractContactName.hints.precision}"
                                                               shortDesc="#{bindings.CustContractContactName.hints.tooltip}"
                                                               id="it4"
-                                                              required="#{bindings.CustContractContactName.hints.mandatory}">
+                                                              required="true"
+                                                              readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                                     <f:validator binding="#{bindings.CustContractContactName.validator}"/>
                                                 </af:inputText>
                                                 <af:inputText value="#{bindings.CustContractApproverEmail.inputValue}"
@@ -96,7 +106,8 @@
                                                               maximumLength="#{bindings.CustContractApproverEmail.hints.precision}"
                                                               shortDesc="#{bindings.CustContractApproverEmail.hints.tooltip}"
                                                               id="it5"
-                                                              required="#{bindings.CustContractApproverEmail.hints.mandatory}">
+                                                              required="true"
+                                                              readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
                                                     <f:validator binding="#{bindings.CustContractApproverEmail.validator}"/>
                                                 </af:inputText>
                                                 <af:panelLabelAndMessage label="#{bindings.SalesPerson.label}"

@@ -245,6 +245,8 @@
                                                 <f:selectItems value="#{bindings.Business_Type.items}" id="si2"/>
                                                 <f:validator binding="#{bindings.Business_Type.validator}"/>
                                             </af:selectOneRadio>
+                                            <af:spacer height="20" id="s2"/>
+                                            <af:button text="Next" id="b2" action="next"/>
                                         </f:facet>
                                         <f:facet name="EXT">
                                             <af:panelGroupLayout layout="vertical" id="pgl3">
@@ -448,11 +450,6 @@
                         </af:gridRow>
                     </af:panelGridLayout>
                 </af:panelBox>
-            </af:gridCell>
-        </af:gridRow>
-        <af:gridRow height="auto" id="gr4">
-            <af:gridCell marginStart="5px" width="100%" id="gc6" halign="stretch" marginEnd="5px" valign="stretch">
-                <af:button text="Next" id="b2" action="#{pageFlowScope.XpeDccNewContractMBean.onCustomerNextAction}"/>
             </af:gridCell>
         </af:gridRow>
     </af:panelGridLayout>

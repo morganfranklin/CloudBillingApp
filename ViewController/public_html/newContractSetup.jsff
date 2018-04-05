@@ -605,9 +605,15 @@
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractCarrierView.hints.XpeCarrierDesc.label}"
                                                        id="c4" width="200">
-                                                <af:outputText value="#{row.XpeCarrierDesc}"
-                                                               shortDesc="#{bindings.XpeDccNewContractCarrierView.hints.XpeCarrierDesc.tooltip}"
-                                                               id="ot2" partialTriggers="ilov7"/>
+                                                <af:selectOneChoice value="#{row.bindings.XpeCarrierDesc.inputValue}"
+                                                                    label="#{row.bindings.XpeCarrierDesc.label}"
+                                                                    required="#{bindings.XpeDccNewContractCarrierView.hints.XpeCarrierDesc.mandatory}"
+                                                                    shortDesc="#{bindings.XpeDccNewContractCarrierView.hints.XpeCarrierDesc.tooltip}"
+                                                                    readOnly="true" id="soc11" partialTriggers="ilov7">
+                                                    <f:selectItems value="#{row.bindings.XpeCarrierDesc.items}"
+                                                                   id="si11"/>
+                                                    <f:validator binding="#{row.bindings.XpeCarrierDesc.validator}"/>
+                                                </af:selectOneChoice>
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractCarrierView.hints.XpeVehicleType.label}"
                                                        id="c54">

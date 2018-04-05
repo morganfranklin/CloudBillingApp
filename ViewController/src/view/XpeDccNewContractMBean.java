@@ -560,19 +560,6 @@ public class XpeDccNewContractMBean implements Serializable {
         }
     }
 
-    public String onCustomerNextAction() {
-        String customerSelection = (String) ADFUtils.evaluateEL("#{bindings.Customer_Type.inputValue}");
-        String contractType = (String) ADFUtils.evaluateEL("#{pageFlowScope.ContractType}");
-        if("NEW".equals(contractType)){
-            if (null == customerSelection) {
-                ADFUtils.showErrorMessage("You must make a selection.",
-                                          this.getXpeDccNewContractBBean().getCustomerSelection());
-                return null;
-            } else
-                return "next";   
-        }else
-            return "next";  
-    }
 
     public void onWasteTypeValueChange(ValueChangeEvent valueChangeEvent) {
         AdfFacesContext.getCurrentInstance().addPartialTarget(this.getXpeDccNewContractBBean().getContractSubTypeRIT());
