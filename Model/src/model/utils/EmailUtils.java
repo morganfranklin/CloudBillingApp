@@ -29,7 +29,7 @@ public class EmailUtils {
     public static boolean sendEmail(String recepient, Map<String,String> email, byte[] bytes) {
         //String host = "smtp.gmail.com",port = "587",sender="morgan.franklin.test@gmail.com";
         //String host = "smtp.office365.com",port = "587",sender="nkoneru@morgan-franklin.com";
-        String host = "sldcsmtp.atoracle.com",sender="tzarzycki@covanta.com";
+        String host = "sldcsmtp.atoracle.com",sender="noreply@covanta.com";
         _logger.info("Inside sendEmail");
         MimeMessage message = null;
         InitialContext ic;
