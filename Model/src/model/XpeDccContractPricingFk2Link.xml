@@ -19,8 +19,8 @@
         </DesignTime>
         <AttrArray Name="Attributes">
             <Item Value="model.XpeDccContractLineView.XpeContractId"/>
-            <Item Value="model.XpeDccContractLineView.XpeContractLine"/>
             <Item Value="model.XpeDccContractLineView.XpeContractVersion"/>
+            <Item Value="model.XpeDccContractLineView.XpeContractLine"/>
         </AttrArray>
     </ViewLinkDefEnd>
     <ViewLinkDefEnd
@@ -33,8 +33,8 @@
         </DesignTime>
         <AttrArray Name="Attributes">
             <Item Value="model.XpeDccContractPricingOverView.XpeContractId"/>
-            <Item Value="model.XpeDccContractPricingOverView.XpeContractLine"/>
             <Item Value="model.XpeDccContractPricingOverView.XpeContractVersion"/>
+            <Item Value="model.XpeDccContractPricingOverView.XpeContractLine"/>
         </AttrArray>
     </ViewLinkDefEnd>
 </ViewLink>

@@ -235,8 +235,8 @@
         </DesignTime>
         <AttrArray Name="Attributes">
             <Item Value="model.XpeDccContractPricingOver.XpeContractId"/>
-            <Item Value="model.XpeDccContractPricingOver.XpeContractLine"/>
             <Item Value="model.XpeDccContractPricingOver.XpeContractVersion"/>
+            <Item Value="model.XpeDccContractPricingOver.XpeContractLine"/>
         </AttrArray>
     </Key>
 </Entity>
