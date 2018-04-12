@@ -178,7 +178,7 @@
                                                     rendered="#{bindings.ContractApprovalFacilities.inputValue ne 'H'}">
                                             <af:gridCell id="gc36">
                                                 <af:link text="Contract Approval Facilities" id="l31"
-                                                         action="#{viewScope.integrationDashboardRegionName.userBusinessUnitSetUp}"
+                                                         action="#{viewScope.integrationDashboardRegionName.contractApprovalFacilities}"
                                                          immediate="true"
                                                          actionListener="#{bindings.Rollback.execute}"/>
                                             </af:gridCell>
