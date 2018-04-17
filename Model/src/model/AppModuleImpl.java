@@ -1810,31 +1810,43 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                             }
                         }
                     }
-                }
+                    
+                    if (!"SW".equals(wasteType)) {
+                        //setting contract version status
+                        contractVersionViewRow.setXpeContractStatus(submissionType);
 
-                //setting contract version status
-                contractVersionViewRow.setXpeContractStatus(submissionType);
-                
-                //creating Internal Approval Work Flow Event
-                XpeDccWfEventEOVORowImpl approvalWFEventRow =
-                    (XpeDccWfEventEOVORowImpl)contractVersionViewRow.getXpeDccWfEventEOVO().createRow();
-                approvalWFEventRow.setXpeEventStatus(submissionType);
-                approvalWFEventRow.setXpeEventType("I");
-                contractVersionViewRow.getXpeDccWfEventEOVO().insertRow(approvalWFEventRow);
+                        //creating Internal Approval Work Flow Event
+                        XpeDccWfEventEOVORowImpl approvalWFEventRow =
+                            (XpeDccWfEventEOVORowImpl) contractVersionViewRow.getXpeDccWfEventEOVO().createRow();
+                        approvalWFEventRow.setXpeEventStatus(submissionType);
+                        approvalWFEventRow.setXpeEventType("I");
+                        contractVersionViewRow.getXpeDccWfEventEOVO().insertRow(approvalWFEventRow);
 
-                if (null != approvalWFEventRow && null != approvalWFEventRow.getXpeEventNumber()) {
-                    //creating Approval Work Flow Action
-                    for (Map.Entry<String, String> approvalEmail : approvalEmails.entrySet()) {
+                        if (null != approvalWFEventRow && null != approvalWFEventRow.getXpeEventNumber()) {
+                            //creating Approval Work Flow Action
+                            for (Map.Entry<String, String> approvalEmail : approvalEmails.entrySet()) {
 
-                        XpeDccWfActionEOVORowImpl xpeDccWfActionEOVORow =
-                            (XpeDccWfActionEOVORowImpl) approvalWFEventRow.getXpeDccWfActionEOVO().createRow();
-                        xpeDccWfActionEOVORow.setXpeContractId(approvalWFEventRow.getXpeContractId());
-                        xpeDccWfActionEOVORow.setXpeContractVersion(approvalWFEventRow.getXpeContractVersion());
-                        xpeDccWfActionEOVORow.setXpeUuid(UUID.randomUUID().toString());
-                        xpeDccWfActionEOVORow.setXpeApproverEmail(approvalEmail.getValue());
-                        xpeDccWfActionEOVORow.setXpeApproverLevel(approvalEmail.getKey());
-                        xpeDccWfActionEOVORow.setXpeActionStatus("W");
-                        approvalWFEventRow.getXpeDccWfActionEOVO().insertRow(xpeDccWfActionEOVORow);
+                                XpeDccWfActionEOVORowImpl xpeDccWfActionEOVORow =
+                                    (XpeDccWfActionEOVORowImpl) approvalWFEventRow.getXpeDccWfActionEOVO().createRow();
+                                xpeDccWfActionEOVORow.setXpeContractId(approvalWFEventRow.getXpeContractId());
+                                xpeDccWfActionEOVORow.setXpeContractVersion(approvalWFEventRow.getXpeContractVersion());
+                                xpeDccWfActionEOVORow.setXpeUuid(UUID.randomUUID().toString());
+                                xpeDccWfActionEOVORow.setXpeApproverEmail(approvalEmail.getValue());
+                                xpeDccWfActionEOVORow.setXpeApproverLevel(approvalEmail.getKey());
+                                xpeDccWfActionEOVORow.setXpeActionStatus("W");
+                                approvalWFEventRow.getXpeDccWfActionEOVO().insertRow(xpeDccWfActionEOVORow);
+                            }
+                        }
+                    }else{
+                        Key contractKey = new Key(new Object[] { contractId });
+                        Row[] contractRows = this.getXpeDccNewContractsEOVO().findByKey(contractKey, 1);
+                        if (null != contractRows && contractRows.length > 0) {
+                            XpeDccNewContractsEOVORowImpl contractViewRow = (XpeDccNewContractsEOVORowImpl) contractRows[0];
+                            contractViewRow.setCustContractContactName("NA");
+                            contractViewRow.setCustContractApproverEmail("noreply@covanta.com");
+                        }
+                        //setting contract version status as approved for waste type "Special Waste"
+                        contractVersionViewRow.setXpeContractStatus("APR");
                     }
                 }
             }

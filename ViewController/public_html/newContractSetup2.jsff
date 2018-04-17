@@ -330,7 +330,8 @@
                                                   columns="#{bindings.CustContractContactName.hints.displayWidth}"
                                                   maximumLength="#{bindings.CustContractContactName.hints.precision}"
                                                   shortDesc="#{bindings.CustContractContactName.hints.tooltip}"
-                                                  id="it1" required="true" autoSubmit="true">
+                                                  id="it1" required="true" autoSubmit="true"
+                                                  rendered="#{bindings.XpeWasteType.inputValue ne 'SW'}">
                                         <f:validator binding="#{bindings.CustContractContactName.validator}"/>
                                     </af:inputText>
                                     <af:inputText value="#{bindings.CustContractApproverEmail.inputValue}"
@@ -338,7 +339,8 @@
                                                   columns="#{bindings.CustContractApproverEmail.hints.displayWidth}"
                                                   maximumLength="#{bindings.CustContractApproverEmail.hints.precision}"
                                                   shortDesc="#{bindings.CustContractApproverEmail.hints.tooltip}"
-                                                  id="it4" required="true" autoSubmit="true">
+                                                  id="it4" required="true" autoSubmit="true"
+                                                  rendered="#{bindings.XpeWasteType.inputValue ne 'SW'}">
                                         <f:validator binding="#{bindings.CustContractApproverEmail.validator}"/>
                                     </af:inputText>
                                     <af:panelHeader text="Contract Detail" id="ph1">
