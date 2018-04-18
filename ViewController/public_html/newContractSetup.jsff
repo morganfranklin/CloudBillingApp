@@ -124,7 +124,8 @@
                                                               required="#{bindings.XpeStartDate.hints.mandatory}"
                                                               columns="#{bindings.XpeStartDate.hints.displayWidth}"
                                                               shortDesc="#{bindings.XpeStartDate.hints.tooltip}"
-                                                              id="id2" simple="true" autoSubmit="true">
+                                                              id="id2" simple="true" autoSubmit="true"
+                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
                                                     <f:validator binding="#{bindings.XpeStartDate.validator}"/>
                                                     <af:convertDateTime pattern="yyyy-MM-dd HH:mm:ss"/>
                                                 </af:inputDate>
@@ -134,19 +135,21 @@
                                                                   required="#{bindings.XpeEndDate.hints.mandatory}"
                                                                   columns="#{bindings.XpeEndDate.hints.displayWidth}"
                                                                   shortDesc="#{bindings.XpeEndDate.hints.tooltip}"
-                                                                  id="id3" autoSubmit="true">
+                                                                  id="id3" autoSubmit="true"
+                                                                  readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
                                                         <f:validator binding="#{bindings.XpeEndDate.validator}"/>
                                                         <af:convertDateTime pattern="yyyy-MM-dd HH:mm:ss"/>
                                                     </af:inputDate>
                                                 </f:facet>
                                             </af:panelLabelAndMessage>
                                             <af:panelLabelAndMessage label="#{bindings.XpeAcctgOptionsSet.label}"
-                                                                     id="plam6">
+                                                                     id="plam6" showRequired="true">
                                                 <af:selectOneChoice value="#{bindings.XpeAcctgOptionsSet.inputValue}"
                                                                     label="#{bindings.XpeAcctgOptionsSet.label}"
                                                                     required="true"
                                                                     shortDesc="#{bindings.XpeAcctgOptionsSet.hints.tooltip}"
-                                                                    id="soc27" autoSubmit="true" simple="true">
+                                                                    id="soc27" autoSubmit="true" simple="true"
+                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
                                                     <f:selectItems value="#{bindings.XpeAcctgOptionsSet.items}"
                                                                    id="si20"/>
                                                     <f:validator binding="#{bindings.XpeAcctgOptionsSet.validator}"/>
@@ -157,7 +160,8 @@
                                                                     label="#{bindings.CurrencyCd.label}"
                                                                     required="#{bindings.CurrencyCd.hints.mandatory}"
                                                                     shortDesc="#{bindings.CurrencyCd.hints.tooltip}"
-                                                                    id="soc28" autoSubmit="true" simple="true">
+                                                                    id="soc28" autoSubmit="true" simple="true"
+                                                                    readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
                                                     <f:selectItems value="#{bindings.CurrencyCd.items}" id="si21"/>
                                                     <f:validator binding="#{bindings.CurrencyCd.validator}"/>
                                                 </af:selectOneChoice>
