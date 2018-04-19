@@ -43,7 +43,7 @@
       <Item Value="SiteId"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="SiteDesc"/>
+      <Item Value="Siteiddesc"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>

@@ -47,7 +47,7 @@
       <Item Value="SiteId"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="SiteDesc"/>
+      <Item Value="Siteiddesc"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -130,10 +130,10 @@
     LOVName="LOV_XpeFacilityId">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
         <LABEL
           ResId="model.views.entitybased.XpeDccAccrualRevenueEOVO.XpeFacilityId_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

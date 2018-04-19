@@ -23,9 +23,10 @@
     Name="bindSiteDesc"
     Kind="viewcriteria"
     Type="java.lang.String"/>
-  <SQLQuery><![CDATA[SELECT SITE_ID,     
-       SITE_DESC      
-FROM XPE_DCC_CFG_PCS    
+  <SQLQuery><![CDATA[SELECT SITE_ID,        
+       SITE_DESC,   
+       SITE_DESC||'-'||DB_LINK SiteIdDesc   
+FROM XPE_DCC_CFG_PCS       
 WHERE INACTIVE='N']]></SQLQuery>
   <ViewAttribute
     Name="SiteId"
@@ -72,6 +73,21 @@ WHERE INACTIVE='N']]></SQLQuery>
           Value="30"/>
       </SchemaBasedProperties>
     </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Siteiddesc"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="66"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SITEIDDESC"
+    Expression="SITEIDDESC"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="66"/>
+    </DesignTime>
   </ViewAttribute>
   <ViewCriteria
     Name="findBySiteId"
