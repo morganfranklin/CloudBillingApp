@@ -633,17 +633,23 @@ public class XpeDccNewContractMBean implements Serializable {
     }
 
     public void materialReturnPopupListener(ReturnPopupEvent returnPopupEvent) {
-        returnPopupEvent.getComponent().processSaveState(FacesContext.getCurrentInstance());
-        String material = (String)ADFUtils.evaluateEL("#{row.bindings.XpeProductId.inputValue}");
-        System.err.println("Material Id: "+material);
-        DCBindingContainer bindings = (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
-        OperationBinding operationBinding = bindings.getOperationBinding("profileWasteNbrMadatoryCheck");
-        if (null != operationBinding){
-            operationBinding.getParamsMap().put("materialId", material);
-            Boolean isprofileWasteNbrMandatory = (Boolean)operationBinding.execute();
-            System.err.println("isprofileWasteNbrMandatory: "+isprofileWasteNbrMandatory);
-            ADFUtils.setvalueToExpression("#{row.bindings.isprofileWasteNbrMandatory.inputValue}", isprofileWasteNbrMandatory);
+        try {
+            returnPopupEvent.getComponent().processSaveState(FacesContext.getCurrentInstance());
+            String material = (String) ADFUtils.evaluateEL("#{row.bindings.XpeProductId.inputValue}");
+            System.err.println("Material Id: " + material);
+            DCBindingContainer bindings = (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
+            OperationBinding operationBinding = bindings.getOperationBinding("profileWasteNbrMadatoryCheck");
+            if (null != operationBinding) {
+                operationBinding.getParamsMap().put("materialId", material);
+                Boolean isprofileWasteNbrMandatory = (Boolean) operationBinding.execute();
+                System.err.println("isprofileWasteNbrMandatory: " + isprofileWasteNbrMandatory);
+                ADFUtils.setvalueToExpression("#{row.bindings.isprofileWasteNbrMandatory.inputValue}",
+                                              isprofileWasteNbrMandatory);
+            }
+            AdfFacesContext.getCurrentInstance().addPartialTarget(this.getXpeDccNewContractBBean().getProfileWasteApprovalInputText());
+        } catch (Exception e) {
+            // TODO: Add catch code
+            e.printStackTrace();
         }
-        AdfFacesContext.getCurrentInstance().addPartialTarget(this.getXpeDccNewContractBBean().getProfileWasteApprovalInputText());
     }
 }
