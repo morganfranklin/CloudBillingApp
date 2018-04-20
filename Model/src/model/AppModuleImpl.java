@@ -1980,13 +1980,13 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         }
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://vmohscvae014.oracleoutsourcing.com:5021/neuCloudBilling1010_110/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://vmohscvae014.oracleoutsourcing.com:5021/neuCloudBilling1010_111/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(xpeDccWfActionEOVORow.getXpeUuid()).append("&").append("action=").append("ACCEPT").append("&").append("user=").append(userType);
         html.append("\"><b>Accept</b></a>");
         html.append("&nbsp;&nbsp;&nbsp;");
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://vmohscvae014.oracleoutsourcing.com:5021/neuCloudBilling1010_110/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://vmohscvae014.oracleoutsourcing.com:5021/neuCloudBilling1010_111/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(xpeDccWfActionEOVORow.getXpeUuid()).append("&").append("action=").append("REJECT").append("&").append("user=").append(userType);
         html.append("\"><b>Reject</b></a>");
         html.append("</p>");
@@ -3976,6 +3976,18 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             ex.printStackTrace();
         }
         return opStream.toString();
+    }
+    
+    public boolean profileWasteNbrMadatoryCheck(String materialId){
+        ViewObjectImpl xpeDccDicProducts = this.getXpeDccDicProducts1();
+        xpeDccDicProducts.setApplyViewCriteriaName("findByItemIdAndCategory");
+        xpeDccDicProducts.setNamedWhereClauseParam("bindItemId", materialId);
+        xpeDccDicProducts.setNamedWhereClauseParam("bindCategory", "SPEC");
+        xpeDccDicProducts.executeQuery();
+        Row row = xpeDccDicProducts.first();
+        if(null!=row)
+            return true;
+        return false;
     }
 
     /**

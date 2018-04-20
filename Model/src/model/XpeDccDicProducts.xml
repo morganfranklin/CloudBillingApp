@@ -32,13 +32,14 @@
         Name="bindCategory"
         Kind="viewcriteria"
         Type="java.lang.String"/>
-    <SQLQuery><![CDATA[SELECT   
-ITEM_ID XPE_LOOKUP_ID,  
-DESCRIPTION XPE_LOOKUP_DESC, 
-ITEM_ID || '-' || NVL(CATEGORY,'NA') CATEGORY 
-FROM    
-XPE_DCC_CFG_PRODUCTSERVICE    
-WHERE    
+    <SQLQuery><![CDATA[SELECT    
+ITEM_ID XPE_LOOKUP_ID,   
+DESCRIPTION XPE_LOOKUP_DESC,  
+ITEM_ID || '-' || NVL(CATEGORY,'NA') CATEGORY, 
+CATEGORY Material_Category 
+FROM     
+XPE_DCC_CFG_PRODUCTSERVICE     
+WHERE     
 ITEM_TYPE = 'PRD']]></SQLQuery>
     <ViewAttribute
         Name="XpeLookupId"
@@ -101,6 +102,21 @@ ITEM_TYPE = 'PRD']]></SQLQuery>
             <Attr Name="_DisplaySize" Value="71"/>
         </DesignTime>
     </ViewAttribute>
+    <ViewAttribute
+        Name="MaterialCategory"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="40"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        AliasName="MATERIAL_CATEGORY"
+        Expression="MATERIAL_CATEGORY"
+        SQLType="VARCHAR">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="40"/>
+        </DesignTime>
+    </ViewAttribute>
     <ViewCriteria
         Name="XpeDccDicProductsCriteria"
         ViewObjectName="model.XpeDccDicProducts"
@@ -147,6 +163,50 @@ ITEM_TYPE = 'PRD']]></SQLQuery>
                 Name="XpeDccDicProductsCriteria_XpeDccDicProductsCriteria_row_0_Category"
                 ViewAttribute="Category"
                 Operator="CONTAINS"
+                Conjunction="AND"
+                Value=":bindCategory"
+                IsBindVarValue="true"
+                Required="Optional"/>
+        </ViewCriteriaRow>
+    </ViewCriteria>
+    <ViewCriteria
+        Name="findByItemIdAndCategory"
+        ViewObjectName="model.XpeDccDicProducts"
+        Conjunction="AND">
+        <Properties Name="_Props">
+            <CustomProperties>
+                <Property
+                    Name="autoExecute"
+                    Value="false"/>
+                <Property
+                    Name="mode"
+                    Value="Basic"/>
+                <Property
+                    Name="allowConjunctionOverride"
+                    Value="true"/>
+                <Property
+                    Name="showInList"
+                    Value="true"/>
+                <Property
+                    Name="displayOperators"
+                    Value="InAdvancedMode"/>
+            </CustomProperties>
+        </Properties>
+        <ViewCriteriaRow
+            Name="XpeDccDicProductsCriteria1_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+                Name="XpeLookupId"
+                ViewAttribute="XpeLookupId"
+                Operator="="
+                Conjunction="AND"
+                Value=":bindItemId"
+                IsBindVarValue="true"
+                Required="Optional"/>
+            <ViewCriteriaItem
+                Name="MaterialCategory"
+                ViewAttribute="MaterialCategory"
+                Operator="="
                 Conjunction="AND"
                 Value=":bindCategory"
                 IsBindVarValue="true"

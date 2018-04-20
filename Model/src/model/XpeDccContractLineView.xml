@@ -424,6 +424,17 @@
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>
+    <ViewAttribute
+        Name="isprofileWasteNbrMandatory"
+        IsSelected="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Type="java.lang.Boolean"
+        ColumnType="NUMBER"
+        AliasName="VIEW_ATTR"
+        SQLType="BIT"
+        Passivate="true"
+        DefaultValue="FALSE"/>
     <ViewLinkAccessor
         Name="XpeDccContractDocTermView"
         ViewLink="model.XpeDccContractDocTermFk1Link"

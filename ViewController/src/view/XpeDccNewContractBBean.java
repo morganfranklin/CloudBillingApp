@@ -2,6 +2,7 @@ package view;
 
 import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.component.rich.data.RichTable;
+import oracle.adf.view.rich.component.rich.input.RichInputText;
 import oracle.adf.view.rich.component.rich.input.RichSelectOneChoice;
 import oracle.adf.view.rich.component.rich.input.RichSelectOneRadio;
 import oracle.adf.view.rich.component.rich.input.RichTextEditor;
@@ -13,6 +14,7 @@ public class XpeDccNewContractBBean {
     private RichSelectOneRadio customerSelection;
     private RichSelectOneChoice contractSubTypeRIT;
     private RichSelectOneChoice agreementRIT;
+    private RichInputText profileWasteApprovalInputText;
 
     public XpeDccNewContractBBean() {
         super();
@@ -75,5 +77,13 @@ public class XpeDccNewContractBBean {
 
     public RichSelectOneChoice getAgreementRIT() {
         return agreementRIT;
+    }
+
+    public void setProfileWasteApprovalInputText(RichInputText profileWasteApprovalInputText) {
+        this.profileWasteApprovalInputText = profileWasteApprovalInputText;
+    }
+
+    public RichInputText getProfileWasteApprovalInputText() {
+        return profileWasteApprovalInputText;
     }
 }

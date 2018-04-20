@@ -2229,5 +2229,15 @@
                 Name="voName"
                 Type="java.lang.String"/>
         </Method>
+        <Method
+            Name="profileWasteNbrMadatoryCheck"
+            MethodName="profileWasteNbrMadatoryCheck">
+            <Return
+                Name="_return_type_"
+                Type="boolean"/>
+            <Parameter
+                Name="materialId"
+                Type="java.lang.String"/>
+        </Method>
     </ClientInterface>
 </AppModule>

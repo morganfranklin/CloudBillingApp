@@ -74,6 +74,7 @@
           <Item Value="XpeQtyMax"/>
           <Item Value="XpePeriodType"/>
           <Item Value="XpeSwApprNbr"/>
+          <Item Value="isprofileWasteNbrMandatory"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -166,5 +167,11 @@
     <action IterBinding="XpeDccNewContractPricingTermViewIterator" id="CreateInsert"
             InstanceName="AppModuleDataControl.XpeDccNewContractPricingTermView" DataControl="AppModuleDataControl"
             RequiresUpdateModel="true" Action="createInsertRow"/>
+    <methodAction id="profileWasteNbrMadatoryCheck" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="profileWasteNbrMadatoryCheck" IsViewObjectMethod="false"
+                  DataControl="AppModuleDataControl" InstanceName="data.AppModuleDataControl.dataProvider"
+                  ReturnName="data.AppModuleDataControl.methodResults.profileWasteNbrMadatoryCheck_AppModuleDataControl_dataProvider_profileWasteNbrMadatoryCheck_result">
+      <NamedData NDName="materialId" NDType="java.lang.String"/>
+    </methodAction>
   </bindings>
 </pageDefinition>

@@ -29,6 +29,7 @@ import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.context.AdfFacesContext;
 import oracle.adf.view.rich.event.QueryOperationEvent;
+import oracle.adf.view.rich.event.ReturnPopupEvent;
 
 import oracle.binding.BindingContainer;
 import oracle.binding.OperationBinding;
@@ -629,5 +630,20 @@ public class XpeDccNewContractMBean implements Serializable {
             dmsCustRow.setMailingCountry(null);
             dmsCustRow.setMailingCountry(null);
         }
+    }
+
+    public void materialReturnPopupListener(ReturnPopupEvent returnPopupEvent) {
+        returnPopupEvent.getComponent().processSaveState(FacesContext.getCurrentInstance());
+        String material = (String)ADFUtils.evaluateEL("#{row.bindings.XpeProductId.inputValue}");
+        System.err.println("Material Id: "+material);
+        DCBindingContainer bindings = (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
+        OperationBinding operationBinding = bindings.getOperationBinding("profileWasteNbrMadatoryCheck");
+        if (null != operationBinding){
+            operationBinding.getParamsMap().put("materialId", material);
+            Boolean isprofileWasteNbrMandatory = (Boolean)operationBinding.execute();
+            System.err.println("isprofileWasteNbrMandatory: "+isprofileWasteNbrMandatory);
+            ADFUtils.setvalueToExpression("#{row.bindings.isprofileWasteNbrMandatory.inputValue}", isprofileWasteNbrMandatory);
+        }
+        AdfFacesContext.getCurrentInstance().addPartialTarget(this.getXpeDccNewContractBBean().getProfileWasteApprovalInputText());
     }
 }

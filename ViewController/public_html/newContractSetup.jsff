@@ -262,7 +262,8 @@
                                                                       shortDesc="#{bindings.XpeDccNewContractLineView.hints.XpeProductId.tooltip}"
                                                                       model="#{row.bindings.XpeProductId.listOfValuesModel}"
                                                                       readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
-                                                                      autoSubmit="true" required="true">
+                                                                      autoSubmit="true" required="true"
+                                                                      returnPopupListener="#{pageFlowScope.XpeDccNewContractMBean.materialReturnPopupListener}">
                                                     <f:validator binding="#{row.bindings.XpeProductId.validator}"/>
                                                 </af:inputListOfValues>
                                             </af:column>
@@ -338,13 +339,14 @@
                                                        id="c15">
                                                 <af:inputText value="#{row.bindings.XpeSwApprNbr.inputValue}"
                                                               label="#{bindings.XpeDccNewContractLineView.hints.XpeSwApprNbr.label}"
-                                                              required="#{bindings.XpeDccNewContractLineView.hints.XpeSwApprNbr.mandatory}"
+                                                              required="#{row.bindings.isprofileWasteNbrMandatory.inputValue}"
                                                               columns="#{bindings.XpeDccNewContractLineView.hints.XpeSwApprNbr.displayWidth}"
                                                               maximumLength="#{bindings.XpeDccNewContractLineView.hints.XpeSwApprNbr.precision}"
                                                               shortDesc="#{bindings.XpeDccNewContractLineView.hints.XpeSwApprNbr.tooltip}"
                                                               id="it17"
                                                               readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
-                                                              autoSubmit="true">
+                                                              autoSubmit="true"
+                                                              binding="#{backingBeanScope.XpeDccNewContractBBean.profileWasteApprovalInputText}">
                                                     <f:validator binding="#{row.bindings.XpeSwApprNbr.validator}"/>
                                                 </af:inputText>
                                             </af:column>

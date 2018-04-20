@@ -75,5 +75,7 @@ public interface AppModule extends ApplicationModule {
     String writeVoToXml(String voName);
 
     String checkRoles(String givenUser);
+
+    boolean profileWasteNbrMadatoryCheck(String materialId);
 }
 

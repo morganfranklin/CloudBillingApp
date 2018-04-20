@@ -33,6 +33,7 @@ public class XpeDccContractLineViewRowImpl extends ViewRowImpl {
         CurrencyCd,
         BusinessUnitGl,
         XpeProductDesc,
+        isprofileWasteNbrMandatory,
         XpeDccContractDocTermView,
         XpeDccContractPricingTermView,
         XpeDccContractPricingOverView,
@@ -82,6 +83,7 @@ public class XpeDccContractLineViewRowImpl extends ViewRowImpl {
     public static final int CURRENCYCD = AttributesEnum.CurrencyCd.index();
     public static final int BUSINESSUNITGL = AttributesEnum.BusinessUnitGl.index();
     public static final int XPEPRODUCTDESC = AttributesEnum.XpeProductDesc.index();
+    public static final int ISPROFILEWASTENBRMANDATORY = AttributesEnum.isprofileWasteNbrMandatory.index();
     public static final int XPEDCCCONTRACTDOCTERMVIEW = AttributesEnum.XpeDccContractDocTermView.index();
     public static final int XPEDCCCONTRACTPRICINGTERMVIEW = AttributesEnum.XpeDccContractPricingTermView.index();
     public static final int XPEDCCCONTRACTPRICINGOVERVIEW = AttributesEnum.XpeDccContractPricingOverView.index();
@@ -316,6 +318,22 @@ public class XpeDccContractLineViewRowImpl extends ViewRowImpl {
      */
     public void setXpeProductDesc(String value) {
         setAttributeInternal(XPEPRODUCTDESC, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute isprofileWasteNbrMandatory.
+     * @return the isprofileWasteNbrMandatory
+     */
+    public Boolean getisprofileWasteNbrMandatory() {
+        return (Boolean) getAttributeInternal(ISPROFILEWASTENBRMANDATORY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute isprofileWasteNbrMandatory.
+     * @param value value to set the  isprofileWasteNbrMandatory
+     */
+    public void setisprofileWasteNbrMandatory(Boolean value) {
+        setAttributeInternal(ISPROFILEWASTENBRMANDATORY, value);
     }
 
     /**
