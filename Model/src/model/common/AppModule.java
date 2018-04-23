@@ -77,5 +77,7 @@ public interface AppModule extends ApplicationModule {
     String checkRoles(String givenUser);
 
     boolean profileWasteNbrMadatoryCheck(String materialId);
+
+    String calculateQtyMax(String contractId, String contractVersion, String contractLine);
 }
 

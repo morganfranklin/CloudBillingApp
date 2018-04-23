@@ -2239,5 +2239,21 @@
                 Name="materialId"
                 Type="java.lang.String"/>
         </Method>
+        <Method
+            Name="calculateQtyMax"
+            MethodName="calculateQtyMax">
+            <Return
+                Name="_return_type_"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="contractId"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="contractVersion"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="contractLine"
+                Type="java.lang.String"/>
+        </Method>
     </ClientInterface>
 </AppModule>

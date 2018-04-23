@@ -3989,6 +3989,77 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             return true;
         return false;
     }
+    
+    public String calculateQtyMax(String contractId, String contractVersion, String contractLine){
+        int pricingTermLineFeeCount=0;
+        int pricingTermLineRteCount=0;
+        XpeDccContractPricingTermViewRowImpl pricingTermFeeRow = null;
+        XpeDccContractPricingTermViewRowImpl pricingTermRteRow = null;
+        try {
+            XpeDccNewContractsEOVOImpl xpeDccNewContractsEOVO = this.getXpeDccNewContractsEOVO();
+            Key contractKey = new Key(new Object[] { contractId });
+            Row[] contractRows = xpeDccNewContractsEOVO.findByKey(contractKey, 1);
+            if (null != contractRows && contractRows.length > 0) {
+                XpeDccNewContractsEOVORowImpl xpeDccNewContractsEOVORow =
+                    (XpeDccNewContractsEOVORowImpl) contractRows[0];
+                if (null != xpeDccNewContractsEOVORow) {
+                    Key contractVersionKey = new Key(new Object[] { contractId, contractVersion });
+                    Row[] contractVersionRows =
+                        xpeDccNewContractsEOVORow.getXpeDccContractVersionView().findByKey(contractVersionKey, 1);
+                    if (null != contractVersionRows && contractVersionRows.length > 0) {
+                        XpeDccContractVersionViewRowImpl xpeDccContractVersionViewRow =
+                            (XpeDccContractVersionViewRowImpl) contractVersionRows[0];
+                        if (null != xpeDccContractVersionViewRow) {
+                            Key contractLineKey = new Key(new Object[] { contractId, contractVersion, contractLine });
+                            Row[] contractLineRows =
+                                xpeDccContractVersionViewRow.getXpeDccContractLineView().findByKey(contractLineKey, 1);
+                            if (null != contractLineRows && contractLineRows.length > 0) {
+                                XpeDccContractLineViewRowImpl xpeDccContractLineViewRow =
+                                    (XpeDccContractLineViewRowImpl) contractLineRows[0];
+                                if (null != xpeDccContractLineViewRow) {
+                                    RowIterator rowIterator =
+                                        xpeDccContractLineViewRow.getXpeDccContractPricingTermView();
+                                    while (rowIterator.hasNext()) {
+                                        XpeDccContractPricingTermViewRowImpl xpeDccContractPricingTermViewRow =
+                                            (XpeDccContractPricingTermViewRowImpl) rowIterator.next();
+                                        if ("FEE".equalsIgnoreCase(xpeDccContractPricingTermViewRow.getXpePricingTermType())) {
+                                            pricingTermLineFeeCount++;
+                                            pricingTermFeeRow = xpeDccContractPricingTermViewRow;
+                                        } else if ("RTE".equalsIgnoreCase(xpeDccContractPricingTermViewRow.getXpePricingTermType())) {
+                                            pricingTermLineRteCount++;
+                                            pricingTermRteRow = xpeDccContractPricingTermViewRow;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            // TODO: Add catch code
+            e.printStackTrace();
+        }
+        
+        if (pricingTermLineFeeCount == 1 && pricingTermLineRteCount == 1) {
+            System.err.println("Inside count 1 and 1");
+            BigDecimal pricingTermFeeRate = pricingTermFeeRow.getXpeRate();
+            BigDecimal pricingTermRteRate = pricingTermRteRow.getXpeRate();
+            if (null != pricingTermFeeRate && null != pricingTermRteRate) {
+                if (pricingTermRteRate.compareTo(new BigDecimal(0)) == 0)
+                    return "Unable to calculate Quantity Max. Please insert correct rates.";
+                else {
+                    pricingTermFeeRow.setXpeQtyMax(pricingTermFeeRate.divide(pricingTermRteRate));
+                    return null;
+                }
+            } else
+                return "Unable to calculate Quantity Max. Please insert correct rates.";
+        } else {
+            System.err.println("Inside counts <> 1");
+            return "There should be one FEE and one RTE pricing term type. Please check.";
+        }
+    }
+
 
     /**
      * Container's getter for XpeDccCfgMswFacilityEOVO2.

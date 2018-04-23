@@ -652,4 +652,14 @@ public class XpeDccNewContractMBean implements Serializable {
             e.printStackTrace();
         }
     }
+
+    public void onCalcQtyMax(ActionEvent actionEvent) {
+        DCBindingContainer bindings = (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
+        OperationBinding operationBinding = bindings.getOperationBinding("calculateQtyMax");
+        if (null != operationBinding) {
+            String reason = (String)operationBinding.execute();
+            if(null!=reason)
+                ADFUtils.showInfoMessage(reason);
+        }
+    }
 }

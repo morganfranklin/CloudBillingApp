@@ -173,5 +173,29 @@
                   ReturnName="data.AppModuleDataControl.methodResults.profileWasteNbrMadatoryCheck_AppModuleDataControl_dataProvider_profileWasteNbrMadatoryCheck_result">
       <NamedData NDName="materialId" NDType="java.lang.String"/>
     </methodAction>
+    <methodAction id="calculateQtyMax" RequiresUpdateModel="true" Action="invokeMethod" MethodName="calculateQtyMax"
+                  IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="data.AppModuleDataControl.dataProvider"
+                  ReturnName="data.AppModuleDataControl.methodResults.calculateQtyMax_AppModuleDataControl_dataProvider_calculateQtyMax_result">
+      <NamedData NDName="contractId" NDValue="#{bindings.XpeContractId.inputValue}" NDType="java.lang.String"/>
+      <NamedData NDName="contractVersion" NDValue="#{bindings.XpeContractVersion.inputValue}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="contractLine" NDValue="#{bindings.XpeContractLine.inputValue}" NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="XpeDccNewContractVersionViewIterator" id="XpeContractId">
+      <AttrNames>
+        <Item Value="XpeContractId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractVersionViewIterator" id="XpeContractVersion">
+      <AttrNames>
+        <Item Value="XpeContractVersion"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccNewContractLineViewIterator" id="XpeContractLine">
+      <AttrNames>
+        <Item Value="XpeContractLine"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
