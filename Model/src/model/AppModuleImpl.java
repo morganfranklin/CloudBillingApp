@@ -7,6 +7,7 @@ import java.io.OutputStream;
 import java.io.Reader;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -4049,7 +4050,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                 if (pricingTermRteRate.compareTo(new BigDecimal(0)) == 0)
                     return "Unable to calculate Quantity Max. Please insert correct rates.";
                 else {
-                    pricingTermFeeRow.setXpeQtyMax(pricingTermFeeRate.divide(pricingTermRteRate));
+                    pricingTermFeeRow.setXpeQtyMax(pricingTermFeeRate.divide(pricingTermRteRate,5,RoundingMode.CEILING));
                     return null;
                 }
             } else

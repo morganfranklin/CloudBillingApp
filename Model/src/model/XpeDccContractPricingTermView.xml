@@ -225,6 +225,8 @@
             <SchemaBasedProperties>
                 <LABEL
                     ResId="model.XpeDccContractPricingTermView.XpeQtyMax_LABEL"/>
+                <DISPLAYWIDTH
+                    Value="21"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>

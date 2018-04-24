@@ -415,7 +415,7 @@
                                                               autoSubmit="true">
                                                     <f:validator binding="#{row.bindings.XpeQtyMax.validator}"/>
                                                     <af:convertNumber groupingUsed="false"
-                                                                      pattern="#{bindings.XpeDccNewContractPricingTermView.hints.XpeQtyMax.format}"/>
+                                                                      pattern="###.00000"/>
                                                 </af:inputText>
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractPricingTermView.hints.XpeRate.label}"
