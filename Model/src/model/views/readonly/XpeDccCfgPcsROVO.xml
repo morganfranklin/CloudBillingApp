@@ -23,10 +23,10 @@
     Name="bindSiteDesc"
     Kind="viewcriteria"
     Type="java.lang.String"/>
-  <SQLQuery><![CDATA[SELECT SITE_ID,        
-       SITE_DESC,   
-       SITE_DESC||'-'||DB_LINK SiteIdDesc   
-FROM XPE_DCC_CFG_PCS       
+  <SQLQuery><![CDATA[SELECT SITE_ID,          
+       SITE_DESC,     
+       SITE_ID||' - '||SITE_DESC SiteIdDesc     
+FROM XPE_DCC_CFG_PCS         
 WHERE INACTIVE='N']]></SQLQuery>
   <ViewAttribute
     Name="SiteId"
