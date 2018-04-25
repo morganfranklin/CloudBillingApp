@@ -20,6 +20,14 @@
         ResId="model.views.readonly.XpeDccCfgCarriersROVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <Variable
+    Name="bind_CarrierId"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bind_CarrierName"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <SQLQuery><![CDATA[SELECT   
     XPE_DCC_CFG_CARRIERS.CARRIER_ID CARRIER_ID,   
     XPE_DCC_CFG_CARRIERS.CARRIER_NAME CARRIER_NAME   
@@ -72,6 +80,50 @@ WHERE INACTIVE = 'N']]></SQLQuery>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewCriteria
+    Name="XpeDccCfgCarriersROVOCriteria"
+    ViewObjectName="model.views.readonly.XpeDccCfgCarriersROVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="XpeDccCfgCarriersROVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="XpeDccCfgCarriersROVOCriteria_XpeDccCfgCarriersROVOCriteria_row_0_CarrierId"
+        ViewAttribute="CarrierId"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bind_CarrierId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="XpeDccCfgCarriersROVOCriteria_XpeDccCfgCarriersROVOCriteria_row_0_CarrierName"
+        ViewAttribute="CarrierName"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bind_CarrierName"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <AttrArray Name="KeyAttributes">
     <Item Value="CarrierId"/>
   </AttrArray>
