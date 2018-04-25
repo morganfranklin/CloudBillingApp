@@ -68,7 +68,6 @@
             <Item Value="CarrierName"/>
         </AttrArray>
         <DisplayCriteria
-            Hint="showAndExecute"
             Name="XpeDccCfgCarriersROVOCriteria"/>
     </ListBinding>
     <ListBinding

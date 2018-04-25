@@ -102,7 +102,6 @@
             <Item Value="XpeLookupDesc"/>
         </AttrArray>
         <DisplayCriteria
-            Hint="showAndExecute"
             Name="XpeDccDicProductsCriteria"/>
     </ListBinding>
     <ListBinding
