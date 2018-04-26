@@ -31,7 +31,7 @@ public class XpeDccCfgCarriersEOVORowImpl extends ViewRowImpl {
         LastUpdatedBy,
         LastUpdatedDate,
         LookupSharedAppModule_YONLOV,
-        XpeDccGeneralItemListROVO1;
+        XpeDccGeneralItemListROVO3;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -67,7 +67,7 @@ public class XpeDccCfgCarriersEOVORowImpl extends ViewRowImpl {
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int LOOKUPSHAREDAPPMODULE_YONLOV = AttributesEnum.LookupSharedAppModule_YONLOV.index();
-    public static final int XPEDCCGENERALITEMLISTROVO1 = AttributesEnum.XpeDccGeneralItemListROVO1.index();
+    public static final int XPEDCCGENERALITEMLISTROVO3 = AttributesEnum.XpeDccGeneralItemListROVO3.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -239,10 +239,10 @@ public class XpeDccCfgCarriersEOVORowImpl extends ViewRowImpl {
     }
 
     /**
-     * Gets the view accessor <code>RowSet</code> XpeDccGeneralItemListROVO1.
+     * Gets the view accessor <code>RowSet</code> XpeDccGeneralItemListROVO3.
      */
-    public RowSet getXpeDccGeneralItemListROVO1() {
-        return (RowSet) getAttributeInternal(XPEDCCGENERALITEMLISTROVO1);
+    public RowSet getXpeDccGeneralItemListROVO3() {
+        return (RowSet) getAttributeInternal(XPEDCCGENERALITEMLISTROVO3);
     }
 }
 

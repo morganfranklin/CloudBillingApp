@@ -28,10 +28,6 @@
     Kind="viewcriteria"
     Type="java.lang.String"/>
   <Variable
-    Name="bind_TerminalType"
-    Kind="viewcriteria"
-    Type="java.lang.String"/>
-  <Variable
     Name="bind_County"
     Kind="viewcriteria"
     Type="java.lang.String"/>
@@ -44,7 +40,7 @@
     ViewObjectName="model.views.readonly.XpeDccCfgCountiesROVO"
     RowLevelBinds="true"/>
   <ViewAccessor
-    Name="XpeDccGeneralItemListROVO1"
+    Name="XpeDccGeneralItemListROVO2"
     ViewObjectName="model.views.readonly.XpeDccGeneralItemListROVO"
     RowLevelBinds="true">
     <ViewCriteriaUsage
@@ -78,7 +74,7 @@
   </ListBinding>
   <ListBinding
     Name="LOV_State"
-    ListVOName="XpeDccGeneralItemListROVO1"
+    ListVOName="XpeDccGeneralItemListROVO2"
     ListRangeSize="-1"
     NullValueFlag="none"
     MRUCount="0">
@@ -184,10 +180,10 @@ WHERE INACTIVE = 'N']]></SQLQuery>
       <SchemaBasedProperties>
         <LABEL
           ResId="model.views.readonly.XpeDccCfgTerminalsROVO.State_LABEL"/>
-        <CONTROLTYPE
-          Value="choice"/>
         <DISPLAYWIDTH
           Value="10"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -257,14 +253,6 @@ WHERE INACTIVE = 'N']]></SQLQuery>
         Operator="CONTAINS"
         Conjunction="AND"
         Value=":bind_TerminalDesc"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="TerminalType"
-        ViewAttribute="TerminalType"
-        Operator="CONTAINS"
-        Conjunction="AND"
-        Value=":bind_TerminalType"
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem

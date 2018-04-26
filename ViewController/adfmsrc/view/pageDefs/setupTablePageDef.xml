@@ -7,5 +7,7 @@
     <taskFlow id="dynamicRegion1" taskFlowId="${viewScope.SetupTableMBean.dynamicTaskFlowId}" activation="deferred"
               xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
+  </bindings>
 </pageDefinition>

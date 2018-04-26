@@ -52,7 +52,7 @@
     </ParameterMap>
   </ViewAccessor>
   <ViewAccessor
-    Name="XpeDccGeneralItemListROVO1"
+    Name="XpeDccGeneralItemListROVO3"
     ViewObjectName="model.views.readonly.XpeDccGeneralItemListROVO"
     RowLevelBinds="true">
     <ViewCriteriaUsage
@@ -86,7 +86,7 @@
   </ListBinding>
   <ListBinding
     Name="LOV_State"
-    ListVOName="XpeDccGeneralItemListROVO1"
+    ListVOName="XpeDccGeneralItemListROVO3"
     ListRangeSize="-1"
     NullValueFlag="none"
     MRUCount="0">
