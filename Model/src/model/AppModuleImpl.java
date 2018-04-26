@@ -1903,7 +1903,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     private Map<String,String>  buildEmailBody(XpeDccWfActionEOVORowImpl xpeDccWfActionEOVORow, String userType){
         Map<String,String>  email = new HashMap<String,String>();
         String customerName=null,contractId= null,contractStartDate=null,contractEndDate=null,salesPerson=null,termAgreement=null,valTrans=null,varBudget=null,
-            paymentHist=null,paymentMethod=null,estDisposalVol=null,extCustomer=null,justification=null,creditLimit=null;
+            paymentHist=null,paymentMethod=null,estDisposalVol=null,extCustomer=null,justification=null,creditLimit=null,custContractContactName=null,custContractApproverEmail=null;
         XpeDccNewContractsEOVOImpl contractView = this.getXpeDccNewContractsEOVO1();
         contractView.executeEmptyRowSet();
         contractView.setApplyViewCriteriaName("FetchExtContractCriteria");
@@ -1954,11 +1954,17 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                 extCustomer = getLookupDescription(contractVersionViewRow.getLookupSharedAppModule_YORNLOV(),contractVersionViewRow.getXpeExistingCustomer(), "XpeLookupDesc");
                 justification = contractVersionViewRow.getXpeJustification();
                 creditLimit = contractVersionViewRow.getXpeCreditLimit();
+                custContractContactName = xpeDccNewContractsEOVORow.getCustContractContactName();
+                custContractApproverEmail = xpeDccNewContractsEOVORow.getCustContractApproverEmail();
             }
         }
             
         StringBuilder html = new StringBuilder();
         html.append("<p>");
+        if("E".equals(userType)){
+            html.append("<b>Customer Contract Contact Name:</b>").append("&nbsp;&nbsp;").append(checkIfNull(custContractContactName)).append("<br><br>");
+            html.append("<b>Customer Contract Approver Email:</b>").append("&nbsp;&nbsp;").append(checkIfNull(custContractApproverEmail)).append("<br><br><br><br>"); 
+        }
         html.append("<b>Customer Name:</b>").append("&nbsp;&nbsp;").append(checkIfNull(customerName)).append("<br><br>");
         html.append("<b>Contract Start Date:</b>").append("&nbsp;&nbsp;").append(checkIfNull(contractStartDate)).append("<br><br>");
         html.append("<b>Contract End Date:</b>").append("&nbsp;&nbsp;").append(checkIfNull(contractEndDate)).append("<br><br>");
@@ -2349,7 +2355,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                                 xpeDccWfActionEOVORow.setXpeContractVersion(approvalWFEventExternalRow.getXpeContractVersion());
                                 xpeDccWfActionEOVORow.setXpeUuid(UUID.randomUUID().toString());
                                 //setting customer email Id to push email notification
-                                xpeDccWfActionEOVORow.setXpeApproverEmail(xpeDccNewContractsEOVORow.getCustContractApproverEmail());
+                                //xpeDccWfActionEOVORow.setXpeApproverEmail(xpeDccNewContractsEOVORow.getCustContractApproverEmail());
+                                xpeDccWfActionEOVORow.setXpeApproverEmail(NEUCloudBillingConstants.CUSTOMER_EMAIL);
                                 xpeDccWfActionEOVORow.setXpeApproverLevel(NEUCloudBillingConstants.CUSTOMER);
                                 xpeDccWfActionEOVORow.setXpeActionStatus("W"); //W-Waiting
                                 approvalWFEventExternalRow.getXpeDccWfActionEOVO().insertRow(xpeDccWfActionEOVORow);
