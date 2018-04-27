@@ -112,12 +112,13 @@ public class AuditLogAppModuleImpl extends ApplicationModuleImpl implements Audi
     }
     
     public String writeVoToXml(String voName) {
+        System.out.println("View Object Name: "+voName);
         ViewObject vo = this.findViewObject(voName);
         ByteArrayOutputStream opStream = new ByteArrayOutputStream();
         try {
             // Generating XML for All rows and adding it to Output Stream
             ((XMLNode) vo.writeXML(0, XMLInterface.XML_OPT_ALL_ROWS)).print(opStream);
-            System.out.println(opStream);
+            //System.out.println("VO XML: "+opStream);
 
         } catch (Exception ex) {
             ex.printStackTrace();

@@ -31,23 +31,26 @@
                                                                                title="Carriers Audit Report"/>
                                         </af:commandMenuItem>
                                         <af:commandMenuItem text="Export to PDF" id="cmi11">
+                                            <af:setPropertyListener from="#{'writeCarriersVoToXml'}"
+                                                                    to="#{backingBeanScope.methodActionName}" type="action"/>
+                                            <af:setPropertyListener from="#{'CarriersAuditReport'}"
+                                                                    to="#{backingBeanScope.reportName}" type="action"/>
                                             <af:fileDownloadActionListener contentType="application/pdf"
                                                                            filename="CarriersAuditReport.pdf"
                                                                            method="#{pageFlowScope.auditReportsMBean.auditReportPDFDownload}"/>
-                                            <af:setPropertyListener from="#{'writeCarriersVoToXml'}" to="#{requestScope.methodActionName}" type="action"/>
-                                            <af:setPropertyListener from="#{'CarriersAuditReport'}" to="#{requestScope.reportName}" type="action"/>
                                         </af:commandMenuItem>
                                     </af:menu>
                                 </f:facet>
                                 <af:table value="#{bindings.XpeDccCfgCarriersAdtView1.collectionModel}" var="row"
                                           rows="#{bindings.XpeDccCfgCarriersAdtView1.rangeSize}"
                                           emptyText="#{bindings.XpeDccCfgCarriersAdtView1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                          rowBandingInterval="0"
+                                          rowBandingInterval="1"
                                           fetchSize="#{bindings.XpeDccCfgCarriersAdtView1.rangeSize}"
                                           filterModel="#{bindings.XpeDccCfgCarriersAdtView1Query.queryDescriptor}"
                                           filterVisible="true"
                                           queryListener="#{bindings.XpeDccCfgCarriersAdtView1Query.processQuery}"
-                                          varStatus="vs" id="t1" width="100%" rowSelection="multiple">
+                                          varStatus="vs" id="t1"
+                                          columnStretching="last" contentDelivery="immediate">
                                     <af:column sortProperty="#{bindings.XpeDccCfgCarriersAdtView1.hints.CarrierId.name}"
                                                filterable="true" sortable="true" headerText="Carrier Id" id="c1">
                                         <af:outputText value="#{row.CarrierId}"
@@ -140,38 +143,6 @@
                                             <af:convertDateTime pattern="#{bindings.XpeDccCfgCarriersAdtView1.hints.LastUpdatedDate.format}"/>
                                         </af:outputText>
                                     </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCfgCarriersAdtView1.hints.Doneby.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgCarriersAdtView1.hints.Doneby.label}"
-                                               id="c10">
-                                        <af:outputText value="#{row.Doneby}"
-                                                       shortDesc="#{bindings.XpeDccCfgCarriersAdtView1.hints.Doneby.tooltip}"
-                                                       id="ot10"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCfgCarriersAdtView1.hints.Syncdone.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgCarriersAdtView1.hints.Syncdone.label}"
-                                               id="c11">
-                                        <af:outputText value="#{row.Syncdone}"
-                                                       shortDesc="#{bindings.XpeDccCfgCarriersAdtView1.hints.Syncdone.tooltip}"
-                                                       id="ot11"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCfgCarriersAdtView1.hints.Syncdoneat.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgCarriersAdtView1.hints.Syncdoneat.label}"
-                                               id="c12">
-                                        <f:facet name="filter">
-                                            <af:inputDate value="#{bindings.XpeDccCfgCarriersAdtView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.Syncdoneat.value}"
-                                                          id="id4">
-                                                <af:convertDateTime pattern="#{bindings.XpeDccCfgCarriersAdtView1.hints.Syncdoneat.format}"/>
-                                            </af:inputDate>
-                                        </f:facet>
-                                        <af:outputText value="#{row.Syncdoneat}"
-                                                       shortDesc="#{bindings.XpeDccCfgCarriersAdtView1.hints.Syncdoneat.tooltip}"
-                                                       id="ot12">
-                                            <af:convertDateTime pattern="#{bindings.XpeDccCfgCarriersAdtView1.hints.Syncdoneat.format}"/>
-                                        </af:outputText>
-                                    </af:column>
                                 </af:table>
                             </af:panelCollection>
                         </af:showDetailItem>
@@ -185,25 +156,27 @@
                                                                                title="Counties Audit Report"/>
                                         </af:commandMenuItem>
                                         <af:commandMenuItem text="Export to PDF" id="cmi12">
+                                            <af:setPropertyListener from="#{'writeCountiesVoToXml'}"
+                                                                    to="#{backingBeanScope.methodActionName}"
+                                                                    type="action"/>
+                                            <af:setPropertyListener from="#{'CountiesAuditReport'}"
+                                                                    to="#{backingBeanScope.reportName}" type="action"/>
                                             <af:fileDownloadActionListener contentType="application/pdf"
                                                                            filename="CountiesAuditReport.pdf"
                                                                            method="#{pageFlowScope.auditReportsMBean.auditReportPDFDownload}"/>
-                                            <af:setPropertyListener from="#{'writeCountiesVoToXml'}" to="#{requestScope.methodActionName}" type="action"/>
-                                            <af:setPropertyListener from="#{'CountiesAuditReport'}" to="#{requestScope.reportName}" type="action"/>
                                         </af:commandMenuItem>
                                     </af:menu>
                                 </f:facet>
                                 <af:table value="#{bindings.XpeDccCfgCountiesAdtView1.collectionModel}" var="row"
                                           rows="#{bindings.XpeDccCfgCountiesAdtView1.rangeSize}"
                                           emptyText="#{bindings.XpeDccCfgCountiesAdtView1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                          rowBandingInterval="0"
+                                          rowBandingInterval="1"
                                           selectedRowKeys="#{bindings.XpeDccCfgCountiesAdtView1.collectionModel.selectedRow}"
-                                          rowSelection="multiple"
                                           fetchSize="#{bindings.XpeDccCfgCountiesAdtView1.rangeSize}"
                                           filterModel="#{bindings.XpeDccCfgCountiesAdtView1Query.queryDescriptor}"
                                           filterVisible="true"
                                           queryListener="#{bindings.XpeDccCfgCountiesAdtView1Query.processQuery}"
-                                          varStatus="vs" id="t2" width="100%">
+                                          varStatus="vs" id="t2" columnStretching="last" contentDelivery="immediate">
                                     <af:column sortProperty="#{bindings.XpeDccCfgCountiesAdtView1.hints.CountyId.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccCfgCountiesAdtView1.hints.CountyId.label}"
@@ -308,38 +281,6 @@
                                                        shortDesc="#{bindings.XpeDccCfgCountiesAdtView1.hints.Country.tooltip}"
                                                        id="ot22"/>
                                     </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCfgCountiesAdtView1.hints.Doneby.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgCountiesAdtView1.hints.Doneby.label}"
-                                               id="c23">
-                                        <af:outputText value="#{row.Doneby}"
-                                                       shortDesc="#{bindings.XpeDccCfgCountiesAdtView1.hints.Doneby.tooltip}"
-                                                       id="ot23"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCfgCountiesAdtView1.hints.Syncdone.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgCountiesAdtView1.hints.Syncdone.label}"
-                                               id="c24">
-                                        <af:outputText value="#{row.Syncdone}"
-                                                       shortDesc="#{bindings.XpeDccCfgCountiesAdtView1.hints.Syncdone.tooltip}"
-                                                       id="ot24"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCfgCountiesAdtView1.hints.Syncdoneat.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgCountiesAdtView1.hints.Syncdoneat.label}"
-                                               id="c25">
-                                        <f:facet name="filter">
-                                            <af:inputDate value="#{bindings.XpeDccCfgCountiesAdtView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.Syncdoneat.value}"
-                                                          id="id8">
-                                                <af:convertDateTime pattern="#{bindings.XpeDccCfgCountiesAdtView1.hints.Syncdoneat.format}"/>
-                                            </af:inputDate>
-                                        </f:facet>
-                                        <af:outputText value="#{row.Syncdoneat}"
-                                                       shortDesc="#{bindings.XpeDccCfgCountiesAdtView1.hints.Syncdoneat.tooltip}"
-                                                       id="ot25">
-                                            <af:convertDateTime pattern="#{bindings.XpeDccCfgCountiesAdtView1.hints.Syncdoneat.format}"/>
-                                        </af:outputText>
-                                    </af:column>
                                 </af:table>
                             </af:panelCollection>
                         </af:showDetailItem>
@@ -353,25 +294,27 @@
                                                                                title="Destinations Audit Report"/>
                                         </af:commandMenuItem>
                                         <af:commandMenuItem text="Export to PDF" id="cmi13">
+                                            <af:setPropertyListener from="#{'writeDestinationsVoToXml'}"
+                                                                    to="#{backingBeanScope.methodActionName}"
+                                                                    type="action"/>
+                                            <af:setPropertyListener from="#{'DestinationsAuditReport'}"
+                                                                    to="#{backingBeanScope.reportName}" type="action"/>
                                             <af:fileDownloadActionListener contentType="application/pdf"
                                                                            filename="DestinationsAuditReport.pdf"
                                                                            method="#{pageFlowScope.auditReportsMBean.auditReportPDFDownload}"/>
-                                    <af:setPropertyListener from="#{'writeDestinationsVoToXml'}" to="#{requestScope.methodActionName}" type="action"/>
-                                    <af:setPropertyListener from="#{'DestinationsAuditReport'}" to="#{requestScope.reportName}" type="action"/>
                                         </af:commandMenuItem>
                                     </af:menu>
                                 </f:facet>
                                 <af:table value="#{bindings.XpeDccCfgDestinationsAdtView1.collectionModel}" var="row"
                                           rows="#{bindings.XpeDccCfgDestinationsAdtView1.rangeSize}"
                                           emptyText="#{bindings.XpeDccCfgDestinationsAdtView1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                          rowBandingInterval="0"
+                                          rowBandingInterval="1"
                                           selectedRowKeys="#{bindings.XpeDccCfgDestinationsAdtView1.collectionModel.selectedRow}"
-                                          rowSelection="multiple"
                                           fetchSize="#{bindings.XpeDccCfgDestinationsAdtView1.rangeSize}"
                                           filterModel="#{bindings.XpeDccCfgDestinationsAdtView1Query.queryDescriptor}"
                                           filterVisible="true"
                                           queryListener="#{bindings.XpeDccCfgDestinationsAdtView1Query.processQuery}"
-                                          varStatus="vs" id="t3" width="100%">
+                                          varStatus="vs" id="t3" columnStretching="last" contentDelivery="immediate">
                                     <af:column sortProperty="#{bindings.XpeDccCfgDestinationsAdtView1.hints.DestinationId.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccCfgDestinationsAdtView1.hints.DestinationId.label}"
@@ -476,38 +419,6 @@
                                                        shortDesc="#{bindings.XpeDccCfgDestinationsAdtView1.hints.Country.tooltip}"
                                                        id="ot35"/>
                                     </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCfgDestinationsAdtView1.hints.Doneby.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgDestinationsAdtView1.hints.Doneby.label}"
-                                               id="c36">
-                                        <af:outputText value="#{row.Doneby}"
-                                                       shortDesc="#{bindings.XpeDccCfgDestinationsAdtView1.hints.Doneby.tooltip}"
-                                                       id="ot36"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCfgDestinationsAdtView1.hints.Syncdone.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgDestinationsAdtView1.hints.Syncdone.label}"
-                                               id="c37">
-                                        <af:outputText value="#{row.Syncdone}"
-                                                       shortDesc="#{bindings.XpeDccCfgDestinationsAdtView1.hints.Syncdone.tooltip}"
-                                                       id="ot37"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCfgDestinationsAdtView1.hints.Syncdoneat.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgDestinationsAdtView1.hints.Syncdoneat.label}"
-                                               id="c38">
-                                        <f:facet name="filter">
-                                            <af:inputDate value="#{bindings.XpeDccCfgDestinationsAdtView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.Syncdoneat.value}"
-                                                          id="id12">
-                                                <af:convertDateTime pattern="#{bindings.XpeDccCfgDestinationsAdtView1.hints.Syncdoneat.format}"/>
-                                            </af:inputDate>
-                                        </f:facet>
-                                        <af:outputText value="#{row.Syncdoneat}"
-                                                       shortDesc="#{bindings.XpeDccCfgDestinationsAdtView1.hints.Syncdoneat.tooltip}"
-                                                       id="ot38">
-                                            <af:convertDateTime pattern="#{bindings.XpeDccCfgDestinationsAdtView1.hints.Syncdoneat.format}"/>
-                                        </af:outputText>
-                                    </af:column>
                                 </af:table>
                             </af:panelCollection>
                         </af:showDetailItem>
@@ -521,25 +432,27 @@
                                                                                title="Origins Audit Report"/>
                                         </af:commandMenuItem>
                                         <af:commandMenuItem text="Export to PDF" id="cmi14">
+                                            <af:setPropertyListener from="#{'writeOriginsVoToXml'}"
+                                                                    to="#{backingBeanScope.methodActionName}"
+                                                                    type="action"/>
+                                            <af:setPropertyListener from="#{'OriginsAuditReport'}"
+                                                                    to="#{backingBeanScope.reportName}" type="action"/>
                                             <af:fileDownloadActionListener contentType="application/pdf"
                                                                            filename="OriginsAuditReport.pdf"
                                                                            method="#{pageFlowScope.auditReportsMBean.auditReportPDFDownload}"/>
-                                            <af:setPropertyListener from="#{'writeOriginsVoToXml'}" to="#{requestScope.methodActionName}" type="action"/>
-                                            <af:setPropertyListener from="#{'OriginsAuditReport'}" to="#{requestScope.reportName}" type="action"/>
                                         </af:commandMenuItem>
                                     </af:menu>
                                 </f:facet>
                                 <af:table value="#{bindings.XpeDccCfgOriginsAdtView1.collectionModel}" var="row"
                                           rows="#{bindings.XpeDccCfgOriginsAdtView1.rangeSize}"
                                           emptyText="#{bindings.XpeDccCfgOriginsAdtView1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                          rowBandingInterval="0"
+                                          rowBandingInterval="1"
                                           selectedRowKeys="#{bindings.XpeDccCfgOriginsAdtView1.collectionModel.selectedRow}"
-                                          rowSelection="multiple"
                                           fetchSize="#{bindings.XpeDccCfgOriginsAdtView1.rangeSize}"
                                           filterModel="#{bindings.XpeDccCfgOriginsAdtView1Query.queryDescriptor}"
                                           filterVisible="true"
                                           queryListener="#{bindings.XpeDccCfgOriginsAdtView1Query.processQuery}"
-                                          varStatus="vs" id="t4" width="100%">
+                                          varStatus="vs" id="t4" contentDelivery="immediate" columnStretching="last">
                                     <af:column sortProperty="#{bindings.XpeDccCfgOriginsAdtView1.hints.OriginId.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccCfgOriginsAdtView1.hints.OriginId.label}"
@@ -659,38 +572,6 @@
                                         <af:outputText value="#{row.Country}"
                                                        shortDesc="#{bindings.XpeDccCfgOriginsAdtView1.hints.Country.tooltip}"
                                                        id="ot50"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCfgOriginsAdtView1.hints.Doneby.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgOriginsAdtView1.hints.Doneby.label}"
-                                               id="c51">
-                                        <af:outputText value="#{row.Doneby}"
-                                                       shortDesc="#{bindings.XpeDccCfgOriginsAdtView1.hints.Doneby.tooltip}"
-                                                       id="ot51"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCfgOriginsAdtView1.hints.Syncdone.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgOriginsAdtView1.hints.Syncdone.label}"
-                                               id="c52">
-                                        <af:outputText value="#{row.Syncdone}"
-                                                       shortDesc="#{bindings.XpeDccCfgOriginsAdtView1.hints.Syncdone.tooltip}"
-                                                       id="ot52"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCfgOriginsAdtView1.hints.Syncdoneat.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgOriginsAdtView1.hints.Syncdoneat.label}"
-                                               id="c53">
-                                        <f:facet name="filter">
-                                            <af:inputDate value="#{bindings.XpeDccCfgOriginsAdtView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.Syncdoneat.value}"
-                                                          id="id16">
-                                                <af:convertDateTime pattern="#{bindings.XpeDccCfgOriginsAdtView1.hints.Syncdoneat.format}"/>
-                                            </af:inputDate>
-                                        </f:facet>
-                                        <af:outputText value="#{row.Syncdoneat}"
-                                                       shortDesc="#{bindings.XpeDccCfgOriginsAdtView1.hints.Syncdoneat.tooltip}"
-                                                       id="ot53">
-                                            <af:convertDateTime pattern="#{bindings.XpeDccCfgOriginsAdtView1.hints.Syncdoneat.format}"/>
-                                        </af:outputText>
                                     </af:column>
                                 </af:table>
                             </af:panelCollection>

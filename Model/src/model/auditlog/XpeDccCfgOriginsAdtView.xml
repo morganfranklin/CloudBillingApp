@@ -14,7 +14,8 @@
   SelectAllAttributes="false"
   PageIterMode="Full"
   FetchSize="100"
-  FetchMode="FETCH_AS_NEEDED">
+  FetchMode="FETCH_AS_NEEDED"
+  MaxFetchSize="1000">
   <EntityUsage
     Name="XpeDccCfgOriginsAdt"
     Entity="model.auditlog.XpeDccCfgOriginsAdt"/>
@@ -84,7 +85,14 @@
     PrecisionRule="true"
     EntityAttrName="XpeDccNycDosDistrict"
     EntityUsage="XpeDccCfgOriginsAdt"
-    AliasName="XPE_DCC_NYC_DOS_DISTRICT"/>
+    AliasName="XPE_DCC_NYC_DOS_DISTRICT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgOriginsAdtView.XpeDccNycDosDistrict_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Country"
     IsNotNull="true"
@@ -110,4 +118,8 @@
     EntityAttrName="Syncdoneat"
     EntityUsage="XpeDccCfgOriginsAdt"
     AliasName="SYNCDONEAT"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

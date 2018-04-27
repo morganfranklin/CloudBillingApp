@@ -20,8 +20,10 @@ public class AuditReportsMBean {
     }
     
     public void auditReportPDFDownload(FacesContext facesContext, OutputStream outputStream) {
-        String methodName = (String)ADFUtils.evaluateEL("#{requestScope.methodActionName]");
-        String reportName = (String)ADFUtils.evaluateEL("#{requestScope.reportName]");
+        String methodName = (String)ADFUtils.evaluateEL("#{backingBeanScope.methodActionName}");
+        String reportName = (String)ADFUtils.evaluateEL("#{backingBeanScope.reportName}");
+        System.err.println("Method Name: "+methodName);
+        System.err.println("Report Name: "+reportName);
         try {
                 BindingContext bc = BindingContext.getCurrent();
                 BindingContainer bindings = bc.getCurrentBindingsEntry();
