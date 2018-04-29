@@ -24,14 +24,28 @@
     PrecisionRule="true"
     EntityAttrName="CarrierId"
     EntityUsage="XpeDccCfgCarriersAdt"
-    AliasName="CARRIER_ID"/>
+    AliasName="CARRIER_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgCarriersAdtView.CarrierId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CarrierName"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="CarrierName"
     EntityUsage="XpeDccCfgCarriersAdt"
-    AliasName="CARRIER_NAME"/>
+    AliasName="CARRIER_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgCarriersAdtView.CarrierName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="State"
     IsNotNull="true"
@@ -50,31 +64,66 @@
     PrecisionRule="true"
     EntityAttrName="InactiveDate"
     EntityUsage="XpeDccCfgCarriersAdt"
-    AliasName="INACTIVE_DATE"/>
+    AliasName="INACTIVE_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgCarriersAdtView.InactiveDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedBy"
     PrecisionRule="true"
     EntityAttrName="CreatedBy"
     EntityUsage="XpeDccCfgCarriersAdt"
-    AliasName="CREATED_BY"/>
+    AliasName="CREATED_BY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgCarriersAdtView.CreatedBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedDate"
     PrecisionRule="true"
     EntityAttrName="CreatedDate"
     EntityUsage="XpeDccCfgCarriersAdt"
-    AliasName="CREATED_DATE"/>
+    AliasName="CREATED_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgCarriersAdtView.CreatedDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedBy"
     EntityUsage="XpeDccCfgCarriersAdt"
-    AliasName="LAST_UPDATED_BY"/>
+    AliasName="LAST_UPDATED_BY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgCarriersAdtView.LastUpdatedBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="LastUpdatedDate"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedDate"
     EntityUsage="XpeDccCfgCarriersAdt"
-    AliasName="LAST_UPDATED_DATE"/>
+    AliasName="LAST_UPDATED_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgCarriersAdtView.LastUpdatedDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Doneby"
     PrecisionRule="true"
@@ -93,4 +142,8 @@
     EntityAttrName="Syncdoneat"
     EntityUsage="XpeDccCfgCarriersAdt"
     AliasName="SYNCDONEAT"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

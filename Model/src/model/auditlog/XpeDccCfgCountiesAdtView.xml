@@ -24,14 +24,28 @@
     PrecisionRule="true"
     EntityAttrName="CountyId"
     EntityUsage="XpeDccCfgCountiesAdt"
-    AliasName="COUNTY_ID"/>
+    AliasName="COUNTY_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgCountiesAdtView.CountyId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CountyName"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="CountyName"
     EntityUsage="XpeDccCfgCountiesAdt"
-    AliasName="COUNTY_NAME"/>
+    AliasName="COUNTY_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgCountiesAdtView.CountyName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="State"
     IsNotNull="true"
@@ -50,31 +64,66 @@
     PrecisionRule="true"
     EntityAttrName="InactiveDate"
     EntityUsage="XpeDccCfgCountiesAdt"
-    AliasName="INACTIVE_DATE"/>
+    AliasName="INACTIVE_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgCountiesAdtView.InactiveDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedBy"
     PrecisionRule="true"
     EntityAttrName="CreatedBy"
     EntityUsage="XpeDccCfgCountiesAdt"
-    AliasName="CREATED_BY"/>
+    AliasName="CREATED_BY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgCountiesAdtView.CreatedBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedDate"
     PrecisionRule="true"
     EntityAttrName="CreatedDate"
     EntityUsage="XpeDccCfgCountiesAdt"
-    AliasName="CREATED_DATE"/>
+    AliasName="CREATED_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgCountiesAdtView.CreatedDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedBy"
     EntityUsage="XpeDccCfgCountiesAdt"
-    AliasName="LAST_UPDATED_BY"/>
+    AliasName="LAST_UPDATED_BY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgCountiesAdtView.LastUpdatedBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="LastUpdatedDate"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedDate"
     EntityUsage="XpeDccCfgCountiesAdt"
-    AliasName="LAST_UPDATED_DATE"/>
+    AliasName="LAST_UPDATED_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgCountiesAdtView.LastUpdatedDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Country"
     IsNotNull="true"
@@ -100,4 +149,8 @@
     EntityAttrName="Syncdoneat"
     EntityUsage="XpeDccCfgCountiesAdt"
     AliasName="SYNCDONEAT"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

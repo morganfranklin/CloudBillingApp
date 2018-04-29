@@ -24,20 +24,41 @@
     PrecisionRule="true"
     EntityAttrName="PcsshortnameId"
     EntityUsage="XpeDccCfgPcsshtnamesAdt"
-    AliasName="PCSSHORTNAME_ID"/>
+    AliasName="PCSSHORTNAME_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgPcsshtnamesAdtView.PcsshortnameId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="PcsshortName"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="PcsshortName"
     EntityUsage="XpeDccCfgPcsshtnamesAdt"
-    AliasName="PCSSHORT_NAME"/>
+    AliasName="PCSSHORT_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgPcsshtnamesAdtView.PcsshortName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="AccountClass"
     PrecisionRule="true"
     EntityAttrName="AccountClass"
     EntityUsage="XpeDccCfgPcsshtnamesAdt"
-    AliasName="ACCOUNT_CLASS"/>
+    AliasName="ACCOUNT_CLASS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgPcsshtnamesAdtView.AccountClass_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Inactive"
     PrecisionRule="true"
@@ -49,79 +70,163 @@
     PrecisionRule="true"
     EntityAttrName="InactiveDate"
     EntityUsage="XpeDccCfgPcsshtnamesAdt"
-    AliasName="INACTIVE_DATE"/>
+    AliasName="INACTIVE_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgPcsshtnamesAdtView.InactiveDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedBy"
     PrecisionRule="true"
     EntityAttrName="CreatedBy"
     EntityUsage="XpeDccCfgPcsshtnamesAdt"
-    AliasName="CREATED_BY"/>
+    AliasName="CREATED_BY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgPcsshtnamesAdtView.CreatedBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedDate"
     PrecisionRule="true"
     EntityAttrName="CreatedDate"
     EntityUsage="XpeDccCfgPcsshtnamesAdt"
-    AliasName="CREATED_DATE"/>
+    AliasName="CREATED_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgPcsshtnamesAdtView.CreatedDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedBy"
     EntityUsage="XpeDccCfgPcsshtnamesAdt"
-    AliasName="LAST_UPDATED_BY"/>
+    AliasName="LAST_UPDATED_BY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgPcsshtnamesAdtView.LastUpdatedBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="LastUpdatedDate"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedDate"
     EntityUsage="XpeDccCfgPcsshtnamesAdt"
-    AliasName="LAST_UPDATED_DATE"/>
+    AliasName="LAST_UPDATED_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgPcsshtnamesAdtView.LastUpdatedDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CovId"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="CovId"
     EntityUsage="XpeDccCfgPcsshtnamesAdt"
-    AliasName="COV_ID"/>
+    AliasName="COV_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgPcsshtnamesAdtView.CovId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CovSoldId"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="CovSoldId"
     EntityUsage="XpeDccCfgPcsshtnamesAdt"
-    AliasName="COV_SOLD_ID"/>
+    AliasName="COV_SOLD_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgPcsshtnamesAdtView.CovSoldId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CovBillId"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="CovBillId"
     EntityUsage="XpeDccCfgPcsshtnamesAdt"
-    AliasName="COV_BILL_ID"/>
+    AliasName="COV_BILL_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgPcsshtnamesAdtView.CovBillId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CovSoldLocNum"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="CovSoldLocNum"
     EntityUsage="XpeDccCfgPcsshtnamesAdt"
-    AliasName="COV_SOLD_LOC_NUM"/>
+    AliasName="COV_SOLD_LOC_NUM">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgPcsshtnamesAdtView.CovSoldLocNum_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CovBillLocNum"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="CovBillLocNum"
     EntityUsage="XpeDccCfgPcsshtnamesAdt"
-    AliasName="COV_BILL_LOC_NUM"/>
+    AliasName="COV_BILL_LOC_NUM">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgPcsshtnamesAdtView.CovBillLocNum_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="BillCycleId"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="BillCycleId"
     EntityUsage="XpeDccCfgPcsshtnamesAdt"
-    AliasName="BILL_CYCLE_ID"/>
+    AliasName="BILL_CYCLE_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgPcsshtnamesAdtView.BillCycleId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="InvSupress"
     PrecisionRule="true"
     EntityAttrName="InvSupress"
     EntityUsage="XpeDccCfgPcsshtnamesAdt"
-    AliasName="INV_SUPRESS"/>
+    AliasName="INV_SUPRESS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgPcsshtnamesAdtView.InvSupress_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Doneby"
     PrecisionRule="true"
@@ -140,4 +245,8 @@
     EntityAttrName="Syncdoneat"
     EntityUsage="XpeDccCfgPcsshtnamesAdt"
     AliasName="SYNCDONEAT"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

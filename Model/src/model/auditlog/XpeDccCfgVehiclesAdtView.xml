@@ -24,28 +24,56 @@
     PrecisionRule="true"
     EntityAttrName="VehicleId"
     EntityUsage="XpeDccCfgVehiclesAdt"
-    AliasName="VEHICLE_ID"/>
+    AliasName="VEHICLE_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgVehiclesAdtView.VehicleId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="VehicleType"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="VehicleType"
     EntityUsage="XpeDccCfgVehiclesAdt"
-    AliasName="VEHICLE_TYPE"/>
+    AliasName="VEHICLE_TYPE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgVehiclesAdtView.VehicleType_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="VehicleDesc"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="VehicleDesc"
     EntityUsage="XpeDccCfgVehiclesAdt"
-    AliasName="VEHICLE_DESC"/>
+    AliasName="VEHICLE_DESC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgVehiclesAdtView.VehicleDesc_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RequireTrailer"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="RequireTrailer"
     EntityUsage="XpeDccCfgVehiclesAdt"
-    AliasName="REQUIRE_TRAILER"/>
+    AliasName="REQUIRE_TRAILER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgVehiclesAdtView.RequireTrailer_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Inactive"
     PrecisionRule="true"
@@ -57,31 +85,66 @@
     PrecisionRule="true"
     EntityAttrName="InactiveDate"
     EntityUsage="XpeDccCfgVehiclesAdt"
-    AliasName="INACTIVE_DATE"/>
+    AliasName="INACTIVE_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgVehiclesAdtView.InactiveDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedBy"
     PrecisionRule="true"
     EntityAttrName="CreatedBy"
     EntityUsage="XpeDccCfgVehiclesAdt"
-    AliasName="CREATED_BY"/>
+    AliasName="CREATED_BY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgVehiclesAdtView.CreatedBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedDate"
     PrecisionRule="true"
     EntityAttrName="CreatedDate"
     EntityUsage="XpeDccCfgVehiclesAdt"
-    AliasName="CREATED_DATE"/>
+    AliasName="CREATED_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgVehiclesAdtView.CreatedDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedBy"
     EntityUsage="XpeDccCfgVehiclesAdt"
-    AliasName="LAST_UPDATED_BY"/>
+    AliasName="LAST_UPDATED_BY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgVehiclesAdtView.LastUpdatedBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="LastUpdatedDate"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedDate"
     EntityUsage="XpeDccCfgVehiclesAdt"
-    AliasName="LAST_UPDATED_DATE"/>
+    AliasName="LAST_UPDATED_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgVehiclesAdtView.LastUpdatedDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Doneby"
     PrecisionRule="true"
@@ -100,4 +163,8 @@
     EntityAttrName="Syncdoneat"
     EntityUsage="XpeDccCfgVehiclesAdt"
     AliasName="SYNCDONEAT"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

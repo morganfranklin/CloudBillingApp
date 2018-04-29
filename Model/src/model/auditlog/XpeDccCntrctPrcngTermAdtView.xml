@@ -24,46 +24,95 @@
     PrecisionRule="true"
     EntityAttrName="XpeContractId"
     EntityUsage="XpeDccCntrctPrcngTermAdt"
-    AliasName="XPE_CONTRACT_ID"/>
+    AliasName="XPE_CONTRACT_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCntrctPrcngTermAdtView.XpeContractId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeContractVersion"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="XpeContractVersion"
     EntityUsage="XpeDccCntrctPrcngTermAdt"
-    AliasName="XPE_CONTRACT_VERSION"/>
+    AliasName="XPE_CONTRACT_VERSION">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCntrctPrcngTermAdtView.XpeContractVersion_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeContractLine"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="XpeContractLine"
     EntityUsage="XpeDccCntrctPrcngTermAdt"
-    AliasName="XPE_CONTRACT_LINE"/>
+    AliasName="XPE_CONTRACT_LINE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCntrctPrcngTermAdtView.XpeContractLine_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpePricingTermLine"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="XpePricingTermLine"
     EntityUsage="XpeDccCntrctPrcngTermAdt"
-    AliasName="XPE_PRICING_TERM_LINE"/>
+    AliasName="XPE_PRICING_TERM_LINE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCntrctPrcngTermAdtView.XpePricingTermLine_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpePricingTermType"
     PrecisionRule="true"
     EntityAttrName="XpePricingTermType"
     EntityUsage="XpeDccCntrctPrcngTermAdt"
-    AliasName="XPE_PRICING_TERM_TYPE"/>
+    AliasName="XPE_PRICING_TERM_TYPE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCntrctPrcngTermAdtView.XpePricingTermType_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeQtyMax"
     PrecisionRule="true"
     EntityAttrName="XpeQtyMax"
     EntityUsage="XpeDccCntrctPrcngTermAdt"
-    AliasName="XPE_QTY_MAX"/>
+    AliasName="XPE_QTY_MAX">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCntrctPrcngTermAdtView.XpeQtyMax_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeRate"
     PrecisionRule="true"
     EntityAttrName="XpeRate"
     EntityUsage="XpeDccCntrctPrcngTermAdt"
-    AliasName="XPE_RATE"/>
+    AliasName="XPE_RATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCntrctPrcngTermAdtView.XpeRate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeChargeOverMin"
     PrecisionRule="true"
@@ -99,13 +148,27 @@
     PrecisionRule="true"
     EntityAttrName="XpePeriodType"
     EntityUsage="XpeDccCntrctPrcngTermAdt"
-    AliasName="XPE_PERIOD_TYPE"/>
+    AliasName="XPE_PERIOD_TYPE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCntrctPrcngTermAdtView.XpePeriodType_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpePeriodNbr"
     PrecisionRule="true"
     EntityAttrName="XpePeriodNbr"
     EntityUsage="XpeDccCntrctPrcngTermAdt"
-    AliasName="XPE_PERIOD_NBR"/>
+    AliasName="XPE_PERIOD_NBR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCntrctPrcngTermAdtView.XpePeriodNbr_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeIcon"
     PrecisionRule="true"
@@ -154,4 +217,8 @@
     EntityAttrName="XpeMetalsUomDen"
     EntityUsage="XpeDccCntrctPrcngTermAdt"
     AliasName="XPE_METALS_UOM_DEN"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

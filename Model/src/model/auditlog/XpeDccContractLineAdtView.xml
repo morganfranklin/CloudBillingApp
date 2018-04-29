@@ -23,39 +23,81 @@
     PrecisionRule="true"
     EntityAttrName="XpeContractId"
     EntityUsage="XpeDccContractLineAdt"
-    AliasName="XPE_CONTRACT_ID"/>
+    AliasName="XPE_CONTRACT_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractLineAdtView.XpeContractId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeContractVersion"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="XpeContractVersion"
     EntityUsage="XpeDccContractLineAdt"
-    AliasName="XPE_CONTRACT_VERSION"/>
+    AliasName="XPE_CONTRACT_VERSION">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractLineAdtView.XpeContractVersion_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeContractLine"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="XpeContractLine"
     EntityUsage="XpeDccContractLineAdt"
-    AliasName="XPE_CONTRACT_LINE"/>
+    AliasName="XPE_CONTRACT_LINE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractLineAdtView.XpeContractLine_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeFacility"
     PrecisionRule="true"
     EntityAttrName="XpeFacility"
     EntityUsage="XpeDccContractLineAdt"
-    AliasName="XPE_FACILITY"/>
+    AliasName="XPE_FACILITY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractLineAdtView.XpeFacility_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeProductId"
     PrecisionRule="true"
     EntityAttrName="XpeProductId"
     EntityUsage="XpeDccContractLineAdt"
-    AliasName="XPE_PRODUCT_ID"/>
+    AliasName="XPE_PRODUCT_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractLineAdtView.XpeProductId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeProductUom"
     PrecisionRule="true"
     EntityAttrName="XpeProductUom"
     EntityUsage="XpeDccContractLineAdt"
-    AliasName="XPE_PRODUCT_UOM"/>
+    AliasName="XPE_PRODUCT_UOM">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractLineAdtView.XpeProductUom_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeQtyMin"
     PrecisionRule="true"
@@ -85,7 +127,14 @@
     PrecisionRule="true"
     EntityAttrName="XpeSwApprNbr"
     EntityUsage="XpeDccContractLineAdt"
-    AliasName="XPE_SW_APPR_NBR"/>
+    AliasName="XPE_SW_APPR_NBR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractLineAdtView.XpeSwApprNbr_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CurrencyCd"
     PrecisionRule="true"
@@ -97,5 +146,16 @@
     PrecisionRule="true"
     EntityAttrName="BusinessUnitGl"
     EntityUsage="XpeDccContractLineAdt"
-    AliasName="BUSINESS_UNIT_GL"/>
+    AliasName="BUSINESS_UNIT_GL">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractLineAdtView.BusinessUnitGl_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>
