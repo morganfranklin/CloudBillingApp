@@ -697,6 +697,9 @@
     <ViewUsage
         Name="XpeDccCfgRoleSecurityROVO"
         ViewObjectName="model.views.readonly.XpeDccCfgRoleSecurityROVO"/>
+    <ViewUsage
+        Name="XpeDccCfgCountiesROVO1"
+        ViewObjectName="model.views.readonly.XpeDccCfgCountiesROVO"/>
     <ViewLinkUsage
         Name="NeuRuleTblFk1Link1"
         ViewLinkObjectName="model.NeuRuleTblFk1Link"

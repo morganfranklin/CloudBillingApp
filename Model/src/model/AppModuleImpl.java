@@ -83,6 +83,7 @@ import model.views.entitybased.XpeDmsCustomerEOVOImpl;
 import model.views.entitybased.XpeDmsCustomerEOVORowImpl;
 import model.views.readonly.XpeDccCfgCntrcttAprFcltyROVOImpl;
 import model.views.readonly.XpeDccCfgCntrcttAprFcltyROVORowImpl;
+import model.views.readonly.XpeDccCfgCountiesROVOImpl;
 import model.views.readonly.XpeDccCfgDstAssTerminalsROVOImpl;
 import model.views.readonly.XpeDccCfgDstAssTerminalsROVORowImpl;
 import model.views.readonly.XpeDccCfgOgnAssTerminalsROVOImpl;
@@ -4484,6 +4485,14 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public XpeDccCfgRoleSecurityROVOImpl getXpeDccCfgRoleSecurityROVO() {
         return (XpeDccCfgRoleSecurityROVOImpl) findViewObject("XpeDccCfgRoleSecurityROVO");
+    }
+
+    /**
+     * Container's getter for XpeDccCfgCountiesROVO1.
+     * @return XpeDccCfgCountiesROVO1
+     */
+    public XpeDccCfgCountiesROVOImpl getXpeDccCfgCountiesROVO1() {
+        return (XpeDccCfgCountiesROVOImpl) findViewObject("XpeDccCfgCountiesROVO1");
     }
 }
 

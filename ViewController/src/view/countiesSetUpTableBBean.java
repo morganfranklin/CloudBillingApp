@@ -2,11 +2,13 @@ package view;
 
 import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.component.rich.data.RichTable;
+import oracle.adf.view.rich.component.rich.input.RichSelectOneChoice;
 
 public class countiesSetUpTableBBean {
     private RichPopup countyAddItem_popup;
     private RichPopup countyEditItem_popp;
     private RichTable countySetUpTblBind;
+    private RichSelectOneChoice countryBind;
 
     public countiesSetUpTableBBean() {
     }
@@ -33,5 +35,13 @@ public class countiesSetUpTableBBean {
 
     public RichTable getCountySetUpTblBind() {
         return countySetUpTblBind;
+    }
+
+    public void setCountryBind(RichSelectOneChoice countryBind) {
+        this.countryBind = countryBind;
+    }
+
+    public RichSelectOneChoice getCountryBind() {
+        return countryBind;
     }
 }

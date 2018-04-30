@@ -15,6 +15,10 @@ import javax.faces.event.ValueChangeEvent;
 
 import model.views.entitybased.XpeDccCfgCountiesEOVORowImpl;
 
+import model.views.readonly.XpeDccCfgCountiesROVOImpl;
+
+import model.views.readonly.XpeDccCfgCountiesROVORowImpl;
+
 import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.view.rich.component.rich.RichPopup;
 
@@ -45,14 +49,35 @@ public class countiesSetUpTableMBean implements Serializable{
     }
 
     public void onCountyCreationSave(ActionEvent actionEvent) {
-        OperationBinding opb = ADFUtils.findOperation("Commit");
-        opb.execute();
-        if(opb.getErrors().isEmpty()){
-            this.getcountiesSetUpTableBBean().getCountyAddItem_popup().hide();
-            JSFUtils.addFacesInformationMessage("Data Saved Successfully.");
-        }else{
-            JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
+        String countyName = (String) ADFUtils.evaluateEL("#{bindings.CountyName.inputValue}");
+        String stateName = (String) ADFUtils.evaluateEL("#{bindings.State.inputValue}");
+        if (!this.checkDuplicateCounty(countyName, stateName)) {
+            OperationBinding opb = ADFUtils.findOperation("Commit");
+            opb.execute();
+            if (opb.getErrors().isEmpty()) {
+                this.getcountiesSetUpTableBBean().getCountyAddItem_popup().hide();
+                JSFUtils.addFacesInformationMessage("Data Saved Successfully.");
+            } else {
+                JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
+            }
+        } else {
+            JSFUtils.addFacesErrorMessage("County Name Exists. Please Enter Another County Name.");
         }
+    }
+    
+    public boolean checkDuplicateCounty(String countyName, String stateName){
+        boolean rtnVal = false;        
+        DCIteratorBinding countiesIter = ADFUtils.findIterator("XpeDccCfgCountiesROVO1Iterator");
+        XpeDccCfgCountiesROVOImpl countiesView = (XpeDccCfgCountiesROVOImpl) countiesIter.getViewObject();
+        countiesView.setApplyViewCriteriaName("XpeDccCfgCountiesROVOCriteria", false);
+        countiesView.setNamedWhereClauseParam("bindCountyName", countyName);
+        countiesView.setNamedWhereClauseParam("bindState", stateName);
+        countiesView.executeQuery();
+        XpeDccCfgCountiesROVORowImpl countiesViewRow = (XpeDccCfgCountiesROVORowImpl) countiesView.first();
+        if(null != countiesViewRow){
+            rtnVal = true;
+        }
+        return rtnVal;
     }
     
     public void onCountyCreationCancel(ActionEvent actionEvent) {
@@ -60,13 +85,19 @@ public class countiesSetUpTableMBean implements Serializable{
     }
 
     public void onCountyEditSave(ActionEvent actionEvent) {
-        OperationBinding opb = ADFUtils.findOperation("Commit");
-        opb.execute();
-        if(opb.getErrors().isEmpty()){
-            this.getcountiesSetUpTableBBean().getCountyEditItem_popp().hide();
-            JSFUtils.addFacesInformationMessage("Data Saved Successfully.");
-        }else{
-            JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
+        String countyName = (String) ADFUtils.evaluateEL("#{bindings.CountyName1.inputValue}");
+        String stateName = (String) ADFUtils.evaluateEL("#{bindings.State1.inputValue}");
+        if (!this.checkDuplicateCounty(countyName, stateName)) {
+            OperationBinding opb = ADFUtils.findOperation("Commit");
+            opb.execute();
+            if (opb.getErrors().isEmpty()) {
+                this.getcountiesSetUpTableBBean().getCountyEditItem_popp().hide();
+                JSFUtils.addFacesInformationMessage("Data Saved Successfully.");
+            } else {
+                JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
+            }
+        } else {
+            JSFUtils.addFacesErrorMessage("County Name Exists. Please Enter Another County Name.");
         }
     }
     
@@ -96,6 +127,15 @@ public class countiesSetUpTableMBean implements Serializable{
             countiesRow.setInactiveDate(new Timestamp(System.currentTimeMillis()));
         } else {
             countiesRow.setInactiveDate(null);
+        }        
+    }
+
+    public void stateValChgLstnr(ValueChangeEvent valueChangeEvent) {
+        if (null != valueChangeEvent.getNewValue() && !valueChangeEvent.getNewValue().equals("XX")) {
+            this.getcountiesSetUpTableBBean().getCountryBind().setValue("USA");
+        } else {
+            this.getcountiesSetUpTableBBean().getCountryBind().setValue(null);
         }
+        AdfFacesContext.getCurrentInstance().addPartialTarget(this.getcountiesSetUpTableBBean().getCountryBind());
     }
 }

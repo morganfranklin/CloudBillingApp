@@ -91,6 +91,7 @@
                             <af:resetActionListener/>
                         </af:button>
                     </f:facet>
+                    <af:messages id="m1" inline="true"/>
                     <af:panelFormLayout id="pfl1">
                         <af:inputText value="#{bindings.CountyId.inputValue}" label="#{bindings.CountyId.hints.label}"
                                       required="#{bindings.CountyId.hints.mandatory}"
@@ -112,7 +113,9 @@
                                                  for="soc3">
                             <af:selectOneChoice value="#{bindings.State.inputValue}" label="#{bindings.State.label}"
                                                 required="#{bindings.State.hints.mandatory}"
-                                                shortDesc="#{bindings.State.hints.tooltip}" id="soc3" simple="true">
+                                                shortDesc="#{bindings.State.hints.tooltip}" id="soc3" simple="true"
+                                                valueChangeListener="#{pageFlowScope.countiesSetUpTableMBean.stateValChgLstnr}"
+                                                autoSubmit="true">
                                 <f:selectItems value="#{bindings.State.items}" id="si3"/>
                                 <f:validator binding="#{bindings.State.validator}"/>
                             </af:selectOneChoice>
@@ -122,7 +125,8 @@
                             <af:selectOneChoice value="#{bindings.Country.inputValue}" label="#{bindings.Country.label}"
                                                 required="#{bindings.Country.hints.mandatory}"
                                                 shortDesc="#{bindings.Country.hints.tooltip}" id="soc6" simple="true"
-                                                autoSubmit="true">
+                                                autoSubmit="true"
+                                                binding="#{backingBeanScope.countiesSetUpTableBBean.countryBind}">
                                 <f:selectItems value="#{bindings.Country.items}" id="si6"/>
                                 <f:validator binding="#{bindings.Country.validator}"/>
                             </af:selectOneChoice>
@@ -145,6 +149,7 @@
                             <af:resetActionListener/>
                         </af:button>
                     </f:facet>
+                    <af:messages id="m2" inline="true"/>
                     <af:panelFormLayout id="pfl2">
                         <af:panelLabelAndMessage label="#{bindings.CountyId1.hints.label}" id="plam2">
                             <af:outputText value="#{bindings.CountyId1.inputValue}"
@@ -162,7 +167,9 @@
                         <af:panelLabelAndMessage label="#{bindings.State1.label}" id="plam4" showRequired="true">
                             <af:selectOneChoice value="#{bindings.State1.inputValue}" label="#{bindings.State1.label}"
                                                 required="#{bindings.State1.hints.mandatory}"
-                                                shortDesc="#{bindings.State1.hints.tooltip}" id="soc4" simple="true">
+                                                shortDesc="#{bindings.State1.hints.tooltip}" id="soc4" simple="true"
+                                                valueChangeListener="#{pageFlowScope.countiesSetUpTableMBean.stateValChgLstnr}"
+                                                autoSubmit="true">
                                 <f:selectItems value="#{bindings.State1.items}" id="si4"/>
                                 <f:validator binding="#{bindings.State1.validator}"/>
                             </af:selectOneChoice>
@@ -172,7 +179,8 @@
                                                 label="#{bindings.Country1.label}"
                                                 required="#{bindings.Country1.hints.mandatory}"
                                                 shortDesc="#{bindings.Country1.hints.tooltip}" id="soc7"
-                                                autoSubmit="true" simple="true">
+                                                autoSubmit="true" simple="true"
+                                                binding="#{backingBeanScope.countiesSetUpTableBBean.countryBind}">
                                 <f:selectItems value="#{bindings.Country1.items}" id="si7"/>
                                 <f:validator binding="#{bindings.Country1.validator}"/>
                             </af:selectOneChoice>
