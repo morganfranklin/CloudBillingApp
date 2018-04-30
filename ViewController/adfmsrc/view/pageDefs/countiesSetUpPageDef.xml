@@ -12,6 +12,8 @@
               id="XpeDccCfgNewCountiesCreationEOVOIterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="XpeDccCfgRoleSecurityROVO" RangeSize="10" DataControl="AppModuleDataControl"
               id="XpeDccCfgRoleSecurityEOVOIterator"/>
+    <iterator id="XpeDccCfgCountiesROVO1Iterator" Binds="XpeDccCfgCountiesROVO1" DataControl="AppModuleDataControl"
+              RangeSize="25"/>
   </executables>
   <bindings>
     <tree IterBinding="XpeDccCfgCountiesEOVOIterator" id="XpeDccCfgCountiesEOVO">

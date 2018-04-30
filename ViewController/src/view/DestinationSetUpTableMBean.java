@@ -134,7 +134,6 @@ public class DestinationSetUpTableMBean implements Serializable{
     }
 
     public void onDestinationCreation(ActionEvent actionEvent) {
-        // Add event code here... #{bindings.CreateInsert.execute}
         DCIteratorBinding dcIterBind = ADFUtils.findIterator("XpeDccCfgNewDestinationsCreationEOVOIterator");
         XpeDccCfgDestinationsEOVOImpl destinationImpl = (XpeDccCfgDestinationsEOVOImpl) dcIterBind.getViewObject();
         destinationImpl.executeQuery();
@@ -162,5 +161,18 @@ public class DestinationSetUpTableMBean implements Serializable{
         } else {
             JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
         }
+    }
+
+    public void stateValChgLstnr(ValueChangeEvent valueChangeEvent) {
+        DCIteratorBinding dcIterBind = ADFUtils.findIterator("XpeDccCfgNewDestinationsCreationEOVOIterator");
+        XpeDccCfgDestinationsEOVORowImpl destinationRow = (XpeDccCfgDestinationsEOVORowImpl) dcIterBind.getCurrentRow();
+        if (null != valueChangeEvent.getNewValue() && !valueChangeEvent.getNewValue().equals("XX")) {
+            this.getDestinationSetUpTableBBean().getCountryBind().setValue("USA");
+            destinationRow.setCountry("USA");
+        } else {
+            this.getDestinationSetUpTableBBean().getCountryBind().setValue(null);
+            destinationRow.setCountry(null);
+        }
+        AdfFacesContext.getCurrentInstance().addPartialTarget(this.getDestinationSetUpTableBBean().getCountryBind());
     }
 }
