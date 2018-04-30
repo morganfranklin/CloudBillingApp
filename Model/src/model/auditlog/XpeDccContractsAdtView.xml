@@ -24,13 +24,27 @@
     PrecisionRule="true"
     EntityAttrName="XpeContractId"
     EntityUsage="XpeDccContractsAdt"
-    AliasName="XPE_CONTRACT_ID"/>
+    AliasName="XPE_CONTRACT_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractsAdtView.XpeContractId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeContractDesc"
     PrecisionRule="true"
     EntityAttrName="XpeContractDesc"
     EntityUsage="XpeDccContractsAdt"
-    AliasName="XPE_CONTRACT_DESC"/>
+    AliasName="XPE_CONTRACT_DESC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractsAdtView.XpeContractDesc_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Setid"
     PrecisionRule="true"
@@ -42,43 +56,92 @@
     PrecisionRule="true"
     EntityAttrName="CustId"
     EntityUsage="XpeDccContractsAdt"
-    AliasName="CUST_ID"/>
+    AliasName="CUST_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractsAdtView.CustId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedBy"
     PrecisionRule="true"
     EntityAttrName="CreatedBy"
     EntityUsage="XpeDccContractsAdt"
-    AliasName="CREATED_BY"/>
+    AliasName="CREATED_BY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractsAdtView.CreatedBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CurrencyCd"
     PrecisionRule="true"
     EntityAttrName="CurrencyCd"
     EntityUsage="XpeDccContractsAdt"
-    AliasName="CURRENCY_CD"/>
+    AliasName="CURRENCY_CD">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractsAdtView.CurrencyCd_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeDccPcsname"
     PrecisionRule="true"
     EntityAttrName="XpeDccPcsname"
     EntityUsage="XpeDccContractsAdt"
-    AliasName="XPE_DCC_PCSNAME"/>
+    AliasName="XPE_DCC_PCSNAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractsAdtView.XpeDccPcsname_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CustContractContactName"
     PrecisionRule="true"
     EntityAttrName="CustContractContactName"
     EntityUsage="XpeDccContractsAdt"
-    AliasName="CUST_CONTRACT_CONTACT_NAME"/>
+    AliasName="CUST_CONTRACT_CONTACT_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractsAdtView.CustContractContactName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CustContractApproverEmail"
     PrecisionRule="true"
     EntityAttrName="CustContractApproverEmail"
     EntityUsage="XpeDccContractsAdt"
-    AliasName="CUST_CONTRACT_APPROVER_EMAIL"/>
+    AliasName="CUST_CONTRACT_APPROVER_EMAIL">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractsAdtView.CustContractApproverEmail_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="AddressSeqNum"
     PrecisionRule="true"
     EntityAttrName="AddressSeqNum"
     EntityUsage="XpeDccContractsAdt"
-    AliasName="ADDRESS_SEQ_NUM"/>
+    AliasName="ADDRESS_SEQ_NUM">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractsAdtView.AddressSeqNum_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Doneby"
     PrecisionRule="true"
@@ -97,4 +160,8 @@
     EntityAttrName="Syncdoneat"
     EntityUsage="XpeDccContractsAdt"
     AliasName="SYNCDONEAT"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

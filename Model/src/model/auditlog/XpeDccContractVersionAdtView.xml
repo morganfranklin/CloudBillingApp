@@ -23,50 +23,106 @@
     PrecisionRule="true"
     EntityAttrName="XpeContractId"
     EntityUsage="XpeDccContractVersionAdt"
-    AliasName="XPE_CONTRACT_ID"/>
+    AliasName="XPE_CONTRACT_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractVersionAdtView.XpeContractId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeContractVersion"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="XpeContractVersion"
     EntityUsage="XpeDccContractVersionAdt"
-    AliasName="XPE_CONTRACT_VERSION"/>
+    AliasName="XPE_CONTRACT_VERSION">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractVersionAdtView.XpeContractVersion_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeContractStatus"
     PrecisionRule="true"
     EntityAttrName="XpeContractStatus"
     EntityUsage="XpeDccContractVersionAdt"
-    AliasName="XPE_CONTRACT_STATUS"/>
+    AliasName="XPE_CONTRACT_STATUS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractVersionAdtView.XpeContractStatus_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeStartDate"
     PrecisionRule="true"
     EntityAttrName="XpeStartDate"
     EntityUsage="XpeDccContractVersionAdt"
-    AliasName="XPE_START_DATE"/>
+    AliasName="XPE_START_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractVersionAdtView.XpeStartDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeEndDate"
     PrecisionRule="true"
     EntityAttrName="XpeEndDate"
     EntityUsage="XpeDccContractVersionAdt"
-    AliasName="XPE_END_DATE"/>
+    AliasName="XPE_END_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractVersionAdtView.XpeEndDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeNewTermMode"
     PrecisionRule="true"
     EntityAttrName="XpeNewTermMode"
     EntityUsage="XpeDccContractVersionAdt"
-    AliasName="XPE_NEW_TERM_MODE"/>
+    AliasName="XPE_NEW_TERM_MODE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractVersionAdtView.XpeNewTermMode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedBy"
     PrecisionRule="true"
     EntityAttrName="CreatedBy"
     EntityUsage="XpeDccContractVersionAdt"
-    AliasName="CREATED_BY"/>
+    AliasName="CREATED_BY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractVersionAdtView.CreatedBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="UpdatedBy"
     PrecisionRule="true"
     EntityAttrName="UpdatedBy"
     EntityUsage="XpeDccContractVersionAdt"
-    AliasName="UPDATED_BY"/>
+    AliasName="UPDATED_BY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractVersionAdtView.UpdatedBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeBillOptionsSet"
     PrecisionRule="true"
@@ -78,7 +134,14 @@
     PrecisionRule="true"
     EntityAttrName="XpeAcctgOptionsSet"
     EntityUsage="XpeDccContractVersionAdt"
-    AliasName="XPE_ACCTG_OPTIONS_SET"/>
+    AliasName="XPE_ACCTG_OPTIONS_SET">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractVersionAdtView.XpeAcctgOptionsSet_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeContractTemplate"
     PrecisionRule="true"
@@ -96,41 +159,94 @@
     PrecisionRule="true"
     EntityAttrName="CurrencyCd"
     EntityUsage="XpeDccContractVersionAdt"
-    AliasName="CURRENCY_CD"/>
+    AliasName="CURRENCY_CD">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractVersionAdtView.CurrencyCd_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeWasteType"
     PrecisionRule="true"
     EntityAttrName="XpeWasteType"
     EntityUsage="XpeDccContractVersionAdt"
-    AliasName="XPE_WASTE_TYPE"/>
+    AliasName="XPE_WASTE_TYPE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractVersionAdtView.XpeWasteType_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeContractSubType"
     PrecisionRule="true"
     EntityAttrName="XpeContractSubType"
     EntityUsage="XpeDccContractVersionAdt"
-    AliasName="XPE_CONTRACT_SUB_TYPE"/>
+    AliasName="XPE_CONTRACT_SUB_TYPE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractVersionAdtView.XpeContractSubType_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeAgreementType"
     PrecisionRule="true"
     EntityAttrName="XpeAgreementType"
     EntityUsage="XpeDccContractVersionAdt"
-    AliasName="XPE_AGREEMENT_TYPE"/>
+    AliasName="XPE_AGREEMENT_TYPE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractVersionAdtView.XpeAgreementType_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeAsOfDate"
     PrecisionRule="true"
     EntityAttrName="XpeAsOfDate"
     EntityUsage="XpeDccContractVersionAdt"
-    AliasName="XPE_AS_OF_DATE"/>
+    AliasName="XPE_AS_OF_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractVersionAdtView.XpeAsOfDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="SalesPerson"
     PrecisionRule="true"
     EntityAttrName="SalesPerson"
     EntityUsage="XpeDccContractVersionAdt"
-    AliasName="SALES_PERSON"/>
+    AliasName="SALES_PERSON">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractVersionAdtView.SalesPerson_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="XpeContractDirection"
     PrecisionRule="true"
     EntityAttrName="XpeContractDirection"
     EntityUsage="XpeDccContractVersionAdt"
-    AliasName="XPE_CONTRACT_DIRECTION"/>
+    AliasName="XPE_CONTRACT_DIRECTION">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractVersionAdtView.XpeContractDirection_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

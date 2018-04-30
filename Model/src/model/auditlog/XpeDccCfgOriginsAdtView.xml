@@ -14,7 +14,8 @@
   SelectAllAttributes="false"
   PageIterMode="Full"
   FetchSize="100"
-  FetchMode="FETCH_AS_NEEDED">
+  FetchMode="FETCH_AS_NEEDED"
+  MaxFetchSize="1000">
   <EntityUsage
     Name="XpeDccCfgOriginsAdt"
     Entity="model.auditlog.XpeDccCfgOriginsAdt"/>
@@ -24,13 +25,27 @@
     PrecisionRule="true"
     EntityAttrName="OriginId"
     EntityUsage="XpeDccCfgOriginsAdt"
-    AliasName="ORIGIN_ID"/>
+    AliasName="ORIGIN_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgOriginsAdtView.OriginId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="OriginDesc"
     PrecisionRule="true"
     EntityAttrName="OriginDesc"
     EntityUsage="XpeDccCfgOriginsAdt"
-    AliasName="ORIGIN_DESC"/>
+    AliasName="ORIGIN_DESC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgOriginsAdtView.OriginDesc_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="State"
     PrecisionRule="true"
@@ -48,31 +63,66 @@
     PrecisionRule="true"
     EntityAttrName="InactiveDate"
     EntityUsage="XpeDccCfgOriginsAdt"
-    AliasName="INACTIVE_DATE"/>
+    AliasName="INACTIVE_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgOriginsAdtView.InactiveDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedBy"
     PrecisionRule="true"
     EntityAttrName="CreatedBy"
     EntityUsage="XpeDccCfgOriginsAdt"
-    AliasName="CREATED_BY"/>
+    AliasName="CREATED_BY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgOriginsAdtView.CreatedBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedDate"
     PrecisionRule="true"
     EntityAttrName="CreatedDate"
     EntityUsage="XpeDccCfgOriginsAdt"
-    AliasName="CREATED_DATE"/>
+    AliasName="CREATED_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgOriginsAdtView.CreatedDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedBy"
     EntityUsage="XpeDccCfgOriginsAdt"
-    AliasName="LAST_UPDATED_BY"/>
+    AliasName="LAST_UPDATED_BY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgOriginsAdtView.LastUpdatedBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="LastUpdatedDate"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedDate"
     EntityUsage="XpeDccCfgOriginsAdt"
-    AliasName="LAST_UPDATED_DATE"/>
+    AliasName="LAST_UPDATED_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgOriginsAdtView.LastUpdatedDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="County"
     PrecisionRule="true"
@@ -84,7 +134,14 @@
     PrecisionRule="true"
     EntityAttrName="XpeDccNycDosDistrict"
     EntityUsage="XpeDccCfgOriginsAdt"
-    AliasName="XPE_DCC_NYC_DOS_DISTRICT"/>
+    AliasName="XPE_DCC_NYC_DOS_DISTRICT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCfgOriginsAdtView.XpeDccNycDosDistrict_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Country"
     IsNotNull="true"
@@ -110,4 +167,8 @@
     EntityAttrName="Syncdoneat"
     EntityUsage="XpeDccCfgOriginsAdt"
     AliasName="SYNCDONEAT"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

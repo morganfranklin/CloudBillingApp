@@ -21,7 +21,7 @@
             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" halign="stretch" valign="stretch">
                 <af:panelBox text="Audit Tables Review" id="pb2" showDisclosure="false">
                     <af:panelTabbed position="above" id="pt1" dimensionsFrom="parent" styleClass="AFStretchWidth">
-                        <af:showDetailItem id="tab1" text="carriers" disclosed="true">
+                        <af:showDetailItem id="tab1" text="Carriers" disclosed="true">
                             <af:panelCollection id="pc1" styleClass="AFStretchWidth">
                                 <f:facet name="menus">
                                     <af:menu text="Audit Report" id="m1">
@@ -31,31 +31,36 @@
                                                                                title="Carriers Audit Report"/>
                                         </af:commandMenuItem>
                                         <af:commandMenuItem text="Export to PDF" id="cmi11">
+                                            <af:setPropertyListener from="#{'writeCarriersVoToXml'}"
+                                                                    to="#{backingBeanScope.methodActionName}" type="action"/>
+                                            <af:setPropertyListener from="#{'CarriersAuditReport'}"
+                                                                    to="#{backingBeanScope.reportName}" type="action"/>
                                             <af:fileDownloadActionListener contentType="application/pdf"
                                                                            filename="CarriersAuditReport.pdf"
                                                                            method="#{pageFlowScope.auditReportsMBean.auditReportPDFDownload}"/>
-                                            <af:setPropertyListener from="#{'writeCarriersVoToXml'}" to="#{requestScope.methodActionName}" type="action"/>
-                                            <af:setPropertyListener from="#{'CarriersAuditReport'}" to="#{requestScope.reportName}" type="action"/>
                                         </af:commandMenuItem>
                                     </af:menu>
                                 </f:facet>
                                 <af:table value="#{bindings.XpeDccCfgCarriersAdtView1.collectionModel}" var="row"
                                           rows="#{bindings.XpeDccCfgCarriersAdtView1.rangeSize}"
                                           emptyText="#{bindings.XpeDccCfgCarriersAdtView1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                          rowBandingInterval="0"
+                                          rowBandingInterval="1"
                                           fetchSize="#{bindings.XpeDccCfgCarriersAdtView1.rangeSize}"
                                           filterModel="#{bindings.XpeDccCfgCarriersAdtView1Query.queryDescriptor}"
                                           filterVisible="true"
                                           queryListener="#{bindings.XpeDccCfgCarriersAdtView1Query.processQuery}"
-                                          varStatus="vs" id="t1" width="100%" rowSelection="multiple">
+                                          varStatus="vs" id="t1"
+                                          columnStretching="last" contentDelivery="immediate">
                                     <af:column sortProperty="#{bindings.XpeDccCfgCarriersAdtView1.hints.CarrierId.name}"
-                                               filterable="true" sortable="true" headerText="Carrier Id" id="c1">
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.XpeDccCfgCarriersAdtView1.hints.CarrierId.label}" id="c1">
                                         <af:outputText value="#{row.CarrierId}"
                                                        shortDesc="#{bindings.XpeDccCfgCarriersAdtView1.hints.CarrierId.tooltip}"
                                                        id="ot1"/>
                                     </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccCfgCarriersAdtView1.hints.CarrierName.name}"
-                                               filterable="true" sortable="true" headerText="Carrier Name" id="c2">
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.XpeDccCfgCarriersAdtView1.hints.CarrierName.label}" id="c2">
                                         <af:outputText value="#{row.CarrierName}"
                                                        shortDesc="#{bindings.XpeDccCfgCarriersAdtView1.hints.CarrierName.tooltip}"
                                                        id="ot2"/>
@@ -119,7 +124,7 @@
                                     <af:column sortProperty="#{bindings.XpeDccCfgCarriersAdtView1.hints.LastUpdatedBy.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccCfgCarriersAdtView1.hints.LastUpdatedBy.label}"
-                                               id="c8">
+                                               id="c8" width="110">
                                         <af:outputText value="#{row.LastUpdatedBy}"
                                                        shortDesc="#{bindings.XpeDccCfgCarriersAdtView1.hints.LastUpdatedBy.tooltip}"
                                                        id="ot8"/>
@@ -140,42 +145,10 @@
                                             <af:convertDateTime pattern="#{bindings.XpeDccCfgCarriersAdtView1.hints.LastUpdatedDate.format}"/>
                                         </af:outputText>
                                     </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCfgCarriersAdtView1.hints.Doneby.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgCarriersAdtView1.hints.Doneby.label}"
-                                               id="c10">
-                                        <af:outputText value="#{row.Doneby}"
-                                                       shortDesc="#{bindings.XpeDccCfgCarriersAdtView1.hints.Doneby.tooltip}"
-                                                       id="ot10"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCfgCarriersAdtView1.hints.Syncdone.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgCarriersAdtView1.hints.Syncdone.label}"
-                                               id="c11">
-                                        <af:outputText value="#{row.Syncdone}"
-                                                       shortDesc="#{bindings.XpeDccCfgCarriersAdtView1.hints.Syncdone.tooltip}"
-                                                       id="ot11"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCfgCarriersAdtView1.hints.Syncdoneat.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgCarriersAdtView1.hints.Syncdoneat.label}"
-                                               id="c12">
-                                        <f:facet name="filter">
-                                            <af:inputDate value="#{bindings.XpeDccCfgCarriersAdtView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.Syncdoneat.value}"
-                                                          id="id4">
-                                                <af:convertDateTime pattern="#{bindings.XpeDccCfgCarriersAdtView1.hints.Syncdoneat.format}"/>
-                                            </af:inputDate>
-                                        </f:facet>
-                                        <af:outputText value="#{row.Syncdoneat}"
-                                                       shortDesc="#{bindings.XpeDccCfgCarriersAdtView1.hints.Syncdoneat.tooltip}"
-                                                       id="ot12">
-                                            <af:convertDateTime pattern="#{bindings.XpeDccCfgCarriersAdtView1.hints.Syncdoneat.format}"/>
-                                        </af:outputText>
-                                    </af:column>
                                 </af:table>
                             </af:panelCollection>
                         </af:showDetailItem>
-                        <af:showDetailItem id="tab2" text="counties">
+                        <af:showDetailItem id="tab2" text="Counties">
                             <af:panelCollection id="pc2" styleClass="AFStretchWidth">
                                 <f:facet name="menus">
                                     <af:menu text="Audit Report" id="m2">
@@ -185,25 +158,27 @@
                                                                                title="Counties Audit Report"/>
                                         </af:commandMenuItem>
                                         <af:commandMenuItem text="Export to PDF" id="cmi12">
+                                            <af:setPropertyListener from="#{'writeCountiesVoToXml'}"
+                                                                    to="#{backingBeanScope.methodActionName}"
+                                                                    type="action"/>
+                                            <af:setPropertyListener from="#{'CountiesAuditReport'}"
+                                                                    to="#{backingBeanScope.reportName}" type="action"/>
                                             <af:fileDownloadActionListener contentType="application/pdf"
                                                                            filename="CountiesAuditReport.pdf"
                                                                            method="#{pageFlowScope.auditReportsMBean.auditReportPDFDownload}"/>
-                                            <af:setPropertyListener from="#{'writeCountiesVoToXml'}" to="#{requestScope.methodActionName}" type="action"/>
-                                            <af:setPropertyListener from="#{'CountiesAuditReport'}" to="#{requestScope.reportName}" type="action"/>
                                         </af:commandMenuItem>
                                     </af:menu>
                                 </f:facet>
                                 <af:table value="#{bindings.XpeDccCfgCountiesAdtView1.collectionModel}" var="row"
                                           rows="#{bindings.XpeDccCfgCountiesAdtView1.rangeSize}"
                                           emptyText="#{bindings.XpeDccCfgCountiesAdtView1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                          rowBandingInterval="0"
+                                          rowBandingInterval="1"
                                           selectedRowKeys="#{bindings.XpeDccCfgCountiesAdtView1.collectionModel.selectedRow}"
-                                          rowSelection="multiple"
                                           fetchSize="#{bindings.XpeDccCfgCountiesAdtView1.rangeSize}"
                                           filterModel="#{bindings.XpeDccCfgCountiesAdtView1Query.queryDescriptor}"
                                           filterVisible="true"
                                           queryListener="#{bindings.XpeDccCfgCountiesAdtView1Query.processQuery}"
-                                          varStatus="vs" id="t2" width="100%">
+                                          varStatus="vs" id="t2" columnStretching="last" contentDelivery="immediate">
                                     <af:column sortProperty="#{bindings.XpeDccCfgCountiesAdtView1.hints.CountyId.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccCfgCountiesAdtView1.hints.CountyId.label}"
@@ -279,7 +254,7 @@
                                     <af:column sortProperty="#{bindings.XpeDccCfgCountiesAdtView1.hints.LastUpdatedBy.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccCfgCountiesAdtView1.hints.LastUpdatedBy.label}"
-                                               id="c20">
+                                               id="c20" width="110">
                                         <af:outputText value="#{row.LastUpdatedBy}"
                                                        shortDesc="#{bindings.XpeDccCfgCountiesAdtView1.hints.LastUpdatedBy.tooltip}"
                                                        id="ot20"/>
@@ -287,7 +262,7 @@
                                     <af:column sortProperty="#{bindings.XpeDccCfgCountiesAdtView1.hints.LastUpdatedDate.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccCfgCountiesAdtView1.hints.LastUpdatedDate.label}"
-                                               id="c21">
+                                               id="c21" width="120">
                                         <f:facet name="filter">
                                             <af:inputDate value="#{bindings.XpeDccCfgCountiesAdtView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.LastUpdatedDate.value}"
                                                           id="id7">
@@ -308,42 +283,10 @@
                                                        shortDesc="#{bindings.XpeDccCfgCountiesAdtView1.hints.Country.tooltip}"
                                                        id="ot22"/>
                                     </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCfgCountiesAdtView1.hints.Doneby.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgCountiesAdtView1.hints.Doneby.label}"
-                                               id="c23">
-                                        <af:outputText value="#{row.Doneby}"
-                                                       shortDesc="#{bindings.XpeDccCfgCountiesAdtView1.hints.Doneby.tooltip}"
-                                                       id="ot23"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCfgCountiesAdtView1.hints.Syncdone.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgCountiesAdtView1.hints.Syncdone.label}"
-                                               id="c24">
-                                        <af:outputText value="#{row.Syncdone}"
-                                                       shortDesc="#{bindings.XpeDccCfgCountiesAdtView1.hints.Syncdone.tooltip}"
-                                                       id="ot24"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCfgCountiesAdtView1.hints.Syncdoneat.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgCountiesAdtView1.hints.Syncdoneat.label}"
-                                               id="c25">
-                                        <f:facet name="filter">
-                                            <af:inputDate value="#{bindings.XpeDccCfgCountiesAdtView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.Syncdoneat.value}"
-                                                          id="id8">
-                                                <af:convertDateTime pattern="#{bindings.XpeDccCfgCountiesAdtView1.hints.Syncdoneat.format}"/>
-                                            </af:inputDate>
-                                        </f:facet>
-                                        <af:outputText value="#{row.Syncdoneat}"
-                                                       shortDesc="#{bindings.XpeDccCfgCountiesAdtView1.hints.Syncdoneat.tooltip}"
-                                                       id="ot25">
-                                            <af:convertDateTime pattern="#{bindings.XpeDccCfgCountiesAdtView1.hints.Syncdoneat.format}"/>
-                                        </af:outputText>
-                                    </af:column>
                                 </af:table>
                             </af:panelCollection>
                         </af:showDetailItem>
-                        <af:showDetailItem id="tab3" text="destinations">
+                        <af:showDetailItem id="tab3" text="Destinations">
                             <af:panelCollection id="pc3" styleClass="AFStretchWidth">
                                 <f:facet name="menus">
                                     <af:menu text="Audit Report" id="m3">
@@ -353,25 +296,27 @@
                                                                                title="Destinations Audit Report"/>
                                         </af:commandMenuItem>
                                         <af:commandMenuItem text="Export to PDF" id="cmi13">
+                                            <af:setPropertyListener from="#{'writeDestinationsVoToXml'}"
+                                                                    to="#{backingBeanScope.methodActionName}"
+                                                                    type="action"/>
+                                            <af:setPropertyListener from="#{'DestinationsAuditReport'}"
+                                                                    to="#{backingBeanScope.reportName}" type="action"/>
                                             <af:fileDownloadActionListener contentType="application/pdf"
                                                                            filename="DestinationsAuditReport.pdf"
                                                                            method="#{pageFlowScope.auditReportsMBean.auditReportPDFDownload}"/>
-                                    <af:setPropertyListener from="#{'writeDestinationsVoToXml'}" to="#{requestScope.methodActionName}" type="action"/>
-                                    <af:setPropertyListener from="#{'DestinationsAuditReport'}" to="#{requestScope.reportName}" type="action"/>
                                         </af:commandMenuItem>
                                     </af:menu>
                                 </f:facet>
                                 <af:table value="#{bindings.XpeDccCfgDestinationsAdtView1.collectionModel}" var="row"
                                           rows="#{bindings.XpeDccCfgDestinationsAdtView1.rangeSize}"
                                           emptyText="#{bindings.XpeDccCfgDestinationsAdtView1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                          rowBandingInterval="0"
+                                          rowBandingInterval="1"
                                           selectedRowKeys="#{bindings.XpeDccCfgDestinationsAdtView1.collectionModel.selectedRow}"
-                                          rowSelection="multiple"
                                           fetchSize="#{bindings.XpeDccCfgDestinationsAdtView1.rangeSize}"
                                           filterModel="#{bindings.XpeDccCfgDestinationsAdtView1Query.queryDescriptor}"
                                           filterVisible="true"
                                           queryListener="#{bindings.XpeDccCfgDestinationsAdtView1Query.processQuery}"
-                                          varStatus="vs" id="t3" width="100%">
+                                          varStatus="vs" id="t3" columnStretching="last" contentDelivery="immediate">
                                     <af:column sortProperty="#{bindings.XpeDccCfgDestinationsAdtView1.hints.DestinationId.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccCfgDestinationsAdtView1.hints.DestinationId.label}"
@@ -383,7 +328,7 @@
                                     <af:column sortProperty="#{bindings.XpeDccCfgDestinationsAdtView1.hints.DestinationDesc.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccCfgDestinationsAdtView1.hints.DestinationDesc.label}"
-                                               id="c27">
+                                               id="c27" width="110">
                                         <af:outputText value="#{row.DestinationDesc}"
                                                        shortDesc="#{bindings.XpeDccCfgDestinationsAdtView1.hints.DestinationDesc.tooltip}"
                                                        id="ot27"/>
@@ -447,7 +392,7 @@
                                     <af:column sortProperty="#{bindings.XpeDccCfgDestinationsAdtView1.hints.LastUpdatedBy.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccCfgDestinationsAdtView1.hints.LastUpdatedBy.label}"
-                                               id="c33">
+                                               id="c33" width="110">
                                         <af:outputText value="#{row.LastUpdatedBy}"
                                                        shortDesc="#{bindings.XpeDccCfgDestinationsAdtView1.hints.LastUpdatedBy.tooltip}"
                                                        id="ot33"/>
@@ -455,7 +400,7 @@
                                     <af:column sortProperty="#{bindings.XpeDccCfgDestinationsAdtView1.hints.LastUpdatedDate.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccCfgDestinationsAdtView1.hints.LastUpdatedDate.label}"
-                                               id="c34">
+                                               id="c34" width="120">
                                         <f:facet name="filter">
                                             <af:inputDate value="#{bindings.XpeDccCfgDestinationsAdtView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.LastUpdatedDate.value}"
                                                           id="id11">
@@ -476,42 +421,10 @@
                                                        shortDesc="#{bindings.XpeDccCfgDestinationsAdtView1.hints.Country.tooltip}"
                                                        id="ot35"/>
                                     </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCfgDestinationsAdtView1.hints.Doneby.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgDestinationsAdtView1.hints.Doneby.label}"
-                                               id="c36">
-                                        <af:outputText value="#{row.Doneby}"
-                                                       shortDesc="#{bindings.XpeDccCfgDestinationsAdtView1.hints.Doneby.tooltip}"
-                                                       id="ot36"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCfgDestinationsAdtView1.hints.Syncdone.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgDestinationsAdtView1.hints.Syncdone.label}"
-                                               id="c37">
-                                        <af:outputText value="#{row.Syncdone}"
-                                                       shortDesc="#{bindings.XpeDccCfgDestinationsAdtView1.hints.Syncdone.tooltip}"
-                                                       id="ot37"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCfgDestinationsAdtView1.hints.Syncdoneat.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgDestinationsAdtView1.hints.Syncdoneat.label}"
-                                               id="c38">
-                                        <f:facet name="filter">
-                                            <af:inputDate value="#{bindings.XpeDccCfgDestinationsAdtView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.Syncdoneat.value}"
-                                                          id="id12">
-                                                <af:convertDateTime pattern="#{bindings.XpeDccCfgDestinationsAdtView1.hints.Syncdoneat.format}"/>
-                                            </af:inputDate>
-                                        </f:facet>
-                                        <af:outputText value="#{row.Syncdoneat}"
-                                                       shortDesc="#{bindings.XpeDccCfgDestinationsAdtView1.hints.Syncdoneat.tooltip}"
-                                                       id="ot38">
-                                            <af:convertDateTime pattern="#{bindings.XpeDccCfgDestinationsAdtView1.hints.Syncdoneat.format}"/>
-                                        </af:outputText>
-                                    </af:column>
                                 </af:table>
                             </af:panelCollection>
                         </af:showDetailItem>
-                        <af:showDetailItem id="tab4" text="origins">
+                        <af:showDetailItem id="tab4" text="Origins">
                             <af:panelCollection id="pc4" styleClass="AFStretchWidth">
                                 <f:facet name="menus">
                                     <af:menu text="Audit Report" id="m4">
@@ -521,25 +434,27 @@
                                                                                title="Origins Audit Report"/>
                                         </af:commandMenuItem>
                                         <af:commandMenuItem text="Export to PDF" id="cmi14">
+                                            <af:setPropertyListener from="#{'writeOriginsVoToXml'}"
+                                                                    to="#{backingBeanScope.methodActionName}"
+                                                                    type="action"/>
+                                            <af:setPropertyListener from="#{'OriginsAuditReport'}"
+                                                                    to="#{backingBeanScope.reportName}" type="action"/>
                                             <af:fileDownloadActionListener contentType="application/pdf"
                                                                            filename="OriginsAuditReport.pdf"
                                                                            method="#{pageFlowScope.auditReportsMBean.auditReportPDFDownload}"/>
-                                            <af:setPropertyListener from="#{'writeOriginsVoToXml'}" to="#{requestScope.methodActionName}" type="action"/>
-                                            <af:setPropertyListener from="#{'OriginsAuditReport'}" to="#{requestScope.reportName}" type="action"/>
                                         </af:commandMenuItem>
                                     </af:menu>
                                 </f:facet>
                                 <af:table value="#{bindings.XpeDccCfgOriginsAdtView1.collectionModel}" var="row"
                                           rows="#{bindings.XpeDccCfgOriginsAdtView1.rangeSize}"
                                           emptyText="#{bindings.XpeDccCfgOriginsAdtView1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                          rowBandingInterval="0"
+                                          rowBandingInterval="1"
                                           selectedRowKeys="#{bindings.XpeDccCfgOriginsAdtView1.collectionModel.selectedRow}"
-                                          rowSelection="multiple"
                                           fetchSize="#{bindings.XpeDccCfgOriginsAdtView1.rangeSize}"
                                           filterModel="#{bindings.XpeDccCfgOriginsAdtView1Query.queryDescriptor}"
                                           filterVisible="true"
                                           queryListener="#{bindings.XpeDccCfgOriginsAdtView1Query.processQuery}"
-                                          varStatus="vs" id="t4" width="100%">
+                                          varStatus="vs" id="t4" contentDelivery="immediate" columnStretching="last">
                                     <af:column sortProperty="#{bindings.XpeDccCfgOriginsAdtView1.hints.OriginId.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccCfgOriginsAdtView1.hints.OriginId.label}"
@@ -615,7 +530,7 @@
                                     <af:column sortProperty="#{bindings.XpeDccCfgOriginsAdtView1.hints.LastUpdatedBy.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccCfgOriginsAdtView1.hints.LastUpdatedBy.label}"
-                                               id="c46">
+                                               id="c46" width="110">
                                         <af:outputText value="#{row.LastUpdatedBy}"
                                                        shortDesc="#{bindings.XpeDccCfgOriginsAdtView1.hints.LastUpdatedBy.tooltip}"
                                                        id="ot46"/>
@@ -623,7 +538,7 @@
                                     <af:column sortProperty="#{bindings.XpeDccCfgOriginsAdtView1.hints.LastUpdatedDate.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccCfgOriginsAdtView1.hints.LastUpdatedDate.label}"
-                                               id="c47">
+                                               id="c47" width="120">
                                         <f:facet name="filter">
                                             <af:inputDate value="#{bindings.XpeDccCfgOriginsAdtView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.LastUpdatedDate.value}"
                                                           id="id15">
@@ -647,7 +562,7 @@
                                     <af:column sortProperty="#{bindings.XpeDccCfgOriginsAdtView1.hints.XpeDccNycDosDistrict.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccCfgOriginsAdtView1.hints.XpeDccNycDosDistrict.label}"
-                                               id="c49">
+                                               id="c49" width="120">
                                         <af:outputText value="#{row.XpeDccNycDosDistrict}"
                                                        shortDesc="#{bindings.XpeDccCfgOriginsAdtView1.hints.XpeDccNycDosDistrict.tooltip}"
                                                        id="ot49"/>
@@ -660,42 +575,10 @@
                                                        shortDesc="#{bindings.XpeDccCfgOriginsAdtView1.hints.Country.tooltip}"
                                                        id="ot50"/>
                                     </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCfgOriginsAdtView1.hints.Doneby.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgOriginsAdtView1.hints.Doneby.label}"
-                                               id="c51">
-                                        <af:outputText value="#{row.Doneby}"
-                                                       shortDesc="#{bindings.XpeDccCfgOriginsAdtView1.hints.Doneby.tooltip}"
-                                                       id="ot51"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCfgOriginsAdtView1.hints.Syncdone.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgOriginsAdtView1.hints.Syncdone.label}"
-                                               id="c52">
-                                        <af:outputText value="#{row.Syncdone}"
-                                                       shortDesc="#{bindings.XpeDccCfgOriginsAdtView1.hints.Syncdone.tooltip}"
-                                                       id="ot52"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCfgOriginsAdtView1.hints.Syncdoneat.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgOriginsAdtView1.hints.Syncdoneat.label}"
-                                               id="c53">
-                                        <f:facet name="filter">
-                                            <af:inputDate value="#{bindings.XpeDccCfgOriginsAdtView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.Syncdoneat.value}"
-                                                          id="id16">
-                                                <af:convertDateTime pattern="#{bindings.XpeDccCfgOriginsAdtView1.hints.Syncdoneat.format}"/>
-                                            </af:inputDate>
-                                        </f:facet>
-                                        <af:outputText value="#{row.Syncdoneat}"
-                                                       shortDesc="#{bindings.XpeDccCfgOriginsAdtView1.hints.Syncdoneat.tooltip}"
-                                                       id="ot53">
-                                            <af:convertDateTime pattern="#{bindings.XpeDccCfgOriginsAdtView1.hints.Syncdoneat.format}"/>
-                                        </af:outputText>
-                                    </af:column>
                                 </af:table>
                             </af:panelCollection>
                         </af:showDetailItem>
-                        <af:showDetailItem id="tab5" text="vehicles">
+                        <af:showDetailItem id="tab5" text="Vehicles">
                             <af:panelCollection id="pc5" styleClass="AFStretchWidth">
                                 <f:facet name="menus">
                                     <af:menu text="Audit Report" id="m5">
@@ -716,14 +599,13 @@
                                 <af:table value="#{bindings.XpeDccCfgVehiclesAdtView1.collectionModel}" var="row"
                                           rows="#{bindings.XpeDccCfgVehiclesAdtView1.rangeSize}"
                                           emptyText="#{bindings.XpeDccCfgVehiclesAdtView1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                          rowBandingInterval="0"
+                                          rowBandingInterval="1"
                                           selectedRowKeys="#{bindings.XpeDccCfgVehiclesAdtView1.collectionModel.selectedRow}"
-                                          rowSelection="multiple"
                                           fetchSize="#{bindings.XpeDccCfgVehiclesAdtView1.rangeSize}"
                                           filterModel="#{bindings.XpeDccCfgVehiclesAdtView1Query.queryDescriptor}"
                                           filterVisible="true"
                                           queryListener="#{bindings.XpeDccCfgVehiclesAdtView1Query.processQuery}"
-                                          varStatus="vs" id="t5" width="100%">
+                                          varStatus="vs" id="t5" columnStretching="last" contentDelivery="immediate">
                                     <af:column sortProperty="#{bindings.XpeDccCfgVehiclesAdtView1.hints.VehicleId.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccCfgVehiclesAdtView1.hints.VehicleId.label}"
@@ -747,14 +629,6 @@
                                         <af:outputText value="#{row.VehicleDesc}"
                                                        shortDesc="#{bindings.XpeDccCfgVehiclesAdtView1.hints.VehicleDesc.tooltip}"
                                                        id="ot56"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCfgVehiclesAdtView1.hints.RequireTrailer.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgVehiclesAdtView1.hints.RequireTrailer.label}"
-                                               id="c57">
-                                        <af:outputText value="#{row.RequireTrailer}"
-                                                       shortDesc="#{bindings.XpeDccCfgVehiclesAdtView1.hints.RequireTrailer.tooltip}"
-                                                       id="ot57"/>
                                     </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccCfgVehiclesAdtView1.hints.Inactive.name}"
                                                filterable="true" sortable="true"
@@ -807,7 +681,7 @@
                                     <af:column sortProperty="#{bindings.XpeDccCfgVehiclesAdtView1.hints.LastUpdatedBy.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccCfgVehiclesAdtView1.hints.LastUpdatedBy.label}"
-                                               id="c62">
+                                               id="c62" width="110">
                                         <af:outputText value="#{row.LastUpdatedBy}"
                                                        shortDesc="#{bindings.XpeDccCfgVehiclesAdtView1.hints.LastUpdatedBy.tooltip}"
                                                        id="ot62"/>
@@ -828,42 +702,10 @@
                                             <af:convertDateTime pattern="#{bindings.XpeDccCfgVehiclesAdtView1.hints.LastUpdatedDate.format}"/>
                                         </af:outputText>
                                     </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCfgVehiclesAdtView1.hints.Doneby.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgVehiclesAdtView1.hints.Doneby.label}"
-                                               id="c64">
-                                        <af:outputText value="#{row.Doneby}"
-                                                       shortDesc="#{bindings.XpeDccCfgVehiclesAdtView1.hints.Doneby.tooltip}"
-                                                       id="ot64"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCfgVehiclesAdtView1.hints.Syncdone.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgVehiclesAdtView1.hints.Syncdone.label}"
-                                               id="c65">
-                                        <af:outputText value="#{row.Syncdone}"
-                                                       shortDesc="#{bindings.XpeDccCfgVehiclesAdtView1.hints.Syncdone.tooltip}"
-                                                       id="ot65"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCfgVehiclesAdtView1.hints.Syncdoneat.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgVehiclesAdtView1.hints.Syncdoneat.label}"
-                                               id="c66">
-                                        <f:facet name="filter">
-                                            <af:inputDate value="#{bindings.XpeDccCfgVehiclesAdtView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.Syncdoneat.value}"
-                                                          id="id20">
-                                                <af:convertDateTime pattern="#{bindings.XpeDccCfgVehiclesAdtView1.hints.Syncdoneat.format}"/>
-                                            </af:inputDate>
-                                        </f:facet>
-                                        <af:outputText value="#{row.Syncdoneat}"
-                                                       shortDesc="#{bindings.XpeDccCfgVehiclesAdtView1.hints.Syncdoneat.tooltip}"
-                                                       id="ot66">
-                                            <af:convertDateTime pattern="#{bindings.XpeDccCfgVehiclesAdtView1.hints.Syncdoneat.format}"/>
-                                        </af:outputText>
-                                    </af:column>
                                 </af:table>
                             </af:panelCollection>
                         </af:showDetailItem>
-                        <af:showDetailItem id="tab6" text="customers">
+                        <af:showDetailItem id="tab6" text="Customers">
                             <af:panelCollection id="pc6" styleClass="AFStretchWidth">
                                 <f:facet name="menus">
                                     <af:menu text="Audit Report" id="m6">
@@ -884,18 +726,17 @@
                                 <af:table value="#{bindings.XpeDccCfgPcsshtnamesAdtView1.collectionModel}" var="row"
                                           rows="#{bindings.XpeDccCfgPcsshtnamesAdtView1.rangeSize}"
                                           emptyText="#{bindings.XpeDccCfgPcsshtnamesAdtView1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                          rowBandingInterval="0"
+                                          rowBandingInterval="1"
                                           selectedRowKeys="#{bindings.XpeDccCfgPcsshtnamesAdtView1.collectionModel.selectedRow}"
-                                          rowSelection="multiple"
                                           fetchSize="#{bindings.XpeDccCfgPcsshtnamesAdtView1.rangeSize}"
                                           filterModel="#{bindings.XpeDccCfgPcsshtnamesAdtView1Query.queryDescriptor}"
                                           filterVisible="true"
                                           queryListener="#{bindings.XpeDccCfgPcsshtnamesAdtView1Query.processQuery}"
-                                          varStatus="vs" id="t6" width="100%">
+                                          varStatus="vs" id="t6" columnStretching="last" contentDelivery="immediate">
                                     <af:column sortProperty="#{bindings.XpeDccCfgPcsshtnamesAdtView1.hints.PcsshortnameId.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccCfgPcsshtnamesAdtView1.hints.PcsshortnameId.label}"
-                                               id="c67">
+                                               id="c67" width="120">
                                         <af:outputText value="#{row.PcsshortnameId}"
                                                        shortDesc="#{bindings.XpeDccCfgPcsshtnamesAdtView1.hints.PcsshortnameId.tooltip}"
                                                        id="ot67"/>
@@ -903,7 +744,7 @@
                                     <af:column sortProperty="#{bindings.XpeDccCfgPcsshtnamesAdtView1.hints.PcsshortName.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccCfgPcsshtnamesAdtView1.hints.PcsshortName.label}"
-                                               id="c68">
+                                               id="c68" width="110">
                                         <af:outputText value="#{row.PcsshortName}"
                                                        shortDesc="#{bindings.XpeDccCfgPcsshtnamesAdtView1.hints.PcsshortName.tooltip}"
                                                        id="ot68"/>
@@ -967,7 +808,7 @@
                                     <af:column sortProperty="#{bindings.XpeDccCfgPcsshtnamesAdtView1.hints.LastUpdatedBy.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccCfgPcsshtnamesAdtView1.hints.LastUpdatedBy.label}"
-                                               id="c74">
+                                               id="c74" width="110">
                                         <af:outputText value="#{row.LastUpdatedBy}"
                                                        shortDesc="#{bindings.XpeDccCfgPcsshtnamesAdtView1.hints.LastUpdatedBy.tooltip}"
                                                        id="ot74"/>
@@ -975,7 +816,7 @@
                                     <af:column sortProperty="#{bindings.XpeDccCfgPcsshtnamesAdtView1.hints.LastUpdatedDate.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccCfgPcsshtnamesAdtView1.hints.LastUpdatedDate.label}"
-                                               id="c75">
+                                               id="c75" width="115">
                                         <f:facet name="filter">
                                             <af:inputDate value="#{bindings.XpeDccCfgPcsshtnamesAdtView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.LastUpdatedDate.value}"
                                                           id="id23">
@@ -1050,42 +891,10 @@
                                                        shortDesc="#{bindings.XpeDccCfgPcsshtnamesAdtView1.hints.InvSupress.tooltip}"
                                                        id="ot82"/>
                                     </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCfgPcsshtnamesAdtView1.hints.Doneby.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgPcsshtnamesAdtView1.hints.Doneby.label}"
-                                               id="c83">
-                                        <af:outputText value="#{row.Doneby}"
-                                                       shortDesc="#{bindings.XpeDccCfgPcsshtnamesAdtView1.hints.Doneby.tooltip}"
-                                                       id="ot83"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCfgPcsshtnamesAdtView1.hints.Syncdone.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgPcsshtnamesAdtView1.hints.Syncdone.label}"
-                                               id="c84">
-                                        <af:outputText value="#{row.Syncdone}"
-                                                       shortDesc="#{bindings.XpeDccCfgPcsshtnamesAdtView1.hints.Syncdone.tooltip}"
-                                                       id="ot84"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCfgPcsshtnamesAdtView1.hints.Syncdoneat.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgPcsshtnamesAdtView1.hints.Syncdoneat.label}"
-                                               id="c85">
-                                        <f:facet name="filter">
-                                            <af:inputDate value="#{bindings.XpeDccCfgPcsshtnamesAdtView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.Syncdoneat.value}"
-                                                          id="id24">
-                                                <af:convertDateTime pattern="#{bindings.XpeDccCfgPcsshtnamesAdtView1.hints.Syncdoneat.format}"/>
-                                            </af:inputDate>
-                                        </f:facet>
-                                        <af:outputText value="#{row.Syncdoneat}"
-                                                       shortDesc="#{bindings.XpeDccCfgPcsshtnamesAdtView1.hints.Syncdoneat.tooltip}"
-                                                       id="ot85">
-                                            <af:convertDateTime pattern="#{bindings.XpeDccCfgPcsshtnamesAdtView1.hints.Syncdoneat.format}"/>
-                                        </af:outputText>
-                                    </af:column>
                                 </af:table>
                             </af:panelCollection>
                         </af:showDetailItem>
-                        <af:showDetailItem id="tab7" text="contracts">
+                        <af:showDetailItem id="tab7" text="Contracts" inflexibleHeight="100">
                             <af:panelCollection id="pc7" styleClass="AFStretchWidth">
                                 <f:facet name="menus">
                                     <af:menu text="Audit Report" id="m7">
@@ -1106,14 +915,13 @@
                                 <af:table value="#{bindings.XpeDccContractsAdtView1.collectionModel}" var="row"
                                           rows="#{bindings.XpeDccContractsAdtView1.rangeSize}"
                                           emptyText="#{bindings.XpeDccContractsAdtView1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                          rowBandingInterval="0"
+                                          rowBandingInterval="1"
                                           selectedRowKeys="#{bindings.XpeDccContractsAdtView1.collectionModel.selectedRow}"
-                                          rowSelection="multiple"
                                           fetchSize="#{bindings.XpeDccContractsAdtView1.rangeSize}"
                                           filterModel="#{bindings.XpeDccContractsAdtView1Query.queryDescriptor}"
                                           filterVisible="true"
                                           queryListener="#{bindings.XpeDccContractsAdtView1Query.processQuery}"
-                                          varStatus="vs" id="t7" width="100%">
+                                          varStatus="vs" id="t7" columnStretching="last" contentDelivery="immediate">
                                     <af:column sortProperty="#{bindings.XpeDccContractsAdtView1.hints.XpeContractId.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccContractsAdtView1.hints.XpeContractId.label}"
@@ -1129,14 +937,6 @@
                                         <af:outputText value="#{row.XpeContractDesc}"
                                                        shortDesc="#{bindings.XpeDccContractsAdtView1.hints.XpeContractDesc.tooltip}"
                                                        id="ot87"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccContractsAdtView1.hints.Setid.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccContractsAdtView1.hints.Setid.label}"
-                                               id="c88">
-                                        <af:outputText value="#{row.Setid}"
-                                                       shortDesc="#{bindings.XpeDccContractsAdtView1.hints.Setid.tooltip}"
-                                                       id="ot88"/>
                                     </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccContractsAdtView1.hints.CustId.name}"
                                                filterable="true" sortable="true"
@@ -1173,7 +973,7 @@
                                     <af:column sortProperty="#{bindings.XpeDccContractsAdtView1.hints.CustContractContactName.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccContractsAdtView1.hints.CustContractContactName.label}"
-                                               id="c93">
+                                               id="c93" width="180">
                                         <af:outputText value="#{row.CustContractContactName}"
                                                        shortDesc="#{bindings.XpeDccContractsAdtView1.hints.CustContractContactName.tooltip}"
                                                        id="ot93"/>
@@ -1181,7 +981,7 @@
                                     <af:column sortProperty="#{bindings.XpeDccContractsAdtView1.hints.CustContractApproverEmail.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccContractsAdtView1.hints.CustContractApproverEmail.label}"
-                                               id="c94">
+                                               id="c94" width="190">
                                         <af:outputText value="#{row.CustContractApproverEmail}"
                                                        shortDesc="#{bindings.XpeDccContractsAdtView1.hints.CustContractApproverEmail.tooltip}"
                                                        id="ot94"/>
@@ -1197,42 +997,10 @@
                                                               pattern="#{bindings.XpeDccContractsAdtView1.hints.AddressSeqNum.format}"/>
                                         </af:outputText>
                                     </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccContractsAdtView1.hints.Doneby.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccContractsAdtView1.hints.Doneby.label}"
-                                               id="c96">
-                                        <af:outputText value="#{row.Doneby}"
-                                                       shortDesc="#{bindings.XpeDccContractsAdtView1.hints.Doneby.tooltip}"
-                                                       id="ot96"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccContractsAdtView1.hints.Syncdone.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccContractsAdtView1.hints.Syncdone.label}"
-                                               id="c97">
-                                        <af:outputText value="#{row.Syncdone}"
-                                                       shortDesc="#{bindings.XpeDccContractsAdtView1.hints.Syncdone.tooltip}"
-                                                       id="ot97"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccContractsAdtView1.hints.Syncdoneat.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccContractsAdtView1.hints.Syncdoneat.label}"
-                                               id="c98">
-                                        <f:facet name="filter">
-                                            <af:inputDate value="#{bindings.XpeDccContractsAdtView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.Syncdoneat.value}"
-                                                          id="id25">
-                                                <af:convertDateTime pattern="#{bindings.XpeDccContractsAdtView1.hints.Syncdoneat.format}"/>
-                                            </af:inputDate>
-                                        </f:facet>
-                                        <af:outputText value="#{row.Syncdoneat}"
-                                                       shortDesc="#{bindings.XpeDccContractsAdtView1.hints.Syncdoneat.tooltip}"
-                                                       id="ot98">
-                                            <af:convertDateTime pattern="#{bindings.XpeDccContractsAdtView1.hints.Syncdoneat.format}"/>
-                                        </af:outputText>
-                                    </af:column>
                                 </af:table>
                             </af:panelCollection>
                         </af:showDetailItem>
-                        <af:showDetailItem id="tab8" text="contract versions">
+                        <af:showDetailItem id="tab8" text="Contract Versions">
                             <af:panelCollection id="pc8" styleClass="AFStretchWidth">
                                 <f:facet name="menus">
                                     <af:menu text="Audit Report" id="m8">
@@ -1253,14 +1021,13 @@
                                 <af:table value="#{bindings.XpeDccContractVersionAdtView1.collectionModel}" var="row"
                                           rows="#{bindings.XpeDccContractVersionAdtView1.rangeSize}"
                                           emptyText="#{bindings.XpeDccContractVersionAdtView1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                          rowBandingInterval="0"
+                                          rowBandingInterval="1"
                                           selectedRowKeys="#{bindings.XpeDccContractVersionAdtView1.collectionModel.selectedRow}"
-                                          rowSelection="multiple"
                                           fetchSize="#{bindings.XpeDccContractVersionAdtView1.rangeSize}"
                                           filterModel="#{bindings.XpeDccContractVersionAdtView1Query.queryDescriptor}"
                                           filterVisible="true"
                                           queryListener="#{bindings.XpeDccContractVersionAdtView1Query.processQuery}"
-                                          varStatus="vs" id="t8" width="100%">
+                                          varStatus="vs" id="t8" columnStretching="last" contentDelivery="immediate">
                                     <af:column sortProperty="#{bindings.XpeDccContractVersionAdtView1.hints.XpeContractId.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccContractVersionAdtView1.hints.XpeContractId.label}"
@@ -1272,7 +1039,7 @@
                                     <af:column sortProperty="#{bindings.XpeDccContractVersionAdtView1.hints.XpeContractVersion.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccContractVersionAdtView1.hints.XpeContractVersion.label}"
-                                               id="c100">
+                                               id="c100" width="110">
                                         <af:outputText value="#{row.XpeContractVersion}"
                                                        shortDesc="#{bindings.XpeDccContractVersionAdtView1.hints.XpeContractVersion.tooltip}"
                                                        id="ot100"/>
@@ -1317,14 +1084,6 @@
                                             <af:convertDateTime pattern="#{bindings.XpeDccContractVersionAdtView1.hints.XpeEndDate.format}"/>
                                         </af:outputText>
                                     </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccContractVersionAdtView1.hints.XpeNewTermMode.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccContractVersionAdtView1.hints.XpeNewTermMode.label}"
-                                               id="c104">
-                                        <af:outputText value="#{row.XpeNewTermMode}"
-                                                       shortDesc="#{bindings.XpeDccContractVersionAdtView1.hints.XpeNewTermMode.tooltip}"
-                                                       id="ot104"/>
-                                    </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccContractVersionAdtView1.hints.CreatedBy.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccContractVersionAdtView1.hints.CreatedBy.label}"
@@ -1341,37 +1100,13 @@
                                                        shortDesc="#{bindings.XpeDccContractVersionAdtView1.hints.UpdatedBy.tooltip}"
                                                        id="ot106"/>
                                     </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccContractVersionAdtView1.hints.XpeBillOptionsSet.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccContractVersionAdtView1.hints.XpeBillOptionsSet.label}"
-                                               id="c107">
-                                        <af:outputText value="#{row.XpeBillOptionsSet}"
-                                                       shortDesc="#{bindings.XpeDccContractVersionAdtView1.hints.XpeBillOptionsSet.tooltip}"
-                                                       id="ot107"/>
-                                    </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccContractVersionAdtView1.hints.XpeAcctgOptionsSet.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccContractVersionAdtView1.hints.XpeAcctgOptionsSet.label}"
-                                               id="c108">
+                                               id="c108" width="150">
                                         <af:outputText value="#{row.XpeAcctgOptionsSet}"
                                                        shortDesc="#{bindings.XpeDccContractVersionAdtView1.hints.XpeAcctgOptionsSet.tooltip}"
                                                        id="ot108"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccContractVersionAdtView1.hints.XpeContractTemplate.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccContractVersionAdtView1.hints.XpeContractTemplate.label}"
-                                               id="c109">
-                                        <af:outputText value="#{row.XpeContractTemplate}"
-                                                       shortDesc="#{bindings.XpeDccContractVersionAdtView1.hints.XpeContractTemplate.tooltip}"
-                                                       id="ot109"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccContractVersionAdtView1.hints.BusinessUnitGl.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccContractVersionAdtView1.hints.BusinessUnitGl.label}"
-                                               id="c110">
-                                        <af:outputText value="#{row.BusinessUnitGl}"
-                                                       shortDesc="#{bindings.XpeDccContractVersionAdtView1.hints.BusinessUnitGl.tooltip}"
-                                                       id="ot110"/>
                                     </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccContractVersionAdtView1.hints.CurrencyCd.name}"
                                                filterable="true" sortable="true"
@@ -1440,7 +1175,7 @@
                                 </af:table>
                             </af:panelCollection>
                         </af:showDetailItem>
-                        <af:showDetailItem id="tab9" text="contract lines">
+                        <af:showDetailItem id="tab9" text="Contract Lines">
                             <af:panelCollection id="pc9" styleClass="AFStretchWidth">
                                 <f:facet name="menus">
                                     <af:menu text="Audit Report" id="m9">
@@ -1461,14 +1196,13 @@
                                 <af:table value="#{bindings.XpeDccContractLineAdtView1.collectionModel}" var="row"
                                           rows="#{bindings.XpeDccContractLineAdtView1.rangeSize}"
                                           emptyText="#{bindings.XpeDccContractLineAdtView1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                          rowBandingInterval="0"
+                                          rowBandingInterval="1"
                                           selectedRowKeys="#{bindings.XpeDccContractLineAdtView1.collectionModel.selectedRow}"
-                                          rowSelection="multiple"
                                           fetchSize="#{bindings.XpeDccContractLineAdtView1.rangeSize}"
                                           filterModel="#{bindings.XpeDccContractLineAdtView1Query.queryDescriptor}"
                                           filterVisible="true"
                                           queryListener="#{bindings.XpeDccContractLineAdtView1Query.processQuery}"
-                                          varStatus="vs" id="t9" width="100%">
+                                          varStatus="vs" id="t9" columnStretching="last" contentDelivery="immediate">
                                     <af:column sortProperty="#{bindings.XpeDccContractLineAdtView1.hints.XpeContractId.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccContractLineAdtView1.hints.XpeContractId.label}"
@@ -1480,7 +1214,7 @@
                                     <af:column sortProperty="#{bindings.XpeDccContractLineAdtView1.hints.XpeContractVersion.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccContractLineAdtView1.hints.XpeContractVersion.label}"
-                                               id="c119">
+                                               id="c119" width="120">
                                         <af:outputText value="#{row.XpeContractVersion}"
                                                        shortDesc="#{bindings.XpeDccContractLineAdtView1.hints.XpeContractVersion.tooltip}"
                                                        id="ot119"/>
@@ -1517,59 +1251,13 @@
                                                        shortDesc="#{bindings.XpeDccContractLineAdtView1.hints.XpeProductUom.tooltip}"
                                                        id="ot123"/>
                                     </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccContractLineAdtView1.hints.XpeQtyMin.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccContractLineAdtView1.hints.XpeQtyMin.label}"
-                                               id="c124">
-                                        <af:outputText value="#{row.XpeQtyMin}"
-                                                       shortDesc="#{bindings.XpeDccContractLineAdtView1.hints.XpeQtyMin.tooltip}"
-                                                       id="ot124">
-                                            <af:convertNumber groupingUsed="false"
-                                                              pattern="#{bindings.XpeDccContractLineAdtView1.hints.XpeQtyMin.format}"/>
-                                        </af:outputText>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccContractLineAdtView1.hints.XpeQtyMax.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccContractLineAdtView1.hints.XpeQtyMax.label}"
-                                               id="c125">
-                                        <af:outputText value="#{row.XpeQtyMax}"
-                                                       shortDesc="#{bindings.XpeDccContractLineAdtView1.hints.XpeQtyMax.tooltip}"
-                                                       id="ot125">
-                                            <af:convertNumber groupingUsed="false"
-                                                              pattern="#{bindings.XpeDccContractLineAdtView1.hints.XpeQtyMax.format}"/>
-                                        </af:outputText>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccContractLineAdtView1.hints.XpePeriodType.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccContractLineAdtView1.hints.XpePeriodType.label}"
-                                               id="c126">
-                                        <af:outputText value="#{row.XpePeriodType}"
-                                                       shortDesc="#{bindings.XpeDccContractLineAdtView1.hints.XpePeriodType.tooltip}"
-                                                       id="ot126"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccContractLineAdtView1.hints.XpeIcon.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccContractLineAdtView1.hints.XpeIcon.label}"
-                                               id="c127">
-                                        <af:outputText value="#{row.XpeIcon}"
-                                                       shortDesc="#{bindings.XpeDccContractLineAdtView1.hints.XpeIcon.tooltip}"
-                                                       id="ot127"/>
-                                    </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccContractLineAdtView1.hints.XpeSwApprNbr.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccContractLineAdtView1.hints.XpeSwApprNbr.label}"
-                                               id="c128">
+                                               id="c128" width="170">
                                         <af:outputText value="#{row.XpeSwApprNbr}"
                                                        shortDesc="#{bindings.XpeDccContractLineAdtView1.hints.XpeSwApprNbr.tooltip}"
                                                        id="ot128"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccContractLineAdtView1.hints.CurrencyCd.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccContractLineAdtView1.hints.CurrencyCd.label}"
-                                               id="c129">
-                                        <af:outputText value="#{row.CurrencyCd}"
-                                                       shortDesc="#{bindings.XpeDccContractLineAdtView1.hints.CurrencyCd.tooltip}"
-                                                       id="ot129"/>
                                     </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccContractLineAdtView1.hints.BusinessUnitGl.name}"
                                                filterable="true" sortable="true"
@@ -1582,7 +1270,7 @@
                                 </af:table>
                             </af:panelCollection>
                         </af:showDetailItem>
-                        <af:showDetailItem id="tab10" text="pricing">
+                        <af:showDetailItem id="tab10" text="Pricing">
                             <af:panelCollection id="pc10" styleClass="AFStretchWidth">
                                 <f:facet name="menus">
                                     <af:menu text="Audit Report" id="m10">
@@ -1603,14 +1291,13 @@
                                 <af:table value="#{bindings.XpeDccCntrctPrcngTermAdtView1.collectionModel}" var="row"
                                           rows="#{bindings.XpeDccCntrctPrcngTermAdtView1.rangeSize}"
                                           emptyText="#{bindings.XpeDccCntrctPrcngTermAdtView1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                          rowBandingInterval="0"
+                                          rowBandingInterval="1"
                                           selectedRowKeys="#{bindings.XpeDccCntrctPrcngTermAdtView1.collectionModel.selectedRow}"
-                                          rowSelection="multiple"
                                           fetchSize="#{bindings.XpeDccCntrctPrcngTermAdtView1.rangeSize}"
                                           filterModel="#{bindings.XpeDccCntrctPrcngTermAdtView1Query.queryDescriptor}"
                                           filterVisible="true"
                                           queryListener="#{bindings.XpeDccCntrctPrcngTermAdtView1Query.processQuery}"
-                                          varStatus="vs" id="t10" width="100%">
+                                          varStatus="vs" id="t10" columnStretching="last" contentDelivery="immediate">
                                     <af:column sortProperty="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeContractId.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeContractId.label}"
@@ -1622,7 +1309,7 @@
                                     <af:column sortProperty="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeContractVersion.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeContractVersion.label}"
-                                               id="c132">
+                                               id="c132" width="110">
                                         <af:outputText value="#{row.XpeContractVersion}"
                                                        shortDesc="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeContractVersion.tooltip}"
                                                        id="ot132"/>
@@ -1638,7 +1325,7 @@
                                     <af:column sortProperty="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpePricingTermLine.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpePricingTermLine.label}"
-                                               id="c134">
+                                               id="c134" width="110">
                                         <af:outputText value="#{row.XpePricingTermLine}"
                                                        shortDesc="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpePricingTermLine.tooltip}"
                                                        id="ot134">
@@ -1649,7 +1336,7 @@
                                     <af:column sortProperty="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpePricingTermType.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpePricingTermType.label}"
-                                               id="c135">
+                                               id="c135" width="120">
                                         <af:outputText value="#{row.XpePricingTermType}"
                                                        shortDesc="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpePricingTermType.tooltip}"
                                                        id="ot135"/>
@@ -1676,52 +1363,6 @@
                                                               pattern="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeRate.format}"/>
                                         </af:outputText>
                                     </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeChargeOverMin.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeChargeOverMin.label}"
-                                               id="c138">
-                                        <af:outputText value="#{row.XpeChargeOverMin}"
-                                                       shortDesc="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeChargeOverMin.tooltip}"
-                                                       id="ot138">
-                                            <af:convertNumber groupingUsed="false"
-                                                              pattern="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeChargeOverMin.format}"/>
-                                        </af:outputText>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeChargeOverMax.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeChargeOverMax.label}"
-                                               id="c139">
-                                        <af:outputText value="#{row.XpeChargeOverMax}"
-                                                       shortDesc="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeChargeOverMax.tooltip}"
-                                                       id="ot139">
-                                            <af:convertNumber groupingUsed="false"
-                                                              pattern="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeChargeOverMax.format}"/>
-                                        </af:outputText>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeChargeDesc.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeChargeDesc.label}"
-                                               id="c140">
-                                        <af:outputText value="#{row.XpeChargeDesc}"
-                                                       shortDesc="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeChargeDesc.tooltip}"
-                                                       id="ot140"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeRolloverType.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeRolloverType.label}"
-                                               id="c141">
-                                        <af:outputText value="#{row.XpeRolloverType}"
-                                                       shortDesc="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeRolloverType.tooltip}"
-                                                       id="ot141"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeResetType.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeResetType.label}"
-                                               id="c142">
-                                        <af:outputText value="#{row.XpeResetType}"
-                                                       shortDesc="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeResetType.tooltip}"
-                                                       id="ot142"/>
-                                    </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpePeriodType.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpePeriodType.label}"
@@ -1739,85 +1380,6 @@
                                                        id="ot144">
                                             <af:convertNumber groupingUsed="false"
                                                               pattern="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpePeriodNbr.format}"/>
-                                        </af:outputText>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeIcon.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeIcon.label}"
-                                               id="c145">
-                                        <af:outputText value="#{row.XpeIcon}"
-                                                       shortDesc="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeIcon.tooltip}"
-                                                       id="ot145"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeIndexChangeType.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeIndexChangeType.label}"
-                                               id="c146">
-                                        <af:outputText value="#{row.XpeIndexChangeType}"
-                                                       shortDesc="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeIndexChangeType.tooltip}"
-                                                       id="ot146"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeIndexChangeId.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeIndexChangeId.label}"
-                                               id="c147">
-                                        <af:outputText value="#{row.XpeIndexChangeId}"
-                                                       shortDesc="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeIndexChangeId.tooltip}"
-                                                       id="ot147"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeMetalsIndexVal.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeMetalsIndexVal.label}"
-                                               id="c148">
-                                        <af:outputText value="#{row.XpeMetalsIndexVal}"
-                                                       shortDesc="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeMetalsIndexVal.tooltip}"
-                                                       id="ot148">
-                                            <af:convertNumber groupingUsed="false"
-                                                              pattern="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeMetalsIndexVal.format}"/>
-                                        </af:outputText>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeMetalsIndexPrc1.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeMetalsIndexPrc1.label}"
-                                               id="c149">
-                                        <af:outputText value="#{row.XpeMetalsIndexPrc1}"
-                                                       shortDesc="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeMetalsIndexPrc1.tooltip}"
-                                                       id="ot149">
-                                            <af:convertNumber groupingUsed="false"
-                                                              pattern="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeMetalsIndexPrc1.format}"/>
-                                        </af:outputText>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeMetalsIndexPrc2.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeMetalsIndexPrc2.label}"
-                                               id="c150">
-                                        <af:outputText value="#{row.XpeMetalsIndexPrc2}"
-                                                       shortDesc="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeMetalsIndexPrc2.tooltip}"
-                                                       id="ot150">
-                                            <af:convertNumber groupingUsed="false"
-                                                              pattern="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeMetalsIndexPrc2.format}"/>
-                                        </af:outputText>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeMetalsUomMlt.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeMetalsUomMlt.label}"
-                                               id="c151">
-                                        <af:outputText value="#{row.XpeMetalsUomMlt}"
-                                                       shortDesc="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeMetalsUomMlt.tooltip}"
-                                                       id="ot151">
-                                            <af:convertNumber groupingUsed="false"
-                                                              pattern="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeMetalsUomMlt.format}"/>
-                                        </af:outputText>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeMetalsUomDen.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeMetalsUomDen.label}"
-                                               id="c152">
-                                        <af:outputText value="#{row.XpeMetalsUomDen}"
-                                                       shortDesc="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeMetalsUomDen.tooltip}"
-                                                       id="ot152">
-                                            <af:convertNumber groupingUsed="false"
-                                                              pattern="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeMetalsUomDen.format}"/>
                                         </af:outputText>
                                     </af:column>
                                 </af:table>
