@@ -4,11 +4,13 @@ import javax.faces.event.ActionEvent;
 
 import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.component.rich.data.RichTable;
+import oracle.adf.view.rich.component.rich.input.RichSelectOneChoice;
 
 public class DestinationSetUpTableBBean {
     private RichTable destinationSetUpTblBind;
     private RichPopup terminalSearch_popup;
     private RichPopup terminalEdit_popup;
+    private RichSelectOneChoice countryBind;
 
     public DestinationSetUpTableBBean() {
     }
@@ -35,5 +37,13 @@ public class DestinationSetUpTableBBean {
 
     public RichPopup getTerminalEdit_popup() {
         return terminalEdit_popup;
+    }
+
+    public void setCountryBind(RichSelectOneChoice countryBind) {
+        this.countryBind = countryBind;
+    }
+
+    public RichSelectOneChoice getCountryBind() {
+        return countryBind;
     }
 }
