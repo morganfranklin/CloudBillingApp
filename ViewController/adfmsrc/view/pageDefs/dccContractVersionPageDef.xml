@@ -40,11 +40,6 @@
                 <Item Value="XpeContractVersion"/>
             </AttrNames>
         </attributeValues>
-        <attributeValues IterBinding="XpeDccContractVersionView2Iterator" id="XpeContractStatus">
-            <AttrNames>
-                <Item Value="XpeContractStatus"/>
-            </AttrNames>
-        </attributeValues>
         <attributeValues IterBinding="XpeDccContractVersionView2Iterator" id="XpeStartDate">
             <AttrNames>
                 <Item Value="XpeStartDate"/>
@@ -236,5 +231,7 @@
                 <Item Value="Screen13"/>
             </AttrNames>
         </attributeValues>
+        <list Uses="LOV_XpeContractStatus" StaticList="false" IterBinding="XpeDccContractVersionView2Iterator"
+              id="XpeContractStatus"/>
     </bindings>
 </pageDefinition>
