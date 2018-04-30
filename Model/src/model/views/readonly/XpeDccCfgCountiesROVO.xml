@@ -32,6 +32,10 @@
     Name="bindState"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="bindCountyId"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="XpeDccGeneralItemListROVO1"
     ViewObjectName="model.views.readonly.XpeDccGeneralItemListROVO"
@@ -65,7 +69,7 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
-  <SQLQuery><![CDATA[SELECT COUNTY_ID, COUNTY_NAME, STATE FROM XPE_DCC_CFG_COUNTIES    
+  <SQLQuery><![CDATA[SELECT COUNTY_ID, COUNTY_NAME, STATE, COUNTRY FROM XPE_DCC_CFG_COUNTIES     
 WHERE INACTIVE = 'N']]></SQLQuery>
   <ViewAttribute
     Name="CountyId"
@@ -136,6 +140,21 @@ WHERE INACTIVE = 'N']]></SQLQuery>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="Country"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="3"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="COUNTRY"
+    Expression="COUNTRY"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </ViewAttribute>
   <ViewCriteria
     Name="XpeDccCfgCountiesROVOCriteria"
     ViewObjectName="model.views.readonly.XpeDccCfgCountiesROVO"
@@ -172,6 +191,58 @@ WHERE INACTIVE = 'N']]></SQLQuery>
         Required="Optional"/>
       <ViewCriteriaItem
         Name="State"
+        ViewAttribute="State"
+        Operator="="
+        Conjunction="AND"
+        Value=":bindState"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="XpeDccCfgCountiesROVO"
+    ViewObjectName="model.views.readonly.XpeDccCfgCountiesROVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="XpeDccCfgCountiesROVOCriteria1_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="XpeDccCfgCountiesROVOCriteria1_XpeDccCfgCountiesROVOCriteria1_row_0_CountyId"
+        ViewAttribute="CountyId"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bindCountyId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="XpeDccCfgCountiesROVOCriteria1_XpeDccCfgCountiesROVOCriteria1_row_0_CountyName"
+        ViewAttribute="CountyName"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bindCountyName"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="XpeDccCfgCountiesROVOCriteria1_XpeDccCfgCountiesROVOCriteria1_row_0_State"
         ViewAttribute="State"
         Operator="="
         Conjunction="AND"

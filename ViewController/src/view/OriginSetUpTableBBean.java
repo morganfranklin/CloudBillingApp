@@ -2,6 +2,7 @@ package view;
 
 import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.component.rich.data.RichTable;
+import oracle.adf.view.rich.component.rich.input.RichSelectOneChoice;
 
 public class OriginSetUpTableBBean {
     private RichPopup originCreationAddItem_popup;

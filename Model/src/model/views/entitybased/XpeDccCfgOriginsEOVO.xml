@@ -114,10 +114,12 @@
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="DerivedAttrNames">
       <Item Value="State"/>
+      <Item Value="Country"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
       <Item Value="CountyId"/>
       <Item Value="State"/>
+      <Item Value="Country"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="CountyId"/>
@@ -125,7 +127,8 @@
       <Item Value="State"/>
     </AttrArray>
     <DisplayCriteria
-      Hint="showAndExecute"/>
+      Hint="showAndExecute"
+      Name="XpeDccCfgCountiesROVO"/>
   </ListBinding>
   <ListBinding
     Name="LOV_State"
@@ -306,7 +309,8 @@
     PrecisionRule="true"
     EntityAttrName="CreatedDate"
     EntityUsage="XpeDccCfgOriginsEO"
-    AliasName="CREATED_DATE"/>
+    AliasName="CREATED_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="Inactive"
     PrecisionRule="true"
@@ -348,7 +352,8 @@
     PrecisionRule="true"
     EntityAttrName="LastUpdatedDate"
     EntityUsage="XpeDccCfgOriginsEO"
-    AliasName="LAST_UPDATED_DATE"/>
+    AliasName="LAST_UPDATED_DATE"
+    IsUpdateable="false"/>
   <ViewCriteria
     Name="OriginsCriteria"
     ViewObjectName="model.views.entitybased.XpeDccCfgOriginsEOVO"
@@ -400,19 +405,19 @@
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
-        Name="OriginsCriteria_XpeDccCfgOriginsEOVOCriteria_row_0_Country"
-        ViewAttribute="Country"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_CountryId"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
         Name="StateSearch"
         ViewAttribute="StateSearch"
         Operator="="
         Conjunction="AND"
         Value=":bind_OriginState"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="OriginsCriteria_XpeDccCfgOriginsEOVOCriteria_row_0_Country"
+        ViewAttribute="Country"
+        Operator="="
+        Conjunction="AND"
+        Value=":bind_CountryId"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>
