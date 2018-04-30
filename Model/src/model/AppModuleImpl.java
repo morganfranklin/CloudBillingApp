@@ -93,6 +93,8 @@ import model.views.readonly.XpeDccCfgPcsAddressROVORowImpl;
 import model.views.readonly.XpeDccCfgPcsAssTerminalsROVOImpl;
 import model.views.readonly.XpeDccCfgPcsAssTerminalsROVORowImpl;
 import model.views.readonly.XpeDccCfgRoleSecurityROVOImpl;
+import model.views.readonly.XpeDccCfgRolesROVOImpl;
+import model.views.readonly.XpeDccCfgRolesROVORowImpl;
 import model.views.readonly.XpeDccCfgTerminalsSearchROVOImpl;
 import model.views.readonly.XpeDccCfgTerminalsSearchROVORowImpl;
 import model.views.readonly.XpeDccCfgUserBusinessUnitROVOImpl;
@@ -120,6 +122,7 @@ import oracle.jbo.RowIterator;
 import oracle.jbo.RowSet;
 import oracle.jbo.RowSetIterator;
 import oracle.jbo.ViewCriteria;
+import oracle.jbo.ViewCriteriaRow;
 import oracle.jbo.ViewObject;
 import oracle.jbo.XMLInterface;
 import oracle.jbo.domain.BlobDomain;
@@ -3937,13 +3940,51 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             userInfoROVORow.setUSER_NAME(givenUser);
         }
         
-        List<String> availRoles = new ArrayList<String>();
-        String accessLimit = null;
+        //For PS Roles
+        String psRoles = "";
+        XpeDccCfgRolesROVOImpl xpeDccCfgRolesROVO = this.getXpeDccCfgRolesROVO1();
+        xpeDccCfgRolesROVO.executeQuery();
+        RowSetIterator rowsetIterator = xpeDccCfgRolesROVO.createRowSetIterator(null);
+        while(rowsetIterator.hasNext()){
+            XpeDccCfgRolesROVORowImpl xpeDccCfgRolesROVORow = (XpeDccCfgRolesROVORowImpl)rowsetIterator.next();
+            psRoles = psRoles + "'" + xpeDccCfgRolesROVORow.getPeoplesoftRole() + "',";
+        }
+        rowsetIterator.closeRowSetIterator();
+        
+        if(psRoles.length()>0)
+            psRoles = psRoles.substring(0,psRoles.length()-1);//Removing , at the end
+        
+        System.err.println("Roles: "+psRoles);
+        
         RoleQueryImpl roles = this.getRoleQuery1();
-        roles.setQ_ROLE_USER(givenUser);
+        final String ROLES_VIEW_CRITERIA = "rolesCriteria";
+        //Create the view criteria object
+        ViewCriteria rolesCriteria = roles.createViewCriteria();
+        rolesCriteria.setName(ROLES_VIEW_CRITERIA);
+        //Build the IN clause
+        final String inClause = "IN (" + psRoles + ")";
+        //Create a criteria row for the in clause
+        ViewCriteriaRow criteriaRow = rolesCriteria.createViewCriteriaRow();
+        criteriaRow.setAttribute(RoleQueryRowImpl.ROLENAME, inClause);
+        criteriaRow.setAttribute(RoleQueryRowImpl.ROLEUSER, givenUser);
+        //Add the row to the rolesCriteria Criteria
+        rolesCriteria.addElement(criteriaRow);
+        //Apply the criteria
+        roles.applyViewCriteria(rolesCriteria);
         roles.executeQuery();
+        System.err.println("Roles count: "+roles.getEstimatedRowCount());
         RoleQueryRowImpl roleRow = (RoleQueryRowImpl) roles.first();
-        /*RowSetIterator rowSetIterator= roles.createRowSetIterator(null);
+        
+        XpeDccCfgRoleSecurityROVOImpl xpeDccCfgRoleSecurityROVO = this.getXpeDccCfgRoleSecurityROVO();
+        if(null!=xpeDccCfgRoleSecurityROVO){
+            xpeDccCfgRoleSecurityROVO.executeEmptyRowSet();
+            xpeDccCfgRoleSecurityROVO.setbind_peoplesoftrole(null!=roleRow?roleRow.getRolename():null);
+            xpeDccCfgRoleSecurityROVO.executeQuery();
+        }
+        
+        /*
+        List<String> availRoles = new ArrayList<String>(); 
+        RowSetIterator rowSetIterator= roles.createRowSetIterator(null);
         while (rowSetIterator.hasNext()) {
             RoleQueryRowImpl roleRow = (RoleQueryRowImpl) rowSetIterator.next();
             availRoles.add(roleRow.getRolename());
@@ -3963,14 +4004,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                 accessLimit = "I";
             }
         }*/
-        
-        XpeDccCfgRoleSecurityROVOImpl xpeDccCfgRoleSecurityROVO = this.getXpeDccCfgRoleSecurityROVO();
-        if(null!=xpeDccCfgRoleSecurityROVO){
-            xpeDccCfgRoleSecurityROVO.executeEmptyRowSet();
-            xpeDccCfgRoleSecurityROVO.setbind_peoplesoftrole(null!=roleRow?roleRow.getRolename():null);
-            xpeDccCfgRoleSecurityROVO.executeQuery();
-        }
-        return accessLimit;
+        return null;
     }
     
     public String writeVoToXml(String voName) {
@@ -4493,6 +4527,14 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public XpeDccCfgCountiesROVOImpl getXpeDccCfgCountiesROVO1() {
         return (XpeDccCfgCountiesROVOImpl) findViewObject("XpeDccCfgCountiesROVO1");
+    }
+
+    /**
+     * Container's getter for XpeDccCfgRolesROVO1.
+     * @return XpeDccCfgRolesROVO1
+     */
+    public XpeDccCfgRolesROVOImpl getXpeDccCfgRolesROVO1() {
+        return (XpeDccCfgRolesROVOImpl) findViewObject("XpeDccCfgRolesROVO1");
     }
 }
 
