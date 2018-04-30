@@ -372,13 +372,6 @@ public class XpeDccCfgBusinessunitEOVORowImpl extends ViewRowImpl {
         return (Timestamp) getAttributeInternal(CREATEDDATE);
     }
 
-    /**
-     * Sets <code>value</code> as attribute value for CREATED_DATE using the alias name CreatedDate.
-     * @param value value to set the CREATED_DATE
-     */
-    public void setCreatedDate(Timestamp value) {
-        setAttributeInternal(CREATEDDATE, value);
-    }
 
     /**
      * Gets the attribute value for LAST_UPDATED_BY using the alias name LastUpdatedBy.
@@ -404,13 +397,6 @@ public class XpeDccCfgBusinessunitEOVORowImpl extends ViewRowImpl {
         return (Timestamp) getAttributeInternal(LASTUPDATEDDATE);
     }
 
-    /**
-     * Sets <code>value</code> as attribute value for LAST_UPDATED_DATE using the alias name LastUpdatedDate.
-     * @param value value to set the LAST_UPDATED_DATE
-     */
-    public void setLastUpdatedDate(Timestamp value) {
-        setAttributeInternal(LASTUPDATEDDATE, value);
-    }
 
     /**
      * Gets the attribute value for BILLING_GL_BUSINESS_UNIT using the alias name BillingGlBusinessUnit.

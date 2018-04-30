@@ -201,24 +201,6 @@
         <DisplayCriteria/>
     </ListBinding>
     <ListBinding
-      Name="LOV_InvSupress"
-      ListVOName="LookupSharedAppModule_XpeDccDicNewContractSetupROVO1"
-      ListRangeSize="-1"
-      NullValueFlag="none"
-      MRUCount="0">
-        <AttrArray Name="AttrNames">
-            <Item Value="InvSupress"/>
-        </AttrArray>
-        <AttrArray Name="AttrExpressions"/>
-        <AttrArray Name="ListAttrNames">
-            <Item Value="XpeLookupId"/>
-        </AttrArray>
-        <AttrArray Name="ListDisplayAttrNames">
-            <Item Value="XpeLookupDesc"/>
-        </AttrArray>
-        <DisplayCriteria/>
-    </ListBinding>
-    <ListBinding
       Name="LOV_CovSoldId"
       ListVOName="XpeDccShortNameCustomerSearchROVO_LOV"
       ListRangeSize="-1"
@@ -441,14 +423,11 @@ where XpeDccCfgPcsshortnamesEO.COV_ID = A.CUST_ID(+)]]></SQLQuery>
       PrecisionRule="true"
       EntityAttrName="InvSupress"
       EntityUsage="XpeDccCfgPcsshortnamesEO"
-      AliasName="INV_SUPRESS"
-      LOVName="LOV_InvSupress">
+      AliasName="INV_SUPRESS">
         <Properties>
             <SchemaBasedProperties>
-                <CONTROLTYPE
-                  Value="choice"/>
                 <LABEL
-                  ResId="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO.InvSupress_LABEL"/>
+                    ResId="model.views.entitybased.XpeDccCfgPcsshortnamesEOVO.InvSupress_LABEL"/>
             </SchemaBasedProperties>
         </Properties>
     </ViewAttribute>
@@ -539,7 +518,8 @@ where XpeDccCfgPcsshortnamesEO.COV_ID = A.CUST_ID(+)]]></SQLQuery>
       PrecisionRule="true"
       EntityAttrName="CreatedDate"
       EntityUsage="XpeDccCfgPcsshortnamesEO"
-      AliasName="CREATED_DATE"/>
+      AliasName="CREATED_DATE"
+        IsUpdateable="false"/>
     <ViewAttribute
       Name="Inactive"
       PrecisionRule="true"
@@ -581,7 +561,8 @@ where XpeDccCfgPcsshortnamesEO.COV_ID = A.CUST_ID(+)]]></SQLQuery>
       PrecisionRule="true"
       EntityAttrName="LastUpdatedDate"
       EntityUsage="XpeDccCfgPcsshortnamesEO"
-      AliasName="LAST_UPDATED_DATE"/>
+      AliasName="LAST_UPDATED_DATE"
+        IsUpdateable="false"/>
     <ViewAttribute
       Name="COV_Sold_Address1"
       IsSelected="false"

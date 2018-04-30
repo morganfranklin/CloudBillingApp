@@ -37,8 +37,8 @@
           <f:validator binding="#{bindings.BillCycleId.validator}"/>
         </af:inputListOfValues>
         <af:selectBooleanCheckbox value="#{bindings.InvSupress.inputValue}" label="#{bindings.InvSupress.label}"
-                                    shortDesc="#{bindings.InvSupress.hints.tooltip}" id="sbc1"/>
-        </af:panelFormLayout>
+                                  shortDesc="#{bindings.InvSupress.hints.tooltip}" id="sbc1"/>
+      </af:panelFormLayout>
     </af:panelHeader>
     <af:spacer width="10" height="10" id="s3"/>
     <af:panelHeader text="Customer Details" id="ph2" size="5">

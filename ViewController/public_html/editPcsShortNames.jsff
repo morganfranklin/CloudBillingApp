@@ -37,7 +37,7 @@
           <f:validator binding="#{bindings.BillCycleId.validator}"/>
         </af:inputListOfValues>
         <af:selectBooleanCheckbox value="#{bindings.InvSupress.inputValue}" label="#{bindings.InvSupress.label}"
-                                    shortDesc="#{bindings.InvSupress.hints.tooltip}" id="sbc1"/>
+                                  shortDesc="#{bindings.InvSupress.hints.tooltip}" id="sbc1"/>
         <af:panelLabelAndMessage label="#{bindings.Inactive.label}" id="plam3">
           <af:selectOneChoice value="#{bindings.Inactive.inputValue}" label="#{bindings.Inactive.label}"
                               required="#{bindings.Inactive.hints.mandatory}"

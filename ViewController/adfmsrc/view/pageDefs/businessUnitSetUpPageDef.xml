@@ -55,18 +55,6 @@
         <Item Value="InactiveDate"/>
       </AttrNames>
     </attributeValues>
-    <button IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_StatsOnly" id="StatsOnly1"
-            DTSupportsMRU="false">
-      <AttrNames>
-        <Item Value="StatsOnly"/>
-      </AttrNames>
-    </button>
-    <button IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" StaticList="false" Uses="LOV_StatsOnly" id="StatsOnly"
-            DTSupportsMRU="false">
-      <AttrNames>
-        <Item Value="StatsOnly"/>
-      </AttrNames>
-    </button>
     <list IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" StaticList="false" Uses="LOV_SiteDesc" id="SiteDesc"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="XpeDccCfgBusinessunitEOVOIterator" StaticList="false" Uses="LOV_SiteDesc" id="SiteDesc1"
@@ -112,5 +100,23 @@
         <Item Value="Screen17"/>
       </AttrNames>
     </attributeValues>
+    <button IterBinding="XpeDccCfgBusinessunitEOVOIterator" id="StatsOnly" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="StatsOnly"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <button IterBinding="XpeDccCfgNewBusinessunitEOVOIterator" id="StatsOnly1" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="StatsOnly"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
   </bindings>
 </pageDefinition>

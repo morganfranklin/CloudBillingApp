@@ -222,24 +222,6 @@
       Name="XpeDccGeneralItemListROVOCriteria"/>
   </ListBinding>
   <ListBinding
-    Name="LOV_StatsOnly"
-    ListVOName="LookupSharedAppModule_YONLOV"
-    ListRangeSize="-1"
-    NullValueFlag="none"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="StatsOnly"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="XpeLookupId"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="XpeLookupDesc"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
-  <ListBinding
     Name="LOV_Inactive"
     ListVOName="LookupSharedAppModule_YONLOV"
     ListRangeSize="-1"
@@ -711,12 +693,9 @@
     PrecisionRule="true"
     EntityAttrName="StatsOnly"
     EntityUsage="XpeDccCfgBusinessunitEO"
-    AliasName="STATS_ONLY"
-    LOVName="LOV_StatsOnly">
+    AliasName="STATS_ONLY">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
         <LABEL
           ResId="model.views.entitybased.XpeDccCfgBusinessunitEOVO.StatsOnly_LABEL"/>
       </SchemaBasedProperties>
@@ -733,7 +712,8 @@
     PrecisionRule="true"
     EntityAttrName="CreatedDate"
     EntityUsage="XpeDccCfgBusinessunitEO"
-    AliasName="CREATED_DATE"/>
+    AliasName="CREATED_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
@@ -745,7 +725,8 @@
     PrecisionRule="true"
     EntityAttrName="LastUpdatedDate"
     EntityUsage="XpeDccCfgBusinessunitEO"
-    AliasName="LAST_UPDATED_DATE"/>
+    AliasName="LAST_UPDATED_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="BillingGlBusinessUnit"
     PrecisionRule="true"

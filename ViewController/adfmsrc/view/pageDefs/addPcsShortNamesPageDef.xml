@@ -75,12 +75,6 @@
       </AttrNames>
     </attributeValues>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
-    <button IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" StaticList="false" Uses="LOV_InvSupress"
-            id="InvSupress" DTSupportsMRU="false">
-      <AttrNames>
-        <Item Value="InvSupress"/>
-      </AttrNames>
-    </button>
     <listOfValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" StaticList="false" Uses="LOV_CovBillId"
                   id="CovBillId"/>
     <listOfValues IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" StaticList="false" Uses="LOV_CovSoldId"
@@ -97,5 +91,14 @@
         <Item Value="PcsshortnameId"/>
       </AttrNames>
     </attributeValues>
+    <button IterBinding="XpeDccCfgNewPcsshortnamesEOVOIterator" id="InvSupress" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="InvSupress"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
   </bindings>
 </pageDefinition>

@@ -174,8 +174,8 @@
                   <f:validator binding="#{bindings.SiteDesc.validator}"/>
                 </af:selectOneChoice>
               </af:panelLabelAndMessage>
-              <af:selectBooleanCheckbox value="#{bindings.StatsOnly.inputValue}" label="#{bindings.StatsOnly.label}"
-                                        shortDesc="#{bindings.StatsOnly.hints.tooltip}" id="sbc2"
+              <af:selectBooleanCheckbox value="#{bindings.StatsOnly1.inputValue}" label="#{bindings.StatsOnly1.label}"
+                                        shortDesc="#{bindings.StatsOnly1.hints.tooltip}" id="sbc2"
                                         readOnly="#{bindings.SetUpTables.inputValue eq 'V'}"/>
               <af:inputListOfValues id="accountingClassId"
                                     popupTitle="Search and Select: #{bindings.AccountingClass.hints.label}"
@@ -362,8 +362,8 @@
                   <f:validator binding="#{bindings.SiteDesc1.validator}"/>
                 </af:selectOneChoice>
               </af:panelLabelAndMessage>
-              <af:selectBooleanCheckbox value="#{bindings.StatsOnly1.inputValue}" label="#{bindings.StatsOnly1.label}"
-                                        shortDesc="#{bindings.StatsOnly1.hints.tooltip}" id="sbc1"
+              <af:selectBooleanCheckbox value="#{bindings.StatsOnly.inputValue}" label="#{bindings.StatsOnly.label}"
+                                        shortDesc="#{bindings.StatsOnly.hints.tooltip}" id="sbc1"
                                         readOnly="#{bindings.SetUpTables.inputValue eq 'V'}"/>
               <af:inputListOfValues id="accountingClass1Id"
                                     popupTitle="Search and Select: #{bindings.AccountingClass1.hints.label}"
