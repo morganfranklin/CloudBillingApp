@@ -159,14 +159,6 @@ ITEM_TYPE = 'PRD']]></SQLQuery>
                 Value=":bindDescription"
                 IsBindVarValue="true"
                 Required="Optional"/>
-            <ViewCriteriaItem
-                Name="XpeDccDicProductsCriteria_XpeDccDicProductsCriteria_row_0_Category"
-                ViewAttribute="Category"
-                Operator="CONTAINS"
-                Conjunction="AND"
-                Value=":bindCategory"
-                IsBindVarValue="true"
-                Required="Optional"/>
         </ViewCriteriaRow>
     </ViewCriteria>
     <ViewCriteria
