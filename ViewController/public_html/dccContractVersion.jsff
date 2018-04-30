@@ -24,9 +24,16 @@
                                                                    id="ot2"/>
                                                 </af:panelLabelAndMessage>
                                                 <af:panelLabelAndMessage label="Contract Status" id="plam3">
-                                                    <af:outputText value="#{bindings.XpeContractStatus.inputValue}"
-                                                                   shortDesc="#{bindings.XpeContractStatus.hints.tooltip}"
-                                                                   id="ot3"/>
+                                                    <af:selectOneChoice value="#{bindings.XpeContractStatus.inputValue}"
+                                                                        label="#{bindings.XpeContractStatus.label}"
+                                                                        required="#{bindings.XpeContractStatus.hints.mandatory}"
+                                                                        shortDesc="#{bindings.XpeContractStatus.hints.tooltip}"
+                                                                        id="soc14" simple="true" autoSubmit="true"
+                                                                        readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
+                                                        <f:selectItems value="#{bindings.XpeContractStatus.items}"
+                                                                       id="si13"/>
+                                                        <f:validator binding="#{bindings.XpeContractStatus.validator}"/>
+                                                    </af:selectOneChoice>
                                                 </af:panelLabelAndMessage>
                                                 <af:inputDate value="#{bindings.XpeStartDate.inputValue}"
                                                               label="Start Date" autoSubmit="true"
