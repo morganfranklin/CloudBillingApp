@@ -12,7 +12,8 @@ public class RoleQueryRowImpl extends ViewRowImpl {
      * AttributesEnum: generated enum for identifying attributes and accessors. DO NOT MODIFY.
      */
     public enum AttributesEnum {
-        Rolename;
+        Rolename,
+        Roleuser;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -38,6 +39,7 @@ public class RoleQueryRowImpl extends ViewRowImpl {
 
 
     public static final int ROLENAME = AttributesEnum.Rolename.index();
+    public static final int ROLEUSER = AttributesEnum.Roleuser.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -51,6 +53,14 @@ public class RoleQueryRowImpl extends ViewRowImpl {
      */
     public String getRolename() {
         return (String) getAttributeInternal(ROLENAME);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute Roleuser.
+     * @return the Roleuser
+     */
+    public String getRoleuser() {
+        return (String) getAttributeInternal(ROLEUSER);
     }
 }
 

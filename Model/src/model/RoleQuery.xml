@@ -22,14 +22,10 @@
                 ResId="model.RoleQuery_LABEL"/>
         </SchemaBasedProperties>
     </Properties>
-    <Variable
-        Name="Q_ROLE_USER"
-        Kind="where"
-        Type="java.lang.String"
-        DefaultValue="MPALMER"/>
-    <SQLQuery><![CDATA[SELECT ROLENAME FROM PSROLEUSER        
-WHERE ROLENAME IN('MOD_CPE_IA','MOD_CPE_SALES','MOD_CPE_LEGAL','MOD_CPE_ADMIN','MOD_CPE_BILLING','MOD_CPE_CUSTCARE','MOD_CPE_FIELD','MOD_CPE_AUDIT','MOD_CPE_COLLECTORS','MOD_CPE_DEVELOPER','MOD_CPE_METALS','CPE_DEV')       
-AND ROLEUSER=:Q_ROLE_USER]]></SQLQuery>
+    <SQLQuery><![CDATA[SELECT 
+ROLENAME, 
+ROLEUSER 
+FROM PSROLEUSER]]></SQLQuery>
     <ViewAttribute
         Name="Rolename"
         IsUpdateable="false"
@@ -40,6 +36,21 @@ AND ROLEUSER=:Q_ROLE_USER]]></SQLQuery>
         ColumnType="VARCHAR2"
         AliasName="ROLENAME"
         Expression="ROLENAME"
+        SQLType="VARCHAR">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="30"/>
+        </DesignTime>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="Roleuser"
+        IsUpdateable="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="30"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        AliasName="ROLEUSER"
+        Expression="ROLEUSER"
         SQLType="VARCHAR">
         <DesignTime>
             <Attr Name="_DisplaySize" Value="30"/>
