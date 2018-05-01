@@ -38,6 +38,7 @@ public class XpeDccCfgGeneralCnvEOVORowImpl extends ViewRowImpl {
         TohBusinessType,
         TohPayType,
         Country,
+        TohBusnPaySrc,
         XpeDccCfgCarriers_LOV,
         XpeDccCfgOrigins_LOV,
         XpeDccCfgDestinations_LOV,
@@ -88,6 +89,7 @@ public class XpeDccCfgGeneralCnvEOVORowImpl extends ViewRowImpl {
     public static final int TOHBUSINESSTYPE = AttributesEnum.TohBusinessType.index();
     public static final int TOHPAYTYPE = AttributesEnum.TohPayType.index();
     public static final int COUNTRY = AttributesEnum.Country.index();
+    public static final int TOHBUSNPAYSRC = AttributesEnum.TohBusnPaySrc.index();
     public static final int XPEDCCCFGCARRIERS_LOV = AttributesEnum.XpeDccCfgCarriers_LOV.index();
     public static final int XPEDCCCFGORIGINS_LOV = AttributesEnum.XpeDccCfgOrigins_LOV.index();
     public static final int XPEDCCCFGDESTINATIONS_LOV = AttributesEnum.XpeDccCfgDestinations_LOV.index();
@@ -265,13 +267,6 @@ public class XpeDccCfgGeneralCnvEOVORowImpl extends ViewRowImpl {
         return (Timestamp) getAttributeInternal(CREATEDDATE);
     }
 
-    /**
-     * Sets <code>value</code> as attribute value for CREATED_DATE using the alias name CreatedDate.
-     * @param value value to set the CREATED_DATE
-     */
-    public void setCreatedDate(Timestamp value) {
-        setAttributeInternal(CREATEDDATE, value);
-    }
 
     /**
      * Gets the attribute value for LAST_UPDATED_BY using the alias name LastUpdatedBy.
@@ -297,13 +292,6 @@ public class XpeDccCfgGeneralCnvEOVORowImpl extends ViewRowImpl {
         return (Timestamp) getAttributeInternal(LASTUPDATEDDATE);
     }
 
-    /**
-     * Sets <code>value</code> as attribute value for LAST_UPDATED_DATE using the alias name LastUpdatedDate.
-     * @param value value to set the LAST_UPDATED_DATE
-     */
-    public void setLastUpdatedDate(Timestamp value) {
-        setAttributeInternal(LASTUPDATEDDATE, value);
-    }
 
     /**
      * Gets the attribute value for INACTIVE using the alias name Inactive.
@@ -383,6 +371,22 @@ public class XpeDccCfgGeneralCnvEOVORowImpl extends ViewRowImpl {
      */
     public void setCountry(String value) {
         setAttributeInternal(COUNTRY, value);
+    }
+
+    /**
+     * Gets the attribute value for TOH_BUSN_PAY_SRC using the alias name TohBusnPaySrc.
+     * @return the TOH_BUSN_PAY_SRC
+     */
+    public String getTohBusnPaySrc() {
+        return (String) getAttributeInternal(TOHBUSNPAYSRC);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for TOH_BUSN_PAY_SRC using the alias name TohBusnPaySrc.
+     * @param value value to set the TOH_BUSN_PAY_SRC
+     */
+    public void setTohBusnPaySrc(String value) {
+        setAttributeInternal(TOHBUSNPAYSRC, value);
     }
 
     /**

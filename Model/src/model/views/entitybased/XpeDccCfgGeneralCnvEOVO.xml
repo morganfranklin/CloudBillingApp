@@ -49,10 +49,6 @@
     Name="bind_TranslationConsumer"
     Kind="viewcriteria"
     Type="java.lang.String"/>
-  <Variable
-    Name="bind_Country"
-    Kind="viewcriteria"
-    Type="java.lang.String"/>
   <ViewAccessor
     Name="XpeDccCfgCarriers_LOV"
     ViewObjectName="model.views.readonly.XpeDccCfgCarriersROVO"
@@ -402,7 +398,8 @@
     PrecisionRule="true"
     EntityAttrName="CreatedDate"
     EntityUsage="XpeDccCfgGeneralCnvEO"
-    AliasName="CREATED_DATE"/>
+    AliasName="CREATED_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
@@ -414,7 +411,8 @@
     PrecisionRule="true"
     EntityAttrName="LastUpdatedDate"
     EntityUsage="XpeDccCfgGeneralCnvEO"
-    AliasName="LAST_UPDATED_DATE"/>
+    AliasName="LAST_UPDATED_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="Inactive"
     PrecisionRule="true"
@@ -473,6 +471,19 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TohBusnPaySrc"
+    PrecisionRule="true"
+    EntityAttrName="TohBusnPaySrc"
+    EntityUsage="XpeDccCfgGeneralCnvEO"
+    AliasName="TOH_BUSN_PAY_SRC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgGeneralCnvEOVO.TohBusnPaySrc_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -548,14 +559,6 @@
         Operator="="
         Conjunction="AND"
         Value=":bind_TranslationConsumer"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="Country"
-        ViewAttribute="Country"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_Country"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

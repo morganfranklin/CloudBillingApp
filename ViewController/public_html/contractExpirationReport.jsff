@@ -86,7 +86,7 @@
                                shortDesc="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.XpeContractVersion.tooltip}"
                                id="ot4"/>
               </af:column>
-              <af:column headerText="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.XpeEndDate.label}"
+              <af:column headerText="End Date"
                          id="resId1c7"
                          sortProperty="#{bindings.XpeDccCovCntrctExpirationReportROVO.hints.XpeEndDate.name}">
                 <af:outputText value="#{row.XpeEndDate}"

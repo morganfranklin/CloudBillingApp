@@ -36,7 +36,8 @@ public class XpeDccCfgGeneralCnvEOImpl extends EntityImpl {
         InactiveDate,
         TohBusinessType,
         TohPayType,
-        Country;
+        Country,
+        TohBusnPaySrc;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -78,11 +79,19 @@ public class XpeDccCfgGeneralCnvEOImpl extends EntityImpl {
     public static final int TOHBUSINESSTYPE = AttributesEnum.TohBusinessType.index();
     public static final int TOHPAYTYPE = AttributesEnum.TohPayType.index();
     public static final int COUNTRY = AttributesEnum.Country.index();
+    public static final int TOHBUSNPAYSRC = AttributesEnum.TohBusnPaySrc.index();
 
     /**
      * This is the default constructor (do not remove).
      */
     public XpeDccCfgGeneralCnvEOImpl() {
+    }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("model.entities.XpeDccCfgGeneralCnvEO");
     }
 
     /**
@@ -237,13 +246,6 @@ public class XpeDccCfgGeneralCnvEOImpl extends EntityImpl {
         return (Timestamp) getAttributeInternal(CREATEDDATE);
     }
 
-    /**
-     * Sets <code>value</code> as the attribute value for CreatedDate.
-     * @param value value to set the CreatedDate
-     */
-    public void setCreatedDate(Timestamp value) {
-        setAttributeInternal(CREATEDDATE, value);
-    }
 
     /**
      * Gets the attribute value for LastUpdatedBy, using the alias name LastUpdatedBy.
@@ -269,13 +271,6 @@ public class XpeDccCfgGeneralCnvEOImpl extends EntityImpl {
         return (Timestamp) getAttributeInternal(LASTUPDATEDDATE);
     }
 
-    /**
-     * Sets <code>value</code> as the attribute value for LastUpdatedDate.
-     * @param value value to set the LastUpdatedDate
-     */
-    public void setLastUpdatedDate(Timestamp value) {
-        setAttributeInternal(LASTUPDATEDDATE, value);
-    }
 
     /**
      * Gets the attribute value for Inactive, using the alias name Inactive.
@@ -358,6 +353,23 @@ public class XpeDccCfgGeneralCnvEOImpl extends EntityImpl {
     }
 
     /**
+     * Gets the attribute value for TohBusnPaySrc, using the alias name TohBusnPaySrc.
+     * @return the value of TohBusnPaySrc
+     */
+    public String getTohBusnPaySrc() {
+        return (String) getAttributeInternal(TOHBUSNPAYSRC);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for TohBusnPaySrc.
+     * @param value value to set the TohBusnPaySrc
+     */
+    public void setTohBusnPaySrc(String value) {
+        setAttributeInternal(TOHBUSNPAYSRC, value);
+    }
+
+
+    /**
      * @param generalCnvId key constituent
 
      * @return a Key object based on given key constituents.
@@ -365,14 +377,6 @@ public class XpeDccCfgGeneralCnvEOImpl extends EntityImpl {
     public static Key createPrimaryKey(String generalCnvId) {
         return new Key(new Object[] { generalCnvId });
     }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("model.entities.XpeDccCfgGeneralCnvEO");
-    }
-
 
     protected String nextVal(String sequenceName) {
         SequenceImpl s = new SequenceImpl(sequenceName, getDBTransaction());

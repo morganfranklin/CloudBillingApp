@@ -214,6 +214,18 @@
       <Attr Name="_DisplaySize" Value="3"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="TohBusnPaySrc"
+    Precision="20"
+    ColumnName="TOH_BUSN_PAY_SRC"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_GENERAL_CNV">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
   <Key
     Name="XpeDccCfgGeneralCnvPk"
     PrimaryKey="true">
