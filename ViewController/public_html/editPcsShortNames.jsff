@@ -25,7 +25,7 @@
                       required="#{bindings.AccountClass.hints.mandatory}"
                       columns="#{bindings.AccountClass.hints.displayWidth}"
                       maximumLength="#{bindings.AccountClass.hints.precision}"
-                      shortDesc="#{bindings.AccountClass.hints.tooltip}" id="it2">
+                      shortDesc="#{bindings.AccountClass.hints.tooltip}" id="it2" rendered="false">
           <f:validator binding="#{bindings.AccountClass.validator}"/>
         </af:inputText>
         <af:inputListOfValues id="billCycleIdId" popupTitle="Search and Select: #{bindings.BillCycleId.hints.label}"

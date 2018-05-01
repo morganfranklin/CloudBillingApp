@@ -186,6 +186,14 @@
                                               shortDesc="#{bindings.PcsShortNameId.hints.tooltip}">
                             <f:validator binding="#{bindings.PcsShortNameId.validator}"/>
                         </af:inputListOfValues>
+                        <af:inputText value="#{bindings.TohBusnPaySrc.inputValue}"
+                                      label="#{bindings.TohBusnPaySrc.hints.label}"
+                                      required="#{bindings.TohBusnPaySrc.hints.mandatory}"
+                                      columns="#{bindings.TohBusnPaySrc.hints.displayWidth}"
+                                      maximumLength="#{bindings.TohBusnPaySrc.hints.precision}"
+                                      shortDesc="#{bindings.TohBusnPaySrc.hints.tooltip}" id="it7">
+                            <f:validator binding="#{bindings.TohBusnPaySrc.validator}"/>
+                        </af:inputText>
                         <af:panelLabelAndMessage label="#{bindings.TranslationConsumer.label}" id="plam3">
                             <af:selectOneChoice value="#{bindings.TranslationConsumer.inputValue}"
                                                 label="#{bindings.TranslationConsumer.label}"
@@ -300,6 +308,14 @@
                                               shortDesc="#{bindings.PcsShortNameId1.hints.tooltip}">
                             <f:validator binding="#{bindings.PcsShortNameId1.validator}"/>
                         </af:inputListOfValues>
+                        <af:inputText value="#{bindings.TohBusnPaySrc1.inputValue}"
+                                      label="#{bindings.TohBusnPaySrc1.hints.label}"
+                                      required="#{bindings.TohBusnPaySrc1.hints.mandatory}"
+                                      columns="#{bindings.TohBusnPaySrc1.hints.displayWidth}"
+                                      maximumLength="#{bindings.TohBusnPaySrc1.hints.precision}"
+                                      shortDesc="#{bindings.TohBusnPaySrc1.hints.tooltip}" id="it8">
+                            <f:validator binding="#{bindings.TohBusnPaySrc1.validator}"/>
+                        </af:inputText>
                         <af:panelLabelAndMessage label="#{bindings.TranslationConsumer1.label}" id="plam4">
                             <af:selectOneChoice value="#{bindings.TranslationConsumer1.inputValue}"
                                                 label="#{bindings.TranslationConsumer1.label}"

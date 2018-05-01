@@ -50,7 +50,7 @@
                   id="MaterialId"/>
     <listOfValues IterBinding="XpeDccCfgNewGeneralCnvEOVOIterator" StaticList="false" Uses="LOV_PcsShortNameId"
                   id="PcsShortNameId"/>
-    <list IterBinding="XpeDccCfgGeneralCnvEOVOIterator" StaticList="false" Uses="LOV_TranslationConsumer"
+    <list IterBinding="XpeDccCfgNewGeneralCnvEOVOIterator" StaticList="false" Uses="LOV_TranslationConsumer"
           id="TranslationConsumer" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <attributeValues IterBinding="XpeDccCfgNewGeneralCnvEOVOIterator" id="ConversionValue">
       <AttrNames>
@@ -122,6 +122,16 @@
     <attributeValues IterBinding="XpeDccCfgRoleSecurityEOVOIterator" id="SetUpTables">
       <AttrNames>
         <Item Value="Screen17"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewGeneralCnvEOVOIterator" id="TohBusnPaySrc">
+      <AttrNames>
+        <Item Value="TohBusnPaySrc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgGeneralCnvEOVOIterator" id="TohBusnPaySrc1">
+      <AttrNames>
+        <Item Value="TohBusnPaySrc"/>
       </AttrNames>
     </attributeValues>
   </bindings>
