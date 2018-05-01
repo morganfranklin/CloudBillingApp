@@ -4,7 +4,7 @@
 <Entity
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="XpeDccContractVersionAdt"
-  Version="12.2.1.0.31"
+  Version="12.2.1.11.57"
   InheritPersonalization="merge"
   DBObjectType="table"
   DBObjectName="XPE_DCC_CONTRACT_VERSION_ADT"
@@ -84,19 +84,6 @@
     Name="CreatedBy"
     Precision="20"
     ColumnName="CREATED_BY"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CONTRACT_VERSION_ADT"
-    PrimaryKey="true">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="20"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="UpdatedBy"
-    Precision="20"
-    ColumnName="UPDATED_BY"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
@@ -244,6 +231,35 @@
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="CreatedDate"
+    ColumnName="CREATED_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XPE_DCC_CONTRACT_VERSION_ADT"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="LastUpdatedDate"
+    ColumnName="LAST_UPDATED_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XPE_DCC_CONTRACT_VERSION_ADT"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="LastUpdatedBy"
+    Precision="20"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CONTRACT_VERSION_ADT"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
   <Key
     Name="XpedcccontractversionadtPrimaryKey"
     PrimaryKey="true">
@@ -258,7 +274,6 @@
       <Item Value="model.auditlog.XpeDccContractVersionAdt.XpeEndDate"/>
       <Item Value="model.auditlog.XpeDccContractVersionAdt.XpeNewTermMode"/>
       <Item Value="model.auditlog.XpeDccContractVersionAdt.CreatedBy"/>
-      <Item Value="model.auditlog.XpeDccContractVersionAdt.UpdatedBy"/>
       <Item Value="model.auditlog.XpeDccContractVersionAdt.XpeBillOptionsSet"/>
       <Item Value="model.auditlog.XpeDccContractVersionAdt.XpeAcctgOptionsSet"/>
       <Item Value="model.auditlog.XpeDccContractVersionAdt.XpeContractTemplate"/>
@@ -270,6 +285,9 @@
       <Item Value="model.auditlog.XpeDccContractVersionAdt.XpeAsOfDate"/>
       <Item Value="model.auditlog.XpeDccContractVersionAdt.SalesPerson"/>
       <Item Value="model.auditlog.XpeDccContractVersionAdt.XpeContractDirection"/>
+      <Item Value="model.auditlog.XpeDccContractVersionAdt.CreatedDate"/>
+      <Item Value="model.auditlog.XpeDccContractVersionAdt.LastUpdatedDate"/>
+      <Item Value="model.auditlog.XpeDccContractVersionAdt.LastUpdatedBy"/>
     </AttrArray>
   </Key>
 </Entity>
