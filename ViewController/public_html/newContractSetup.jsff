@@ -118,25 +118,25 @@
                                                 <f:validator binding="#{bindings.XpeAsOfDate.validator}"/>
                                             </af:inputDate>
                                             <af:panelLabelAndMessage label="#{bindings.XpeStartDate.hints.label}"
-                                                                     id="plam4">
+                                                                     id="plam4" showRequired="true">
                                                 <af:inputDate value="#{bindings.XpeStartDate.inputValue}"
                                                               label="#{bindings.XpeStartDate.hints.label}"
-                                                              required="#{bindings.XpeStartDate.hints.mandatory}"
                                                               columns="#{bindings.XpeStartDate.hints.displayWidth}"
                                                               shortDesc="#{bindings.XpeStartDate.hints.tooltip}"
                                                               id="id2" simple="true" autoSubmit="true"
-                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                              readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                              required="true">
                                                     <f:validator binding="#{bindings.XpeStartDate.validator}"/>
                                                     <af:convertDateTime pattern="yyyy-MM-dd HH:mm:ss"/>
                                                 </af:inputDate>
                                                 <f:facet name="end">
                                                     <af:inputDate value="#{bindings.XpeEndDate.inputValue}"
                                                                   label="#{bindings.XpeEndDate.hints.label}"
-                                                                  required="#{bindings.XpeEndDate.hints.mandatory}"
                                                                   columns="#{bindings.XpeEndDate.hints.displayWidth}"
                                                                   shortDesc="#{bindings.XpeEndDate.hints.tooltip}"
                                                                   id="id3" autoSubmit="true"
-                                                                  readOnly="#{pageFlowScope.ContractType eq 'BLS'}">
+                                                                  readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
+                                                                  required="true">
                                                         <f:validator binding="#{bindings.XpeEndDate.validator}"/>
                                                         <af:convertDateTime pattern="yyyy-MM-dd HH:mm:ss"/>
                                                     </af:inputDate>

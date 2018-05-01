@@ -588,11 +588,14 @@
                                                                                title="Vehicles Audit Report"/>
                                         </af:commandMenuItem>
                                         <af:commandMenuItem text="Export to PDF" id="cmi15">
+                                            <af:setPropertyListener from="#{'writeVehiclesVoToXml'}"
+                                                                    to="#{backingBeanScope.methodActionName}"
+                                                                    type="action"/>
+                                            <af:setPropertyListener from="#{'VehiclesAuditReport'}"
+                                                                    to="#{backingBeanScope.reportName}" type="action"/>
                                             <af:fileDownloadActionListener contentType="application/pdf"
                                                                            filename="VehiclesAuditReport.pdf"
                                                                            method="#{pageFlowScope.auditReportsMBean.auditReportPDFDownload}"/>
-                                            <af:setPropertyListener from="#{'writeVehiclesVoToXml'}" to="#{requestScope.methodActionName}" type="action"/>
-                                            <af:setPropertyListener from="#{'VehiclesAuditReport'}" to="#{requestScope.reportName}" type="action"/>
                                         </af:commandMenuItem>
                                     </af:menu>
                                 </f:facet>
@@ -715,11 +718,14 @@
                                                                                title="Customers Audit Report"/>
                                         </af:commandMenuItem>
                                         <af:commandMenuItem text="Export to PDF" id="cmi16">
+                                            <af:setPropertyListener from="#{'writePCSVoToXml'}"
+                                                                    to="#{backingBeanScope.methodActionName}"
+                                                                    type="action"/>
+                                            <af:setPropertyListener from="#{'CustomersAuditReport'}"
+                                                                    to="#{backingBeanScope.reportName}" type="action"/>
                                             <af:fileDownloadActionListener contentType="application/pdf"
                                                                            filename="CustomersAuditReport.pdf"
                                                                            method="#{pageFlowScope.auditReportsMBean.auditReportPDFDownload}"/>
-                                            <af:setPropertyListener from="#{'writePCSVoToXml'}" to="#{requestScope.methodActionName}" type="action"/>
-                                            <af:setPropertyListener from="#{'CustomersAuditReport'}" to="#{requestScope.reportName}" type="action"/>
                                         </af:commandMenuItem>
                                     </af:menu>
                                 </f:facet>
@@ -904,11 +910,14 @@
                                                                                title="Contracts Audit Report"/>
                                         </af:commandMenuItem>
                                         <af:commandMenuItem text="Export to PDF" id="cmi17">
+                                            <af:setPropertyListener from="#{'writeContractsVoToXml'}"
+                                                                    to="#{backingBeanScope.methodActionName}"
+                                                                    type="action"/>
+                                            <af:setPropertyListener from="#{'ContractsAuditReport'}"
+                                                                    to="#{backingBeanScope.reportName}" type="action"/>
                                             <af:fileDownloadActionListener contentType="application/pdf"
                                                                            filename="ContractsAuditReport.pdf"
                                                                            method="#{pageFlowScope.auditReportsMBean.auditReportPDFDownload}"/>
-                                             <af:setPropertyListener from="#{'writeContractsVoToXml'}" to="#{requestScope.methodActionName}" type="action"/>
-                                             <af:setPropertyListener from="#{'ContractsAuditReport'}" to="#{requestScope.reportName}" type="action"/>
                                         </af:commandMenuItem>
                                     </af:menu>
                                 </f:facet>
@@ -1010,11 +1019,14 @@
                                                                                title="Contract Versions Audit Report"/>
                                         </af:commandMenuItem>
                                         <af:commandMenuItem text="Export to PDF" id="cmi18">
+                                            <af:setPropertyListener from="#{'writeContractVersionVoToXml'}"
+                                                                    to="#{backingBeanScope.methodActionName}"
+                                                                    type="action"/>
+                                            <af:setPropertyListener from="#{'ContractVersionsAuditReport'}"
+                                                                    to="#{backingBeanScope.reportName}" type="action"/>
                                             <af:fileDownloadActionListener contentType="application/pdf"
                                                                            filename="ContractVersionsAuditReport.pdf"
                                                                            method="#{pageFlowScope.auditReportsMBean.auditReportPDFDownload}"/>
-                                            <af:setPropertyListener from="#{'writeContractVersionVoToXml'}" to="#{requestScope.methodActionName}" type="action"/>
-                                            <af:setPropertyListener from="#{'ContractVersionsAuditReport'}" to="#{requestScope.reportName}" type="action"/>
                                         </af:commandMenuItem>
                                     </af:menu>
                                 </f:facet>
@@ -1052,6 +1064,22 @@
                                                        shortDesc="#{bindings.XpeDccContractVersionAdtView1.hints.XpeContractStatus.tooltip}"
                                                        id="ot101"/>
                                     </af:column>
+                                    <af:column sortProperty="#{bindings.XpeDccContractVersionAdtView1.hints.XpeAsOfDate.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.XpeDccContractVersionAdtView1.hints.XpeAsOfDate.label}"
+                                               id="c115">
+                                        <f:facet name="filter">
+                                            <af:inputDate value="#{bindings.XpeDccContractVersionAdtView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.XpeAsOfDate.value}"
+                                                          id="id28">
+                                                <af:convertDateTime pattern="#{bindings.XpeDccContractVersionAdtView1.hints.XpeAsOfDate.format}"/>
+                                            </af:inputDate>
+                                        </f:facet>
+                                        <af:outputText value="#{row.XpeAsOfDate}"
+                                                       shortDesc="#{bindings.XpeDccContractVersionAdtView1.hints.XpeAsOfDate.tooltip}"
+                                                       id="ot115">
+                                            <af:convertDateTime pattern="#{bindings.XpeDccContractVersionAdtView1.hints.XpeAsOfDate.format}"/>
+                                        </af:outputText>
+                                    </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccContractVersionAdtView1.hints.XpeStartDate.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccContractVersionAdtView1.hints.XpeStartDate.label}"
@@ -1083,22 +1111,6 @@
                                                        id="ot103">
                                             <af:convertDateTime pattern="#{bindings.XpeDccContractVersionAdtView1.hints.XpeEndDate.format}"/>
                                         </af:outputText>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccContractVersionAdtView1.hints.CreatedBy.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccContractVersionAdtView1.hints.CreatedBy.label}"
-                                               id="c105">
-                                        <af:outputText value="#{row.CreatedBy}"
-                                                       shortDesc="#{bindings.XpeDccContractVersionAdtView1.hints.CreatedBy.tooltip}"
-                                                       id="ot105"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccContractVersionAdtView1.hints.UpdatedBy.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccContractVersionAdtView1.hints.UpdatedBy.label}"
-                                               id="c106">
-                                        <af:outputText value="#{row.UpdatedBy}"
-                                                       shortDesc="#{bindings.XpeDccContractVersionAdtView1.hints.UpdatedBy.tooltip}"
-                                                       id="ot106"/>
                                     </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccContractVersionAdtView1.hints.XpeAcctgOptionsSet.name}"
                                                filterable="true" sortable="true"
@@ -1140,22 +1152,6 @@
                                                        shortDesc="#{bindings.XpeDccContractVersionAdtView1.hints.XpeAgreementType.tooltip}"
                                                        id="ot114"/>
                                     </af:column>
-                                    <af:column sortProperty="#{bindings.XpeDccContractVersionAdtView1.hints.XpeAsOfDate.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccContractVersionAdtView1.hints.XpeAsOfDate.label}"
-                                               id="c115">
-                                        <f:facet name="filter">
-                                            <af:inputDate value="#{bindings.XpeDccContractVersionAdtView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.XpeAsOfDate.value}"
-                                                          id="id28">
-                                                <af:convertDateTime pattern="#{bindings.XpeDccContractVersionAdtView1.hints.XpeAsOfDate.format}"/>
-                                            </af:inputDate>
-                                        </f:facet>
-                                        <af:outputText value="#{row.XpeAsOfDate}"
-                                                       shortDesc="#{bindings.XpeDccContractVersionAdtView1.hints.XpeAsOfDate.tooltip}"
-                                                       id="ot115">
-                                            <af:convertDateTime pattern="#{bindings.XpeDccContractVersionAdtView1.hints.XpeAsOfDate.format}"/>
-                                        </af:outputText>
-                                    </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccContractVersionAdtView1.hints.SalesPerson.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccContractVersionAdtView1.hints.SalesPerson.label}"
@@ -1172,6 +1168,54 @@
                                                        shortDesc="#{bindings.XpeDccContractVersionAdtView1.hints.XpeContractDirection.tooltip}"
                                                        id="ot117"/>
                                     </af:column>
+                                    <af:column sortProperty="#{bindings.XpeDccContractVersionAdtView1.hints.CreatedBy.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.XpeDccContractVersionAdtView1.hints.CreatedBy.label}"
+                                               id="c105">
+                                        <af:outputText value="#{row.CreatedBy}"
+                                                       shortDesc="#{bindings.XpeDccContractVersionAdtView1.hints.CreatedBy.tooltip}"
+                                                       id="ot105"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.XpeDccContractVersionAdtView1.hints.CreatedDate.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.XpeDccContractVersionAdtView1.hints.CreatedDate.label}"
+                                               id="c10">
+                                        <f:facet name="filter">
+                                            <af:inputDate value="#{bindings.XpeDccContractVersionAdtView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.CreatedDate.value}"
+                                                          id="id4">
+                                                <af:convertDateTime pattern="#{bindings.XpeDccContractVersionAdtView1.hints.CreatedDate.format}"/>
+                                            </af:inputDate>
+                                        </f:facet>
+                                        <af:outputText value="#{row.CreatedDate}"
+                                                       shortDesc="#{bindings.XpeDccContractVersionAdtView1.hints.CreatedDate.tooltip}"
+                                                       id="ot12">
+                                            <af:convertDateTime pattern="#{bindings.XpeDccContractVersionAdtView1.hints.CreatedDate.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.XpeDccContractVersionAdtView1.hints.LastUpdatedBy.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.XpeDccContractVersionAdtView1.hints.LastUpdatedBy.label}"
+                                               id="c11">
+                                        <af:outputText value="#{row.LastUpdatedBy}"
+                                                       shortDesc="#{bindings.XpeDccContractVersionAdtView1.hints.LastUpdatedBy.tooltip}"
+                                                       id="ot10"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.XpeDccContractVersionAdtView1.hints.LastUpdatedDate.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.XpeDccContractVersionAdtView1.hints.LastUpdatedDate.label}"
+                                               id="c12">
+                                        <f:facet name="filter">
+                                            <af:inputDate value="#{bindings.XpeDccContractVersionAdtView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.LastUpdatedDate.value}"
+                                                          id="id8">
+                                                <af:convertDateTime pattern="#{bindings.XpeDccContractVersionAdtView1.hints.LastUpdatedDate.format}"/>
+                                            </af:inputDate>
+                                        </f:facet>
+                                        <af:outputText value="#{row.LastUpdatedDate}"
+                                                       shortDesc="#{bindings.XpeDccContractVersionAdtView1.hints.LastUpdatedDate.tooltip}"
+                                                       id="ot11">
+                                            <af:convertDateTime pattern="#{bindings.XpeDccContractVersionAdtView1.hints.LastUpdatedDate.format}"/>
+                                        </af:outputText>
+                                    </af:column>
                                 </af:table>
                             </af:panelCollection>
                         </af:showDetailItem>
@@ -1185,11 +1229,14 @@
                                                                                title="Contract Lines Audit Report"/>
                                         </af:commandMenuItem>
                                         <af:commandMenuItem text="Export to PDF" id="cmi19">
+                                            <af:setPropertyListener from="#{'writeContractLineVoToXml'}"
+                                                                    to="#{backingBeanScope.methodActionName}"
+                                                                    type="action"/>
+                                            <af:setPropertyListener from="#{'ContractLinesAuditReport'}"
+                                                                    to="#{backingBeanScope.reportName}" type="action"/>
                                             <af:fileDownloadActionListener contentType="application/pdf"
                                                                            filename="ContractLinesAuditReport.pdf"
                                                                            method="#{pageFlowScope.auditReportsMBean.auditReportPDFDownload}"/>
-                                            <af:setPropertyListener from="#{'writeContractLineVoToXml'}" to="#{requestScope.methodActionName}" type="action"/>
-                                             <af:setPropertyListener from="#{'ContractLinesAuditReport'}" to="#{requestScope.reportName}" type="action"/>
                                         </af:commandMenuItem>
                                     </af:menu>
                                 </f:facet>
@@ -1280,11 +1327,14 @@
                                                                                title="Contract Pricing Audit Report"/>
                                         </af:commandMenuItem>
                                         <af:commandMenuItem text="Export to PDF" id="cmi20">
+                                            <af:setPropertyListener from="#{'writeContractPriceTermVoToXml'}"
+                                                                    to="#{backingBeanScope.methodActionName}"
+                                                                    type="action"/>
+                                            <af:setPropertyListener from="#{'ContractPricingAuditReport'}"
+                                                                    to="#{backingBeanScope.reportName}" type="action"/>
                                             <af:fileDownloadActionListener contentType="application/pdf"
                                                                            filename="ContractPricingAuditReport.pdf"
                                                                            method="#{pageFlowScope.auditReportsMBean.auditReportPDFDownload}"/>
-                                            <af:setPropertyListener from="#{'writeContractPriceTermVoToXml'}" to="#{requestScope.methodActionName}" type="action"/>
-                                            <af:setPropertyListener from="#{'ContractPricingAuditReport'}" to="#{requestScope.reportName}" type="action"/>
                                         </af:commandMenuItem>
                                     </af:menu>
                                 </f:facet>

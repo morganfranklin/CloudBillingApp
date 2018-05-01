@@ -37,20 +37,19 @@
                                                 </af:panelLabelAndMessage>
                                                 <af:inputDate value="#{bindings.XpeStartDate.inputValue}"
                                                               label="Start Date" autoSubmit="true"
-                                                              required="#{bindings.XpeStartDate.hints.mandatory}"
                                                               columns="#{bindings.XpeStartDate.hints.displayWidth}"
                                                               shortDesc="#{bindings.XpeStartDate.hints.tooltip}"
                                                               readOnly="#{bindings.ContractManagement.inputValue eq 'V'? 'true' : bindings.XpeContractStatus.inputValue eq 'APR' ? 'true':'false'}"
-                                                              id="id1">
+                                                              id="id1" required="true">
                                                     <f:validator binding="#{bindings.XpeStartDate.validator}"/>
                                                     <af:convertDateTime pattern="yyyy-MM-dd HH:mm:ss"/>
                                                 </af:inputDate>
                                                 <af:inputDate value="#{bindings.XpeEndDate.inputValue}" label="End Date"
-                                                              required="#{bindings.XpeEndDate.hints.mandatory}"
                                                               readOnly="#{bindings.ContractManagement.inputValue eq 'V'? 'true' : bindings.XpeContractStatus.inputValue eq 'APR' ? 'true':'false'}"
                                                               autoSubmit="true"
                                                               columns="#{bindings.XpeEndDate.hints.displayWidth}"
-                                                              shortDesc="#{bindings.XpeEndDate.hints.tooltip}" id="id2">
+                                                              shortDesc="#{bindings.XpeEndDate.hints.tooltip}" id="id2"
+                                                              required="true">
                                                     <f:validator binding="#{bindings.XpeEndDate.validator}"/>
                                                     <af:convertDateTime pattern="yyyy-MM-dd HH:mm:ss"/>
                                                 </af:inputDate>

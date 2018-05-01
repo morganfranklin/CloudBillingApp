@@ -223,22 +223,20 @@
                     <Item Value="XpeContractId"/>
                     <Item Value="XpeContractVersion"/>
                     <Item Value="XpeContractStatus"/>
+                    <Item Value="XpeAsOfDate"/>
                     <Item Value="XpeStartDate"/>
                     <Item Value="XpeEndDate"/>
-                    <Item Value="XpeNewTermMode"/>
-                    <Item Value="CreatedBy"/>
-                    <Item Value="UpdatedBy"/>
-                    <Item Value="XpeBillOptionsSet"/>
                     <Item Value="XpeAcctgOptionsSet"/>
-                    <Item Value="XpeContractTemplate"/>
-                    <Item Value="BusinessUnitGl"/>
                     <Item Value="CurrencyCd"/>
                     <Item Value="XpeWasteType"/>
                     <Item Value="XpeContractSubType"/>
                     <Item Value="XpeAgreementType"/>
-                    <Item Value="XpeAsOfDate"/>
                     <Item Value="SalesPerson"/>
                     <Item Value="XpeContractDirection"/>
+                    <Item Value="CreatedBy"/>
+                    <Item Value="CreatedDate"/>
+                    <Item Value="LastUpdatedBy"/>
+                    <Item Value="LastUpdatedDate"/>
                 </AttrNames>
             </nodeDefinition>
         </tree>
