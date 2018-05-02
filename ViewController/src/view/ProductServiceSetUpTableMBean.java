@@ -113,6 +113,21 @@ public class ProductServiceSetUpTableMBean {
     }
 
     public void productServiceSaveActnLstnr(ActionEvent actionEvent) {
+        String itemType = (String) ADFUtils.evaluateEL("#{bindings.ItemType.inputValue}");
+        if (null != itemType && "PRD".equals(itemType)) {
+            DCIteratorBinding prdUOMIter = ADFUtils.findIterator("XpeDccCfgNewUomEOVOIterator");
+            long rowCount = prdUOMIter.getEstimatedRowCount();
+            if (rowCount > 0) {
+                this.commitPrdctSrvc();
+            } else {
+                JSFUtils.addFacesErrorMessage("Please Add atleast one UOM.");
+            }
+        } else {
+            this.commitPrdctSrvc();
+        }
+    }
+    
+    public void commitPrdctSrvc(){
         OperationBinding opb = ADFUtils.findOperation("Commit");
         opb.execute();
         if (opb.getErrors().isEmpty()) {

@@ -40,7 +40,8 @@
           <af:outputText value="#{row.PcsshortName}"
                          shortDesc="#{bindings.XpeDccCfgPcsshortnamesEOVO.hints.PcsshortName.tooltip}" id="ot2"/>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgPcsshortnamesEOVO.hints.AccountClass.label}" id="resId1c3">
+        <af:column headerText="#{bindings.XpeDccCfgPcsshortnamesEOVO.hints.AccountClass.label}" id="resId1c3"
+                   rendered="false">
           <af:outputText value="#{row.AccountClass}"
                          shortDesc="#{bindings.XpeDccCfgPcsshortnamesEOVO.hints.AccountClass.tooltip}" id="ot3"/>
         </af:column>
