@@ -61,13 +61,7 @@
                            shortDesc="#{bindings.XpeDccCfgUserBusinessUnitEOVO1.hints.BusinessUnit.tooltip}" id="ot2"/>
           </af:column>
           <af:column headerText="#{bindings.XpeDccCfgUserBusinessUnitEOVO1.hints.Inactive.label}" id="resId1c3">
-            <af:selectOneChoice value="#{row.bindings.Inactive.inputValue}" label="#{row.bindings.Inactive.label}"
-                                required="#{bindings.XpeDccCfgUserBusinessUnitEOVO1.hints.Inactive.mandatory}"
-                                shortDesc="#{bindings.XpeDccCfgUserBusinessUnitEOVO1.hints.Inactive.tooltip}"
-                                readOnly="true" id="soc1">
-              <f:selectItems value="#{row.bindings.Inactive.items}" id="si1"/>
-              <f:validator binding="#{row.bindings.Inactive.validator}"/>
-            </af:selectOneChoice>
+            <af:outputText value="#{row.Inactive}" id="ot14"/>
           </af:column>
           <af:column headerText="#{bindings.XpeDccCfgUserBusinessUnitEOVO1.hints.InactiveDate.label}" id="resId1c4">
             <af:outputText value="#{row.InactiveDate}"

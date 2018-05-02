@@ -112,7 +112,6 @@
                                 <af:menu text="Report" id="m1">
                                     <af:commandMenuItem text="Export to Excel" id="cmi1">
                                         <af:exportCollectionActionListener type="excelHTML" exportedId="t1"
-                                                                           exportedRows="selected"
                                                                            filename="UnmatchedTicketsDetailsReport.xls"
                                                                            title="Unmatched Tickets Details Report"/>
                                     </af:commandMenuItem>
