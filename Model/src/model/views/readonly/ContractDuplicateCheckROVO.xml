@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ContractDuplicateCheckROVO"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  RowClass="model.views.readonly.ContractDuplicateCheckROVORowImpl"
+  ComponentClass="model.views.readonly.ContractDuplicateCheckROVOImpl"
+  PageIterMode="Full"
+  FetchSize="100">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.views.readonly.ContractDuplicateCheckROVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="bind_CustId"
+    Kind="where"
+    Type="java.lang.String"/>
+  <SQLQuery><![CDATA[SELECT 
+C.XPE_CONTRACT_ID, 
+C.CUST_ID, 
+CV.XPE_CONTRACT_VERSION, 
+CV.XPE_CONTRACT_STATUS, 
+CV.XPE_START_DATE, 
+CV.XPE_END_DATE, 
+CL.XPE_CONTRACT_LINE, 
+CL.XPE_PRODUCT_ID, 
+CL.XPE_FACILITY, 
+CL.XPE_SW_APPR_NBR 
+FROM 
+XPE_DCC_CONTRACTS C, XPE_DCC_CONTRACT_VERSION CV, XPE_DCC_CONTRACT_LINE CL 
+WHERE 
+C.XPE_CONTRACT_ID = CV.XPE_CONTRACT_ID 
+AND CV.XPE_CONTRACT_ID = CL.XPE_CONTRACT_ID 
+AND CV.XPE_CONTRACT_VERSION = CL.XPE_CONTRACT_VERSION 
+AND (CV.XPE_CONTRACT_STATUS = 'APR' OR CV.XPE_CONTRACT_STATUS = 'IWF') 
+AND C.CUST_ID =:bind_CustId]]></SQLQuery>
+  <ViewAttribute
+    Name="XpeContractId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="XPE_CONTRACT_ID"
+    Expression="XPE_CONTRACT_ID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CustId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="15"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CUST_ID"
+    Expression="CUST_ID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="XpeContractVersion"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="XPE_CONTRACT_VERSION"
+    Expression="XPE_CONTRACT_VERSION"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="XpeContractStatus"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="3"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="XPE_CONTRACT_STATUS"
+    Expression="XPE_CONTRACT_STATUS"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="XpeStartDate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    AliasName="XPE_START_DATE"
+    Expression="XPE_START_DATE"
+    SQLType="TIMESTAMP"/>
+  <ViewAttribute
+    Name="XpeEndDate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    AliasName="XPE_END_DATE"
+    Expression="XPE_END_DATE"
+    SQLType="TIMESTAMP"/>
+  <ViewAttribute
+    Name="XpeContractLine"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="XPE_CONTRACT_LINE"
+    Expression="XPE_CONTRACT_LINE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="XpeProductId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="XPE_PRODUCT_ID"
+    Expression="XPE_PRODUCT_ID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="XpeFacility"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="XPE_FACILITY"
+    Expression="XPE_FACILITY"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="XpeSwApprNbr"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="40"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="XPE_SW_APPR_NBR"
+    Expression="XPE_SW_APPR_NBR"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="40"/>
+    </DesignTime>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="XpeContractId"/>
+    <Item Value="XpeContractVersion"/>
+    <Item Value="XpeContractLine"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

@@ -81,6 +81,8 @@ import model.views.entitybased.XpeDccWfEventEOVOImpl;
 import model.views.entitybased.XpeDccWfEventEOVORowImpl;
 import model.views.entitybased.XpeDmsCustomerEOVOImpl;
 import model.views.entitybased.XpeDmsCustomerEOVORowImpl;
+import model.views.readonly.ContractDuplicateCheckROVOImpl;
+import model.views.readonly.ContractDuplicateCheckROVORowImpl;
 import model.views.readonly.XpeDccCfgCntrcttAprFcltyROVOImpl;
 import model.views.readonly.XpeDccCfgCntrcttAprFcltyROVORowImpl;
 import model.views.readonly.XpeDccCfgCountiesROVOImpl;
@@ -4102,6 +4104,96 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             return "There should be one FEE and one RTE pricing term type. Please check.";
         }
     }
+    
+    public Map contractDuplicateCheck(String contractId, String contractVersion) {
+        Map duplicateContractMap = new HashMap<>();
+        try {
+            XpeDccNewContractsEOVOImpl xpeDccNewContractsEOVO = this.getXpeDccNewContractsEOVO();
+            Key contractKey = new Key(new Object[] { contractId });
+            Row[] contractRows = xpeDccNewContractsEOVO.findByKey(contractKey, 1);
+            if (null != contractRows && contractRows.length > 0) {
+                XpeDccNewContractsEOVORowImpl xpeDccNewContractsEOVORow =
+                    (XpeDccNewContractsEOVORowImpl) contractRows[0];
+                if (null != xpeDccNewContractsEOVORow) {
+                    Key contractVersionKey = new Key(new Object[] { contractId, contractVersion });
+                    Row[] contractVersionRows =
+                        xpeDccNewContractsEOVORow.getXpeDccContractVersionView().findByKey(contractVersionKey, 1);
+                    if (null != contractVersionRows && contractVersionRows.length > 0) {
+                        XpeDccContractVersionViewRowImpl xpeDccContractVersionViewRow =
+                            (XpeDccContractVersionViewRowImpl) contractVersionRows[0];
+                        if (null != xpeDccContractVersionViewRow) {
+                            RowIterator contractLineRows = xpeDccContractVersionViewRow.getXpeDccContractLineView();
+                            while (contractLineRows.hasNext()) {
+                                XpeDccContractLineViewRowImpl xpeDccContractLineViewRow =
+                                    (XpeDccContractLineViewRowImpl) contractLineRows.next();
+                                String newContractCustId = xpeDccNewContractsEOVORow.getCustId();
+                                java.sql.Date newContractStartDate = getSqlDate(xpeDccContractVersionViewRow.getXpeStartDate());
+                                java.sql.Date newContractEndDate = getSqlDate(xpeDccContractVersionViewRow.getXpeEndDate());
+                                String newContractMaterialId = xpeDccContractLineViewRow.getXpeProductId();
+                                String newContractFacilityId = xpeDccContractLineViewRow.getXpeFacility();
+                                String newContractApprovalNbr = xpeDccContractLineViewRow.getXpeSwApprNbr();
+                                ContractDuplicateCheckROVOImpl contractDuplicateCheckROVO = this.getContractDuplicateCheckROVO1();
+                                contractDuplicateCheckROVO.setbind_CustId(newContractCustId);
+                                RowSetIterator rowsetIterator = contractDuplicateCheckROVO.createRowSetIterator(null);
+                                while (rowsetIterator.hasNext()) {
+                                    ContractDuplicateCheckROVORowImpl contractDuplicateCheckROVORow =
+                                        (ContractDuplicateCheckROVORowImpl) rowsetIterator.next();
+                                    String existContractId = contractDuplicateCheckROVORow.getXpeContractId();
+                                    java.sql.Date existContractStartDate = getSqlDate(contractDuplicateCheckROVORow.getXpeStartDate());
+                                    java.sql.Date existContractEndDate = getSqlDate(contractDuplicateCheckROVORow.getXpeEndDate());
+                                    String existContractMaterialId = contractDuplicateCheckROVORow.getXpeProductId();
+                                    String existContractFacilityId = contractDuplicateCheckROVORow.getXpeFacility();
+                                    String existContractApprovalNbr = contractDuplicateCheckROVORow.getXpeSwApprNbr();
+                                    if (isCompareDateBetweenStartAndEndDates(newContractStartDate, existContractStartDate,
+                                                                             existContractEndDate) ||
+                                        isCompareDateBetweenStartAndEndDates(newContractEndDate, existContractStartDate,
+                                                                             existContractEndDate)) {
+                                        if (null != existContractMaterialId && null != newContractMaterialId &&
+                                            existContractMaterialId.equalsIgnoreCase(newContractMaterialId)) {
+                                            if (null != existContractFacilityId && null != newContractFacilityId &&
+                                                existContractFacilityId.equalsIgnoreCase(newContractFacilityId)) {
+                                                if (null != existContractApprovalNbr && null != newContractApprovalNbr &&
+                                                    existContractApprovalNbr.equalsIgnoreCase(newContractApprovalNbr)) {
+                                                    duplicateContractMap.put("CONTRACT_ID", existContractId);
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                rowsetIterator.closeRowSetIterator();
+                                if(duplicateContractMap.size()>0)
+                                    break;
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            // TODO: Add catch code
+            e.printStackTrace();
+        }
+        return duplicateContractMap;
+    }
+    
+    private java.sql.Date getSqlDate(Timestamp timestamp){
+        if(null!=timestamp){
+            java.sql.Date sqlDate = new java.sql.Date(timestamp.getTime());
+            return sqlDate;
+        }
+        return null;
+    }
+
+    private boolean isCompareDateBetweenStartAndEndDates(java.sql.Date compareDate, java.sql.Date startDate,
+                                                 java.sql.Date endDate) {
+        if (compareDate == null || startDate == null || endDate == null)
+            return false;
+
+        if (compareDate.compareTo(startDate) >= 0 && compareDate.compareTo(endDate) <= 0)
+            return true;
+
+        return false;
+    }
 
 
     /**
@@ -4535,6 +4627,14 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public XpeDccCfgRolesROVOImpl getXpeDccCfgRolesROVO1() {
         return (XpeDccCfgRolesROVOImpl) findViewObject("XpeDccCfgRolesROVO1");
+    }
+
+    /**
+     * Container's getter for ContractDuplicateCheckROVO1.
+     * @return ContractDuplicateCheckROVO1
+     */
+    public ContractDuplicateCheckROVOImpl getContractDuplicateCheckROVO1() {
+        return (ContractDuplicateCheckROVOImpl) findViewObject("ContractDuplicateCheckROVO1");
     }
 }
 

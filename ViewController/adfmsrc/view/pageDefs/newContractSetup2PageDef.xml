@@ -206,5 +206,13 @@
           id="XpeExistingCustomer" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="XpeDccNewContractSetupROVOIterator" StaticList="false" Uses="LOV_Terms_Modifier_Check"
           id="Terms_Modifier_Check" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <methodAction id="contractDuplicateCheck" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="contractDuplicateCheck" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="data.AppModuleDataControl.dataProvider"
+                  ReturnName="data.AppModuleDataControl.methodResults.contractDuplicateCheck_AppModuleDataControl_dataProvider_contractDuplicateCheck_result">
+      <NamedData NDName="contractId" NDValue="#{bindings.XpeContractId.inputValue}" NDType="java.lang.String"/>
+      <NamedData NDName="contractVersion" NDValue="#{bindings.XpeContractVersion.inputValue}"
+                 NDType="java.lang.String"/>
+    </methodAction>
   </bindings>
 </pageDefinition>

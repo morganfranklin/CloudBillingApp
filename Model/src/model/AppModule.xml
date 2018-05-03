@@ -703,6 +703,9 @@
     <ViewUsage
         Name="XpeDccCfgRolesROVO1"
         ViewObjectName="model.views.readonly.XpeDccCfgRolesROVO"/>
+    <ViewUsage
+        Name="ContractDuplicateCheckROVO1"
+        ViewObjectName="model.views.readonly.ContractDuplicateCheckROVO"/>
     <ViewLinkUsage
         Name="NeuRuleTblFk1Link1"
         ViewLinkObjectName="model.NeuRuleTblFk1Link"
@@ -2259,6 +2262,19 @@
                 Type="java.lang.String"/>
             <Parameter
                 Name="contractLine"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="contractDuplicateCheck1"
+            MethodName="contractDuplicateCheck">
+            <Return
+                Name="_return_type_"
+                Type="java.util.Map"/>
+            <Parameter
+                Name="contractId"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="contractVersion"
                 Type="java.lang.String"/>
         </Method>
     </ClientInterface>

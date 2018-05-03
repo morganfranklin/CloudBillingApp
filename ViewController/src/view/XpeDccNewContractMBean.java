@@ -209,19 +209,39 @@ public class XpeDccNewContractMBean implements Serializable {
         try {
             BindingContext bc = BindingContext.getCurrent();
             BindingContainer bindings = bc.getCurrentBindingsEntry();
-            OperationBinding operationBinding = bindings.getOperationBinding("newContractCreation");
-            if (null != operationBinding) {
-                byte[] bytes = null;
-                if(null!=FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("PDF"))
-                    bytes = (byte[])FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("PDF");
-                operationBinding.getParamsMap().put("bytes", bytes);
-                operationBinding.execute();
-                if (null != operationBinding.getResult() &&
-                    Boolean.parseBoolean(String.valueOf(operationBinding.getResult())) == true)
-                    ADFUtils.setvalueToExpression("#{requestScope.contractCreation}", "success");
-                else
+            OperationBinding duplicateCheckBinding = bindings.getOperationBinding("contractDuplicateCheck");
+            if (null != duplicateCheckBinding) {
+                Map newContractMap = (Map)duplicateCheckBinding.execute();
+                if (null != newContractMap) {
+                    if (newContractMap.size() == 0) {
+                        OperationBinding operationBinding = bindings.getOperationBinding("newContractCreation");
+                        if (null != operationBinding) {
+                            byte[] bytes = null;
+                            if (null !=
+                                FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("PDF"))
+                                bytes =
+                                    (byte[]) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("PDF");
+                            operationBinding.getParamsMap().put("bytes", bytes);
+                            operationBinding.execute();
+                            if (null != operationBinding.getResult() &&
+                                Boolean.parseBoolean(String.valueOf(operationBinding.getResult())) == true)
+                                ADFUtils.setvalueToExpression("#{requestScope.contractCreation}", "success");
+                            else
+                                ADFUtils.setvalueToExpression("#{requestScope.contractCreation}", null);
+                        } else {
+                            ADFUtils.setvalueToExpression("#{requestScope.contractCreation}", null);
+                            ADFUtils.showErrorMessage("Error while creating new contract. Please contact administrator.");
+                        }
+                    } else {
+                        ADFUtils.setvalueToExpression("#{requestScope.contractCreation}", null);
+                        ADFUtils.showErrorMessage("New Contract creation is failed due to duplication with existing contract " +
+                                                  newContractMap.get("CONTRACT_ID") + ". Please verify.");
+                    }
+                } else {
                     ADFUtils.setvalueToExpression("#{requestScope.contractCreation}", null);
-            } else {
+                    ADFUtils.showErrorMessage("Error while creating new contract. Please contact administrator.");
+                }
+            }else {
                 ADFUtils.setvalueToExpression("#{requestScope.contractCreation}", null);
                 ADFUtils.showErrorMessage("Error while creating new contract. Please contact administrator.");
             }

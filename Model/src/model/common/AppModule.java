@@ -79,5 +79,7 @@ public interface AppModule extends ApplicationModule {
     boolean profileWasteNbrMadatoryCheck(String materialId);
 
     String calculateQtyMax(String contractId, String contractVersion, String contractLine);
+
+    Map contractDuplicateCheck(String contractId, String contractVersion);
 }
 
