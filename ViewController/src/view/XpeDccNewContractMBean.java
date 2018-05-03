@@ -620,15 +620,22 @@ public class XpeDccNewContractMBean implements Serializable {
     }
 
     public void mailBillAddressValChgLstnr(ValueChangeEvent valueChangeEvent) {
-        if (null != valueChangeEvent.getNewValue() && valueChangeEvent.getNewValue().equals("Y")) {
-            DCIteratorBinding newCustBind = ADFUtils.findIterator("XpeDmsCustomerEOVOIterator");
-            XpeDmsCustomerEOVORowImpl dmsCustRow = (XpeDmsCustomerEOVORowImpl) newCustBind.getCurrentRow();
+        DCIteratorBinding newCustBind = ADFUtils.findIterator("XpeDmsCustomerEOVOIterator");
+        XpeDmsCustomerEOVORowImpl dmsCustRow = (XpeDmsCustomerEOVORowImpl) newCustBind.getCurrentRow();
+        if (null != valueChangeEvent.getNewValue() && valueChangeEvent.getNewValue().equals("Y")) {            
+            dmsCustRow.setMailingAddress1(dmsCustRow.getBillingAddress1());
+            dmsCustRow.setMailingAddress2(dmsCustRow.getBillingAddress2());
+            dmsCustRow.setMailingCity(dmsCustRow.getCity());
+            dmsCustRow.setMailingState(dmsCustRow.getState());
+            dmsCustRow.setMailingCountry(dmsCustRow.getCountry());  
+            dmsCustRow.setMailingPostal(dmsCustRow.getPostal());
+        } else {
             dmsCustRow.setMailingAddress1(null);
             dmsCustRow.setMailingAddress2(null);
             dmsCustRow.setMailingCity(null);
             dmsCustRow.setMailingState(null);
             dmsCustRow.setMailingCountry(null);
-            dmsCustRow.setMailingCountry(null);
+            dmsCustRow.setMailingPostal(null);
         }
     }
 
