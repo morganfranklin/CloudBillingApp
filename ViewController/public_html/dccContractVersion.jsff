@@ -681,7 +681,7 @@
                                                    id="ot3"/>
                                 </af:column>
                                 <af:column headerText="#{bindings.XpeDccContractCarrierView3.hints.XpeCarrierDesc.label}"
-                                           id="c24" width="200">
+                                           id="c24" width="300">
                                     <af:selectOneChoice value="#{row.bindings.XpeCarrierDesc.inputValue}"
                                                         label="#{row.bindings.XpeCarrierDesc.label}"
                                                         required="#{bindings.XpeDccContractCarrierView3.hints.XpeCarrierDesc.mandatory}"
