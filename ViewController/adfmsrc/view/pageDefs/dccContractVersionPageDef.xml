@@ -28,6 +28,8 @@
                   id="XpeDccWfActionEOVO2Iterator"/>
         <iterator Binds="XpeDccCfgRoleSecurityROVO" RangeSize="25" DataControl="AppModuleDataControl"
                   id="XpeDccCfgNewRoleSecurityEOVOIterator"/>
+        <iterator Binds="XpeDccContractCarrierView3" RangeSize="25" DataControl="AppModuleDataControl"
+                  id="XpeDccContractCarrierView3Iterator"/>
     </executables>
     <bindings>
         <attributeValues IterBinding="XpeDccContractVersionView2Iterator" id="XpeContractId">
@@ -233,5 +235,16 @@
         </attributeValues>
         <list Uses="LOV_XpeContractStatus" StaticList="false" IterBinding="XpeDccContractVersionView2Iterator"
               id="XpeContractStatus"/>
+        <tree IterBinding="XpeDccContractCarrierView3Iterator" id="XpeDccContractCarrierView3">
+            <nodeDefinition DefName="model.XpeDccContractCarrierView" Name="XpeDccContractCarrierView30">
+                <AttrNames>
+                    <Item Value="XpeCarrierId"/>
+                    <Item Value="XpeCarrierDesc"/>
+                    <Item Value="XpeVehicleType"/>
+                    <Item Value="XpeRateOverride"/>
+                    <Item Value="XpeSurcharge"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
     </bindings>
 </pageDefinition>
