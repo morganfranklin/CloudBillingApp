@@ -706,6 +706,9 @@
     <ViewUsage
         Name="ContractDuplicateCheckROVO1"
         ViewObjectName="model.views.readonly.ContractDuplicateCheckROVO"/>
+    <ViewUsage
+        Name="XpeDccContractCarrierView3"
+        ViewObjectName="model.XpeDccContractCarrierView"/>
     <ViewLinkUsage
         Name="NeuRuleTblFk1Link1"
         ViewLinkObjectName="model.NeuRuleTblFk1Link"
@@ -1041,6 +1044,12 @@
         ViewLinkObjectName="model.views.entitybased.XpeDccCfgMtlIndicesDetailFKVL"
         SrcViewUsageName="model.AppModule.XpeDccCfgMtlIndicesHeaderEOVO1"
         DstViewUsageName="model.AppModule.XpeDccCfgMtlIndicesDetailEOVO1"
+        Reversed="false"/>
+    <ViewLinkUsage
+        Name="XpeDccContractVersionContractCarrierFKLink1"
+        ViewLinkObjectName="model.XpeDccContractVersionContractCarrierFKLink"
+        SrcViewUsageName="model.AppModule.XpeDccContractVersionView1"
+        DstViewUsageName="model.AppModule.XpeDccContractCarrierView3"
         Reversed="false"/>
     <ClientInterface
         Name="__clientInterface">

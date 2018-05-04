@@ -51,7 +51,12 @@ public class countiesSetUpTableMBean implements Serializable{
     public void onCountyCreationSave(ActionEvent actionEvent) {
         String countyName = (String) ADFUtils.evaluateEL("#{bindings.CountyName.inputValue}");
         String stateName = (String) ADFUtils.evaluateEL("#{bindings.State.inputValue}");
-        if (!this.checkDuplicateCounty(countyName, stateName)) {
+        String country = (String) ADFUtils.evaluateEL("#{bindings.Country.inputValue}");
+        if (this.checkDuplicateCounty(countyName, stateName)) {
+            JSFUtils.addFacesErrorMessage("County Name Exists. Please Enter Another County Name.");
+        } else if (this.checkInvalidCombination(country, stateName)) {
+            JSFUtils.addFacesErrorMessage("Invalid State/Country Combination.");
+        } else {
             OperationBinding opb = ADFUtils.findOperation("Commit");
             opb.execute();
             if (opb.getErrors().isEmpty()) {
@@ -60,8 +65,6 @@ public class countiesSetUpTableMBean implements Serializable{
             } else {
                 JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
             }
-        } else {
-            JSFUtils.addFacesErrorMessage("County Name Exists. Please Enter Another County Name.");
         }
     }
     
@@ -80,6 +83,14 @@ public class countiesSetUpTableMBean implements Serializable{
         return rtnVal;
     }
     
+    public boolean checkInvalidCombination(String countryName, String stateName){
+        boolean rtnVal = false;    
+        if(null != stateName && "XX".equals(stateName) && null != countryName && "USA".equals(countryName)){
+            rtnVal = true;
+        }
+        return rtnVal;
+    }
+    
     public void onCountyCreationCancel(ActionEvent actionEvent) {
         this.getcountiesSetUpTableBBean().getCountyAddItem_popup().hide();
     }
@@ -87,7 +98,12 @@ public class countiesSetUpTableMBean implements Serializable{
     public void onCountyEditSave(ActionEvent actionEvent) {
         String countyName = (String) ADFUtils.evaluateEL("#{bindings.CountyName1.inputValue}");
         String stateName = (String) ADFUtils.evaluateEL("#{bindings.State1.inputValue}");
-        if (!this.checkDuplicateCounty(countyName, stateName)) {
+        String country = (String) ADFUtils.evaluateEL("#{bindings.Country1.inputValue}");
+        if (this.checkDuplicateCounty(countyName, stateName)) {
+            JSFUtils.addFacesErrorMessage("County Name Exists. Please Enter Another County Name.");
+        } else if (this.checkInvalidCombination(country, stateName)) {
+            JSFUtils.addFacesErrorMessage("Invalid State/Country Combination.");
+        } else {
             OperationBinding opb = ADFUtils.findOperation("Commit");
             opb.execute();
             if (opb.getErrors().isEmpty()) {
@@ -96,8 +112,6 @@ public class countiesSetUpTableMBean implements Serializable{
             } else {
                 JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
             }
-        } else {
-            JSFUtils.addFacesErrorMessage("County Name Exists. Please Enter Another County Name.");
         }
     }
     
@@ -108,6 +122,17 @@ public class countiesSetUpTableMBean implements Serializable{
     public void onCountyEdit(ActionEvent actionEvent) {
         RichPopup.PopupHints hints = new RichPopup.PopupHints();
         this.getcountiesSetUpTableBBean().getCountyEditItem_popp().show(hints);
+    }
+    
+    public void commitCounty(){
+        OperationBinding opb = ADFUtils.findOperation("Commit");
+        opb.execute();
+        if (opb.getErrors().isEmpty()) {
+            this.getcountiesSetUpTableBBean().getCountyEditItem_popp().hide();
+            JSFUtils.addFacesInformationMessage("Data Saved Successfully.");
+        } else {
+            JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
+        }
     }
 
     public void queryOperationListener(QueryOperationEvent queryOperationEvent) {

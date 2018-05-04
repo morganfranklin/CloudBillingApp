@@ -60,6 +60,7 @@ public class XpeDccContractCarrierImpl extends EntityImpl {
             return vals;
         }
     }
+
     public static final int XPECONTRACTID = AttributesEnum.XpeContractId.index();
     public static final int XPEPRICINGTERMLINE = AttributesEnum.XpePricingTermLine.index();
     public static final int XPECONTRACTLINE = AttributesEnum.XpeContractLine.index();
@@ -81,6 +82,13 @@ public class XpeDccContractCarrierImpl extends EntityImpl {
      * This is the default constructor (do not remove).
      */
     public XpeDccContractCarrierImpl() {
+    }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("model.XpeDccContractCarrier");
     }
 
     /**
@@ -321,6 +329,7 @@ public class XpeDccContractCarrierImpl extends EntityImpl {
         setAttributeInternal(XPEDCCCONTRACTPRICINGTERM, value);
     }
 
+
     /**
      * @param xpeContractCarrierId key constituent
 
@@ -330,13 +339,6 @@ public class XpeDccContractCarrierImpl extends EntityImpl {
         return new Key(new Object[] { xpeContractCarrierId });
     }
 
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("model.XpeDccContractCarrier");
-    }
-    
     @Override
     protected void doDML(int i, TransactionEvent transactionEvent) {
         // TODO Implement this method

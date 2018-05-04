@@ -667,6 +667,61 @@
                                 </af:column>
                             </af:table>
                         </af:showDetailItem>
+                        <af:showDetailItem text="Contract Carriers" id="sdi2">
+                            <af:table value="#{bindings.XpeDccContractCarrierView3.collectionModel}" var="row"
+                                      rows="#{bindings.XpeDccContractCarrierView3.rangeSize}"
+                                      emptyText="#{bindings.XpeDccContractCarrierView3.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      fetchSize="#{bindings.XpeDccContractCarrierView3.rangeSize}" id="t7"
+                                      contentDelivery="immediate" columnStretching="last">
+                                <af:column headerText="#{bindings.XpeDccContractCarrierView3.hints.XpeCarrierId.label}"
+                                           id="c20">
+                                    <af:outputText value="#{row.XpeCarrierId}"
+                                                   shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeCarrierId.tooltip}"
+                                                   id="ot3"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.XpeDccContractCarrierView3.hints.XpeCarrierDesc.label}"
+                                           id="c24" width="300">
+                                    <af:selectOneChoice value="#{row.bindings.XpeCarrierDesc.inputValue}"
+                                                        label="#{row.bindings.XpeCarrierDesc.label}"
+                                                        required="#{bindings.XpeDccContractCarrierView3.hints.XpeCarrierDesc.mandatory}"
+                                                        shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeCarrierDesc.tooltip}"
+                                                        readOnly="true" id="soc13">
+                                        <f:selectItems value="#{row.bindings.XpeCarrierDesc.items}" id="si14"/>
+                                        <f:validator binding="#{row.bindings.XpeCarrierDesc.validator}"/>
+                                    </af:selectOneChoice>
+                                </af:column>
+                                <af:column headerText="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleType.label}"
+                                           id="c26" width="160">
+                                    <af:selectOneChoice value="#{row.bindings.XpeVehicleType.inputValue}"
+                                                        label="#{row.bindings.XpeVehicleType.label}"
+                                                        required="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleType.mandatory}"
+                                                        shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeVehicleType.tooltip}"
+                                                        readOnly="true" id="soc15">
+                                        <f:selectItems value="#{row.bindings.XpeVehicleType.items}" id="si15"/>
+                                        <f:validator binding="#{row.bindings.XpeVehicleType.validator}"/>
+                                    </af:selectOneChoice>
+                                </af:column>
+                                <af:column headerText="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.label}"
+                                           id="c31">
+                                    <af:outputText value="#{row.XpeRateOverride}"
+                                                   shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.tooltip}"
+                                                   id="ot5">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.XpeDccContractCarrierView3.hints.XpeRateOverride.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.label}"
+                                           id="c32">
+                                    <af:outputText value="#{row.XpeSurcharge}"
+                                                   shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.tooltip}"
+                                                   id="ot7">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.XpeDccContractCarrierView3.hints.XpeSurcharge.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                            </af:table>
+                        </af:showDetailItem>
                     </af:panelTabbed>
                 </af:panelBox>
             </af:gridCell>

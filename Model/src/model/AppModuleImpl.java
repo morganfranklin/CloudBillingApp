@@ -4641,5 +4641,21 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     public ContractDuplicateCheckROVOImpl getContractDuplicateCheckROVO1() {
         return (ContractDuplicateCheckROVOImpl) findViewObject("ContractDuplicateCheckROVO1");
     }
+
+    /**
+     * Container's getter for XpeDccContractCarrierView3.
+     * @return XpeDccContractCarrierView3
+     */
+    public XpeDccContractCarrierViewImpl getXpeDccContractCarrierView3() {
+        return (XpeDccContractCarrierViewImpl) findViewObject("XpeDccContractCarrierView3");
+    }
+
+    /**
+     * Container's getter for XpeDccContractVersionContractCarrierFKLink1.
+     * @return XpeDccContractVersionContractCarrierFKLink1
+     */
+    public ViewLinkImpl getXpeDccContractVersionContractCarrierFKLink1() {
+        return (ViewLinkImpl) findViewLink("XpeDccContractVersionContractCarrierFKLink1");
+    }
 }
 

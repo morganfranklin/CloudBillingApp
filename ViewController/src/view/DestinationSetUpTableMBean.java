@@ -154,12 +154,18 @@ public class DestinationSetUpTableMBean implements Serializable{
     }
 
     public void destinationSaveActnLstnr(ActionEvent actionEvent) {
-        OperationBinding opb = ADFUtils.findOperation("Commit");
-        opb.execute();
-        if (opb.getErrors().isEmpty()) {
-            JSFUtils.addFacesInformationMessage("Data Saved Successfully.");
+        String stateName = (String) ADFUtils.evaluateEL("#{bindings.State.inputValue}");
+        String country = (String) ADFUtils.evaluateEL("#{bindings.Country.inputValue}");
+        if (this.checkInvalidCombination(country, stateName)) {
+            JSFUtils.addFacesErrorMessage("Invalid State/Country Combination.");
         } else {
-            JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
+            OperationBinding opb = ADFUtils.findOperation("Commit");
+            opb.execute();
+            if (opb.getErrors().isEmpty()) {
+                JSFUtils.addFacesInformationMessage("Data Saved Successfully.");
+            } else {
+                JSFUtils.addFacesErrorMessage("Error while saving the data. Please contact system Administrator.");
+            }
         }
     }
 
@@ -174,5 +180,13 @@ public class DestinationSetUpTableMBean implements Serializable{
             destinationRow.setCountry(null);
         }
         AdfFacesContext.getCurrentInstance().addPartialTarget(this.getDestinationSetUpTableBBean().getCountryBind());
+    }
+    
+    public boolean checkInvalidCombination(String countryName, String stateName){
+        boolean rtnVal = false;    
+        if(null != stateName && "XX".equals(stateName) && null != countryName && "USA".equals(countryName)){
+            rtnVal = true;
+        }
+        return rtnVal;
     }
 }
