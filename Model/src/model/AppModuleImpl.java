@@ -4152,6 +4152,11 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                                             existContractMaterialId.equalsIgnoreCase(newContractMaterialId)) {
                                             if (null != existContractFacilityId && null != newContractFacilityId &&
                                                 existContractFacilityId.equalsIgnoreCase(newContractFacilityId)) {
+                                                if(null == existContractApprovalNbr && null == newContractApprovalNbr){
+                                                    duplicateContractMap.put("CONTRACT_ID", existContractId);
+                                                    break;
+                                                }
+                                                
                                                 if (null != existContractApprovalNbr && null != newContractApprovalNbr &&
                                                     existContractApprovalNbr.equalsIgnoreCase(newContractApprovalNbr)) {
                                                     duplicateContractMap.put("CONTRACT_ID", existContractId);
