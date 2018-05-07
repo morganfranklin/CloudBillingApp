@@ -35,6 +35,7 @@ public class XpeDccContractsViewRowImpl extends ViewRowImpl {
         XpeDccContractPartyView,
         XpeDccContractVersionView,
         XpeDccPlatformEventView,
+        XpeDccPlatformEventPsCisXpeImportROVO,
         XpeDccDicCurrency1,
         NeuCustomersVwView1,
         XpeDccCfgPCSShortNamesROVO1,
@@ -79,6 +80,8 @@ public class XpeDccContractsViewRowImpl extends ViewRowImpl {
     public static final int XPEDCCCONTRACTPARTYVIEW = AttributesEnum.XpeDccContractPartyView.index();
     public static final int XPEDCCCONTRACTVERSIONVIEW = AttributesEnum.XpeDccContractVersionView.index();
     public static final int XPEDCCPLATFORMEVENTVIEW = AttributesEnum.XpeDccPlatformEventView.index();
+    public static final int XPEDCCPLATFORMEVENTPSCISXPEIMPORTROVO =
+        AttributesEnum.XpeDccPlatformEventPsCisXpeImportROVO.index();
     public static final int XPEDCCDICCURRENCY1 = AttributesEnum.XpeDccDicCurrency1.index();
     public static final int NEUCUSTOMERSVWVIEW1 = AttributesEnum.NeuCustomersVwView1.index();
     public static final int XPEDCCCFGPCSSHORTNAMESROVO1 = AttributesEnum.XpeDccCfgPCSShortNamesROVO1.index();
@@ -311,6 +314,13 @@ public class XpeDccContractsViewRowImpl extends ViewRowImpl {
      */
     public RowIterator getXpeDccPlatformEventView() {
         return (RowIterator) getAttributeInternal(XPEDCCPLATFORMEVENTVIEW);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link XpeDccPlatformEventPsCisXpeImportROVO.
+     */
+    public RowIterator getXpeDccPlatformEventPsCisXpeImportROVO() {
+        return (RowIterator) getAttributeInternal(XPEDCCPLATFORMEVENTPSCISXPEIMPORTROVO);
     }
 
     /**

@@ -308,81 +308,69 @@
                             </af:table>
                         </af:showDetailItem>
                         <af:showDetailItem id="tab3" text="Billable Events">
-                            <af:table value="#{bindings.XpeDccPlatformEventView2.collectionModel}" var="row"
-                                      rows="#{bindings.XpeDccPlatformEventView2.rangeSize}"
-                                      emptyText="#{bindings.XpeDccPlatformEventView2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                            <af:table value="#{bindings.XpeDccPlatformEventPsCisXpeImportROVO1.collectionModel}"
+                                      var="row" rows="#{bindings.XpeDccPlatformEventPsCisXpeImportROVO1.rangeSize}"
+                                      emptyText="#{bindings.XpeDccPlatformEventPsCisXpeImportROVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
                                       rowBandingInterval="0"
-                                      selectedRowKeys="#{bindings.XpeDccPlatformEventView2.collectionModel.selectedRow}"
-                                      selectionListener="#{bindings.XpeDccPlatformEventView2.collectionModel.makeCurrent}"
-                                      rowSelection="single" fetchSize="#{bindings.XpeDccPlatformEventView2.rangeSize}"
-                                      filterModel="#{bindings.XpeDccPlatformEventView2Query.queryDescriptor}"
-                                      filterVisible="true"
-                                      queryListener="#{bindings.XpeDccPlatformEventView2Query.processQuery}"
-                                      varStatus="vs" id="t3">
-                                <af:column sortProperty="#{bindings.XpeDccPlatformEventView2.hints.XpeEventNbr.name}"
-                                           filterable="true" sortable="true" headerText="Ticket Number" id="c12">
-                                    <af:link text="#{row.XpeEventNbr}" id="l2"/>
+                                      fetchSize="#{bindings.XpeDccPlatformEventPsCisXpeImportROVO1.rangeSize}" id="t3"
+                                      columnStretching="last">
+                                <af:column headerText="#{bindings.XpeDccPlatformEventPsCisXpeImportROVO1.hints.XpeEventNbr.label}"
+                                           id="c1">
+                                    <af:outputText value="#{row.XpeEventNbr}"
+                                                   shortDesc="#{bindings.XpeDccPlatformEventPsCisXpeImportROVO1.hints.XpeEventNbr.tooltip}"
+                                                   id="ot5"/>
                                 </af:column>
-                                <af:column sortProperty="#{bindings.XpeDccPlatformEventView2.hints.XpeEventDttm.name}"
-                                           filterable="true" sortable="true" headerText="Date" id="c13">
-                                    <f:facet name="filter">
-                                        <af:inputDate value="#{bindings.XpeDccPlatformEventView2Query.queryDescriptor.filterConjunctionCriterion.criterionMap.XpeEventDttm.value}"
-                                                      id="id1">
-                                            <af:convertDateTime pattern="#{bindings.XpeDccPlatformEventView2.hints.XpeEventDttm.format}"/>
-                                        </af:inputDate>
-                                    </f:facet>
+                                <af:column headerText="#{bindings.XpeDccPlatformEventPsCisXpeImportROVO1.hints.XpeEventDttm.label}"
+                                           id="c2">
                                     <af:outputText value="#{row.XpeEventDttm}"
-                                                   shortDesc="#{bindings.XpeDccPlatformEventView2.hints.XpeEventDttm.tooltip}"
-                                                   id="ot11">
-                                        <af:convertDateTime pattern="#{bindings.XpeDccPlatformEventView2.hints.XpeEventDttm.format}"/>
+                                                   shortDesc="#{bindings.XpeDccPlatformEventPsCisXpeImportROVO1.hints.XpeEventDttm.tooltip}"
+                                                   id="ot6">
+                                        <af:convertDateTime pattern="#{bindings.XpeDccPlatformEventPsCisXpeImportROVO1.hints.XpeEventDttm.format}"/>
                                     </af:outputText>
                                 </af:column>
-                                <af:column sortProperty="#{bindings.XpeDccPlatformEventView2.hints.XpeEventType.name}"
-                                           filterable="true" sortable="true" headerText="Type" id="c14">
-                                    <af:outputText value="#{row.XpeEventType}"
-                                                   shortDesc="#{bindings.XpeDccPlatformEventView2.hints.XpeEventType.tooltip}"
+                                <af:column headerText="#{bindings.XpeDccPlatformEventPsCisXpeImportROVO1.hints.AttrValue9.label}"
+                                           id="c5">
+                                    <af:outputText value="#{row.AttrValue9}"
+                                                   shortDesc="#{bindings.XpeDccPlatformEventPsCisXpeImportROVO1.hints.AttrValue9.tooltip}"
+                                                   id="ot11"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.XpeDccPlatformEventPsCisXpeImportROVO1.hints.XpeCarrierId.label}"
+                                           id="c3">
+                                    <af:outputText value="#{row.XpeCarrierId}"
+                                                   shortDesc="#{bindings.XpeDccPlatformEventPsCisXpeImportROVO1.hints.XpeCarrierId.tooltip}"
+                                                   id="ot7"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.XpeDccPlatformEventPsCisXpeImportROVO1.hints.XpeVehicleNbr.label}"
+                                           id="c4">
+                                    <af:outputText value="#{row.XpeVehicleNbr}"
+                                                   shortDesc="#{bindings.XpeDccPlatformEventPsCisXpeImportROVO1.hints.XpeVehicleNbr.tooltip}"
+                                                   id="ot10"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.XpeDccPlatformEventPsCisXpeImportROVO1.hints.AttrValue8.label}"
+                                           id="c6">
+                                    <af:outputText value="#{row.AttrValue8}"
+                                                   shortDesc="#{bindings.XpeDccPlatformEventPsCisXpeImportROVO1.hints.AttrValue8.tooltip}"
                                                    id="ot12"/>
                                 </af:column>
-                                <af:column sortProperty="#{bindings.XpeDccPlatformEventView2.hints.XpeCarrierId.name}"
-                                           filterable="true" sortable="true" headerText="Carrier Id" id="c15">
-                                    <af:outputText value="#{row.XpeCarrierId}"
-                                                   shortDesc="#{bindings.XpeDccPlatformEventView2.hints.XpeCarrierId.tooltip}"
+                                <af:column headerText="#{bindings.XpeDccPlatformEventPsCisXpeImportROVO1.hints.AttrValue1.label}"
+                                           id="c7" width="140">
+                                    <af:outputText value="#{row.AttrValue1}"
+                                                   shortDesc="#{bindings.XpeDccPlatformEventPsCisXpeImportROVO1.hints.AttrValue1.tooltip}"
                                                    id="ot13"/>
                                 </af:column>
-                                <af:column sortProperty="#{bindings.XpeDccPlatformEventView2.hints.XpeVehicleNbr.name}"
-                                           filterable="true" sortable="true" headerText="Vehicle #" id="c16">
-                                    <af:outputText value="#{row.XpeVehicleNbr}"
-                                                   shortDesc="#{bindings.XpeDccPlatformEventView2.hints.XpeVehicleNbr.tooltip}"
+                                <af:column headerText="#{bindings.XpeDccPlatformEventPsCisXpeImportROVO1.hints.AttrValue2.label}"
+                                           id="c12">
+                                    <af:outputText value="#{row.AttrValue2}"
+                                                   shortDesc="#{bindings.XpeDccPlatformEventPsCisXpeImportROVO1.hints.AttrValue2.tooltip}"
                                                    id="ot14"/>
                                 </af:column>
-                                <af:column sortProperty="#{bindings.XpeDccPlatformEventView2.hints.XpeEventUom.name}"
-                                           filterable="true" sortable="true" headerText="Event UOM" id="c18">
-                                    <af:outputText value="#{row.XpeEventUom}"
-                                                   shortDesc="#{bindings.XpeDccPlatformEventView2.hints.XpeEventUom.tooltip}"
-                                                   id="ot16"/>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.XpeDccPlatformEventView2.hints.XpeEventQty.name}"
-                                           filterable="true" sortable="true" headerText="Event Qty" id="c19">
-                                    <af:outputText value="#{row.XpeEventQty}"
-                                                   shortDesc="#{bindings.XpeDccPlatformEventView2.hints.XpeEventQty.tooltip}"
-                                                   id="ot17">
+                                <af:column headerText="#{bindings.XpeDccPlatformEventPsCisXpeImportROVO1.hints.CisTransBiAmt3.label}"
+                                           id="c13">
+                                    <af:outputText value="#{row.CisTransBiAmt3}"
+                                                   shortDesc="#{bindings.XpeDccPlatformEventPsCisXpeImportROVO1.hints.CisTransBiAmt3.tooltip}"
+                                                   id="ot15">
                                         <af:convertNumber groupingUsed="false"
-                                                          pattern="#{bindings.XpeDccPlatformEventView2.hints.XpeEventQty.format}"/>
-                                    </af:outputText>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.XpeDccPlatformEventView2.hints.XpeResultUom.name}"
-                                           filterable="true" sortable="true" headerText="Result UOM" id="c20">
-                                    <af:outputText value="#{row.XpeResultUom}"
-                                                   shortDesc="#{bindings.XpeDccPlatformEventView2.hints.XpeResultUom.tooltip}"
-                                                   id="ot18"/>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.XpeDccPlatformEventView2.hints.XpeResultQty.name}"
-                                           filterable="true" sortable="true" headerText="Result Qty" id="c21">
-                                    <af:outputText value="#{row.XpeResultQty}"
-                                                   shortDesc="#{bindings.XpeDccPlatformEventView2.hints.XpeResultQty.tooltip}"
-                                                   id="ot19">
-                                        <af:convertNumber groupingUsed="false"
-                                                          pattern="#{bindings.XpeDccPlatformEventView2.hints.XpeResultQty.format}"/>
+                                                          pattern="#{bindings.XpeDccPlatformEventPsCisXpeImportROVO1.hints.CisTransBiAmt3.format}"/>
                                     </af:outputText>
                                 </af:column>
                             </af:table>

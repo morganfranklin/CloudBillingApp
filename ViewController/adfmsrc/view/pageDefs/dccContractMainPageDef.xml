@@ -17,6 +17,8 @@
                       id="XpeDccPlatformEventView2Query"/>
         <iterator Binds="XpeDccCfgRoleSecurityROVO" RangeSize="10" DataControl="AppModuleDataControl"
                   id="XpeDccCfgRoleSecurityEOVOIterator"/>
+        <iterator Binds="XpeDccPlatformEventPsCisXpeImportROVO1" RangeSize="25" DataControl="AppModuleDataControl"
+                  id="XpeDccPlatformEventPsCisXpeImportROVO1Iterator" ChangeEventPolicy="ppr"/>
     </executables>
     <bindings>
         <attributeValues IterBinding="XpeDccContractsView1Iterator" id="XpeContractId">
@@ -139,5 +141,21 @@
         </attributeValues>
         <list IterBinding="XpeDccContractsView1Iterator" StaticList="false" Uses="LOV_XpeDccPcsnameDesc"
               id="XpeDccPcsnameDesc" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+        <tree IterBinding="XpeDccPlatformEventPsCisXpeImportROVO1Iterator" id="XpeDccPlatformEventPsCisXpeImportROVO1">
+            <nodeDefinition DefName="model.views.readonly.XpeDccPlatformEventPsCisXpeImportROVO"
+                            Name="XpeDccPlatformEventPsCisXpeImportROVO10">
+                <AttrNames>
+                    <Item Value="XpeEventNbr"/>
+                    <Item Value="XpeEventDttm"/>
+                    <Item Value="XpeCarrierId"/>
+                    <Item Value="XpeVehicleNbr"/>
+                    <Item Value="AttrValue9"/>
+                    <Item Value="AttrValue8"/>
+                    <Item Value="AttrValue1"/>
+                    <Item Value="AttrValue2"/>
+                    <Item Value="CisTransBiAmt3"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
     </bindings>
 </pageDefinition>

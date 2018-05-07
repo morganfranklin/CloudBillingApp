@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XpeDccPlatformEventPsCisXpeImportROVO"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  RowClass="model.views.readonly.XpeDccPlatformEventPsCisXpeImportROVORowImpl"
+  ComponentClass="model.views.readonly.XpeDccPlatformEventPsCisXpeImportROVOImpl"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.views.readonly.XpeDccPlatformEventPsCisXpeImportROVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <SQLQuery><![CDATA[SELECT 
+    xpe_contract_id, 
+    xpe_event_nbr, 
+    xpe_event_dttm, 
+    xpe_event_type, 
+    xpe_carrier_id, 
+    xpe_vehicle_nbr, 
+    cis_exec_plan_step, 
+    cis_stage, 
+    attr_value9, 
+    attr_value8, 
+    attr_value1, 
+    attr_value2, 
+    cis_trans_bi_amt3, 
+    rn 
+FROM 
+    ( 
+        SELECT 
+            plt_frm.xpe_contract_id, 
+            plt_frm.xpe_event_nbr, 
+            plt_frm.xpe_event_dttm, 
+            plt_frm.xpe_event_type, 
+            plt_frm.xpe_carrier_id, 
+            plt_frm.xpe_vehicle_nbr, 
+            xpe_imprt.cis_exec_plan_step, 
+            xpe_imprt.cis_stage, 
+            xpe_imprt.attr_value9, 
+            xpe_imprt.attr_value8, 
+            xpe_imprt.attr_value1, 
+            xpe_imprt.attr_value2, 
+            xpe_imprt.cis_trans_bi_amt3, 
+            ROW_NUMBER() OVER( 
+                PARTITION BY plt_frm.xpe_event_nbr 
+                ORDER BY 
+                    plt_frm.xpe_event_nbr DESC 
+            ) rn 
+        FROM 
+            xpe_dcc_platform_event plt_frm, 
+            ps_cis_xpe_import xpe_imprt 
+        WHERE 
+            plt_frm.xpe_event_nbr = xpe_imprt.key2 
+            AND   plt_frm.xpe_contract_id = xpe_imprt.cis_targtcust3det1 
+            AND   plt_frm.xpe_contract_version = xpe_imprt.cis_targtcust3det2 
+            AND   plt_frm.xpe_contract_line = xpe_imprt.cis_targtcust3det3 
+            AND   xpe_imprt.cis_exec_plan_step NOT LIKE 'DRV%' 
+            AND   xpe_imprt.cis_stage LIKE 'FIN' 
+    ) 
+WHERE 
+    rn = 1]]></SQLQuery>
+  <ViewAttribute
+    Name="XpeContractId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="XPE_CONTRACT_ID"
+    Expression="XPE_CONTRACT_ID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="XpeEventNbr"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="10"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="XPE_EVENT_NBR"
+    Expression="XPE_EVENT_NBR"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccPlatformEventPsCisXpeImportROVO.XpeEventNbr_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="XpeEventDttm"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    AliasName="XPE_EVENT_DTTM"
+    Expression="XPE_EVENT_DTTM"
+    SQLType="TIMESTAMP">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccPlatformEventPsCisXpeImportROVO.XpeEventDttm_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="XpeEventType"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="3"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="XPE_EVENT_TYPE"
+    Expression="XPE_EVENT_TYPE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="XpeCarrierId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="XPE_CARRIER_ID"
+    Expression="XPE_CARRIER_ID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccPlatformEventPsCisXpeImportROVO.XpeCarrierId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="XpeVehicleNbr"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="XPE_VEHICLE_NBR"
+    Expression="XPE_VEHICLE_NBR"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccPlatformEventPsCisXpeImportROVO.XpeVehicleNbr_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CisExecPlanStep"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CIS_EXEC_PLAN_STEP"
+    Expression="CIS_EXEC_PLAN_STEP"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CisStage"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="40"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CIS_STAGE"
+    Expression="CIS_STAGE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="40"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AttrValue9"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ATTR_VALUE9"
+    Expression="ATTR_VALUE9"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccPlatformEventPsCisXpeImportROVO.AttrValue9_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AttrValue8"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ATTR_VALUE8"
+    Expression="ATTR_VALUE8"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccPlatformEventPsCisXpeImportROVO.AttrValue8_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AttrValue1"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ATTR_VALUE1"
+    Expression="ATTR_VALUE1"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccPlatformEventPsCisXpeImportROVO.AttrValue1_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AttrValue2"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ATTR_VALUE2"
+    Expression="ATTR_VALUE2"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccPlatformEventPsCisXpeImportROVO.AttrValue2_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CisTransBiAmt3"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="26"
+    Scale="5"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="CIS_TRANS_BI_AMT3"
+    Expression="CIS_TRANS_BI_AMT3"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccPlatformEventPsCisXpeImportROVO.CisTransBiAmt3_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Rn"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="RN"
+    Expression="RN"
+    SQLType="NUMERIC"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

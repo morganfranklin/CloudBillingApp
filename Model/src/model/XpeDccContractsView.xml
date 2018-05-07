@@ -341,6 +341,11 @@ WHERE TempCustomer.CUST_ID=XpeDccContracts.CUST_ID]]></SQLQuery>
         ViewLink="model.XpeDccPlatformEventFk1Link"
         Type="oracle.jbo.RowIterator"
         IsUpdateable="false"/>
+    <ViewLinkAccessor
+        Name="XpeDccPlatformEventPsCisXpeImportROVO"
+        ViewLink="model.views.entitybased.XpeDccContractsXpeDccPltFrmCisImportFKLink"
+        Type="oracle.jbo.RowIterator"
+        IsUpdateable="false"/>
     <ResourceBundle>
         <PropertiesBundle
             PropertiesFile="model.ModelBundle"/>

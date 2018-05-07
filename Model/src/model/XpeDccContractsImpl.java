@@ -88,6 +88,13 @@ public class XpeDccContractsImpl extends EntityImpl {
     }
 
     /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("model.XpeDccContracts");
+    }
+
+    /**
      * Gets the attribute value for XpeContractId, using the alias name XpeContractId.
      * @return the value of XpeContractId
      */
@@ -300,6 +307,7 @@ public class XpeDccContractsImpl extends EntityImpl {
         return (RowIterator) getAttributeInternal(XPEDCCPLATFORMEVENT);
     }
 
+
     /**
      * @param xpeContractId key constituent
 
@@ -308,14 +316,6 @@ public class XpeDccContractsImpl extends EntityImpl {
     public static Key createPrimaryKey(String xpeContractId) {
         return new Key(new Object[] { xpeContractId });
     }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("model.XpeDccContracts");
-    }
-
 
     protected String nextVal(String sequenceName) {
         SequenceImpl s = new SequenceImpl(sequenceName, getDBTransaction());

@@ -108,6 +108,7 @@ import model.views.readonly.XpeDccNewContractCustomerSearchROVOImpl;
 import model.views.readonly.XpeDccNewContractCustomerSearchROVORowImpl;
 import model.views.readonly.XpeDccNewContractSetupROVOImpl;
 import model.views.readonly.XpeDccNewContractSetupROVORowImpl;
+import model.views.readonly.XpeDccPlatformEventPsCisXpeImportROVOImpl;
 import model.views.readonly.XpeDccTermsForMasterTermROVOImpl;
 import model.views.readonly.XpeDccTermsForMasterTermROVORowImpl;
 import model.views.readonly.XpeDccUserInfoROVOImpl;
@@ -4656,6 +4657,22 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public ViewLinkImpl getXpeDccContractVersionContractCarrierFKLink1() {
         return (ViewLinkImpl) findViewLink("XpeDccContractVersionContractCarrierFKLink1");
+    }
+
+    /**
+     * Container's getter for XpeDccPlatformEventPsCisXpeImportROVO1.
+     * @return XpeDccPlatformEventPsCisXpeImportROVO1
+     */
+    public XpeDccPlatformEventPsCisXpeImportROVOImpl getXpeDccPlatformEventPsCisXpeImportROVO1() {
+        return (XpeDccPlatformEventPsCisXpeImportROVOImpl) findViewObject("XpeDccPlatformEventPsCisXpeImportROVO1");
+    }
+
+    /**
+     * Container's getter for XpeDccContractsXpeDccPltFrmCisImportFKLink1.
+     * @return XpeDccContractsXpeDccPltFrmCisImportFKLink1
+     */
+    public ViewLinkImpl getXpeDccContractsXpeDccPltFrmCisImportFKLink1() {
+        return (ViewLinkImpl) findViewLink("XpeDccContractsXpeDccPltFrmCisImportFKLink1");
     }
 }
 
