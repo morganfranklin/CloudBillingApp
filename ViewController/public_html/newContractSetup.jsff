@@ -227,24 +227,24 @@
                                                 </af:inputText>
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractLineView.hints.BusinessUnitGl.label}"
-                                                       id="c26">
+                                                       id="c26" showRequired="true">
                                                 <af:selectOneChoice value="#{row.bindings.BusinessUnitGl.inputValue}"
                                                                     label="#{row.bindings.BusinessUnitGl.label}"
                                                                     required="true"
                                                                     shortDesc="#{bindings.XpeDccNewContractLineView.hints.BusinessUnitGl.tooltip}"
                                                                     id="soc9"
                                                                     readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
-                                                                    autoSubmit="true">
+                                                                    autoSubmit="true" showRequired="true">
                                                     <f:selectItems value="#{row.bindings.BusinessUnitGl.items}"
                                                                    id="si9"/>
                                                     <f:validator binding="#{row.bindings.BusinessUnitGl.validator}"/>
                                                 </af:selectOneChoice>
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractLineView.hints.XpeFacility.label}"
-                                                       id="c18">
+                                                       id="c18" showRequired="true">
                                                 <af:selectOneChoice value="#{row.bindings.XpeFacility.inputValue}"
                                                                     label="#{row.bindings.XpeFacility.label}"
-                                                                    required="#{bindings.XpeDccNewContractLineView.hints.XpeFacility.mandatory}"
+                                                                    required="true"
                                                                     shortDesc="#{bindings.XpeDccNewContractLineView.hints.XpeFacility.tooltip}"
                                                                     id="soc6"
                                                                     readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
@@ -254,7 +254,7 @@
                                                 </af:selectOneChoice>
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractLineView.hints.XpeProductId.label}"
-                                                       id="c19">
+                                                       id="c19" showRequired="true">
                                                 <af:inputListOfValues label="#{row.bindings.XpeProductId.label}"
                                                                       popupTitle="Search and Select: #{row.bindings.XpeProductId.label}"
                                                                       id="ilov5"
@@ -280,7 +280,7 @@
                                                 </af:selectOneChoice>
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractLineView.hints.XpeProductUom.label}"
-                                                       id="c20">
+                                                       id="c20" showRequired="true">
                                                 <af:selectOneChoice value="#{row.bindings.XpeProductUom.inputValue}"
                                                                     label="#{row.bindings.XpeProductUom.label}"
                                                                     shortDesc="#{bindings.XpeDccNewContractLineView.hints.XpeProductUom.tooltip}"
@@ -346,7 +346,8 @@
                                                               id="it17"
                                                               readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
                                                               autoSubmit="true"
-                                                              binding="#{backingBeanScope.XpeDccNewContractBBean.profileWasteApprovalInputText}">
+                                                              binding="#{backingBeanScope.XpeDccNewContractBBean.profileWasteApprovalInputText}"
+                                                              showRequired="#{row.bindings.isprofileWasteNbrMandatory.inputValue}">
                                                     <f:validator binding="#{row.bindings.XpeSwApprNbr.validator}"/>
                                                 </af:inputText>
                                             </af:column>
@@ -390,7 +391,7 @@
                                                 </af:inputText>
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractPricingTermView.hints.XpePricingTermType.label}"
-                                                       id="c31" headerNoWrap="true" width="120">
+                                                       id="c31" headerNoWrap="true" width="120" showRequired="true">
                                                 <af:inputListOfValues label="#{row.bindings.XpePricingTermType.label}"
                                                                       popupTitle="Search and Select: #{row.bindings.XpePricingTermType.label}"
                                                                       id="ilov1"
@@ -419,7 +420,7 @@
                                                 </af:inputText>
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractPricingTermView.hints.XpeRate.label}"
-                                                       id="c33" width="250">
+                                                       id="c33" width="250" showRequired="true">
                                                 <af:inputText value="#{row.bindings.XpeRate.inputValue}"
                                                               label="#{bindings.XpeDccNewContractPricingTermView.hints.XpeRate.label}"
                                                               columns="#{bindings.XpeDccNewContractPricingTermView.hints.XpeRate.displayWidth}"
@@ -601,7 +602,7 @@
                                                   columnStretching="last" contentDelivery="immediate"
                                                   styleClass="AFStretchWidth" partialTriggers="::b6 ::b5">
                                             <af:column headerText="#{bindings.XpeDccNewContractCarrierView.hints.XpeCarrierId.label}"
-                                                       id="c53" width="250">
+                                                       id="c53" width="250" showRequired="true">
                                                 <af:inputListOfValues value="#{row.bindings.XpeCarrierId.inputValue}"
                                                                       popupTitle="Search and Select: #{row.bindings.XpeCarrierId.label}"
                                                                       model="#{row.bindings.XpeCarrierId.listOfValuesModel}"
@@ -609,7 +610,7 @@
                                                                       shortDesc="#{bindings.XpeDccNewContractCarrierView.hints.XpeCarrierId.tooltip}"
                                                                       id="ilov7"
                                                                       readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
-                                                                      autoSubmit="true">
+                                                                      autoSubmit="true" required="true">
                                                     <f:validator binding="#{row.bindings.XpeCarrierId.validator}"/>
                                                 </af:inputListOfValues>
                                             </af:column>
@@ -626,7 +627,7 @@
                                                 </af:selectOneChoice>
                                             </af:column>
                                             <af:column headerText="#{bindings.XpeDccNewContractCarrierView.hints.XpeVehicleType.label}"
-                                                       id="c54">
+                                                       id="c54" showRequired="true">
                                                 <af:selectOneChoice value="#{row.bindings.XpeVehicleType.inputValue}"
                                                                     label="#{row.bindings.XpeVehicleType.label}"
                                                                     shortDesc="#{bindings.XpeDccNewContractCarrierView.hints.XpeVehicleType.tooltip}"
