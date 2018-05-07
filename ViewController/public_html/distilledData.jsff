@@ -44,7 +44,6 @@
                                     </af:commandMenuItem>
                                 </af:menu>
                             </f:facet>
-                            <f:facet name="toolbar"/>
                             <af:table value="#{bindings.XpeDccMatchEsummVw1.collectionModel}" var="row"
                                       rows="#{bindings.XpeDccMatchEsummVw1.rangeSize}"
                                       emptyText="#{bindings.XpeDccMatchEsummVw1.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -56,7 +55,7 @@
                                       filterVisible="true"
                                       queryListener="#{bindings.XpeDccMatchEsummVw1Query.processQuery}" varStatus="vs"
                                       id="t2" contentDelivery="immediate" columnBandingInterval="0"
-                                      columnStretching="last">
+                                      columnStretching="last" binding="#{distilledDataMBean.summaryTableBind}">
                                 <af:column sortProperty="#{bindings.XpeDccMatchEsummVw1.hints.Site.name}"
                                            filterable="true" sortable="true" headerText="Site" id="c7" width="100">
                                     <af:outputText value="#{row.Site}"
@@ -103,7 +102,12 @@
                                     </af:outputText>
                                 </af:column>
                             </af:table>
-                            <f:facet name="statusbar"/>
+                            <f:facet name="secondaryToolbar">
+                                <af:toolbar id="t3">
+                                    <af:button text="Reset Filters" id="b1"
+                                               actionListener="#{distilledDataMBean.resetSummaryTableFilterAction}"/>
+                                </af:toolbar>
+                            </f:facet>
                         </af:panelCollection>
                     </af:showDetailItem>
                     <af:showDetailItem id="tab1" text="Details">
@@ -129,7 +133,6 @@
                                     </af:commandMenuItem>
                                 </af:menu>
                             </f:facet>
-                            <f:facet name="toolbar"/>
                             <af:table value="#{bindings.PsCisXpeImportView1.collectionModel}" var="row"
                                       rows="#{bindings.PsCisXpeImportView1.rangeSize}"
                                       emptyText="#{bindings.PsCisXpeImportView1.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -141,7 +144,8 @@
                                       filterVisible="true"
                                       queryListener="#{bindings.PsCisXpeImportView1Query.processQuery}" varStatus="vs"
                                       id="t1" partialTriggers=":::b2"
-                                      maxClientRows="100" columnStretching="last" contentDelivery="immediate">
+                                      maxClientRows="100" columnStretching="last" contentDelivery="immediate"
+                                      binding="#{distilledDataMBean.detailsTableBind}">
                                 <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.CisTargetVendor5.name}"
                                            sortable="true" headerText="Site" id="c1" filterable="true" width="150">
                                     <af:outputText value="#{row.CisTargetVendor5}"
@@ -225,6 +229,12 @@
                                                    id="ot19"/>
                                 </af:column>
                             </af:table>
+                            <f:facet name="secondaryToolbar">
+                                <af:toolbar id="t4">
+                                    <af:button text="Reset Filter" id="b3"
+                                               actionListener="#{distilledDataMBean.resetDetailsTableFilterAction}"/>
+                                </af:toolbar>
+                            </f:facet>
                         </af:panelCollection>
                     </af:showDetailItem>
                 </af:panelTabbed>

@@ -47,8 +47,7 @@
                                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc7">
                                                 <af:link text="Raw Usage Data Display"
                                                          action="#{viewScope.integrationDashboardRegionName.transmittedData}"
-                                                         id="l2"
-                                                         actionListener="#{bindings.Rollback.execute}"
+                                                         id="l2" actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
@@ -57,8 +56,7 @@
                                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6">
                                                 <af:link text="Matching and Pricing Errors"
                                                          action="#{viewScope.integrationDashboardRegionName.distilledData}"
-                                                         id="l1"
-                                                         actionListener="#{bindings.Rollback.execute}"
+                                                         id="l1" actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
@@ -104,8 +102,7 @@
                                             <af:gridCell id="gc20">
                                                 <af:link text="Enterprise Contracts"
                                                          action="#{viewScope.integrationDashboardRegionName.mappedContracts}"
-                                                         id="l15"
-                                                         actionListener="#{bindings.Rollback.execute}"
+                                                         id="l15" actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
@@ -114,8 +111,7 @@
                                             <af:gridCell id="gc22" width="auto">
                                                 <af:link text="Rules and Rule sets"
                                                          action="#{viewScope.integrationDashboardRegionName.rulesets}"
-                                                         id="l16"
-                                                         actionListener="#{bindings.Rollback.execute}"
+                                                         id="l16" actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
@@ -124,8 +120,7 @@
                                             <af:gridCell marginStart="5px" marginEnd="5px" id="gc12">
                                                 <af:link text="Cross-reference Data"
                                                          action="#{viewScope.integrationDashboardRegionName.crossReferences}"
-                                                         id="l3"
-                                                         actionListener="#{bindings.Rollback.execute}"
+                                                         id="l3" actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
@@ -134,8 +129,7 @@
                                             <af:gridCell id="gc23">
                                                 <af:link text="Execution Plans"
                                                          action="#{viewScope.integrationDashboardRegionName.executionPlan}"
-                                                         id="l17"
-                                                         actionListener="#{bindings.Rollback.execute}"
+                                                         id="l17" actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
@@ -152,8 +146,7 @@
                                             <af:gridCell marginStart="5px" marginEnd="5px" id="gc14">
                                                 <af:link text="Lookup sets"
                                                          action="#{viewScope.integrationDashboardRegionName.lookupSets}"
-                                                         id="l8"
-                                                         actionListener="#{bindings.Rollback.execute}"
+                                                         id="l8" actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
@@ -162,7 +155,8 @@
                                             <af:gridCell id="gc33">
                                                 <af:link text="Role and Screen Security" id="l28"
                                                          action="#{viewScope.integrationDashboardRegionName.roleAndScreenSecuritySetUp}"
-                                                         immediate="true" actionListener="#{bindings.Rollback.execute}"/>
+                                                         immediate="true"
+                                                         actionListener="#{bindings.Rollback.execute}"/>
                                             </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow id="gr34" marginTop="5px" marginBottom="5px"
@@ -197,8 +191,7 @@
                                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc15">
                                                 <af:link text="Processed Tickets Review"
                                                          action="#{viewScope.integrationDashboardRegionName.billingEvents}"
-                                                         id="l4"
-                                                         actionListener="#{bindings.Rollback.execute}"
+                                                         id="l4" actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
@@ -207,8 +200,7 @@
                                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc16">
                                                 <af:link text="Changes Log"
                                                          action="#{viewScope.integrationDashboardRegionName.voucherEvents}"
-                                                         id="l5"
-                                                         actionListener="#{bindings.Rollback.execute}"
+                                                         id="l5" actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
@@ -221,8 +213,8 @@
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
-                                         <af:gridRow marginTop="5px" height="auto" id="gr25"
-                                                     rendered="#{bindings.NewContract.inputValue ne 'H'}">
+                                        <af:gridRow marginTop="5px" height="auto" id="gr25"
+                                                    rendered="#{bindings.NewContract.inputValue ne 'H'}">
                                             <af:gridCell id="gc25" width="100%" marginStart="5px" marginEnd="5px">
                                                 <af:link text="New Contract" id="l20"
                                                          action="#{viewScope.integrationDashboardRegionName.newContract}"
@@ -252,7 +244,8 @@
                                         <af:gridRow id="gr27" marginTop="5px"
                                                     rendered="#{bindings.SetUpTables.inputValue ne 'H'}">
                                             <af:gridCell id="gc27" width="100%" marginStart="5px" marginEnd="5px">
-                                                <af:link text="Set Up Tables" id="l22" action="#{viewScope.integrationDashboardRegionName.setUpTables}"
+                                                <af:link text="Set Up Tables" id="l22"
+                                                         action="#{viewScope.integrationDashboardRegionName.setUpTables}"
                                                          actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
                                             </af:gridCell>
@@ -270,8 +263,7 @@
                                         <af:gridRow id="gr30" marginTop="5px"
                                                     rendered="#{bindings.BillingandAccounting.inputValue ne 'H'}">
                                             <af:gridCell id="gc30" width="100%" marginStart="5px" marginEnd="5px">
-                                                <af:link text="Billing and Accounting" id="l25"
-                                                         partialSubmit="true"
+                                                <af:link text="Billing and Accounting" id="l25" partialSubmit="true"
                                                          action="#{viewScope.integrationDashboardRegionName.billingAccountingProcesses}"
                                                          actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
@@ -280,18 +272,16 @@
                                         <af:gridRow id="gr31" marginTop="5px"
                                                     rendered="#{bindings.Accruals.inputValue ne 'H'}">
                                             <af:gridCell id="gc31" width="100%" marginStart="5px" marginEnd="5px">
-                                                <af:link text="Accruals" id="l26"
-                                                         partialSubmit="true"
+                                                <af:link text="Accruals" id="l26" partialSubmit="true"
                                                          action="#{viewScope.integrationDashboardRegionName.accrualRevenueGenerationProcesses}"
                                                          actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
                                             </af:gridCell>
                                         </af:gridRow>
-                                         <af:gridRow id="gr32" marginTop="5px"
-                                                     rendered="#{bindings.ContractExpirationReport.inputValue ne 'H'}">
+                                        <af:gridRow id="gr32" marginTop="5px"
+                                                    rendered="#{bindings.ContractExpirationReport.inputValue ne 'H'}">
                                             <af:gridCell id="gc32" width="100%" marginStart="5px" marginEnd="5px">
-                                                <af:link text="Contract Expiration Report" id="l27"
-                                                         partialSubmit="true"
+                                                <af:link text="Contract Expiration Report" id="l27" partialSubmit="true"
                                                          action="#{viewScope.integrationDashboardRegionName.covantaContractExpirationReport}"
                                                          actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
@@ -300,8 +290,7 @@
                                         <af:gridRow id="gr35" marginTop="5px" marginBottom="5px"
                                                     rendered="#{bindings.MetalsIndices.inputValue ne 'H'}">
                                             <af:gridCell id="gc35" width="100%" marginStart="5px" marginEnd="5px">
-                                                <af:link text="Metals Indices" id="l30"
-                                                         partialSubmit="true"
+                                                <af:link text="Metals Indices" id="l30" partialSubmit="true"
                                                          action="#{viewScope.integrationDashboardRegionName.metalsIndices}"
                                                          actionListener="#{bindings.Rollback.execute}"
                                                          immediate="true"/>
@@ -366,7 +355,16 @@
         </af:form>
         <af:serverListener type="onloadEvent" method="#{PeopleSoftCallSecurityFilter.validateToken}"/>
         <af:clientListener method="triggerOnLoad" type="load"/>
+        <af:clientListener method="preventBrowserBackButton" type="load"/>
         <af:resource type="javascript">
+          function preventBrowserBackButton() {
+              history.pushState(null, null, location.href);
+              window.onpopstate = function () {
+                  history.go(1);
+              };
+          }
+
+          
           function triggerOnLoad(event) {
               AdfCustomEvent.queue(event.getSource(), "onloadEvent", 
               {
