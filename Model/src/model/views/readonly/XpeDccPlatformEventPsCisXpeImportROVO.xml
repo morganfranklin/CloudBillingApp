@@ -68,6 +68,7 @@ FROM
             AND   plt_frm.xpe_contract_line = xpe_imprt.cis_targtcust3det3 
             AND   xpe_imprt.cis_exec_plan_step NOT LIKE 'DRV%' 
             AND   xpe_imprt.cis_stage LIKE 'FIN' 
+            AND   plt_frm.xpe_event_dttm >= SYSDATE - 90
     ) 
 WHERE 
     rn = 1]]></SQLQuery>
