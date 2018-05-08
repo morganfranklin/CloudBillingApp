@@ -39,7 +39,8 @@
                                                                     id="soc3" simple="true" autoSubmit="true"
                                                                     required="true"
                                                                     binding="#{backingBeanScope.XpeDccNewContractBBean.contractSubTypeRIT}"
-                                                                    valueChangeListener="#{pageFlowScope.XpeDccNewContractMBean.onContractSubtypeValueChange}">
+                                                                    valueChangeListener="#{pageFlowScope.XpeDccNewContractMBean.onContractSubtypeValueChange}"
+                                                                    disabled="#{pageFlowScope.XpeDccNewContractMBean.firstSubType}">
                                                     <f:selectItems value="#{bindings.XpeContractSubType.items}"
                                                                    id="si3"/>
                                                     <f:validator binding="#{bindings.XpeContractSubType.validator}"/>
@@ -52,7 +53,8 @@
                                                                     shortDesc="#{bindings.XpeAgreementType.hints.tooltip}"
                                                                     id="soc1" simple="true" autoSubmit="true"
                                                                     required="true"
-                                                                    binding="#{backingBeanScope.XpeDccNewContractBBean.agreementRIT}">
+                                                                    binding="#{backingBeanScope.XpeDccNewContractBBean.agreementRIT}"
+                                                                    disabled="#{pageFlowScope.XpeDccNewContractMBean.firstAgreementType}">
                                                     <f:selectItems value="#{bindings.XpeAgreementType.items}" id="si1"/>
                                                     <f:validator binding="#{bindings.XpeAgreementType.validator}"/>
                                                 </af:selectOneChoice>
@@ -63,7 +65,8 @@
                                                                     label="#{bindings.XpeContractDirection.label}"
                                                                     shortDesc="#{bindings.XpeContractDirection.hints.tooltip}"
                                                                     id="soc29" simple="true" autoSubmit="true"
-                                                                    required="true">
+                                                                    required="true"
+                                                                    disabled="#{pageFlowScope.XpeDccNewContractMBean.firstContractDirection}">
                                                     <f:selectItems value="#{bindings.XpeContractDirection.items}"
                                                                    id="si22"/>
                                                     <f:validator binding="#{bindings.XpeContractDirection.validator}"/>
