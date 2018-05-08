@@ -13,6 +13,7 @@ import javax.faces.event.ActionEvent;
 
 import javax.faces.event.ValueChangeEvent;
 
+import model.views.entitybased.XpeDccCfgCountiesEOVOImpl;
 import model.views.entitybased.XpeDccCfgCountiesEOVORowImpl;
 
 import model.views.readonly.XpeDccCfgCountiesROVOImpl;
@@ -156,10 +157,29 @@ public class countiesSetUpTableMBean implements Serializable{
     }
 
     public void stateValChgLstnr(ValueChangeEvent valueChangeEvent) {
+        DCIteratorBinding countiesIter = ADFUtils.findIterator("XpeDccCfgCountiesEOVOIterator");
+        XpeDccCfgCountiesEOVOImpl countiesView = (XpeDccCfgCountiesEOVOImpl) countiesIter.getViewObject();
+        XpeDccCfgCountiesEOVORowImpl countiesViewRow = (XpeDccCfgCountiesEOVORowImpl) countiesView.getCurrentRow();
         if (null != valueChangeEvent.getNewValue() && !valueChangeEvent.getNewValue().equals("XX")) {
             this.getcountiesSetUpTableBBean().getCountryBind().setValue("USA");
+            countiesViewRow.setCountry("USA");
         } else {
             this.getcountiesSetUpTableBBean().getCountryBind().setValue(null);
+            countiesViewRow.setCountry(null);
+        }
+        AdfFacesContext.getCurrentInstance().addPartialTarget(this.getcountiesSetUpTableBBean().getCountryBind());
+    }
+    
+    public void newCountyStateValChgLstnr(ValueChangeEvent valueChangeEvent) {
+        DCIteratorBinding countiesIter = ADFUtils.findIterator("XpeDccCfgNewCountiesCreationEOVOIterator");
+        XpeDccCfgCountiesEOVOImpl countiesView = (XpeDccCfgCountiesEOVOImpl) countiesIter.getViewObject();
+        XpeDccCfgCountiesEOVORowImpl countiesViewRow = (XpeDccCfgCountiesEOVORowImpl) countiesView.getCurrentRow();
+        if (null != valueChangeEvent.getNewValue() && !valueChangeEvent.getNewValue().equals("XX")) {
+            this.getcountiesSetUpTableBBean().getCountryBind().setValue("USA");
+            countiesViewRow.setCountry("USA");
+        } else {
+            this.getcountiesSetUpTableBBean().getCountryBind().setValue(null);
+            countiesViewRow.setCountry(null);
         }
         AdfFacesContext.getCurrentInstance().addPartialTarget(this.getcountiesSetUpTableBBean().getCountryBind());
     }

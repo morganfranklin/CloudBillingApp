@@ -114,7 +114,7 @@
                             <af:selectOneChoice value="#{bindings.State.inputValue}" label="#{bindings.State.label}"
                                                 required="#{bindings.State.hints.mandatory}"
                                                 shortDesc="#{bindings.State.hints.tooltip}" id="soc3" simple="true"
-                                                valueChangeListener="#{pageFlowScope.countiesSetUpTableMBean.stateValChgLstnr}"
+                                                valueChangeListener="#{pageFlowScope.countiesSetUpTableMBean.newCountyStateValChgLstnr}"
                                                 autoSubmit="true">
                                 <f:selectItems value="#{bindings.State.items}" id="si3"/>
                                 <f:validator binding="#{bindings.State.validator}"/>
