@@ -88,6 +88,8 @@ public class countiesSetUpTableMBean implements Serializable{
         boolean rtnVal = false;    
         if(null != stateName && "XX".equals(stateName) && null != countryName && "USA".equals(countryName)){
             rtnVal = true;
+        } else if(null != stateName && !"XX".equals(stateName) && null != countryName && !"USA".equals(countryName)){
+            rtnVal = true;
         }
         return rtnVal;
     }
