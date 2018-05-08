@@ -154,7 +154,8 @@
                                                             label="#{bindings.XpeTermId.label}"
                                                             shortDesc="#{bindings.XpeTermId.hints.tooltip}" id="soc13"
                                                             autoSubmit="true"
-                                                            valueChangeListener="#{pageFlowScope.XpeDccNewContractMBean.onTermIdValueChange}">
+                                                            valueChangeListener="#{pageFlowScope.XpeDccNewContractMBean.onTermIdValueChange}"
+                                                            disabled="#{pageFlowScope.XpeDccNewContractMBean.firstTermId}">
                                             <f:selectItems value="#{bindings.XpeTermId.items}" id="si13"/>
                                             <f:validator binding="#{bindings.XpeTermId.validator}"/>
                                         </af:selectOneChoice>
