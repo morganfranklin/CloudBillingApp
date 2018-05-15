@@ -183,7 +183,8 @@
                                 <af:spacer width="10" height="10" id="s4"/>
                                 <af:button actionListener="#{bindings.Delete.execute}" text="Delete Row"
                                            disabled="#{!bindings.Delete.enabled}" id="b6"
-                                           rendered="#{bindings.ContractManagement.inputValue ne 'V'}"/>
+                                           rendered="#{bindings.ContractManagement.inputValue ne 'V'}"
+                                           immediate="true"/>
                             </af:toolbar>
                         </f:facet>
                         <f:facet name="toolbar"/>
