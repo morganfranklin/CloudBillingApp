@@ -268,15 +268,7 @@ public class XpeDccNewContractMBean implements Serializable {
     public void onTermIdValueChange(ValueChangeEvent valueChangeEvent) {
         if (null != valueChangeEvent) {
             valueChangeEvent.getComponent().processUpdates(FacesContext.getCurrentInstance());
-            try {
-                BindingContext bc = BindingContext.getCurrent();
-                BindingContainer bindings = bc.getCurrentBindingsEntry();
-                OperationBinding operationBinding = bindings.getOperationBinding("fetchClauseForMasterTerm");
-                if (null != operationBinding)
-                    operationBinding.execute();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            fetchClauseForMasterTerm();
         }
     }
 
@@ -691,16 +683,21 @@ public class XpeDccNewContractMBean implements Serializable {
     }
     
     public boolean getFirstSubType(){
+        String contractType = (String)ADFUtils.evaluateEL("#{pageFlowScope.ContractType}");
+        if(null!=contractType && contractType.equals("NEW")){
         String wasteType = (String)ADFUtils.evaluateEL("#{bindings.XpeWasteType.inputValue}");
         String contractSubType =  (String)ADFUtils.evaluateEL("#{bindings.XpeContractSubType.inputValue}");
         if(null!=wasteType && null==contractSubType){
             String firstContractSubtype = (String)ADFUtils.evaluateEL("#{bindings.XpeContractSubType.items[0].value}");
             ADFUtils.setvalueToExpression("#{bindings.XpeContractSubType.inputValue}", firstContractSubtype);
         }
+        }
         return false;
     }
     
     public Boolean getFirstAgreementType(){
+        String contractType = (String)ADFUtils.evaluateEL("#{pageFlowScope.ContractType}");
+        if(null!=contractType && contractType.equals("NEW")){
         String wasteType = (String)ADFUtils.evaluateEL("#{bindings.XpeWasteType.inputValue}");
         String contractSubType =  (String)ADFUtils.evaluateEL("#{bindings.XpeContractSubType.inputValue}");
         String agreementType =  (String)ADFUtils.evaluateEL("#{bindings.XpeAgreementType.inputValue}");
@@ -708,35 +705,58 @@ public class XpeDccNewContractMBean implements Serializable {
             String firstAgreementType = (String)ADFUtils.evaluateEL("#{bindings.XpeAgreementType.items[0].value}");
             ADFUtils.setvalueToExpression("#{bindings.XpeAgreementType.inputValue}", firstAgreementType);
         }
+        }
         return false;
     }
     
     public Boolean getFirstContractDirection(){
+        String contractType = (String)ADFUtils.evaluateEL("#{pageFlowScope.ContractType}");
+        if(null!=contractType && contractType.equals("NEW")){
         String contractDirection = (String)ADFUtils.evaluateEL("#{bindings.XpeContractDirection.inputValue}");
         if(null==contractDirection){
             String firstContractDirection = (String)ADFUtils.evaluateEL("#{bindings.XpeContractDirection.items[0].value}");
             ADFUtils.setvalueToExpression("#{bindings.XpeContractDirection.inputValue}", firstContractDirection);
         }
+        }
         return false;
     }
     
     public Boolean getFirstTermId(){
-        String wasteType = (String)ADFUtils.evaluateEL("#{bindings.XpeWasteType.inputValue}");
-        String termId = (String)ADFUtils.evaluateEL("#{bindings.XpeTermId.inputValue}");
-        if(null!=wasteType && !"SW".equalsIgnoreCase(wasteType) && null==termId){
-            String firstTermId = (String)ADFUtils.evaluateEL("#{bindings.XpeTermId.items[0].value}");
-            ADFUtils.setvalueToExpression("#{bindings.XpeTermId.inputValue}", firstTermId);
+        String contractType = (String)ADFUtils.evaluateEL("#{pageFlowScope.ContractType}");
+        if(null!=contractType && contractType.equals("NEW")){
+            String wasteType = (String)ADFUtils.evaluateEL("#{bindings.XpeWasteType.inputValue}");
+            String termId = (String)ADFUtils.evaluateEL("#{bindings.XpeTermId.inputValue}");
+            if(null!=wasteType && !"SW".equalsIgnoreCase(wasteType) && null==termId){
+                String firstTermId = (String)ADFUtils.evaluateEL("#{bindings.XpeTermId.items[0].value}");
+                ADFUtils.setvalueToExpression("#{bindings.XpeTermId.inputValue}", firstTermId);
+                fetchClauseForMasterTerm();
+            }
         }
         return false;
     }
     
     public Boolean getFirstProductUOM(){
+        String contractType = (String)ADFUtils.evaluateEL("#{pageFlowScope.ContractType}");
+        if(null!=contractType && contractType.equals("NEW")){
             String productId = (String)ADFUtils.evaluateEL("#{row.bindings.XpeProductId.inputValue}");
             String productUOM = (String)ADFUtils.evaluateEL("#{row.bindings.XpeProductUom.inputValue}");
             if(null!=productId && null==productUOM){
                 String firstProductUOM = (String)ADFUtils.evaluateEL("#{row.bindings.XpeProductUom.items[0].value}");
                 ADFUtils.setvalueToExpression("#{row.bindings.XpeProductUom.inputValue}", firstProductUOM);
             }   
+        }
         return false;
+    }
+    
+    private void fetchClauseForMasterTerm(){
+        try {
+            BindingContext bc = BindingContext.getCurrent();
+            BindingContainer bindings = bc.getCurrentBindingsEntry();
+            OperationBinding operationBinding = bindings.getOperationBinding("fetchClauseForMasterTerm");
+            if (null != operationBinding)
+                operationBinding.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
