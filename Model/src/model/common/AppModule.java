@@ -81,5 +81,7 @@ public interface AppModule extends ApplicationModule {
     String calculateQtyMax(String contractId, String contractVersion, String contractLine);
 
     Map contractDuplicateCheck(String contractId, String contractVersion);
+
+    void executePsXpeImportView();
 }
 

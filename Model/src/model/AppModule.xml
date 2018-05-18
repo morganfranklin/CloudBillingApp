@@ -2298,5 +2298,12 @@
                 Name="contractVersion"
                 Type="java.lang.String"/>
         </Method>
+        <Method
+            Name="executePsXpeImportView"
+            MethodName="executePsXpeImportView">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+        </Method>
     </ClientInterface>
 </AppModule>

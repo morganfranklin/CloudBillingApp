@@ -7,11 +7,11 @@
     <iterator Binds="XpeDccBillingAccountingEOVO" RangeSize="10" DataControl="AppModuleDataControl"
               id="XpeDccBillingAccountingEOVOIterator" ChangeEventPolicy="none"/>
     <iterator Binds="PsCisXpeProcessView1" RangeSize="25" DataControl="AppModuleDataControl"
-              id="PsCisXpeProcessView1Iterator"/>
+              id="PsCisXpeProcessView1Iterator" ChangeEventPolicy="none"/>
     <searchRegion Binds="PsCisXpeProcessView1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="PsCisXpeProcessView1Query"/>
     <iterator Binds="XpeDccCfgRoleSecurityROVO" RangeSize="10" DataControl="AppModuleDataControl"
-              id="XpeDccCfgRoleSecurityEOVOIterator"/>
+              id="XpeDccCfgRoleSecurityEOVOIterator" ChangeEventPolicy="none"/>
   </executables>
   <bindings>
     <methodAction id="billAndAccountingProcess" RequiresUpdateModel="true" Action="invokeMethod"
@@ -31,7 +31,7 @@
       </nodeDefinition>
     </tree>
     <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
-    <tree IterBinding="PsCisXpeProcessView1Iterator" id="PsCisXpeProcessView1">
+    <tree IterBinding="PsCisXpeProcessView1Iterator" id="PsCisXpeProcessView1" ChangeEventPolicy="none">
       <nodeDefinition DefName="model.PsCisXpeProcessView" Name="PsCisXpeProcessView10">
         <AttrNames>
           <Item Value="Processid"/>

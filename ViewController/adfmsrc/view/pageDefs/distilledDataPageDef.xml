@@ -82,5 +82,8 @@
             <NamedData NDName="voName" NDValue="#{bindings.PsCisXpeImportView1Iterator.VOName}"
                        NDType="java.lang.String"/>
         </methodAction>
+        <methodAction id="executePsXpeImportView" RequiresUpdateModel="true" Action="invokeMethod"
+                      MethodName="executePsXpeImportView" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                      InstanceName="data.AppModuleDataControl.dataProvider"/>
     </bindings>
 </pageDefinition>

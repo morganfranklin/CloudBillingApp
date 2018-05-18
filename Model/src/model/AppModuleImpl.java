@@ -409,8 +409,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      * Container's getter for PsCisXpeImportView1.
      * @return PsCisXpeImportView1
      */
-    public ViewObjectImpl getPsCisXpeImportView1() {
-        return (ViewObjectImpl) findViewObject("PsCisXpeImportView1");
+    public PsCisXpeImportViewImpl getPsCisXpeImportView1() {
+        return (PsCisXpeImportViewImpl) findViewObject("PsCisXpeImportView1");
     }
 
     /**
@@ -3649,6 +3649,11 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             (XpeDccBillingAccountingEOVORowImpl) billAccountVO.createRow();
         if(null!=billAccountVORow)
             billAccountVO.insertRow(billAccountVORow);
+    }
+    
+    public void executePsXpeImportView(){
+        PsCisXpeImportViewImpl psXpeImportView = this.getPsCisXpeImportView1();
+        psXpeImportView.executeQuery();
     }
     
     public void billAndAccountingProcess(){

@@ -13,8 +13,6 @@
     CustomQuery="false"
     SelectAllAttributes="false"
     PageIterMode="Full"
-    FetchSize="100"
-    RangeSize="25"
     FetchMode="FETCH_AS_NEEDED">
     <EntityUsage
         Name="PsCisXpeProcess"

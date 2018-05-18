@@ -10,8 +10,8 @@
                         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3" halign="stretch"
                                          valign="stretch">
-                                <af:button actionListener="#{bindings.Execute.execute}" text="Refresh"
-                                           disabled="#{!bindings.Execute.enabled}" id="b2"/>
+                                <af:button actionListener="#{bindings.executePsXpeImportView.execute}"
+                                           text="Refresh" id="b8"/>
                                 <af:panelLabelAndMessage label="Selected Error:" id="plam1" partialTriggers="pc1:t1">
                                     <af:outputText value="#{bindings.ErrorMessage.inputValue}"
                                                    shortDesc="#{bindings.ErrorMessage.hints.tooltip}" id="ot7"/>
@@ -143,8 +143,8 @@
                                       filterModel="#{bindings.PsCisXpeImportView1Query.queryDescriptor}"
                                       filterVisible="true"
                                       queryListener="#{bindings.PsCisXpeImportView1Query.processQuery}" varStatus="vs"
-                                      id="t1" partialTriggers=":::b2"
-                                      maxClientRows="100" columnStretching="last" contentDelivery="immediate"
+                                      id="t1" partialTriggers=":::b8"
+                                      columnStretching="last" contentDelivery="immediate"
                                       binding="#{distilledDataMBean.detailsTableBind}">
                                 <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.CisTargetVendor5.name}"
                                            sortable="true" headerText="Site" id="c1" filterable="true" width="150">
@@ -231,7 +231,7 @@
                             </af:table>
                             <f:facet name="secondaryToolbar">
                                 <af:toolbar id="t4">
-                                    <af:button text="Reset Filter" id="b3"
+                                    <af:button text="Reset Filter" id="b4"
                                                actionListener="#{distilledDataMBean.resetDetailsTableFilterAction}"/>
                                 </af:toolbar>
                             </f:facet>

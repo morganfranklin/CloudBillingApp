@@ -13,8 +13,13 @@
     CustomQuery="false"
     SelectAllAttributes="false"
     PageIterMode="Full"
-    FetchSize="50"
-    FetchMode="FETCH_AS_NEEDED">
+    FetchMode="FETCH_AS_NEEDED"
+    RowClass="model.PsCisXpeImportViewRowImpl"
+    ComponentClass="model.PsCisXpeImportViewImpl">
+    <DesignTime>
+        <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+        <Attr Name="_isCodegen" Value="true"/>
+    </DesignTime>
     <EntityUsage
         Name="PsCisXpeImport"
         Entity="model.PsCisXpeImport"/>
