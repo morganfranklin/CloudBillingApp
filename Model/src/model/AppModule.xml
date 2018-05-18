@@ -712,6 +712,9 @@
     <ViewUsage
         Name="XpeDccPlatformEventPsCisXpeImportROVO1"
         ViewObjectName="model.views.readonly.XpeDccPlatformEventPsCisXpeImportROVO"/>
+    <ViewUsage
+        Name="XpeDccLookupMasterROVO1"
+        ViewObjectName="model.views.readonly.XpeDccLookupMasterROVO"/>
     <ViewLinkUsage
         Name="NeuRuleTblFk1Link1"
         ViewLinkObjectName="model.NeuRuleTblFk1Link"
