@@ -32,6 +32,7 @@
                     <Item Value="AttrValue5"/>
                     <Item Value="Qty5"/>
                     <Item Value="ErrorMessage"/>
+                    <Item Value="AttrValue3"/>
                 </AttrNames>
             </nodeDefinition>
         </tree>
