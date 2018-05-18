@@ -208,8 +208,8 @@
                                 <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.AttrValue3.name}"
                                            filterable="true" sortable="true" headerText="Material Id" id="c12"
                                            width="150">
-                                    <af:outputText value="#{row.AttrValue5}"
-                                                   shortDesc="#{bindings.PsCisXpeImportView1.hints.AttrValue5.tooltip}"
+                                    <af:outputText value="#{row.AttrValue3}"
+                                                   shortDesc="#{bindings.PsCisXpeImportView1.hints.AttrValue3.tooltip}"
                                                    id="ot12"/>
                                 </af:column>
                                 <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.Qty5.name}"
