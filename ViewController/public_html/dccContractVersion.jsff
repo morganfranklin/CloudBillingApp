@@ -508,7 +508,8 @@
                                                       maximumLength="#{bindings.XpeDccContractNotesView2.hints.XpeNoteLong.precision}"
                                                       shortDesc="#{bindings.XpeDccContractNotesView2.hints.XpeNoteLong.tooltip}"
                                                       id="it6"
-                                                      readOnly="#{bindings.ContractManagement.inputValue eq 'V'}">
+                                                      readOnly="#{bindings.ContractManagement.inputValue eq 'V'}"
+                                                      converter="oracle.genericDomain">
                                             <f:validator binding="#{row.bindings.XpeNoteLong.validator}"/>
                                         </af:inputText>
                                     </af:column>
@@ -674,6 +675,12 @@
                                       rowBandingInterval="0"
                                       fetchSize="#{bindings.XpeDccContractCarrierView3.rangeSize}" id="t7"
                                       contentDelivery="immediate" columnStretching="last">
+                                <af:column headerText="Contract Line"
+                                           id="c33">
+                                    <af:outputText value="#{row.XpeContractLine}"
+                                                   shortDesc="#{bindings.XpeDccContractCarrierView3.hints.XpeContractLine.tooltip}"
+                                                   id="ot9"/>
+                                </af:column>
                                 <af:column headerText="#{bindings.XpeDccContractCarrierView3.hints.XpeCarrierId.label}"
                                            id="c20">
                                     <af:outputText value="#{row.XpeCarrierId}"

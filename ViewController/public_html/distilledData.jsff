@@ -221,6 +221,12 @@
                                                           pattern="#{bindings.PsCisXpeImportView1.hints.Qty5.format}"/>
                                     </af:outputText>
                                 </af:column>
+                                <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.AttrValue6.name}"
+                                           sortable="true" headerText="SW Appr # " id="c11" filterable="true">
+                                    <af:outputText value="#{row.AttrValue6}"
+                                                   shortDesc="#{bindings.PsCisXpeImportView1.hints.AttrValue6.tooltip}"
+                                                   id="ot11"/>
+                                </af:column>
                                 <af:column sortProperty="#{bindings.PsCisXpeImportView1.hints.ErrorMessage.name}"
                                            filterable="true" sortable="true" headerText="Error Message" id="c19"
                                            width="150">

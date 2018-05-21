@@ -243,6 +243,7 @@
                     <Item Value="XpeVehicleType"/>
                     <Item Value="XpeRateOverride"/>
                     <Item Value="XpeSurcharge"/>
+                    <Item Value="XpeContractLine"/>
                 </AttrNames>
             </nodeDefinition>
         </tree>
