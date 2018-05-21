@@ -18,7 +18,7 @@
         ResId="model.views.readonly.PsBiCycleROVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <SQLQuery><![CDATA[SELECT BILL_CYCLE_ID, DESCR FROM PS_BI_CYCLE]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT BILL_CYCLE_ID, DESCR FROM PS_BI_CYCLE WHERE STATUS_BI = 'A']]></SQLQuery>
   <ViewAttribute
     Name="BillCycleId"
     IsUpdateable="false"
