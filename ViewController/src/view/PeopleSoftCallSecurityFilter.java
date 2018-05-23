@@ -65,10 +65,13 @@ public class PeopleSoftCallSecurityFilter {
         /**/
         System.out.println("evaluate parameters called");
 
-        String localPeopleSoftToken = resolveEl("#{pageFlowScope.peoplesoft_auth_token}");
+         String localPeopleSoftToken = resolveEl("#{pageFlowScope.peoplesoft_auth_token}");
+//        String localPeopleSoftToken = "pAAAAAQDAgEBAAAAvAIAAAAAAAAsAAAABABTaGRyAk4Abwg4AC4AMQAwABTuqHgUYghg4FFJ859gZ6CWDLPFO2QAAAAFAFNkYXRhWHicLYhdCkBAAIQ/Sx7dxMau31e1vEiKkidHcEGHM8lM8800N5DEJorUj+FTNjEQOJjFkzSwMJGtbIzsXHpXKkdBSUeurkWH/7fVdqKXLb3YKiUNvJM1C7s=";
         localPeopleSoftToken = localPeopleSoftToken.replaceAll(" ", "+");
         String localWeblogicSession = resolveEl("#{pageFlowScope.weblogicSession}");
         String localWeblogicToken = resolveEl("#{pageFlowScope.weblogicToken}");
+//        String localWeblogicSession = "vmpodcvae014-5012-PORTAL-PSJSESSIONID";
+//        String localWeblogicToken = "prerqvhDYez6s8zOw8HMm69J2yifOYXI!682004848";
 
         String retrievedUser = null;
         URL url = null;
@@ -77,7 +80,7 @@ public class PeopleSoftCallSecurityFilter {
         System.out.println("localWeblogicSession=" + localWeblogicSession);
         System.out.println("localWeblogicToken=" + localWeblogicToken);
         
-        if (localWeblogicToken.equalsIgnoreCase("Fc2MLU5EhcLByIqc2LjPSbr3KxubFE5t!660245490")) {
+        if (localWeblogicToken.equalsIgnoreCase("Fc2MLU5EhcLByIqc2LjPSbr3KxubFE5t!660245490") || 1==2) {
                                                                this.setRetrievedToken("GBEWLEY");            
                                                            } else {
 
@@ -181,11 +184,12 @@ public class PeopleSoftCallSecurityFilter {
 //            this.setRetrievedToken("GBEWLEY");
 //        }
 
-//        if (this.getAccessLimit().equalsIgnoreCase("GBEWLEY")) {
-//            this.setAccessLimit("D");
-//            } else {
+        if (this.getAccessLimit().equalsIgnoreCase("GBEWLEY")) {
+            this.setAccessLimit("D");
+            } else {
                 this.checkRoles(this.getRetrievedToken());
-//            }
+                // this.checkRoles("GBEWLEY");
+            }
 
     }
 

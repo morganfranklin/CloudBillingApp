@@ -6,6 +6,8 @@ procedure move_accruals;
 procedure update_credit;
 end;
 /
+
+
 create or replace package body xpe_pricing_batch as
 procedure execute_pricing is
 begin
