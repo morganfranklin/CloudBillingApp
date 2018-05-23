@@ -17,6 +17,7 @@ import javax.el.ExpressionFactory;
 import javax.el.ValueExpression;
 
 import javax.faces.application.Application;
+import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
@@ -80,11 +81,12 @@ public class PeopleSoftCallSecurityFilter {
         System.out.println("localWeblogicSession=" + localWeblogicSession);
         System.out.println("localWeblogicToken=" + localWeblogicToken);
         
-        if (localWeblogicToken.equalsIgnoreCase("Fc2MLU5EhcLByIqc2LjPSbr3KxubFE5t!660245490") || 1==2) {
+        if (localWeblogicToken.equalsIgnoreCase("Fc2MLU5EhcLByIqc2LjPSbr3KxubFE5t!660245490") && 1==2) {
                                                                this.setRetrievedToken("GBEWLEY");            
                                                            } else {
 
                                                                // ssl trust begin
+                                                               messagePopup("debug 0");
 
                                                                // Create a trust manager that does not validate certificate chains
                                                                       TrustManager[] trustAllCerts = new TrustManager[] {new X509TrustManager() {
@@ -121,6 +123,8 @@ public class PeopleSoftCallSecurityFilter {
 
                                                                    // 9/28: Prashant & Monika - first part of URL below needs to be changed when deploying elsewhere e.g. Prod
 
+                                                                   messagePopup("debug 1");
+                                                                   
                                                                    url =
                                                                        new URL(null, "https://fincvtadev.covanta.com/psc/DCVAEK/EMPLOYEE/ERP/s/WEBLIB_ADFCALL.ISCRIPT1.FieldFormula.IScript_Feedback", new sun.net.www.protocol.https.Handler()); // UAT
                                                                    HttpsURLConnection con = (HttpsURLConnection) url.openConnection();
@@ -139,6 +143,7 @@ public class PeopleSoftCallSecurityFilter {
                                                                    int responseCode = con.getResponseCode();
                                                                    con.connect();
                                                                    System.out.println("connected " );
+                                                                   messagePopup("debug 3" + localPeopleSoftToken);
 
                                                                    BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
                                                                    String inputLine;
@@ -148,13 +153,16 @@ public class PeopleSoftCallSecurityFilter {
 
                                                                        response.append(inputLine);
                                                                        System.out.println(inputLine);
+                                                                       messagePopup(inputLine);
 
-                                                                       if (inputLine.startsWith(localPeopleSoftToken)) {
+                                                                       if (inputLine.contains(localPeopleSoftToken.substring(1, 20))) {
 
-                                                                           retrievedUser = inputLine.substring(localPeopleSoftToken.length(),
-                                                                                                               inputLine.length());
+                                                                           retrievedUser = inputLine.substring(0,
+                                                                                inputLine.indexOf(localPeopleSoftToken.substring(1, 20))-1);
 
                                                                            System.out.println("retrievedUser="+retrievedUser);
+                                                                           messagePopup("retrievedUser=" + retrievedUser);
+
 
                                                                            this.setRetrievedToken(retrievedUser);
 
@@ -163,8 +171,9 @@ public class PeopleSoftCallSecurityFilter {
                                                                    }
 
                                                                    in.close();
-                                                                   // con.disconnect();
-                                                                   // url.clo
+                                                                   messagePopup("debug 4");
+//                                                                   con.disconnect();
+                                                                
 
                                                                } catch (MalformedURLException e) {
                                                                    e.printStackTrace();
@@ -173,6 +182,7 @@ public class PeopleSoftCallSecurityFilter {
                                                                    } catch (Exception e) {
                                                                    e.printStackTrace();
                                                                }
+                                                               messagePopup("debug 4");
                                                                System.out.println("retrieved :"+this.getRetrievedToken()+" ready to override");
                                                                                                                               
                                                            }
@@ -191,6 +201,15 @@ public class PeopleSoftCallSecurityFilter {
                 // this.checkRoles("GBEWLEY");
             }
 
+    }
+
+    private void messagePopup(String messageToUser) {
+
+        FacesMessage fm = new FacesMessage(messageToUser);
+        fm.setSeverity(FacesMessage.SEVERITY_INFO);
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage(null, fm);
+        
     }
 
     public void setRetrievedToken(String retrievedToken) {
