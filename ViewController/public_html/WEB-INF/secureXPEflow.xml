@@ -38,11 +38,13 @@
         </method-call>
         <router id="tokenCheck">
             <case id="__7">
-                <expression>#{PeopleSoftCallSecurityFilter.retrievedToken == null}</expression>
+                <expression>#{PeopleSoftCallSecurityFilter.retrievedToken == null ||
+                            PeopleSoftCallSecurityFilter.userRole == null}</expression>
                 <outcome>invalid</outcome>
             </case>
             <case id="__8">
-                <expression>#{PeopleSoftCallSecurityFilter.retrievedToken != null}</expression>
+                <expression>#{PeopleSoftCallSecurityFilter.retrievedToken != null &amp;&amp;
+                            PeopleSoftCallSecurityFilter.userRole != null}</expression>
                 <outcome>authenticated</outcome>
             </case>
             <default-outcome>invalid</default-outcome>

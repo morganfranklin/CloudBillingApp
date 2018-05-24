@@ -18,7 +18,6 @@ import javax.el.ValueExpression;
 
 import javax.faces.application.Application;
 import javax.faces.application.FacesMessage;
-import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
 import javax.net.ssl.HostnameVerifier;
@@ -28,7 +27,6 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
-import oracle.adf.controller.ControllerContext;
 import oracle.adf.model.BindingContext;
 import oracle.adf.model.binding.DCBindingContainer;
 import oracle.adf.view.rich.render.ClientEvent;
@@ -53,6 +51,16 @@ public class PeopleSoftCallSecurityFilter {
     private String retrievedToken = null;
 
     private String accessLimit = "N";
+    
+    private String userRole;
+
+    public void setUserRole(String userRole) {
+        this.userRole = userRole;
+    }
+
+    public String getUserRole() {
+        return userRole;
+    }
 
     public void setAccessLimit(String accessLimit) {
         this.accessLimit = accessLimit;
@@ -197,7 +205,8 @@ public class PeopleSoftCallSecurityFilter {
         if (this.getAccessLimit().equalsIgnoreCase("GBEWLEY")) {
             this.setAccessLimit("D");
             } else {
-                this.checkRoles(this.getRetrievedToken());
+                if(null!=this.getRetrievedToken())
+                    this.checkRoles(this.getRetrievedToken());
                 // this.checkRoles("GBEWLEY");
             }
 
@@ -227,12 +236,12 @@ public class PeopleSoftCallSecurityFilter {
         OperationBinding operationBinding = bindings.getOperationBinding("checkRoles");
         if (null != operationBinding) {
             operationBinding.getParamsMap().put("givenUser", givenUser);
-            String accessLimit = (String) operationBinding.execute();
-            if(null!=accessLimit)
-                this.setAccessLimit(accessLimit);
+            String userRole = (String) operationBinding.execute();
+            if(null!=userRole)
+                this.setUserRole(userRole);
         }
         
-        System.err.println("Access Limit: "+this.getAccessLimit());
+        //System.err.println("Access Limit: "+this.getAccessLimit());
         /*String amDef = "model.AppModule";
         String config = "AppModuleLocal";
         RoleQueryRowImpl roleRow = null;

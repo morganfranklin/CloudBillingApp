@@ -4,7 +4,10 @@
     <af:document title="unathorized.jsf" id="d1">
         <af:form id="f1">
             <af:outputText value="unauthorized user - access denied - please access XPE through a hyperlink in PeopleSoft"
-                           id="ot1"/>
+                           id="ot1" rendered="#{PeopleSoftCallSecurityFilter.retrievedToken == null}"/>
+            <af:outputText value="no user role - access denied - please acontact security administrator to add role in PeopleSoft"
+                           id="ot2"
+                           rendered="#{PeopleSoftCallSecurityFilter.retrievedToken != null &amp;&amp; PeopleSoftCallSecurityFilter.userRole == null}"/>
         </af:form>
     </af:document>
 </f:view>

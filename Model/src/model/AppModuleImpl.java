@@ -4025,7 +4025,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                 accessLimit = "I";
             }
         }*/
-        return null;
+        return null!=roleRow?roleRow.getRolename():null;
     }
     
     public String writeVoToXml(String voName) {
