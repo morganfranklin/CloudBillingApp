@@ -94,7 +94,7 @@ public class PeopleSoftCallSecurityFilter {
                                                            } else {
 
                                                                // ssl trust begin
-                                                               messagePopup("debug 0");
+                                                               //messagePopup("debug 0");
 
                                                                // Create a trust manager that does not validate certificate chains
                                                                       TrustManager[] trustAllCerts = new TrustManager[] {new X509TrustManager() {
@@ -131,7 +131,7 @@ public class PeopleSoftCallSecurityFilter {
 
                                                                    // 9/28: Prashant & Monika - first part of URL below needs to be changed when deploying elsewhere e.g. Prod
 
-                                                                   messagePopup("debug 1");
+                                                                   //messagePopup("debug 1");
                                                                    
                                                                    url =
                                                                        new URL(null, "https://fincvtadev.covanta.com/psc/DCVAEK/EMPLOYEE/ERP/s/WEBLIB_ADFCALL.ISCRIPT1.FieldFormula.IScript_Feedback", new sun.net.www.protocol.https.Handler()); // UAT
@@ -151,7 +151,7 @@ public class PeopleSoftCallSecurityFilter {
                                                                    int responseCode = con.getResponseCode();
                                                                    con.connect();
                                                                    System.out.println("connected " );
-                                                                   messagePopup("debug 3" + localPeopleSoftToken);
+                                                                   //messagePopup("debug 3" + localPeopleSoftToken);
 
                                                                    BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
                                                                    String inputLine;
@@ -161,7 +161,7 @@ public class PeopleSoftCallSecurityFilter {
 
                                                                        response.append(inputLine);
                                                                        System.out.println(inputLine);
-                                                                       messagePopup(inputLine);
+                                                                       //messagePopup(inputLine);
 
                                                                        if (inputLine.contains(localPeopleSoftToken.substring(1, 20))) {
 
@@ -169,7 +169,7 @@ public class PeopleSoftCallSecurityFilter {
                                                                                 inputLine.indexOf(localPeopleSoftToken.substring(1, 20))-1);
 
                                                                            System.out.println("retrievedUser="+retrievedUser);
-                                                                           messagePopup("retrievedUser=" + retrievedUser);
+                                                                           //messagePopup("retrievedUser=" + retrievedUser);
 
 
                                                                            this.setRetrievedToken(retrievedUser);
@@ -179,7 +179,7 @@ public class PeopleSoftCallSecurityFilter {
                                                                    }
 
                                                                    in.close();
-                                                                   messagePopup("debug 4");
+                                                                   //messagePopup("debug 4");
 //                                                                   con.disconnect();
                                                                 
 
@@ -190,7 +190,7 @@ public class PeopleSoftCallSecurityFilter {
                                                                    } catch (Exception e) {
                                                                    e.printStackTrace();
                                                                }
-                                                               messagePopup("debug 4");
+                                                               //messagePopup("debug 4");
                                                                System.out.println("retrieved :"+this.getRetrievedToken()+" ready to override");
                                                                                                                               
                                                            }
