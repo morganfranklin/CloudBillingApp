@@ -53,6 +53,7 @@ public class PeopleSoftCallSecurityFilter {
     private String accessLimit = "N";
     
     private String userRole;
+    
 
     public void setUserRole(String userRole) {
         this.userRole = userRole;
@@ -92,6 +93,11 @@ public class PeopleSoftCallSecurityFilter {
         if (localWeblogicToken.equalsIgnoreCase("Fc2MLU5EhcLByIqc2LjPSbr3KxubFE5t!660245490") && 1==2) {
                                                                this.setRetrievedToken("GBEWLEY");            
                                                            } else {
+                                                               String psURL = null;
+                                                               DCBindingContainer bindings = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
+                                                               OperationBinding operationBinding = bindings.getOperationBinding("getLookupDesc");
+                                                               if (null != operationBinding)
+                                                                   psURL = (String) operationBinding.execute();
 
                                                                // ssl trust begin
                                                                //messagePopup("debug 0");
@@ -134,7 +140,7 @@ public class PeopleSoftCallSecurityFilter {
                                                                    //messagePopup("debug 1");
                                                                    
                                                                    url =
-                                                                       new URL(null, "https://fincvtadev.covanta.com/psc/DCVAEK/EMPLOYEE/ERP/s/WEBLIB_ADFCALL.ISCRIPT1.FieldFormula.IScript_Feedback", new sun.net.www.protocol.https.Handler()); // UAT
+                                                                       new URL(null, psURL + "/EMPLOYEE/ERP/s/WEBLIB_ADFCALL.ISCRIPT1.FieldFormula.IScript_Feedback", new sun.net.www.protocol.https.Handler()); // UAT
                                                                    HttpsURLConnection con = (HttpsURLConnection) url.openConnection();
 
                                                                    System.out.println("connection open");

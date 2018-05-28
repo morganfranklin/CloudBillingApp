@@ -83,5 +83,7 @@ public interface AppModule extends ApplicationModule {
     Map contractDuplicateCheck(String contractId, String contractVersion);
 
     void executePsXpeImportView();
+
+    String getLookupDesc(String lookupType, String lookupCode);
 }
 

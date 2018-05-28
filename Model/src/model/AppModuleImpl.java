@@ -1967,16 +1967,9 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                 custContractApproverEmail = xpeDccNewContractsEOVORow.getCustContractApproverEmail();
             }
         }
-        String email_apr_url = null;
-        XpeDccLookupMasterROVOImpl lkpMstrView = this.getXpeDccLookupMasterROVO1();
-        lkpMstrView.setApplyViewCriteriaName("XpeDccLookupMasterROVOCriteria", false);
-        lkpMstrView.setNamedWhereClauseParam("bindLookType", "EMAIL");
-        lkpMstrView.setNamedWhereClauseParam("bindLookupId", "APR_URL");
-        lkpMstrView.executeQuery();
-        XpeDccLookupMasterROVORowImpl lkpMstrViewRow = (XpeDccLookupMasterROVORowImpl) lkpMstrView.first();
-        if(null != lkpMstrViewRow){
-            email_apr_url = lkpMstrViewRow.getXpeLookupDesc();
-        }
+        
+        String email_apr_url = getLookupDesc("EMAIL","APR_URL");
+      
         StringBuilder html = new StringBuilder();
         html.append("<p>");
         if("E".equals(userType)){
@@ -2006,14 +1999,14 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         //html.append(email_apr_url+"/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://vmohscvae014.oracleoutsourcing.com:5021/neuCloudBilling1010_512/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://vmohscvae014.oracleoutsourcing.com:5021/neuCloudBilling1010_517/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(xpeDccWfActionEOVORow.getXpeUuid()).append("&").append("action=").append("ACCEPT").append("&").append("user=").append(userType);
         html.append("\"><b>Accept</b></a>");
         html.append("&nbsp;&nbsp;&nbsp;");
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         //html.append(email_apr_url+"/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://vmohscvae014.oracleoutsourcing.com:5021/neuCloudBilling1010_512/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://vmohscvae014.oracleoutsourcing.com:5021/neuCloudBilling1010_517/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(xpeDccWfActionEOVORow.getXpeUuid()).append("&").append("action=").append("REJECT").append("&").append("user=").append(userType);
         html.append("\"><b>Reject</b></a>");
         html.append("</p>");
@@ -4217,6 +4210,19 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             return true;
 
         return false;
+    }
+    
+    public String getLookupDesc(String lookupType, String lookupCode){
+        String lookupDesc = null;
+        XpeDccLookupMasterROVOImpl lkpMstrView = this.getXpeDccLookupMasterROVO1();
+        lkpMstrView.setApplyViewCriteriaName("XpeDccLookupMasterROVOCriteria");
+        lkpMstrView.setbindLookType(lookupType);
+        lkpMstrView.setbindLookupId(lookupCode);
+        lkpMstrView.executeQuery();
+        XpeDccLookupMasterROVORowImpl lkpMstrViewRow = (XpeDccLookupMasterROVORowImpl) lkpMstrView.first();
+        if(null != lkpMstrViewRow)
+            lookupDesc = lkpMstrViewRow.getXpeLookupDesc();
+        return lookupDesc;
     }
 
 

@@ -12,5 +12,12 @@
                   ReturnName="data.AppModuleDataControl.methodResults.checkRoles_AppModuleDataControl_dataProvider_checkRoles_result">
       <NamedData NDName="givenUser" NDType="java.lang.String"/>
     </methodAction>
+    <methodAction id="getLookupDesc" RequiresUpdateModel="true" Action="invokeMethod" MethodName="getLookupDesc"
+                  IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="data.AppModuleDataControl.dataProvider"
+                  ReturnName="data.AppModuleDataControl.methodResults.getLookupDesc_AppModuleDataControl_dataProvider_getLookupDesc_result">
+      <NamedData NDName="lookupType" NDValue="PS" NDType="java.lang.String"/>
+      <NamedData NDName="lookupCode" NDValue="PS_URL" NDType="java.lang.String"/>
+    </methodAction>
   </bindings>
 </pageDefinition>
