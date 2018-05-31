@@ -29,6 +29,8 @@ import oracle.adf.view.rich.event.QueryOperationEvent;
 
 import oracle.binding.OperationBinding;
 
+import oracle.jbo.Row;
+
 import view.utils.ADFUtils;
 import view.utils.JSFUtils;
 
@@ -56,7 +58,14 @@ public class ProductServiceSetUpTableMBean {
         this.getProductServiceSetUpTableBBean().getProductServiceUomEditItem_popup().show(hints);
     }
 
-    public void productServiceUomEditSaveOrCancel(ActionEvent actionEvent) {
+    public void productServiceUomEditSave(ActionEvent actionEvent) {
+        this.getProductServiceSetUpTableBBean().getProductServiceUomEditItem_popup().hide();
+    }
+    
+    public void productServiceUomEditCancel(ActionEvent actionEvent) {
+        DCIteratorBinding prdServiceUomIter = ADFUtils.findIterator("XpeDccCfgNewUomEOVOIterator");
+        XpeDccCfgUomEOVORowImpl prdServiceUomRow = (XpeDccCfgUomEOVORowImpl) prdServiceUomIter.getCurrentRow();
+        prdServiceUomRow.refresh(Row.REFRESH_UNDO_CHANGES|Row.REFRESH_WITH_DB_FORGET_CHANGES); 
         this.getProductServiceSetUpTableBBean().getProductServiceUomEditItem_popup().hide();
     }
 

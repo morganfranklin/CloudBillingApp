@@ -73,5 +73,8 @@
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="XpeDccCfgNewProductserviceEOVOIterator" StaticList="false" Uses="LOV_WeightClass"
           id="WeightClass" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <action IterBinding="XpeDccCfgNewUomEOVOIterator" id="Delete"
+            InstanceName="AppModuleDataControl.XpeDccCfgNewUomEOVO" DataControl="AppModuleDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

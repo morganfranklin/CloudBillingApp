@@ -66,5 +66,8 @@
     <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
     <list IterBinding="XpeDccCfgNewUomEOVOIterator" StaticList="false" Uses="LOV_Pcsuom" id="Pcsuom"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <action IterBinding="XpeDccCfgNewUomEOVOIterator" id="Delete"
+            InstanceName="AppModuleDataControl.XpeDccCfgNewUomEOVO" DataControl="AppModuleDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

@@ -18,7 +18,7 @@
         ResId="model.views.readonly.PsCurrencyCdTblROVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <SQLQuery><![CDATA[SELECT CURRENCY_CD, DESCR FROM PS_CURRENCY_CD_TBL]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT CURRENCY_CD, DESCR FROM PS_CURRENCY_CD_TBL WHERE EFF_STATUS = 'A']]></SQLQuery>
   <ViewAttribute
     Name="CurrencyCd"
     IsUpdateable="false"

@@ -181,7 +181,7 @@
           <af:spacer width="10" height="10" id="s4"/>
           <af:button text="Cancel" id="b5"
                      actionListener="#{pageFlowScope.ProductServiceSetUpTableMBean.productServiceUomSaveorCancel}"
-                     immediate="true">
+                     immediate="true" action="#{bindings.Delete.execute}">
             <af:resetActionListener/>
           </af:button>
         </f:facet>
@@ -223,10 +223,10 @@
       <af:dialog id="d2" type="none" title="Edit Unit of Measure" closeIconVisible="false">
         <f:facet name="buttonBar">
           <af:button text="ok" id="b6"
-                     actionListener="#{pageFlowScope.ProductServiceSetUpTableMBean.productServiceUomEditSaveOrCancel}"/>
+                     actionListener="#{pageFlowScope.ProductServiceSetUpTableMBean.productServiceUomEditSave}"/>
           <af:spacer width="10" height="10" id="s5"/>
           <af:button text="Cancel" id="b7"
-                     actionListener="#{pageFlowScope.ProductServiceSetUpTableMBean.productServiceUomEditSaveOrCancel}"
+                     actionListener="#{pageFlowScope.ProductServiceSetUpTableMBean.productServiceUomEditCancel}"
                      immediate="true">
             <af:resetActionListener/>
           </af:button>

@@ -172,7 +172,7 @@
           <af:spacer width="10" height="10" id="s2"/>
           <af:button text="Cancel" id="b4"
                      actionListener="#{pageFlowScope.ProductServiceSetUpTableMBean.productServiceUomSaveorCancel}"
-                     immediate="true">
+                     immediate="true" action="#{bindings.Delete.execute}">
             <af:resetActionListener/>
           </af:button>
         </f:facet>
