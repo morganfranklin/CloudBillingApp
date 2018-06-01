@@ -4,7 +4,7 @@
 <Entity
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="XpeDccContractLineAdt"
-  Version="12.2.1.0.31"
+  Version="12.2.1.11.57"
   InheritPersonalization="merge"
   DBObjectType="table"
   DBObjectName="XPE_DCC_CONTRACT_LINE_ADT"
@@ -176,6 +176,108 @@
       <Attr Name="_DisplaySize" Value="5"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    Precision="20"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CONTRACT_LINE_ADT"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractLineAdt.CreatedBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedBy"
+    Precision="20"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CONTRACT_LINE_ADT"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractLineAdt.LastUpdatedBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="CreatedDate"
+    ColumnName="CREATED_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XPE_DCC_CONTRACT_LINE_ADT"
+    PrimaryKey="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractLineAdt.CreatedDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedDate"
+    ColumnName="LAST_UPDATED_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XPE_DCC_CONTRACT_LINE_ADT"
+    PrimaryKey="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccContractLineAdt.LastUpdatedDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Doneby"
+    Precision="125"
+    ColumnName="DONEBY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CONTRACT_LINE_ADT"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="125"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Syncdone"
+    Precision="1"
+    ColumnName="SYNCDONE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CONTRACT_LINE_ADT"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Syncdoneat"
+    ColumnName="SYNCDONEAT"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XPE_DCC_CONTRACT_LINE_ADT"
+    PrimaryKey="true"/>
   <Key
     Name="XpedcccontractlineadtPrimaryKey"
     PrimaryKey="true">
@@ -196,6 +298,17 @@
       <Item Value="model.auditlog.XpeDccContractLineAdt.XpeSwApprNbr"/>
       <Item Value="model.auditlog.XpeDccContractLineAdt.CurrencyCd"/>
       <Item Value="model.auditlog.XpeDccContractLineAdt.BusinessUnitGl"/>
+      <Item Value="model.auditlog.XpeDccContractLineAdt.CreatedBy"/>
+      <Item Value="model.auditlog.XpeDccContractLineAdt.LastUpdatedBy"/>
+      <Item Value="model.auditlog.XpeDccContractLineAdt.CreatedDate"/>
+      <Item Value="model.auditlog.XpeDccContractLineAdt.LastUpdatedDate"/>
+      <Item Value="model.auditlog.XpeDccContractLineAdt.Doneby"/>
+      <Item Value="model.auditlog.XpeDccContractLineAdt.Syncdone"/>
+      <Item Value="model.auditlog.XpeDccContractLineAdt.Syncdoneat"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>

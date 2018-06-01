@@ -214,6 +214,9 @@
                     <Item Value="Doneby"/>
                     <Item Value="Syncdone"/>
                     <Item Value="Syncdoneat"/>
+                    <Item Value="CreatedDate"/>
+                    <Item Value="LastUpdatedBy"/>
+                    <Item Value="LastUpdatedDate"/>
                 </AttrNames>
             </nodeDefinition>
         </tree>
@@ -256,6 +259,10 @@
                     <Item Value="XpeSwApprNbr"/>
                     <Item Value="CurrencyCd"/>
                     <Item Value="BusinessUnitGl"/>
+                    <Item Value="CreatedBy"/>
+                    <Item Value="CreatedDate"/>
+                    <Item Value="LastUpdatedBy"/>
+                    <Item Value="LastUpdatedDate"/>
                 </AttrNames>
             </nodeDefinition>
         </tree>
@@ -284,6 +291,10 @@
                     <Item Value="XpeMetalsIndexPrc2"/>
                     <Item Value="XpeMetalsUomMlt"/>
                     <Item Value="XpeMetalsUomDen"/>
+                    <Item Value="CreatedBy"/>
+                    <Item Value="CreatedDate"/>
+                    <Item Value="LastUpdatedBy"/>
+                    <Item Value="LastUpdatedDate"/>
                 </AttrNames>
             </nodeDefinition>
         </tree>

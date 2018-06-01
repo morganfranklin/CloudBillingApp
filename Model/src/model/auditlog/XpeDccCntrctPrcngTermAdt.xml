@@ -4,7 +4,7 @@
 <Entity
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="XpeDccCntrctPrcngTermAdt"
-  Version="12.2.1.0.31"
+  Version="12.2.1.11.57"
   InheritPersonalization="merge"
   DBObjectType="table"
   DBObjectName="XPE_DCC_CNTRCT_PRCNG_TERM_ADT"
@@ -265,6 +265,48 @@
     ColumnType="NUMBER"
     TableName="XPE_DCC_CNTRCT_PRCNG_TERM_ADT"
     PrimaryKey="true"/>
+  <Attribute
+    Name="CreatedBy"
+    Precision="20"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CNTRCT_PRCNG_TERM_ADT"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedBy"
+    Precision="20"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CNTRCT_PRCNG_TERM_ADT"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedDate"
+    ColumnName="CREATED_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XPE_DCC_CNTRCT_PRCNG_TERM_ADT"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="LastUpdatedDate"
+    ColumnName="LAST_UPDATED_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XPE_DCC_CNTRCT_PRCNG_TERM_ADT"
+    PrimaryKey="true"/>
   <Key
     Name="XpedcccntrctprcngtermadtPrimaryKey"
     PrimaryKey="true">
@@ -294,6 +336,10 @@
       <Item Value="model.auditlog.XpeDccCntrctPrcngTermAdt.XpeMetalsIndexPrc2"/>
       <Item Value="model.auditlog.XpeDccCntrctPrcngTermAdt.XpeMetalsUomMlt"/>
       <Item Value="model.auditlog.XpeDccCntrctPrcngTermAdt.XpeMetalsUomDen"/>
+      <Item Value="model.auditlog.XpeDccCntrctPrcngTermAdt.CreatedBy"/>
+      <Item Value="model.auditlog.XpeDccCntrctPrcngTermAdt.LastUpdatedBy"/>
+      <Item Value="model.auditlog.XpeDccCntrctPrcngTermAdt.CreatedDate"/>
+      <Item Value="model.auditlog.XpeDccCntrctPrcngTermAdt.LastUpdatedDate"/>
     </AttrArray>
   </Key>
 </Entity>

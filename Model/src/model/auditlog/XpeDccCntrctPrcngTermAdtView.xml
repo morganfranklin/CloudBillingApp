@@ -217,6 +217,58 @@
     EntityAttrName="XpeMetalsUomDen"
     EntityUsage="XpeDccCntrctPrcngTermAdt"
     AliasName="XPE_METALS_UOM_DEN"/>
+  <ViewAttribute
+    Name="CreatedDate"
+    PrecisionRule="true"
+    EntityAttrName="CreatedDate"
+    EntityUsage="XpeDccCntrctPrcngTermAdt"
+    AliasName="CREATED_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCntrctPrcngTermAdtView.CreatedDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="XpeDccCntrctPrcngTermAdt"
+    AliasName="CREATED_BY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCntrctPrcngTermAdtView.CreatedBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="XpeDccCntrctPrcngTermAdt"
+    AliasName="LAST_UPDATED_BY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCntrctPrcngTermAdtView.LastUpdatedBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LastUpdatedDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedDate"
+    EntityUsage="XpeDccCntrctPrcngTermAdt"
+    AliasName="LAST_UPDATED_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.auditlog.XpeDccCntrctPrcngTermAdtView.LastUpdatedDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>
