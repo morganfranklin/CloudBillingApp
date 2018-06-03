@@ -28,6 +28,8 @@ import model.common.AppModule;
 
 import model.constants.NEUCloudBillingConstants;
 
+import model.restservice.views.RestROVOImpl;
+
 import model.utils.EmailUtils;
 
 import model.views.entitybased.XpeDccAccrualRevenueEOVOImpl;
@@ -4705,6 +4707,14 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public XpeDccLookupMasterROVOImpl getXpeDccLookupMasterROVO1() {
         return (XpeDccLookupMasterROVOImpl) findViewObject("XpeDccLookupMasterROVO1");
+    }
+
+    /**
+     * Container's getter for RestROVO1.
+     * @return RestROVO1
+     */
+    public RestROVOImpl getRestROVO1() {
+        return (RestROVOImpl) findViewObject("RestROVO1");
     }
 }
 
