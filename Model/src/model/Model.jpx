@@ -63,6 +63,14 @@
         </DesignTime>
     </Containee>
     <Containee
+        Name="views"
+        PackageName="model.restservice.views"
+        ObjectType="JboPackage">
+        <DesignTime>
+            <Attr Name="_VO" Value="true"/>
+        </DesignTime>
+    </Containee>
+    <Containee
         Name="entitybased"
         PackageName="model.views.entitybased"
         ObjectType="JboPackage">
