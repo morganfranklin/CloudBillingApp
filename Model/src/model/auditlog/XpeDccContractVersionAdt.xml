@@ -18,8 +18,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_CONTRACT_VERSION_ADT"
-    PrimaryKey="true">
+    TableName="XPE_DCC_CONTRACT_VERSION_ADT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -267,7 +266,6 @@
       <Attr Name="_DBObjectName" Value="XPEDCCCONTRACTVERSIONADT_PRIMA"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="model.auditlog.XpeDccContractVersionAdt.XpeContractId"/>
       <Item Value="model.auditlog.XpeDccContractVersionAdt.XpeContractVersion"/>
       <Item Value="model.auditlog.XpeDccContractVersionAdt.XpeContractStatus"/>
       <Item Value="model.auditlog.XpeDccContractVersionAdt.XpeStartDate"/>

@@ -154,6 +154,48 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="CreatedDate"
+    PrecisionRule="true"
+    EntityAttrName="CreatedDate"
+    EntityUsage="XpeDccContractLineAdt"
+    AliasName="CREATED_DATE"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="XpeDccContractLineAdt"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="XpeDccContractLineAdt"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="LastUpdatedDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedDate"
+    EntityUsage="XpeDccContractLineAdt"
+    AliasName="LAST_UPDATED_DATE"/>
+  <ViewAttribute
+    Name="Doneby"
+    PrecisionRule="true"
+    EntityAttrName="Doneby"
+    EntityUsage="XpeDccContractLineAdt"
+    AliasName="DONEBY"/>
+  <ViewAttribute
+    Name="Syncdone"
+    PrecisionRule="true"
+    EntityAttrName="Syncdone"
+    EntityUsage="XpeDccContractLineAdt"
+    AliasName="SYNCDONE"/>
+  <ViewAttribute
+    Name="Syncdoneat"
+    PrecisionRule="true"
+    EntityAttrName="Syncdoneat"
+    EntityUsage="XpeDccContractLineAdt"
+    AliasName="SYNCDONEAT"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

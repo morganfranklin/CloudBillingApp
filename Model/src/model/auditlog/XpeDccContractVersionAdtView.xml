@@ -23,7 +23,8 @@
     PrecisionRule="true"
     EntityAttrName="XpeContractId"
     EntityUsage="XpeDccContractVersionAdt"
-    AliasName="XPE_CONTRACT_ID">
+    AliasName="XPE_CONTRACT_ID"
+    PrimaryKey="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
