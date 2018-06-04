@@ -51,16 +51,19 @@ DUAL]]></SQLQuery>
   <ClientInterface
     Name="__clientInterface">
     <Method
-      Name="testCall"
-      MethodName="testCall">
+      Name="contractApprovalRejectFlow"
+      MethodName="contractApprovalRejectFlow">
       <Return
         Name="_return_type_"
         Type="java.lang.String"/>
       <Parameter
-        Name="param1"
+        Name="uuId"
         Type="java.lang.String"/>
       <Parameter
-        Name="param2"
+        Name="userType"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="action"
         Type="java.lang.String"/>
     </Method>
   </ClientInterface>
