@@ -1,6 +1,13 @@
 package model.restservice.views;
 
+import java.util.Map;
+
+import model.AppModuleImpl;
+
+
 import model.restservice.views.common.RestROVO;
+
+import model.utils.FileOperations;
 
 import oracle.jbo.server.ViewObjectImpl;
 // ---------------------------------------------------------------------
@@ -16,9 +23,15 @@ public class RestROVOImpl extends ViewObjectImpl implements RestROVO {
     public RestROVOImpl() {
     }
     
-    public String testCall(String param1, String param2){
-       // AppModuleImpl AppModuleImpl = (AppModuleImpl)this.getRootApplicationModule();
-        return null;
+    public String contractApprovalRejectFlow(String uuId, String userType, String action){
+       AppModuleImpl appModule = (AppModuleImpl)this.getDBTransaction().getRootApplicationModule();
+       Map pdf = appModule.fetchPDFXML(uuId, userType, action);
+        if(null!=pdf && pdf.size()>1){
+            FileOperations.genPdfRep(String.valueOf(pdf.get("XML")).getBytes(), FileOperations.getRTFAsInputStream(String.valueOf(pdf.get("TEMPLATE_NAME"))));
+            if(pdf.size()==4)
+                FileOperations.genPdfRep(String.valueOf(pdf.get("COVER_SHEET_XML")).getBytes(), FileOperations.getRTFAsInputStream(String.valueOf(pdf.get("COVER_SHEET_TEMPLATE_NAME"))));
+        }
+       return null;
     }
 }
 
