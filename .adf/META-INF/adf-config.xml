@@ -10,9 +10,6 @@
         <config:Database jbo.locking.mode="optimistic"/>
       </amconfig-overrides>
     </startup>
-    <versions>
-      <version name="V1" displayName="V1"/>
-    </versions>
   </adf-adfm-config>
   <adf:adf-properties-child xmlns="http://xmlns.oracle.com/adf/config/properties">
     <adf-property name="adfAppUID" value="neuCloudBilling1010-8557"/>

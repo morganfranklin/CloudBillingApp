@@ -24,14 +24,28 @@ public class RestROVOImpl extends ViewObjectImpl implements RestROVO {
     }
     
     public String contractApprovalRejectFlow(String uuId, String userType, String action){
-       AppModuleImpl appModule = (AppModuleImpl)this.getDBTransaction().getRootApplicationModule();
-       Map pdf = appModule.fetchPDFXML(uuId, userType, action);
-        if(null!=pdf && pdf.size()>1){
-            FileOperations.genPdfRep(String.valueOf(pdf.get("XML")).getBytes(), FileOperations.getRTFAsInputStream(String.valueOf(pdf.get("TEMPLATE_NAME"))));
-            if(pdf.size()==4)
-                FileOperations.genPdfRep(String.valueOf(pdf.get("COVER_SHEET_XML")).getBytes(), FileOperations.getRTFAsInputStream(String.valueOf(pdf.get("COVER_SHEET_TEMPLATE_NAME"))));
+        String response = "FAILED";
+        try {
+            AppModuleImpl appModule = (AppModuleImpl) this.getDBTransaction().getRootApplicationModule();
+            Map pdfDetailsMap = appModule.fetchPDFXML(uuId, userType, action);
+            if (null != pdfDetailsMap && pdfDetailsMap.size() > 1) {
+                byte[] emailPdf = null, contractCoverSheetPdf = null;
+                emailPdf =
+                    FileOperations.genPdfRep(String.valueOf(pdfDetailsMap.get("XML")).getBytes(),
+                                             FileOperations.getRTFAsInputStream(String.valueOf(pdfDetailsMap.get("TEMPLATE_NAME"))));
+                if (pdfDetailsMap.size() == 4)
+                    contractCoverSheetPdf =
+                        FileOperations.genPdfRep(String.valueOf(pdfDetailsMap.get("COVER_SHEET_XML")).getBytes(),
+                                                 FileOperations.getRTFAsInputStream(String.valueOf(pdfDetailsMap.get("COVER_SHEET_TEMPLATE_NAME"))));
+                //updating contract status
+                appModule.updateContractApprovalStatus(uuId, action, emailPdf, userType, contractCoverSheetPdf);
+                response="SUCCESS";
+            }
+        } catch (Exception e) {
+            // TODO: Add catch code
+            e.printStackTrace();
         }
-       return null;
+        return response;
     }
 }
 
