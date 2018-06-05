@@ -4,7 +4,7 @@
 <AppModule
     xmlns="http://xmlns.oracle.com/bc4j"
     Name="AppModule"
-    Version="12.2.1.11.57"
+    Version="12.2.1.12.24"
     InheritPersonalization="merge"
     ClearCacheOnRollback="true"
     ComponentClass="model.AppModuleImpl"
@@ -715,6 +715,9 @@
     <ViewUsage
         Name="XpeDccLookupMasterROVO1"
         ViewObjectName="model.views.readonly.XpeDccLookupMasterROVO"/>
+    <ViewUsage
+        Name="RestROVO1"
+        ViewObjectName="model.restservice.views.RestROVO"/>
     <ViewLinkUsage
         Name="NeuRuleTblFk1Link1"
         ViewLinkObjectName="model.NeuRuleTblFk1Link"

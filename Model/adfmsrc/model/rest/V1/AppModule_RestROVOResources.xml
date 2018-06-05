@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.12.24" id="AppModule_RestROVOResources"
+                Package="model.rest.V1" usageMode="RESTClient">
+    <parameters/>
+    <executables>
+        <variableIterator id="variables"/>
+        <iterator Binds="RestROVO1" RangeSize="5" DataControl="AppModuleDataControl" id="RestROVO1Iter"/>
+    </executables>
+    <bindings>
+        <tree IterBinding="RestROVO1Iter" id="ContractApprovalFlow" AccessorFolder="Always">
+            <nodeDefinition DefName="model.restservice.views.RestROVO" Name="model.restservice.views.RestROVO"/>
+        </tree>
+        <methodAction id="contractApprovalRejectFlow" RequiresUpdateModel="true" Action="invokeMethod"
+                      MethodName="contractApprovalRejectFlow" IsViewObjectMethod="true"
+                      DataControl="AppModuleDataControl" InstanceName="data.AppModuleDataControl.RestROVO1"
+                      ReturnName="data.AppModuleDataControl.methodResults.contractApprovalRejectFlow_AppModuleDataControl_RestROVO1_contractApprovalRejectFlow_result"
+                      IterBinding="RestROVO1Iter">
+            <NamedData NDName="uuId" NDType="java.lang.String"/>
+            <NamedData NDName="userType" NDType="java.lang.String"/>
+            <NamedData NDName="action" NDType="java.lang.String"/>
+        </methodAction>
+    </bindings>
+</pageDefinition>
