@@ -8,7 +8,6 @@
   InheritPersonalization="merge"
   BindingStyle="OracleName"
   CustomQuery="true"
-  RowClass="model.restservice.views.RestROVORowImpl"
   ComponentClass="model.restservice.views.RestROVOImpl"
   PageIterMode="Full"
   FetchMode="FETCH_AS_NEEDED"
@@ -18,7 +17,6 @@
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Coll|VarAccess"/>
     <Attr Name="_isExpertMode" Value="true"/>
-    <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <Properties>
     <SchemaBasedProperties>
@@ -40,7 +38,7 @@ DUAL]]></SQLQuery>
     ColumnType="VARCHAR2"
     AliasName="ID"
     Expression="ID"
-    SQLType="CHAR">
+    SQLType="VARCHAR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -51,8 +49,8 @@ DUAL]]></SQLQuery>
   <ClientInterface
     Name="__clientInterface">
     <Method
-      Name="contractApprovalRejectFlow"
-      MethodName="contractApprovalRejectFlow">
+      Name="approveRejectContract"
+      MethodName="approveRejectContract">
       <Return
         Name="_return_type_"
         Type="java.lang.String"/>

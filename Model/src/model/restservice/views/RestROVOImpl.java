@@ -23,7 +23,7 @@ public class RestROVOImpl extends ViewObjectImpl implements RestROVO {
     public RestROVOImpl() {
     }
     
-    public String contractApprovalRejectFlow(String uuId, String userType, String action){
+    public String approveRejectContract(String uuId, String userType, String action){
         String response = "FAILED";
         try {
             AppModuleImpl appModule = (AppModuleImpl) this.getDBTransaction().getRootApplicationModule();
@@ -33,10 +33,11 @@ public class RestROVOImpl extends ViewObjectImpl implements RestROVO {
                 emailPdf =
                     FileOperations.genPdfRep(String.valueOf(pdfDetailsMap.get("XML")).getBytes(),
                                              FileOperations.getRTFAsInputStream(String.valueOf(pdfDetailsMap.get("TEMPLATE_NAME"))));
-                if (pdfDetailsMap.size() == 4)
+                if (pdfDetailsMap.size() == 4){
                     contractCoverSheetPdf =
                         FileOperations.genPdfRep(String.valueOf(pdfDetailsMap.get("COVER_SHEET_XML")).getBytes(),
                                                  FileOperations.getRTFAsInputStream(String.valueOf(pdfDetailsMap.get("COVER_SHEET_TEMPLATE_NAME"))));
+                }
                 //updating contract status
                 appModule.updateContractApprovalStatus(uuId, action, emailPdf, userType, contractCoverSheetPdf);
                 response="SUCCESS";
@@ -47,5 +48,6 @@ public class RestROVOImpl extends ViewObjectImpl implements RestROVO {
         }
         return response;
     }
+
 }
 

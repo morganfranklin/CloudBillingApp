@@ -10,10 +10,10 @@
         <tree IterBinding="RestROVO1Iter" id="ContractApprovalFlow" AccessorFolder="Always">
             <nodeDefinition DefName="model.restservice.views.RestROVO" Name="model.restservice.views.RestROVO"/>
         </tree>
-        <methodAction id="contractApprovalRejectFlow" RequiresUpdateModel="true" Action="invokeMethod"
-                      MethodName="contractApprovalRejectFlow" IsViewObjectMethod="true"
-                      DataControl="AppModuleDataControl" InstanceName="data.AppModuleDataControl.RestROVO1"
-                      ReturnName="data.AppModuleDataControl.methodResults.contractApprovalRejectFlow_AppModuleDataControl_RestROVO1_contractApprovalRejectFlow_result"
+        <methodAction id="approveRejectContract" RequiresUpdateModel="true" Action="invokeMethod"
+                      MethodName="approveRejectContract" IsViewObjectMethod="true" DataControl="AppModuleDataControl"
+                      InstanceName="data.AppModuleDataControl.RestROVO1"
+                      ReturnName="data.AppModuleDataControl.methodResults.approveRejectContract_AppModuleDataControl_RestROVO1_approveRejectContract_result"
                       IterBinding="RestROVO1Iter">
             <NamedData NDName="uuId" NDType="java.lang.String"/>
             <NamedData NDName="userType" NDType="java.lang.String"/>
