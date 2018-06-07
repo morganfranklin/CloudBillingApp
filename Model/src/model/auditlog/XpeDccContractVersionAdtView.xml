@@ -14,6 +14,14 @@
   SelectAllAttributes="false"
   PageIterMode="Full"
   FetchSize="100">
+  <Variable
+    Name="bindStartDate"
+    Kind="viewcriteria"
+    Type="java.sql.Timestamp"/>
+  <Variable
+    Name="bindEndDate"
+    Kind="viewcriteria"
+    Type="java.sql.Timestamp"/>
   <EntityUsage
     Name="XpeDccContractVersionAdt"
     Entity="model.auditlog.XpeDccContractVersionAdt"/>
@@ -272,6 +280,47 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewCriteria
+    Name="XpeDccContractVersionAdtViewCriteria"
+    ViewObjectName="model.auditlog.XpeDccContractVersionAdtView"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="XpeDccContractVersionAdtViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="LastUpdatedDate"
+        ViewAttribute="LastUpdatedDate"
+        Operator="BETWEEN"
+        Conjunction="AND"
+        Required="Optional">
+        <ViewCriteriaItemValue
+          Value=":bindStartDate"
+          IsBindVarValue="true"/>
+        <ViewCriteriaItemValue
+          Value=":bindEndDate"
+          IsBindVarValue="true"/>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <AttrArray Name="KeyAttributes">
     <Item Value="XpeContractId"/>
     <Item Value="XpeContractVersion"/>

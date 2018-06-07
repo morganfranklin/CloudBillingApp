@@ -5,59 +5,89 @@
     <executables>
         <variableIterator id="variables"/>
         <iterator Binds="PsCisXpeProcessView1" RangeSize="25" DataControl="AppModuleDataControl"
-                  id="PsCisXpeProcessView1Iterator"/>
+                  id="PsCisXpeProcessView1Iterator" ChangeEventPolicy="none"/>
         <searchRegion Binds="PsCisXpeProcessView1Iterator" Criteria=""
                       Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="PsCisXpeProcessView1Query"/>
         <iterator Binds="XpeDccCfgCarriersAdtView1" RangeSize="25" DataControl="AuditLogAppModuleDataControl"
-                  id="XpeDccCfgCarriersAdtView1Iterator"/>
+                  id="XpeDccCfgCarriersAdtView1Iterator" ChangeEventPolicy="none"/>
         <searchRegion Binds="XpeDccCfgCarriersAdtView1Iterator" Criteria=""
                       Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                       id="XpeDccCfgCarriersAdtView1Query"/>
         <iterator Binds="XpeDccCfgCountiesAdtView1" RangeSize="25" DataControl="AuditLogAppModuleDataControl"
-                  id="XpeDccCfgCountiesAdtView1Iterator"/>
+                  id="XpeDccCfgCountiesAdtView1Iterator" ChangeEventPolicy="none"/>
         <searchRegion Binds="XpeDccCfgCountiesAdtView1Iterator" Criteria=""
                       Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                       id="XpeDccCfgCountiesAdtView1Query"/>
         <iterator Binds="XpeDccCfgDestinationsAdtView1" RangeSize="25" DataControl="AuditLogAppModuleDataControl"
-                  id="XpeDccCfgDestinationsAdtView1Iterator"/>
+                  id="XpeDccCfgDestinationsAdtView1Iterator" ChangeEventPolicy="none"/>
         <searchRegion Binds="XpeDccCfgDestinationsAdtView1Iterator" Criteria=""
                       Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                       id="XpeDccCfgDestinationsAdtView1Query"/>
         <iterator Binds="XpeDccCfgOriginsAdtView1" RangeSize="25" DataControl="AuditLogAppModuleDataControl"
-                  id="XpeDccCfgOriginsAdtView1Iterator"/>
+                  id="XpeDccCfgOriginsAdtView1Iterator" ChangeEventPolicy="none"/>
         <searchRegion Binds="XpeDccCfgOriginsAdtView1Iterator" Criteria=""
                       Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                       id="XpeDccCfgOriginsAdtView1Query"/>
         <iterator Binds="XpeDccCfgVehiclesAdtView1" RangeSize="25" DataControl="AuditLogAppModuleDataControl"
-                  id="XpeDccCfgVehiclesAdtView1Iterator"/>
+                  id="XpeDccCfgVehiclesAdtView1Iterator" ChangeEventPolicy="none"/>
         <searchRegion Binds="XpeDccCfgVehiclesAdtView1Iterator" Criteria=""
                       Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                       id="XpeDccCfgVehiclesAdtView1Query"/>
         <iterator Binds="XpeDccCfgPcsshtnamesAdtView1" RangeSize="25" DataControl="AuditLogAppModuleDataControl"
-                  id="XpeDccCfgPcsshtnamesAdtView1Iterator"/>
+                  id="XpeDccCfgPcsshtnamesAdtView1Iterator" ChangeEventPolicy="none"/>
         <searchRegion Binds="XpeDccCfgPcsshtnamesAdtView1Iterator" Criteria=""
                       Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                       id="XpeDccCfgPcsshtnamesAdtView1Query"/>
         <iterator Binds="XpeDccContractsAdtView1" RangeSize="25" DataControl="AuditLogAppModuleDataControl"
-                  id="XpeDccContractsAdtView1Iterator"/>
+                  id="XpeDccContractsAdtView1Iterator" ChangeEventPolicy="none"/>
         <searchRegion Binds="XpeDccContractsAdtView1Iterator" Criteria=""
                       Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                       id="XpeDccContractsAdtView1Query"/>
         <iterator Binds="XpeDccContractVersionAdtView1" RangeSize="25" DataControl="AuditLogAppModuleDataControl"
-                  id="XpeDccContractVersionAdtView1Iterator"/>
+                  id="XpeDccContractVersionAdtView1Iterator" ChangeEventPolicy="none"/>
         <searchRegion Binds="XpeDccContractVersionAdtView1Iterator" Criteria=""
                       Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                       id="XpeDccContractVersionAdtView1Query"/>
         <iterator Binds="XpeDccContractLineAdtView1" RangeSize="25" DataControl="AuditLogAppModuleDataControl"
-                  id="XpeDccContractLineAdtView1Iterator"/>
+                  id="XpeDccContractLineAdtView1Iterator" ChangeEventPolicy="none"/>
         <searchRegion Binds="XpeDccContractLineAdtView1Iterator" Criteria=""
                       Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                       id="XpeDccContractLineAdtView1Query"/>
         <iterator Binds="XpeDccCntrctPrcngTermAdtView1" RangeSize="25" DataControl="AuditLogAppModuleDataControl"
-                  id="XpeDccCntrctPrcngTermAdtView1Iterator"/>
+                  id="XpeDccCntrctPrcngTermAdtView1Iterator" ChangeEventPolicy="none"/>
         <searchRegion Binds="XpeDccCntrctPrcngTermAdtView1Iterator" Criteria=""
                       Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                       id="XpeDccCntrctPrcngTermAdtView1Query"/>
+        <searchRegion Criteria="XpeDccCfgCarriersAdtViewCriteria"
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                      Binds="XpeDccCfgCarriersAdtView1Iterator" id="XpeDccCfgCarriersAdtViewCriteriaQuery"/>
+        <searchRegion Criteria="XpeDccCfgCountiesAdtViewCriteria"
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                      Binds="XpeDccCfgCountiesAdtView1Iterator" id="XpeDccCfgCountiesAdtViewCriteriaQuery"/>
+        <searchRegion Criteria="XpeDccCfgDestinationsAdtViewCriteria"
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                      Binds="XpeDccCfgDestinationsAdtView1Iterator" id="XpeDccCfgDestinationsAdtViewCriteriaQuery"/>
+        <searchRegion Criteria="XpeDccCfgOriginsAdtViewCriteria"
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                      Binds="XpeDccCfgOriginsAdtView1Iterator" id="XpeDccCfgOriginsAdtViewCriteriaQuery"/>
+        <searchRegion Criteria="XpeDccCfgPcsshtnamesAdtViewCriteria"
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                      Binds="XpeDccCfgPcsshtnamesAdtView1Iterator" id="XpeDccCfgPcsshtnamesAdtViewCriteriaQuery"/>
+        <searchRegion Criteria="XpeDccCfgVehiclesAdtViewCriteria"
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                      Binds="XpeDccCfgVehiclesAdtView1Iterator" id="XpeDccCfgVehiclesAdtViewCriteriaQuery"/>
+        <searchRegion Criteria="XpeDccContractsAdtViewCriteria"
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                      Binds="XpeDccContractsAdtView1Iterator" id="XpeDccContractsAdtViewCriteriaQuery"/>
+        <searchRegion Criteria="XpeDccContractVersionAdtViewCriteria"
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                      Binds="XpeDccContractVersionAdtView1Iterator" id="XpeDccContractVersionAdtViewCriteriaQuery"/>
+        <searchRegion Criteria="XpeDccContractLineAdtViewCriteria"
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                      Binds="XpeDccContractLineAdtView1Iterator" id="XpeDccContractLineAdtViewCriteriaQuery"/>
+        <searchRegion Criteria="XpeDccCntrctPrcngTermAdtViewCriteria"
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                      Binds="XpeDccCntrctPrcngTermAdtView1Iterator" id="XpeDccCntrctPrcngTermAdtViewCriteriaQuery"/>
     </executables>
     <bindings>
         <tree IterBinding="PsCisXpeProcessView1Iterator" id="PsCisXpeProcessView1">

@@ -14,7 +14,16 @@
   SelectAllAttributes="false"
   PageIterMode="Full"
   FetchSize="100"
-  FetchMode="FETCH_AS_NEEDED">
+  FetchMode="FETCH_AS_NEEDED"
+  MaxFetchSize="100">
+  <Variable
+    Name="bindStartDate"
+    Kind="viewcriteria"
+    Type="java.sql.Timestamp"/>
+  <Variable
+    Name="bindEndDate"
+    Kind="viewcriteria"
+    Type="java.sql.Timestamp"/>
   <EntityUsage
     Name="XpeDccCntrctPrcngTermAdt"
     Entity="model.auditlog.XpeDccCntrctPrcngTermAdt"/>
@@ -269,6 +278,47 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewCriteria
+    Name="XpeDccCntrctPrcngTermAdtViewCriteria"
+    ViewObjectName="model.auditlog.XpeDccCntrctPrcngTermAdtView"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="XpeDccCntrctPrcngTermAdtViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="LastUpdatedDate"
+        ViewAttribute="LastUpdatedDate"
+        Operator="BETWEEN"
+        Conjunction="AND"
+        Required="Optional">
+        <ViewCriteriaItemValue
+          Value=":bindStartDate"
+          IsBindVarValue="true"/>
+        <ViewCriteriaItemValue
+          Value=":bindEndDate"
+          IsBindVarValue="true"/>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

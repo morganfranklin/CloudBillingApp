@@ -23,6 +23,16 @@
                     <af:panelTabbed position="above" id="pt1" dimensionsFrom="disclosedChild"
                                     styleClass="AFStretchWidth">
                         <af:showDetailItem id="tab1" text="Carriers" disclosed="true">
+                            <af:panelGroupLayout layout="vertical" id="pgl3">
+                                <af:panelHeader id="ph1">
+                                    <af:query id="qryId1" headerText="Search" disclosed="true"
+                                              value="#{bindings.XpeDccCfgCarriersAdtViewCriteriaQuery.queryDescriptor}"
+                                              model="#{bindings.XpeDccCfgCarriersAdtViewCriteriaQuery.queryModel}"
+                                              queryListener="#{bindings.XpeDccCfgCarriersAdtViewCriteriaQuery.processQuery}"
+                                              queryOperationListener="#{pageFlowScope.auditReportsMBean.carriersQueryOperationListener}"/>
+                                </af:panelHeader>
+                            </af:panelGroupLayout>
+                            <af:spacer width="10" height="10" id="s1"/>
                             <af:panelCollection id="pc1" styleClass="AFStretchWidth">
                                 <f:facet name="menus">
                                     <af:menu text="Audit Report" id="m1">
@@ -52,7 +62,8 @@
                                           filterVisible="true"
                                           queryListener="#{bindings.XpeDccCfgCarriersAdtView1Query.processQuery}"
                                           varStatus="vs" id="t1" columnStretching="last" contentDelivery="immediate"
-                                          autoHeightRows="15">
+                                          autoHeightRows="15" partialTriggers=":::qryId1"
+                                          binding="#{backingBeanScope.auditReportsBBean.carriersTblBind}">
                                     <af:column sortProperty="#{bindings.XpeDccCfgCarriersAdtView1.hints.CarrierId.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccCfgCarriersAdtView1.hints.CarrierId.label}"
@@ -135,7 +146,7 @@
                                     </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccCfgCarriersAdtView1.hints.LastUpdatedDate.name}"
                                                filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgCarriersAdtView1.hints.LastUpdatedDate.label}"
+                                               headerText="Last Updated Date"
                                                id="c9">
                                         <f:facet name="filter">
                                             <af:inputDate value="#{bindings.XpeDccCfgCarriersAdtView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.LastUpdatedDate.value}"
@@ -153,6 +164,16 @@
                             </af:panelCollection>
                         </af:showDetailItem>
                         <af:showDetailItem id="tab2" text="Counties">
+                            <af:panelGroupLayout layout="vertical" id="pgl4">
+                                <af:panelHeader id="ph2">
+                                    <af:query id="qryId2" headerText="Search" disclosed="true"
+                                              value="#{bindings.XpeDccCfgCountiesAdtViewCriteriaQuery.queryDescriptor}"
+                                              model="#{bindings.XpeDccCfgCountiesAdtViewCriteriaQuery.queryModel}"
+                                              queryListener="#{bindings.XpeDccCfgCountiesAdtViewCriteriaQuery.processQuery}"
+                                              queryOperationListener="#{pageFlowScope.auditReportsMBean.countiesQueryOperationListener}"/>
+                                </af:panelHeader>
+                            </af:panelGroupLayout>
+                            <af:spacer width="10" height="10" id="s2"/>
                             <af:panelCollection id="pc2" styleClass="AFStretchWidth">
                                 <f:facet name="menus">
                                     <af:menu text="Audit Report" id="m2">
@@ -183,7 +204,8 @@
                                           filterVisible="true"
                                           queryListener="#{bindings.XpeDccCfgCountiesAdtView1Query.processQuery}"
                                           varStatus="vs" id="t2" columnStretching="last" contentDelivery="immediate"
-                                          autoHeightRows="15">
+                                          autoHeightRows="15" partialTriggers=":::qryId2"
+                                          binding="#{backingBeanScope.auditReportsBBean.countiesTblBind}">
                                     <af:column sortProperty="#{bindings.XpeDccCfgCountiesAdtView1.hints.CountyId.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccCfgCountiesAdtView1.hints.CountyId.label}"
@@ -266,7 +288,7 @@
                                     </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccCfgCountiesAdtView1.hints.LastUpdatedDate.name}"
                                                filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgCountiesAdtView1.hints.LastUpdatedDate.label}"
+                                               headerText="Last Updated Date"
                                                id="c21" width="120">
                                         <f:facet name="filter">
                                             <af:inputDate value="#{bindings.XpeDccCfgCountiesAdtView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.LastUpdatedDate.value}"
@@ -292,6 +314,16 @@
                             </af:panelCollection>
                         </af:showDetailItem>
                         <af:showDetailItem id="tab3" text="Destinations">
+                            <af:panelGroupLayout layout="vertical" id="pgl5">
+                                <af:panelHeader id="ph3">
+                                    <af:query id="qryId3" headerText="Search" disclosed="true"
+                                              value="#{bindings.XpeDccCfgDestinationsAdtViewCriteriaQuery.queryDescriptor}"
+                                              model="#{bindings.XpeDccCfgDestinationsAdtViewCriteriaQuery.queryModel}"
+                                              queryListener="#{bindings.XpeDccCfgDestinationsAdtViewCriteriaQuery.processQuery}"
+                                              queryOperationListener="#{pageFlowScope.auditReportsMBean.destinationQueryOperationListener}"/>
+                                </af:panelHeader>
+                            </af:panelGroupLayout>
+                            <af:spacer width="10" height="10" id="s3"/>
                             <af:panelCollection id="pc3" styleClass="AFStretchWidth">
                                 <f:facet name="menus">
                                     <af:menu text="Audit Report" id="m3">
@@ -322,7 +354,8 @@
                                           filterVisible="true"
                                           queryListener="#{bindings.XpeDccCfgDestinationsAdtView1Query.processQuery}"
                                           varStatus="vs" id="t3" columnStretching="last" contentDelivery="immediate"
-                                          autoHeightRows="15">
+                                          autoHeightRows="15" partialTriggers=":::qryId3"
+                                          binding="#{backingBeanScope.auditReportsBBean.destinationTblBind}">
                                     <af:column sortProperty="#{bindings.XpeDccCfgDestinationsAdtView1.hints.DestinationId.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccCfgDestinationsAdtView1.hints.DestinationId.label}"
@@ -405,7 +438,7 @@
                                     </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccCfgDestinationsAdtView1.hints.LastUpdatedDate.name}"
                                                filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgDestinationsAdtView1.hints.LastUpdatedDate.label}"
+                                               headerText="Last Updated Date"
                                                id="c34" width="120">
                                         <f:facet name="filter">
                                             <af:inputDate value="#{bindings.XpeDccCfgDestinationsAdtView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.LastUpdatedDate.value}"
@@ -431,6 +464,15 @@
                             </af:panelCollection>
                         </af:showDetailItem>
                         <af:showDetailItem id="tab4" text="Origins">
+                            <af:panelGroupLayout layout="vertical" id="pgl6">
+                                <af:panelHeader id="ph4">
+                                    <af:query id="qryId4" headerText="Search" disclosed="true"
+                                              value="#{bindings.XpeDccCfgOriginsAdtViewCriteriaQuery.queryDescriptor}"
+                                              model="#{bindings.XpeDccCfgOriginsAdtViewCriteriaQuery.queryModel}"
+                                              queryListener="#{bindings.XpeDccCfgOriginsAdtViewCriteriaQuery.processQuery}"
+                                              queryOperationListener="#{pageFlowScope.auditReportsMBean.originQueryOperationListener}"/>
+                                </af:panelHeader>
+                            </af:panelGroupLayout>
                             <af:panelCollection id="pc4" styleClass="AFStretchWidth">
                                 <f:facet name="menus">
                                     <af:menu text="Audit Report" id="m4">
@@ -461,7 +503,8 @@
                                           filterVisible="true"
                                           queryListener="#{bindings.XpeDccCfgOriginsAdtView1Query.processQuery}"
                                           varStatus="vs" id="t4" contentDelivery="immediate" columnStretching="last"
-                                          autoHeightRows="15">
+                                          autoHeightRows="15" partialTriggers=":::qryId4"
+                                          binding="#{backingBeanScope.auditReportsBBean.originsTblBind}">
                                     <af:column sortProperty="#{bindings.XpeDccCfgOriginsAdtView1.hints.OriginId.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccCfgOriginsAdtView1.hints.OriginId.label}"
@@ -544,7 +587,7 @@
                                     </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccCfgOriginsAdtView1.hints.LastUpdatedDate.name}"
                                                filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgOriginsAdtView1.hints.LastUpdatedDate.label}"
+                                               headerText="Last Updated Date"
                                                id="c47" width="120">
                                         <f:facet name="filter">
                                             <af:inputDate value="#{bindings.XpeDccCfgOriginsAdtView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.LastUpdatedDate.value}"
@@ -586,6 +629,16 @@
                             </af:panelCollection>
                         </af:showDetailItem>
                         <af:showDetailItem id="tab5" text="Vehicles">
+                            <af:panelGroupLayout layout="vertical" id="pgl8">
+                                <af:panelHeader id="ph6">
+                                    <af:query id="qryId6" headerText="Search" disclosed="true"
+                                              value="#{bindings.XpeDccCfgVehiclesAdtViewCriteriaQuery.queryDescriptor}"
+                                              model="#{bindings.XpeDccCfgVehiclesAdtViewCriteriaQuery.queryModel}"
+                                              queryListener="#{bindings.XpeDccCfgVehiclesAdtViewCriteriaQuery.processQuery}"
+                                              queryOperationListener="#{pageFlowScope.auditReportsMBean.vehiclesQueryOperationListener}"/>
+                                </af:panelHeader>
+                            </af:panelGroupLayout>
+                            <af:spacer width="10" height="10" id="s4"/>
                             <af:panelCollection id="pc5" styleClass="AFStretchWidth">
                                 <f:facet name="menus">
                                     <af:menu text="Audit Report" id="m5">
@@ -616,7 +669,8 @@
                                           filterVisible="true"
                                           queryListener="#{bindings.XpeDccCfgVehiclesAdtView1Query.processQuery}"
                                           varStatus="vs" id="t5" columnStretching="last" contentDelivery="immediate"
-                                          autoHeightRows="15">
+                                          autoHeightRows="15" partialTriggers=":::qryId6"
+                                          binding="#{backingBeanScope.auditReportsBBean.vehiclesTblBind}">
                                     <af:column sortProperty="#{bindings.XpeDccCfgVehiclesAdtView1.hints.VehicleId.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccCfgVehiclesAdtView1.hints.VehicleId.label}"
@@ -699,7 +753,7 @@
                                     </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccCfgVehiclesAdtView1.hints.LastUpdatedDate.name}"
                                                filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgVehiclesAdtView1.hints.LastUpdatedDate.label}"
+                                               headerText="Last Updated Date"
                                                id="c63">
                                         <f:facet name="filter">
                                             <af:inputDate value="#{bindings.XpeDccCfgVehiclesAdtView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.LastUpdatedDate.value}"
@@ -717,6 +771,16 @@
                             </af:panelCollection>
                         </af:showDetailItem>
                         <af:showDetailItem id="tab6" text="Customers">
+                            <af:panelGroupLayout layout="vertical" id="pgl7">
+                                <af:panelHeader id="ph5">
+                                    <af:query id="qryId5" headerText="Search" disclosed="true"
+                                              value="#{bindings.XpeDccCfgPcsshtnamesAdtViewCriteriaQuery.queryDescriptor}"
+                                              model="#{bindings.XpeDccCfgPcsshtnamesAdtViewCriteriaQuery.queryModel}"
+                                              queryListener="#{bindings.XpeDccCfgPcsshtnamesAdtViewCriteriaQuery.processQuery}"
+                                              queryOperationListener="#{pageFlowScope.auditReportsMBean.customerQueryOperationListener}"/>
+                                </af:panelHeader>
+                            </af:panelGroupLayout>
+                            <af:spacer width="10" height="10" id="s6"/>
                             <af:panelCollection id="pc6" styleClass="AFStretchWidth">
                                 <f:facet name="menus">
                                     <af:menu text="Audit Report" id="m6">
@@ -747,7 +811,8 @@
                                           filterVisible="true"
                                           queryListener="#{bindings.XpeDccCfgPcsshtnamesAdtView1Query.processQuery}"
                                           varStatus="vs" id="t6" columnStretching="last" contentDelivery="immediate"
-                                          autoHeightRows="15">
+                                          autoHeightRows="15" partialTriggers=":::qryId5"
+                                          binding="#{backingBeanScope.auditReportsBBean.customerTblBind}">
                                     <af:column sortProperty="#{bindings.XpeDccCfgPcsshtnamesAdtView1.hints.PcsshortnameId.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccCfgPcsshtnamesAdtView1.hints.PcsshortnameId.label}"
@@ -830,7 +895,7 @@
                                     </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccCfgPcsshtnamesAdtView1.hints.LastUpdatedDate.name}"
                                                filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCfgPcsshtnamesAdtView1.hints.LastUpdatedDate.label}"
+                                               headerText="Last Updated Date"
                                                id="c75" width="115">
                                         <f:facet name="filter">
                                             <af:inputDate value="#{bindings.XpeDccCfgPcsshtnamesAdtView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.LastUpdatedDate.value}"
@@ -910,6 +975,16 @@
                             </af:panelCollection>
                         </af:showDetailItem>
                         <af:showDetailItem id="tab7" text="Contracts" inflexibleHeight="100">
+                            <af:panelGroupLayout layout="vertical" id="pgl9">
+                                <af:panelHeader id="ph7">
+                                    <af:query id="qryId7" headerText="Search" disclosed="true"
+                                              value="#{bindings.XpeDccContractsAdtViewCriteriaQuery.queryDescriptor}"
+                                              model="#{bindings.XpeDccContractsAdtViewCriteriaQuery.queryModel}"
+                                              queryListener="#{bindings.XpeDccContractsAdtViewCriteriaQuery.processQuery}"
+                                              queryOperationListener="#{pageFlowScope.auditReportsMBean.contractsQueryOperationListener}"/>
+                                </af:panelHeader>
+                            </af:panelGroupLayout>
+                            <af:spacer width="10" height="10" id="s5"/>
                             <af:panelCollection id="pc7" styleClass="AFStretchWidth">
                                 <f:facet name="menus">
                                     <af:menu text="Audit Report" id="m7">
@@ -940,7 +1015,8 @@
                                           filterVisible="true"
                                           queryListener="#{bindings.XpeDccContractsAdtView1Query.processQuery}"
                                           varStatus="vs" id="t7" columnStretching="last" contentDelivery="immediate"
-                                          autoHeightRows="15">
+                                          autoHeightRows="15" partialTriggers=":::qryId7"
+                                          binding="#{backingBeanScope.auditReportsBBean.contractsTblBind}">
                                     <af:column sortProperty="#{bindings.XpeDccContractsAdtView1.hints.XpeContractId.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccContractsAdtView1.hints.XpeContractId.label}"
@@ -999,7 +1075,7 @@
                                     </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccContractsAdtView1.hints.LastUpdatedDate.name}"
                                                filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccContractsAdtView1.hints.LastUpdatedDate.label}"
+                                               headerText="Last Updated Date"
                                                id="c64">
                                         <f:facet name="filter">
                                             <af:inputDate value="#{bindings.XpeDccContractsAdtView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.LastUpdatedDate.value}"
@@ -1060,6 +1136,15 @@
                             </af:panelCollection>
                         </af:showDetailItem>
                         <af:showDetailItem id="tab8" text="Contract Versions">
+                            <af:panelGroupLayout layout="vertical" id="pgl10">
+                                <af:panelHeader id="ph8">
+                                    <af:query id="qryId8" headerText="Search" disclosed="true"
+                                              value="#{bindings.XpeDccContractVersionAdtViewCriteriaQuery.queryDescriptor}"
+                                              model="#{bindings.XpeDccContractVersionAdtViewCriteriaQuery.queryModel}"
+                                              queryListener="#{bindings.XpeDccContractVersionAdtViewCriteriaQuery.processQuery}"
+                                              queryOperationListener="#{pageFlowScope.auditReportsMBean.contractVerQueryOperationListener}"/>
+                                </af:panelHeader>
+                            </af:panelGroupLayout>
                             <af:panelCollection id="pc8" styleClass="AFStretchWidth">
                                 <f:facet name="menus">
                                     <af:menu text="Audit Report" id="m8">
@@ -1090,7 +1175,8 @@
                                           filterVisible="true"
                                           queryListener="#{bindings.XpeDccContractVersionAdtView1Query.processQuery}"
                                           varStatus="vs" id="t8" columnStretching="last" contentDelivery="immediate"
-                                          autoHeightRows="15">
+                                          autoHeightRows="15" partialTriggers=":::qryId8"
+                                          binding="#{backingBeanScope.auditReportsBBean.contractVerTblBind}">
                                     <af:column sortProperty="#{bindings.XpeDccContractVersionAdtView1.hints.XpeContractId.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccContractVersionAdtView1.hints.XpeContractId.label}"
@@ -1253,7 +1339,7 @@
                                     </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccContractVersionAdtView1.hints.LastUpdatedDate.name}"
                                                filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccContractVersionAdtView1.hints.LastUpdatedDate.label}"
+                                               headerText="Last Updated Date"
                                                id="c12">
                                         <f:facet name="filter">
                                             <af:inputDate value="#{bindings.XpeDccContractVersionAdtView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.LastUpdatedDate.value}"
@@ -1271,6 +1357,15 @@
                             </af:panelCollection>
                         </af:showDetailItem>
                         <af:showDetailItem id="tab9" text="Contract Lines">
+                            <af:panelGroupLayout layout="vertical" id="pgl11">
+                                <af:panelHeader id="ph9">
+                                    <af:query id="qryId9" headerText="Search" disclosed="true"
+                                              value="#{bindings.XpeDccContractLineAdtViewCriteriaQuery.queryDescriptor}"
+                                              model="#{bindings.XpeDccContractLineAdtViewCriteriaQuery.queryModel}"
+                                              queryListener="#{bindings.XpeDccContractLineAdtViewCriteriaQuery.processQuery}"
+                                              queryOperationListener="#{pageFlowScope.auditReportsMBean.contractLineQueryOperationListener}"/>
+                                </af:panelHeader>
+                            </af:panelGroupLayout>
                             <af:panelCollection id="pc9" styleClass="AFStretchWidth">
                                 <f:facet name="menus">
                                     <af:menu text="Audit Report" id="m9">
@@ -1301,7 +1396,8 @@
                                           filterVisible="true"
                                           queryListener="#{bindings.XpeDccContractLineAdtView1Query.processQuery}"
                                           varStatus="vs" id="t9" columnStretching="last" contentDelivery="immediate"
-                                          autoHeightRows="15">
+                                          autoHeightRows="15" partialTriggers=":::qryId9"
+                                          binding="#{backingBeanScope.auditReportsBBean.contractLineTblBind}">
                                     <af:column sortProperty="#{bindings.XpeDccContractLineAdtView1.hints.XpeContractId.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccContractLineAdtView1.hints.XpeContractId.label}"
@@ -1400,7 +1496,7 @@
                                     </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccContractLineAdtView1.hints.LastUpdatedDate.name}"
                                                filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccContractLineAdtView1.hints.LastUpdatedDate.label}"
+                                               headerText="Last Updated Date"
                                                id="c53">
                                         <f:facet name="filter">
                                             <af:inputDate value="#{bindings.XpeDccContractLineAdtView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.LastUpdatedDate.value}"
@@ -1418,6 +1514,16 @@
                             </af:panelCollection>
                         </af:showDetailItem>
                         <af:showDetailItem id="tab10" text="Pricing">
+                            <af:panelGroupLayout layout="vertical" id="pgl12">
+                                <af:panelHeader id="ph10">
+                                    <af:query id="qryId10" headerText="Search" disclosed="true"
+                                              value="#{bindings.XpeDccCntrctPrcngTermAdtViewCriteriaQuery.queryDescriptor}"
+                                              model="#{bindings.XpeDccCntrctPrcngTermAdtViewCriteriaQuery.queryModel}"
+                                              queryListener="#{bindings.XpeDccCntrctPrcngTermAdtViewCriteriaQuery.processQuery}"
+                                              queryOperationListener="#{pageFlowScope.auditReportsMBean.cntrctPrcngQueryOperationLstnr}"/>
+                                </af:panelHeader>
+                            </af:panelGroupLayout>
+                            <af:spacer width="10" height="10" id="s7"/>
                             <af:panelCollection id="pc10" styleClass="AFStretchWidth">
                                 <f:facet name="menus">
                                     <af:menu text="Audit Report" id="m10">
@@ -1448,7 +1554,8 @@
                                           filterVisible="true"
                                           queryListener="#{bindings.XpeDccCntrctPrcngTermAdtView1Query.processQuery}"
                                           varStatus="vs" id="t10" columnStretching="last" contentDelivery="immediate"
-                                          autoHeightRows="15">
+                                          autoHeightRows="15" partialTriggers=":::qryId10"
+                                          binding="#{backingBeanScope.auditReportsBBean.cntrctPrcngTblBind}">
                                     <af:column sortProperty="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeContractId.name}"
                                                filterable="true" sortable="true"
                                                headerText="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.XpeContractId.label}"
@@ -1567,7 +1674,7 @@
                                     </af:column>
                                     <af:column sortProperty="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.LastUpdatedDate.name}"
                                                filterable="true" sortable="true"
-                                               headerText="#{bindings.XpeDccCntrctPrcngTermAdtView1.hints.LastUpdatedDate.label}"
+                                               headerText="Last Updated Date"
                                                id="c51">
                                         <f:facet name="filter">
                                             <af:inputDate value="#{bindings.XpeDccCntrctPrcngTermAdtView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.LastUpdatedDate.value}"

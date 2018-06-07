@@ -15,6 +15,14 @@
   PageIterMode="Full"
   FetchSize="100"
   FetchMode="FETCH_AS_NEEDED">
+  <Variable
+    Name="bindStartDate"
+    Kind="viewcriteria"
+    Type="java.sql.Timestamp"/>
+  <Variable
+    Name="bindEndDate"
+    Kind="viewcriteria"
+    Type="java.sql.Timestamp"/>
   <EntityUsage
     Name="XpeDccCfgVehiclesAdt"
     Entity="model.auditlog.XpeDccCfgVehiclesAdt"/>
@@ -163,6 +171,47 @@
     EntityAttrName="Syncdoneat"
     EntityUsage="XpeDccCfgVehiclesAdt"
     AliasName="SYNCDONEAT"/>
+  <ViewCriteria
+    Name="XpeDccCfgVehiclesAdtViewCriteria"
+    ViewObjectName="model.auditlog.XpeDccCfgVehiclesAdtView"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="XpeDccCfgVehiclesAdtViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="LastUpdatedDate"
+        ViewAttribute="LastUpdatedDate"
+        Operator="BETWEEN"
+        Conjunction="AND"
+        Required="Optional">
+        <ViewCriteriaItemValue
+          Value=":bindStartDate"
+          IsBindVarValue="true"/>
+        <ViewCriteriaItemValue
+          Value=":bindEndDate"
+          IsBindVarValue="true"/>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

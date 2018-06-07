@@ -10,6 +10,11 @@
             <managed-bean-class>view.AuditReportsMBean</managed-bean-class>
             <managed-bean-scope>pageFlow</managed-bean-scope>
         </managed-bean>
+        <managed-bean id="__2">
+            <managed-bean-name>auditReportsBBean</managed-bean-name>
+            <managed-bean-class>view.auditReportsBBean</managed-bean-class>
+            <managed-bean-scope>backingBean</managed-bean-scope>
+        </managed-bean>
         <view id="voucherEventsView">
             <page>/voucherEvents.jsff</page>
         </view>
