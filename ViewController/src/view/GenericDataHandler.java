@@ -5,24 +5,33 @@ package view;
 //Update 2.1 1/23/2018: 5:33pm EX2G and CSCR routines 
 //Update 2.2 1/28/2018: 3:13pm process log changes, CSCR routine update
 
-import java.io.File;
 import java.io.FileInputStream;
 
-import java.sql.*;
+import java.math.BigDecimal;
 
-import java.lang.*;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
-import java.net.URL;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 import javax.xml.bind.DatatypeConverter;
 
- // import oracle.sql.DATE;
+import view.utils.EmailUtils;
+
+// import oracle.sql.DATE;
 
 
 public class GenericDataHandler implements Runnable {
@@ -3573,6 +3582,9 @@ public class GenericDataHandler implements Runnable {
                 	break;
                 case "CSCR":
                 	return_status = executeScript(projShare, actionCode);
+                        break;
+                case "EMAL":
+                        return_status = generateEmails(projShare, actionCode);
                 default:
                     break;
 
@@ -5520,5 +5532,157 @@ public class GenericDataHandler implements Runnable {
 
     }
 
+    public int generateEmails(ProjectVariable projShare, String actionCode) {
+        Connection commonConfigdb = projShare.getconfigDb();
+        String sqlStatementBody = null,custIds = "";
+        ResultSet myResultSet = null;
+        PreparedStatement sqlStatement = null;
+        Statement updateStatement = null;
+        int localResult = 0;
+        Map<String,Map> custCreditMap = new HashMap<String,Map>();
+
+        System.out.println("----> entering generateEmails");
+
+        try {
+
+            sqlStatementBody =
+                "SELECT CREDIT.CUST_ID,CREDIT.CREDIT_STATUS,CREDIT.TOTAL1,CREDIT.CR_LIMIT, CREDIT.TOTAL2,CREDIT.BALANCE FROM  XPE_DCC_CFG_PCSSHTNAMES_ADT PCS, XPE_DCC_CREDIT_VW2 CREDIT " +
+                "WHERE PCS.SYNCDONE IN('D','P') AND CREDIT.CREDIT_STATUS IN('2', '3') AND PCS.COV_ID=CREDIT.CUST_ID " +
+                "GROUP BY CREDIT.CUST_ID,CREDIT.CREDIT_STATUS,CREDIT.TOTAL1,CREDIT.CR_LIMIT, CREDIT.TOTAL2,CREDIT.BALANCE";
+            sqlStatement = commonConfigdb.prepareStatement(sqlStatementBody);
+            myResultSet = sqlStatement.executeQuery();
+
+            System.out.println("... executing " + sqlStatementBody);
+            
+            updateStatement = commonConfigdb.createStatement();
+
+            while (myResultSet.next()) {
+                custIds = custIds + "'" + myResultSet.getString("CUST_ID") + "',";
+                String custId = myResultSet.getString("CUST_ID");
+                String creditStatus = myResultSet.getString("CREDIT_STATUS");
+                BigDecimal total1 = myResultSet.getBigDecimal("TOTAL1");
+                BigDecimal crLimit = myResultSet.getBigDecimal("CR_LIMIT");
+                BigDecimal total2 = myResultSet.getBigDecimal("TOTAL2");
+                BigDecimal balance = myResultSet.getBigDecimal("BALANCE");
+                
+                Map map = new HashMap();
+                map.put("CREDIT_STATUS", creditStatus);
+                map.put("TOTAL1", total1);
+                map.put("CR_LIMIT", crLimit);
+                map.put("TOTAL2", total2);
+                map.put("BALANCE", balance);
+                
+                custCreditMap.put(custId, map);
+                
+                //SENDING EMAIL FOR EACH CUSTOMER and updating SYNCDONE for each customer after sending email
+                if(EmailUtils.sendEmail("#CreditCheck_Mgrs@covanta.com",getEmail(custId,creditStatus,total1,crLimit,total2,balance))){
+                    String updateSql = "UPDATE XPE_DCC_CREDIT_VW2 SET SYNCDONE = 'E' WHERE CUST_ID ='"+ custId +"' AND SYNCDONE IN('D','P')";
+                    updateStatement.executeUpdate(updateSql);
+                }
+            }
+
+            if (null != custIds)
+                custIds = custIds.substring(0, custIds.length() - 1); //Removing , at the end
+            
+            
+            sqlStatementBody = "SELECT SITE_ID, EMAIL_NOTIFICATION_GROUP FROM XPE_DCC_CFG_PCS";
+            sqlStatement = commonConfigdb.prepareStatement(sqlStatementBody);
+            myResultSet = sqlStatement.executeQuery();
+
+            System.out.println("... executing " + sqlStatementBody);
+            Map<String,String> siteIdMap = new HashMap<String,String>();
+            while (myResultSet.next()) {
+                siteIdMap.put(myResultSet.getString("SITE_ID"), myResultSet.getString("EMAIL_NOTIFICATION_GROUP"));
+            }
+
+            sqlStatementBody =
+                "SELECT C.CUST_ID, CL.XPE_FACILITY " +
+                "FROM XPE_DCC_CONTRACTS C, XPE_DCC_CONTRACT_VERSION CV,XPE_DCC_CONTRACT_LINE CL " +
+                "WHERE C.CUST_ID IN (" + custIds +
+                ") AND C.XPE_CONTRACT_ID = CV.XPE_CONTRACT_ID AND CV.XPE_CONTRACT_ID = CL.XPE_CONTRACT_ID " +
+                "AND CV.XPE_CONTRACT_VERSION = CL.XPE_CONTRACT_VERSION " + "GROUP BY C.CUST_ID, CL.XPE_FACILITY";
+
+            System.out.println("... executing " + sqlStatementBody);
+            
+            while (myResultSet.next()) {
+                String custId = myResultSet.getString("CUST_ID");
+                String emailGroup = siteIdMap.get(myResultSet.getString("XPE_FACILITY"));
+                
+                Map custCreditInfoMap = custCreditMap.get(custId);
+                if(null!=custCreditInfoMap){
+                    String creditStatus = String.valueOf(custCreditInfoMap.get("CREDIT_STATUS"));
+                    BigDecimal total1 = (BigDecimal)custCreditInfoMap.get("TOTAL1");
+                    BigDecimal crLimit = (BigDecimal)custCreditInfoMap.get("CR_LIMIT");
+                    BigDecimal total2 = (BigDecimal)custCreditInfoMap.get("TOTAL2");
+                    BigDecimal balance = (BigDecimal)custCreditInfoMap.get("BALANCE");
+                    EmailUtils.sendEmail(emailGroup,getEmail(custId,creditStatus,total1,crLimit,total2,balance));
+                }
+            }         
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            if (null != updateStatement)
+                try {
+                    updateStatement.close();
+                } catch (SQLException sqle) {
+                    // TODO: Add catch code
+                    sqle.printStackTrace();
+                }
+            if (null != sqlStatement)
+                try {
+                    sqlStatement.close();
+                } catch (SQLException sqle) {
+                    // TODO: Add catch code
+                    sqle.printStackTrace();
+                }
+            if (null != commonConfigdb)
+                try {
+                    commonConfigdb.close();
+                } catch (SQLException sqle) {
+                    // TODO: Add catch code
+                    sqle.printStackTrace();
+                }
+        }
+
+        System.out.println("<---- exiting generateEmails");
+
+        return localResult;
+    }
+
+    private Map<String,String> getEmail(String custId,String creditStatus, BigDecimal total1, BigDecimal crLimit, BigDecimal total2,BigDecimal balance) {     
+        String custName= null;
+        Map<String,String> email = new HashMap<String,String>();
+        StringBuilder html = new StringBuilder();
+        html.append("<p>");
+        html.append("<b>---------------------------------------</b>").append("<br><br>");
+        html.append("<b>A/R Balance:</b>").append("&nbsp;&nbsp;").append(checkIfNull(total1)).append("<br><br>");
+        html.append("<b>Credit Limit:</b>").append("&nbsp;&nbsp;").append(checkIfNull(crLimit)).append("<br><br>"); 
+        html.append("<b>Unbilled Balance:</b>").append("&nbsp;&nbsp;").append(checkIfNull(total2)).append("<br><br>");
+        html.append("&nbsp;&nbsp;&nbsp;&nbsp;").append("<b>-----------</b>").append("<br><br>");
+        html.append("<b>Accrued Balance:</b>").append("&nbsp;&nbsp;").append(checkIfNull(balance)).append("<br><br>");
+        html.append("<b>---------------------------------------</b>");
+        html.append("</p>");
+        if (null != creditStatus) {
+            if ("2".equals(creditStatus)) {
+                email.put("EMAIL_SUBJECT", "Cut-Off: "+custId+","+ custName +", has exceeded 80% of their credit limit."); 
+                email.put("EMAIL_BODY", html.toString());
+            } else if ("3".equals(creditStatus)) {
+                email.put("EMAIL_SUBJECT", "Cut-Off: "+custId+","+ custName +", has exceeded their credit limit.");
+                email.put("EMAIL_BODY", html.toString());
+            }
+        }
+        return email;
+    }
+    
+    
+    private Object checkIfNull(Object val){ 
+        if(null==val || val.toString().trim().length()==0)
+          return "";
+        else
+          return val;
+    }
 
 }
