@@ -5536,6 +5536,7 @@ public class GenericDataHandler implements Runnable {
         Connection commonConfigdb = projShare.getconfigDb();
         String sqlStatementBody = null,custIds = "";
         ResultSet myResultSet = null;
+        ResultSet custResultSet = null;
         PreparedStatement sqlStatement = null;
         Statement updateStatement = null;
         int localResult = 0;
@@ -5544,7 +5545,7 @@ public class GenericDataHandler implements Runnable {
         System.out.println("----> entering generateEmails");
 
         try {
-
+            //STEP 1
             sqlStatementBody =
                 "SELECT CREDIT.CUST_ID,CREDIT.CREDIT_STATUS,CREDIT.TOTAL1,CREDIT.CR_LIMIT, CREDIT.TOTAL2,CREDIT.BALANCE FROM  XPE_DCC_CFG_PCSSHTNAMES_ADT PCS, XPE_DCC_CREDIT_VW2 CREDIT " +
                 "WHERE PCS.SYNCDONE IN('D','P') AND CREDIT.CREDIT_STATUS IN('2', '3') AND PCS.COV_ID=CREDIT.CUST_ID " +
@@ -5553,12 +5554,51 @@ public class GenericDataHandler implements Runnable {
             myResultSet = sqlStatement.executeQuery();
 
             System.out.println("... executing " + sqlStatementBody);
-            
-            updateStatement = commonConfigdb.createStatement();
 
             while (myResultSet.next()) {
                 custIds = custIds + "'" + myResultSet.getString("CUST_ID") + "',";
+            }
+
+            if (null != custIds)
+                custIds = custIds.substring(0, custIds.length() - 1); //Removing , at the end
+
+            //STEP 2
+            sqlStatementBody ="SELECT A.CUST_ID, A.NAME1 AS CUST_NAME\n" + 
+            "FROM PS_CUSTOMER A,\n" + 
+            "  PS_CUST_ADDR_SEQ B,\n" + 
+            "  PS_CUST_ADDRESS C\n" + 
+            "WHERE A.CUST_ID      IN("+ custIds +")\n" + 
+            "AND A.SETID           = B.SETID\n" + 
+            "AND A.CUST_ID         = B.CUST_ID\n" + 
+            "AND B.SETID           = C.SETID\n" + 
+            "AND B.CUST_ID         = C.CUST_ID\n" + 
+            "AND B.ADDRESS_SEQ_NUM = C.ADDRESS_SEQ_NUM\n" + 
+            "AND C.EFFDT           =\n" + 
+            "  (SELECT MAX(C_ED.EFFDT)\n" + 
+            "  FROM PS_CUST_ADDRESS C_ED\n" + 
+            "  WHERE C.SETID         = C_ED.SETID\n" + 
+            "  AND C.CUST_ID         = C_ED.CUST_ID\n" + 
+            "  AND C.ADDRESS_SEQ_NUM = C_ED.ADDRESS_SEQ_NUM\n" + 
+            "  AND C_ED.EFFDT       <= SYSDATE)\n" + 
+            "AND A.SETID       = 'MASTR'\n" + 
+            "AND C.LANGUAGE_CD = 'ENG'\n" + 
+            "AND A.CUST_STATUS = 'A'\n" + 
+            "GROUP BY A.CUST_ID,A.NAME1";
+            sqlStatement = commonConfigdb.prepareStatement(sqlStatementBody);
+            custResultSet = sqlStatement.executeQuery();
+
+            System.out.println("... executing " + sqlStatementBody);
+            Map<String,String> custIdMap = new HashMap<String,String>();
+            while(custResultSet.next()){
+                custIdMap.put(custResultSet.getString("CUST_ID"), custResultSet.getString("CUST_NAME"));
+            }
+            
+            //STEP 3
+            updateStatement = commonConfigdb.createStatement();
+            
+            while(myResultSet.next()){
                 String custId = myResultSet.getString("CUST_ID");
+                String custName = custIdMap.get(custId);
                 String creditStatus = myResultSet.getString("CREDIT_STATUS");
                 BigDecimal total1 = myResultSet.getBigDecimal("TOTAL1");
                 BigDecimal crLimit = myResultSet.getBigDecimal("CR_LIMIT");
@@ -5571,20 +5611,18 @@ public class GenericDataHandler implements Runnable {
                 map.put("CR_LIMIT", crLimit);
                 map.put("TOTAL2", total2);
                 map.put("BALANCE", balance);
+                map.put("CUST_NAME", custName);
                 
                 custCreditMap.put(custId, map);
                 
                 //SENDING EMAIL FOR EACH CUSTOMER and updating SYNCDONE for each customer after sending email
-                if(EmailUtils.sendEmail("#CreditCheck_Mgrs@covanta.com",getEmail(custId,creditStatus,total1,crLimit,total2,balance))){
+                if(EmailUtils.sendEmail("#CreditCheck_Mgrs@covanta.com",getEmail(custId,custName,creditStatus,total1,crLimit,total2,balance))){
                     String updateSql = "UPDATE XPE_DCC_CREDIT_VW2 SET SYNCDONE = 'E' WHERE CUST_ID ='"+ custId +"' AND SYNCDONE IN('D','P')";
                     updateStatement.executeUpdate(updateSql);
                 }
             }
-
-            if (null != custIds)
-                custIds = custIds.substring(0, custIds.length() - 1); //Removing , at the end
             
-            
+            //STEP 4
             sqlStatementBody = "SELECT SITE_ID, EMAIL_NOTIFICATION_GROUP FROM XPE_DCC_CFG_PCS";
             sqlStatement = commonConfigdb.prepareStatement(sqlStatementBody);
             myResultSet = sqlStatement.executeQuery();
@@ -5595,6 +5633,7 @@ public class GenericDataHandler implements Runnable {
                 siteIdMap.put(myResultSet.getString("SITE_ID"), myResultSet.getString("EMAIL_NOTIFICATION_GROUP"));
             }
 
+            //STEP 5
             sqlStatementBody =
                 "SELECT C.CUST_ID, CL.XPE_FACILITY " +
                 "FROM XPE_DCC_CONTRACTS C, XPE_DCC_CONTRACT_VERSION CV,XPE_DCC_CONTRACT_LINE CL " +
@@ -5610,41 +5649,33 @@ public class GenericDataHandler implements Runnable {
                 
                 Map custCreditInfoMap = custCreditMap.get(custId);
                 if(null!=custCreditInfoMap){
+                    String custName = custIdMap.get(custId);
                     String creditStatus = String.valueOf(custCreditInfoMap.get("CREDIT_STATUS"));
                     BigDecimal total1 = (BigDecimal)custCreditInfoMap.get("TOTAL1");
                     BigDecimal crLimit = (BigDecimal)custCreditInfoMap.get("CR_LIMIT");
                     BigDecimal total2 = (BigDecimal)custCreditInfoMap.get("TOTAL2");
                     BigDecimal balance = (BigDecimal)custCreditInfoMap.get("BALANCE");
-                    EmailUtils.sendEmail(emailGroup,getEmail(custId,creditStatus,total1,crLimit,total2,balance));
+                    EmailUtils.sendEmail(emailGroup,getEmail(custId,custName,creditStatus,total1,crLimit,total2,balance));
                 }
             }         
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }catch (Exception e) {
+        } catch (Exception e) {
+            localResult = -1;
             e.printStackTrace();
         }finally {
-            if (null != updateStatement)
-                try {
+            try {
+                if (null != updateStatement)
                     updateStatement.close();
-                } catch (SQLException sqle) {
-                    // TODO: Add catch code
-                    sqle.printStackTrace();
-                }
-            if (null != sqlStatement)
-                try {
+                if (null != sqlStatement)
                     sqlStatement.close();
-                } catch (SQLException sqle) {
-                    // TODO: Add catch code
-                    sqle.printStackTrace();
-                }
-            if (null != commonConfigdb)
-                try {
+                if (null != commonConfigdb)
                     commonConfigdb.close();
-                } catch (SQLException sqle) {
-                    // TODO: Add catch code
-                    sqle.printStackTrace();
-                }
+                if (null != myResultSet)
+                    myResultSet.close();
+                if (null != custResultSet)
+                    custResultSet.close();
+            } catch (SQLException sqle) {
+                sqle.printStackTrace();
+            } 
         }
 
         System.out.println("<---- exiting generateEmails");
@@ -5652,8 +5683,7 @@ public class GenericDataHandler implements Runnable {
         return localResult;
     }
 
-    private Map<String,String> getEmail(String custId,String creditStatus, BigDecimal total1, BigDecimal crLimit, BigDecimal total2,BigDecimal balance) {     
-        String custName= null;
+    private Map<String,String> getEmail(String custId,String custName,String creditStatus, BigDecimal total1, BigDecimal crLimit, BigDecimal total2,BigDecimal balance) {     
         Map<String,String> email = new HashMap<String,String>();
         StringBuilder html = new StringBuilder();
         html.append("<p>");
