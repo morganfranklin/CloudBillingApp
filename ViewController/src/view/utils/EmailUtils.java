@@ -8,6 +8,7 @@ import javax.activation.DataHandler;
 
 import javax.mail.Message;
 import javax.mail.Multipart;
+import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
@@ -29,8 +30,8 @@ public class EmailUtils {
 
     public static boolean sendEmail(String recepient, Map<String, String> email) {
         //String host = "smtp.gmail.com",port = "587",sender="morgan.franklin.test@gmail.com";
-        String host = "smtp.office365.com",port = "587",sender="noreply@covanta.com",cc="#CreditCheck_Mgrs@covanta.com";
-        _logger.info("Inside sendEmail");
+        String host = "smtp.office365.com",port = "587",sender="gbewley@covanta.com",cc="nkoneru@morgan-franklin.com";
+        System.err.println("Inside sendEmail");
         MimeMessage message = null;
         //InitialContext ic;
         try {
@@ -63,7 +64,7 @@ public class EmailUtils {
         } catch (Exception ex) {
             // TODO: Add catch code
             ex.printStackTrace();
-            _logger.info("Inside Catch Block: " + ex.getLocalizedMessage());
+            System.err.println("Inside Catch Block: " + ex.getLocalizedMessage());
         }
         return false;
     }
@@ -71,23 +72,23 @@ public class EmailUtils {
     private static Session getMailSession(String host, String port, String sender) {
 
         Properties props = new Properties();
-        //props.setProperty("mail.smtp.starttls.enable", "true");
-        //props.setProperty("mail.smtp.auth", "true");
-        props.setProperty("mail.transport.protocol", "smtp");
+        props.setProperty("mail.smtp.starttls.enable", "true");
+        props.setProperty("mail.smtp.auth", "true");
+        //props.setProperty("mail.transport.protocol", "smtp");
         props.setProperty("mail.smtp.host", host);
-        props.setProperty("mail.smtp.port", port);
-        props.setProperty("mail.smtp.user", sender);
-        props.setProperty("mail.debug", "true");
-        props.setProperty("mail.disable", "false");
-        props.setProperty("mail.verbose", "true");
-        Session session = Session.getDefaultInstance(props);
-        /*Session session = Session.getInstance(props,
+        //props.setProperty("mail.smtp.port", port);
+        //props.setProperty("mail.smtp.user", sender);
+        //props.setProperty("mail.debug", "true");
+        //props.setProperty("mail.disable", "false");
+        //props.setProperty("mail.verbose", "true");
+        //Session session = Session.getDefaultInstance(props);
+        Session session = Session.getInstance(props,
     new javax.mail.Authenticator() {
      protected PasswordAuthentication getPasswordAuthentication() {
-      return new PasswordAuthentication(sender,"morganfranklin@TS");
+      return new PasswordAuthentication(sender,"Covanta1245");
      }
-      });*/
-        session.setDebug(true);
+      });
+        //session.setDebug(true);
         return session;
     }
 
@@ -125,6 +126,6 @@ public class EmailUtils {
         html.append("\"><b>Reject</b></a>");
         html.append("</p>");
         //"<p><a href="https://www.w3schools.com/html/default.asp">HTML tutorial</a></p>";
-        model.utils.EmailUtils.sendEmail("nkoneru@morganfranklin.com", new HashMap<String, String>(), null);
+        sendEmail("nkoneru@morgan-franklin.com", new HashMap<String, String>());
     }
 }
