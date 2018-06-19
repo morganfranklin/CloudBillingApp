@@ -137,6 +137,7 @@ import oracle.jbo.domain.ClobDomain;
 import oracle.jbo.server.ApplicationModuleImpl;
 import oracle.jbo.server.Entity;
 import oracle.jbo.server.ViewLinkImpl;
+
 import oracle.jbo.server.ViewObjectImpl;
 
 import oracle.xml.parser.v2.XMLNode;
@@ -3669,6 +3670,11 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             (XpeDccAccrualRevenueEOVORowImpl) accrualRevenueVO.createRow();
         if(null!=accrualRevenueVORow)
             accrualRevenueVO.insertRow(accrualRevenueVORow);
+        
+        ViewObjectImpl psCisXpeProcessView2 = this.getPsCisXpeProcessView2();
+        psCisXpeProcessView2.setApplyViewCriteriaName("PsCisXpeProcessViewCriteria");
+        psCisXpeProcessView2.setNamedWhereClauseParam("bind_execPlanCode", "A11");
+        psCisXpeProcessView2.executeQuery();
     }
     
     public void accrualandRevenueGenerationProcesses(){
@@ -4226,6 +4232,21 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             lookupDesc = lkpMstrViewRow.getXpeLookupDesc();
         return lookupDesc;
     }
+    
+    public void createAllFacilitiesForAccurals() {
+        XpeDccAccrualRevenueEOVOImpl accrualRevenueVO = this.getXpeDccAccrualRevenueEOVO();
+        ViewObjectImpl facilitiesROVO = this.getXpeDccCfgPcsROVO1();
+        RowSetIterator rowsetIterator = facilitiesROVO.createRowSetIterator(null);
+        while (rowsetIterator.hasNext()) {
+            Row row = rowsetIterator.next();
+            XpeDccAccrualRevenueEOVORowImpl accrualRevenueVORow =
+                (XpeDccAccrualRevenueEOVORowImpl) accrualRevenueVO.createRow();
+            System.err.println("Site Id: "+row.getAttribute("SiteId"));
+            accrualRevenueVORow.setXpeFacilityId((String)row.getAttribute("SiteId"));
+            accrualRevenueVO.insertRow(accrualRevenueVORow);
+        }
+        rowsetIterator.closeRowSetIterator();
+    }
 
 
     /**
@@ -4715,6 +4736,22 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public RestROVOImpl getRestROVO1() {
         return (RestROVOImpl) findViewObject("RestROVO1");
+    }
+
+    /**
+     * Container's getter for XpeDccCfgPcsROVO1.
+     * @return XpeDccCfgPcsROVO1
+     */
+    public ViewObjectImpl getXpeDccCfgPcsROVO1() {
+        return (ViewObjectImpl) findViewObject("XpeDccCfgPcsROVO1");
+    }
+
+    /**
+     * Container's getter for PsCisXpeProcessView2.
+     * @return PsCisXpeProcessView2
+     */
+    public ViewObjectImpl getPsCisXpeProcessView2() {
+        return (ViewObjectImpl) findViewObject("PsCisXpeProcessView2");
     }
 }
 

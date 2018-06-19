@@ -8,6 +8,10 @@
               id="XpeDccAccrualRevenueEOVOIterator" ChangeEventPolicy="none"/>
     <iterator Binds="XpeDccCfgRoleSecurityROVO" RangeSize="10" DataControl="AppModuleDataControl"
               id="XpeDccCfgRoleSecurityEOVOIterator"/>
+    <iterator Binds="PsCisXpeProcessView2" RangeSize="25" DataControl="AppModuleDataControl"
+              id="PsCisXpeProcessView2Iterator"/>
+    <searchRegion Binds="PsCisXpeProcessView2Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="PsCisXpeProcessView2Query"/>
   </executables>
   <bindings>
     <action IterBinding="XpeDccAccrualRevenueEOVOIterator" id="CreateInsert" RequiresUpdateModel="true"
@@ -31,5 +35,19 @@
         <Item Value="Screen20"/>
       </AttrNames>
     </attributeValues>
+    <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <methodAction id="createAllFacilitiesForAccurals" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="createAllFacilitiesForAccurals" IsViewObjectMethod="false"
+                  DataControl="AppModuleDataControl" InstanceName="data.AppModuleDataControl.dataProvider"/>
+    <tree IterBinding="PsCisXpeProcessView2Iterator" id="PsCisXpeProcessView2">
+      <nodeDefinition DefName="model.PsCisXpeProcessView" Name="PsCisXpeProcessView20">
+        <AttrNames>
+          <Item Value="Processid"/>
+          <Item Value="Descr100"/>
+          <Item Value="ActualStartDt"/>
+          <Item Value="ActualFinishDt"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

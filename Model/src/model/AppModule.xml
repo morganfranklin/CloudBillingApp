@@ -718,6 +718,12 @@
     <ViewUsage
         Name="RestROVO1"
         ViewObjectName="model.restservice.views.RestROVO"/>
+    <ViewUsage
+        Name="XpeDccCfgPcsROVO1"
+        ViewObjectName="model.views.readonly.XpeDccCfgPcsROVO"/>
+    <ViewUsage
+        Name="PsCisXpeProcessView2"
+        ViewObjectName="model.PsCisXpeProcessView"/>
     <ViewLinkUsage
         Name="NeuRuleTblFk1Link1"
         ViewLinkObjectName="model.NeuRuleTblFk1Link"
@@ -2320,6 +2326,13 @@
             <Parameter
                 Name="lookupCode"
                 Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="createAllFacilitiesForAccurals"
+            MethodName="createAllFacilitiesForAccurals">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
         </Method>
     </ClientInterface>
 </AppModule>

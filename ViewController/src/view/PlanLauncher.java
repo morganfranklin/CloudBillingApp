@@ -3,12 +3,26 @@ package view;
 
 import java.sql.Date;
 
+import java.util.Map;
+
 import javax.el.ELContext;
 import javax.el.ExpressionFactory;
 import javax.el.ValueExpression;
 
 import javax.faces.application.Application;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ValueChangeEvent;
+
+import oracle.adf.model.BindingContext;
+
+import oracle.adf.model.binding.DCBindingContainer;
+
+import oracle.adf.view.rich.context.AdfFacesContext;
+
+import oracle.binding.BindingContainer;
+import oracle.binding.OperationBinding;
+
+import view.utils.ADFUtils;
 
 
 public class PlanLauncher {
@@ -18,6 +32,7 @@ public class PlanLauncher {
     private boolean selectedTestRun;
     
     private String planOverride = null;
+    private Boolean selectAllFacilities;
 
     public String resolvEl(String data) {
         FacesContext fc = FacesContext.getCurrentInstance();
@@ -126,5 +141,28 @@ public class PlanLauncher {
 
     public String getPlanOverride() {
         return planOverride;
+    }
+
+    public void setSelectAllFacilities(Boolean selectAllFacilities) {
+        this.selectAllFacilities = selectAllFacilities;
+    }
+
+    public Boolean getSelectAllFacilities() {
+        return selectAllFacilities;
+    }
+
+    public void onRunForAllFacilities(ValueChangeEvent valueChangeEvent) {
+        if (null != valueChangeEvent) {
+            Boolean facilityCheck = (Boolean) valueChangeEvent.getNewValue();
+            System.err.println(facilityCheck);
+            ADFUtils.invokeEL("#{bindings.Rollback.execute}");
+            if (Boolean.TRUE.equals(facilityCheck)) {
+                DCBindingContainer bindings =
+                    (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
+                OperationBinding operationBinding = bindings.getOperationBinding("createAllFacilitiesForAccurals");
+                if (null != operationBinding)
+                    operationBinding.execute();
+            } 
+        }
     }
 }

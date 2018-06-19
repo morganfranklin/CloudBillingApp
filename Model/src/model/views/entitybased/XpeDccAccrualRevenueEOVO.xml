@@ -153,6 +153,13 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="RunStatus"
+    PrecisionRule="true"
+    EntityAttrName="RunStatus"
+    EntityUsage="XpeDccAccrualRevenueEO"
+    AliasName="RUN_STATUS"
+    DefaultValue="PENDING"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

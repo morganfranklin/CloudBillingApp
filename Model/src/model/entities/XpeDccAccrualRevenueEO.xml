@@ -9,7 +9,13 @@
   DBObjectType="table"
   DBObjectName="XPE_DCC_ACCRUAL_REVENUE"
   AliasName="XpeDccAccrualRevenueEO"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation"
+  RowClass="model.entities.XpeDccAccrualRevenueEOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="XpeAccrualRevenueId"
     IsUpdateable="while_insert"
@@ -62,9 +68,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_ACCRUAL_REVENUE"
-    IsUpdateable="while_insert"
-    HistoryColumn="UserHistory">
+    TableName="XPE_DCC_ACCRUAL_REVENUE">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -85,8 +89,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="XPE_DCC_ACCRUAL_REVENUE"
-    HistoryColumn="UserHistory">
+    TableName="XPE_DCC_ACCRUAL_REVENUE">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -99,6 +102,18 @@
     ColumnType="TIMESTAMP"
     TableName="XPE_DCC_ACCRUAL_REVENUE"
     HistoryColumn="DateHistory"/>
+  <Attribute
+    Name="RunStatus"
+    Precision="20"
+    ColumnName="RUN_STATUS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_ACCRUAL_REVENUE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
   <Key
     Name="XpeDccAccrualRevenuePk"
     PrimaryKey="true">
@@ -109,4 +124,8 @@
       <Item Value="model.entities.XpeDccAccrualRevenueEO.XpeAccrualRevenueId"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>

@@ -85,5 +85,7 @@ public interface AppModule extends ApplicationModule {
     void executePsXpeImportView();
 
     String getLookupDesc(String lookupType, String lookupCode);
+
+    void createAllFacilitiesForAccurals();
 }
 

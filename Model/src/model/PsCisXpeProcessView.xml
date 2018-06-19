@@ -14,6 +14,10 @@
     SelectAllAttributes="false"
     PageIterMode="Full"
     FetchMode="FETCH_AS_NEEDED">
+    <Variable
+        Name="bind_execPlanCode"
+        Kind="viewcriteria"
+        Type="java.lang.String"/>
     <EntityUsage
         Name="PsCisXpeProcess"
         Entity="model.PsCisXpeProcess"/>
@@ -23,7 +27,14 @@
         PrecisionRule="true"
         EntityAttrName="Processid"
         EntityUsage="PsCisXpeProcess"
-        AliasName="PROCESSID"/>
+        AliasName="PROCESSID">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.PsCisXpeProcessView.Processid_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
     <ViewAttribute
         Name="CisExecPlanCode"
         PrecisionRule="true"
@@ -53,25 +64,86 @@
         PrecisionRule="true"
         EntityAttrName="Descr100"
         EntityUsage="PsCisXpeProcess"
-        AliasName="DESCR100"/>
+        AliasName="DESCR100">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.PsCisXpeProcessView.Descr100_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
     <ViewAttribute
         Name="ActualStartDt"
         PrecisionRule="true"
         EntityAttrName="ActualStartDt"
         EntityUsage="PsCisXpeProcess"
-        AliasName="ACTUAL_START_DT"/>
+        AliasName="ACTUAL_START_DT">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.PsCisXpeProcessView.ActualStartDt_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
     <ViewAttribute
         Name="ActualFinishDt"
         PrecisionRule="true"
         EntityAttrName="ActualFinishDt"
         EntityUsage="PsCisXpeProcess"
-        AliasName="ACTUAL_FINISH_DT"/>
+        AliasName="ACTUAL_FINISH_DT">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="model.PsCisXpeProcessView.ActualFinishDt_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
     <ViewAttribute
         Name="LastUpdateDate"
         PrecisionRule="true"
         EntityAttrName="LastUpdateDate"
         EntityUsage="PsCisXpeProcess"
         AliasName="LAST_UPDATE_DATE"/>
+    <ViewCriteria
+        Name="PsCisXpeProcessViewCriteria"
+        ViewObjectName="model.PsCisXpeProcessView"
+        Conjunction="AND">
+        <Properties Name="_Props">
+            <CustomProperties>
+                <Property
+                    Name="autoExecute"
+                    Value="false"/>
+                <Property
+                    Name="mode"
+                    Value="Basic"/>
+                <Property
+                    Name="allowConjunctionOverride"
+                    Value="true"/>
+                <Property
+                    Name="showInList"
+                    Value="true"/>
+                <Property
+                    Name="displayOperators"
+                    Value="InAdvancedMode"/>
+            </CustomProperties>
+        </Properties>
+        <ViewCriteriaRow
+            Name="PsCisXpeProcessViewCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+                Name="CisExecPlanCode"
+                ViewAttribute="CisExecPlanCode"
+                Operator="="
+                Conjunction="AND"
+                Value=":bind_execPlanCode"
+                IsBindVarValue="true"
+                Required="Optional"/>
+        </ViewCriteriaRow>
+    </ViewCriteria>
+    <ResourceBundle>
+        <PropertiesBundle
+            PropertiesFile="model.ModelBundle"/>
+    </ResourceBundle>
     <SortCriteria>
         <Sort
             Attribute="Processid"

@@ -15,6 +15,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
 public class XpeDccAccrualRevenueEOVORowImpl extends ViewRowImpl {
 
+
     public static final int ENTITY_XPEDCCACCRUALREVENUEEO = 0;
 
     /**
@@ -29,6 +30,7 @@ public class XpeDccAccrualRevenueEOVORowImpl extends ViewRowImpl {
         XpeAccrualRevenueId,
         XpeFacilityId,
         XpeJournalGeneratorTemplate,
+        RunStatus,
         XpeDccCfgPcsROVO_LOV,
         PsJrnlGenApplIdROVO_LOV;
         static AttributesEnum[] vals = null;
@@ -55,6 +57,7 @@ public class XpeDccAccrualRevenueEOVORowImpl extends ViewRowImpl {
         }
     }
 
+
     public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
     public static final int CREATIONDATE = AttributesEnum.CreationDate.index();
     public static final int LASTUPDATEDATE = AttributesEnum.LastUpdateDate.index();
@@ -63,6 +66,7 @@ public class XpeDccAccrualRevenueEOVORowImpl extends ViewRowImpl {
     public static final int XPEACCRUALREVENUEID = AttributesEnum.XpeAccrualRevenueId.index();
     public static final int XPEFACILITYID = AttributesEnum.XpeFacilityId.index();
     public static final int XPEJOURNALGENERATORTEMPLATE = AttributesEnum.XpeJournalGeneratorTemplate.index();
+    public static final int RUNSTATUS = AttributesEnum.RunStatus.index();
     public static final int XPEDCCCFGPCSROVO_LOV = AttributesEnum.XpeDccCfgPcsROVO_LOV.index();
     public static final int PSJRNLGENAPPLIDROVO_LOV = AttributesEnum.PsJrnlGenApplIdROVO_LOV.index();
 
@@ -174,6 +178,22 @@ public class XpeDccAccrualRevenueEOVORowImpl extends ViewRowImpl {
      */
     public void setXpeJournalGeneratorTemplate(String value) {
         setAttributeInternal(XPEJOURNALGENERATORTEMPLATE, value);
+    }
+
+    /**
+     * Gets the attribute value for RUN_STATUS using the alias name RunStatus.
+     * @return the RUN_STATUS
+     */
+    public String getRunStatus() {
+        return (String) getAttributeInternal(RUNSTATUS);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for RUN_STATUS using the alias name RunStatus.
+     * @param value value to set the RUN_STATUS
+     */
+    public void setRunStatus(String value) {
+        setAttributeInternal(RUNSTATUS, value);
     }
 
     /**

@@ -6,10 +6,13 @@
       <f:facet name="context"/>
       <f:facet name="toolbar">
         <af:toolbar id="t1">
+          <af:selectBooleanCheckbox text="Run for all Facilities" id="sbc1" value="#{pageFlowScope.AccrualRevenueProcessesMBean.selectAllFacilities}" autoSubmit="true"
+                                    valueChangeListener="#{pageFlowScope.AccrualRevenueProcessesMBean.onRunForAllFacilities}"/>
+          <af:spacer width="10" height="10" id="s5"/>
           <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add"
                      id="b1" rendered="#{bindings.Accruals.inputValue ne 'V'}"/>
           <af:spacer width="10" height="10" id="s1"/>
-          <af:button actionListener="#{bindings.Delete.execute}" text="Delete" disabled="#{!bindings.Delete.enabled}"
+          <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
                      id="b2" immediate="true" rendered="#{bindings.Accruals.inputValue ne 'V'}"/>
         </af:toolbar>
       </f:facet>
@@ -20,16 +23,17 @@
       <af:table value="#{bindings.XpeDccAccrualRevenueEOVO.collectionModel}" var="row"
                 rows="#{bindings.XpeDccAccrualRevenueEOVO.rangeSize}"
                 emptyText="#{bindings.XpeDccAccrualRevenueEOVO.viewable ? 'No data to display.' : 'Access Denied.'}"
-                rowBandingInterval="0"
+                rowBandingInterval="1"
                 selectedRowKeys="#{bindings.XpeDccAccrualRevenueEOVO.collectionModel.selectedRow}"
                 selectionListener="#{bindings.XpeDccAccrualRevenueEOVO.collectionModel.makeCurrent}"
                 rowSelection="single" fetchSize="#{bindings.XpeDccAccrualRevenueEOVO.rangeSize}" id="t2"
-                contentDelivery="immediate" columnStretching="last" partialTriggers="::b2 ::b1">
+                contentDelivery="immediate" columnStretching="last" partialTriggers="::b1 ::b2 ::sbc1"
+                styleClass="AFStretchWidth">
         <af:column headerText="#{bindings.XpeDccAccrualRevenueEOVO.hints.XpeFacilityId.label}" id="c1" width="200">
           <af:selectOneChoice value="#{row.bindings.XpeFacilityId.inputValue}"
                               label="#{row.bindings.XpeFacilityId.label}"
                               shortDesc="#{bindings.XpeDccAccrualRevenueEOVO.hints.XpeFacilityId.tooltip}" id="soc1"
-                              autoSubmit="true" required="true" readOnly="#{bindings.Accruals.inputValue eq 'V'}">
+                              autoSubmit="true" readOnly="#{bindings.Accruals.inputValue eq 'V'}" required="true">
             <f:selectItems value="#{row.bindings.XpeFacilityId.items}" id="si1"/>
             <f:validator binding="#{row.bindings.XpeFacilityId.validator}"/>
           </af:selectOneChoice>
@@ -45,29 +49,70 @@
             <f:validator binding="#{row.bindings.XpeJournalGeneratorTemplate.validator}"/>
           </af:selectOneChoice>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccAccrualRevenueEOVO.hints.XpeAccountingDate.label}" id="c3">
-          <af:inputDate value="#{row.bindings.XpeAccountingDate.inputValue}"
-                        label="#{bindings.XpeDccAccrualRevenueEOVO.hints.XpeAccountingDate.label}"
-                        required="#{bindings.XpeDccAccrualRevenueEOVO.hints.XpeAccountingDate.mandatory}"
-                        columns="#{bindings.XpeDccAccrualRevenueEOVO.hints.XpeAccountingDate.displayWidth}"
-                        shortDesc="#{bindings.XpeDccAccrualRevenueEOVO.hints.XpeAccountingDate.tooltip}" id="id1"
-                        autoSubmit="true" readOnly="#{bindings.Accruals.inputValue eq 'V'}">
-            <f:validator binding="#{row.bindings.XpeAccountingDate.validator}"/>
-            <af:convertDateTime pattern="#{bindings.XpeDccAccrualRevenueEOVO.hints.XpeAccountingDate.format}"/>
-          </af:inputDate>
-        </af:column>
       </af:table>
     </af:panelHeader>
     <af:spacer width="10" height="10" id="s3"/>
+    <af:panelHeader text="Results" id="ph3">
+      <af:table value="#{bindings.PsCisXpeProcessView2.collectionModel}" var="row"
+                rows="#{bindings.PsCisXpeProcessView2.rangeSize}"
+                emptyText="#{bindings.PsCisXpeProcessView2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                rowBandingInterval="1" fetchSize="#{bindings.PsCisXpeProcessView2.rangeSize}" id="t4"
+                contentDelivery="immediate" columnStretching="last" styleClass="AFStretchWidth"
+                filterModel="#{bindings.PsCisXpeProcessView2Query.queryDescriptor}" filterVisible="true"
+                queryListener="#{bindings.PsCisXpeProcessView2Query.processQuery}" varStatus="vs">
+        <af:column headerText="#{bindings.PsCisXpeProcessView2.hints.Processid.label}" id="c3"
+                   sortProperty="#{bindings.PsCisXpeProcessView2.hints.Processid.name}" filterable="true"
+                   sortable="true">
+          <af:outputText value="#{row.Processid}" shortDesc="#{bindings.PsCisXpeProcessView2.hints.Processid.tooltip}"
+                         id="ot4">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.PsCisXpeProcessView2.hints.Processid.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column headerText="#{bindings.PsCisXpeProcessView2.hints.Descr100.label}" id="c4"
+                   sortProperty="#{bindings.PsCisXpeProcessView2.hints.Descr100.name}" filterable="true"
+                   sortable="true">
+          <af:outputText value="#{row.Descr100}" shortDesc="#{bindings.PsCisXpeProcessView2.hints.Descr100.tooltip}"
+                         id="ot2"/>
+        </af:column>
+        <af:column headerText="#{bindings.PsCisXpeProcessView2.hints.ActualStartDt.label}" id="c5"
+                   sortProperty="#{bindings.PsCisXpeProcessView2.hints.ActualStartDt.name}" filterable="true"
+                   sortable="true">
+          <af:outputText value="#{row.ActualStartDt}"
+                         shortDesc="#{bindings.PsCisXpeProcessView2.hints.ActualStartDt.tooltip}" id="ot1">
+            <af:convertDateTime pattern="#{bindings.PsCisXpeProcessView2.hints.ActualStartDt.format}"/>
+          </af:outputText>
+          <f:facet name="filter">
+            <af:inputDate value="#{bindings.PsCisXpeProcessView2Query.queryDescriptor.filterConjunctionCriterion.criterionMap.ActualStartDt.value}"
+                          id="id2">
+              <af:convertDateTime pattern="#{bindings.PsCisXpeProcessView2.hints.ActualStartDt.format}"/>
+            </af:inputDate>
+          </f:facet>
+        </af:column>
+        <af:column headerText="#{bindings.PsCisXpeProcessView2.hints.ActualFinishDt.label}" id="c6"
+                   sortProperty="#{bindings.PsCisXpeProcessView2.hints.ActualFinishDt.name}" filterable="true"
+                   sortable="true">
+          <af:outputText value="#{row.ActualFinishDt}"
+                         shortDesc="#{bindings.PsCisXpeProcessView2.hints.ActualFinishDt.tooltip}" id="ot3">
+            <af:convertDateTime pattern="#{bindings.PsCisXpeProcessView2.hints.ActualFinishDt.format}"/>
+          </af:outputText>
+          <f:facet name="filter">
+            <af:inputDate value="#{bindings.PsCisXpeProcessView2Query.queryDescriptor.filterConjunctionCriterion.criterionMap.ActualFinishDt.value}"
+                          id="id1">
+              <af:convertDateTime pattern="#{bindings.PsCisXpeProcessView2.hints.ActualFinishDt.format}"/>
+            </af:inputDate>
+          </f:facet>
+        </af:column>
+      </af:table>
+    </af:panelHeader>
     <af:panelHeader text="" id="ph2">
       <f:facet name="context"/>
       <f:facet name="toolbar">
         <af:toolbar id="t3">
           <af:button actionListener="#{bindings.Commit.execute}"
                      text="Process"
-                     id="b3" action="#{AccrualRevenueProcessesMBean.launchPlanInstance}"
+                     id="b3" action="#{pageFlowScope.AccrualRevenueProcessesMBean.launchPlanInstance}"
                      rendered="#{bindings.Accruals.inputValue ne 'V'}">
-            <af:setPropertyListener from="#{'A12'}" to="#{AccrualRevenueProcessesMBean.planOverride}"
+            <af:setPropertyListener from="#{'A11'}" to="#{pageFlowScope.AccrualRevenueProcessesMBean.planOverride}"
                                     type="action"/>
           </af:button>
           <af:spacer width="10" height="10" id="s4"/>

@@ -8,7 +8,7 @@
     <managed-bean id="__5">
       <managed-bean-name>AccrualRevenueProcessesMBean</managed-bean-name>
       <managed-bean-class>view.PlanLauncher</managed-bean-class>
-      <managed-bean-scope>request</managed-bean-scope>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
     </managed-bean>
     <method-call id="initAccrualRevenueGeneration">
       <method>#{bindings.initAccrualRevenueGeneration.execute}</method>
