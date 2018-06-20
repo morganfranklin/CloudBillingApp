@@ -150,6 +150,8 @@
           <Item Value="Postal"/>
           <Item Value="XpeSwApprNbr"/>
           <Item Value="SalesPerson"/>
+          <Item Value="XpeStartDate"/>
+          <Item Value="XpeEndDate"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

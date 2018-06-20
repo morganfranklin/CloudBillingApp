@@ -24,7 +24,6 @@ public class XpeDccCfgPcsEOImpl extends EntityImpl {
         SiteId,
         SiteDesc,
         DbLink,
-        PrintStage,
         Inactive,
         InactiveDate,
         Activate,
@@ -35,9 +34,11 @@ public class XpeDccCfgPcsEOImpl extends EntityImpl {
         LastUpdatedBy,
         LastUpdatedDate,
         FacilityId,
+        SiteOverride,
         XpeDccCfgPcsAssTerminalsEO,
         XpeDccCfgPcsAddressEO;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -64,7 +65,6 @@ public class XpeDccCfgPcsEOImpl extends EntityImpl {
     public static final int SITEID = AttributesEnum.SiteId.index();
     public static final int SITEDESC = AttributesEnum.SiteDesc.index();
     public static final int DBLINK = AttributesEnum.DbLink.index();
-    public static final int PRINTSTAGE = AttributesEnum.PrintStage.index();
     public static final int INACTIVE = AttributesEnum.Inactive.index();
     public static final int INACTIVEDATE = AttributesEnum.InactiveDate.index();
     public static final int ACTIVATE = AttributesEnum.Activate.index();
@@ -75,6 +75,7 @@ public class XpeDccCfgPcsEOImpl extends EntityImpl {
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int FACILITYID = AttributesEnum.FacilityId.index();
+    public static final int SITEOVERRIDE = AttributesEnum.SiteOverride.index();
     public static final int XPEDCCCFGPCSASSTERMINALSEO = AttributesEnum.XpeDccCfgPcsAssTerminalsEO.index();
     public static final int XPEDCCCFGPCSADDRESSEO = AttributesEnum.XpeDccCfgPcsAddressEO.index();
 
@@ -83,6 +84,14 @@ public class XpeDccCfgPcsEOImpl extends EntityImpl {
      */
     public XpeDccCfgPcsEOImpl() {
     }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("model.entities.XpeDccCfgPcsEO");
+    }
+
 
     /**
      * Gets the attribute value for SiteId, using the alias name SiteId.
@@ -130,22 +139,6 @@ public class XpeDccCfgPcsEOImpl extends EntityImpl {
      */
     public void setDbLink(String value) {
         setAttributeInternal(DBLINK, value);
-    }
-
-    /**
-     * Gets the attribute value for PrintStage, using the alias name PrintStage.
-     * @return the value of PrintStage
-     */
-    public String getPrintStage() {
-        return (String) getAttributeInternal(PRINTSTAGE);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for PrintStage.
-     * @param value value to set the PrintStage
-     */
-    public void setPrintStage(String value) {
-        setAttributeInternal(PRINTSTAGE, value);
     }
 
     /**
@@ -293,6 +286,22 @@ public class XpeDccCfgPcsEOImpl extends EntityImpl {
     }
 
     /**
+     * Gets the attribute value for SiteOverride, using the alias name SiteOverride.
+     * @return the value of SiteOverride
+     */
+    public String getSiteOverride() {
+        return (String) getAttributeInternal(SITEOVERRIDE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for SiteOverride.
+     * @param value value to set the SiteOverride
+     */
+    public void setSiteOverride(String value) {
+        setAttributeInternal(SITEOVERRIDE, value);
+    }
+
+    /**
      * @return the associated entity oracle.jbo.RowIterator.
      */
     public RowIterator getXpeDccCfgPcsAssTerminalsEO() {
@@ -306,6 +315,7 @@ public class XpeDccCfgPcsEOImpl extends EntityImpl {
         return (RowIterator) getAttributeInternal(XPEDCCCFGPCSADDRESSEO);
     }
 
+
     /**
      * @param siteId key constituent
 
@@ -314,14 +324,6 @@ public class XpeDccCfgPcsEOImpl extends EntityImpl {
     public static Key createPrimaryKey(String siteId) {
         return new Key(new Object[] { siteId });
     }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("model.entities.XpeDccCfgPcsEO");
-    }
-
 
     protected String nextVal(String sequenceName) {
         SequenceImpl s = new SequenceImpl(sequenceName, getDBTransaction());

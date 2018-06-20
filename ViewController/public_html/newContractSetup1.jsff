@@ -381,6 +381,18 @@
                                                                        shortDesc="#{bindings.XpeDccContractSearchROVO.hints.Name1.tooltip}"
                                                                        id="ot12"/>
                                                     </af:column>
+                                                    <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.XpeStartDate.label}"
+                                                               id="c5">
+                                                        <af:outputText value="#{row.XpeStartDate}"
+                                                                       shortDesc="#{bindings.XpeDccContractSearchROVO.hints.XpeStartDate.tooltip}"
+                                                                       id="ot3"/>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.XpeEndDate.label}"
+                                                               id="c6">
+                                                        <af:outputText value="#{row.XpeEndDate}"
+                                                                       shortDesc="#{bindings.XpeDccContractSearchROVO.hints.XpeEndDate.tooltip}"
+                                                                       id="ot6"/>
+                                                    </af:column>
                                                     <af:column headerText="#{bindings.XpeDccContractSearchROVO.hints.Descr.label}"
                                                                id="resId2c7" width="100">
                                                         <af:outputText value="#{row.Descr}"

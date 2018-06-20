@@ -37,23 +37,23 @@
             <af:setActionListener from="EDIT" to="#{pageFlowScope.NavFlow}"/>
           </af:link>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgPcsEOVO.hints.SiteDesc.label}" id="resId1c2">
+        <af:column headerText="#{bindings.XpeDccCfgPcsEOVO.hints.SiteDesc.label}" id="resId1c2" width="200">
           <af:outputText value="#{row.SiteDesc}" shortDesc="#{bindings.XpeDccCfgPcsEOVO.hints.SiteDesc.tooltip}"
                          id="ot2"/>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgPcsEOVO.hints.DbLink.label}" id="resId1c4">
+        <af:column headerText="#{bindings.XpeDccCfgPcsEOVO.hints.DbLink.label}" id="resId1c4" rendered="false">
           <af:outputText value="#{row.DbLink}" shortDesc="#{bindings.XpeDccCfgPcsEOVO.hints.DbLink.tooltip}" id="ot4"/>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgPcsEOVO.hints.PrintStage.label}" id="resId1c5">
-          <af:selectOneChoice value="#{row.bindings.PrintStage.inputValue}" label="#{row.bindings.PrintStage.label}"
-                              required="#{bindings.XpeDccCfgPcsEOVO.hints.PrintStage.mandatory}"
-                              shortDesc="#{bindings.XpeDccCfgPcsEOVO.hints.PrintStage.tooltip}" readOnly="true"
-                              id="soc1">
-            <f:selectItems value="#{row.bindings.PrintStage.items}" id="si1"/>
-            <f:validator binding="#{row.bindings.PrintStage.validator}"/>
+        <af:column headerText="#{bindings.XpeDccCfgPcsEOVO.hints.SiteOverride.label}" id="c6" width="200">
+          <af:selectOneChoice value="#{row.bindings.SiteOverride.inputValue}" label="#{row.bindings.SiteOverride.label}"
+                              required="#{bindings.XpeDccCfgPcsEOVO.hints.SiteOverride.mandatory}"
+                              shortDesc="#{bindings.XpeDccCfgPcsEOVO.hints.SiteOverride.tooltip}" id="soc6"
+                              readOnly="true">
+            <f:selectItems value="#{row.bindings.SiteOverride.items}" id="si6"/>
+            <f:validator binding="#{row.bindings.SiteOverride.validator}"/>
           </af:selectOneChoice>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgPcsEOVO.hints.Activate.label}" id="resId1c6">
+        <af:column headerText="#{bindings.XpeDccCfgPcsEOVO.hints.Activate.label}" id="resId1c6" rendered="false">
           <af:selectOneChoice value="#{row.bindings.Activate.inputValue}" label="#{row.bindings.Activate.label}"
                               required="#{bindings.XpeDccCfgPcsEOVO.hints.Activate.mandatory}"
                               shortDesc="#{bindings.XpeDccCfgPcsEOVO.hints.Activate.tooltip}" readOnly="true" id="soc2">
@@ -61,7 +61,8 @@
             <f:validator binding="#{row.bindings.Activate.validator}"/>
           </af:selectOneChoice>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgPcsEOVO.hints.DirectToCustomer.label}" id="resId1c7">
+        <af:column headerText="#{bindings.XpeDccCfgPcsEOVO.hints.DirectToCustomer.label}" id="resId1c7"
+                   rendered="false">
           <af:selectOneChoice value="#{row.bindings.DirectToCustomer.inputValue}"
                               label="#{row.bindings.DirectToCustomer.label}"
                               required="#{bindings.XpeDccCfgPcsEOVO.hints.DirectToCustomer.mandatory}"
@@ -71,7 +72,8 @@
             <f:validator binding="#{row.bindings.DirectToCustomer.validator}"/>
           </af:selectOneChoice>
         </af:column>
-        <af:column headerText="#{bindings.XpeDccCfgPcsEOVO.hints.EmailNotificationGroup.label}" id="resId1c8">
+        <af:column headerText="#{bindings.XpeDccCfgPcsEOVO.hints.EmailNotificationGroup.label}" id="resId1c8"
+                   width="250">
           <af:outputText value="#{row.EmailNotificationGroup}"
                          shortDesc="#{bindings.XpeDccCfgPcsEOVO.hints.EmailNotificationGroup.tooltip}" id="ot5"/>
         </af:column>

@@ -75,26 +75,43 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
-  <SQLQuery><![CDATA[SELECT D.XPE_CONTRACT_ID, D.XPE_CONTRACT_DESC,                     
-A.SETID, A.CUST_ID, A.NAME1, B.DESCR, C.COUNTRY, C.ADDRESS1, C.ADDRESS2,                         
-C.CITY,C.STATE,C.POSTAL,E.XPE_SW_APPR_NBR,F.XPE_CONTRACT_VERSION, F.SALES_PERSON             
-FROM PS_CUSTOMER A, PS_CUST_ADDR_SEQ B,                         
-PS_CUST_ADDRESS C, XPE_DCC_CONTRACTS D,XPE_DCC_CONTRACT_LINE E ,XPE_DCC_CONTRACT_VERSION F               
-WHERE A.SETID='MASTR'    
-AND A.SETID=B.SETID                         
-AND A.CUST_ID=B.CUST_ID                         
-AND B.BILL_TO_ADDR='Y'                         
-AND B.SETID=C.SETID                         
-AND B.CUST_ID=C.CUST_ID                         
-AND B.ADDRESS_SEQ_NUM=C.ADDRESS_SEQ_NUM                         
-AND C.LANGUAGE_CD='ENG'                    
---AND A.SETID=D.SETID                    
-AND A.CUST_ID=D.CUST_ID                
-AND D.XPE_CONTRACT_ID=F.XPE_CONTRACT_ID  
-AND F.XPE_CONTRACT_ID=E.XPE_CONTRACT_ID                
-AND F.XPE_CONTRACT_VERSION=E.XPE_CONTRACT_VERSION             
-AND F.XPE_CONTRACT_STATUS = 'APR'             
-ORDER BY D.XPE_CONTRACT_ID DESC]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT D.xpe_contract_id,  
+       D.xpe_contract_desc,  
+       A.setid,  
+       A.cust_id,  
+       A.name1,  
+       B.descr,  
+       C.country,  
+       C.address1,  
+       C.address2,  
+       C.city,  
+       C.state,  
+       C.postal,  
+       E.xpe_sw_appr_nbr,  
+       F.xpe_contract_version,  
+       F.sales_person,  
+       F.xpe_start_date,  
+       F.xpe_end_date  
+FROM   ps_customer A,  
+       ps_cust_addr_seq B,  
+       ps_cust_address C,  
+       xpe_dcc_contracts D,  
+       xpe_dcc_contract_line E,  
+       xpe_dcc_contract_version F  
+WHERE  A.setid = 'MASTR'  
+       AND A.setid = B.setid  
+       AND A.cust_id = B.cust_id  
+       AND B.bill_to_addr = 'Y'  
+       AND B.setid = C.setid  
+       AND B.cust_id = C.cust_id  
+       AND B.address_seq_num = C.address_seq_num  
+       AND C.language_cd = 'ENG'  
+       AND A.cust_id = D.cust_id  
+       AND D.xpe_contract_id = F.xpe_contract_id  
+       AND F.xpe_contract_id = E.xpe_contract_id  
+       AND F.xpe_contract_version = E.xpe_contract_version  
+       AND F.xpe_contract_status = 'APR'  
+ORDER  BY D.xpe_contract_id DESC]]></SQLQuery>
   <ViewAttribute
     Name="XpeContractId"
     IsUpdateable="false"
@@ -163,6 +180,7 @@ ORDER BY D.XPE_CONTRACT_ID DESC]]></SQLQuery>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+
   <ViewAttribute
     Name="CustId"
     IsUpdateable="false"
@@ -322,8 +340,7 @@ ORDER BY D.XPE_CONTRACT_ID DESC]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="12"/>
     </DesignTime>
-  </ViewAttribute>
-  <ViewAttribute
+  </ViewAttribute><ViewAttribute
     Name="XpeSwApprNbr"
     IsUpdateable="false"
     IsPersistent="false"
@@ -389,6 +406,46 @@ ORDER BY D.XPE_CONTRACT_ID DESC]]></SQLQuery>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="XpeStartDate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="TIMESTAMP"
+    AliasName="XPE_START_DATE"
+    Expression="XPE_START_DATE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccContractSearchROVO.XpeStartDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="XpeEndDate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="TIMESTAMP"
+    AliasName="XPE_END_DATE"
+    Expression="XPE_END_DATE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.readonly.XpeDccContractSearchROVO.XpeEndDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="ContractSearchCriteria"
     ViewObjectName="model.views.readonly.XpeDccContractSearchROVO"
@@ -429,22 +486,6 @@ ORDER BY D.XPE_CONTRACT_ID DESC]]></SQLQuery>
         Operator="CONTAINS"
         Conjunction="AND"
         Value=":bindContractDesc"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="CustId"
-        ViewAttribute="CustId"
-        Operator="CONTAINS"
-        Conjunction="AND"
-        Value=":bindCustomerId"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="Name1"
-        ViewAttribute="Name1"
-        Operator="="
-        Conjunction="AND"
-        Value=":bindCustomerName"
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
