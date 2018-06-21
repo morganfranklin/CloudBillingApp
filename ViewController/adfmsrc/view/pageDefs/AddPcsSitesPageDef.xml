@@ -29,8 +29,6 @@
         <Item Value="DbLink"/>
       </AttrNames>
     </attributeValues>
-    <list IterBinding="XpeDccCfgNewPcsEOVOIterator" StaticList="false" Uses="LOV_PrintStage" id="PrintStage"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <list IterBinding="XpeDccCfgNewPcsEOVOIterator" StaticList="false" Uses="LOV_Activate" id="Activate"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <list IterBinding="XpeDccCfgNewPcsEOVOIterator" StaticList="false" Uses="LOV_DirectToCustomer"
@@ -128,5 +126,7 @@
     <action IterBinding="XpeDccCfgNewPcsAddressEOVOIterator" id="Delete"
             InstanceName="AppModuleDataControl.XpeDccCfgNewPcsAddressEOVO" DataControl="AppModuleDataControl"
             RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <list IterBinding="XpeDccCfgNewPcsEOVOIterator" StaticList="false" Uses="LOV_SiteOverride" id="SiteOverride"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

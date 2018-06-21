@@ -110,13 +110,13 @@
     <DisplayCriteria/>
   </ListBinding>
   <ListBinding
-    Name="LOV_PrintStage"
+    Name="LOV_SiteOverride"
     ListVOName="LookupSharedAppModule_YONLOV"
     ListRangeSize="-1"
     NullValueFlag="none"
     MRUCount="0">
     <AttrArray Name="AttrNames">
-      <Item Value="PrintStage"/>
+      <Item Value="SiteOverride"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
@@ -214,22 +214,6 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="PrintStage"
-    PrecisionRule="true"
-    EntityAttrName="PrintStage"
-    EntityUsage="XpeDccCfgPcsEO"
-    AliasName="PRINT_STAGE"
-    LOVName="LOV_PrintStage">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
-        <LABEL
-          ResId="model.views.entitybased.XpeDccCfgPcsEOVO.PrintStage_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
     Name="Activate"
     PrecisionRule="true"
     EntityAttrName="Activate"
@@ -256,7 +240,8 @@
     PrecisionRule="true"
     EntityAttrName="CreatedDate"
     EntityUsage="XpeDccCfgPcsEO"
-    AliasName="CREATED_DATE"/>
+    AliasName="CREATED_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="Inactive"
     PrecisionRule="true"
@@ -298,7 +283,24 @@
     PrecisionRule="true"
     EntityAttrName="LastUpdatedDate"
     EntityUsage="XpeDccCfgPcsEO"
-    AliasName="LAST_UPDATED_DATE"/>
+    AliasName="LAST_UPDATED_DATE"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="SiteOverride"
+    PrecisionRule="true"
+    EntityAttrName="SiteOverride"
+    EntityUsage="XpeDccCfgPcsEO"
+    AliasName="SITE_OVERRIDE"
+    LOVName="LOV_SiteOverride">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgPcsEOVO.SiteOverride_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="PCSCriteria"
     ViewObjectName="model.views.entitybased.XpeDccCfgPcsEOVO"
@@ -347,14 +349,6 @@
         Operator="="
         Conjunction="AND"
         Value=":bind_DirectToCustomer"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="PrintStage"
-        ViewAttribute="PrintStage"
-        Operator="="
-        Conjunction="AND"
-        Value=":bind_PrintStage"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

@@ -23,12 +23,12 @@
           <Item Value="SiteDesc"/>
           <Item Value="FacilityId"/>
           <Item Value="DbLink"/>
-          <Item Value="PrintStage"/>
           <Item Value="Activate"/>
           <Item Value="DirectToCustomer"/>
           <Item Value="EmailNotificationGroup"/>
           <Item Value="Inactive"/>
           <Item Value="InactiveDate"/>
+          <Item Value="SiteOverride"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

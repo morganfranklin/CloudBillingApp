@@ -28,7 +28,6 @@ public class XpeDccCfgPcsEOVORowImpl extends ViewRowImpl {
         DbLink,
         DirectToCustomer,
         EmailNotificationGroup,
-        PrintStage,
         Activate,
         CreatedBy,
         CreatedDate,
@@ -36,6 +35,7 @@ public class XpeDccCfgPcsEOVORowImpl extends ViewRowImpl {
         InactiveDate,
         LastUpdatedBy,
         LastUpdatedDate,
+        SiteOverride,
         XpeDccCfgPcsAssTerminalsEOVO,
         XpeDccCfgPcsAddressEOVO,
         LookupSharedAppModule_YONLOV;
@@ -70,7 +70,6 @@ public class XpeDccCfgPcsEOVORowImpl extends ViewRowImpl {
     public static final int DBLINK = AttributesEnum.DbLink.index();
     public static final int DIRECTTOCUSTOMER = AttributesEnum.DirectToCustomer.index();
     public static final int EMAILNOTIFICATIONGROUP = AttributesEnum.EmailNotificationGroup.index();
-    public static final int PRINTSTAGE = AttributesEnum.PrintStage.index();
     public static final int ACTIVATE = AttributesEnum.Activate.index();
     public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
     public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
@@ -78,6 +77,7 @@ public class XpeDccCfgPcsEOVORowImpl extends ViewRowImpl {
     public static final int INACTIVEDATE = AttributesEnum.InactiveDate.index();
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
+    public static final int SITEOVERRIDE = AttributesEnum.SiteOverride.index();
     public static final int XPEDCCCFGPCSASSTERMINALSEOVO = AttributesEnum.XpeDccCfgPcsAssTerminalsEOVO.index();
     public static final int XPEDCCCFGPCSADDRESSEOVO = AttributesEnum.XpeDccCfgPcsAddressEOVO.index();
     public static final int LOOKUPSHAREDAPPMODULE_YONLOV = AttributesEnum.LookupSharedAppModule_YONLOV.index();
@@ -136,13 +136,6 @@ public class XpeDccCfgPcsEOVORowImpl extends ViewRowImpl {
         return (Timestamp) getAttributeInternal(CREATEDDATE);
     }
 
-    /**
-     * Sets <code>value</code> as attribute value for CREATED_DATE using the alias name CreatedDate.
-     * @param value value to set the CREATED_DATE
-     */
-    public void setCreatedDate(Timestamp value) {
-        setAttributeInternal(CREATEDDATE, value);
-    }
 
     /**
      * Gets the attribute value for DB_LINK using the alias name DbLink.
@@ -248,29 +241,23 @@ public class XpeDccCfgPcsEOVORowImpl extends ViewRowImpl {
         return (Timestamp) getAttributeInternal(LASTUPDATEDDATE);
     }
 
+
     /**
-     * Sets <code>value</code> as attribute value for LAST_UPDATED_DATE using the alias name LastUpdatedDate.
-     * @param value value to set the LAST_UPDATED_DATE
+     * Gets the attribute value for SITE_OVERRIDE using the alias name SiteOverride.
+     * @return the SITE_OVERRIDE
      */
-    public void setLastUpdatedDate(Timestamp value) {
-        setAttributeInternal(LASTUPDATEDDATE, value);
+    public String getSiteOverride() {
+        return (String) getAttributeInternal(SITEOVERRIDE);
     }
 
     /**
-     * Gets the attribute value for PRINT_STAGE using the alias name PrintStage.
-     * @return the PRINT_STAGE
+     * Sets <code>value</code> as attribute value for SITE_OVERRIDE using the alias name SiteOverride.
+     * @param value value to set the SITE_OVERRIDE
      */
-    public String getPrintStage() {
-        return (String) getAttributeInternal(PRINTSTAGE);
+    public void setSiteOverride(String value) {
+        setAttributeInternal(SITEOVERRIDE, value);
     }
 
-    /**
-     * Sets <code>value</code> as attribute value for PRINT_STAGE using the alias name PrintStage.
-     * @param value value to set the PRINT_STAGE
-     */
-    public void setPrintStage(String value) {
-        setAttributeInternal(PRINTSTAGE, value);
-    }
 
     /**
      * Gets the attribute value for SITE_DESC using the alias name SiteDesc.

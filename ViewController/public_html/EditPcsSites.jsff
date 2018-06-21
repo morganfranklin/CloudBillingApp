@@ -25,16 +25,16 @@
                                   required="#{bindings.DbLink.hints.mandatory}"
                                   columns="#{bindings.DbLink.hints.displayWidth}"
                                   maximumLength="#{bindings.DbLink.hints.precision}"
-                                  shortDesc="#{bindings.DbLink.hints.tooltip}" id="it3">
+                                  shortDesc="#{bindings.DbLink.hints.tooltip}" id="it3" rendered="false">
                         <f:validator binding="#{bindings.DbLink.validator}"/>
                     </af:inputText>
-                    <af:panelLabelAndMessage label="#{bindings.PrintStage.label}" id="plam5">
-                        <af:selectOneChoice value="#{bindings.PrintStage.inputValue}"
-                                            label="#{bindings.PrintStage.label}"
-                                            required="#{bindings.PrintStage.hints.mandatory}"
-                                            shortDesc="#{bindings.PrintStage.hints.tooltip}" id="soc1" simple="true">
-                            <f:selectItems value="#{bindings.PrintStage.items}" id="si1"/>
-                            <f:validator binding="#{bindings.PrintStage.validator}"/>
+                    <af:panelLabelAndMessage label="#{bindings.SiteOverride.label}" id="plam12">
+                        <af:selectOneChoice value="#{bindings.SiteOverride.inputValue}"
+                                            label="#{bindings.SiteOverride.label}"
+                                            required="#{bindings.SiteOverride.hints.mandatory}"
+                                            shortDesc="#{bindings.SiteOverride.hints.tooltip}" id="soc9" simple="true">
+                            <f:selectItems value="#{bindings.SiteOverride.items}" id="si9"/>
+                            <f:validator binding="#{bindings.SiteOverride.validator}"/>
                         </af:selectOneChoice>
                     </af:panelLabelAndMessage>
                     <af:panelLabelAndMessage label="#{bindings.Inactive.label}" id="plam6">
@@ -66,7 +66,7 @@
                 <f:facet name="legend"/>
                 <f:facet name="info"/>
                 <af:panelFormLayout id="pfl2">
-                    <af:panelLabelAndMessage label="#{bindings.Activate.label}" id="plam7">
+                    <af:panelLabelAndMessage label="#{bindings.Activate.label}" id="plam7" rendered="false">
                         <af:selectOneChoice value="#{bindings.Activate.inputValue}" label="#{bindings.Activate.label}"
                                             required="#{bindings.Activate.hints.mandatory}"
                                             shortDesc="#{bindings.Activate.hints.tooltip}" id="soc3" simple="true">
@@ -74,7 +74,7 @@
                             <f:validator binding="#{bindings.Activate.validator}"/>
                         </af:selectOneChoice>
                     </af:panelLabelAndMessage>
-                    <af:panelLabelAndMessage label="#{bindings.DirectToCustomer.label}" id="plam8">
+                    <af:panelLabelAndMessage label="#{bindings.DirectToCustomer.label}" id="plam8" rendered="false">
                         <af:selectOneChoice value="#{bindings.DirectToCustomer.inputValue}"
                                             label="#{bindings.DirectToCustomer.label}"
                                             required="#{bindings.DirectToCustomer.hints.mandatory}"
@@ -120,7 +120,8 @@
                     <af:link text="#{row.TerminalId}" id="l1"
                              actionListener="#{pageFlowScope.PcsInstallationSetUpTableMBean.onTerminalEdit}"/>
                 </af:column>
-                <af:column headerText="#{bindings.XpeDccCfgNewPcsAssTerminalsEOVO.hints.TerminalDesc.label}" id="c2">
+                <af:column headerText="#{bindings.XpeDccCfgNewPcsAssTerminalsEOVO.hints.TerminalDesc.label}" id="c2"
+                           width="250">
                     <af:outputText value="#{row.TerminalDesc}"
                                    shortDesc="#{bindings.XpeDccCfgNewPcsAssTerminalsEOVO.hints.TerminalDesc.tooltip}"
                                    id="ot3"/>
