@@ -5,7 +5,11 @@
     <executables>
         <variableIterator id="variables"/>
         <taskFlow id="dynamicRegion1" taskFlowId="${viewScope.integrationDashboardRegionName.dynamicTaskFlowId}"
-                  activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+                  activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding" Refresh="ifNeeded">
+            <parameters>
+                <parameter id="refreshVal" value="#{pageFlowScope.refreshVal}"/>
+            </parameters>
+        </taskFlow>
         <iterator Binds="XpeDccCfgRoleSecurityROVO" RangeSize="10" DataControl="AppModuleDataControl"
                   id="XpeDccCfgRoleSecurityEOVOIterator"/>
     </executables>

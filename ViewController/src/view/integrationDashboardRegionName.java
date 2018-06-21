@@ -2,7 +2,10 @@ package view;
 
 import java.io.Serializable;
 
+import java.util.Map;
+
 import oracle.adf.controller.TaskFlowId;
+import oracle.adf.view.rich.context.AdfFacesContext;
 import oracle.adf.view.rich.event.RegionNavigationEvent;
 
 public class integrationDashboardRegionName implements Serializable {
@@ -17,6 +20,17 @@ public class integrationDashboardRegionName implements Serializable {
         "/WEB-INF/adminStats.xml#adminStats";
 
     public integrationDashboardRegionName() {
+    }
+    
+    public void refreshTaskFlow(){
+        Map pageMap = AdfFacesContext.getCurrentInstance().getPageFlowScope();
+        if(null == pageMap.get("refreshVal")){
+            pageMap.put("refreshVal", true);
+        } else if(null != pageMap.get("refreshVal") && "true".equalsIgnoreCase(pageMap.get("refreshVal").toString())){
+            pageMap.put("refreshVal", false);
+        } else if(null != pageMap.get("refreshVal") && "false".equalsIgnoreCase(pageMap.get("refreshVal").toString())){
+            pageMap.put("refreshVal", true);
+        }
     }
 
     public TaskFlowId getDynamicTaskFlowId() {
@@ -107,12 +121,14 @@ public class integrationDashboardRegionName implements Serializable {
         return null;
     }
     
-    public String newContract() {
+    public String newContract() {   
+        refreshTaskFlow();
         setDynamicTaskFlowId("/WEB-INF/newContractRootSetup.xml#newContractRootSetup");
         return null;
     }
     
     public String updateContract() {
+        refreshTaskFlow();
         setDynamicTaskFlowId("/WEB-INF/extContractRootSetup.xml#extContractRootSetup");
         return null;
     }
@@ -128,6 +144,7 @@ public class integrationDashboardRegionName implements Serializable {
     }
 
     public String blueLightSpecials() {
+        refreshTaskFlow();
         setDynamicTaskFlowId("/WEB-INF/blsContractRootSetUp.xml#blsContractRootSetUp");
         return null;
     }
