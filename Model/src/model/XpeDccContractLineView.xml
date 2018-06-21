@@ -45,10 +45,6 @@
         ViewObjectName="model.XpeDccDicCurrency"
         RowLevelBinds="true"/>
     <ViewAccessor
-        Name="XpeDccCfgPcsROVO_LOV"
-        ViewObjectName="model.views.readonly.XpeDccCfgPcsROVO"
-        RowLevelBinds="true"/>
-    <ViewAccessor
         Name="PsCurrencyCdTblROVO1"
         ViewObjectName="model.views.readonly.PsCurrencyCdTblROVO"
         RowLevelBinds="true"/>
@@ -76,6 +72,18 @@
             <PIMap Variable="bindUserName">
                 <TransientExpression
                     Name="ExpressionScript"><![CDATA[adf.object.viewObject.loggedInUser()]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="XpeDccContractFacilitiesROVO_LOV"
+        ViewObjectName="model.views.readonly.XpeDccContractFacilitiesROVO"
+        RowLevelBinds="true">
+        <ParameterMap>
+            <PIMap Variable="bind_businessUnit">
+                <TransientExpression
+                    trustMode="untrusted"
+                    Name="ExpressionScript"><![CDATA[BusinessUnitGl]]></TransientExpression>
             </PIMap>
         </ParameterMap>
     </ViewAccessor>
@@ -142,24 +150,6 @@
         <DisplayCriteria/>
     </ListBinding>
     <ListBinding
-        Name="LOV_XpeFacility"
-        ListVOName="XpeDccCfgPcsROVO_LOV"
-        ListRangeSize="-1"
-        NullValueFlag="none"
-        MRUCount="0">
-        <AttrArray Name="AttrNames">
-            <Item Value="XpeFacility"/>
-        </AttrArray>
-        <AttrArray Name="AttrExpressions"/>
-        <AttrArray Name="ListAttrNames">
-            <Item Value="SiteId"/>
-        </AttrArray>
-        <AttrArray Name="ListDisplayAttrNames">
-            <Item Value="SiteDesc"/>
-        </AttrArray>
-        <DisplayCriteria/>
-    </ListBinding>
-    <ListBinding
         Name="LOV_CurrencyCd"
         ListVOName="PsCurrencyCdTblROVO1"
         ListRangeSize="-1"
@@ -210,6 +200,24 @@
         </AttrArray>
         <AttrArray Name="ListDisplayAttrNames">
             <Item Value="XpeLookupDesc"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_XpeFacility"
+        ListVOName="XpeDccContractFacilitiesROVO_LOV"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="XpeFacility"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="SiteId"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="SiteDesc"/>
         </AttrArray>
         <DisplayCriteria/>
     </ListBinding>

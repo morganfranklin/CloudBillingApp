@@ -666,6 +666,7 @@ public class XpeDccNewContractMBean implements Serializable {
                                               isprofileWasteNbrMandatory);
             }
             AdfFacesContext.getCurrentInstance().addPartialTarget(this.getXpeDccNewContractBBean().getProfileWasteApprovalInputText());
+            AdfFacesContext.getCurrentInstance().addPartialTarget(this.getXpeDccNewContractBBean().getProductUOMRSOC());
         } catch (Exception e) {
             // TODO: Add catch code
             e.printStackTrace();
@@ -736,15 +737,15 @@ public class XpeDccNewContractMBean implements Serializable {
     }
     
     public Boolean getFirstProductUOM(){
-        String contractType = (String)ADFUtils.evaluateEL("#{pageFlowScope.ContractType}");
-        if(null!=contractType && contractType.equals("NEW")){
+        //String contractType = (String)ADFUtils.evaluateEL("#{pageFlowScope.ContractType}");
+        //if(null!=contractType && contractType.equals("NEW")){
             String productId = (String)ADFUtils.evaluateEL("#{row.bindings.XpeProductId.inputValue}");
-            String productUOM = (String)ADFUtils.evaluateEL("#{row.bindings.XpeProductUom.inputValue}");
+            Integer productUOM = (Integer)ADFUtils.evaluateEL("#{row.bindings.XpeProductUom.inputValue}");
             if(null!=productId && null==productUOM){
-                String firstProductUOM = (String)ADFUtils.evaluateEL("#{row.bindings.XpeProductUom.items[0].value}");
+                Integer firstProductUOM = (Integer)ADFUtils.evaluateEL("#{row.bindings.XpeProductUom.items[0].value}");
                 ADFUtils.setvalueToExpression("#{row.bindings.XpeProductUom.inputValue}", firstProductUOM);
             }   
-        }
+        //}
         return false;
     }
     
@@ -758,5 +759,25 @@ public class XpeDccNewContractMBean implements Serializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void onBusinessUnitValueChange(ValueChangeEvent valueChangeEvent) {
+        AdfFacesContext.getCurrentInstance().addPartialTarget(this.getXpeDccNewContractBBean().getFacilityRSOC());
+    }
+    
+    public Boolean getFirstFacility(){
+        //String contractType = (String)ADFUtils.evaluateEL("#{pageFlowScope.ContractType}");
+        //if(null!=contractType && contractType.equals("NEW")){
+            Integer businessUnit = (Integer)ADFUtils.evaluateEL("#{row.bindings.BusinessUnitGl.inputValue}");
+            Integer xpeFacility = (Integer)ADFUtils.evaluateEL("#{row.bindings.xpeFacility.inputValue}");
+            System.err.println("businessUnit:"+businessUnit);
+            System.err.println("xpeFacility:"+xpeFacility);
+            if(null!=businessUnit && null==xpeFacility){
+                Integer firstxpeFacility = (Integer)ADFUtils.evaluateEL("#{row.bindings.xpeFacility.items[0].value}");
+                System.err.println("firstxpeFacility:"+firstxpeFacility);
+                ADFUtils.setvalueToExpression("#{row.bindings.xpeFacility.inputValue}", firstxpeFacility);
+            }   
+        //}
+        return false;
     }
 }

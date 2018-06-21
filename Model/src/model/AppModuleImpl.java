@@ -2002,14 +2002,14 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         //html.append(email_apr_url+"/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://vmohscvae014.oracleoutsourcing.com:5021/neuCloudBilling1010_517/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://vmohscvae014.oracleoutsourcing.com:5021/neuCloudBilling1010_525/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(xpeDccWfActionEOVORow.getXpeUuid()).append("&").append("action=").append("ACCEPT").append("&").append("user=").append(userType);
         html.append("\"><b>Accept</b></a>");
         html.append("&nbsp;&nbsp;&nbsp;");
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         //html.append(email_apr_url+"/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://vmohscvae014.oracleoutsourcing.com:5021/neuCloudBilling1010_517/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://vmohscvae014.oracleoutsourcing.com:5021/neuCloudBilling1010_525/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(xpeDccWfActionEOVORow.getXpeUuid()).append("&").append("action=").append("REJECT").append("&").append("user=").append(userType);
         html.append("\"><b>Reject</b></a>");
         html.append("</p>");
@@ -2196,7 +2196,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                             (XpeDccContractLineViewRowImpl) contractLineRowSet.next();
                         if (null != contractLineRow) {
                             xmlBuilder.append("<FACILITIES_ROW>");
-                            xmlBuilder.append("<FACILITY>").append(getLookupDescription(contractLineRow.getXpeDccCfgPcsROVO_LOV(),
+                            xmlBuilder.append("<FACILITY>").append(getLookupDescription(contractLineRow.getXpeDccContractFacilitiesROVO_LOV(),
                                                                                         contractLineRow.getXpeFacility(),
                                                                                         "SiteDesc")).append("</FACILITY>");
                             xmlBuilder.append("</FACILITIES_ROW>");
@@ -2532,7 +2532,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                         XpeDccContractLineViewRowImpl contractLineRow = (XpeDccContractLineViewRowImpl) contractLineRowSet.next();
                         if(null!=contractLineRow){
                             xmlBuilder.append("<FACILITIES_ROW>");
-                            xmlBuilder.append("<FACILITY>").append(getLookupDescription(contractLineRow.getXpeDccCfgPcsROVO_LOV(),contractLineRow.getXpeFacility(), "SiteDesc")).append("</FACILITY>");
+                            xmlBuilder.append("<FACILITY>").append(getLookupDescription(contractLineRow.getXpeDccContractFacilitiesROVO_LOV(),contractLineRow.getXpeFacility(), "SiteDesc")).append("</FACILITY>");
                             XpeDccCfgPcsAddressROVOImpl xpeDccCfgPcsAddressROVO = this.getXpeDccCfgPcsAddressROVO();
                             xpeDccCfgPcsAddressROVO.setbind_SiteId(contractLineRow.getXpeFacility());
                             xpeDccCfgPcsAddressROVO.executeQuery();
@@ -4243,6 +4243,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                 (XpeDccAccrualRevenueEOVORowImpl) accrualRevenueVO.createRow();
             System.err.println("Site Id: "+row.getAttribute("SiteId"));
             accrualRevenueVORow.setXpeFacilityId((String)row.getAttribute("SiteId"));
+            accrualRevenueVORow.setXpeJournalGeneratorTemplate("CPE_ACC");
             accrualRevenueVO.insertRow(accrualRevenueVORow);
         }
         rowsetIterator.closeRowSetIterator();

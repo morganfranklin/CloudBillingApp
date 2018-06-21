@@ -15,6 +15,8 @@ public class XpeDccNewContractBBean {
     private RichSelectOneChoice contractSubTypeRIT;
     private RichSelectOneChoice agreementRIT;
     private RichInputText profileWasteApprovalInputText;
+    private RichSelectOneChoice facilityRSOC;
+    private RichSelectOneChoice productUOMRSOC;
 
     public XpeDccNewContractBBean() {
         super();
@@ -85,5 +87,21 @@ public class XpeDccNewContractBBean {
 
     public RichInputText getProfileWasteApprovalInputText() {
         return profileWasteApprovalInputText;
+    }
+
+    public void setFacilityRSOC(RichSelectOneChoice facilityRSOC) {
+        this.facilityRSOC = facilityRSOC;
+    }
+
+    public RichSelectOneChoice getFacilityRSOC() {
+        return facilityRSOC;
+    }
+
+    public void setProductUOMRSOC(RichSelectOneChoice productUOMRSOC) {
+        this.productUOMRSOC = productUOMRSOC;
+    }
+
+    public RichSelectOneChoice getProductUOMRSOC() {
+        return productUOMRSOC;
     }
 }

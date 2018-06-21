@@ -237,7 +237,8 @@
                                                                     shortDesc="#{bindings.XpeDccNewContractLineView.hints.BusinessUnitGl.tooltip}"
                                                                     id="soc9"
                                                                     readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
-                                                                    autoSubmit="true" showRequired="true">
+                                                                    autoSubmit="true" showRequired="true"
+                                                                    valueChangeListener="#{pageFlowScope.XpeDccNewContractMBean.onBusinessUnitValueChange}">
                                                     <f:selectItems value="#{row.bindings.BusinessUnitGl.items}"
                                                                    id="si9"/>
                                                     <f:validator binding="#{row.bindings.BusinessUnitGl.validator}"/>
@@ -251,7 +252,9 @@
                                                                     shortDesc="#{bindings.XpeDccNewContractLineView.hints.XpeFacility.tooltip}"
                                                                     id="soc6"
                                                                     readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
-                                                                    autoSubmit="true">
+                                                                    autoSubmit="true"
+                                                                    disabled="#{pageFlowScope.XpeDccNewContractMBean.firstFacility}"
+                                                                    binding="#{backingBeanScope.XpeDccNewContractBBean.facilityRSOC}">
                                                     <f:selectItems value="#{row.bindings.XpeFacility.items}" id="si6"/>
                                                     <f:validator binding="#{row.bindings.XpeFacility.validator}"/>
                                                 </af:selectOneChoice>
@@ -289,8 +292,10 @@
                                                                     shortDesc="#{bindings.XpeDccNewContractLineView.hints.XpeProductUom.tooltip}"
                                                                     id="soc8"
                                                                     readOnly="#{pageFlowScope.ContractType eq 'BLS'}"
-                                                                    partialTriggers="ilov5" autoSubmit="true"
-                                                                    required="true">
+                                                                   autoSubmit="true"
+                                                                    required="true"
+                                                                    disabled="#{pageFlowScope.XpeDccNewContractMBean.firstProductUOM}"
+                                                                    binding="#{backingBeanScope.XpeDccNewContractBBean.productUOMRSOC}">
                                                     <f:selectItems value="#{row.bindings.XpeProductUom.items}"
                                                                    id="si8"/>
                                                     <f:validator binding="#{row.bindings.XpeProductUom.validator}"/>
