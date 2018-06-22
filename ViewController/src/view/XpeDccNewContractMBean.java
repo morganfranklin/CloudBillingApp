@@ -588,8 +588,11 @@ public class XpeDccNewContractMBean implements Serializable {
         try {
             DCBindingContainer bindings = (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
             OperationBinding operationBinding = bindings.getOperationBinding("contractLineAdd");
-            if (null != operationBinding)
+            if (null != operationBinding){
                 operationBinding.execute();
+                onContractPricingTermLineAdd(actionEvent);
+                ADFUtils.invokeEL("#{bindings.CreateInsert3.execute}");
+            }
         } catch (Exception e) {
             // TODO: Add catch code
             e.printStackTrace();
