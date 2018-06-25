@@ -38,6 +38,15 @@
                                   shortDesc="#{bindings.DbLink.hints.tooltip}" id="it3" rendered="false">
                         <f:validator binding="#{bindings.DbLink.validator}"/>
                     </af:inputText>
+                    <af:panelLabelAndMessage label="#{bindings.PrintStage.label}" id="plam5">
+                        <af:selectOneChoice value="#{bindings.PrintStage.inputValue}"
+                                            label="#{bindings.PrintStage.label}"
+                                            required="#{bindings.PrintStage.hints.mandatory}"
+                                            shortDesc="#{bindings.PrintStage.hints.tooltip}" id="soc1" simple="true">
+                            <f:selectItems value="#{bindings.PrintStage.items}" id="si1"/>
+                            <f:validator binding="#{bindings.PrintStage.validator}"/>
+                        </af:selectOneChoice>
+                    </af:panelLabelAndMessage>
                     <af:panelLabelAndMessage label="#{bindings.SiteOverride.label}" id="plam10">
                         <af:selectOneChoice value="#{bindings.SiteOverride.inputValue}"
                                             label="#{bindings.SiteOverride.label}"
@@ -84,6 +93,8 @@
                         <f:validator binding="#{bindings.EmailNotificationGroup.validator}"/>
                     </af:inputText>
                     <af:spacer width="10" height="10" id="s2"/>
+                    <af:spacer width="10" height="10" id="s11"/>
+                    <af:spacer width="10" height="10" id="s12"/>
                 </af:panelFormLayout>
             </af:panelHeader>
         </af:panelGroupLayout>

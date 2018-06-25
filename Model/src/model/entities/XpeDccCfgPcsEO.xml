@@ -176,6 +176,18 @@
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="PrintStage"
+    Precision="1"
+    ColumnName="PRINT_STAGE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_PCS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="XpeDccCfgPcsAssTerminalsEO"
     Association="model.entities.associations.XpeDccCfgPcsFkAssoc"

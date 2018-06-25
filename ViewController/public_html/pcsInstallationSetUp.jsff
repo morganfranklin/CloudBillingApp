@@ -44,6 +44,15 @@
         <af:column headerText="#{bindings.XpeDccCfgPcsEOVO.hints.DbLink.label}" id="resId1c4" rendered="false">
           <af:outputText value="#{row.DbLink}" shortDesc="#{bindings.XpeDccCfgPcsEOVO.hints.DbLink.tooltip}" id="ot4"/>
         </af:column>
+        <af:column headerText="#{bindings.XpeDccCfgPcsEOVO.hints.PrintStage.label}" id="c7">
+          <af:selectOneChoice value="#{row.bindings.PrintStage.inputValue}" label="#{row.bindings.PrintStage.label}"
+                              required="#{bindings.XpeDccCfgPcsEOVO.hints.PrintStage.mandatory}"
+                              shortDesc="#{bindings.XpeDccCfgPcsEOVO.hints.PrintStage.tooltip}" id="soc1"
+                              readOnly="true">
+            <f:selectItems value="#{row.bindings.PrintStage.items}" id="si1"/>
+            <f:validator binding="#{row.bindings.PrintStage.validator}"/>
+          </af:selectOneChoice>
+        </af:column>
         <af:column headerText="#{bindings.XpeDccCfgPcsEOVO.hints.SiteOverride.label}" id="c6" width="200">
           <af:selectOneChoice value="#{row.bindings.SiteOverride.inputValue}" label="#{row.bindings.SiteOverride.label}"
                               required="#{bindings.XpeDccCfgPcsEOVO.hints.SiteOverride.mandatory}"

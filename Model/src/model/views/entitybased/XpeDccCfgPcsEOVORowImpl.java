@@ -36,9 +36,11 @@ public class XpeDccCfgPcsEOVORowImpl extends ViewRowImpl {
         LastUpdatedBy,
         LastUpdatedDate,
         SiteOverride,
+        PrintStage,
         XpeDccCfgPcsAssTerminalsEOVO,
         XpeDccCfgPcsAddressEOVO,
-        LookupSharedAppModule_YONLOV;
+        LookupSharedAppModule_YONLOV,
+        LookupSharedAppModule_XpeDccDicNewContractSetupROVO1;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -78,9 +80,12 @@ public class XpeDccCfgPcsEOVORowImpl extends ViewRowImpl {
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int SITEOVERRIDE = AttributesEnum.SiteOverride.index();
+    public static final int PRINTSTAGE = AttributesEnum.PrintStage.index();
     public static final int XPEDCCCFGPCSASSTERMINALSEOVO = AttributesEnum.XpeDccCfgPcsAssTerminalsEOVO.index();
     public static final int XPEDCCCFGPCSADDRESSEOVO = AttributesEnum.XpeDccCfgPcsAddressEOVO.index();
     public static final int LOOKUPSHAREDAPPMODULE_YONLOV = AttributesEnum.LookupSharedAppModule_YONLOV.index();
+    public static final int LOOKUPSHAREDAPPMODULE_XPEDCCDICNEWCONTRACTSETUPROVO1 =
+        AttributesEnum.LookupSharedAppModule_XpeDccDicNewContractSetupROVO1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -260,6 +265,22 @@ public class XpeDccCfgPcsEOVORowImpl extends ViewRowImpl {
 
 
     /**
+     * Gets the attribute value for PRINT_STAGE using the alias name PrintStage.
+     * @return the PRINT_STAGE
+     */
+    public String getPrintStage() {
+        return (String) getAttributeInternal(PRINTSTAGE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for PRINT_STAGE using the alias name PrintStage.
+     * @param value value to set the PRINT_STAGE
+     */
+    public void setPrintStage(String value) {
+        setAttributeInternal(PRINTSTAGE, value);
+    }
+
+    /**
      * Gets the attribute value for SITE_DESC using the alias name SiteDesc.
      * @return the SITE_DESC
      */
@@ -326,6 +347,13 @@ public class XpeDccCfgPcsEOVORowImpl extends ViewRowImpl {
      */
     public RowSet getLookupSharedAppModule_YONLOV() {
         return (RowSet) getAttributeInternal(LOOKUPSHAREDAPPMODULE_YONLOV);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> LookupSharedAppModule_XpeDccDicNewContractSetupROVO1.
+     */
+    public RowSet getLookupSharedAppModule_XpeDccDicNewContractSetupROVO1() {
+        return (RowSet) getAttributeInternal(LOOKUPSHAREDAPPMODULE_XPEDCCDICNEWCONTRACTSETUPROVO1);
     }
 }
 

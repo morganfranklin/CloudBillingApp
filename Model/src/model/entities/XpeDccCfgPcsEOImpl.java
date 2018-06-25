@@ -35,10 +35,10 @@ public class XpeDccCfgPcsEOImpl extends EntityImpl {
         LastUpdatedDate,
         FacilityId,
         SiteOverride,
+        PrintStage,
         XpeDccCfgPcsAssTerminalsEO,
         XpeDccCfgPcsAddressEO;
-        static AttributesEnum[] vals = null;
-        ;
+        private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -76,6 +76,7 @@ public class XpeDccCfgPcsEOImpl extends EntityImpl {
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int FACILITYID = AttributesEnum.FacilityId.index();
     public static final int SITEOVERRIDE = AttributesEnum.SiteOverride.index();
+    public static final int PRINTSTAGE = AttributesEnum.PrintStage.index();
     public static final int XPEDCCCFGPCSASSTERMINALSEO = AttributesEnum.XpeDccCfgPcsAssTerminalsEO.index();
     public static final int XPEDCCCFGPCSADDRESSEO = AttributesEnum.XpeDccCfgPcsAddressEO.index();
 
@@ -299,6 +300,22 @@ public class XpeDccCfgPcsEOImpl extends EntityImpl {
      */
     public void setSiteOverride(String value) {
         setAttributeInternal(SITEOVERRIDE, value);
+    }
+
+    /**
+     * Gets the attribute value for PrintStage, using the alias name PrintStage.
+     * @return the value of PrintStage
+     */
+    public String getPrintStage() {
+        return (String) getAttributeInternal(PRINTSTAGE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for PrintStage.
+     * @param value value to set the PrintStage
+     */
+    public void setPrintStage(String value) {
+        setAttributeInternal(PRINTSTAGE, value);
     }
 
     /**

@@ -29,6 +29,7 @@
           <Item Value="Inactive"/>
           <Item Value="InactiveDate"/>
           <Item Value="SiteOverride"/>
+          <Item Value="PrintStage"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

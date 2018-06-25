@@ -128,5 +128,7 @@
             RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <list IterBinding="XpeDccCfgNewPcsEOVOIterator" StaticList="false" Uses="LOV_SiteOverride" id="SiteOverride"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XpeDccCfgNewPcsEOVOIterator" StaticList="false" Uses="LOV_PrintStage" id="PrintStage"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>
