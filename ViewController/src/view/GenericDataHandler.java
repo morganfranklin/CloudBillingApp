@@ -3640,7 +3640,7 @@ public class GenericDataHandler implements Runnable {
 
         try {
         	
-        	if (execPlanCode.equalsIgnoreCase("A10")) {
+        	if (execPlanCode.equalsIgnoreCase("A10") || execPlanCode.equalsIgnoreCase("A11")) {
 
         		PreparedStatement pstmt = configdb.prepareStatement(insertSql);
                 pstmt.setInt(1, process_id_seq);

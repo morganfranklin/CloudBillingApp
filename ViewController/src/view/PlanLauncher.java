@@ -52,8 +52,8 @@ public class PlanLauncher {
     public String launchPlanInstance() {
 
         String userCfgFile = "";
-        String userIdSelected = "";
-        userIdSelected = "NEUSTAR";
+        String userIdSelected = (String)ADFUtils.evaluateEL("#{sessionScope.userId}");
+        //userIdSelected = "NEUSTAR";
         String runType = "TST";
 
         // 161114 begin

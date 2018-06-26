@@ -46,6 +46,7 @@
           <Item Value="Descr100"/>
           <Item Value="ActualStartDt"/>
           <Item Value="ActualFinishDt"/>
+          <Item Value="Userid"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

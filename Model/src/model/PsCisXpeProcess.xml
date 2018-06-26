@@ -4,7 +4,7 @@
 <Entity
     xmlns="http://xmlns.oracle.com/bc4j"
     Name="PsCisXpeProcess"
-    Version="12.2.1.0.31"
+    Version="12.2.1.11.57"
     InheritPersonalization="merge"
     DBObjectType="table"
     DBObjectName="PS_CIS_XPE_PROCESS"
@@ -97,6 +97,18 @@
         Type="java.sql.Timestamp"
         ColumnType="DATE"
         TableName="PS_CIS_XPE_PROCESS"/>
+    <Attribute
+        Name="Userid"
+        Precision="30"
+        ColumnName="USERID"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="PS_CIS_XPE_PROCESS">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="30"/>
+        </DesignTime>
+    </Attribute>
     <Key
         Name="PsCisXpeProcessPk"
         PrimaryKey="true">

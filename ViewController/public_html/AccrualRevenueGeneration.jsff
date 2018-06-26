@@ -102,6 +102,11 @@
             </af:inputDate>
           </f:facet>
         </af:column>
+        <af:column sortProperty="#{bindings.PsCisXpeProcessView2.hints.Userid.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.PsCisXpeProcessView2.hints.Userid.label}" id="c7">
+          <af:outputText value="#{row.Userid}" shortDesc="#{bindings.PsCisXpeProcessView2.hints.Userid.tooltip}"
+                         id="ot5"/>
+        </af:column>
       </af:table>
     </af:panelHeader>
     <af:panelHeader text="" id="ph2">

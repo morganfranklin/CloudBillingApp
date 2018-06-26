@@ -33,6 +33,8 @@ import oracle.adf.view.rich.render.ClientEvent;
 
 import oracle.binding.OperationBinding;
 
+import view.utils.ADFUtils;
+
 public class PeopleSoftCallSecurityFilter {
 
     private String resolveEl(String data) {
@@ -179,6 +181,8 @@ public class PeopleSoftCallSecurityFilter {
 
 
                                                                            this.setRetrievedToken(retrievedUser);
+                                                                           //Setting user id to session scope variable for further use in application
+                                                                           ADFUtils.setvalueToExpression("#{sessionScope.userId}", retrievedUser);
 
                                                                        }
 

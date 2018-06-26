@@ -104,6 +104,12 @@
         EntityAttrName="LastUpdateDate"
         EntityUsage="PsCisXpeProcess"
         AliasName="LAST_UPDATE_DATE"/>
+    <ViewAttribute
+        Name="Userid"
+        PrecisionRule="true"
+        EntityAttrName="Userid"
+        EntityUsage="PsCisXpeProcess"
+        AliasName="USERID"/>
     <ViewCriteria
         Name="PsCisXpeProcessViewCriteria"
         ViewObjectName="model.PsCisXpeProcessView"
@@ -144,6 +150,11 @@
         <PropertiesBundle
             PropertiesFile="model.ModelBundle"/>
     </ResourceBundle>
+    <SortCriteria>
+        <Sort
+            Attribute="Processid"
+            Ascending="false"/>
+    </SortCriteria>
     <SortCriteria>
         <Sort
             Attribute="Processid"
