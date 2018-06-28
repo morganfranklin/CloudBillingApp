@@ -6,7 +6,7 @@
         <af:form usesUpload="true" id="f1">
             <af:pageTemplate viewId="/oracle/templates/tabletFirstTemplate.jspx" id="pt1">
                 <f:facet name="header">
-                    <af:outputText value="Cloud Billing Engine" id="ot2"/>
+                    <af:outputText value="Covanta Contract &amp; Pricing Engine (CPE)" id="ot2"/>
                 </f:facet>
                 <f:facet name="status">
                     <af:outputText value="Welcome #{PeopleSoftCallSecurityFilter.retrievedToken} #{PeopleSoftCallSecurityFilter.accessLimit}!"

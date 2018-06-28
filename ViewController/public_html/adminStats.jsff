@@ -4,9 +4,9 @@
     <af:panelGridLayout id="pgl1">
         <af:gridRow marginTop="5px" height="85px" id="gr1">
             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1" halign="stretch" valign="stretch">
-                <af:panelBox text="Admin Homepage" id="pb1" showDisclosure="false" background="light">
+                <af:panelBox text="Welcome to CPE!" id="pb1" showDisclosure="false" background="light">
                     <f:facet name="toolbar"/>
-                    <af:panelGridLayout id="pgl2">
+                    <af:panelGridLayout id="pgl2" rendered="false">
                         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3" halign="stretch"
                                          valign="stretch">
@@ -18,7 +18,7 @@
                 </af:panelBox>
             </af:gridCell>
         </af:gridRow>
-        <af:gridRow marginTop="5px" height="115px" marginBottom="5px" id="gr2">
+        <af:gridRow marginTop="5px" height="115px" marginBottom="5px" id="gr2" rendered="false">
             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" halign="stretch" valign="stretch">
                 <af:panelBox text="Launched Processes" id="pb2" showDisclosure="false">
                     <f:facet name="toolbar"/>
@@ -73,7 +73,7 @@
                 </af:panelBox>
             </af:gridCell>
         </af:gridRow>
-        <af:gridRow id="gr8" height="350px">
+        <af:gridRow id="gr8" height="350px" rendered="false">
             <af:gridCell id="gc14" width="100%" halign="stretch" valign="stretch">
                 <af:panelBox text="Current Period Transaction Breakdown" id="pb3" showDisclosure="false">
                     <f:facet name="toolbar"/>
