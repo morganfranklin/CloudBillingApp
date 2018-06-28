@@ -2002,14 +2002,14 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         //html.append(email_apr_url+"/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://vmohscvae014.oracleoutsourcing.com:5021/neuCloudBilling1010_525/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://vmohscvae013.oracleoutsourcing.com:5021/neuCloudBilling1010_537/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(xpeDccWfActionEOVORow.getXpeUuid()).append("&").append("action=").append("ACCEPT").append("&").append("user=").append(userType);
         html.append("\"><b>Accept</b></a>");
         html.append("&nbsp;&nbsp;&nbsp;");
         html.append("<a href=\"");
         //html.append("http://localhost:7101/neuCloudBilling1010/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         //html.append(email_apr_url+"/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
-        html.append("http://vmohscvae014.oracleoutsourcing.com:5021/neuCloudBilling1010_525/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
+        html.append("http://vmohscvae013.oracleoutsourcing.com:5021/neuCloudBilling1010_537/faces/adf.task-flow?adf.tfId=approvalWorkFlow&adf.tfDoc=/WEB-INF/approvalWorkFlow.xml");
         html.append("&").append("uuid=").append(xpeDccWfActionEOVORow.getXpeUuid()).append("&").append("action=").append("REJECT").append("&").append("user=").append(userType);
         html.append("\"><b>Reject</b></a>");
         html.append("</p>");
@@ -2524,6 +2524,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                     xmlBuilder.append("<AS_OF_DATE>").append(formatDate(String.valueOf(contractVersionViewRow.getXpeAsOfDate()))).append("</AS_OF_DATE>");
                     xmlBuilder.append("<FROM_DATE>").append(formatDate(String.valueOf(contractVersionViewRow.getXpeStartDate()))).append("</FROM_DATE>");
                     xmlBuilder.append("<TO_DATE>").append(formatDate(String.valueOf(contractVersionViewRow.getXpeEndDate()))).append("</TO_DATE>");
+                    xmlBuilder.append("<CONTRACT_ID>").append(checkIfNull(contractVersionViewRow.getXpeContractId())).append("</CONTRACT_ID>");
                     xmlBuilder.append("<USER_NAME>").append(getLookupDescription(contractVersionViewRow.getPsSalesPersonROVO1(),contractVersionViewRow.getSalesPerson(), "Descr")).append("</USER_NAME>");
                     //Getting Facility details
                     RowIterator contractLineRowSet = contractVersionViewRow.getXpeDccContractLineView();
