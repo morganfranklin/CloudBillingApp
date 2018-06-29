@@ -50,5 +50,7 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action IterBinding="PsCisXpeProcessView2Iterator" id="Execute" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
   </bindings>
 </pageDefinition>

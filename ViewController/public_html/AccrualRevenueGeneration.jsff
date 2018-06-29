@@ -7,7 +7,8 @@
       <f:facet name="toolbar">
         <af:toolbar id="t1">
           <af:selectBooleanCheckbox text="Run for all Facilities" id="sbc1" value="#{pageFlowScope.AccrualRevenueProcessesMBean.selectAllFacilities}" autoSubmit="true"
-                                    valueChangeListener="#{pageFlowScope.AccrualRevenueProcessesMBean.onRunForAllFacilities}"/>
+                                    valueChangeListener="#{pageFlowScope.AccrualRevenueProcessesMBean.onRunForAllFacilities}"
+                                    immediate="true"/>
           <af:spacer width="10" height="10" id="s5"/>
           <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add"
                      id="b1" rendered="#{bindings.Accruals.inputValue ne 'V'}"/>
@@ -59,10 +60,11 @@
                 rowBandingInterval="1" fetchSize="#{bindings.PsCisXpeProcessView2.rangeSize}" id="t4"
                 contentDelivery="immediate" columnStretching="last" styleClass="AFStretchWidth"
                 filterModel="#{bindings.PsCisXpeProcessView2Query.queryDescriptor}" filterVisible="true"
-                queryListener="#{bindings.PsCisXpeProcessView2Query.processQuery}" varStatus="vs">
+                queryListener="#{bindings.PsCisXpeProcessView2Query.processQuery}" varStatus="vs"
+                partialTriggers="::b5">
         <af:column headerText="#{bindings.PsCisXpeProcessView2.hints.Processid.label}" id="c3"
                    sortProperty="#{bindings.PsCisXpeProcessView2.hints.Processid.name}" filterable="true"
-                   sortable="true">
+                   sortable="true" width="150">
           <af:outputText value="#{row.Processid}" shortDesc="#{bindings.PsCisXpeProcessView2.hints.Processid.tooltip}"
                          id="ot4">
             <af:convertNumber groupingUsed="false" pattern="#{bindings.PsCisXpeProcessView2.hints.Processid.format}"/>
@@ -70,13 +72,13 @@
         </af:column>
         <af:column headerText="#{bindings.PsCisXpeProcessView2.hints.Descr100.label}" id="c4"
                    sortProperty="#{bindings.PsCisXpeProcessView2.hints.Descr100.name}" filterable="true"
-                   sortable="true">
+                   sortable="true" width="500">
           <af:outputText value="#{row.Descr100}" shortDesc="#{bindings.PsCisXpeProcessView2.hints.Descr100.tooltip}"
                          id="ot2"/>
         </af:column>
         <af:column headerText="#{bindings.PsCisXpeProcessView2.hints.ActualStartDt.label}" id="c5"
                    sortProperty="#{bindings.PsCisXpeProcessView2.hints.ActualStartDt.name}" filterable="true"
-                   sortable="true">
+                   sortable="true" width="150">
           <af:outputText value="#{row.ActualStartDt}"
                          shortDesc="#{bindings.PsCisXpeProcessView2.hints.ActualStartDt.tooltip}" id="ot1">
             <af:convertDateTime pattern="#{bindings.PsCisXpeProcessView2.hints.ActualStartDt.format}"/>
@@ -90,7 +92,7 @@
         </af:column>
         <af:column headerText="#{bindings.PsCisXpeProcessView2.hints.ActualFinishDt.label}" id="c6"
                    sortProperty="#{bindings.PsCisXpeProcessView2.hints.ActualFinishDt.name}" filterable="true"
-                   sortable="true">
+                   sortable="true" width="150">
           <af:outputText value="#{row.ActualFinishDt}"
                          shortDesc="#{bindings.PsCisXpeProcessView2.hints.ActualFinishDt.tooltip}" id="ot3">
             <af:convertDateTime pattern="#{bindings.PsCisXpeProcessView2.hints.ActualFinishDt.format}"/>
@@ -108,6 +110,12 @@
                          id="ot5"/>
         </af:column>
       </af:table>
+      <f:facet name="toolbar">
+        <af:toolbar id="t5">
+          <af:button actionListener="#{bindings.Execute.execute}" text="Refresh" disabled="#{!bindings.Execute.enabled}"
+                     id="b5"/>
+        </af:toolbar>
+      </f:facet>
     </af:panelHeader>
     <af:panelHeader text="" id="ph2">
       <f:facet name="context"/>
