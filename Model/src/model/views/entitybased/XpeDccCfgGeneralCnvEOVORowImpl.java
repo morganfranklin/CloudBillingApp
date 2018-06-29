@@ -39,6 +39,7 @@ public class XpeDccCfgGeneralCnvEOVORowImpl extends ViewRowImpl {
         TohPayType,
         Country,
         TohBusnPaySrc,
+        DubSiteLicense,
         XpeDccCfgCarriers_LOV,
         XpeDccCfgOrigins_LOV,
         XpeDccCfgDestinations_LOV,
@@ -90,6 +91,7 @@ public class XpeDccCfgGeneralCnvEOVORowImpl extends ViewRowImpl {
     public static final int TOHPAYTYPE = AttributesEnum.TohPayType.index();
     public static final int COUNTRY = AttributesEnum.Country.index();
     public static final int TOHBUSNPAYSRC = AttributesEnum.TohBusnPaySrc.index();
+    public static final int DUBSITELICENSE = AttributesEnum.DubSiteLicense.index();
     public static final int XPEDCCCFGCARRIERS_LOV = AttributesEnum.XpeDccCfgCarriers_LOV.index();
     public static final int XPEDCCCFGORIGINS_LOV = AttributesEnum.XpeDccCfgOrigins_LOV.index();
     public static final int XPEDCCCFGDESTINATIONS_LOV = AttributesEnum.XpeDccCfgDestinations_LOV.index();
@@ -387,6 +389,22 @@ public class XpeDccCfgGeneralCnvEOVORowImpl extends ViewRowImpl {
      */
     public void setTohBusnPaySrc(String value) {
         setAttributeInternal(TOHBUSNPAYSRC, value);
+    }
+
+    /**
+     * Gets the attribute value for DUB_SITE_LICENSE using the alias name DubSiteLicense.
+     * @return the DUB_SITE_LICENSE
+     */
+    public String getDubSiteLicense() {
+        return (String) getAttributeInternal(DUBSITELICENSE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DUB_SITE_LICENSE using the alias name DubSiteLicense.
+     * @param value value to set the DUB_SITE_LICENSE
+     */
+    public void setDubSiteLicense(String value) {
+        setAttributeInternal(DUBSITELICENSE, value);
     }
 
     /**

@@ -226,6 +226,18 @@
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="DubSiteLicense"
+    Precision="20"
+    ColumnName="DUB_SITE_LICENSE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XPE_DCC_CFG_GENERAL_CNV">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
   <Key
     Name="XpeDccCfgGeneralCnvPk"
     PrimaryKey="true">

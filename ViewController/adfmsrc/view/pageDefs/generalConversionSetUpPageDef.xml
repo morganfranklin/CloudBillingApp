@@ -28,6 +28,7 @@
           <Item Value="TohPayType"/>
           <Item Value="GeneralCnvId"/>
           <Item Value="Country"/>
+          <Item Value="DubSiteLicense"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -132,6 +133,16 @@
     <attributeValues IterBinding="XpeDccCfgGeneralCnvEOVOIterator" id="TohBusnPaySrc1">
       <AttrNames>
         <Item Value="TohBusnPaySrc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgNewGeneralCnvEOVOIterator" id="DubSiteLicense">
+      <AttrNames>
+        <Item Value="DubSiteLicense"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XpeDccCfgGeneralCnvEOVOIterator" id="DubSiteLicense1">
+      <AttrNames>
+        <Item Value="DubSiteLicense"/>
       </AttrNames>
     </attributeValues>
   </bindings>
