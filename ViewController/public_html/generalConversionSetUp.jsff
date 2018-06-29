@@ -108,6 +108,12 @@
                     <af:outputText value="#{row.TohPayType}"
                                    shortDesc="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.TohPayType.tooltip}" id="ot10"/>
                 </af:column>
+                <af:column headerText="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.DubSiteLicense.label}" id="c10"
+                           sortProperty="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.DubSiteLicense.name}" sortable="true">
+                    <af:outputText value="#{row.DubSiteLicense}"
+                                   shortDesc="#{bindings.XpeDccCfgGeneralCnvEOVO.hints.DubSiteLicense.tooltip}"
+                                   id="ot11"/>
+                </af:column>
             </af:table>
             <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
                       binding="#{backingBeanScope.GeneralConversionSetUpTableBBean.generalConversionAddItem_popup}"
@@ -186,6 +192,14 @@
                                               shortDesc="#{bindings.PcsShortNameId.hints.tooltip}">
                             <f:validator binding="#{bindings.PcsShortNameId.validator}"/>
                         </af:inputListOfValues>
+                        <af:inputText value="#{bindings.DubSiteLicense.inputValue}"
+                                      label="#{bindings.DubSiteLicense.hints.label}"
+                                      required="#{bindings.DubSiteLicense.hints.mandatory}"
+                                      columns="#{bindings.DubSiteLicense.hints.displayWidth}"
+                                      maximumLength="#{bindings.DubSiteLicense.hints.precision}"
+                                      shortDesc="#{bindings.DubSiteLicense.hints.tooltip}" id="it9">
+                            <f:validator binding="#{bindings.DubSiteLicense.validator}"/>
+                        </af:inputText>
                         <af:inputText value="#{bindings.TohBusnPaySrc.inputValue}"
                                       label="#{bindings.TohBusnPaySrc.hints.label}"
                                       required="#{bindings.TohBusnPaySrc.hints.mandatory}"
@@ -308,6 +322,14 @@
                                               shortDesc="#{bindings.PcsShortNameId1.hints.tooltip}">
                             <f:validator binding="#{bindings.PcsShortNameId1.validator}"/>
                         </af:inputListOfValues>
+                        <af:inputText value="#{bindings.DubSiteLicense1.inputValue}"
+                                      label="#{bindings.DubSiteLicense1.hints.label}"
+                                      required="#{bindings.DubSiteLicense1.hints.mandatory}"
+                                      columns="#{bindings.DubSiteLicense1.hints.displayWidth}"
+                                      maximumLength="#{bindings.DubSiteLicense1.hints.precision}"
+                                      shortDesc="#{bindings.DubSiteLicense1.hints.tooltip}" id="it10">
+                            <f:validator binding="#{bindings.DubSiteLicense1.validator}"/>
+                        </af:inputText>
                         <af:inputText value="#{bindings.TohBusnPaySrc1.inputValue}"
                                       label="#{bindings.TohBusnPaySrc1.hints.label}"
                                       required="#{bindings.TohBusnPaySrc1.hints.mandatory}"

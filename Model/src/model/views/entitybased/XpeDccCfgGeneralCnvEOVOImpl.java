@@ -109,5 +109,21 @@ public class XpeDccCfgGeneralCnvEOVOImpl extends ViewObjectImpl {
     public void setbind_TranslationConsumer(String value) {
         ensureVariableManager().setVariableValue("bind_TranslationConsumer", value);
     }
+
+    /**
+     * Returns the variable value for bind_DubSiteLicense.
+     * @return variable value for bind_DubSiteLicense
+     */
+    public String getbind_DubSiteLicense() {
+        return (String) ensureVariableManager().getVariableValue("bind_DubSiteLicense");
+    }
+
+    /**
+     * Sets <code>value</code> for variable bind_DubSiteLicense.
+     * @param value value to bind as bind_DubSiteLicense
+     */
+    public void setbind_DubSiteLicense(String value) {
+        ensureVariableManager().setVariableValue("bind_DubSiteLicense", value);
+    }
 }
 

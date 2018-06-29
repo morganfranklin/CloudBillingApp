@@ -37,7 +37,8 @@ public class XpeDccCfgGeneralCnvEOImpl extends EntityImpl {
         TohBusinessType,
         TohPayType,
         Country,
-        TohBusnPaySrc;
+        TohBusnPaySrc,
+        DubSiteLicense;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -80,6 +81,7 @@ public class XpeDccCfgGeneralCnvEOImpl extends EntityImpl {
     public static final int TOHPAYTYPE = AttributesEnum.TohPayType.index();
     public static final int COUNTRY = AttributesEnum.Country.index();
     public static final int TOHBUSNPAYSRC = AttributesEnum.TohBusnPaySrc.index();
+    public static final int DUBSITELICENSE = AttributesEnum.DubSiteLicense.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -93,6 +95,7 @@ public class XpeDccCfgGeneralCnvEOImpl extends EntityImpl {
     public static synchronized EntityDefImpl getDefinitionObject() {
         return EntityDefImpl.findDefObject("model.entities.XpeDccCfgGeneralCnvEO");
     }
+
 
     /**
      * Gets the attribute value for GeneralCnvId, using the alias name GeneralCnvId.
@@ -368,6 +371,22 @@ public class XpeDccCfgGeneralCnvEOImpl extends EntityImpl {
         setAttributeInternal(TOHBUSNPAYSRC, value);
     }
 
+
+    /**
+     * Gets the attribute value for DubSiteLicense, using the alias name DubSiteLicense.
+     * @return the value of DubSiteLicense
+     */
+    public String getDubSiteLicense() {
+        return (String) getAttributeInternal(DUBSITELICENSE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DubSiteLicense.
+     * @param value value to set the DubSiteLicense
+     */
+    public void setDubSiteLicense(String value) {
+        setAttributeInternal(DUBSITELICENSE, value);
+    }
 
     /**
      * @param generalCnvId key constituent

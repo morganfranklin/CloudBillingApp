@@ -49,6 +49,10 @@
     Name="bind_TranslationConsumer"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="bind_DubSiteLicense"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="XpeDccCfgCarriers_LOV"
     ViewObjectName="model.views.readonly.XpeDccCfgCarriersROVO"
@@ -487,6 +491,19 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="DubSiteLicense"
+    PrecisionRule="true"
+    EntityAttrName="DubSiteLicense"
+    EntityUsage="XpeDccCfgGeneralCnvEO"
+    AliasName="DUB_SITE_LICENSE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.views.entitybased.XpeDccCfgGeneralCnvEOVO.DubSiteLicense_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="GeneralConversionCriteria"
     ViewObjectName="model.views.entitybased.XpeDccCfgGeneralCnvEOVO"
@@ -559,6 +576,14 @@
         Operator="="
         Conjunction="AND"
         Value=":bind_TranslationConsumer"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="DubSiteLicense"
+        ViewAttribute="DubSiteLicense"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bind_DubSiteLicense"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>
